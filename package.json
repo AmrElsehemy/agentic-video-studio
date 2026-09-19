@@ -1,0 +1,30 @@
+{
+  "name": "agentic-video-studio",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Data-driven, agent-ready vertical video production with Remotion",
+  "scripts": {
+    "studio": "remotion studio src/index.ts",
+    "assets": "node scripts/generate-audio.mjs",
+    "video": "node scripts/render.mjs",
+    "still": "node scripts/render-still.mjs",
+    "validate": "node --import tsx scripts/validate.ts",
+    "qa": "node scripts/qa.mjs",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.526",
+    "remotion": "4.0.526",
+    "react": "19.1.1",
+    "react-dom": "19.1.1",
+    "zod": "4.5.4"
+  },
+  "devDependencies": {
+    "@types/node": "24.3.1",
+    "@types/react": "19.1.12",
+    "@types/react-dom": "19.1.9",
+    "tsx": "4.20.5",
+    "typescript": "5.9.2"
+  },
+  "engines": {"node": ">=20"}
+}

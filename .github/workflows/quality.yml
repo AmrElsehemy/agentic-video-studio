@@ -1,0 +1,39 @@
+name: Quality
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run validate
+      - run: npm run typecheck
+
+  render-first-episode:
+    runs-on: ubuntu-latest
+    needs: validate
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run video -- bulbasaur-001
+      - run: npm run still -- bulbasaur-001
+      - uses: actions/upload-artifact@v4
+        with:
+          name: bulbasaur-001
+          path: |
+            out/bulbasaur-001.mp4
+            out/bulbasaur-001-cover.png
+          if-no-files-found: warn

@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "bulbasaur-001",
+  "show": {"id": "pokepulses", "name": "PokePulses", "handle": "@PokePulses"},
+  "title": "Why Bulbasaur Is More Than Starter Number One",
+  "subject": {"name": "Bulbasaur", "index": "#001", "category": "Seed Pokémon"},
+  "format": {"width": 1080, "height": 1920, "fps": 30},
+  "palette": {"background": "#071a15", "surface": "#102c25", "primary": "#73e6a7", "secondary": "#4776b8", "ink": "#f3fff8"},
+  "audio": {"music": "generated/bulbasaur-001-bed.wav", "musicVolume": 0.16},
+  "scenes": [
+    {"id": "hook", "durationSeconds": 4.2, "eyebrow": "The original starter", "headline": "Bulbasaur was built different", "narration": "Bulbasaur wasn't just the first starter. In the original Pokédex, it was literally number one.", "caption": "The first entry in the original Pokédex.", "visual": "reveal"},
+    {"id": "number-one", "durationSeconds": 4.2, "eyebrow": "National Pokédex", "headline": "Entry number one", "narration": "Its National Pokédex number is zero zero one, making every Pokédex journey begin with Bulbasaur.", "caption": "Every National Pokédex begins at #001.", "visual": "number"},
+    {"id": "dual-type", "durationSeconds": 5, "eyebrow": "Day-one advantage", "headline": "Two types from the start", "narration": "Unlike most early starters, Bulbasaur begins as both Grass and Poison type from level one.", "caption": "Grass + Poison before its first evolution.", "visual": "types", "facts": ["Grass", "Poison", "From level one", "Dual type"]},
+    {"id": "seed", "durationSeconds": 5, "eyebrow": "The seed grows too", "headline": "Partner, not passenger", "narration": "The seed on its back is planted at birth. It grows by absorbing sunlight as Bulbasaur grows.", "caption": "Its seed grows with it by absorbing sunlight.", "visual": "fact", "facts": ["Planted at birth", "Absorbs sunlight", "Grows together", "Stores energy"]},
+    {"id": "moves", "durationSeconds": 5, "eyebrow": "Signature toolkit", "headline": "Control the battle", "narration": "Vine Whip brings reach, while status moves like Sleep Powder turn Bulbasaur into a clever battlefield controller.", "caption": "Vines, powders, healing, and battlefield control.", "visual": "moves", "facts": ["Vine Whip", "Sleep Powder", "Leech Seed", "Solar Beam"]},
+    {"id": "evolution", "durationSeconds": 4.8, "eyebrow": "A three-stage icon", "headline": "Seed to full bloom", "narration": "At level sixteen it evolves into Ivysaur, then at level thirty-two into Venusaur.", "caption": "Bulbasaur → Ivysaur → Venusaur", "visual": "evolution", "facts": ["Bulbasaur", "Level 16", "Ivysaur", "Level 32 → Venusaur"]},
+    {"id": "cta", "durationSeconds": 4.4, "eyebrow": "PokePulses #001", "headline": "Who should be next?", "narration": "That's Bulbasaur in one pulse. Which Pokémon should we unlock next?", "caption": "Follow @PokePulses • Comment the next number", "visual": "cta", "accent": "#f0d35f"}
+  ],
+  "sources": [
+    {"label": "The Pokémon Company — Bulbasaur Pokédex entry", "url": "https://www.pokemon.com/us/pokedex/bulbasaur"},
+    {"label": "PokéAPI — Pokémon #1 structured data", "url": "https://pokeapi.co/api/v2/pokemon/1"}
+  ]
+}
