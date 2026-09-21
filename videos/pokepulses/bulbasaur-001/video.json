@@ -2,22 +2,32 @@
   "schemaVersion": 1,
   "id": "bulbasaur-001",
   "show": {"id": "pokepulses", "name": "PokePulses", "handle": "@PokePulses"},
-  "title": "Why Bulbasaur Is More Than Starter Number One",
-  "subject": {"name": "Bulbasaur", "index": "#001", "category": "Seed Pokémon"},
+  "title": "Why Bulbasaur Owns Number One",
+  "subject": {
+    "name": "Bulbasaur",
+    "index": "#001",
+    "category": "Seed Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png"
+  },
+  "evolutions": [
+    {"name": "Bulbasaur", "index": "#001", "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png"},
+    {"name": "Ivysaur", "index": "#002", "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/2.png"},
+    {"name": "Venusaur", "index": "#003", "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/3.png"}
+  ],
   "format": {"width": 1080, "height": 1920, "fps": 30},
-  "palette": {"background": "#071a15", "surface": "#102c25", "primary": "#73e6a7", "secondary": "#4776b8", "ink": "#f3fff8"},
-  "audio": {"music": "generated/bulbasaur-001-bed.wav", "musicVolume": 0.16},
+  "palette": {"background": "#061a13", "surface": "#113e2d", "primary": "#64f1a5", "secondary": "#6d65d8", "ink": "#f7fff9"},
+  "audio": {"music": "generated/bulbasaur-001-bed.wav", "musicVolume": 0.12},
   "scenes": [
-    {"id": "hook", "durationSeconds": 4.2, "eyebrow": "The original starter", "headline": "Bulbasaur was built different", "narration": "Bulbasaur wasn't just the first starter. In the original Pokédex, it was literally number one.", "caption": "The first entry in the original Pokédex.", "visual": "reveal"},
-    {"id": "number-one", "durationSeconds": 4.2, "eyebrow": "National Pokédex", "headline": "Entry number one", "narration": "Its National Pokédex number is zero zero one, making every Pokédex journey begin with Bulbasaur.", "caption": "Every National Pokédex begins at #001.", "visual": "number"},
-    {"id": "dual-type", "durationSeconds": 5, "eyebrow": "Day-one advantage", "headline": "Two types from the start", "narration": "Unlike most early starters, Bulbasaur begins as both Grass and Poison type from level one.", "caption": "Grass + Poison before its first evolution.", "visual": "types", "facts": ["Grass", "Poison", "From level one", "Dual type"]},
-    {"id": "seed", "durationSeconds": 5, "eyebrow": "The seed grows too", "headline": "Partner, not passenger", "narration": "The seed on its back is planted at birth. It grows by absorbing sunlight as Bulbasaur grows.", "caption": "Its seed grows with it by absorbing sunlight.", "visual": "fact", "facts": ["Planted at birth", "Absorbs sunlight", "Grows together", "Stores energy"]},
-    {"id": "moves", "durationSeconds": 5, "eyebrow": "Signature toolkit", "headline": "Control the battle", "narration": "Vine Whip brings reach, while status moves like Sleep Powder turn Bulbasaur into a clever battlefield controller.", "caption": "Vines, powders, healing, and battlefield control.", "visual": "moves", "facts": ["Vine Whip", "Sleep Powder", "Leech Seed", "Solar Beam"]},
-    {"id": "evolution", "durationSeconds": 4.8, "eyebrow": "A three-stage icon", "headline": "Seed to full bloom", "narration": "At level sixteen it evolves into Ivysaur, then at level thirty-two into Venusaur.", "caption": "Bulbasaur → Ivysaur → Venusaur", "visual": "evolution", "facts": ["Bulbasaur", "Level 16", "Ivysaur", "Level 32 → Venusaur"]},
-    {"id": "cta", "durationSeconds": 4.4, "eyebrow": "PokePulses #001", "headline": "Who should be next?", "narration": "That's Bulbasaur in one pulse. Which Pokémon should we unlock next?", "caption": "Follow @PokePulses • Comment the next number", "visual": "cta", "accent": "#f0d35f"}
+    {"id": "hook", "durationSeconds": 3, "eyebrow": "START HERE", "headline": "THE POKÉMON THAT STARTS THEM ALL", "narration": "Meet Bulbasaur. The Pokémon that starts the entire Pokédex.", "caption": "Meet Bulbasaur — the Pokémon that starts the entire Pokédex.", "visual": "hook"},
+    {"id": "dex", "durationSeconds": 3.2, "eyebrow": "NATIONAL POKÉDEX", "headline": "BEFORE LEGENDS, THERE WAS #001", "narration": "Before legends and dragons, there was number zero zero one.", "caption": "Before legends and dragons, there was number #001.", "visual": "dex"},
+    {"id": "types", "durationSeconds": 3.4, "eyebrow": "DAY-ONE ADVANTAGE", "headline": "TWO TYPES. NO EVOLUTION NEEDED.", "narration": "Grass and Poison from day one, giving it an early game advantage.", "caption": "GRASS and POISON from day one.", "visual": "types", "facts": ["GRASS", "POISON"]},
+    {"id": "biology", "durationSeconds": 3.6, "eyebrow": "BUILT TO GROW", "headline": "THE SEED IS PART OF ITS STORY", "narration": "The seed on its back grows with it, storing energy from sunlight.", "caption": "Its seed grows with it — powered by sunlight.", "visual": "biology", "facts": ["PLANTED AT BIRTH", "ABSORBS SUNLIGHT"]},
+    {"id": "evolution", "durationSeconds": 4.4, "eyebrow": "FULL EVOLUTION LINE", "headline": "SEED TO FULL BLOOM", "narration": "At sixteen, Ivysaur. At thirty two, Venusaur. Seed to full bloom.", "caption": "LEVEL 16 → IVYSAUR   •   LEVEL 32 → VENUSAUR", "visual": "evolution"},
+    {"id": "moves", "durationSeconds": 3, "eyebrow": "CONTROL SPECIALIST", "headline": "SMALL STARTER. SERIOUS TOOLKIT.", "narration": "Vines, spores, healing, and Solar Beam. Small starter, serious control.", "caption": "VINE WHIP • SLEEP POWDER • LEECH SEED • SOLAR BEAM", "visual": "moves", "facts": ["VINE WHIP", "SLEEP POWDER", "LEECH SEED", "SOLAR BEAM"]},
+    {"id": "cta", "durationSeconds": 2.6, "eyebrow": "POKEPULSES #001", "headline": "UNDERRATED OR CORRECTLY RANKED?", "narration": "Bulbasaur. Underrated, or correctly ranked?", "caption": "COMMENT YOUR VERDICT ↓", "visual": "cta", "accent": "#f3d95b"}
   ],
   "sources": [
     {"label": "The Pokémon Company — Bulbasaur Pokédex entry", "url": "https://www.pokemon.com/us/pokedex/bulbasaur"},
-    {"label": "PokéAPI — Pokémon #1 structured data", "url": "https://pokeapi.co/api/v2/pokemon/1"}
+    {"label": "PokéAPI — Pokémon #1 structured data and official artwork mirror", "url": "https://pokeapi.co/api/v2/pokemon/1"}
   ]
 }

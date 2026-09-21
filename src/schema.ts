@@ -9,7 +9,7 @@ export const sceneSchema = z.object({
   headline: z.string().min(1).max(70),
   narration: z.string().min(1).max(260),
   caption: z.string().min(1).max(120),
-  visual: z.enum(['reveal', 'number', 'types', 'fact', 'moves', 'evolution', 'cta']),
+  visual: z.enum(['hook', 'dex', 'types', 'biology', 'moves', 'evolution', 'cta']),
   accent: color.optional(),
   facts: z.array(z.string().min(1).max(45)).max(4).optional(),
 });
@@ -27,7 +27,13 @@ export const videoSchema = z.object({
     name: z.string().min(1),
     index: z.string().regex(/^#[0-9]{3,4}$/),
     category: z.string().min(1),
+    artworkUrl: z.string().url(),
   }),
+  evolutions: z.array(z.object({
+    name: z.string().min(1),
+    index: z.string().regex(/^#[0-9]{3,4}$/),
+    artworkUrl: z.string().url(),
+  })).max(3).default([]),
   format: z.object({width: z.literal(1080), height: z.literal(1920), fps: z.literal(30)}),
   palette: z.object({background: color, surface: color, primary: color, secondary: color, ink: color}),
   audio: z.object({
@@ -44,4 +50,3 @@ export type VideoScene = z.infer<typeof sceneSchema>;
 
 export const getDurationInFrames = (manifest: VideoManifest) =>
   Math.round(manifest.scenes.reduce((total, scene) => total + scene.durationSeconds, 0) * manifest.format.fps);
-
