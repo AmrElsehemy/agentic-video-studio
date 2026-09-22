@@ -28,6 +28,12 @@ const probeDuration = (file) => {
   return Number(probe.stdout.trim());
 };
 
+const probePeakVolume = (file) => {
+  const probe = spawnSync('ffmpeg', ['-hide_banner', '-i', file, '-af', 'volumedetect', '-f', 'null', '-'], {encoding: 'utf8'});
+  const match = probe.stderr.match(/max_volume:\s*(-?[\d.]+) dB/);
+  return match ? Number(match[1]) : Number.NEGATIVE_INFINITY;
+};
+
 try {
   for (const [index, scene] of manifest.scenes.entries()) {
     const rawTrack = path.join(tempRoot, `${String(index).padStart(2, '0')}-${scene.id}-raw.${provider === 'local' ? 'aiff' : 'wav'}`);
@@ -82,10 +88,18 @@ try {
     ? configuredOutput.replace(/\.wav$/i, '-local.wav')
     : configuredOutput;
   const concatList = path.join(tempRoot, 'tracks.txt');
+  const assembledTrack = path.join(tempRoot, 'narration-assembled.wav');
   fs.writeFileSync(concatList, sceneTracks.map((track) => `file '${track.replaceAll("'", "'\\''")}'`).join('\n'));
-  const concat = spawnSync('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-y', '-f', 'concat', '-safe', '0', '-i', concatList, '-ar', '44100', '-ac', '2', outputPath], {encoding: 'utf8'});
+  const concat = spawnSync('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-y', '-f', 'concat', '-safe', '0', '-i', concatList, '-ar', '44100', '-ac', '2', assembledTrack], {encoding: 'utf8'});
   if (concat.status !== 0) throw new Error(concat.stderr || 'Could not assemble narration track.');
-  console.log(`\n✓ ${provider} narration ready: ${path.relative(root, outputPath)} (${probeDuration(outputPath).toFixed(2)}s)`);
+
+  // macOS voices vary greatly in output gain. Normalize both draft and paid
+  // narration to a consistent spoken-word level before Remotion mixes music.
+  const normalize = spawnSync('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-y', '-i', assembledTrack, '-af', 'loudnorm=I=-16:TP=-1.5:LRA=11', '-ar', '44100', '-ac', '2', outputPath], {encoding: 'utf8'});
+  if (normalize.status !== 0) throw new Error(normalize.stderr || 'Could not normalize narration track.');
+  const peakVolume = probePeakVolume(outputPath);
+  if (!Number.isFinite(peakVolume) || peakVolume < -30) throw new Error(`Generated ${provider} narration is silent or inaudible (${peakVolume} dBFS).`);
+  console.log(`\n✓ ${provider} narration ready: ${path.relative(root, outputPath)} (${probeDuration(outputPath).toFixed(2)}s, peak ${peakVolume.toFixed(1)} dBFS)`);
 } finally {
   fs.rmSync(tempRoot, {recursive: true, force: true});
 }
