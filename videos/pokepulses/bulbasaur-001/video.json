@@ -2,7 +2,16 @@
   "schemaVersion": 1,
   "id": "bulbasaur-001",
   "show": {"id": "pokepulses", "name": "PokePulses", "handle": "@PokePulses"},
-  "title": "Why Bulbasaur Owns Number One",
+  "title": "Did Everyone Pick the Wrong Kanto Starter?",
+  "direction": {
+    "premise": "Bulbasaur was treated as the boring choice, but the original games quietly make it the smartest first pick.",
+    "audiencePromise": "Prove the claim with three escalating advantages, then reveal the tradeoff.",
+    "openLoop": "Was Bulbasaur actually Kanto's hidden easy mode?",
+    "payoff": "It dominates the opening and evolves fastest, but four weaknesses keep the verdict debatable.",
+    "targetEmotion": "debate",
+    "engagementQuestion": "Smartest first pick or merely the safest?",
+    "targetSecondsBetweenVisualChanges": 1.1
+  },
   "subject": {
     "name": "Bulbasaur",
     "index": "#001",
@@ -61,13 +70,12 @@
     ]
   },
   "scenes": [
-    {"id": "hook", "durationSeconds": 3, "eyebrow": "START HERE", "headline": "THE POKÉMON THAT STARTS THEM ALL", "narration": "Meet Bulbasaur. The Pokémon that starts the entire Pokédex.", "caption": "Meet Bulbasaur — the Pokémon that starts the entire Pokédex.", "visual": "hook"},
-    {"id": "dex", "durationSeconds": 3.2, "eyebrow": "NATIONAL POKÉDEX", "headline": "BEFORE LEGENDS, THERE WAS #001", "narration": "Before legends and dragons, there was number zero zero one.", "caption": "Before legends and dragons, there was number #001.", "visual": "dex"},
-    {"id": "types", "durationSeconds": 3.4, "eyebrow": "DAY-ONE ADVANTAGE", "headline": "TWO TYPES. NO EVOLUTION NEEDED.", "narration": "Grass and Poison from day one, giving it an early game advantage.", "caption": "GRASS and POISON from day one.", "visual": "types", "facts": ["GRASS", "POISON"]},
-    {"id": "biology", "durationSeconds": 3.6, "eyebrow": "BUILT TO GROW", "headline": "THE SEED IS PART OF ITS STORY", "narration": "The seed on its back grows with it, storing energy from sunlight.", "caption": "Its seed grows with it — powered by sunlight.", "visual": "biology", "facts": ["PLANTED AT BIRTH", "ABSORBS SUNLIGHT"]},
-    {"id": "evolution", "durationSeconds": 4.4, "eyebrow": "FULL EVOLUTION LINE", "headline": "SEED TO FULL BLOOM", "narration": "At sixteen, Ivysaur. At thirty two, Venusaur. Seed to full bloom.", "caption": "LEVEL 16 → IVYSAUR   •   LEVEL 32 → VENUSAUR", "visual": "evolution"},
-    {"id": "moves", "durationSeconds": 3, "eyebrow": "CONTROL SPECIALIST", "headline": "SMALL STARTER. SERIOUS TOOLKIT.", "narration": "Vines, spores, healing, and Solar Beam. Small starter, serious control.", "caption": "VINE WHIP • SLEEP POWDER • LEECH SEED • SOLAR BEAM", "visual": "moves", "facts": ["VINE WHIP", "SLEEP POWDER", "LEECH SEED", "SOLAR BEAM"]},
-    {"id": "cta", "durationSeconds": 2.6, "eyebrow": "POKEPULSES #001", "headline": "UNDERRATED OR CORRECTLY RANKED?", "narration": "Bulbasaur. Underrated, or correctly ranked?", "caption": "COMMENT YOUR VERDICT ↓", "visual": "cta", "accent": "#f3d95b"}
+    {"id": "hook", "durationSeconds": 2.2, "role": "hook", "beatEverySeconds": 0.7, "eyebrow": "KANTO HOT TAKE", "headline": "YOU PICKED THE WRONG STARTER", "narration": "The most ignored Kanto starter may actually be easy mode.", "caption": "THE ‘BORING’ STARTER WAS EASY MODE?", "visual": "hook", "accent": "#f3d95b"},
+    {"id": "gyms", "durationSeconds": 2.8, "role": "evidence", "beatEverySeconds": 0.9, "eyebrow": "PROOF 01", "headline": "THE FIRST TWO GYMS FAVOR IT", "narration": "Bulbasaur counters Brock, then walks into Misty with the answer again.", "caption": "BROCK FALLS. THEN MISTY.", "visual": "gauntlet", "facts": ["BROCK", "MISTY"]},
+    {"id": "dual-type", "durationSeconds": 2.6, "role": "escalation", "beatEverySeconds": 0.8, "eyebrow": "PROOF 02", "headline": "AN ADVANTAGE FROM THE MOMENT YOU CHOOSE", "narration": "It is the only original starter with two types from the moment you choose it.", "caption": "THE ONLY KANTO STARTER WITH TWO TYPES", "visual": "advantage", "facts": ["GRASS", "POISON"]},
+    {"id": "evolution-race", "durationSeconds": 3, "role": "escalation", "beatEverySeconds": 0.75, "eyebrow": "PROOF 03", "headline": "VENUSAUR ARRIVES FOUR LEVELS EARLY", "narration": "And Venusaur arrives at level thirty two, four levels before Charizard or Blastoise.", "caption": "VENUSAUR: 32 • THE OTHERS: 36", "visual": "race", "facts": ["VENUSAUR 32", "CHARIZARD 36", "BLASTOISE 36"]},
+    {"id": "tradeoff", "durationSeconds": 2.8, "role": "twist", "beatEverySeconds": 0.7, "eyebrow": "BUT WAIT", "headline": "EASY MODE ISN’T INVINCIBLE", "narration": "But Fire, Ice, Flying and Psychic can punish it. Smart does not mean unbeatable.", "caption": "FOUR WEAKNESSES CHANGE THE VERDICT", "visual": "tradeoff", "facts": ["FIRE", "ICE", "FLYING", "PSYCHIC"], "accent": "#ff706d"},
+    {"id": "verdict", "durationSeconds": 2.8, "role": "interaction", "beatEverySeconds": 0.7, "eyebrow": "YOUR VERDICT", "headline": "SMARTEST FIRST PICK — OR JUST THE SAFEST?", "narration": "So was Bulbasaur the smartest first pick, or just the safest? Pick a side.", "caption": "SMART PICK OR SAFE PICK?", "visual": "cta", "accent": "#f3d95b"}
   ],
   "sources": [
     {"label": "The Pokémon Company — Bulbasaur Pokédex entry", "url": "https://www.pokemon.com/us/pokedex/bulbasaur"},

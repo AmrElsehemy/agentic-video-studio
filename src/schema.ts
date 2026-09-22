@@ -9,7 +9,9 @@ export const sceneSchema = z.object({
   headline: z.string().min(1).max(70),
   narration: z.string().min(1).max(260),
   caption: z.string().min(1).max(120),
-  visual: z.enum(['hook', 'dex', 'types', 'biology', 'moves', 'evolution', 'cta']),
+  role: z.enum(['hook', 'evidence', 'escalation', 'twist', 'payoff', 'interaction']),
+  beatEverySeconds: z.number().positive().max(1.5),
+  visual: z.enum(['hook', 'gauntlet', 'advantage', 'race', 'tradeoff', 'cta']),
   accent: color.optional(),
   facts: z.array(z.string().min(1).max(45)).max(4).optional(),
 });
@@ -23,6 +25,15 @@ export const videoSchema = z.object({
     handle: z.string().startsWith('@'),
   }),
   title: z.string().min(1),
+  direction: z.object({
+    premise: z.string().min(1).max(140),
+    audiencePromise: z.string().min(1).max(140),
+    openLoop: z.string().min(1).max(140),
+    payoff: z.string().min(1).max(140),
+    targetEmotion: z.enum(['curiosity', 'surprise', 'debate', 'awe']),
+    engagementQuestion: z.string().min(1).max(140),
+    targetSecondsBetweenVisualChanges: z.number().positive().max(1.5),
+  }),
   subject: z.object({
     name: z.string().min(1),
     index: z.string().regex(/^#[0-9]{3,4}$/),

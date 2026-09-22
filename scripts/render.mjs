@@ -22,9 +22,14 @@ if (generatedVoice && fs.existsSync(path.join(root, 'public', generatedVoice))) 
 }
 fs.writeFileSync(propsPath, JSON.stringify({manifest}, null, 2));
 
+const renderArgs = ['remotion', 'render', 'src/index.ts', 'VerticalEpisode', outputPath, `--props=${propsPath}`, '--codec=h264', '--crf=18', '--pixel-format=yuv420p'];
+if (process.env.REMOTION_BROWSER_EXECUTABLE) {
+  renderArgs.push(`--browser-executable=${process.env.REMOTION_BROWSER_EXECUTABLE}`);
+}
+
 const result = spawnSync(
   process.platform === 'win32' ? 'npx.cmd' : 'npx',
-  ['remotion', 'render', 'src/index.ts', 'VerticalEpisode', outputPath, `--props=${propsPath}`, '--codec=h264', '--crf=18', '--pixel-format=yuv420p'],
+  renderArgs,
   {cwd: root, stdio: 'inherit'},
 );
 if (result.status !== 0) process.exit(result.status ?? 1);

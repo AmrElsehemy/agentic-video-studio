@@ -16,11 +16,19 @@ Useful commands:
 ```bash
 npm run studio                 # Open the Remotion preview
 npm run validate               # Validate every episode manifest
+npm run engagement -- bulbasaur-001 # Score hook, story tension, pacing and interaction
 npm run typecheck              # TypeScript checks
 npm run still -- bulbasaur-001 # Render the cover frame
 npm run voice -- bulbasaur-001 # Generate scene-fitted AI narration (requires OPENAI_API_KEY + FFmpeg)
 npm run description -- bulbasaur-001
 npm run preflight:publish -- bulbasaur-001
+```
+
+If Remotion cannot download its browser runtime, point it at an installed Chrome binary:
+
+```bash
+REMOTION_BROWSER_EXECUTABLE="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" npm run video -- bulbasaur-001
+npm run studio -- --browser-executable="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 ```
 
 ## Pipeline
@@ -37,8 +45,11 @@ Milestone 0.2 implements the deterministic visual pipeline plus an opt-in narrat
 - scene-by-scene OpenAI narration generation with duration checks;
 - automatic music ducking when a narration track is present;
 - explicit asset-rights metadata and a fail-closed publication preflight.
+- a fail-closed viral-director contract that rejects flat fact lists before render.
 
 Agentic planning, automated factual review, publishing, and analytics feedback are later milestones. The episode manifest is the contract those agents will produce.
+
+The directing rules live in [DIRECTING.md](DIRECTING.md). They force every episode to make one arguable promise, prove it, challenge it, pay it off, and invite a meaningful verdict.
 
 ## Project structure
 

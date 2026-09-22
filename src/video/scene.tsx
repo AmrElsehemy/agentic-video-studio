@@ -76,40 +76,20 @@ const PokemonArt: React.FC<{src: string; size: number; frame: number; delay?: nu
 
 const Visual: React.FC<{scene: VideoScene; manifest: VideoManifest; accent: string; frame: number; durationInFrames: number}> = ({scene, manifest, accent, frame}) => {
   if (scene.visual === 'hook') return <Hook manifest={manifest} accent={accent} frame={frame} headline={scene.headline} />;
-  if (scene.visual === 'dex') return <Dex manifest={manifest} accent={accent} frame={frame} headline={scene.headline} />;
-  if (scene.visual === 'types') return <Types manifest={manifest} accent={accent} frame={frame} />;
-  if (scene.visual === 'biology') return <Biology manifest={manifest} accent={accent} frame={frame} />;
-  if (scene.visual === 'evolution') return <Evolution manifest={manifest} accent={accent} frame={frame} />;
-  if (scene.visual === 'moves') return <Moves scene={scene} manifest={manifest} accent={accent} frame={frame} />;
+  if (scene.visual === 'gauntlet') return <Gauntlet scene={scene} manifest={manifest} accent={accent} frame={frame} />;
+  if (scene.visual === 'advantage') return <Advantage scene={scene} manifest={manifest} accent={accent} frame={frame} />;
+  if (scene.visual === 'race') return <Race manifest={manifest} accent={accent} frame={frame} />;
+  if (scene.visual === 'tradeoff') return <Tradeoff scene={scene} manifest={manifest} accent={accent} frame={frame} />;
   return <Cta manifest={manifest} accent={accent} frame={frame} headline={scene.headline} />;
 };
 
 const Hook: React.FC<{manifest: VideoManifest; accent: string; frame: number; headline: string}> = ({manifest, accent, frame, headline}) => (
   <div style={{position: 'absolute', inset: 0}}>
-    <div style={{position: 'absolute', top: -30, left: 28, fontFamily: display, fontSize: 300, lineHeight: 0.8, color: '#ffffff08', letterSpacing: -16}}>#001</div>
-    <div style={{position: 'absolute', left: 110, top: 120}}><PokemonArt src={manifest.subject.artworkUrl} size={860} frame={frame} /></div>
-    <div style={{position: 'absolute', left: 58, top: 850, right: 58, fontFamily: display, fontSize: 92, lineHeight: 0.88, textTransform: 'uppercase'}}>{headline}</div>
-    <div style={{position: 'absolute', right: 72, top: 142, padding: '15px 24px', borderRadius: 99, background: accent, color: '#061a13', fontFamily: display, fontSize: 30, transform: `rotate(${3 + Math.sin(frame / 8) * 2}deg)`}}>THE ORIGINAL STARTER</div>
-  </div>
-);
-
-const Dex: React.FC<{manifest: VideoManifest; accent: string; frame: number; headline: string}> = ({manifest, accent, frame, headline}) => {
-  const scan = interpolate(frame % 50, [0, 50], [120, 850]);
-  return <div style={{position: 'absolute', inset: 0}}>
-    <div style={{position: 'absolute', left: 78, top: 58, width: 710, height: 710, borderRadius: '50%', border: `4px solid ${accent}55`, boxShadow: `inset 0 0 80px ${accent}20`}} />
-    <div style={{position: 'absolute', left: 96, top: 28}}><PokemonArt src={manifest.subject.artworkUrl} size={700} frame={frame} /></div>
-    <div style={{position: 'absolute', left: 40, right: 40, top: scan, height: 5, background: accent, boxShadow: `0 0 32px ${accent}`}} />
-    <div style={{position: 'absolute', right: 50, top: 120, fontFamily: display, color: accent, fontSize: 150, writingMode: 'vertical-rl', opacity: 0.9}}>{manifest.subject.index}</div>
-    <div style={{position: 'absolute', left: 60, top: 835, right: 70, fontFamily: display, fontSize: 83, lineHeight: 0.89}}>{headline}</div>
-  </div>;
-};
-
-const Types: React.FC<{manifest: VideoManifest; accent: string; frame: number}> = ({manifest, frame}) => (
-  <div style={{position: 'absolute', inset: 0}}>
-    <div style={{position: 'absolute', top: 0, left: 190}}><PokemonArt src={manifest.subject.artworkUrl} size={700} frame={frame} /></div>
-    <TypePill label="GRASS" color="#64e49c" left={72} top={690} rotate={-4} frame={frame} />
-    <TypePill label="POISON" color="#9b73e8" left={480} top={785} rotate={4} frame={frame - 5} />
-    <div style={{position: 'absolute', top: 960, left: 62, right: 62, fontFamily: display, fontSize: 87, lineHeight: 0.9}}>TWO TYPES.<br/><span style={{color: manifest.palette.primary}}>FROM LEVEL ONE.</span></div>
+    <div style={{position: 'absolute', top: -20, left: 30, fontFamily: display, fontSize: 300, lineHeight: 0.8, color: '#ffffff08', letterSpacing: -16}}>WRONG?</div>
+    <div style={{position: 'absolute', left: 105, top: 90, filter: frame < 13 ? 'brightness(0)' : 'none'}}><PokemonArt src={manifest.subject.artworkUrl} size={850} frame={frame} /></div>
+    <div style={{position: 'absolute', left: 48, top: 835, right: 48, fontFamily: display, fontSize: 100, lineHeight: 0.83, textTransform: 'uppercase'}}>{headline}</div>
+    <div style={{position: 'absolute', right: 64, top: 118, padding: '15px 24px', borderRadius: 99, background: accent, color: '#061a13', fontFamily: display, fontSize: 31, transform: `rotate(${-4 + Math.sin(frame / 4) * 2}deg) scale(${frame % 10 < 2 ? 1.08 : 1})`}}>PROVE ME WRONG</div>
+    {frame < 14 ? <div style={{position: 'absolute', inset: 0, background: frame % 4 < 2 ? '#f3d95b18' : 'transparent'}} /> : null}
   </div>
 );
 
@@ -118,51 +98,60 @@ const TypePill: React.FC<{label: string; color: string; left: number; top: numbe
   return <div style={{position: 'absolute', left, top, width: 440, padding: '27px 20px', borderRadius: 24, background: color, color: '#071a13', fontFamily: display, fontSize: 62, textAlign: 'center', boxShadow: `0 24px 60px ${color}55`, transform: `rotate(${rotate}deg) scale(${pop})`}}>{label}</div>;
 };
 
-const Biology: React.FC<{manifest: VideoManifest; accent: string; frame: number}> = ({manifest, accent, frame}) => {
-  const pulse = 1 + Math.sin(frame / 7) * 0.04;
+const Gauntlet: React.FC<{scene: VideoScene; manifest: VideoManifest; accent: string; frame: number}> = ({scene, manifest, accent, frame}) => {
+  const second = frame >= 34;
   return <div style={{position: 'absolute', inset: 0}}>
-    <div style={{position: 'absolute', top: -30, left: 160}}><PokemonArt src={manifest.subject.artworkUrl} size={770} frame={frame} /></div>
-    <div style={{position: 'absolute', left: 480, top: 30, width: 320, height: 320, borderRadius: '50%', border: `5px solid ${accent}`, boxShadow: `0 0 80px ${accent}88, inset 0 0 55px ${accent}44`, transform: `scale(${pulse})`}} />
-    <div style={{position: 'absolute', left: 760, top: 310, width: 210, height: 4, background: accent, transform: 'rotate(28deg)', transformOrigin: 'left'}} />
-    <div style={{position: 'absolute', right: 42, top: 455, width: 235, padding: '15px 18px', borderRadius: 18, background: '#061a13dd', border: `2px solid ${accent}88`, fontFamily: display, fontSize: 31, color: accent, letterSpacing: 2}}>SOLAR<br/>ENERGY<br/>STORAGE</div>
-    <div style={{position: 'absolute', top: 860, left: 60, right: 60, fontFamily: display, fontSize: 84, lineHeight: 0.9}}>THE SEED<br/><span style={{color: accent}}>GROWS WITH IT.</span></div>
+    <div style={{position: 'absolute', top: 70, left: 280}}><PokemonArt src={manifest.subject.artworkUrl} size={550} frame={frame} /></div>
+    {(scene.facts ?? []).map((gym, index) => {
+      const active = index === 0 || second;
+      const color = index === 0 ? '#d1a56c' : '#65bfff';
+      return <div key={gym} style={{position: 'absolute', left: index === 0 ? 55 : 565, top: index === 0 ? 140 : 520, width: 440, padding: '30px 24px', borderRadius: 28, background: active ? color : '#ffffff10', color: active ? '#071a13' : '#ffffff66', fontFamily: display, fontSize: 60, textAlign: 'center', border: `3px solid ${color}`, transform: `rotate(${index ? 3 : -3}deg) scale(${active ? 1 : 0.85})`, boxShadow: active ? `0 25px 70px ${color}55` : 'none'}}>{gym}<div style={{fontSize: 25, marginTop: 10}}>{active ? 'GRASS WINS' : 'NEXT?'}</div></div>;
+    })}
+    <div style={{position: 'absolute', left: 62, right: 62, top: 900, fontFamily: display, fontSize: 88, lineHeight: 0.9}}>TWO GYMS.<br/><span style={{color: accent}}>ONE ANSWER.</span></div>
   </div>;
 };
 
-const Evolution: React.FC<{manifest: VideoManifest; accent: string; frame: number}> = ({manifest, accent, frame}) => (
+const Advantage: React.FC<{scene: VideoScene; manifest: VideoManifest; accent: string; frame: number}> = ({scene, manifest, frame}) => (
   <div style={{position: 'absolute', inset: 0}}>
-    <div style={{display: 'flex', alignItems: 'flex-end', justifyContent: 'center', gap: 0, height: 790}}>
-      {manifest.evolutions.map((pokemon, index) => <div key={pokemon.index} style={{width: index === 2 ? 390 : 310, textAlign: 'center', position: 'relative'}}>
-        <PokemonArt src={pokemon.artworkUrl} size={index === 2 ? 430 : 330} frame={frame} delay={index * 8} />
-        <div style={{fontFamily: display, fontSize: 34, color: index === 2 ? accent : '#fff'}}>{pokemon.name.toUpperCase()}</div>
-        <div style={{fontFamily: body, fontWeight: 900, color: '#ffffff70', marginTop: 5}}>{pokemon.index}</div>
-      </div>)}
-    </div>
-    <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 20, fontFamily: display, fontSize: 42}}><span>BASE</span><span style={{color: accent}}>→ 16 →</span><span>IVYSAUR</span><span style={{color: accent}}>→ 32 →</span><span>VENUSAUR</span></div>
-    <div style={{position: 'absolute', left: 62, right: 62, top: 1000, fontFamily: display, fontSize: 86, lineHeight: 0.9}}>SEED TO<br/><span style={{color: accent}}>FULL BLOOM.</span></div>
+    <div style={{position: 'absolute', top: 20, left: 205}}><PokemonArt src={manifest.subject.artworkUrl} size={690} frame={frame} /></div>
+    <TypePill label={scene.facts?.[0] ?? 'GRASS'} color="#64e49c" left={70} top={650} rotate={-5} frame={frame - 8} />
+    <TypePill label={scene.facts?.[1] ?? 'POISON'} color="#9b73e8" left={490} top={760} rotate={5} frame={frame - 25} />
+    <div style={{position: 'absolute', top: 945, left: 62, right: 62, fontFamily: display, fontSize: 88, lineHeight: 0.86}}>DOUBLE-TYPED.<br/><span style={{color: '#64e49c'}}>FROM THE START.</span></div>
   </div>
 );
 
-const Moves: React.FC<{scene: VideoScene; manifest: VideoManifest; accent: string; frame: number}> = ({scene, manifest, accent, frame}) => (
+const Race: React.FC<{manifest: VideoManifest; accent: string; frame: number}> = ({manifest, accent, frame}) => {
+  const venusaur = manifest.evolutions[2];
+  const width = interpolate(frame, [8, 62], [0, 860], clamp);
+  return <div style={{position: 'absolute', inset: 0}}>
+    <div style={{position: 'absolute', top: 0, left: 260}}><PokemonArt src={venusaur.artworkUrl} size={560} frame={frame} /></div>
+    <div style={{position: 'absolute', left: 80, top: 600, width: 860, height: 18, background: '#ffffff18', borderRadius: 99}}><div style={{height: '100%', width, background: accent, boxShadow: `0 0 35px ${accent}`}} /></div>
+    <div style={{position: 'absolute', left: 70, top: 665, fontFamily: display, fontSize: 150, color: accent}}>32</div>
+    <div style={{position: 'absolute', right: 70, top: 690, textAlign: 'right', fontFamily: display, fontSize: 72, color: '#ffffff70'}}>36<br/><span style={{fontSize: 28}}>CHARIZARD + BLASTOISE</span></div>
+    <div style={{position: 'absolute', left: 62, right: 62, top: 950, fontFamily: display, fontSize: 86, lineHeight: 0.88}}>FULLY EVOLVED.<br/><span style={{color: accent}}>FOUR LEVELS EARLY.</span></div>
+  </div>;
+};
+
+const Tradeoff: React.FC<{scene: VideoScene; manifest: VideoManifest; accent: string; frame: number}> = ({scene, manifest, accent, frame}) => (
   <div style={{position: 'absolute', inset: 0}}>
-    <div style={{position: 'absolute', top: 90, left: 300}}><PokemonArt src={manifest.subject.artworkUrl} size={500} frame={frame} /></div>
-    {(scene.facts ?? []).map((move, index) => {
-      const positions = [[45, 150], [585, 120], [40, 620], [590, 650]];
+    <div style={{position: 'absolute', top: 80, left: 300, filter: 'grayscale(.35)'}}><PokemonArt src={manifest.subject.artworkUrl} size={500} frame={frame} /></div>
+    {(scene.facts ?? []).map((weakness, index) => {
+      const positions = [[35, 105], [600, 115], [35, 610], [600, 630]];
       const [left, top] = positions[index];
-      const pop = spring({frame: frame - index * 4, fps: 30, config: {damping: 12, stiffness: 190}});
-      return <div key={move} style={{position: 'absolute', left, top, width: 420, padding: '24px 20px', borderRadius: 22, border: `3px solid ${index === 3 ? '#f3d95b' : accent}`, background: '#071a13e8', color: index === 3 ? '#f3d95b' : '#fff', fontFamily: display, fontSize: 39, textAlign: 'center', transform: `scale(${pop}) rotate(${index % 2 ? 3 : -3}deg)`, boxShadow: '0 18px 45px #0008'}}>{move}</div>;
+      const pop = spring({frame: frame - index * 8, fps: 30, config: {damping: 10, stiffness: 210}});
+      return <div key={weakness} style={{position: 'absolute', left, top, width: 410, padding: '25px 18px', borderRadius: 22, border: `3px solid ${accent}`, background: '#2a0d11e8', color: '#fff', fontFamily: display, fontSize: 42, textAlign: 'center', transform: `scale(${pop}) rotate(${index % 2 ? 4 : -4}deg)`, boxShadow: `0 18px 45px ${accent}44`}}>× {weakness}</div>;
     })}
-    <div style={{position: 'absolute', left: 62, right: 62, top: 930, fontFamily: display, fontSize: 88, lineHeight: 0.9}}>SERIOUS<br/><span style={{color: accent}}>BATTLE CONTROL.</span></div>
+    <div style={{position: 'absolute', left: 62, right: 62, top: 930, fontFamily: display, fontSize: 88, lineHeight: 0.88}}>THE CATCH?<br/><span style={{color: accent}}>FOUR WEAKNESSES.</span></div>
   </div>
 );
 
 const Cta: React.FC<{manifest: VideoManifest; accent: string; frame: number; headline: string}> = ({manifest, accent, frame, headline}) => (
   <div style={{position: 'absolute', inset: 0, textAlign: 'center'}}>
     <div style={{display: 'flex', justifyContent: 'center', marginTop: -10}}><PokemonArt src={manifest.subject.artworkUrl} size={670} frame={frame} /></div>
-    <div style={{fontFamily: display, fontSize: 88, lineHeight: 0.9, margin: '-30px 55px 0'}}>{headline}</div>
+    <div style={{fontFamily: display, fontSize: 80, lineHeight: 0.87, margin: '-30px 45px 0'}}>{headline}</div>
     <div style={{display: 'flex', gap: 22, justifyContent: 'center', marginTop: 65}}>
-      <div style={{background: accent, color: '#081a13', padding: '24px 38px', borderRadius: 22, fontFamily: display, fontSize: 46, transform: 'rotate(-3deg)'}}>UNDERRATED</div>
-      <div style={{border: '3px solid #fff', padding: '24px 38px', borderRadius: 22, fontFamily: display, fontSize: 46, transform: 'rotate(3deg)'}}>CORRECT</div>
+      <div style={{background: accent, color: '#081a13', padding: '24px 38px', borderRadius: 22, fontFamily: display, fontSize: 43, transform: `rotate(-3deg) scale(${frame % 18 < 4 ? 1.06 : 1})`}}>SMART PICK</div>
+      <div style={{border: '3px solid #fff', padding: '24px 38px', borderRadius: 22, fontFamily: display, fontSize: 43, transform: 'rotate(3deg)'}}>SAFE PICK</div>
     </div>
   </div>
 );
