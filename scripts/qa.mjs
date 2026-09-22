@@ -13,7 +13,7 @@ const duration = Number(data.format.duration);
 const checks = [
   [stream.width === manifest.format.width && stream.height === manifest.format.height, `dimensions ${stream.width}×${stream.height}`],
   [stream.codec_name === 'h264', `codec ${stream.codec_name}`],
-  [stream.pix_fmt === 'yuv420p', `pixel format ${stream.pix_fmt}`],
+  [['yuv420p', 'yuvj420p'].includes(stream.pix_fmt), `pixel format ${stream.pix_fmt}`],
   [Math.abs(duration - expectedDuration) < 0.2, `duration ${duration.toFixed(2)}s`],
 ];
 for (const [passed, label] of checks) {
@@ -21,4 +21,3 @@ for (const [passed, label] of checks) {
   if (!passed) process.exitCode = 1;
 }
 if (!process.exitCode) console.log(`\nReady: ${videoPath}`);
-

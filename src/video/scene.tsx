@@ -64,7 +64,7 @@ const KineticCaption: React.FC<{text: string; frame: number; durationInFrames: n
     <div style={{fontFamily: display, fontSize: words.length > 9 ? 61 : 72, lineHeight: 0.94, letterSpacing: 0.5, textTransform: 'uppercase', textShadow: '0 8px 25px #000'}}>
       {words.map((word, index) => {
         const shown = index <= active;
-        return <span key={`${word}-${index}`} style={{display: 'inline-block', marginRight: 15, color: index === active ? accent : '#f8fff9', opacity: shown ? 1 : 0.18, transform: `translateY(${shown ? 0 : 12}px) scale(${index === active ? 1.06 : 1})`}}>{word}</span>;
+        return <span key={`${word}-${index}`} style={{display: 'inline-block', marginRight: 15, color: index === active ? accent : '#f8fff9', opacity: shown ? 1 : 0, transform: `translateY(${shown ? 0 : 12}px) scale(${index === active ? 1.06 : 1})`}}>{word}</span>;
       })}
     </div>
   );
@@ -126,7 +126,7 @@ const Biology: React.FC<{manifest: VideoManifest; accent: string; frame: number}
     <div style={{position: 'absolute', top: -30, left: 160}}><PokemonArt src={manifest.subject.artworkUrl} size={770} frame={frame} /></div>
     <div style={{position: 'absolute', left: 480, top: 30, width: 320, height: 320, borderRadius: '50%', border: `5px solid ${accent}`, boxShadow: `0 0 80px ${accent}88, inset 0 0 55px ${accent}44`, transform: `scale(${pulse})`}} />
     <div style={{position: 'absolute', left: 760, top: 310, width: 210, height: 4, background: accent, transform: 'rotate(28deg)', transformOrigin: 'left'}} />
-    <div style={{position: 'absolute', right: 48, top: 430, width: 300, fontFamily: display, fontSize: 36, color: accent, letterSpacing: 2}}>SOLAR<br/>ENERGY<br/>STORAGE</div>
+    <div style={{position: 'absolute', right: 42, top: 455, width: 235, padding: '15px 18px', borderRadius: 18, background: '#061a13dd', border: `2px solid ${accent}88`, fontFamily: display, fontSize: 31, color: accent, letterSpacing: 2}}>SOLAR<br/>ENERGY<br/>STORAGE</div>
     <div style={{position: 'absolute', top: 860, left: 60, right: 60, fontFamily: display, fontSize: 84, lineHeight: 0.9}}>THE SEED<br/><span style={{color: accent}}>GROWS WITH IT.</span></div>
   </div>;
 };
