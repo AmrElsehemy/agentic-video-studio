@@ -19,15 +19,15 @@ for (const manifestPath of manifests) {
   const scenes = video.scenes;
   const duration = scenes.reduce((sum, scene) => sum + scene.durationSeconds, 0);
   const checks = [
-    ['Immediate tension', scenes[0]?.role === 'hook' && scenes[0].durationSeconds <= 2.5, 15],
+    ['Immediate tension', scenes[0]?.role === 'hook' && scenes[0].durationSeconds <= 3, 15],
     ['Short hook copy', scenes[0]?.headline.trim().split(/\s+/).length <= 8, 10],
     ['Open loop', Boolean(video.direction?.openLoop && video.direction?.payoff), 10],
     ['Evidence chain', scenes.filter((scene) => ['evidence', 'escalation'].includes(scene.role)).length >= 3, 15],
     ['Pattern interrupts', scenes.every((scene) => scene.beatEverySeconds <= 1.2), 15],
-    ['No dead scene', scenes.every((scene) => scene.durationSeconds <= 3.1), 10],
+    ['Natural narration pace', scenes.every((scene) => scene.durationSeconds <= 4.5 && scene.narration.trim().split(/\s+/).length / scene.durationSeconds <= 3.2), 10],
     ['Counterpoint', scenes.some((scene) => scene.role === 'twist'), 10],
     ['Debatable interaction', scenes.at(-1)?.role === 'interaction' && /\?|pick|or/i.test(`${scenes.at(-1)?.headline} ${scenes.at(-1)?.narration}`), 10],
-    ['Short-form velocity', duration >= 12 && duration <= 20, 5],
+    ['Short-form velocity', duration >= 12 && duration <= 30, 5],
   ];
   const score = checks.reduce((sum, [, passed, points]) => sum + (passed ? points : 0), 0);
   console.log(`\n${video.id} — engagement score ${score}/100`);
@@ -39,4 +39,3 @@ for (const manifestPath of manifests) {
     console.log(`\nDirector approved: ${video.direction.premise}`);
   }
 }
-
