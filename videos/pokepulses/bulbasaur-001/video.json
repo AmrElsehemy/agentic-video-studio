@@ -32,8 +32,8 @@
       "provider": "openai",
       "model": "gpt-4o-mini-tts",
       "voice": "marin",
-      "instructions": "Energetic, confident short-form documentary narrator. Crisp pronunciation, quick pace, warm curiosity, and subtle emphasis on key facts. Never imitate a known person or character.",
-      "speed": 1.08,
+      "instructions": "Warm, confident short-form documentary narrator. Natural conversational pace, crisp pronunciation, curious storytelling, and subtle emphasis on key turns. Leave room for the visuals. Never imitate a known person or character.",
+      "speed": 1,
       "output": "generated/bulbasaur-001-voice.wav"
     }
   },
@@ -70,12 +70,12 @@
     ]
   },
   "scenes": [
-    {"id": "hook", "durationSeconds": 2.2, "role": "hook", "beatEverySeconds": 0.7, "eyebrow": "KANTO HOT TAKE", "headline": "YOU PICKED THE WRONG STARTER", "narration": "The most ignored Kanto starter may actually be easy mode.", "caption": "THE ‘BORING’ STARTER WAS EASY MODE?", "visual": "hook", "accent": "#f3d95b"},
-    {"id": "gyms", "durationSeconds": 2.8, "role": "evidence", "beatEverySeconds": 0.9, "eyebrow": "PROOF 01", "headline": "THE FIRST TWO GYMS FAVOR IT", "narration": "Bulbasaur counters Brock, then walks into Misty with the answer again.", "caption": "BROCK FALLS. THEN MISTY.", "visual": "gauntlet", "facts": ["BROCK", "MISTY"]},
-    {"id": "dual-type", "durationSeconds": 2.6, "role": "escalation", "beatEverySeconds": 0.8, "eyebrow": "PROOF 02", "headline": "AN ADVANTAGE FROM THE MOMENT YOU CHOOSE", "narration": "It is the only original starter with two types from the moment you choose it.", "caption": "THE ONLY KANTO STARTER WITH TWO TYPES", "visual": "advantage", "facts": ["GRASS", "POISON"]},
-    {"id": "evolution-race", "durationSeconds": 3, "role": "escalation", "beatEverySeconds": 0.75, "eyebrow": "PROOF 03", "headline": "VENUSAUR ARRIVES FOUR LEVELS EARLY", "narration": "And Venusaur arrives at level thirty two, four levels before Charizard or Blastoise.", "caption": "VENUSAUR: 32 • THE OTHERS: 36", "visual": "race", "facts": ["VENUSAUR 32", "CHARIZARD 36", "BLASTOISE 36"]},
-    {"id": "tradeoff", "durationSeconds": 2.8, "role": "twist", "beatEverySeconds": 0.7, "eyebrow": "BUT WAIT", "headline": "EASY MODE ISN’T INVINCIBLE", "narration": "But four weaknesses answer back: Fire, Ice, Flying, and Psychic.", "caption": "FOUR WEAKNESSES CHANGE THE VERDICT", "visual": "tradeoff", "facts": ["FIRE", "ICE", "FLYING", "PSYCHIC"], "accent": "#ff706d"},
-    {"id": "verdict", "durationSeconds": 2.8, "role": "interaction", "beatEverySeconds": 0.7, "eyebrow": "YOUR VERDICT", "headline": "SMARTEST FIRST PICK — OR JUST THE SAFEST?", "narration": "Smartest first pick, or merely safest? Pick a side.", "caption": "SMART PICK OR SAFE PICK?", "visual": "cta", "accent": "#f3d95b"}
+    {"id": "hook", "durationSeconds": 2.8, "role": "hook", "beatEverySeconds": 0.7, "eyebrow": "KANTO HOT TAKE", "headline": "YOU PICKED THE WRONG STARTER", "narration": "Kanto rewarded the starter everyone ignored.", "caption": "THE ‘BORING’ STARTER WAS EASY MODE?", "visual": "hook", "accent": "#f3d95b"},
+    {"id": "gyms", "durationSeconds": 3.6, "role": "evidence", "beatEverySeconds": 0.9, "eyebrow": "PROOF 01", "headline": "THE FIRST TWO GYMS FAVOR IT", "narration": "At Pewter, Brock falls. At Cerulean, Misty's advantage disappears.", "caption": "BROCK FALLS. THEN MISTY.", "visual": "gauntlet", "facts": ["BROCK", "MISTY"]},
+    {"id": "dual-type", "durationSeconds": 3.8, "role": "escalation", "beatEverySeconds": 0.8, "eyebrow": "PROOF 02", "headline": "AN ADVANTAGE FROM THE MOMENT YOU CHOOSE", "narration": "Bulbasaur begins with two types—a head start the others don't have.", "caption": "THE ONLY KANTO STARTER WITH TWO TYPES", "visual": "advantage", "facts": ["GRASS", "POISON"]},
+    {"id": "evolution-race", "durationSeconds": 4.2, "role": "escalation", "beatEverySeconds": 0.75, "eyebrow": "PROOF 03", "headline": "VENUSAUR ARRIVES FOUR LEVELS EARLY", "narration": "By level thirty-two, the quiet seed has already become Venusaur.", "caption": "VENUSAUR: 32 • THE OTHERS: 36", "visual": "race", "facts": ["VENUSAUR 32", "CHARIZARD 36", "BLASTOISE 36"]},
+    {"id": "tradeoff", "durationSeconds": 3.8, "role": "twist", "beatEverySeconds": 0.7, "eyebrow": "BUT WAIT", "headline": "EASY MODE ISN’T INVINCIBLE", "narration": "Then Kanto fights back: Fire, Ice, Flying, and Psychic.", "caption": "FOUR WEAKNESSES CHANGE THE VERDICT", "visual": "tradeoff", "facts": ["FIRE", "ICE", "FLYING", "PSYCHIC"], "accent": "#ff706d"},
+    {"id": "verdict", "durationSeconds": 3.6, "role": "interaction", "beatEverySeconds": 0.7, "eyebrow": "YOUR VERDICT", "headline": "SMARTEST FIRST PICK — OR JUST THE SAFEST?", "narration": "Was Bulbasaur the smartest choice—or only the safest beginning?", "caption": "SMART PICK OR SAFE PICK?", "visual": "cta", "accent": "#f3d95b"}
   ],
   "sources": [
     {"label": "The Pokémon Company — Bulbasaur Pokédex entry", "url": "https://www.pokemon.com/us/pokedex/bulbasaur"},
