@@ -41,5 +41,5 @@ const result = spawnSync(
   {cwd: root, stdio: 'inherit'},
 );
 if (result.status !== 0) process.exit(result.status ?? 1);
-const qa = spawnSync(process.execPath, ['scripts/qa.mjs', outputPath, manifestPath], {cwd: root, stdio: 'inherit'});
+const qa = spawnSync(process.execPath, ['scripts/qa.mjs', outputPath, propsPath], {cwd: root, stdio: 'inherit'});
 process.exit(qa.status ?? 1);
