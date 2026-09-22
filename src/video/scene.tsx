@@ -242,13 +242,14 @@ const Tradeoff: React.FC<{scene: VideoScene; manifest: VideoManifest; accent: st
 
 const Cta: React.FC<{manifest: VideoManifest; accent: string; frame: number; headline: string}> = ({manifest, accent, frame, headline}) => {
   const choose = spring({frame: frame - 18, fps: 30, config: {damping: 12, stiffness: 175}});
-  const handY = interpolate(frame, [0, 25, 50], [-300, 70, 40], clamp);
   return <div style={{position: 'absolute', inset: 0, textAlign: 'center'}}>
     <div style={{position: 'absolute', top: 430, left: -80, right: -80, height: 300, background: 'linear-gradient(175deg, #6a4228, #25170e)', borderTop: '14px solid #9b6742', transform: 'perspective(700px) rotateX(58deg)'}} />
     <Pokeball left={110} top={410} frame={frame} delay={0} />
     <Pokeball left={435} top={380} frame={frame} delay={4} selected />
     <Pokeball left={760} top={410} frame={frame} delay={8} />
-    <div style={{position: 'absolute', left: 350, top: 50 + handY, width: 390, height: 500, borderRadius: '45% 45% 42% 42%', background: 'linear-gradient(90deg, #b46f4c, #e6a77d 48%, #9a593d)', boxShadow: '0 35px 55px #0009', transform: `rotate(${interpolate(frame, [0, 30], [-9, 5], clamp)}deg) scale(${0.75 + choose * 0.25})`, opacity: interpolate(frame, [0, 5], [0, 0.9], clamp)}} />
+    <div style={{position: 'absolute', left: 435, top: 45, width: 220, height: 560, opacity: 0.32 + choose * 0.3, background: `linear-gradient(180deg, ${accent}00, ${accent}66 68%, ${accent}00)`, clipPath: 'polygon(42% 0, 58% 0, 100% 100%, 0 100%)', filter: 'blur(9px)'}} />
+    <div style={{position: 'absolute', left: 476, top: 105 + Math.sin(frame / 4) * 12, width: 128, height: 128, borderRight: `18px solid ${accent}`, borderBottom: `18px solid ${accent}`, transform: 'rotate(45deg)', filter: `drop-shadow(0 0 16px ${accent})`, opacity: choose}} />
+    <div style={{position: 'absolute', left: 0, right: 0, top: 72, fontFamily: display, fontSize: 34, letterSpacing: 8, color: accent, opacity: choose}}>MAKE YOUR CHOICE</div>
     <div style={{position: 'absolute', top: 5, left: 210, opacity: choose, transform: `translateY(${(1 - choose) * 120}px) scale(${0.75 + choose * 0.25})`}}><PokemonArt src={manifest.subject.artworkUrl} size={660} frame={frame - 15} /></div>
     <LeafBurst frame={frame - 18} originX={540} originY={510} />
     <div style={{position: 'absolute', top: 735, left: 45, right: 45, fontFamily: display, fontSize: 76, lineHeight: 0.88, textShadow: '0 9px 20px #000'}}>{headline}</div>
