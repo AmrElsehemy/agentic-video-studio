@@ -10,6 +10,8 @@ export const sceneSchema = z.object({
   narration: z.string().min(1).max(260),
   caption: z.string().min(1).max(120),
   role: z.enum(['hook', 'evidence', 'escalation', 'twist', 'payoff', 'interaction']),
+  shot: z.enum(['mystery', 'wide', 'macro', 'tracking', 'comparison', 'impact', 'interaction']),
+  subjectFocus: z.enum(['absent', 'hidden', 'secondary', 'primary']),
   beatEverySeconds: z.number().positive().max(1.5),
   visual: z.enum(['hook', 'gauntlet', 'advantage', 'race', 'tradeoff', 'cta']),
   accent: color.optional(),
