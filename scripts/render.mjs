@@ -9,10 +9,18 @@ const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
 const propsPath = path.join(root, 'out', `${episodeId}.props.json`);
 const outputPath = path.join(root, 'out', `${episodeId}.mp4`);
 fs.mkdirSync(path.dirname(outputPath), {recursive: true});
-fs.writeFileSync(propsPath, JSON.stringify({manifest}, null, 2));
 
 const assets = spawnSync(process.execPath, ['scripts/generate-audio.mjs', episodeId], {cwd: root, stdio: 'inherit'});
 if (assets.status !== 0) process.exit(assets.status ?? 1);
+
+const generatedVoice = manifest.audio.voice?.output;
+if (generatedVoice && fs.existsSync(path.join(root, 'public', generatedVoice))) {
+  manifest.audio.voiceover = generatedVoice;
+  console.log(`✓ narration: public/${generatedVoice}`);
+} else if (manifest.audio.voice) {
+  console.log(`ℹ narration not generated; run: npm run voice -- ${episodeId}`);
+}
+fs.writeFileSync(propsPath, JSON.stringify({manifest}, null, 2));
 
 const result = spawnSync(
   process.platform === 'win32' ? 'npx.cmd' : 'npx',

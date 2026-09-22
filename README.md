@@ -2,7 +2,7 @@
 
 A data-driven video pipeline that turns a validated episode manifest into a publishable vertical video. The first show is **PokePulses** and the first episode is **Bulbasaur #001**.
 
-## Milestone 0.1
+## Milestone 0.2
 
 ```bash
 npm install
@@ -18,21 +18,27 @@ npm run studio                 # Open the Remotion preview
 npm run validate               # Validate every episode manifest
 npm run typecheck              # TypeScript checks
 npm run still -- bulbasaur-001 # Render the cover frame
+npm run voice -- bulbasaur-001 # Generate scene-fitted AI narration (requires OPENAI_API_KEY + FFmpeg)
+npm run description -- bulbasaur-001
+npm run preflight:publish -- bulbasaur-001
 ```
 
 ## Pipeline
 
 `Idea → research → script → storyboard → assets → voice/music → Remotion → QA → publish`
 
-Milestone 0.1 intentionally implements the deterministic half of that pipeline first:
+Milestone 0.2 implements the deterministic visual pipeline plus an opt-in narration stage:
 
 - a versioned `video.json` contract;
 - a reusable 9:16 Remotion composition;
 - scene timing, transitions, kinetic captions, progress and branding;
 - a one-command render entry point;
 - structural validation and automated render QA.
+- scene-by-scene OpenAI narration generation with duration checks;
+- automatic music ducking when a narration track is present;
+- explicit asset-rights metadata and a fail-closed publication preflight.
 
-Agentic planning, generated voice, music, automated factual review, publishing, and analytics feedback are later milestones. The episode manifest is the contract those agents will produce.
+Agentic planning, automated factual review, publishing, and analytics feedback are later milestones. The episode manifest is the contract those agents will produce.
 
 ## Project structure
 
@@ -45,4 +51,6 @@ out/                         generated media (gitignored)
 
 ## Editorial and rights policy
 
-The studio does not ship copied game footage, anime clips, official artwork, or music. PokePulses uses original motion graphics and factual commentary. Pokémon names may be used editorially to identify the subject; Pokémon and related marks belong to their respective owners. Before public release, every external asset must have a recorded source and license.
+PokePulses is an unofficial fan-made educational prototype and is not affiliated with or endorsed by the Pokémon rights holders. Attribution does not grant permission or create a license.
+
+The current Bulbasaur prototype uses official character artwork mirrored by PokéAPI. It is deliberately marked `internal-prototype` and is **not cleared for public release**. Every external asset must have a recorded source and rights status, and publishing automation must pass `preflight:publish`. See [RIGHTS.md](RIGHTS.md).

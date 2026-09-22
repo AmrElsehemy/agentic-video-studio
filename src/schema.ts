@@ -38,9 +38,31 @@ export const videoSchema = z.object({
   palette: z.object({background: color, surface: color, primary: color, secondary: color, ink: color}),
   audio: z.object({
     voiceover: z.string().optional(),
+    voice: z.object({
+      provider: z.literal('openai'),
+      model: z.string().min(1),
+      voice: z.enum(['alloy', 'ash', 'ballad', 'coral', 'echo', 'fable', 'onyx', 'nova', 'sage', 'shimmer', 'verse', 'marin', 'cedar']),
+      instructions: z.string().min(1).max(1000),
+      speed: z.number().min(0.25).max(4).default(1),
+      output: z.string().min(1),
+    }).optional(),
     music: z.string().optional(),
     musicVolume: z.number().min(0).max(1).default(0.12),
   }).default({musicVolume: 0.12}),
+  rights: z.object({
+    releaseStatus: z.enum(['internal-prototype', 'editorial-review', 'cleared']),
+    publicReleaseApproved: z.boolean(),
+    ownershipNotice: z.string().min(1),
+    nonAffiliationNotice: z.string().min(1),
+    assets: z.array(z.object({
+      kind: z.string().min(1),
+      sourceUrl: z.string().url(),
+      owner: z.string().min(1),
+      licenseStatus: z.enum(['owned', 'licensed', 'permission-required', 'unverified']),
+      publicReleaseApproved: z.boolean(),
+      notes: z.string().optional(),
+    })).min(1),
+  }),
   scenes: z.array(sceneSchema).min(3).max(12),
   sources: z.array(z.object({label: z.string(), url: z.string().url()})).min(1),
 });
