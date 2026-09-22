@@ -12,5 +12,5 @@ fs.mkdirSync(path.dirname(outputPath), {recursive: true});
 fs.writeFileSync(propsPath, JSON.stringify({manifest}, null, 2));
 const assets = spawnSync(process.execPath, ['scripts/generate-audio.mjs', episodeId], {cwd: root, stdio: 'inherit'});
 if (assets.status !== 0) process.exit(assets.status ?? 1);
-const result = spawnSync(process.platform === 'win32' ? 'npx.cmd' : 'npx', ['remotion', 'still', 'src/index.ts', 'VerticalEpisode', outputPath, `--props=${propsPath}`, '--frame=75'], {cwd: root, stdio: 'inherit'});
+const result = spawnSync(process.platform === 'win32' ? 'npx.cmd' : 'npx', ['remotion', 'still', 'src/index.ts', 'EpisodeCover', outputPath, `--props=${propsPath}`], {cwd: root, stdio: 'inherit'});
 process.exit(result.status ?? 1);
