@@ -49,13 +49,13 @@ try {
       fs.writeFileSync(rawTrack, Buffer.from(await response.arrayBuffer()));
     } else {
       if (process.platform !== 'darwin') throw new Error('The free local preview provider currently requires macOS and its built-in `say` command.');
-      const localVoice = process.env.LOCAL_TTS_VOICE ?? 'Samantha';
-      let rate = Number(process.env.LOCAL_TTS_RATE ?? 225);
+      const localVoice = process.env.LOCAL_TTS_VOICE ?? 'Alex';
+      let rate = Number(process.env.LOCAL_TTS_RATE ?? 190);
       let say = spawnSync('say', ['-v', localVoice, '-r', String(rate), '-o', rawTrack, scene.narration], {encoding: 'utf8'});
       if (say.status !== 0) throw new Error(say.stderr || `Could not run macOS say with voice ${localVoice}.`);
       const firstDuration = probeDuration(rawTrack);
       if (firstDuration > available) {
-        rate = Math.min(330, Math.ceil(rate * (firstDuration / available) * 1.04));
+        rate = Math.min(260, Math.ceil(rate * (firstDuration / available) * 1.03));
         say = spawnSync('say', ['-v', localVoice, '-r', String(rate), '-o', rawTrack, scene.narration], {encoding: 'utf8'});
         if (say.status !== 0) throw new Error(say.stderr || `Could not rerun macOS say with voice ${localVoice}.`);
       }
