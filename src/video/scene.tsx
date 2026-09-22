@@ -1,9 +1,7 @@
 import React from 'react';
 import {AbsoluteFill, Easing, Img, interpolate, spring, useCurrentFrame, useVideoConfig} from 'remotion';
 import type {VideoManifest, VideoScene} from '../schema';
-
-const display = 'Impact, Haettenschweiler, Arial Narrow Bold, sans-serif';
-const body = 'Arial, Helvetica, sans-serif';
+import {bodyFont as body, displayFont as display} from './typography';
 
 type Props = {
   scene: VideoScene;
