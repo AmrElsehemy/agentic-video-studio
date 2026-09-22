@@ -19,9 +19,8 @@ export const VerticalEpisode: React.FC<{manifest: VideoManifest}> = ({manifest})
   return (
     <AbsoluteFill style={{backgroundColor: manifest.palette.background}}>
       {sequences}
-      {manifest.audio.music ? <Audio src={staticFile(manifest.audio.music)} volume={manifest.audio.musicVolume} loop /> : null}
+      {manifest.audio.music ? <Audio src={staticFile(manifest.audio.music)} volume={manifest.audio.voiceover ? Math.min(manifest.audio.musicVolume, 0.045) : manifest.audio.musicVolume} loop /> : null}
       {manifest.audio.voiceover ? <Audio src={staticFile(manifest.audio.voiceover)} /> : null}
     </AbsoluteFill>
   );
 };
-

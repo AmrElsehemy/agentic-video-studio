@@ -16,7 +16,50 @@
   ],
   "format": {"width": 1080, "height": 1920, "fps": 30},
   "palette": {"background": "#061a13", "surface": "#113e2d", "primary": "#64f1a5", "secondary": "#6d65d8", "ink": "#f7fff9"},
-  "audio": {"music": "generated/bulbasaur-001-bed.wav", "musicVolume": 0.12},
+  "audio": {
+    "music": "generated/bulbasaur-001-bed.wav",
+    "musicVolume": 0.12,
+    "voice": {
+      "provider": "openai",
+      "model": "gpt-4o-mini-tts",
+      "voice": "marin",
+      "instructions": "Energetic, confident short-form documentary narrator. Crisp pronunciation, quick pace, warm curiosity, and subtle emphasis on key facts. Never imitate a known person or character.",
+      "speed": 1.08,
+      "output": "generated/bulbasaur-001-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "assets": [
+      {
+        "kind": "official character artwork",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "unverified",
+        "publicReleaseApproved": false,
+        "notes": "PokéAPI mirrors the file but does not grant this project a publication license. Replace, obtain permission, or complete legal review before public release."
+      },
+      {
+        "kind": "official evolution artwork",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/2.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "unverified",
+        "publicReleaseApproved": false,
+        "notes": "Used only in the internal prototype."
+      },
+      {
+        "kind": "official evolution artwork",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/3.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "unverified",
+        "publicReleaseApproved": false,
+        "notes": "Used only in the internal prototype."
+      }
+    ]
+  },
   "scenes": [
     {"id": "hook", "durationSeconds": 3, "eyebrow": "START HERE", "headline": "THE POKÉMON THAT STARTS THEM ALL", "narration": "Meet Bulbasaur. The Pokémon that starts the entire Pokédex.", "caption": "Meet Bulbasaur — the Pokémon that starts the entire Pokédex.", "visual": "hook"},
     {"id": "dex", "durationSeconds": 3.2, "eyebrow": "NATIONAL POKÉDEX", "headline": "BEFORE LEGENDS, THERE WAS #001", "narration": "Before legends and dragons, there was number zero zero one.", "caption": "Before legends and dragons, there was number #001.", "visual": "dex"},

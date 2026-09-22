@@ -40,7 +40,7 @@ export const Scene: React.FC<Props> = ({scene, manifest, sceneIndex, sceneCount,
         <div style={{fontFamily: display, color: accent, fontSize: 25, letterSpacing: 4, marginBottom: 12}}>{scene.eyebrow}</div>
         <KineticCaption text={scene.caption} frame={frame} durationInFrames={durationInFrames} accent={accent} />
         <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: 25, fontFamily: body, color: '#ffffff82', fontSize: 19, fontWeight: 800, letterSpacing: 2}}>
-          <span>{manifest.show.handle}</span><span>{String(sceneIndex + 1).padStart(2, '0')} / {String(sceneCount).padStart(2, '0')}</span>
+          <span>{scene.visual === 'cta' ? 'UNOFFICIAL FAN PROJECT • NOT AFFILIATED' : manifest.show.handle}</span><span>{String(sceneIndex + 1).padStart(2, '0')} / {String(sceneCount).padStart(2, '0')}</span>
         </div>
       </div>
     </AbsoluteFill>

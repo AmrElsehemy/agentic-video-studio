@@ -6,6 +6,9 @@
   "scripts": {
     "studio": "remotion studio src/index.ts",
     "assets": "node scripts/generate-audio.mjs",
+    "voice": "node scripts/generate-voice.mjs",
+    "description": "node scripts/generate-description.mjs",
+    "preflight:publish": "node --import tsx scripts/preflight-publish.ts",
     "video": "node scripts/render.mjs",
     "still": "node scripts/render-still.mjs",
     "validate": "node --import tsx scripts/validate.ts",
