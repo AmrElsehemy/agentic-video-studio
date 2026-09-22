@@ -11,7 +11,8 @@
     "preflight:publish": "node --import tsx scripts/preflight-publish.ts",
     "video": "node scripts/render.mjs",
     "still": "node scripts/render-still.mjs",
-    "validate": "node --import tsx scripts/validate.ts",
+    "validate": "node --import tsx scripts/validate.ts && node scripts/engagement-audit.mjs",
+    "engagement": "node scripts/engagement-audit.mjs",
     "qa": "node scripts/qa.mjs",
     "typecheck": "tsc --noEmit"
   },
