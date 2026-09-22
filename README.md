@@ -20,6 +20,10 @@ npm run engagement -- bulbasaur-001 # Score hook, story tension, pacing and inte
 npm run typecheck              # TypeScript checks
 npm run still -- bulbasaur-001 # Render the cover frame
 npm run voice -- bulbasaur-001 # Generate scene-fitted AI narration (requires OPENAI_API_KEY + FFmpeg)
+npm run voice:local -- bulbasaur-001 # Free macOS draft narration using the built-in `say` voice
+npm run video:local -- bulbasaur-001 # Render explicitly with the free draft voice
+npm run voice:openai -- bulbasaur-001 # Generate the polished OpenAI narration
+npm run video:openai -- bulbasaur-001 # Render explicitly with the polished voice
 npm run description -- bulbasaur-001
 npm run preflight:publish -- bulbasaur-001
 ```
@@ -50,6 +54,24 @@ Milestone 0.2 implements the deterministic visual pipeline plus an opt-in narrat
 Agentic planning, automated factual review, publishing, and analytics feedback are later milestones. The episode manifest is the contract those agents will produce.
 
 The directing rules live in [DIRECTING.md](DIRECTING.md). They force every episode to make one arguable promise, prove it, challenge it, pay it off, and invite a meaningful verdict.
+
+## Voice workflow
+
+Use the zero-cost macOS voice while iterating on timing and visuals:
+
+```bash
+npm run voice:local -- bulbasaur-001
+npm run video:local -- bulbasaur-001
+```
+
+The local preview uses macOS `say` with `Samantha` by default. Override it with `LOCAL_TTS_VOICE` or inspect installed voices with `say -v '?'`. When a cut is approved, generate and render the separate OpenAI track:
+
+```bash
+npm run voice:openai -- bulbasaur-001
+npm run video:openai -- bulbasaur-001
+```
+
+`npm run video` automatically prefers an existing OpenAI track and falls back to the local preview. The files remain separate, so generating a draft never overwrites the polished narration.
 
 ## Project structure
 
