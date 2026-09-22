@@ -19,6 +19,8 @@ if (!config) throw new Error(`${episodeId} does not define audio.voice.`);
 const generatedRoot = path.join(root, 'public', 'generated');
 const tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), `${episodeId}-voice-`));
 const sceneTracks = [];
+const endPaddingSeconds = 0.12;
+const maxAutoFitRatio = 1.12;
 
 const probeDuration = (file) => {
   const probe = spawnSync('ffprobe', ['-v', 'error', '-show_entries', 'format=duration', '-of', 'default=noprint_wrappers=1:nokey=1', file], {encoding: 'utf8'});
@@ -30,7 +32,7 @@ try {
   for (const [index, scene] of manifest.scenes.entries()) {
     const rawTrack = path.join(tempRoot, `${String(index).padStart(2, '0')}-${scene.id}-raw.${provider === 'local' ? 'aiff' : 'wav'}`);
     const fittedTrack = path.join(tempRoot, `${String(index).padStart(2, '0')}-${scene.id}.wav`);
-    const available = scene.durationSeconds - 0.12;
+    const available = scene.durationSeconds - endPaddingSeconds;
     if (provider === 'openai') {
       const response = await fetch('https://api.openai.com/v1/audio/speech', {
         method: 'POST',
@@ -54,14 +56,24 @@ try {
     }
 
     const spokenDuration = probeDuration(rawTrack);
-    if (spokenDuration > available) {
-      throw new Error(`${scene.id} narration is ${spokenDuration.toFixed(2)}s but only ${available.toFixed(2)}s is available. Shorten its narration or increase voice speed.`);
+    const requiredTempo = spokenDuration / available;
+    if (requiredTempo > maxAutoFitRatio) {
+      throw new Error(`${scene.id} narration is ${spokenDuration.toFixed(2)}s but only ${available.toFixed(2)}s is available. It would require ${requiredTempo.toFixed(2)}x tempo; shorten its narration or increase voice speed.`);
     }
 
-    const fit = spawnSync('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-y', '-i', rawTrack, '-af', `apad=pad_dur=${scene.durationSeconds}`, '-t', String(scene.durationSeconds), '-ar', '44100', '-ac', '2', fittedTrack], {encoding: 'utf8'});
+    // TTS encoders quantize duration, so a calculated rate can still miss the
+    // scene boundary by a few milliseconds. Apply a tiny deterministic tempo
+    // correction instead of rejecting an otherwise valid narration.
+    const appliedTempo = requiredTempo > 1 ? requiredTempo * 1.005 : 1;
+    const audioFilter = [
+      ...(appliedTempo > 1 ? [`atempo=${appliedTempo.toFixed(6)}`] : []),
+      `apad=pad_dur=${scene.durationSeconds}`,
+    ].join(',');
+    const fit = spawnSync('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-y', '-i', rawTrack, '-af', audioFilter, '-t', String(scene.durationSeconds), '-ar', '44100', '-ac', '2', fittedTrack], {encoding: 'utf8'});
     if (fit.status !== 0) throw new Error(fit.stderr || `Could not fit narration for ${scene.id}`);
     sceneTracks.push(fittedTrack);
-    console.log(`✓ ${scene.id} [${provider}]: ${spokenDuration.toFixed(2)}s / ${scene.durationSeconds.toFixed(2)}s`);
+    const fitLabel = appliedTempo > 1 ? `, auto-fit ${appliedTempo.toFixed(2)}x` : '';
+    console.log(`✓ ${scene.id} [${provider}]: ${spokenDuration.toFixed(2)}s / ${scene.durationSeconds.toFixed(2)}s${fitLabel}`);
   }
 
   fs.mkdirSync(generatedRoot, {recursive: true});
