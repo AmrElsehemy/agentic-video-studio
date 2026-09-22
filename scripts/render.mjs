@@ -3,7 +3,10 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {findManifest} from './catalog.mjs';
 
-const episodeId = process.argv[2] ?? 'bulbasaur-001';
+const args = process.argv.slice(2);
+const episodeId = args.find((arg) => !arg.startsWith('--')) ?? 'bulbasaur-001';
+const requestedVoice = args.find((arg) => arg.startsWith('--voice='))?.split('=')[1] ?? process.env.VOICE_PROVIDER ?? 'auto';
+if (!['auto', 'openai', 'local', 'none'].includes(requestedVoice)) throw new Error(`Unsupported voice selection: ${requestedVoice}`);
 const {root, manifestPath} = findManifest(episodeId);
 const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
 const propsPath = path.join(root, 'out', `${episodeId}.props.json`);
@@ -13,12 +16,17 @@ fs.mkdirSync(path.dirname(outputPath), {recursive: true});
 const assets = spawnSync(process.execPath, ['scripts/generate-audio.mjs', episodeId], {cwd: root, stdio: 'inherit'});
 if (assets.status !== 0) process.exit(assets.status ?? 1);
 
-const generatedVoice = manifest.audio.voice?.output;
-if (generatedVoice && fs.existsSync(path.join(root, 'public', generatedVoice))) {
+const openAiVoice = manifest.audio.voice?.output;
+const localVoice = openAiVoice?.replace(/\.wav$/i, '-local.wav');
+const voiceCandidates = requestedVoice === 'openai' ? [openAiVoice] : requestedVoice === 'local' ? [localVoice] : requestedVoice === 'none' ? [] : [openAiVoice, localVoice];
+const generatedVoice = voiceCandidates.find((candidate) => candidate && fs.existsSync(path.join(root, 'public', candidate)));
+if (generatedVoice) {
   manifest.audio.voiceover = generatedVoice;
-  console.log(`✓ narration: public/${generatedVoice}`);
+  console.log(`✓ narration [${generatedVoice === localVoice ? 'local' : 'openai'}]: public/${generatedVoice}`);
+} else if (requestedVoice !== 'auto' && requestedVoice !== 'none') {
+  throw new Error(`${requestedVoice} narration has not been generated for ${episodeId}.`);
 } else if (manifest.audio.voice) {
-  console.log(`ℹ narration not generated; run: npm run voice -- ${episodeId}`);
+  console.log(`ℹ narration not generated; run: npm run voice:local -- ${episodeId} or npm run voice:openai -- ${episodeId}`);
 }
 fs.writeFileSync(propsPath, JSON.stringify({manifest}, null, 2));
 
