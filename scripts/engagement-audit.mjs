@@ -27,7 +27,7 @@ for (const manifestPath of manifests) {
     ['Pattern interrupts', scenes.every((scene) => scene.beatEverySeconds <= 1.2), 15],
     ['Shot variety', distinctShots >= Math.min(5, scenes.length), 10],
     ['Natural narration pace', scenes.every((scene) => scene.durationSeconds <= 6.5 && scene.narration.trim().split(/\s+/).length / scene.durationSeconds <= 2.8), 10],
-    ['Debatable interaction', scenes.at(-1)?.role === 'interaction' && /\?|pick|or/i.test(`${scenes.at(-1)?.headline} ${scenes.at(-1)?.narration}`), 10],
+    ['Debatable interaction', scenes.at(-1)?.role === 'interaction' && /\?|pick|or|which/i.test(`${scenes.at(-1)?.headline} ${scenes.at(-1)?.narration}`), 10],
     ['Story breathing room', duration >= 28 && duration <= 45, 5],
   ];
 
@@ -45,7 +45,15 @@ for (const manifestPath of manifests) {
     ['Subject-led visual story', scenes.filter((scene) => ['primary', 'secondary'].includes(scene.subjectFocus)).length >= Math.ceil(scenes.length / 2), 10],
   ];
 
-  const checks = [...commonChecks, ...(pattern === 'mechanic' ? mechanicChecks : profileChecks)];
+  const revealChecks = [
+    ['Immediate mystery', scenes[0]?.role === 'hook' && scenes[0].durationSeconds <= 4.5 && ['absent', 'hidden'].includes(scenes[0]?.subjectFocus), 15],
+    ['Layered escalation', scenes.filter((scene) => ['escalation', 'payoff'].includes(scene.role)).length >= 3, 15],
+    ['Multiple reveals', scenes.filter((scene) => scene.role === 'payoff').length >= 2, 10],
+    ['Final consequence', scenes.some((scene) => scene.role === 'payoff' && scene.id !== scenes.find((candidate) => candidate.role === 'payoff')?.id), 10],
+  ];
+
+  const patternChecks = pattern === 'mechanic' ? mechanicChecks : pattern === 'reveal' ? revealChecks : profileChecks;
+  const checks = [...commonChecks, ...patternChecks];
   const available = checks.reduce((sum, [, , points]) => sum + points, 0);
   const earned = checks.reduce((sum, [, passed, points]) => sum + (passed ? points : 0), 0);
   const score = Math.round(earned / available * 100);
