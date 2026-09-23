@@ -19,24 +19,37 @@ for (const manifestPath of manifests) {
   const scenes = video.scenes;
   const duration = scenes.reduce((sum, scene) => sum + scene.durationSeconds, 0);
   const distinctShots = new Set(scenes.map((scene) => scene.shot)).size;
-  const primarySubjectScenes = scenes.filter((scene) => scene.subjectFocus === 'primary').length;
-  const checks = [
-    ['Immediate tension', scenes[0]?.role === 'hook' && scenes[0].durationSeconds <= 4, 15],
+  const pattern = video.direction?.storyPattern ?? 'profile';
+
+  const commonChecks = [
     ['Short hook copy', scenes[0]?.headline.trim().split(/\s+/).length <= 8, 10],
     ['Open loop', Boolean(video.direction?.openLoop && video.direction?.payoff), 10],
-    ['Evidence chain', scenes.filter((scene) => ['evidence', 'escalation'].includes(scene.role)).length >= 3, 15],
     ['Pattern interrupts', scenes.every((scene) => scene.beatEverySeconds <= 1.2), 15],
     ['Shot variety', distinctShots >= Math.min(5, scenes.length), 10],
-    ['Subject restraint', primarySubjectScenes <= Math.floor(scenes.length / 2) && ['absent', 'hidden'].includes(scenes[0]?.subjectFocus), 10],
     ['Natural narration pace', scenes.every((scene) => scene.durationSeconds <= 6.5 && scene.narration.trim().split(/\s+/).length / scene.durationSeconds <= 2.8), 10],
-    ['Counterpoint', scenes.some((scene) => scene.role === 'twist'), 10],
     ['Debatable interaction', scenes.at(-1)?.role === 'interaction' && /\?|pick|or/i.test(`${scenes.at(-1)?.headline} ${scenes.at(-1)?.narration}`), 10],
     ['Story breathing room', duration >= 28 && duration <= 45, 5],
   ];
+
+  const profileChecks = [
+    ['Immediate tension', scenes[0]?.role === 'hook' && scenes[0].durationSeconds <= 4, 15],
+    ['Evidence chain', scenes.filter((scene) => ['evidence', 'escalation'].includes(scene.role)).length >= 3, 15],
+    ['Subject restraint', scenes.filter((scene) => scene.subjectFocus === 'primary').length <= Math.floor(scenes.length / 2) && ['absent', 'hidden'].includes(scenes[0]?.subjectFocus), 10],
+    ['Counterpoint', scenes.some((scene) => scene.role === 'twist'), 10],
+  ];
+
+  const mechanicChecks = [
+    ['Immediate tension', scenes[0]?.role === 'hook' && scenes[0].durationSeconds <= 4.5, 15],
+    ['Mechanic escalation', scenes.filter((scene) => ['evidence', 'escalation', 'payoff'].includes(scene.role)).length >= 3, 15],
+    ['Clear payoff', scenes.some((scene) => scene.role === 'payoff') && Boolean(video.direction?.payoff), 10],
+    ['Subject-led visual story', scenes.filter((scene) => ['primary', 'secondary'].includes(scene.subjectFocus)).length >= Math.ceil(scenes.length / 2), 10],
+  ];
+
+  const checks = [...commonChecks, ...(pattern === 'mechanic' ? mechanicChecks : profileChecks)];
   const available = checks.reduce((sum, [, , points]) => sum + points, 0);
   const earned = checks.reduce((sum, [, passed, points]) => sum + (passed ? points : 0), 0);
   const score = Math.round(earned / available * 100);
-  console.log(`\n${video.id} — engagement score ${score}/100`);
+  console.log(`\n${video.id} [${pattern}] — engagement score ${score}/100`);
   for (const [label, passed, points] of checks) console.log(`${passed ? '✓' : '✗'} ${label} (${points})`);
   if (score < 80) {
     console.error(`\nRejected: ${video.id} must score at least 80/100 before rendering.`);
