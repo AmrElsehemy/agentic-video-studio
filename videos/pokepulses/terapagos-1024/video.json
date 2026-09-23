@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "id": "terapagos-1024",
+  "show": {"id": "pokepulses", "name": "PokePulses", "handle": "@PokePulses"},
+  "title": "The Pokémon That Reveals Three Forms in One Battle",
+  "direction": {
+    "storyPattern": "reveal",
+    "premise": "Terapagos reveals deeper forms as battle escalates, ending with a form that resets weather and terrain.",
+    "audiencePromise": "Reveal Normal, Terastal, and Stellar Form in sequence, then show what Teraform Zero does to the battlefield.",
+    "openLoop": "How many forms can Pokémon #1024 reveal in one battle?",
+    "payoff": "Stellar Form activates Teraform Zero, immediately removing active weather and terrain.",
+    "targetEmotion": "awe",
+    "engagementQuestion": "Which Terapagos form has the best reveal?",
+    "targetSecondsBetweenVisualChanges": 0.7
+  },
+  "subject": {
+    "name": "Terapagos",
+    "index": "#1024",
+    "category": "Tera Pokémon",
+    "artworkUrl": "https://www.serebii.net/pokemon/art/1024.png"
+  },
+  "evolutions": [],
+  "format": {"width": 1080, "height": 1920, "fps": 30},
+  "palette": {"background": "#070a24", "surface": "#121a46", "primary": "#5de4ff", "secondary": "#d67cff", "ink": "#f7fbff"},
+  "audio": {
+    "music": "generated/terapagos-1024-bed.wav",
+    "musicVolume": 0.09,
+    "voice": {
+      "provider": "openai",
+      "model": "gpt-4o-mini-tts",
+      "voice": "marin",
+      "instructions": "Curious, cinematic Pokémon short narrator. Begin with mystery, build with each form reveal, then land the Stellar Form payoff with wonder. Keep it energetic, crisp, and conversational. Never imitate a known person or character.",
+      "speed": 1.08,
+      "output": "generated/terapagos-1024-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "assets": [
+      {"kind": "Terapagos Normal Form artwork mirror", "sourceUrl": "https://www.serebii.net/pokemon/art/1024.png", "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK", "licenseStatus": "unverified", "publicReleaseApproved": false, "notes": "Internal prototype only pending legal review or replacement."},
+      {"kind": "Terapagos Terastal Form artwork mirror", "sourceUrl": "https://www.serebii.net/pokemon/art/1024-t.png", "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK", "licenseStatus": "unverified", "publicReleaseApproved": false, "notes": "Internal prototype only pending legal review or replacement."},
+      {"kind": "Terapagos Stellar Form artwork mirror", "sourceUrl": "https://www.serebii.net/pokemon/art/1024-s.png", "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK", "licenseStatus": "unverified", "publicReleaseApproved": false, "notes": "Internal prototype only pending legal review or replacement."}
+    ]
+  },
+  "scenes": [
+    {"id": "hook", "durationSeconds": 4.4, "role": "hook", "shot": "mystery", "subjectFocus": "hidden", "beatEverySeconds": 0.5, "eyebrow": "POKÉDEX #1024", "headline": "ONE POKÉMON. THREE FORMS.", "narration": "This Pokémon reveals a second form, then a third.", "caption": "NORMAL → TERASTAL → STELLAR", "visual": "hook", "accent": "#5de4ff"},
+    {"id": "identity", "durationSeconds": 4.8, "role": "evidence", "shot": "macro", "subjectFocus": "primary", "beatEverySeconds": 0.7, "eyebrow": "MEET TERAPAGOS", "headline": "THE SOURCE OF TERASTAL", "narration": "Terapagos is Pokémon one thousand twenty-four, tied to the Terastal phenomenon.", "caption": "#1024 • TERA POKÉMON", "visual": "gauntlet", "facts": ["#1024", "NORMAL FORM"]},
+    {"id": "terastal", "durationSeconds": 5.0, "role": "escalation", "shot": "tracking", "subjectFocus": "primary", "beatEverySeconds": 0.55, "eyebrow": "FIRST REVEAL", "headline": "BATTLE STARTS. SHELL OPENS.", "narration": "Enter battle, and Tera Shift turns it into Terastal Form.", "caption": "NORMAL → TERASTAL", "visual": "race", "facts": ["TERA SHIFT", "TERASTAL FORM"]},
+    {"id": "stellar", "durationSeconds": 5.2, "role": "payoff", "shot": "impact", "subjectFocus": "primary", "beatEverySeconds": 0.5, "eyebrow": "SECOND REVEAL", "headline": "THEN IT GOES STELLAR", "narration": "Terastallize it, and Terapagos opens into its massive Stellar Form.", "caption": "TERASTAL → STELLAR", "visual": "advantage", "facts": ["STELLAR FORM", "TERAFORM ZERO"], "accent": "#d67cff"},
+    {"id": "zero", "durationSeconds": 5.4, "role": "payoff", "shot": "wide", "subjectFocus": "secondary", "beatEverySeconds": 0.6, "eyebrow": "THE PAYOFF", "headline": "THE FIELD GETS RESET", "narration": "Then Teraform Zero wipes away active weather and terrain.", "caption": "WEATHER 0 • TERRAIN 0", "visual": "tradeoff", "facts": ["WEATHER → 0", "TERRAIN → 0"]},
+    {"id": "cta", "durationSeconds": 4.4, "role": "interaction", "shot": "interaction", "subjectFocus": "primary", "beatEverySeconds": 0.7, "eyebrow": "YOUR PICK", "headline": "WHICH REVEAL WINS?", "narration": "Three forms in one Pokémon. Which reveal wins?", "caption": "NORMAL • TERASTAL • STELLAR", "visual": "cta", "accent": "#5de4ff"}
+  ],
+  "sources": [
+    {"label": "Official Pokémon Pokédex — Terapagos and its three forms", "url": "https://sg.portal-pokemon.com/pokedex/1024/"},
+    {"label": "Bulbapedia — Tera Shift mechanics", "url": "https://bulbapedia.bulbagarden.net/wiki/Tera_Shift"},
+    {"label": "Bulbapedia — Teraform Zero mechanics", "url": "https://bulbapedia.bulbagarden.net/wiki/Teraform_Zero"}
+  ]
+}
