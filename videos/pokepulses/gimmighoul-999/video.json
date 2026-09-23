@@ -1,0 +1,154 @@
+{
+  "schemaVersion": 1,
+  "id": "gimmighoul-999",
+  "show": {"id": "pokepulses", "name": "PokePulses", "handle": "@PokePulses"},
+  "title": "The Pokémon That Needs 999 Coins to Evolve",
+  "direction": {
+    "premise": "Pokédex #999 has an evolution mechanic built around the same number: collect 999 Gimmighoul Coins, then level it up.",
+    "audiencePromise": "Reveal why Gimmighoul is #999, make the coin mechanic visually satisfying, then pay it off by landing on Pokémon #1000.",
+    "openLoop": "Why does Pokémon #999 need exactly 999 coins?",
+    "payoff": "The 999-coin requirement turns Gimmighoul into Gholdengo, Pokédex #1000.",
+    "targetEmotion": "surprise",
+    "engagementQuestion": "Is 999 coins a brilliant evolution gimmick or just too much work?",
+    "targetSecondsBetweenVisualChanges": 0.8
+  },
+  "subject": {
+    "name": "Gimmighoul",
+    "index": "#999",
+    "category": "Coin Chest Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/999.png"
+  },
+  "evolutions": [
+    {"name": "Gimmighoul", "index": "#999", "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/999.png"},
+    {"name": "Gholdengo", "index": "#1000", "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1000.png"}
+  ],
+  "format": {"width": 1080, "height": 1920, "fps": 30},
+  "palette": {"background": "#120d05", "surface": "#2d2108", "primary": "#f6c945", "secondary": "#8a6cff", "ink": "#fff9df"},
+  "audio": {
+    "music": "generated/gimmighoul-999-bed.wav",
+    "musicVolume": 0.09,
+    "voice": {
+      "provider": "openai",
+      "model": "gpt-4o-mini-tts",
+      "voice": "marin",
+      "instructions": "Fast, playful, curious short-form narrator. Sound like a knowledgeable Pokémon fan sharing a bizarre mechanic with a friend. Punch the words 999 and 1000. Keep the delivery energetic but natural, with tiny pauses before each reveal. Never imitate a known person or character.",
+      "speed": 1.08,
+      "output": "generated/gimmighoul-999-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "assets": [
+      {
+        "kind": "official character artwork",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/999.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "unverified",
+        "publicReleaseApproved": false,
+        "notes": "PokéAPI mirrors the file but does not grant this project a publication license. Internal prototype only pending legal review or replacement."
+      },
+      {
+        "kind": "official evolution artwork",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1000.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "unverified",
+        "publicReleaseApproved": false,
+        "notes": "Internal prototype only pending legal review or replacement."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "durationSeconds": 3.8,
+      "role": "hook",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.55,
+      "eyebrow": "POKÉDEX #999",
+      "headline": "999 COINS. ONE EVOLUTION.",
+      "narration": "This tiny Pokémon needs nine hundred ninety-nine coins to evolve.",
+      "caption": "999 COINS TO EVOLVE",
+      "visual": "hook",
+      "accent": "#f6c945"
+    },
+    {
+      "id": "identity",
+      "durationSeconds": 4.6,
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.8,
+      "eyebrow": "MEET GIMMIGHOUL",
+      "headline": "A GHOST IN A TREASURE CHEST",
+      "narration": "Meet Gimmighoul, Ghost-type Pokémon number nine hundred ninety-nine, hiding inside a treasure chest.",
+      "caption": "A GHOST. IN A CHEST.",
+      "visual": "gauntlet",
+      "facts": ["GHOST", "#999"]
+    },
+    {
+      "id": "not-normal",
+      "durationSeconds": 4.8,
+      "role": "escalation",
+      "shot": "comparison",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "NOT THE NORMAL WAY",
+      "headline": "NO STONE. NO TRADE.",
+      "narration": "There is no evolution stone, trade, or fixed evolution level.",
+      "caption": "NO STONE • NO TRADE",
+      "visual": "advantage",
+      "facts": ["STONE", "TRADE", "FIXED LEVEL"]
+    },
+    {
+      "id": "coins",
+      "durationSeconds": 6.0,
+      "role": "payoff",
+      "shot": "tracking",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.5,
+      "eyebrow": "THE REAL REQUIREMENT",
+      "headline": "COLLECT 999 GIMMIGHOUL COINS",
+      "narration": "You collect Gimmighoul Coins until the counter hits nine hundred ninety-nine. Then level Gimmighoul up once.",
+      "caption": "12 → 99 → 777 → 999",
+      "visual": "race",
+      "facts": ["12", "99", "777", "999"]
+    },
+    {
+      "id": "evolution",
+      "durationSeconds": 5.4,
+      "role": "payoff",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "AND THEN…",
+      "headline": "#999 BECOMES #1000",
+      "narration": "And that turns Pokémon nine hundred ninety-nine into Gholdengo, Pokémon number one thousand.",
+      "caption": "#999 → #1000",
+      "visual": "tradeoff",
+      "facts": ["GIMMIGHOUL #999", "GHOLDENGO #1000"],
+      "accent": "#ffd95b"
+    },
+    {
+      "id": "cta",
+      "durationSeconds": 3.8,
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "YOUR CALL",
+      "headline": "BRILLIANT OR TOO MUCH?",
+      "narration": "Brilliant evolution gimmick—or way too much work?",
+      "caption": "BRILLIANT OR RIDICULOUS?",
+      "visual": "cta",
+      "accent": "#f6c945"
+    }
+  ],
+  "sources": [
+    {"label": "The Pokémon Company — Gholdengo Pokédex entry and evolution chain", "url": "https://www.pokemon.com/us/pokedex/gholdengo/"},
+    {"label": "Bulbapedia — Gimmighoul evolution requirement and forms", "url": "https://bulbapedia.bulbagarden.net/wiki/Gimmighoul"}
+  ]
+}
