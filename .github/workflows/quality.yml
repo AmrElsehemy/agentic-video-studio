@@ -42,3 +42,28 @@ jobs:
             out/bulbasaur-001-cover.png
             out/bulbasaur-001-description.txt
           if-no-files-found: warn
+
+  render-gimmighoul-999:
+    runs-on: ubuntu-latest
+    needs: validate
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Install FFmpeg for render QA
+        run: sudo apt-get update && sudo apt-get install --yes ffmpeg
+      - run: npm run video -- gimmighoul-999
+      - run: npm run still -- gimmighoul-999
+      - run: npm run description -- gimmighoul-999
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gimmighoul-999
+          path: |
+            out/gimmighoul-999.mp4
+            out/gimmighoul-999-cover.png
+            out/gimmighoul-999-description.txt
+          if-no-files-found: warn
