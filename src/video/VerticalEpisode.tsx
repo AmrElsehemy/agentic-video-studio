@@ -5,18 +5,20 @@ import {DarmanitanScene} from './DarmanitanScene';
 import {GimmighoulScene} from './GimmighoulScene';
 import {PokeProfileScene} from './PokeProfileScene';
 import {Scene} from './scene';
+import {TerapagosScene} from './TerapagosScene';
 
 export const VerticalEpisode: React.FC<{manifest: VideoManifest}> = ({manifest}) => {
   let cursor = 0;
   const useDarmanitan = manifest.id === 'darmanitan-555';
   const useGimmighoul = manifest.id === 'gimmighoul-999';
+  const useTerapagos = manifest.id === 'terapagos-1024';
   const usePokeProfile = manifest.show.id === 'pokepulses';
 
   const sequences = manifest.scenes.map((scene, index) => {
     const from = cursor;
     const durationInFrames = Math.round(scene.durationSeconds * manifest.format.fps);
     cursor += durationInFrames;
-    const SceneRenderer = useDarmanitan ? DarmanitanScene : useGimmighoul ? GimmighoulScene : usePokeProfile ? PokeProfileScene : Scene;
+    const SceneRenderer = useDarmanitan ? DarmanitanScene : useGimmighoul ? GimmighoulScene : useTerapagos ? TerapagosScene : usePokeProfile ? PokeProfileScene : Scene;
 
     return (
       <Sequence key={scene.id} from={from} durationInFrames={durationInFrames} premountFor={30}>
