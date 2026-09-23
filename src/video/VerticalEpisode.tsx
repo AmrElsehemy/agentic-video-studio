@@ -1,12 +1,14 @@
 import React from 'react';
 import {AbsoluteFill, Audio, Sequence, staticFile} from 'remotion';
 import type {VideoManifest} from '../schema';
+import {DarmanitanScene} from './DarmanitanScene';
 import {GimmighoulScene} from './GimmighoulScene';
 import {PokeProfileScene} from './PokeProfileScene';
 import {Scene} from './scene';
 
 export const VerticalEpisode: React.FC<{manifest: VideoManifest}> = ({manifest}) => {
   let cursor = 0;
+  const useDarmanitan = manifest.id === 'darmanitan-555';
   const useGimmighoul = manifest.id === 'gimmighoul-999';
   const usePokeProfile = manifest.show.id === 'pokepulses';
 
@@ -14,7 +16,7 @@ export const VerticalEpisode: React.FC<{manifest: VideoManifest}> = ({manifest})
     const from = cursor;
     const durationInFrames = Math.round(scene.durationSeconds * manifest.format.fps);
     cursor += durationInFrames;
-    const SceneRenderer = useGimmighoul ? GimmighoulScene : usePokeProfile ? PokeProfileScene : Scene;
+    const SceneRenderer = useDarmanitan ? DarmanitanScene : useGimmighoul ? GimmighoulScene : usePokeProfile ? PokeProfileScene : Scene;
 
     return (
       <Sequence key={scene.id} from={from} durationInFrames={durationInFrames} premountFor={30}>
