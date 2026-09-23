@@ -28,7 +28,7 @@ export const videoSchema = z.object({
   }),
   title: z.string().min(1),
   direction: z.object({
-    storyPattern: z.enum(['profile', 'mechanic', 'debate']).default('profile'),
+    storyPattern: z.enum(['profile', 'mechanic', 'reveal', 'debate']).default('profile'),
     premise: z.string().min(1).max(140),
     audiencePromise: z.string().min(1).max(140),
     openLoop: z.string().min(1).max(140),
