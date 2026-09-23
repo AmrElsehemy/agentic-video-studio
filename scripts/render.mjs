@@ -8,6 +8,13 @@ const episodeId = args.find((arg) => !arg.startsWith('--')) ?? 'bulbasaur-001';
 const requestedVoice = args.find((arg) => arg.startsWith('--voice='))?.split('=')[1] ?? process.env.VOICE_PROVIDER ?? 'auto';
 if (!['auto', 'openai', 'local', 'none'].includes(requestedVoice)) throw new Error(`Unsupported voice selection: ${requestedVoice}`);
 const {root, manifestPath} = findManifest(episodeId);
+
+// Validate every manifest before Remotion bundles the project. The Studio root
+// imports a default episode, so an invalid unrelated manifest can otherwise
+// break rendering of a perfectly valid target episode.
+const validation = spawnSync(process.execPath, ['--import', 'tsx', 'scripts/validate.ts'], {cwd: root, stdio: 'inherit'});
+if (validation.status !== 0) process.exit(validation.status ?? 1);
+
 const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
 const propsPath = path.join(root, 'out', `${episodeId}.props.json`);
 const outputPath = path.join(root, 'out', `${episodeId}.mp4`);
