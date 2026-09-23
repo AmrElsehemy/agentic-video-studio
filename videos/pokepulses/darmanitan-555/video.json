@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "id": "darmanitan-555",
+  "show": {"id": "pokepulses", "name": "PokePulses", "handle": "@PokePulses"},
+  "title": "The Pokémon That Changes When Its HP Hits Half",
+  "direction": {
+    "storyPattern": "mechanic",
+    "premise": "Darmanitan can transform in battle when its HP falls to half or less.",
+    "audiencePromise": "Show the 50% HP trigger, the type change, and the dramatic stat swap of Zen Mode.",
+    "openLoop": "What happens to Pokémon #555 when its HP drops to half?",
+    "payoff": "Zen Mode turns Darmanitan from pure Fire into Fire/Psychic and completely reshapes its battle stats.",
+    "targetEmotion": "surprise",
+    "engagementQuestion": "Would you risk dropping below half HP to trigger Zen Mode?",
+    "targetSecondsBetweenVisualChanges": 0.7
+  },
+  "subject": {
+    "name": "Darmanitan",
+    "index": "#555",
+    "category": "Blazing Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/555.png"
+  },
+  "evolutions": [],
+  "format": {"width": 1080, "height": 1920, "fps": 30},
+  "palette": {"background": "#160607", "surface": "#351012", "primary": "#ff5b36", "secondary": "#54a9ff", "ink": "#fff6ec"},
+  "audio": {
+    "music": "generated/darmanitan-555-bed.wav",
+    "musicVolume": 0.09,
+    "voice": {
+      "provider": "openai",
+      "model": "gpt-4o-mini-tts",
+      "voice": "marin",
+      "instructions": "Fast, energetic Pokémon short narrator. Start punchy and surprised, build tension as the HP falls, then slow for half a beat before the Zen Mode reveal. Keep it playful, crisp, and natural. Never imitate a known person or character.",
+      "speed": 1.08,
+      "output": "generated/darmanitan-555-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "assets": [
+      {"kind": "official character artwork", "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/555.png", "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK", "licenseStatus": "unverified", "publicReleaseApproved": false, "notes": "Internal prototype only pending legal review or replacement."},
+      {"kind": "official Zen Mode artwork mirror", "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10017.png", "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK", "licenseStatus": "unverified", "publicReleaseApproved": false, "notes": "Internal prototype only pending legal review or replacement."}
+    ]
+  },
+  "scenes": [
+    {"id": "hook", "durationSeconds": 4.2, "role": "hook", "shot": "impact", "subjectFocus": "primary", "beatEverySeconds": 0.5, "eyebrow": "POKÉDEX #555", "headline": "HURT IT. IT TRANSFORMS.", "narration": "This Pokémon can transform when its health drops to half.", "caption": "50% HP = TRANSFORMATION", "visual": "hook", "accent": "#ff5b36"},
+    {"id": "identity", "durationSeconds": 4.8, "role": "evidence", "shot": "macro", "subjectFocus": "primary", "beatEverySeconds": 0.7, "eyebrow": "MEET DARMANITAN", "headline": "PURE FIRE. FULL POWER.", "narration": "Darmanitan number five fifty-five normally fights as a pure Fire type.", "caption": "STANDARD MODE • FIRE", "visual": "gauntlet", "facts": ["#555", "FIRE"]},
+    {"id": "hp-drop", "durationSeconds": 5.0, "role": "escalation", "shot": "tracking", "subjectFocus": "secondary", "beatEverySeconds": 0.45, "eyebrow": "WATCH THE HP", "headline": "100 → 75 → 51 → 50", "narration": "But with Zen Mode, the moment its HP reaches half or less, everything changes.", "caption": "THE TRIGGER IS 50%", "visual": "race", "facts": ["100%", "75%", "51%", "50%"]},
+    {"id": "transform", "durationSeconds": 5.2, "role": "payoff", "shot": "comparison", "subjectFocus": "primary", "beatEverySeconds": 0.55, "eyebrow": "ZEN MODE", "headline": "FIRE BECOMES FIRE + PSYCHIC", "narration": "It turns blue, enters Zen Mode, and becomes Fire and Psychic type.", "caption": "FIRE → FIRE + PSYCHIC", "visual": "advantage", "facts": ["FIRE", "PSYCHIC"]},
+    {"id": "stats", "durationSeconds": 5.8, "role": "payoff", "shot": "wide", "subjectFocus": "secondary", "beatEverySeconds": 0.65, "eyebrow": "THE WEIRD PART", "headline": "ITS STATS FLIP TOO", "narration": "Its huge Attack collapses, while Special Attack and both defenses jump massively.", "caption": "140 ATTACK → 140 SPECIAL ATTACK", "visual": "tradeoff", "facts": ["ATK 140→30", "SP.ATK 30→140", "DEF 55→105", "SP.DEF 55→105"]},
+    {"id": "cta", "durationSeconds": 4.2, "role": "interaction", "shot": "interaction", "subjectFocus": "primary", "beatEverySeconds": 0.7, "eyebrow": "YOUR CALL", "headline": "WOULD YOU TRIGGER IT?", "narration": "Would you risk half your health just to unlock Zen Mode?", "caption": "RISK IT FOR ZEN MODE?", "visual": "cta", "accent": "#54a9ff"}
+  ],
+  "sources": [
+    {"label": "Bulbapedia — Zen Mode ability mechanics", "url": "https://bulbapedia.bulbagarden.net/wiki/Zen_Mode_(Ability)"},
+    {"label": "Bulbapedia — Darmanitan forms, typing, and stats", "url": "https://bulbapedia.bulbagarden.net/wiki/Darmanitan_(Pok%C3%A9mon)"}
+  ]
+}
