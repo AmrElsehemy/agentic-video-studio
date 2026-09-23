@@ -42,110 +42,17 @@
     "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
     "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
     "assets": [
-      {
-        "kind": "official character artwork",
-        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/999.png",
-        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
-        "licenseStatus": "unverified",
-        "publicReleaseApproved": false,
-        "notes": "PokéAPI mirrors the file but does not grant this project a publication license. Internal prototype only pending legal review or replacement."
-      },
-      {
-        "kind": "official evolution artwork",
-        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1000.png",
-        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
-        "licenseStatus": "unverified",
-        "publicReleaseApproved": false,
-        "notes": "Internal prototype only pending legal review or replacement."
-      }
+      {"kind": "official character artwork", "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/999.png", "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK", "licenseStatus": "unverified", "publicReleaseApproved": false, "notes": "PokéAPI mirrors the file but does not grant this project a publication license. Internal prototype only pending legal review or replacement."},
+      {"kind": "official evolution artwork", "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1000.png", "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK", "licenseStatus": "unverified", "publicReleaseApproved": false, "notes": "Internal prototype only pending legal review or replacement."}
     ]
   },
   "scenes": [
-    {
-      "id": "hook",
-      "durationSeconds": 4.2,
-      "role": "hook",
-      "shot": "impact",
-      "subjectFocus": "primary",
-      "beatEverySeconds": 0.55,
-      "eyebrow": "POKÉDEX #999",
-      "headline": "999 COINS. ONE EVOLUTION.",
-      "narration": "This Pokémon needs nine hundred ninety-nine coins to evolve.",
-      "caption": "999 COINS TO EVOLVE",
-      "visual": "hook",
-      "accent": "#f6c945"
-    },
-    {
-      "id": "identity",
-      "durationSeconds": 4.8,
-      "role": "evidence",
-      "shot": "macro",
-      "subjectFocus": "primary",
-      "beatEverySeconds": 0.8,
-      "eyebrow": "MEET GIMMIGHOUL",
-      "headline": "A GHOST IN A TREASURE CHEST",
-      "narration": "Meet Gimmighoul: Ghost-type, number nine hundred ninety-nine, hiding in a treasure chest.",
-      "caption": "A GHOST. IN A CHEST.",
-      "visual": "gauntlet",
-      "facts": ["GHOST", "#999"]
-    },
-    {
-      "id": "not-normal",
-      "durationSeconds": 4.4,
-      "role": "escalation",
-      "shot": "comparison",
-      "subjectFocus": "secondary",
-      "beatEverySeconds": 0.7,
-      "eyebrow": "NOT THE NORMAL WAY",
-      "headline": "NO STONE. NO TRADE.",
-      "narration": "No evolution stone. No trade. No fixed evolution level.",
-      "caption": "NO STONE • NO TRADE",
-      "visual": "advantage",
-      "facts": ["STONE", "TRADE", "FIXED LEVEL"]
-    },
-    {
-      "id": "coins",
-      "durationSeconds": 5.4,
-      "role": "payoff",
-      "shot": "tracking",
-      "subjectFocus": "primary",
-      "beatEverySeconds": 0.5,
-      "eyebrow": "THE REAL REQUIREMENT",
-      "headline": "COLLECT 999 GIMMIGHOUL COINS",
-      "narration": "Collect coins until you hit nine hundred ninety-nine. Then level Gimmighoul up.",
-      "caption": "12 → 99 → 777 → 999",
-      "visual": "race",
-      "facts": ["12", "99", "777", "999"]
-    },
-    {
-      "id": "evolution",
-      "durationSeconds": 4.8,
-      "role": "payoff",
-      "shot": "impact",
-      "subjectFocus": "primary",
-      "beatEverySeconds": 0.65,
-      "eyebrow": "AND THEN…",
-      "headline": "#999 BECOMES #1000",
-      "narration": "That turns number nine hundred ninety-nine into Gholdengo: Pokémon one thousand.",
-      "caption": "#999 → #1000",
-      "visual": "tradeoff",
-      "facts": ["GIMMIGHOUL #999", "GHOLDENGO #1000"],
-      "accent": "#ffd95b"
-    },
-    {
-      "id": "cta",
-      "durationSeconds": 3.6,
-      "role": "interaction",
-      "shot": "interaction",
-      "subjectFocus": "primary",
-      "beatEverySeconds": 0.7,
-      "eyebrow": "YOUR CALL",
-      "headline": "BRILLIANT OR TOO MUCH?",
-      "narration": "Brilliant gimmick—or way too much work?",
-      "caption": "BRILLIANT OR RIDICULOUS?",
-      "visual": "cta",
-      "accent": "#f6c945"
-    }
+    {"id": "hook", "durationSeconds": 4.4, "role": "hook", "shot": "impact", "subjectFocus": "primary", "beatEverySeconds": 0.55, "eyebrow": "POKÉDEX #999", "headline": "999 COINS. ONE EVOLUTION.", "narration": "This Pokémon needs nine hundred ninety-nine coins to evolve.", "caption": "999 COINS TO EVOLVE", "visual": "hook", "accent": "#f6c945"},
+    {"id": "identity", "durationSeconds": 5.7, "role": "evidence", "shot": "macro", "subjectFocus": "primary", "beatEverySeconds": 0.8, "eyebrow": "MEET GIMMIGHOUL", "headline": "A GHOST IN A TREASURE CHEST", "narration": "Meet Gimmighoul: Ghost-type, number nine hundred ninety-nine, hiding in a treasure chest.", "caption": "A GHOST. IN A CHEST.", "visual": "gauntlet", "facts": ["GHOST", "#999"]},
+    {"id": "not-normal", "durationSeconds": 4.8, "role": "escalation", "shot": "comparison", "subjectFocus": "secondary", "beatEverySeconds": 0.7, "eyebrow": "NOT THE NORMAL WAY", "headline": "NO STONE. NO TRADE.", "narration": "No evolution stone. No trade. No fixed evolution level.", "caption": "NO STONE • NO TRADE", "visual": "advantage", "facts": ["STONE", "TRADE", "FIXED LEVEL"]},
+    {"id": "coins", "durationSeconds": 5.9, "role": "payoff", "shot": "tracking", "subjectFocus": "primary", "beatEverySeconds": 0.5, "eyebrow": "THE REAL REQUIREMENT", "headline": "COLLECT 999 GIMMIGHOUL COINS", "narration": "Collect coins until you hit nine hundred ninety-nine. Then level Gimmighoul up.", "caption": "12 → 99 → 777 → 999", "visual": "race", "facts": ["12", "99", "777", "999"]},
+    {"id": "evolution", "durationSeconds": 6.0, "role": "payoff", "shot": "impact", "subjectFocus": "primary", "beatEverySeconds": 0.65, "eyebrow": "AND THEN…", "headline": "#999 BECOMES #1000", "narration": "That turns number nine hundred ninety-nine into Gholdengo: Pokémon one thousand.", "caption": "#999 → #1000", "visual": "tradeoff", "facts": ["GIMMIGHOUL #999", "GHOLDENGO #1000"], "accent": "#ffd95b"},
+    {"id": "cta", "durationSeconds": 4.2, "role": "interaction", "shot": "interaction", "subjectFocus": "primary", "beatEverySeconds": 0.7, "eyebrow": "YOUR CALL", "headline": "BRILLIANT OR TOO MUCH?", "narration": "Brilliant gimmick—or way too much work?", "caption": "BRILLIANT OR RIDICULOUS?", "visual": "cta", "accent": "#f6c945"}
   ],
   "sources": [
     {"label": "The Pokémon Company — Gholdengo Pokédex entry and evolution chain", "url": "https://www.pokemon.com/us/pokedex/gholdengo/"},
