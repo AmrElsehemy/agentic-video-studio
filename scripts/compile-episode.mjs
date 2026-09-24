@@ -4,8 +4,10 @@ import {fileURLToPath} from 'node:url';
 import {getArchetype} from './archetypes.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const episodeId = process.argv[2];
-if (!episodeId) throw new Error('Usage: npm run episode:compile -- <episode-id>');
+const args = process.argv.slice(2);
+const episodeId = args.find((arg) => !arg.startsWith('--'));
+const checkOnly = args.includes('--check');
+if (!episodeId) throw new Error('Usage: npm run episode:compile -- <episode-id> [--check]');
 
 const findDraft = () => {
   const draftsRoot = path.join(root, 'drafts');
@@ -37,7 +39,8 @@ const numbers = (text) => (text.match(/\b\d[\d,]*\b/g) ?? []).length * 0.18;
 const estimatedSpeech = (text) => (words(text) / BASE_WPM) * 60 / speed + punctuation(text) + numbers(text);
 const safeDuration = (text) => {
   const required = estimatedSpeech(text) / SAFE_RATIO + END_PADDING;
-  return Math.min(MAX_SCENE, Math.max(MIN_SCENE, Math.ceil(required * 10) / 10));
+  if (required > MAX_SCENE) throw new Error(`Narration needs ${required.toFixed(2)}s but compiler max scene is ${MAX_SCENE}s. Shorten: "${text}"`);
+  return Math.max(MIN_SCENE, Math.ceil(required * 10) / 10);
 };
 
 const trim = (value, max, field) => {
@@ -53,7 +56,7 @@ const scenes = draft.scenes.map((scene, index) => ({
   shot: archetype.shots[index],
   subjectFocus: archetype.subjectFocus[index],
   beatEverySeconds: scene.beatEverySeconds ?? archetype.defaultBeat,
-  eyebrow: scene.eyebrow ? trim(scene.eyebrow, 40, `scenes[${index}].eyebrow`) : undefined,
+  ...(scene.eyebrow ? {eyebrow: trim(scene.eyebrow, 40, `scenes[${index}].eyebrow`)} : {}),
   headline: trim(scene.headline, 70, `scenes[${index}].headline`),
   narration: scene.narration,
   caption: trim(scene.caption, 120, `scenes[${index}].caption`),
@@ -102,8 +105,17 @@ const manifest = {
 };
 
 const outputDir = path.join(root, 'videos', showId, episodeId);
-fs.mkdirSync(outputDir, {recursive: true});
 const outputPath = path.join(outputDir, 'video.json');
-fs.writeFileSync(outputPath, `${JSON.stringify(manifest, null, 2)}\n`);
-console.log(`✓ compiled ${episodeId}: ${draft.storyPattern} → ${path.relative(root, outputPath)} (${total.toFixed(1)}s)`);
-console.log('Next: npm run episode:check -- ' + episodeId);
+const compiled = `${JSON.stringify(manifest, null, 2)}\n`;
+
+if (checkOnly) {
+  if (!fs.existsSync(outputPath)) throw new Error(`${episodeId} has a draft but no compiled video.json. Run: npm run episode:compile -- ${episodeId}`);
+  const current = fs.readFileSync(outputPath, 'utf8');
+  if (current !== compiled) throw new Error(`${episodeId} compiled manifest is stale or hand-edited. Run: npm run episode:compile -- ${episodeId}`);
+  console.log(`✓ compiled artifact matches draft: ${episodeId} (${total.toFixed(1)}s)`);
+} else {
+  fs.mkdirSync(outputDir, {recursive: true});
+  fs.writeFileSync(outputPath, compiled);
+  console.log(`✓ compiled ${episodeId}: ${draft.storyPattern} → ${path.relative(root, outputPath)} (${total.toFixed(1)}s)`);
+  console.log('Next: npm run episode:check -- ' + episodeId);
+}
