@@ -7,6 +7,7 @@ export const episodeDraftSchema = z.object({
   id: z.string().regex(/^[a-z0-9-]+$/),
   title: z.string().min(1).max(120),
   storyPattern,
+  numberRelevant: z.boolean().default(false),
   premise: z.string().min(1).max(140),
   audiencePromise: z.string().min(1).max(140),
   openLoop: z.string().min(1).max(140),
