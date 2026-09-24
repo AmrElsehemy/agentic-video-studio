@@ -1,6 +1,7 @@
 import React from 'react';
 import {AbsoluteFill, Img, interpolate, spring, useCurrentFrame, useVideoConfig} from 'remotion';
 import type {VideoManifest, VideoScene} from '../schema';
+import {bodyFont, displayFont} from './typography';
 
 const clamp = {extrapolateLeft: 'clamp' as const, extrapolateRight: 'clamp' as const};
 
@@ -12,110 +13,121 @@ type Props = {
   durationInFrames: number;
 };
 
-const HeroArt: React.FC<{src: string; frame: number; size?: number; hidden?: boolean}> = ({src, frame, size = 610, hidden = false}) => {
-  const enter = spring({frame, fps: 30, config: {damping: 14, stiffness: 135}});
-  const float = Math.sin(frame / 11) * 12;
-  return <Img src={src} style={{width: size, height: size, objectFit: 'contain', opacity: enter, transform: `translateY(${float + (1 - enter) * 80}px) scale(${0.78 + enter * 0.22})`, filter: `${hidden ? 'brightness(0)' : ''} drop-shadow(0 34px 38px rgba(0,0,0,.42))`}} />;
+const Art: React.FC<{src: string; frame: number; size?: number; hidden?: boolean; rotate?: number}> = ({src, frame, size = 610, hidden = false, rotate = 0}) => {
+  const enter = spring({frame, fps: 30, config: {damping: 13, stiffness: 150, mass: .8}});
+  const float = Math.sin(frame / 10) * 11;
+  return <Img src={src} style={{width: size, height: size, objectFit: 'contain', opacity: enter, transform: `translateY(${float + (1 - enter) * 90}px) rotate(${rotate}deg) scale(${0.72 + enter * 0.28})`, filter: `${hidden ? 'brightness(0)' : ''} drop-shadow(0 34px 38px rgba(0,0,0,.44))`}} />;
 };
 
-const FactPill: React.FC<{text: string; index: number; frame: number; accent: string}> = ({text, index, frame, accent}) => {
-  const enter = spring({frame: frame - index * 7, fps: 30, config: {damping: 16, stiffness: 160}});
-  return <div style={{padding: '18px 25px', borderRadius: 999, border: `2px solid ${accent}99`, background: `${accent}18`, fontSize: 31, fontWeight: 900, letterSpacing: 1.2, opacity: enter, transform: `scale(${0.82 + enter * 0.18})`}}>{text}</div>;
+const FactCard: React.FC<{text: string; index: number; frame: number; accent: string; compact?: boolean}> = ({text, index, frame, accent, compact = false}) => {
+  const enter = spring({frame: frame - index * 7, fps: 30, config: {damping: 15, stiffness: 170}});
+  return <div style={{padding: compact ? '14px 19px' : '20px 25px', borderRadius: compact ? 16 : 24, border: `2px solid ${accent}65`, background: `${accent}12`, fontFamily: displayFont, fontSize: compact ? 27 : 34, letterSpacing: 1.3, opacity: enter, transform: `translateY(${(1 - enter) * 26}px) scale(${.9 + enter * .1})`}}>{text}</div>;
 };
 
-const Facts: React.FC<{scene: VideoScene; frame: number; accent: string}> = ({scene, frame, accent}) => (
-  <div style={{display: 'flex', flexWrap: 'wrap', gap: 16, justifyContent: 'center', maxWidth: 900}}>
-    {(scene.facts ?? []).map((fact, index) => <FactPill key={`${fact}-${index}`} text={fact} index={index} frame={frame} accent={accent} />)}
-  </div>
-);
+const TransformationVisual: React.FC<{scene: VideoScene; manifest: VideoManifest; sceneIndex: number; frame: number; durationInFrames: number; accent: string}> = ({scene, manifest, sceneIndex, frame, durationInFrames, accent}) => {
+  const subject = manifest.subject.artworkUrl;
+  const evolved = manifest.evolutions[0]?.artworkUrl;
+  const artwork = scene.artworkUrl ?? subject;
+  const facts = scene.facts ?? [];
+
+  if (sceneIndex === 0) {
+    const revealAt = Math.round(durationInFrames * .34);
+    return <>
+      <div style={{position: 'absolute', left: 40, right: 40, top: 20, fontFamily: displayFont, fontSize: 124, lineHeight: .82, textAlign: 'left', letterSpacing: 1}}>{scene.headline}</div>
+      <div style={{position: 'absolute', right: -40, bottom: 20}}><Art src={artwork} frame={frame - revealAt} hidden={scene.subjectFocus === 'hidden' && frame < revealAt} size={760} rotate={-4} /></div>
+      <div style={{position: 'absolute', left: 45, bottom: 95, width: 390, display: 'grid', gap: 12}}>{facts.map((fact, i) => <FactCard key={fact} text={fact} index={i} frame={frame} accent={accent} compact />)}</div>
+    </>;
+  }
+
+  if (sceneIndex === 1) {
+    return <>
+      <div style={{position: 'absolute', left: -65, top: 90}}><Art src={artwork} frame={frame} size={760} rotate={3} /></div>
+      <div style={{position: 'absolute', right: 40, top: 180, width: 400, display: 'grid', gap: 17}}>{facts.map((fact, i) => <FactCard key={fact} text={fact} index={i} frame={frame} accent={accent} />)}</div>
+      <div style={{position: 'absolute', right: 40, bottom: 100, width: 420, fontFamily: displayFont, fontSize: 82, lineHeight: .88, textAlign: 'right'}}>{scene.caption}</div>
+    </>;
+  }
+
+  if (sceneIndex === 2) {
+    const sweep = interpolate(frame, [0, durationInFrames], [-260, 1000], clamp);
+    return <>
+      <div style={{position: 'absolute', left: 70, top: 85}}><Art src={artwork} frame={frame} size={610} /></div>
+      <div style={{position: 'absolute', left: sweep, top: 670, width: 300, height: 12, borderRadius: 99, background: accent, boxShadow: `0 0 34px ${accent}`}} />
+      <div style={{position: 'absolute', left: 55, right: 55, bottom: 105, display: 'flex', justifyContent: 'center', gap: 18}}>{facts.map((fact, i) => <FactCard key={fact} text={fact} index={i} frame={frame} accent={accent} />)}</div>
+    </>;
+  }
+
+  if (sceneIndex === 3 && evolved) {
+    const switcher = interpolate(frame, [durationInFrames * .2, durationInFrames * .78], [0, 1], clamp);
+    return <>
+      <div style={{position: 'absolute', left: 35, top: 145, opacity: 1 - switcher, transform: `translateX(${-switcher * 130}px)`}}><Art src={subject} frame={frame} size={500} /></div>
+      <div style={{position: 'absolute', right: 20, top: 95, opacity: switcher, transform: `translateX(${(1 - switcher) * 150}px)`}}><Art src={evolved} frame={Math.max(0, frame - Math.round(durationInFrames * .3))} size={650} /></div>
+      <div style={{position: 'absolute', left: 390, top: 430, fontFamily: displayFont, fontSize: 120, color: accent}}>→</div>
+      <div style={{position: 'absolute', left: 55, right: 55, bottom: 105, display: 'flex', justifyContent: 'center', gap: 18}}>{facts.map((fact, i) => <FactCard key={fact} text={fact} index={i} frame={frame} accent={accent} />)}</div>
+    </>;
+  }
+
+  if (sceneIndex === 4) {
+    return <>
+      <div style={{position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center'}}><div style={{fontFamily: displayFont, fontSize: 230, color: `${accent}16`, letterSpacing: 8, transform: 'rotate(-7deg)'}}>{facts[0] ?? 'EVOLVED'}</div></div>
+      <div style={{position: 'absolute', right: -15, top: 55}}><Art src={artwork} frame={frame} size={790} rotate={-3} /></div>
+      <div style={{position: 'absolute', left: 45, bottom: 90, width: 430, display: 'grid', gap: 14}}>{facts.slice(1).map((fact, i) => <FactCard key={fact} text={fact} index={i} frame={frame} accent={accent} />)}</div>
+    </>;
+  }
+
+  if (sceneIndex === 5 && evolved) {
+    const pulse = 1 + Math.sin(frame / 4) * .025;
+    return <>
+      <div style={{position: 'absolute', left: -50, top: 165, transform: `scale(${pulse})`}}><Art src={subject} frame={frame} size={520} /></div>
+      <div style={{position: 'absolute', right: -65, top: 100, transform: `scale(${2 - pulse})`}}><Art src={evolved} frame={frame - 5} size={650} /></div>
+      <div style={{position: 'absolute', left: 455, top: 410, width: 145, height: 145, borderRadius: '50%', background: accent, color: manifest.palette.background, display: 'grid', placeItems: 'center', fontFamily: displayFont, fontSize: 55, boxShadow: `0 0 55px ${accent}88`}}>VS</div>
+    </>;
+  }
+
+  return <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%'}}><Art src={artwork} frame={frame} size={650} /></div>;
+};
+
+const GenericVisual: React.FC<{scene: VideoScene; manifest: VideoManifest; sceneIndex: number; frame: number; durationInFrames: number; accent: string}> = ({scene, manifest, sceneIndex, frame, durationInFrames, accent}) => {
+  const artwork = scene.artworkUrl ?? manifest.subject.artworkUrl;
+  const facts = scene.facts ?? [];
+  const alignRight = sceneIndex % 2 === 0;
+  const revealAt = Math.round(durationInFrames * .35);
+  return <>
+    <div style={{position: 'absolute', [alignRight ? 'right' : 'left']: -30, top: sceneIndex === 0 ? 40 : 105}}><Art src={artwork} frame={frame - (sceneIndex === 0 ? revealAt : 0)} hidden={scene.subjectFocus === 'hidden' && frame < revealAt} size={sceneIndex === 0 ? 740 : 620} rotate={alignRight ? -3 : 3} /></div>
+    <div style={{position: 'absolute', [alignRight ? 'left' : 'right']: 45, bottom: 95, width: 400, display: 'grid', gap: 14}}>{facts.map((fact, i) => <FactCard key={fact} text={fact} index={i} frame={frame} accent={accent} />)}</div>
+  </>;
+};
 
 export const CompiledEpisodeScene: React.FC<Props> = ({scene, manifest, sceneIndex, sceneCount, durationInFrames}) => {
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
   const accent = scene.accent ?? manifest.palette.primary;
-  const artwork = scene.artworkUrl ?? manifest.subject.artworkUrl;
-  const enter = spring({frame, fps, config: {damping: 16, stiffness: 145}});
+  const enter = spring({frame, fps, config: {damping: 17, stiffness: 155}});
   const exit = interpolate(frame, [Math.max(0, durationInFrames - 8), durationInFrames], [1, 0], clamp);
   const progress = (sceneIndex + frame / Math.max(1, durationInFrames)) / sceneCount;
   const pattern = manifest.direction.storyPattern;
+  const glow = pattern === 'mechanic' ? '#f4c84d' : pattern === 'transformation' ? manifest.palette.secondary : pattern === 'mystery' ? '#a875ff' : accent;
+  const showNumber = Boolean(manifest.direction.numberRelevant);
 
-  const patternGlow: Record<string, string> = {
-    profile: manifest.palette.primary,
-    mechanic: '#f4c84d',
-    transformation: '#58b8ff',
-    mystery: '#a875ff',
-    comparison: '#72e0b5',
-    reveal: '#a875ff',
-    debate: '#ff7b72',
-  };
-  const glow = patternGlow[pattern] ?? accent;
-
-  let visual: React.ReactNode;
-  if (scene.visual === 'hook') {
-    const revealAt = Math.round(durationInFrames * 0.42);
-    visual = <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 22}}>
-      <div style={{fontSize: 150, fontWeight: 950, lineHeight: .85, color: accent, letterSpacing: -5}}>{manifest.subject.index}</div>
-      <HeroArt src={artwork} frame={frame - revealAt} hidden={scene.subjectFocus === 'hidden' && frame < revealAt} size={650} />
-      <Facts scene={scene} frame={frame} accent={accent} />
-    </div>;
-  } else if (scene.visual === 'gauntlet') {
-    visual = <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 30}}>
-      <HeroArt src={artwork} frame={frame} size={570} />
-      <Facts scene={scene} frame={frame} accent={accent} />
-    </div>;
-  } else if (scene.visual === 'advantage') {
-    visual = <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 36}}>
-      <HeroArt src={artwork} frame={frame} size={500} />
-      <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 18, width: 860}}>
-        {(scene.facts ?? []).map((fact, index) => {
-          const e = spring({frame: frame - index * 8, fps, config: {damping: 15, stiffness: 150}});
-          return <div key={fact} style={{padding: 28, borderRadius: 30, background: `${accent}17`, border: `2px solid ${accent}55`, textAlign: 'center', fontSize: 38, fontWeight: 950, opacity: e, transform: `translateY(${(1 - e) * 35}px)`}}>{fact}</div>;
-        })}
-      </div>
-    </div>;
-  } else if (scene.visual === 'race') {
-    const facts = scene.facts ?? [];
-    visual = <div style={{width: 880, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 30}}>
-      <HeroArt src={artwork} frame={frame} size={430} />
-      <div style={{width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}>
-        {facts.map((fact, index) => {
-          const active = frame >= (index / Math.max(1, facts.length)) * durationInFrames;
-          return <React.Fragment key={fact}>
-            <div style={{minWidth: 120, padding: '20px 18px', borderRadius: 24, textAlign: 'center', background: active ? accent : '#ffffff13', color: active ? manifest.palette.background : manifest.palette.ink, fontWeight: 950, fontSize: 30}}>{fact}</div>
-            {index < facts.length - 1 ? <div style={{height: 4, flex: 1, margin: '0 10px', background: active ? accent : '#ffffff20'}} /> : null}
-          </React.Fragment>;
-        })}
-      </div>
-    </div>;
-  } else if (scene.visual === 'tradeoff') {
-    visual = <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 28}}>
-      <HeroArt src={artwork} frame={frame} size={500} />
-      <Facts scene={scene} frame={frame} accent={accent} />
-      <div style={{fontSize: 92, fontWeight: 950, color: accent, transform: `scale(${0.9 + enter * 0.1})`}}>{scene.headline}</div>
-    </div>;
-  } else {
-    visual = <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 38}}>
-      <HeroArt src={artwork} frame={frame} size={600} />
-      <div style={{fontSize: 78, fontWeight: 950, textAlign: 'center', lineHeight: .98}}>{scene.headline}</div>
-      <Facts scene={scene} frame={frame} accent={accent} />
-    </div>;
-  }
-
-  return <AbsoluteFill style={{overflow: 'hidden', color: manifest.palette.ink, background: `radial-gradient(circle at 50% 36%, ${glow}35 0%, transparent 42%), linear-gradient(180deg, ${manifest.palette.surface}, ${manifest.palette.background} 62%)`, opacity: exit}}>
-    <div style={{position: 'absolute', inset: -260, opacity: .07, transform: `rotate(${frame * 0.08 + sceneIndex * 19}deg)`, background: `repeating-conic-gradient(from 0deg, transparent 0deg 18deg, ${glow} 18.4deg 19deg)`}} />
-    <div style={{position: 'absolute', top: 58, left: 64, right: 64, display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontWeight: 900, letterSpacing: 3}}>
-      <div style={{fontSize: 28}}>POKE<span style={{color: accent}}>PULSES</span></div>
-      <div style={{fontSize: 22, color: accent, border: `2px solid ${accent}`, borderRadius: 999, padding: '9px 16px'}}>{pattern.toUpperCase()}</div>
+  return <AbsoluteFill style={{overflow: 'hidden', color: manifest.palette.ink, background: `radial-gradient(circle at ${sceneIndex % 2 ? '25%' : '75%'} 38%, ${glow}30 0%, transparent 38%), linear-gradient(160deg, ${manifest.palette.surface}, ${manifest.palette.background} 64%)`, opacity: exit, fontFamily: bodyFont}}>
+    <div style={{position: 'absolute', inset: -260, opacity: .055, transform: `rotate(${frame * .07 + sceneIndex * 23}deg)`, background: `repeating-conic-gradient(from 0deg, transparent 0deg 20deg, ${glow} 20.4deg 21deg)`}} />
+    <div style={{position: 'absolute', top: 58, left: 58, right: 58, display: 'flex', justifyContent: 'space-between', alignItems: 'center', zIndex: 30}}>
+      <div style={{fontFamily: displayFont, fontSize: 29, letterSpacing: 5}}>POKE<span style={{color: accent}}>PULSES</span></div>
+      {showNumber ? <div style={{fontFamily: displayFont, fontSize: 24, color: accent, letterSpacing: 2}}>{manifest.subject.index}</div> : <div style={{fontFamily: displayFont, fontSize: 21, color: '#ffffff66', letterSpacing: 3}}>{String(sceneIndex + 1).padStart(2, '0')} / {String(sceneCount).padStart(2, '0')}</div>}
     </div>
-    <div style={{position: 'absolute', top: 126, left: 64, right: 64, height: 6, background: '#ffffff18', borderRadius: 99, overflow: 'hidden'}}><div style={{height: '100%', width: `${progress * 100}%`, background: accent}} /></div>
-    <div style={{position: 'absolute', top: 170, left: 54, right: 54, textAlign: 'center', opacity: enter}}>
-      <div style={{fontSize: 25, fontWeight: 900, letterSpacing: 4, color: accent}}>{scene.eyebrow}</div>
-      <div style={{fontSize: 68, fontWeight: 950, lineHeight: .98, marginTop: 14}}>{scene.headline}</div>
+    <div style={{position: 'absolute', top: 122, left: 58, right: 58, height: 5, background: '#ffffff16', borderRadius: 99, overflow: 'hidden', zIndex: 30}}><div style={{height: '100%', width: `${progress * 100}%`, background: accent, boxShadow: `0 0 22px ${accent}`}} /></div>
+
+    <div style={{position: 'absolute', top: 158, left: 54, right: 54, zIndex: 25, opacity: enter}}>
+      <div style={{fontFamily: displayFont, fontSize: 24, letterSpacing: 5, color: accent, marginBottom: 12}}>{scene.eyebrow}</div>
+      {sceneIndex !== 0 ? <div style={{fontFamily: displayFont, fontSize: 76, lineHeight: .86, letterSpacing: .5, maxWidth: 880}}>{scene.headline}</div> : null}
     </div>
-    <div style={{position: 'absolute', inset: '360px 60px 275px', display: 'flex', justifyContent: 'center', alignItems: 'center', opacity: enter}}>{visual}</div>
-    <div style={{position: 'absolute', left: 62, right: 62, bottom: 70, textAlign: 'center'}}>
-      <div style={{fontSize: 46, fontWeight: 950, lineHeight: 1, textTransform: 'uppercase'}}>{scene.caption}</div>
-      <div style={{display: 'flex', justifyContent: 'space-between', marginTop: 26, fontSize: 19, fontWeight: 800, color: '#ffffff88', letterSpacing: 2}}><span>{manifest.show.handle}</span><span>{String(sceneIndex + 1).padStart(2, '0')} / {String(sceneCount).padStart(2, '0')}</span></div>
+
+    <div style={{position: 'absolute', inset: '315px 35px 285px', zIndex: 10, opacity: enter}}>
+      {pattern === 'transformation' ? <TransformationVisual scene={scene} manifest={manifest} sceneIndex={sceneIndex} frame={frame} durationInFrames={durationInFrames} accent={accent} /> : <GenericVisual scene={scene} manifest={manifest} sceneIndex={sceneIndex} frame={frame} durationInFrames={durationInFrames} accent={accent} />}
+    </div>
+
+    <div style={{position: 'absolute', left: 58, right: 58, bottom: 66, zIndex: 30}}>
+      <div style={{fontFamily: displayFont, fontSize: 54, lineHeight: .92, textTransform: 'uppercase', maxWidth: 900}}>{scene.caption}</div>
+      <div style={{marginTop: 22, fontSize: 18, fontWeight: 800, color: '#ffffff72', letterSpacing: 2}}>{manifest.show.handle}</div>
     </div>
   </AbsoluteFill>;
 };
