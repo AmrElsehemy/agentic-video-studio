@@ -38,6 +38,7 @@ export const videoSchema = z.object({
   }),
   title: z.string().min(1),
   direction: z.object({
+    engineVersion: z.literal(2).optional(),
     storyPattern: storyPatternSchema.default('profile'),
     premise: z.string().min(1).max(140),
     audiencePromise: z.string().min(1).max(140),
