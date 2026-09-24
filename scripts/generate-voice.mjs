@@ -9,8 +9,6 @@ const args = process.argv.slice(2);
 const episodeId = args.find((arg) => !arg.startsWith('--')) ?? 'bulbasaur-001';
 const provider = args.find((arg) => arg.startsWith('--provider='))?.split('=')[1] ?? 'openai';
 if (!['openai', 'local'].includes(provider)) throw new Error(`Unsupported voice provider: ${provider}`);
-const apiKey = process.env.OPENAI_API_KEY;
-if (provider === 'openai' && !apiKey) throw new Error('OPENAI_API_KEY is required to generate OpenAI narration.');
 
 const {root, manifestPath} = findManifest(episodeId);
 const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
@@ -18,9 +16,13 @@ const config = manifest.audio.voice;
 if (!config) throw new Error(`${episodeId} does not define audio.voice.`);
 
 if (provider === 'openai') {
-  const preflight = spawnSync(process.execPath, ['scripts/preflight-voice.mjs', episodeId], {cwd: root, stdio: 'inherit'});
-  if (preflight.status !== 0) process.exit(preflight.status ?? 1);
+  console.log(`▶ certifying ${episodeId} before any paid TTS request`);
+  const certification = spawnSync(process.execPath, ['scripts/certify-episode.mjs', episodeId, '--fast'], {cwd: root, stdio: 'inherit'});
+  if (certification.status !== 0) process.exit(certification.status ?? 1);
 }
+
+const apiKey = process.env.OPENAI_API_KEY;
+if (provider === 'openai' && !apiKey) throw new Error('OPENAI_API_KEY is required to generate OpenAI narration.');
 
 const generatedRoot = path.join(root, 'public', 'generated');
 const cacheRoot = path.join(generatedRoot, 'voice-cache', episodeId, provider);
@@ -67,8 +69,8 @@ try {
     } else {
       if (process.platform !== 'darwin') throw new Error('The free local preview provider currently requires macOS and its built-in `say` command.');
       const localVoice = process.env.LOCAL_TTS_VOICE ?? 'Alex';
-      let rate = Number(process.env.LOCAL_TTS_RATE ?? 190);
-      let say = spawnSync('say', ['-v', localVoice, '-r', String(rate), '-o', rawTrack, scene.narration], {encoding: 'utf8'});
+      const rate = Number(process.env.LOCAL_TTS_RATE ?? 190);
+      const say = spawnSync('say', ['-v', localVoice, '-r', String(rate), '-o', rawTrack, scene.narration], {encoding: 'utf8'});
       if (say.status !== 0) throw new Error(say.stderr || `Could not run macOS say with voice ${localVoice}.`);
       fs.copyFileSync(rawTrack, cachedRaw);
     }
