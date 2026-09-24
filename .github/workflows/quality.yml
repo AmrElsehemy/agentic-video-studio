@@ -8,6 +8,8 @@ on:
 jobs:
   validate:
     runs-on: ubuntu-latest
+    outputs:
+      episodes: ${{ steps.catalog.outputs.episodes }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -17,10 +19,17 @@ jobs:
       - run: npm ci
       - run: npm run validate
       - run: npm run typecheck
+      - id: catalog
+        name: Build episode matrix
+        run: echo "episodes=$(node scripts/list-episode-ids.mjs --json)" >> "$GITHUB_OUTPUT"
 
-  render-first-episode:
+  render-episodes:
     runs-on: ubuntu-latest
     needs: validate
+    strategy:
+      fail-fast: false
+      matrix:
+        episode: ${{ fromJSON(needs.validate.outputs.episodes) }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -30,90 +39,15 @@ jobs:
       - run: npm ci
       - name: Install FFmpeg for render QA
         run: sudo apt-get update && sudo apt-get install --yes ffmpeg
-      - run: npm run video -- bulbasaur-001
-      - run: npm run still -- bulbasaur-001
-      - run: npm run description -- bulbasaur-001
+      - run: npm run video -- ${{ matrix.episode }}
+      - run: npm run still -- ${{ matrix.episode }}
+      - run: npm run description -- ${{ matrix.episode }}
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: bulbasaur-001
+          name: ${{ matrix.episode }}
           path: |
-            out/bulbasaur-001.mp4
-            out/bulbasaur-001-cover.png
-            out/bulbasaur-001-description.txt
-          if-no-files-found: warn
-
-  render-gimmighoul-999:
-    runs-on: ubuntu-latest
-    needs: validate
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: npm
-      - run: npm ci
-      - name: Install FFmpeg for render QA
-        run: sudo apt-get update && sudo apt-get install --yes ffmpeg
-      - run: npm run video -- gimmighoul-999
-      - run: npm run still -- gimmighoul-999
-      - run: npm run description -- gimmighoul-999
-      - uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: gimmighoul-999
-          path: |
-            out/gimmighoul-999.mp4
-            out/gimmighoul-999-cover.png
-            out/gimmighoul-999-description.txt
-          if-no-files-found: warn
-
-  render-darmanitan-555:
-    runs-on: ubuntu-latest
-    needs: validate
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: npm
-      - run: npm ci
-      - name: Install FFmpeg for render QA
-        run: sudo apt-get update && sudo apt-get install --yes ffmpeg
-      - run: npm run video -- darmanitan-555
-      - run: npm run still -- darmanitan-555
-      - run: npm run description -- darmanitan-555
-      - uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: darmanitan-555
-          path: |
-            out/darmanitan-555.mp4
-            out/darmanitan-555-cover.png
-            out/darmanitan-555-description.txt
-          if-no-files-found: warn
-
-  render-terapagos-1024:
-    runs-on: ubuntu-latest
-    needs: validate
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: npm
-      - run: npm ci
-      - name: Install FFmpeg for render QA
-        run: sudo apt-get update && sudo apt-get install --yes ffmpeg
-      - run: npm run video -- terapagos-1024
-      - run: npm run still -- terapagos-1024
-      - run: npm run description -- terapagos-1024
-      - uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: terapagos-1024
-          path: |
-            out/terapagos-1024.mp4
-            out/terapagos-1024-cover.png
-            out/terapagos-1024-description.txt
+            out/${{ matrix.episode }}.mp4
+            out/${{ matrix.episode }}-cover.png
+            out/${{ matrix.episode }}-description.txt
           if-no-files-found: warn
