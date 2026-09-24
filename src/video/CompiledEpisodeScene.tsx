@@ -33,6 +33,7 @@ export const CompiledEpisodeScene: React.FC<Props> = ({scene, manifest, sceneInd
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
   const accent = scene.accent ?? manifest.palette.primary;
+  const artwork = scene.artworkUrl ?? manifest.subject.artworkUrl;
   const enter = spring({frame, fps, config: {damping: 16, stiffness: 145}});
   const exit = interpolate(frame, [Math.max(0, durationInFrames - 8), durationInFrames], [1, 0], clamp);
   const progress = (sceneIndex + frame / Math.max(1, durationInFrames)) / sceneCount;
@@ -54,17 +55,17 @@ export const CompiledEpisodeScene: React.FC<Props> = ({scene, manifest, sceneInd
     const revealAt = Math.round(durationInFrames * 0.42);
     visual = <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 22}}>
       <div style={{fontSize: 150, fontWeight: 950, lineHeight: .85, color: accent, letterSpacing: -5}}>{manifest.subject.index}</div>
-      <HeroArt src={manifest.subject.artworkUrl} frame={frame - revealAt} hidden={scene.subjectFocus === 'hidden' && frame < revealAt} size={650} />
+      <HeroArt src={artwork} frame={frame - revealAt} hidden={scene.subjectFocus === 'hidden' && frame < revealAt} size={650} />
       <Facts scene={scene} frame={frame} accent={accent} />
     </div>;
   } else if (scene.visual === 'gauntlet') {
     visual = <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 30}}>
-      <HeroArt src={manifest.subject.artworkUrl} frame={frame} size={570} />
+      <HeroArt src={artwork} frame={frame} size={570} />
       <Facts scene={scene} frame={frame} accent={accent} />
     </div>;
   } else if (scene.visual === 'advantage') {
     visual = <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 36}}>
-      <HeroArt src={manifest.subject.artworkUrl} frame={frame} size={500} />
+      <HeroArt src={artwork} frame={frame} size={500} />
       <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 18, width: 860}}>
         {(scene.facts ?? []).map((fact, index) => {
           const e = spring({frame: frame - index * 8, fps, config: {damping: 15, stiffness: 150}});
@@ -75,12 +76,12 @@ export const CompiledEpisodeScene: React.FC<Props> = ({scene, manifest, sceneInd
   } else if (scene.visual === 'race') {
     const facts = scene.facts ?? [];
     visual = <div style={{width: 880, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 30}}>
-      <HeroArt src={manifest.subject.artworkUrl} frame={frame} size={430} />
+      <HeroArt src={artwork} frame={frame} size={430} />
       <div style={{width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}>
         {facts.map((fact, index) => {
           const active = frame >= (index / Math.max(1, facts.length)) * durationInFrames;
           return <React.Fragment key={fact}>
-            <div style={{minWidth: 120, padding: '20px 18px', borderRadius: 24, textAlign: 'center', background: active ? accent : '#ffffff13', color: active ? manifest.palette.background : manifest.palette.ink, fontWeight: 950, fontSize: 30, transition: 'none'}}>{fact}</div>
+            <div style={{minWidth: 120, padding: '20px 18px', borderRadius: 24, textAlign: 'center', background: active ? accent : '#ffffff13', color: active ? manifest.palette.background : manifest.palette.ink, fontWeight: 950, fontSize: 30}}>{fact}</div>
             {index < facts.length - 1 ? <div style={{height: 4, flex: 1, margin: '0 10px', background: active ? accent : '#ffffff20'}} /> : null}
           </React.Fragment>;
         })}
@@ -88,13 +89,13 @@ export const CompiledEpisodeScene: React.FC<Props> = ({scene, manifest, sceneInd
     </div>;
   } else if (scene.visual === 'tradeoff') {
     visual = <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 28}}>
-      <HeroArt src={manifest.subject.artworkUrl} frame={frame} size={500} />
+      <HeroArt src={artwork} frame={frame} size={500} />
       <Facts scene={scene} frame={frame} accent={accent} />
       <div style={{fontSize: 92, fontWeight: 950, color: accent, transform: `scale(${0.9 + enter * 0.1})`}}>{scene.headline}</div>
     </div>;
   } else {
     visual = <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 38}}>
-      <HeroArt src={manifest.subject.artworkUrl} frame={frame} size={600} />
+      <HeroArt src={artwork} frame={frame} size={600} />
       <div style={{fontSize: 78, fontWeight: 950, textAlign: 'center', lineHeight: .98}}>{scene.headline}</div>
       <Facts scene={scene} frame={frame} accent={accent} />
     </div>;
@@ -107,14 +108,11 @@ export const CompiledEpisodeScene: React.FC<Props> = ({scene, manifest, sceneInd
       <div style={{fontSize: 22, color: accent, border: `2px solid ${accent}`, borderRadius: 999, padding: '9px 16px'}}>{pattern.toUpperCase()}</div>
     </div>
     <div style={{position: 'absolute', top: 126, left: 64, right: 64, height: 6, background: '#ffffff18', borderRadius: 99, overflow: 'hidden'}}><div style={{height: '100%', width: `${progress * 100}%`, background: accent}} /></div>
-
     <div style={{position: 'absolute', top: 170, left: 54, right: 54, textAlign: 'center', opacity: enter}}>
       <div style={{fontSize: 25, fontWeight: 900, letterSpacing: 4, color: accent}}>{scene.eyebrow}</div>
       <div style={{fontSize: 68, fontWeight: 950, lineHeight: .98, marginTop: 14}}>{scene.headline}</div>
     </div>
-
     <div style={{position: 'absolute', inset: '360px 60px 275px', display: 'flex', justifyContent: 'center', alignItems: 'center', opacity: enter}}>{visual}</div>
-
     <div style={{position: 'absolute', left: 62, right: 62, bottom: 70, textAlign: 'center'}}>
       <div style={{fontSize: 46, fontWeight: 950, lineHeight: 1, textTransform: 'uppercase'}}>{scene.caption}</div>
       <div style={{display: 'flex', justifyContent: 'space-between', marginTop: 26, fontSize: 19, fontWeight: 800, color: '#ffffff88', letterSpacing: 2}}><span>{manifest.show.handle}</span><span>{String(sceneIndex + 1).padStart(2, '0')} / {String(sceneCount).padStart(2, '0')}</span></div>
