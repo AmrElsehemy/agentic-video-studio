@@ -14,6 +14,7 @@ export const sceneSchema = z.object({
   subjectFocus: z.enum(['absent', 'hidden', 'secondary', 'primary']),
   beatEverySeconds: z.number().positive().max(1.5),
   visual: z.enum(['hook', 'gauntlet', 'advantage', 'race', 'tradeoff', 'cta']),
+  artworkUrl: z.string().url().optional(),
   accent: color.optional(),
   facts: z.array(z.string().min(1).max(45)).max(4).optional(),
 });
