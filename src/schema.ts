@@ -41,6 +41,7 @@ export const videoSchema = z.object({
   direction: z.object({
     engineVersion: z.literal(2).optional(),
     storyPattern: storyPatternSchema.default('profile'),
+    numberRelevant: z.boolean().default(false),
     premise: z.string().min(1).max(140),
     audiencePromise: z.string().min(1).max(140),
     openLoop: z.string().min(1).max(140),
