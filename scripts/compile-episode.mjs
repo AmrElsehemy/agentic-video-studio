@@ -55,6 +55,7 @@ const scenes = draft.scenes.map((scene, index) => ({
   narration: scene.narration,
   caption: scene.caption,
   visual: archetype.visuals[index],
+  ...(scene.artworkUrl ? {artworkUrl: scene.artworkUrl} : {}),
   ...(scene.accent ? {accent: scene.accent} : {}),
   ...(scene.facts ? {facts: scene.facts} : {}),
 }));
