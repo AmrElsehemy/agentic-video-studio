@@ -12,6 +12,8 @@ const walk = (directory) => {
 };
 walk(path.resolve('videos'));
 
+const countRoles = (scenes, roles) => scenes.filter((scene) => roles.includes(scene.role)).length;
+
 for (const manifestPath of manifests) {
   const video = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
   if (requested && video.id !== requested) continue;
@@ -27,33 +29,56 @@ for (const manifestPath of manifests) {
     ['Pattern interrupts', scenes.every((scene) => scene.beatEverySeconds <= 1.2), 15],
     ['Shot variety', distinctShots >= Math.min(5, scenes.length), 10],
     ['Natural narration pace', scenes.every((scene) => scene.durationSeconds <= 6.5 && scene.narration.trim().split(/\s+/).length / scene.durationSeconds <= 2.8), 10],
-    ['Debatable interaction', scenes.at(-1)?.role === 'interaction' && /\?|pick|or|which/i.test(`${scenes.at(-1)?.headline} ${scenes.at(-1)?.narration}`), 10],
-    ['Story breathing room', duration >= 28 && duration <= 45, 5],
+    ['Debatable interaction', scenes.at(-1)?.role === 'interaction' && /\?|pick|or|which|worth|best/i.test(`${scenes.at(-1)?.headline} ${scenes.at(-1)?.narration}`), 10],
+    ['Story breathing room', duration >= 24 && duration <= 45, 5],
   ];
 
-  const profileChecks = [
-    ['Immediate tension', scenes[0]?.role === 'hook' && scenes[0].durationSeconds <= 4, 15],
-    ['Evidence chain', scenes.filter((scene) => ['evidence', 'escalation'].includes(scene.role)).length >= 3, 15],
-    ['Subject restraint', scenes.filter((scene) => scene.subjectFocus === 'primary').length <= Math.floor(scenes.length / 2) && ['absent', 'hidden'].includes(scenes[0]?.subjectFocus), 10],
-    ['Counterpoint', scenes.some((scene) => scene.role === 'twist'), 10],
-  ];
+  const patternChecks = {
+    profile: [
+      ['Immediate tension', scenes[0]?.role === 'hook' && scenes[0].durationSeconds <= 4.8, 15],
+      ['Evidence chain', countRoles(scenes, ['evidence', 'escalation']) >= 3, 15],
+      ['Subject restraint', scenes.filter((scene) => scene.subjectFocus === 'primary').length <= Math.ceil(scenes.length / 2), 10],
+      ['Counterpoint', scenes.some((scene) => scene.role === 'twist'), 10],
+    ],
+    mechanic: [
+      ['Immediate mechanic', scenes[0]?.role === 'hook' && scenes[0].durationSeconds <= 4.8, 15],
+      ['Mechanic escalation', countRoles(scenes, ['evidence', 'escalation', 'payoff']) >= 3, 15],
+      ['Clear payoff', countRoles(scenes, ['payoff']) >= 1, 10],
+      ['Subject-led visual story', scenes.filter((scene) => ['primary', 'secondary'].includes(scene.subjectFocus)).length >= Math.ceil(scenes.length / 2), 10],
+    ],
+    transformation: [
+      ['Immediate change promise', scenes[0]?.role === 'hook' && scenes[0].durationSeconds <= 4.8, 15],
+      ['State escalation', countRoles(scenes, ['escalation', 'payoff']) >= 3, 15],
+      ['Transformation payoff', countRoles(scenes, ['payoff']) >= 2, 10],
+      ['Before/after visual grammar', scenes.some((scene) => ['comparison', 'impact'].includes(scene.shot)), 10],
+    ],
+    mystery: [
+      ['Immediate mystery', scenes[0]?.role === 'hook' && scenes[0].durationSeconds <= 4.8 && ['absent', 'hidden'].includes(scenes[0]?.subjectFocus), 15],
+      ['Clue escalation', countRoles(scenes, ['evidence', 'escalation']) >= 2, 15],
+      ['Layered reveal', countRoles(scenes, ['payoff']) >= 2, 10],
+      ['Reveal contrast', scenes.some((scene) => ['comparison', 'impact'].includes(scene.shot)), 10],
+    ],
+    comparison: [
+      ['Immediate contrast', scenes[0]?.role === 'hook' && scenes[0].durationSeconds <= 4.8, 15],
+      ['Comparison evidence', countRoles(scenes, ['evidence', 'escalation']) >= 3, 15],
+      ['Contrast shots', scenes.filter((scene) => scene.shot === 'comparison').length >= 1, 10],
+      ['Counterpoint', scenes.some((scene) => scene.role === 'twist'), 10],
+    ],
+    reveal: [
+      ['Immediate mystery', scenes[0]?.role === 'hook' && scenes[0].durationSeconds <= 4.8 && ['absent', 'hidden'].includes(scenes[0]?.subjectFocus), 15],
+      ['Layered escalation', countRoles(scenes, ['escalation', 'payoff']) >= 3, 15],
+      ['Multiple reveals', countRoles(scenes, ['payoff']) >= 2, 10],
+      ['Final consequence', scenes.some((scene) => scene.role === 'payoff'), 10],
+    ],
+    debate: [
+      ['Immediate claim', scenes[0]?.role === 'hook' && scenes[0].durationSeconds <= 4.8, 15],
+      ['Evidence chain', countRoles(scenes, ['evidence', 'escalation']) >= 3, 15],
+      ['Counterpoint', scenes.some((scene) => scene.role === 'twist'), 10],
+      ['Debate close', scenes.at(-1)?.role === 'interaction', 10],
+    ],
+  };
 
-  const mechanicChecks = [
-    ['Immediate tension', scenes[0]?.role === 'hook' && scenes[0].durationSeconds <= 4.5, 15],
-    ['Mechanic escalation', scenes.filter((scene) => ['evidence', 'escalation', 'payoff'].includes(scene.role)).length >= 3, 15],
-    ['Clear payoff', scenes.some((scene) => scene.role === 'payoff') && Boolean(video.direction?.payoff), 10],
-    ['Subject-led visual story', scenes.filter((scene) => ['primary', 'secondary'].includes(scene.subjectFocus)).length >= Math.ceil(scenes.length / 2), 10],
-  ];
-
-  const revealChecks = [
-    ['Immediate mystery', scenes[0]?.role === 'hook' && scenes[0].durationSeconds <= 4.5 && ['absent', 'hidden'].includes(scenes[0]?.subjectFocus), 15],
-    ['Layered escalation', scenes.filter((scene) => ['escalation', 'payoff'].includes(scene.role)).length >= 3, 15],
-    ['Multiple reveals', scenes.filter((scene) => scene.role === 'payoff').length >= 2, 10],
-    ['Final consequence', scenes.some((scene) => scene.role === 'payoff' && scene.id !== scenes.find((candidate) => candidate.role === 'payoff')?.id), 10],
-  ];
-
-  const patternChecks = pattern === 'mechanic' ? mechanicChecks : pattern === 'reveal' ? revealChecks : profileChecks;
-  const checks = [...commonChecks, ...patternChecks];
+  const checks = [...commonChecks, ...(patternChecks[pattern] ?? patternChecks.profile)];
   const available = checks.reduce((sum, [, , points]) => sum + points, 0);
   const earned = checks.reduce((sum, [, passed, points]) => sum + (passed ? points : 0), 0);
   const score = Math.round(earned / available * 100);
