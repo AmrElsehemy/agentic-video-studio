@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {getArchetype} from './archetypes.mjs';
+import {episodeDraftSchema} from './draft-schema.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const args = process.argv.slice(2);
@@ -21,9 +22,8 @@ const findDraft = () => {
 };
 
 const {draftPath, showId} = findDraft();
-const draft = JSON.parse(fs.readFileSync(draftPath, 'utf8'));
+const draft = episodeDraftSchema.parse(JSON.parse(fs.readFileSync(draftPath, 'utf8')));
 if (draft.id !== episodeId) throw new Error(`Draft ID ${draft.id} does not match requested ID ${episodeId}.`);
-if (!Array.isArray(draft.scenes) || draft.scenes.length !== 6) throw new Error(`${episodeId} must define exactly 6 creative scenes for the current short-form compiler.`);
 
 const archetype = getArchetype(draft.storyPattern);
 const speed = draft.voice?.speed ?? 1.08;
@@ -43,23 +43,17 @@ const safeDuration = (text) => {
   return Math.max(MIN_SCENE, Math.ceil(required * 10) / 10);
 };
 
-const trim = (value, max, field) => {
-  if (typeof value !== 'string' || !value.trim()) throw new Error(`${field} is required.`);
-  if (value.length > max) throw new Error(`${field} is ${value.length} characters; max is ${max}. Fix the creative draft instead of truncating it.`);
-  return value;
-};
-
 const scenes = draft.scenes.map((scene, index) => ({
-  id: trim(scene.id, 60, `scenes[${index}].id`),
-  durationSeconds: safeDuration(trim(scene.narration, 260, `scenes[${index}].narration`)),
+  id: scene.id,
+  durationSeconds: safeDuration(scene.narration),
   role: archetype.sceneRoles[index],
   shot: archetype.shots[index],
   subjectFocus: archetype.subjectFocus[index],
   beatEverySeconds: scene.beatEverySeconds ?? archetype.defaultBeat,
-  ...(scene.eyebrow ? {eyebrow: trim(scene.eyebrow, 40, `scenes[${index}].eyebrow`)} : {}),
-  headline: trim(scene.headline, 70, `scenes[${index}].headline`),
+  ...(scene.eyebrow ? {eyebrow: scene.eyebrow} : {}),
+  headline: scene.headline,
   narration: scene.narration,
-  caption: trim(scene.caption, 120, `scenes[${index}].caption`),
+  caption: scene.caption,
   visual: archetype.visuals[index],
   ...(scene.accent ? {accent: scene.accent} : {}),
   ...(scene.facts ? {facts: scene.facts} : {}),
@@ -72,16 +66,16 @@ const manifest = {
   schemaVersion: 1,
   id: episodeId,
   show: draft.show ?? {id: showId, name: showId === 'pokepulses' ? 'PokePulses' : showId, handle: `@${showId}`},
-  title: trim(draft.title, 120, 'title'),
+  title: draft.title,
   direction: {
     engineVersion: 2,
     storyPattern: draft.storyPattern,
-    premise: trim(draft.premise, 140, 'premise'),
-    audiencePromise: trim(draft.audiencePromise, 140, 'audiencePromise'),
-    openLoop: trim(draft.openLoop, 140, 'openLoop'),
-    payoff: trim(draft.payoff, 140, 'payoff'),
-    targetEmotion: draft.targetEmotion ?? 'surprise',
-    engagementQuestion: trim(draft.engagementQuestion, 140, 'engagementQuestion'),
+    premise: draft.premise,
+    audiencePromise: draft.audiencePromise,
+    openLoop: draft.openLoop,
+    payoff: draft.payoff,
+    targetEmotion: draft.targetEmotion,
+    engagementQuestion: draft.engagementQuestion,
     targetSecondsBetweenVisualChanges: draft.targetSecondsBetweenVisualChanges ?? archetype.defaultBeat,
   },
   subject: draft.subject,
