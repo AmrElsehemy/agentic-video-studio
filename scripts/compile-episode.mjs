@@ -74,6 +74,7 @@ const manifest = {
   show: draft.show ?? {id: showId, name: showId === 'pokepulses' ? 'PokePulses' : showId, handle: `@${showId}`},
   title: trim(draft.title, 120, 'title'),
   direction: {
+    engineVersion: 2,
     storyPattern: draft.storyPattern,
     premise: trim(draft.premise, 140, 'premise'),
     audiencePromise: trim(draft.audiencePromise, 140, 'audiencePromise'),
