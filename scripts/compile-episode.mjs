@@ -43,6 +43,10 @@ const safeDuration = (text) => {
   return Math.max(MIN_SCENE, Math.ceil(required * 10) / 10);
 };
 
+const numberRelevant = draft.numberRelevant ?? false;
+const indexTokens = new Set([draft.subject.index, ...(draft.evolutions ?? []).map((evolution) => evolution.index)]);
+const cleanFacts = (facts = []) => facts.filter((fact) => numberRelevant || !indexTokens.has(fact));
+
 const scenes = draft.scenes.map((scene, index) => ({
   id: scene.id,
   durationSeconds: safeDuration(scene.narration),
@@ -57,7 +61,7 @@ const scenes = draft.scenes.map((scene, index) => ({
   visual: archetype.visuals[index],
   ...(scene.artworkUrl ? {artworkUrl: scene.artworkUrl} : {}),
   ...(scene.accent ? {accent: scene.accent} : {}),
-  ...(scene.facts ? {facts: scene.facts} : {}),
+  ...(scene.facts ? {facts: cleanFacts(scene.facts)} : {}),
 }));
 
 const total = scenes.reduce((sum, scene) => sum + scene.durationSeconds, 0);
@@ -71,6 +75,7 @@ const manifest = {
   direction: {
     engineVersion: 2,
     storyPattern: draft.storyPattern,
+    numberRelevant,
     premise: draft.premise,
     audiencePromise: draft.audiencePromise,
     openLoop: draft.openLoop,
