@@ -10,8 +10,9 @@
   "direction": {
     "engineVersion": 2,
     "storyPattern": "transformation",
+    "numberRelevant": false,
     "premise": "Swablu looks like a tiny cloud-winged bird, obsessively keeps clean, then evolves into Dragon/Flying Altaria.",
-    "audiencePromise": "Start with Swablu's adorable cloud-wing behavior, then reveal the surprising Dragon-type evolution hiding at level 35.",
+    "audiencePromise": "Start with Swablu's cloud-like wings and strange cleaning habit, then reveal the Dragon evolution hiding at level 35.",
     "openLoop": "How does this tiny cotton-winged bird end up becoming a Dragon type?",
     "payoff": "At level 35, Swablu evolves into Altaria and changes from Normal/Flying to Dragon/Flying.",
     "targetEmotion": "surprise",
@@ -87,7 +88,7 @@
       "shot": "impact",
       "subjectFocus": "primary",
       "beatEverySeconds": 0.62,
-      "eyebrow": "POKÉDEX #333",
+      "eyebrow": "LOOKS CUTE. ENDS VERY DIFFERENTLY.",
       "headline": "THIS CLOUD BIRD BECOMES A DRAGON",
       "narration": "This tiny cloud bird eventually evolves into a dragon.",
       "caption": "CLOUD BIRD → DRAGON",
@@ -95,7 +96,6 @@
       "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/333.png",
       "accent": "#86d7ff",
       "facts": [
-        "#333",
         "NORMAL + FLYING"
       ]
     },
@@ -106,92 +106,89 @@
       "shot": "macro",
       "subjectFocus": "primary",
       "beatEverySeconds": 0.62,
-      "eyebrow": "MEET SWABLU",
-      "headline": "ITS WINGS LOOK LIKE CLOUDS",
-      "narration": "Swablu is number three thirty-three, a Normal and Flying Cotton Bird Pokémon.",
-      "caption": "COTTON BIRD POKÉMON",
+      "eyebrow": "THOSE WINGS HAVE A JOB",
+      "headline": "THEY'RE BASICALLY CLEANING CLOTHS",
+      "narration": "Those fluffy wings are cleaning cloths. Swablu wipes dirt away with them.",
+      "caption": "SOFT WINGS. VERY SERIOUS CLEANING.",
       "visual": "gauntlet",
       "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/333.png",
       "facts": [
-        "NORMAL",
-        "FLYING",
-        "COTTON BIRD"
+        "COTTON-LIKE WINGS",
+        "WIPES DIRT"
       ]
     },
     {
       "id": "clean",
-      "durationSeconds": 6.2,
+      "durationSeconds": 5.8,
       "role": "escalation",
       "shot": "tracking",
       "subjectFocus": "secondary",
       "beatEverySeconds": 0.62,
-      "eyebrow": "THE WEIRD PART",
-      "headline": "IT CLEANS WITH ITS WINGS",
-      "narration": "It wipes away dirt with its soft cotton-like wings and showers when dirty.",
-      "caption": "WINGS = CLEANING CLOTH",
+      "eyebrow": "AND IT GETS WEIRDER",
+      "headline": "DIRTY WINGS? SHOWER TIME.",
+      "narration": "If they get dirty, Swablu showers until its wings are clean again.",
+      "caption": "DIRTY → SHOWER → CLEAN",
       "visual": "race",
       "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/333.png",
       "facts": [
-        "WIPES DIRT",
-        "SHOWERS IF DIRTY"
+        "HATES DIRTY WINGS",
+        "SHOWERS CLEAN"
       ]
     },
     {
       "id": "level-35",
-      "durationSeconds": 4.6,
+      "durationSeconds": 5.5,
       "role": "payoff",
       "shot": "comparison",
       "subjectFocus": "primary",
       "beatEverySeconds": 0.62,
       "eyebrow": "THEN LEVEL 35 HITS",
-      "headline": "THE CUTE BIRD STARTS CHANGING",
-      "narration": "At level thirty-five, Swablu evolves and its typing changes.",
-      "caption": "LEVEL 35 → EVOLUTION",
+      "headline": "THE WHOLE DESIGN FLIPS",
+      "narration": "Then level thirty-five flips the whole design: Normal typing becomes Dragon.",
+      "caption": "NORMAL → DRAGON",
       "visual": "advantage",
       "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/333.png",
       "accent": "#f4fbff",
       "facts": [
         "LEVEL 35",
-        "NORMAL → DRAGON"
+        "TYPE CHANGE"
       ]
     },
     {
       "id": "altaria",
-      "durationSeconds": 5.9,
+      "durationSeconds": 5.4,
       "role": "payoff",
       "shot": "wide",
       "subjectFocus": "secondary",
       "beatEverySeconds": 0.62,
-      "eyebrow": "THE REVEAL",
-      "headline": "NOW IT'S A DRAGON",
-      "narration": "It becomes Altaria, a Dragon and Flying Pokémon with huge cloud-like wings.",
-      "caption": "ALTARIA • DRAGON + FLYING",
+      "eyebrow": "THE PAYOFF",
+      "headline": "MEET ALTARIA",
+      "narration": "Altaria is Dragon and Flying, wrapped in even bigger cloud wings.",
+      "caption": "CLOUD BIRD → CLOUD DRAGON",
       "visual": "tradeoff",
       "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/334.png",
       "accent": "#f4fbff",
       "facts": [
-        "#334",
         "DRAGON",
         "FLYING"
       ]
     },
     {
       "id": "cta",
-      "durationSeconds": 4,
+      "durationSeconds": 4.2,
       "role": "interaction",
       "shot": "interaction",
       "subjectFocus": "primary",
       "beatEverySeconds": 0.62,
       "eyebrow": "YOUR PICK",
-      "headline": "CLOUD BIRD OR CLOUD DRAGON?",
-      "narration": "Cloud bird or cloud dragon: which design wins?",
-      "caption": "SWABLU OR ALTARIA?",
+      "headline": "WHICH DESIGN WINS?",
+      "narration": "Better design: tiny cloud bird, or cloud dragon?",
+      "caption": "SWABLU VS ALTARIA",
       "visual": "cta",
       "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/334.png",
       "accent": "#86d7ff",
       "facts": [
         "SWABLU",
-        "VS",
         "ALTARIA"
       ]
     }
