@@ -1,0 +1,178 @@
+{
+  "schemaVersion": 1,
+  "id": "mew-151",
+  "show": {
+    "id": "pokepulses",
+    "name": "PokePulses",
+    "handle": "@pokepulses"
+  },
+  "title": "The Mythical Pokémon That May Hold Every Pokémon's DNA",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "mystery",
+    "numberRelevant": false,
+    "premise": "Mew is a tiny Mythical Pokémon whose DNA may connect it to the origin story of every other Pokémon.",
+    "audiencePromise": "Start with Mew's rarity and playful mystery, then land the ancestor theory and its famous link to Mewtwo.",
+    "openLoop": "How can one tiny pink Mythical Pokémon be connected to nearly every Pokémon?",
+    "payoff": "Mew's genetic code may hold the secrets of all Pokémon, and it later helped inspire Mewtwo.",
+    "targetEmotion": "awe",
+    "engagementQuestion": "More iconic: the mystery of Mew or the power of Mewtwo?",
+    "targetSecondsBetweenVisualChanges": 0.66
+  },
+  "subject": {
+    "name": "Mew",
+    "index": "#151",
+    "category": "New Species Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/151.png"
+  },
+  "evolutions": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#120d1f",
+    "surface": "#25173b",
+    "primary": "#ff9bd6",
+    "secondary": "#9ee8ff",
+    "ink": "#fff8ff"
+  },
+  "audio": {
+    "music": "generated/mew-151-bed.wav",
+    "musicVolume": 0.09,
+    "voice": {
+      "provider": "openai",
+      "model": "gpt-4o-mini-tts",
+      "voice": "marin",
+      "instructions": "Warm, curious Pokémon short narrator. Make Mew feel playful, elusive, and legendary. Build genuine wonder, then land the Mewtwo link with energy. Keep it crisp, conversational, and natural. Never imitate a known person or character.",
+      "speed": 1.08,
+      "output": "generated/mew-151-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "assets": [
+      {
+        "kind": "Mew official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/151.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "unverified",
+        "publicReleaseApproved": false,
+        "notes": "Internal prototype only pending legal review or replacement."
+      },
+      {
+        "kind": "Mewtwo official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/150.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "unverified",
+        "publicReleaseApproved": false,
+        "notes": "Internal prototype only pending legal review or replacement."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "durationSeconds": 5.7,
+      "role": "hook",
+      "shot": "mystery",
+      "subjectFocus": "hidden",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "MYTHICAL MYSTERY",
+      "headline": "THIS TINY POKÉMON MAY HOLD EVERY POKÉMON'S DNA",
+      "narration": "This tiny Mythical Pokémon may carry the genetic code of every Pokémon.",
+      "caption": "ONE TINY MON, HUGE MYSTERY",
+      "visual": "hook",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/151.png",
+      "accent": "#ff9bd6",
+      "facts": ["MYTHICAL", "PSYCHIC"]
+    },
+    {
+      "id": "identity",
+      "durationSeconds": 5.7,
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "MEET MEW",
+      "headline": "SO RARE IT FELT LIKE A MIRAGE",
+      "narration": "Mew is a rare Mythical Psychic Pokémon many thought did not exist.",
+      "caption": "ELUSIVE • MYTHICAL • LEGENDARY",
+      "visual": "gauntlet",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/151.png",
+      "facts": ["PSYCHIC", "MYTHICAL", "NEW SPECIES"]
+    },
+    {
+      "id": "playful",
+      "durationSeconds": 5.3,
+      "role": "escalation",
+      "shot": "tracking",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "WHY IT FEELS UNREAL",
+      "headline": "IT FLOATS, PLAYS, AND CAN VANISH",
+      "narration": "It floats playfully and can vanish from sight whenever it wants.",
+      "caption": "PLAYFUL • FLOATING • ELUSIVE",
+      "visual": "advantage",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/151.png",
+      "facts": ["FLOATS", "INVISIBLE", "PLAYFUL"]
+    },
+    {
+      "id": "ancestor",
+      "durationSeconds": 4.8,
+      "role": "payoff",
+      "shot": "comparison",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "THE BIG THEORY",
+      "headline": "SCIENTISTS THINK IT CAME FIRST",
+      "narration": "Scientists think Mew may be the ancestor of all Pokémon.",
+      "caption": "ANCESTOR THEORY",
+      "visual": "race",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/151.png",
+      "accent": "#9ee8ff",
+      "facts": ["LEARNS MANY MOVES", "ANCIENT DNA"]
+    },
+    {
+      "id": "mewtwo",
+      "durationSeconds": 4.4,
+      "role": "payoff",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "AND THEN",
+      "headline": "ITS DNA HELPED CREATE MEWTWO",
+      "narration": "Its DNA later became the key to creating Mewtwo.",
+      "caption": "MEW → MEWTWO",
+      "visual": "tradeoff",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/150.png",
+      "accent": "#9ee8ff",
+      "facts": ["DNA SOURCE", "LAB EXPERIMENT"]
+    },
+    {
+      "id": "cta",
+      "durationSeconds": 4.5,
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "YOUR PICK",
+      "headline": "PURE MYSTERY OR PURE POWER?",
+      "narration": "Which is more iconic: Mew's mystery or Mewtwo's power?",
+      "caption": "MEW OR MEWTWO?",
+      "visual": "cta",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/150.png",
+      "accent": "#ff9bd6",
+      "facts": ["MEW", "VS", "MEWTWO"]
+    }
+  ],
+  "sources": [
+    {"label": "Official Pokémon Pokédex — Mew", "url": "https://www.pokemon.com/us/pokedex/mew"},
+    {"label": "Official Pokémon Pokédex — Mewtwo", "url": "https://www.pokemon.com/us/pokedex/mewtwo"},
+    {"label": "Bulbapedia — Mew", "url": "https://bulbapedia.bulbagarden.net/wiki/Mew_(Pok%C3%A9mon)"}
+  ]
+}
