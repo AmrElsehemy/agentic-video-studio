@@ -1,4 +1,5 @@
 import {spawnSync} from 'node:child_process';
+import fs from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 
@@ -17,13 +18,20 @@ const run = (label, command, commandArgs) => {
   }
 };
 
+const hasDraft = () => {
+  const draftsRoot = path.join(root, 'drafts');
+  if (!fs.existsSync(draftsRoot)) return false;
+  return fs.readdirSync(draftsRoot, {withFileTypes: true})
+    .filter((entry) => entry.isDirectory())
+    .some((entry) => fs.existsSync(path.join(draftsRoot, entry.name, `${episodeId}.json`)));
+};
+
+if (hasDraft()) run('Draft → compiled artifact parity', process.execPath, ['scripts/compile-episode.mjs', episodeId, '--check']);
 run('Schema + structural validation', process.execPath, ['--import', 'tsx', 'scripts/validate.ts', episodeId]);
 run('Archetype engagement audit', process.execPath, ['scripts/engagement-audit.mjs', episodeId]);
 run('Voice timing preflight', process.execPath, ['scripts/preflight-voice.mjs', episodeId]);
 run('TypeScript compatibility', process.platform === 'win32' ? 'npx.cmd' : 'npx', ['tsc', '--noEmit']);
 
-if (!fast) {
-  run('Zero-token render + media QA', process.execPath, ['scripts/render.mjs', '--voice=none', episodeId]);
-}
+if (!fast) run('Zero-token render + media QA', process.execPath, ['scripts/render.mjs', '--voice=none', episodeId]);
 
 console.log(`\n✓ ${episodeId} certified${fast ? ' for paid voice generation' : ' end-to-end without paid TTS'}.`);
