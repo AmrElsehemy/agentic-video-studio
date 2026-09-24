@@ -58,6 +58,7 @@ export const episodeDraftSchema = z.object({
     headline: z.string().min(1).max(70),
     narration: z.string().min(1).max(260),
     caption: z.string().min(1).max(120),
+    artworkUrl: z.string().url().optional(),
     facts: z.array(z.string().min(1).max(45)).max(4).optional(),
     accent: color.optional(),
     beatEverySeconds: z.number().positive().max(1.5).optional(),
