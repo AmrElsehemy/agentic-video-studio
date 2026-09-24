@@ -18,6 +18,16 @@ export const sceneSchema = z.object({
   facts: z.array(z.string().min(1).max(45)).max(4).optional(),
 });
 
+export const storyPatternSchema = z.enum([
+  'profile',
+  'mechanic',
+  'transformation',
+  'mystery',
+  'comparison',
+  'reveal',
+  'debate',
+]);
+
 export const videoSchema = z.object({
   schemaVersion: z.literal(1),
   id: z.string().regex(/^[a-z0-9-]+$/),
@@ -28,7 +38,7 @@ export const videoSchema = z.object({
   }),
   title: z.string().min(1),
   direction: z.object({
-    storyPattern: z.enum(['profile', 'mechanic', 'reveal', 'debate']).default('profile'),
+    storyPattern: storyPatternSchema.default('profile'),
     premise: z.string().min(1).max(140),
     audiencePromise: z.string().min(1).max(140),
     openLoop: z.string().min(1).max(140),
