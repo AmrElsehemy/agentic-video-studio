@@ -4,6 +4,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import {findManifest} from './catalog.mjs';
+import {voiceInputHash} from './lib/voice-lock.mjs';
 
 const args = process.argv.slice(2);
 const episodeId = args.find((arg) => !arg.startsWith('--')) ?? 'bulbasaur-001';
@@ -107,7 +108,7 @@ try {
   const normalize = spawnSync('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-y', '-i', assembledTrack, '-af', 'loudnorm=I=-16:TP=-1.5:LRA=11', '-ar', '44100', '-ac', '2', outputPath], {encoding: 'utf8'});
   if (normalize.status !== 0) throw new Error(normalize.stderr || 'Could not normalize narration track.');
   const timingPath = path.join(generatedRoot, `${episodeId}-${provider}-timing.json`);
-  fs.writeFileSync(timingPath, JSON.stringify({episodeId, provider, scenes: timing}, null, 2));
+  fs.writeFileSync(timingPath, JSON.stringify({episodeId, provider, inputHash: voiceInputHash(manifest, provider), scenes: timing}, null, 2));
   const peakVolume = probePeakVolume(outputPath);
   if (!Number.isFinite(peakVolume) || peakVolume < -30) throw new Error(`Generated ${provider} narration is silent or inaudible (${peakVolume} dBFS).`);
   console.log(`\n✓ ${provider} narration ready: ${path.relative(root, outputPath)} (${probeDuration(outputPath).toFixed(2)}s, peak ${peakVolume.toFixed(1)} dBFS)`);
