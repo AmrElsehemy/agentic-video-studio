@@ -73,6 +73,8 @@ npm run video:openai -- bulbasaur-001
 
 `npm run video` automatically prefers an existing OpenAI track and falls back to the local preview. The files remain separate, so generating a draft never overwrites the polished narration.
 
+Each generated track is locked to the narration, scene timing and voice settings it was made from. If any of those change afterwards, `npm run video` refuses to use the old track and tells you which command regenerates it (or render without narration using `--voice=none`). In automatic mode, a stale OpenAI track is skipped with a warning when an up-to-date local track exists. Regenerating is free for scenes whose narration didn't change, because each scene's raw audio is cached. Tracks generated before this lock existed count as stale and need regenerating once.
+
 ## Project structure
 
 ```text

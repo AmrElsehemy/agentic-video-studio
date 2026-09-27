@@ -2,6 +2,7 @@ import {spawnSync} from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 import {findManifest} from './catalog.mjs';
+import {voiceStaleReason} from './lib/voice-lock.mjs';
 
 const args = process.argv.slice(2);
 const episodeId = args.find((arg) => !arg.startsWith('--')) ?? 'bulbasaur-001';
@@ -22,18 +23,36 @@ fs.mkdirSync(path.dirname(outputPath), {recursive: true});
 
 const openAiVoice = manifest.audio.voice?.output;
 const localVoice = openAiVoice?.replace(/\.wav$/i, '-local.wav');
+const providerFor = (candidate) => candidate === localVoice ? 'local' : 'openai';
+const timingPathFor = (provider) => path.join(root, 'public', 'generated', `${episodeId}-${provider}-timing.json`);
+const readTiming = (provider) => fs.existsSync(timingPathFor(provider)) ? JSON.parse(fs.readFileSync(timingPathFor(provider), 'utf8')) : null;
+
+// A narration track is only usable while it matches the manifest it was
+// generated from. Otherwise the video would ship old narration and timing.
 const voiceCandidates = requestedVoice === 'openai' ? [openAiVoice] : requestedVoice === 'local' ? [localVoice] : requestedVoice === 'none' ? [] : [openAiVoice, localVoice];
-const generatedVoice = voiceCandidates.find((candidate) => candidate && fs.existsSync(path.join(root, 'public', candidate)));
-if (generatedVoice) {
-  manifest.audio.voiceover = generatedVoice;
-  const provider = generatedVoice === localVoice ? 'local' : 'openai';
-  const timingPath = path.join(root, 'public', 'generated', `${episodeId}-${provider}-timing.json`);
-  if (fs.existsSync(timingPath)) {
-    const timing = JSON.parse(fs.readFileSync(timingPath, 'utf8'));
-    manifest.scenes = manifest.scenes.map((scene) => timing.scenes?.[scene.id] ? {...scene, durationSeconds: timing.scenes[scene.id]} : scene);
-    console.log(`✓ applied narration timing [${provider}] from public/generated/${episodeId}-${provider}-timing.json`);
-  }
-  console.log(`✓ narration [${provider}]: public/${generatedVoice}`);
+const existing = voiceCandidates
+  .filter((candidate) => candidate && fs.existsSync(path.join(root, 'public', candidate)))
+  .map((candidate) => {
+    const provider = providerFor(candidate);
+    const timing = readTiming(provider);
+    return {candidate, provider, timing, staleReason: voiceStaleReason(manifest, provider, timing)};
+  });
+const fresh = existing.find((track) => !track.staleReason);
+const stale = existing.filter((track) => track.staleReason);
+const regenerate = (provider) => `npm run voice:${provider} -- ${episodeId}`;
+
+if (!fresh && stale.length > 0) {
+  for (const track of stale) console.error(`✗ ${track.provider} narration is stale: ${track.staleReason}. Regenerate it: ${regenerate(track.provider)}`);
+  console.error(`\nRefusing to render ${episodeId} with narration that doesn't match the manifest. Regenerate the track, or render without narration using --voice=none.`);
+  process.exit(1);
+}
+for (const track of stale) console.warn(`⚠ ignoring stale ${track.provider} narration (${track.staleReason}); regenerate with: ${regenerate(track.provider)}`);
+
+if (fresh) {
+  manifest.audio.voiceover = fresh.candidate;
+  manifest.scenes = manifest.scenes.map((scene) => fresh.timing.scenes?.[scene.id] ? {...scene, durationSeconds: fresh.timing.scenes[scene.id]} : scene);
+  console.log(`✓ applied narration timing [${fresh.provider}] from public/generated/${episodeId}-${fresh.provider}-timing.json`);
+  console.log(`✓ narration [${fresh.provider}]: public/${fresh.candidate}`);
 } else if (requestedVoice !== 'auto' && requestedVoice !== 'none') {
   throw new Error(`${requestedVoice} narration has not been generated for ${episodeId}.`);
 } else if (manifest.audio.voice) {
