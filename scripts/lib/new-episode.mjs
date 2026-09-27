@@ -1,0 +1,66 @@
+// End-to-end episode creation: research → write → check → save.
+import fs from 'node:fs';
+import path from 'node:path';
+import {fileURLToPath} from 'node:url';
+import {serializeManifest} from './compiler.mjs';
+import {researchPokemon} from './pokeapi.mjs';
+import {writeEpisode} from './writer.mjs';
+
+const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
+const writeJson = (file, value) => {
+  fs.mkdirSync(path.dirname(file), {recursive: true});
+  fs.writeFileSync(file, `${JSON.stringify(value, null, 2)}\n`);
+};
+
+/** The finished example draft the writer imitates, without boilerplate. */
+const loadExample = () => {
+  const {rights: _rights, sources: _sources, ...example} = JSON.parse(fs.readFileSync(path.join(repoRoot, 'drafts', 'pokepulses', 'swablu-333.json'), 'utf8'));
+  return example;
+};
+
+/**
+ * Create an episode from a National Pokédex number.
+ * Research is cached in research/<show>/<id>.json; pass refreshResearch to refetch.
+ */
+export const runNewEpisode = async ({number, root = repoRoot, showId = 'pokepulses', fetchJson, complete, storyPattern, refreshResearch = false, overwrite = false, maxAttempts = 3, log = console.log}) => {
+  const researchDir = path.join(root, 'research', showId);
+  const cached = fs.existsSync(researchDir)
+    ? fs.readdirSync(researchDir).find((file) => file.endsWith(`-${String(number).padStart(3, '0')}.json`))
+    : undefined;
+
+  let research;
+  if (cached && !refreshResearch) {
+    research = JSON.parse(fs.readFileSync(path.join(researchDir, cached), 'utf8'));
+    log(`↻ research: reused research/${showId}/${cached}`);
+  } else {
+    research = await researchPokemon(number, {fetchJson});
+    writeJson(path.join(researchDir, `${research.id}.json`), research);
+    log(`✓ research: ${research.name} ${research.index} (${research.pokedexEntries.length} Pokédex entries, ${research.evolutionChain.length} in evolution line, ${research.varieties.length} other forms) → research/${showId}/${research.id}.json`);
+  }
+
+  const draftPath = path.join(root, 'drafts', showId, `${research.id}.json`);
+  if (fs.existsSync(draftPath) && !overwrite) throw new Error(`drafts/${showId}/${research.id}.json already exists. Pass --overwrite to replace it.`);
+
+  const result = await writeEpisode({
+    research,
+    complete,
+    directing: fs.readFileSync(path.join(repoRoot, 'DIRECTING.md'), 'utf8'),
+    example: loadExample(),
+    storyPattern,
+    showId,
+    maxAttempts,
+    onAttempt: ({attempt, problems, audit}) => {
+      if (problems.length === 0) log(`✓ writer: attempt ${attempt} passed every check (engagement ${audit.score}/100)`);
+      else log(`✗ writer: attempt ${attempt} rejected (${problems.length} problem${problems.length === 1 ? '' : 's'}):\n${problems.map((problem) => `    - ${problem}`).join('\n')}`);
+    },
+  });
+
+  writeJson(draftPath, result.draft);
+  const manifestPath = path.join(root, 'videos', showId, research.id, 'video.json');
+  fs.mkdirSync(path.dirname(manifestPath), {recursive: true});
+  fs.writeFileSync(manifestPath, serializeManifest(result.manifest));
+  const seconds = result.manifest.scenes.reduce((sum, scene) => sum + scene.durationSeconds, 0);
+  log(`✓ draft: drafts/${showId}/${research.id}.json — "${result.draft.title}" [${result.draft.storyPattern}, ${result.draft.scenes.length} scenes, ${seconds.toFixed(1)}s]`);
+  log(`✓ compiled: videos/${showId}/${research.id}/video.json`);
+  return {id: research.id, research, ...result};
+};

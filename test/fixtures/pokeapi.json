@@ -1,0 +1,331 @@
+{
+  "_note": "Abridged, hand-written PokéAPI responses for tests only. Not an authoritative source of Pokémon facts.",
+  "responses": {
+    "https://pokeapi.co/api/v2/pokemon-species/888": {
+      "id": 888,
+      "name": "zacian",
+      "names": [
+        {
+          "language": {
+            "name": "ja"
+          },
+          "name": "x"
+        },
+        {
+          "language": {
+            "name": "en"
+          },
+          "name": "Zacian"
+        }
+      ],
+      "genera": [
+        {
+          "language": {
+            "name": "en"
+          },
+          "genus": "Warrior Pokémon"
+        }
+      ],
+      "generation": {
+        "name": "generation-viii"
+      },
+      "is_legendary": true,
+      "is_mythical": false,
+      "evolution_chain": {
+        "url": "https://pokeapi.co/api/v2/evolution-chain/445/"
+      },
+      "varieties": [
+        {
+          "is_default": true,
+          "pokemon": {
+            "name": "zacian",
+            "url": "https://pokeapi.co/api/v2/pokemon/888/"
+          }
+        },
+        {
+          "is_default": false,
+          "pokemon": {
+            "name": "zacian-crowned",
+            "url": "https://pokeapi.co/api/v2/pokemon/10188/"
+          }
+        }
+      ],
+      "flavor_text_entries": [
+        {
+          "flavor_text": "Known as a legendary hero, this Pokémon\nabsorbs metal particles, transforming them into\na weapon it uses to battle.",
+          "language": {
+            "name": "en"
+          },
+          "version": {
+            "name": "sword"
+          }
+        },
+        {
+          "flavor_text": "This Pokémon has slumbered for many years.\fSome say it is Zamazenta's elder sister.",
+          "language": {
+            "name": "en"
+          },
+          "version": {
+            "name": "shield"
+          }
+        },
+        {
+          "flavor_text": "Known as a legendary hero, this Pokémon absorbs metal particles, transforming them into a weapon it uses to battle.",
+          "language": {
+            "name": "en"
+          },
+          "version": {
+            "name": "legends-arceus"
+          }
+        },
+        {
+          "flavor_text": "(not English)",
+          "language": {
+            "name": "ja"
+          },
+          "version": {
+            "name": "sword"
+          }
+        }
+      ]
+    },
+    "https://pokeapi.co/api/v2/pokemon/888": {
+      "id": 888,
+      "name": "zacian",
+      "height": 28,
+      "weight": 1100,
+      "types": [
+        {
+          "slot": 1,
+          "type": {
+            "name": "fairy"
+          }
+        }
+      ],
+      "sprites": {
+        "other": {
+          "official-artwork": {
+            "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/888.png"
+          }
+        }
+      }
+    },
+    "https://pokeapi.co/api/v2/pokemon/10188/": {
+      "id": 10188,
+      "name": "zacian-crowned",
+      "height": 28,
+      "weight": 3550,
+      "types": [
+        {
+          "slot": 1,
+          "type": {
+            "name": "fairy"
+          }
+        },
+        {
+          "slot": 2,
+          "type": {
+            "name": "steel"
+          }
+        }
+      ],
+      "sprites": {
+        "other": {
+          "official-artwork": {
+            "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10188.png"
+          }
+        }
+      }
+    },
+    "https://pokeapi.co/api/v2/evolution-chain/445/": {
+      "id": 445,
+      "chain": {
+        "species": {
+          "name": "zacian",
+          "url": "https://pokeapi.co/api/v2/pokemon-species/888/"
+        },
+        "evolution_details": [],
+        "evolves_to": []
+      }
+    },
+    "https://pokeapi.co/api/v2/pokemon-species/333": {
+      "id": 333,
+      "name": "swablu",
+      "names": [
+        {
+          "language": {
+            "name": "ja"
+          },
+          "name": "x"
+        },
+        {
+          "language": {
+            "name": "en"
+          },
+          "name": "Swablu"
+        }
+      ],
+      "genera": [
+        {
+          "language": {
+            "name": "en"
+          },
+          "genus": "Cotton Bird Pokémon"
+        }
+      ],
+      "generation": {
+        "name": "generation-iii"
+      },
+      "is_legendary": false,
+      "is_mythical": false,
+      "evolution_chain": {
+        "url": "https://pokeapi.co/api/v2/evolution-chain/169/"
+      },
+      "varieties": [
+        {
+          "is_default": true,
+          "pokemon": {
+            "name": "swablu",
+            "url": "https://pokeapi.co/api/v2/pokemon/333/"
+          }
+        }
+      ],
+      "flavor_text_entries": [
+        {
+          "flavor_text": "It constantly grooms its cotton-like wings.\nIt takes a shower to clean itself if it becomes\ndirty.",
+          "language": {
+            "name": "en"
+          },
+          "version": {
+            "name": "ruby"
+          }
+        }
+      ]
+    },
+    "https://pokeapi.co/api/v2/pokemon/333": {
+      "id": 333,
+      "name": "swablu",
+      "height": 4,
+      "weight": 12,
+      "types": [
+        {
+          "slot": 1,
+          "type": {
+            "name": "normal"
+          }
+        },
+        {
+          "slot": 2,
+          "type": {
+            "name": "flying"
+          }
+        }
+      ],
+      "sprites": {
+        "other": {
+          "official-artwork": {
+            "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/333.png"
+          }
+        }
+      }
+    },
+    "https://pokeapi.co/api/v2/pokemon-species/334": {
+      "id": 334,
+      "name": "altaria",
+      "names": [
+        {
+          "language": {
+            "name": "ja"
+          },
+          "name": "x"
+        },
+        {
+          "language": {
+            "name": "en"
+          },
+          "name": "Altaria"
+        }
+      ],
+      "genera": [
+        {
+          "language": {
+            "name": "en"
+          },
+          "genus": "Humming Pokémon"
+        }
+      ],
+      "generation": {
+        "name": "generation-iii"
+      },
+      "is_legendary": false,
+      "is_mythical": false,
+      "evolution_chain": {
+        "url": "https://pokeapi.co/api/v2/evolution-chain/169/"
+      },
+      "varieties": [
+        {
+          "is_default": true,
+          "pokemon": {
+            "name": "altaria",
+            "url": "https://pokeapi.co/api/v2/pokemon/334/"
+          }
+        }
+      ],
+      "flavor_text_entries": []
+    },
+    "https://pokeapi.co/api/v2/pokemon/334": {
+      "id": 334,
+      "name": "altaria",
+      "height": 11,
+      "weight": 206,
+      "types": [
+        {
+          "slot": 1,
+          "type": {
+            "name": "dragon"
+          }
+        },
+        {
+          "slot": 2,
+          "type": {
+            "name": "flying"
+          }
+        }
+      ],
+      "sprites": {
+        "other": {
+          "official-artwork": {
+            "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/334.png"
+          }
+        }
+      }
+    },
+    "https://pokeapi.co/api/v2/evolution-chain/169/": {
+      "id": 169,
+      "chain": {
+        "species": {
+          "name": "swablu",
+          "url": "https://pokeapi.co/api/v2/pokemon-species/333/"
+        },
+        "evolution_details": [],
+        "evolves_to": [
+          {
+            "species": {
+              "name": "altaria",
+              "url": "https://pokeapi.co/api/v2/pokemon-species/334/"
+            },
+            "evolution_details": [
+              {
+                "trigger": {
+                  "name": "level-up"
+                },
+                "min_level": 35
+              }
+            ],
+            "evolves_to": []
+          }
+        ]
+      }
+    }
+  }
+}
