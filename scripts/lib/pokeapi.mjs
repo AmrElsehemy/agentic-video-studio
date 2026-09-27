@@ -21,6 +21,13 @@ const describeEvolution = (details) => {
   if (detail.min_happiness) parts.push(`friendship ${detail.min_happiness}`);
   if (detail.time_of_day) parts.push(`at ${detail.time_of_day}`);
   if (detail.known_move?.name) parts.push(`knowing ${titleCase(detail.known_move.name)}`);
+  if (detail.known_move_type?.name) parts.push(`knowing a ${titleCase(detail.known_move_type.name)}-type move`);
+  if (detail.min_affection) parts.push(`affection ${detail.min_affection}`);
+  if (detail.min_beauty) parts.push(`beauty ${detail.min_beauty}`);
+  if (detail.needs_overworld_rain) parts.push('while raining');
+  if (detail.trade_species?.name) parts.push(`traded for ${titleCase(detail.trade_species.name)}`);
+  if (detail.gender === 1) parts.push('female');
+  if (detail.gender === 2) parts.push('male');
   if (detail.location?.name) parts.push(`at ${titleCase(detail.location.name)}`);
   return parts.join(', ');
 };
