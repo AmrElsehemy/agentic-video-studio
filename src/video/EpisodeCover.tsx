@@ -7,15 +7,35 @@ type Props = {
   manifest: VideoManifest;
 };
 
+const escapeRegExp = (text: string) => text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+
+/** The hook headline, with the subject's name (or else the last word) in the accent colour. */
+const CoverTitle: React.FC<{headline: string; subject: string; accent: string}> = ({headline, subject, accent}) => {
+  const match = new RegExp(`\\b${escapeRegExp(subject)}\\b`, 'i').exec(headline);
+  if (match) {
+    return <>{headline.slice(0, match.index)}<span style={{color: accent}}>{match[0]}</span>{headline.slice(match.index + match[0].length)}</>;
+  }
+  const lastSpace = headline.trimEnd().lastIndexOf(' ');
+  if (lastSpace === -1) return <span style={{color: accent}}>{headline}</span>;
+  return <>{headline.slice(0, lastSpace + 1)}<span style={{color: accent}}>{headline.slice(lastSpace + 1)}</span></>;
+};
+
 export const EpisodeCover: React.FC<Props> = ({manifest}) => {
   const accent = manifest.palette.primary;
+  const hook = manifest.scenes[0];
+  const showNumber = Boolean(manifest.direction.numberRelevant);
+  // Pokédex numbers stay off the cover unless the story is about the number.
+  const mentionsNumber = (text?: string) => Boolean(text && /#\s*\d/.test(text));
+  const tag = hook.eyebrow && (showNumber || !mentionsNumber(hook.eyebrow)) ? hook.eyebrow : undefined;
+  // Shrink long hooks so they stay within three lines.
+  const titleSize = Math.round(Math.min(132, Math.max(88, 132 * Math.sqrt(26 / Math.max(26, hook.headline.length)))));
 
   return (
     <AbsoluteFill
       style={{
         overflow: 'hidden',
         color: manifest.palette.ink,
-        background: `radial-gradient(circle at 72% 36%, ${accent}45, transparent 34%), linear-gradient(155deg, #0c3a29 0%, ${manifest.palette.background} 55%, #020906 100%)`,
+        background: `radial-gradient(circle at 72% 36%, ${accent}45, transparent 34%), linear-gradient(155deg, ${manifest.palette.surface} 0%, ${manifest.palette.background} 55%, #000000 100%)`,
       }}
     >
       <div
@@ -30,37 +50,41 @@ export const EpisodeCover: React.FC<Props> = ({manifest}) => {
       <div style={{position: 'absolute', top: 74, left: 64, fontFamily: displayFont, fontSize: 42, letterSpacing: 6}}>
         POKE<span style={{color: accent}}>PULSES</span>
       </div>
-      <div
-        style={{
-          position: 'absolute',
-          top: 67,
-          right: 64,
-          padding: '10px 21px 8px',
-          border: `3px solid ${accent}`,
-          borderRadius: 99,
-          color: accent,
-          fontFamily: displayFont,
-          fontSize: 35,
-          letterSpacing: 2,
-        }}
-      >
-        {manifest.subject.index}
-      </div>
+      {showNumber ? (
+        <div
+          style={{
+            position: 'absolute',
+            top: 67,
+            right: 64,
+            padding: '10px 21px 8px',
+            border: `3px solid ${accent}`,
+            borderRadius: 99,
+            color: accent,
+            fontFamily: displayFont,
+            fontSize: 35,
+            letterSpacing: 2,
+          }}
+        >
+          {manifest.subject.index}
+        </div>
+      ) : null}
 
-      <div
-        style={{
-          position: 'absolute',
-          top: 210,
-          left: 58,
-          color: '#ffffff0d',
-          fontFamily: displayFont,
-          fontSize: 410,
-          lineHeight: 0.8,
-          letterSpacing: -16,
-        }}
-      >
-        001
-      </div>
+      {showNumber ? (
+        <div
+          style={{
+            position: 'absolute',
+            top: 210,
+            left: 58,
+            color: '#ffffff0d',
+            fontFamily: displayFont,
+            fontSize: 410,
+            lineHeight: 0.8,
+            letterSpacing: -16,
+          }}
+        >
+          {manifest.subject.index.replace('#', '')}
+        </div>
+      ) : null}
       <div
         style={{
           position: 'absolute',
@@ -85,7 +109,7 @@ export const EpisodeCover: React.FC<Props> = ({manifest}) => {
           filter: 'drop-shadow(0 48px 42px #000a)',
         }}
       />
-      <div
+      {tag ? <div
         style={{
           position: 'absolute',
           top: 1015,
@@ -93,31 +117,31 @@ export const EpisodeCover: React.FC<Props> = ({manifest}) => {
           padding: '13px 25px 9px',
           borderRadius: 12,
           background: accent,
-          color: '#061a13',
+          color: manifest.palette.background,
           fontFamily: displayFont,
           fontSize: 34,
           letterSpacing: 2.5,
           transform: 'rotate(-2deg)',
         }}
       >
-        THE ORIGINAL STARTER
-      </div>
+        {tag}
+      </div> : null}
       <div
         style={{
           position: 'absolute',
           left: 65,
           right: 55,
-          bottom: 215,
+          // Below the artwork and clear of the platform UI at the bottom of the frame.
+          top: 1185,
           fontFamily: displayFont,
-          fontSize: 132,
-          lineHeight: 0.82,
+          fontSize: titleSize,
+          lineHeight: 0.86,
           letterSpacing: 1,
           textTransform: 'uppercase',
           textShadow: '0 12px 32px #000c',
         }}
       >
-        WHY <span style={{color: accent}}>BULBASAUR</span>
-        <br />IS NUMBER ONE
+        <CoverTitle headline={hook.headline} subject={manifest.subject.name} accent={accent} />
       </div>
       <div
         style={{
