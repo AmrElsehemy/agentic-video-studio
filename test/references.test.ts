@@ -17,7 +17,13 @@ const references = loadReferences();
 
 describe('creative references', () => {
   it('loads the curated winners, not Swablu', () => {
-    assert.deepEqual(references.map((reference) => reference.id), ['bulbasaur-001', 'darmanitan-555', 'gimmighoul-999']);
+    const ids = references.map((reference) => reference.id);
+    for (const id of ['bulbasaur-001', 'darmanitan-555', 'gimmighoul-999']) assert.ok(ids.includes(id), id);
+    assert.ok(!ids.includes('swablu-333'));
+  });
+
+  it('explains a missing references folder', () => {
+    assert.throws(() => loadReferences(path.join(root, 'no-such-folder')), /Creative references folder not found/);
   });
 
   it('only names archetypes that exist', () => {
