@@ -10,9 +10,9 @@ They do **not** hand-author timing, scene roles, shots, renderer mappings, or pr
 ## Pipeline
 
 ```text
-research/facts
+research/facts        ← npm run episode:new (PokéAPI)
   ↓
-creative draft
+creative draft        ← writer agent, revised until every gate passes
   ↓
 episode compiler
   ↓
@@ -31,6 +31,13 @@ render + QA
 ```
 
 ## Commands
+
+Create a new episode end to end from a Pokédex number (see the README for options):
+
+```bash
+npm run episode:new -- 888
+```
+
 
 Compile and run the zero-token safety checks:
 

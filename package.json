@@ -11,6 +11,7 @@
     "voice:local": "node scripts/generate-voice.mjs --provider=local",
     "voice:openai": "node scripts/generate-voice.mjs --provider=openai",
     "episode:compile": "node scripts/compile-episode.mjs",
+    "episode:new": "node scripts/new-episode.mjs",
     "episode:prepare": "node scripts/prepare-episode.mjs",
     "episode:check": "node scripts/certify-episode.mjs --fast",
     "episode:certify": "node scripts/certify-episode.mjs",
