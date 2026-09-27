@@ -23,9 +23,13 @@ const CoverTitle: React.FC<{headline: string; subject: string; accent: string}> 
 export const EpisodeCover: React.FC<Props> = ({manifest}) => {
   const accent = manifest.palette.primary;
   const hook = manifest.scenes[0];
-  const showNumber = Boolean(manifest.direction.numberRelevant);
-  // Pokédex numbers stay off the cover unless the story is about the number.
   const mentionsNumber = (text?: string) => Boolean(text && /#\s*\d/.test(text));
+  // Pokédex numbers stay off the cover unless the story is about the number.
+  // Compiled episodes say so explicitly; hand-authored ones predate the flag,
+  // so a number in their hook counts as intent.
+  const showNumber = manifest.direction.engineVersion === 2
+    ? Boolean(manifest.direction.numberRelevant)
+    : mentionsNumber(hook.eyebrow) || mentionsNumber(hook.headline);
   const tag = hook.eyebrow && (showNumber || !mentionsNumber(hook.eyebrow)) ? hook.eyebrow : undefined;
   // Shrink long hooks so they stay within three lines.
   const titleSize = Math.round(Math.min(132, Math.max(88, 132 * Math.sqrt(26 / Math.max(26, hook.headline.length)))));
