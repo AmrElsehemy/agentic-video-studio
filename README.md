@@ -69,7 +69,7 @@ Milestone 0.2 implements the deterministic visual pipeline plus an opt-in narrat
 
 Agentic planning, automated factual review, publishing, and analytics feedback are later milestones. The episode manifest is the contract those agents will produce.
 
-The directing rules live in [DIRECTING.md](DIRECTING.md). They force every episode to make one arguable promise, prove it, challenge it, pay it off, and invite a meaningful verdict.
+The directing rules live in [DIRECTING.md](DIRECTING.md). They force every episode to make one arguable promise, escalate it, pay it off, and invite a meaningful verdict; story shapes that argue a position (profile, comparison) must also survive a counterpoint.
 
 ## Voice workflow
 
