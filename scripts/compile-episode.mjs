@@ -30,7 +30,13 @@ const outputPath = path.join(outputDir, 'video.json');
 
 if (checkOnly) {
   if (!fs.existsSync(outputPath)) throw new Error(`${episodeId} has a draft but no compiled video.json. Run: npm run episode:compile -- ${episodeId}`);
-  const drift = manifestDrift(manifest, fs.readFileSync(outputPath, 'utf8'));
+  let drift;
+  try {
+    drift = manifestDrift(manifest, fs.readFileSync(outputPath, 'utf8'));
+  } catch (error) {
+    if (!(error instanceof SyntaxError)) throw error;
+    throw new Error(`${path.relative(root, outputPath)} is not valid JSON (${error.message}). Run: npm run episode:compile -- ${episodeId}`);
+  }
   if (drift) throw new Error(`${episodeId} compiled manifest is stale or hand-edited (first difference at ${drift}). Run: npm run episode:compile -- ${episodeId}`);
   console.log(`✓ compiled artifact matches draft: ${episodeId} (${totalSeconds.toFixed(1)}s)`);
 } else {

@@ -53,8 +53,11 @@ export const compileEpisode = (rawDraft, {showId}) => {
     ...(scene.facts ? {facts: cleanFacts(scene.facts)} : {}),
   }));
 
-  const totalSeconds = scenes.reduce((sum, scene) => sum + scene.durationSeconds, 0);
-  if (totalSeconds > MAX_TOTAL) throw new Error(`${episodeId} compiles to ${totalSeconds.toFixed(1)}s. Shorten narration in the draft; compiler target is <=${MAX_TOTAL}s.`);
+  // Durations are whole tenths of a second; sum them as integers so float
+  // rounding can't push the total across the limit.
+  const totalTenths = scenes.reduce((sum, scene) => sum + Math.round(scene.durationSeconds * 10), 0);
+  const totalSeconds = totalTenths / 10;
+  if (totalTenths > MAX_TOTAL * 10) throw new Error(`${episodeId} compiles to ${totalSeconds.toFixed(1)}s. Shorten narration in the draft; compiler target is <=${MAX_TOTAL}s.`);
 
   const manifest = {
     schemaVersion: 1,

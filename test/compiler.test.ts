@@ -15,7 +15,11 @@ const drafts = fs.readdirSync(path.join(root, 'drafts'), {withFileTypes: true})
     .map((file) => ({showId: show.name, id: file.replace(/\.json$/, ''), draftPath: path.join(root, 'drafts', show.name, file)})));
 
 const readDraft = (draftPath: string) => JSON.parse(fs.readFileSync(draftPath, 'utf8'));
-const sampleDraft = () => readDraft(drafts.find((draft) => draft.id === 'mew-151')!.draftPath);
+const sampleDraft = () => {
+  const fixture = drafts.find((draft) => draft.id === 'mew-151');
+  assert.ok(fixture, 'These tests use drafts/pokepulses/mew-151.json as their sample draft; it was not found.');
+  return readDraft(fixture.draftPath);
+};
 
 describe('compiled drafts (golden files)', () => {
   it('finds drafts to test', () => assert.ok(drafts.length > 0));
@@ -65,6 +69,12 @@ describe('scene durations', () => {
     assert.ok(duration > MIN_SCENE);
     assert.equal(Math.round(duration * 10), duration * 10);
     assert.ok(duration > estimatedSpeech(text, 0.9));
+  });
+
+  it('reports the total as an exact sum of tenths', () => {
+    const {manifest, totalSeconds} = compileEpisode(sampleDraft(), {showId: 'pokepulses'});
+    const tenths = manifest.scenes.reduce((sum, scene) => sum + Math.round(scene.durationSeconds * 10), 0);
+    assert.equal(totalSeconds, tenths / 10);
   });
 
   it('rejects narration that cannot fit in the longest scene', () => {
