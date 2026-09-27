@@ -2,6 +2,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
+import {findAngle} from './angles.mjs';
 import {serializeManifest} from './compiler.mjs';
 import {researchPokemon} from './pokeapi.mjs';
 import {loadReferences, selectReferences} from './references.mjs';
@@ -16,8 +17,10 @@ const writeJson = (file, value) => {
 /**
  * Create an episode from a National Pokédex number.
  * Research is cached in research/<show>/<id>.json; pass refreshResearch to refetch.
+ * `ideate` is the completion for the Angle Generator and Critic (default: the
+ * writer's); pass null to let the writer find its own angle.
  */
-export const runNewEpisode = async ({number, root = repoRoot, showId = 'pokepulses', fetchJson, complete, verify = complete, storyPattern, refreshResearch = false, overwrite = false, maxAttempts = 3, log = console.log}) => {
+export const runNewEpisode = async ({number, root = repoRoot, showId = 'pokepulses', fetchJson, complete, verify = complete, ideate = complete, storyPattern, refreshResearch = false, overwrite = false, maxAttempts = 3, log = console.log}) => {
   const researchDir = path.join(root, 'research', showId);
   const matches = fs.existsSync(researchDir)
     ? fs.readdirSync(researchDir).filter((file) => file.endsWith(`-${String(number).padStart(3, '0')}.json`)).sort()
@@ -38,13 +41,32 @@ export const runNewEpisode = async ({number, root = repoRoot, showId = 'pokepuls
   const draftPath = path.join(root, 'drafts', showId, `${research.id}.json`);
   if (fs.existsSync(draftPath) && !overwrite) throw new Error(`drafts/${showId}/${research.id}.json already exists. Pass --overwrite to replace it.`);
 
+  let angle;
+  if (ideate) {
+    const angles = await findAngle({
+      research,
+      generate: ideate,
+      storyPattern,
+      onRound: ({round, candidates, rejected, error}) => {
+        const scored = candidates.filter((candidate) => candidate.total !== undefined);
+        log(`${scored.length ? '✓' : '✗'} angles: round ${round}, ${candidates.length} candidate${candidates.length === 1 ? '' : 's'}${rejected.length ? ` (${rejected.length} rejected)` : ''}${error ? ` — ${error}` : ''}`);
+        for (const candidate of scored.slice(0, 3)) log(`    ${candidate.total}/25 ${candidate.id} [${candidate.archetype}]: ${candidate.premise}`);
+      },
+    });
+    angle = angles.chosen;
+    writeJson(path.join(researchDir, `${research.id}.angles.json`), {episodeId: research.id, createdAt: new Date().toISOString(), chosen: angle, rounds: angles.rounds});
+    log(`${angle.belowBar ? '⚠' : '✓'} angle: "${angle.premise}" [${angle.archetype}, ${angle.total}/25${angle.belowBar ? ', below the bar; the best found' : ''}] → research/${showId}/${research.id}.angles.json`);
+  }
+  const shape = storyPattern ?? angle?.archetype;
+
   const result = await writeEpisode({
     research,
     complete,
     verify,
     directing: fs.readFileSync(path.join(repoRoot, 'DIRECTING.md'), 'utf8'),
-    references: selectReferences(loadReferences(), storyPattern),
+    references: selectReferences(loadReferences(), shape),
     storyPattern,
+    angle,
     showId,
     maxAttempts,
     onAttempt: ({attempt, problems, audit}) => {
@@ -65,5 +87,5 @@ export const runNewEpisode = async ({number, root = repoRoot, showId = 'pokepuls
   const seconds = result.manifest.scenes.reduce((sum, scene) => sum + scene.durationSeconds, 0);
   log(`✓ draft: drafts/${showId}/${research.id}.json — "${result.draft.title}" [${result.draft.storyPattern}, ${result.draft.scenes.length} scenes, ${seconds.toFixed(1)}s]`);
   log(`✓ compiled: videos/${showId}/${research.id}/video.json`);
-  return {id: research.id, research, ...result};
+  return {id: research.id, research, angle, ...result};
 };

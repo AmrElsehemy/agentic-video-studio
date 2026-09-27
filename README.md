@@ -40,15 +40,16 @@ npm run studio -- --browser-executable="/Applications/Google Chrome.app/Contents
 
 ```bash
 export ANTHROPIC_API_KEY=...            # the writer agent (or OPENAI_API_KEY)
-npm run episode:new -- 888              # research → write → check → compile → certify
+npm run episode:new -- 888              # research → angle → write → check → compile → certify
 npm run episode:new -- 888 --voice=local --render   # …and narrate + render a preview (macOS voice)
 npm run episode:new -- 888 --voice=openai --render  # …with the polished paid voice
 ```
 
 1. **Research** — fetches the Pokémon's species, types, size, Pokédex entries, evolution line and alternate forms from PokéAPI into `research/<show>/<id>.json`, with sources. Reused on later runs; `--refresh-research` refetches.
-2. **Write** — a writer agent (Claude or OpenAI) picks a story shape and writes the creative draft from the research only, following [DIRECTING.md](DIRECTING.md) and learning from the curated winners in [creative-references/](creative-references/README.md) for that shape. Identity, artwork URLs, rights and sources are filled in from the research, never by the model.
-3. **Check and revise** — the draft goes through the schema, the compiler (beats, hook and scene timing), the engagement audit (80+ required) and a number check, then the **Fact Verifier**: every headline, narration line, caption and fact gets a verdict (supported / unsupported / uncertain) with evidence pointers into the research (e.g. `types[0]`, `pokedexEntries[1].text`). Unsupported claims, such as a type the research never mentions, go back to the writer with the other problems, up to 3 attempts. The report is saved as `research/<show>/<id>.verification.json`; uncertain lines are listed for review.
-4. **Save** — `drafts/<show>/<id>.json` and the compiled `videos/<show>/<id>/video.json`, then the fast certification. Review the draft before paying for voice.
+2. **Find the angle** — an **Angle Generator** proposes about six candidate ideas, each with a hook, a story shape and evidence pointers into the research; an **Angle Critic** scores them 1–5 on uniqueness to this Pokémon, surprise, specificity, visual potential and factual support. An angle that rests only on fields every Pokémon has (type, category, generation) can't score above 2 for uniqueness, so "Gimmighoul needs 999 coins" beats "Gimmighoul is a Ghost type". Below 16/25 the critic asks for a second round. Candidates, scores and the choice are saved in `research/<show>/<id>.angles.json`.
+3. **Write** — a writer agent (Claude or OpenAI) builds the episode around the chosen angle and its story shape, writing the creative draft from the research only, following [DIRECTING.md](DIRECTING.md) and learning from the curated winners in [creative-references/](creative-references/README.md) for that shape. Identity, artwork URLs, rights and sources are filled in from the research, never by the model.
+4. **Check and revise** — the draft goes through the schema, the compiler (beats, hook and scene timing), the engagement audit (80+ required) and a number check, then the **Fact Verifier**: every headline, narration line, caption and fact gets a verdict (supported / unsupported / uncertain) with evidence pointers into the research (e.g. `types[0]`, `pokedexEntries[1].text`). Unsupported claims, such as a type the research never mentions, go back to the writer with the other problems, up to 3 attempts. The report is saved as `research/<show>/<id>.verification.json`; uncertain lines are listed for review.
+5. **Save** — `drafts/<show>/<id>.json` and the compiled `videos/<show>/<id>/video.json`, then the fast certification. Review the draft before paying for voice.
 
 Options: `--pattern=<archetype>` forces a story shape, `--overwrite` replaces an existing draft. The writer uses whichever key is set (`ANTHROPIC_API_KEY` first); `WRITER_PROVIDER=anthropic|openai` chooses explicitly and `WRITER_MODEL` overrides the model (defaults: `claude-opus-5-5`, `gpt-4o`).
 
