@@ -1,7 +1,11 @@
 import {z} from 'zod';
+import {archetypes} from './archetypes.mjs';
 
 const color = z.string().regex(/^#[0-9a-f]{6}$/i, 'Expected a six-digit hex color');
-const storyPattern = z.enum(['profile', 'mechanic', 'transformation', 'mystery', 'comparison']);
+// Any archetype defined in archetypes/<name>.json.
+const storyPattern = z.string().superRefine((name, context) => {
+  if (!Object.hasOwn(archetypes, name)) context.addIssue({code: 'custom', message: `Unknown story archetype "${name}". Supported: ${Object.keys(archetypes).join(', ')}`});
+});
 
 export const episodeDraftSchema = z.object({
   id: z.string().regex(/^[a-z0-9-]+$/),
@@ -55,6 +59,8 @@ export const episodeDraftSchema = z.object({
   }),
   scenes: z.array(z.object({
     id: z.string().regex(/^[a-z0-9-]+$/),
+    // Optional beat from the archetype; untagged scenes are placed in order.
+    beat: z.string().regex(/^[a-z0-9-]+$/).optional(),
     eyebrow: z.string().max(40).optional(),
     headline: z.string().min(1).max(70),
     narration: z.string().min(1).max(260),
@@ -63,6 +69,6 @@ export const episodeDraftSchema = z.object({
     facts: z.array(z.string().min(1).max(45)).max(4).optional(),
     accent: color.optional(),
     beatEverySeconds: z.number().positive().max(1.5).optional(),
-  })).length(6),
+  })).min(3).max(12),
   sources: z.array(z.object({label: z.string().min(1), url: z.string().url()})).min(1),
 });

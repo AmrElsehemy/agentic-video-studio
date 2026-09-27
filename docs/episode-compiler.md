@@ -68,7 +68,7 @@ The draft owns:
 The compiler owns:
 
 - engine version
-- scene roles
+- beats and scene roles
 - compatible shot grammar
 - compatible visual grammar
 - subject focus
@@ -76,15 +76,33 @@ The compiler owns:
 - audio output paths
 - manifest structure
 
-## Supported archetypes
+## Story archetypes and beats
 
-- `profile` — character-first introduction and evidence chain
-- `mechanic` — unusual rule, requirement, or game mechanic
-- `transformation` — state/form change with before/after payoff
-- `mystery` — clues leading to layered reveals
-- `comparison` — contrast between forms, Pokémon, stats, or choices
+Each archetype is a data file in `archetypes/<name>.json`: an ordered list of **beats**. A beat is one step of the story (hook, evidence, reveal, verdict, …) that can span a range of scenes.
 
-Legacy `reveal` and `debate` remain accepted for existing experiments.
+| Archetype | Beats (scenes allowed) |
+| --- | --- |
+| `profile` | hook (1) → evidence (2–3) → escalation (1–2) → twist (1) → verdict (1) |
+| `mechanic` | hook (1) → evidence (1–2) → escalation (1–2) → payoff (2–3) → verdict (1) |
+| `transformation` | hook (1) → before (1–2) → change (1–2) → reveal (1) → aftermath (1–2) → verdict (1) |
+| `mystery` | hook (1) → clue (1–3) → escalation (1–2) → reveal (2–3) → verdict (1) |
+| `comparison` | hook (1) → evidence (2–3) → escalation (1–2) → twist (1) → verdict (1) |
+
+Every archetype's hook is limited to **4.8s**, so narration for the first scene must be short enough to land within it. The compiler rejects a longer hook.
+
+### Placing scenes in beats
+
+- **Untagged scenes** are placed in order: a scene stays in the current beat until that beat has its minimum number of scenes, then moves to the next. A draft with exactly the minimum for every beat (6 scenes for every archetype today) needs no tags.
+- **To add a scene**, tag it with the beat it belongs to, e.g. `"beat": "clue"`. A tagged scene can repeat the current beat (up to its maximum) or move forward; beats must stay in order.
+- Repeated scenes in a beat cycle through that beat's `shots` and `visuals`, so they don't look identical.
+- The compiler names the scene and beat in every error, e.g. `Beat "clue" allows at most 3 scene(s)` or `scene 5 ("late-clue") goes back to beat "clue" after "escalation"`.
+- Whole episodes must compile to 45s or less.
+
+### Adding an archetype
+
+Add `archetypes/<name>.json`; drafts can use it straight away as their `storyPattern`. The loader validates the file: the first beat must have role `hook`, the last must have role `interaction`, beat ids must be unique, and `maxScenes` must be at least `minScenes`. The engagement audit applies generic structural checks to a new archetype; add pattern-specific checks in `scripts/engagement-audit.mjs` if the story shape needs them.
+
+Legacy `reveal` and `debate` patterns remain accepted in existing hand-authored manifests but can't be compiled from drafts.
 
 ## Renderer model
 

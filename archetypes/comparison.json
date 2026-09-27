@@ -1,0 +1,87 @@
+{
+  "description": "A contrast between forms, Pokémon, stats or choices.",
+  "defaultBeat": 0.7,
+  "beats": [
+    {
+      "id": "hook",
+      "role": "hook",
+      "minScenes": 1,
+      "maxScenes": 1,
+      "shots": [
+        "comparison"
+      ],
+      "visuals": [
+        "hook"
+      ],
+      "subjectFocus": [
+        "secondary"
+      ],
+      "maxSeconds": 4.8
+    },
+    {
+      "id": "evidence",
+      "role": "evidence",
+      "minScenes": 2,
+      "maxScenes": 3,
+      "shots": [
+        "wide",
+        "macro",
+        "comparison"
+      ],
+      "visuals": [
+        "gauntlet",
+        "advantage",
+        "gauntlet"
+      ],
+      "subjectFocus": [
+        "secondary"
+      ]
+    },
+    {
+      "id": "escalation",
+      "role": "escalation",
+      "minScenes": 1,
+      "maxScenes": 2,
+      "shots": [
+        "tracking",
+        "comparison"
+      ],
+      "visuals": [
+        "race"
+      ],
+      "subjectFocus": [
+        "primary"
+      ]
+    },
+    {
+      "id": "twist",
+      "role": "twist",
+      "minScenes": 1,
+      "maxScenes": 1,
+      "shots": [
+        "impact"
+      ],
+      "visuals": [
+        "tradeoff"
+      ],
+      "subjectFocus": [
+        "primary"
+      ]
+    },
+    {
+      "id": "verdict",
+      "role": "interaction",
+      "minScenes": 1,
+      "maxScenes": 1,
+      "shots": [
+        "interaction"
+      ],
+      "visuals": [
+        "cta"
+      ],
+      "subjectFocus": [
+        "primary"
+      ]
+    }
+  ]
+}

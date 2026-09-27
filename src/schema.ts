@@ -5,6 +5,7 @@ const color = z.string().regex(/^#[0-9a-f]{6}$/i, 'Expected a six-digit hex colo
 export const sceneSchema = z.object({
   id: z.string().min(1),
   durationSeconds: z.number().positive().max(12),
+  beat: z.string().optional(),
   eyebrow: z.string().max(40).optional(),
   headline: z.string().min(1).max(70),
   narration: z.string().min(1).max(260),
@@ -19,15 +20,9 @@ export const sceneSchema = z.object({
   facts: z.array(z.string().min(1).max(45)).max(4).optional(),
 });
 
-export const storyPatternSchema = z.enum([
-  'profile',
-  'mechanic',
-  'transformation',
-  'mystery',
-  'comparison',
-  'reveal',
-  'debate',
-]);
+// Compiled episodes use an archetype from archetypes/<name>.json (checked by
+// the compiler); legacy hand-authored manifests may also use reveal or debate.
+export const storyPatternSchema = z.string().regex(/^[a-z0-9-]+$/);
 
 export const videoSchema = z.object({
   schemaVersion: z.literal(1),
