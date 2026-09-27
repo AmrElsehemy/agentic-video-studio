@@ -1,7 +1,7 @@
 import {spawnSync} from 'node:child_process';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
-import {createClaudeCompletion} from './lib/anthropic.mjs';
+import {createCompletion} from './lib/llm.mjs';
 import {runNewEpisode} from './lib/new-episode.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -18,7 +18,8 @@ if (!Number.isInteger(number) || number < 1) {
   --refresh-research      refetch PokéAPI data instead of reusing research/
   --overwrite             replace an existing draft
 
-Requires ANTHROPIC_API_KEY (writer). Optional: WRITER_MODEL.`);
+Requires ANTHROPIC_API_KEY or OPENAI_API_KEY for the writer.
+Optional: WRITER_PROVIDER (anthropic | openai), WRITER_MODEL.`);
   process.exit(1);
 }
 const voice = option('voice');
@@ -39,10 +40,12 @@ const run = (label, script, scriptArgs) => {
 console.log(`▶ Creating an episode for Pokédex #${number}`);
 let id;
 try {
+  const complete = createCompletion();
+  console.log(`  writer: ${complete.provider} (${complete.model})`);
   ({id} = await runNewEpisode({
     number,
     fetchJson,
-    complete: createClaudeCompletion(),
+    complete,
     storyPattern: option('pattern'),
     refreshResearch: flag('refresh-research'),
     overwrite: flag('overwrite'),

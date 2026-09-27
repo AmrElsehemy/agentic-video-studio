@@ -38,18 +38,18 @@ npm run studio -- --browser-executable="/Applications/Google Chrome.app/Contents
 ## Create an episode from a Pokédex number
 
 ```bash
-export ANTHROPIC_API_KEY=...            # the writer agent
+export ANTHROPIC_API_KEY=...            # the writer agent (or OPENAI_API_KEY)
 npm run episode:new -- 888              # research → write → check → compile → certify
 npm run episode:new -- 888 --voice=local --render   # …and narrate + render a preview (macOS voice)
 npm run episode:new -- 888 --voice=openai --render  # …with the polished paid voice
 ```
 
 1. **Research** — fetches the Pokémon's species, types, size, Pokédex entries, evolution line and alternate forms from PokéAPI into `research/<show>/<id>.json`, with sources. Reused on later runs; `--refresh-research` refetches.
-2. **Write** — a Claude writer agent picks a story shape and writes the creative draft from the research only, following [DIRECTING.md](DIRECTING.md) and learning from the curated winners in [creative-references/](creative-references/README.md) for that shape. Identity, artwork URLs, rights and sources are filled in from the research, never by the model.
+2. **Write** — a writer agent (Claude or OpenAI) picks a story shape and writes the creative draft from the research only, following [DIRECTING.md](DIRECTING.md) and learning from the curated winners in [creative-references/](creative-references/README.md) for that shape. Identity, artwork URLs, rights and sources are filled in from the research, never by the model.
 3. **Check and revise** — the draft goes through the schema, the compiler (beats, hook and scene timing), the engagement audit (80+ required) and a fact check that rejects any number not in the research. Problems go back to the writer, up to 3 attempts.
 4. **Save** — `drafts/<show>/<id>.json` and the compiled `videos/<show>/<id>/video.json`, then the fast certification. Review the draft before paying for voice.
 
-Options: `--pattern=<archetype>` forces a story shape, `--overwrite` replaces an existing draft. `WRITER_MODEL` overrides the model (default `claude-opus-5-5`).
+Options: `--pattern=<archetype>` forces a story shape, `--overwrite` replaces an existing draft. The writer uses whichever key is set (`ANTHROPIC_API_KEY` first); `WRITER_PROVIDER=anthropic|openai` chooses explicitly and `WRITER_MODEL` overrides the model (defaults: `claude-opus-5-5`, `gpt-4o`).
 
 ## Pipeline
 
