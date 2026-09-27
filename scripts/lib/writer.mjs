@@ -8,6 +8,7 @@ import {episodeDraftSchema} from '../draft-schema.mjs';
 import {compileEpisode} from './compiler.mjs';
 import {scoreEpisode} from './engagement.mjs';
 import {describeAngle} from './angles.mjs';
+import {creativeProblems, critiqueDraft} from './creative-critic.mjs';
 import {verificationProblems, verifyDraft} from './fact-verifier.mjs';
 
 const color = z.string().regex(/^#[0-9a-f]{6}$/i);
@@ -152,7 +153,7 @@ export const evaluateDraft = (draft, research, {showId = 'pokepulses'} = {}) => 
   }
   const problems = factCheck(draft, research);
   const audit = scoreEpisode(manifest);
-  if (!audit.passed) problems.push(`Engagement audit scored ${audit.score}/100 (needs 80). Failed checks: ${audit.checks.filter((check) => !check.passed).map((check) => check.label).join(', ')}.`);
+  if (!audit.passed) problems.push(`Production audit scored ${audit.score}/100 (needs 80). Failed checks: ${audit.checks.filter((check) => !check.passed).map((check) => check.label).join(', ')}.`);
   return {problems, manifest, audit};
 };
 
@@ -219,13 +220,16 @@ export const parseReply = (text) => {
  */
 /**
  * `verify` checks factual claims (a model completion for the Fact Verifier);
- * without it only the verifier's deterministic rules run.
+ * without it only the verifier's deterministic rules run. `critique` is the
+ * creative critic's completion; without it the story isn't judged.
+ * Gates run in order: production (schema, compiler, audit, numbers), facts, creative.
  */
-export const writeEpisode = async ({research, complete, verify, directing, references = [], storyPattern, angle, showId = 'pokepulses', maxAttempts = 3, onAttempt = () => {}}) => {
+export const writeEpisode = async ({research, complete, verify, critique, directing, references = [], storyPattern, angle, showId = 'pokepulses', maxAttempts = 3, onAttempt = () => {}}) => {
   const {system, user} = buildWriterPrompt({research, directing, references, storyPattern, angle});
   const shape = storyPattern || angle?.archetype;
   const messages = [{role: 'user', content: user}];
   let problems = [];
+  let lastCreative;
   for (let attempt = 1; attempt <= maxAttempts; attempt++) {
     const reply = await complete({system, messages});
     messages.push({role: 'assistant', content: reply});
@@ -244,15 +248,22 @@ export const writeEpisode = async ({research, complete, verify, directing, refer
           const verification = await verifyDraft({draft: assembled.draft, research, complete: verify});
           problems = verificationProblems(verification);
           if (problems.length === 0) {
-            onAttempt({attempt, problems, audit: result.audit, verification});
-            return {draft: assembled.draft, manifest: result.manifest, audit: result.audit, verification, attempts: attempt};
+            // Only true drafts are judged as stories.
+            const review = await critiqueDraft({draft: assembled.draft, research, angle, complete: critique});
+            problems = creativeProblems(review);
+            if (problems.length === 0) {
+              onAttempt({attempt, problems, audit: result.audit, verification, creative: review});
+              return {draft: assembled.draft, manifest: result.manifest, audit: result.audit, verification, creative: review, attempts: attempt};
+            }
+            lastCreative = review;
           }
         }
       }
     } catch (error) {
       problems = [`Could not read the reply as JSON: ${error.message}`];
     }
-    onAttempt({attempt, problems, audit: result?.audit});
+    onAttempt({attempt, problems, audit: result?.audit, creative: lastCreative});
+    lastCreative = undefined;
     messages.push({role: 'user', content: `The draft was rejected. Fix every problem below and reply with the complete corrected JSON object only.\n${problems.map((problem, index) => `${index + 1}. ${problem}`).join('\n')}`});
   }
   const error = new Error(`The writer could not produce a draft that passes every check after ${maxAttempts} attempts:\n${problems.map((problem) => `- ${problem}`).join('\n')}`);
