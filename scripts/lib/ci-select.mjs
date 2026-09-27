@@ -3,7 +3,7 @@
 // episodes it touches, plus a small golden set when shared code changes.
 
 /** Paths that can't change how any episode renders. */
-const NON_RENDERING = [/\.md$/i, /^docs\//, /^test\//, /^creative-references\//, /^\.github\/golden-episodes\.json$/];
+const NON_RENDERING = [/\.md$/i, /^docs\//, /^test\//, /^creative-references\//];
 
 /** The episode an episode-specific path belongs to, if any. */
 const episodeOf = (file) => {
@@ -41,4 +41,18 @@ export const selectEpisodes = ({changedFiles, catalog, golden, full = false}) =>
   if (touched.size) reasons.push(`changed episodes: ${[...touched].sort().join(', ')}`);
   if (sharedChange) reasons.push(`golden set, because shared code changed (e.g. ${sharedChange})`);
   return {episodes: [...episodes].sort(), reason: reasons.join('; ') || 'nothing that affects rendering changed'};
+};
+
+/** GitHub Actions caps a job matrix at 256 entries; stay well below it. */
+export const MAX_SHARDS = 64;
+
+/**
+ * Group episodes into at most maxShards render jobs, as space-separated ids.
+ * Small selections get one job per episode; large ones are spread evenly.
+ */
+export const toShards = (episodes, maxShards = MAX_SHARDS) => {
+  const count = Math.min(episodes.length, maxShards);
+  const shards = Array.from({length: count}, () => []);
+  episodes.forEach((id, index) => shards[index % count].push(id));
+  return shards.map((shard) => shard.join(' '));
 };

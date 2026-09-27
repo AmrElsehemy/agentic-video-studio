@@ -76,9 +76,9 @@ The directing rules live in [DIRECTING.md](DIRECTING.md). They force every episo
 
 Every push and pull request runs the global checks (validate, typecheck, tests). Rendering is selective so CI scales with the catalog:
 
-- **Pull requests and pushes** render only episodes whose draft, manifest or research changed, plus the golden regression set in [`.github/golden-episodes.json`](.github/golden-episodes.json) when shared code (renderer, compiler, scripts, archetypes, dependencies) changes. Docs, tests and creative references render nothing.
+- **Pull requests and pushes** render only episodes whose draft, manifest or research changed, plus the golden regression set in [`.github/golden-episodes.json`](.github/golden-episodes.json) when shared code (renderer, compiler, scripts, archetypes, dependencies, CI config) changes. Docs, tests and creative references render nothing.
 - **Nightly**, and on demand from the Actions tab (`workflow_dispatch`), every episode renders.
-- Each render uploads the MP4, a **contact sheet** (one frame per scene), the cover and the description.
+- Each render uploads the MP4, a **contact sheet** (one frame per scene), the cover and the description. Large selections are batched into at most 64 render jobs.
 
 ## Voice workflow
 

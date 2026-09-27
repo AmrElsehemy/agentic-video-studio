@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {describe, it} from 'node:test';
 import {fileURLToPath} from 'node:url';
-import {selectEpisodes} from '../scripts/lib/ci-select.mjs';
+import {MAX_SHARDS, selectEpisodes, toShards} from '../scripts/lib/ci-select.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const catalog = ['bulbasaur-001', 'darmanitan-555', 'gimmighoul-999', 'mew-151', 'swablu-333', 'terapagos-1024', 'zacian-888'];
@@ -33,6 +33,25 @@ describe('CI episode selection', () => {
 
   it('skips episodes that no longer exist', () => {
     assert.deepEqual(select(['drafts/pokepulses/deleted-999.json']), []);
+  });
+
+  it('renders the golden set when the golden set itself changes', () => {
+    assert.deepEqual(select(['.github/golden-episodes.json']), [...golden].sort());
+  });
+
+  it('gives each episode its own job when the selection is small', () => {
+    assert.deepEqual(toShards(['a', 'b', 'c']), ['a', 'b', 'c']);
+    assert.deepEqual(toShards([]), []);
+  });
+
+  it('spreads a large catalog evenly across a bounded number of jobs', () => {
+    const catalogOf1025 = Array.from({length: 1025}, (_, index) => `pokemon-${index + 1}`);
+    const shards = toShards(catalogOf1025);
+    assert.equal(shards.length, MAX_SHARDS);
+    assert.ok(MAX_SHARDS < 256, 'below the GitHub Actions matrix limit');
+    const sizes = shards.map((shard) => shard.split(' ').length);
+    assert.ok(Math.max(...sizes) - Math.min(...sizes) <= 1, 'balanced');
+    assert.equal(shards.flatMap((shard) => shard.split(' ')).length, 1025, 'every episode rendered once');
   });
 
   it('renders every episode on a full run', () => {

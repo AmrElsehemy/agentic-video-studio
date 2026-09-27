@@ -59,7 +59,9 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        episode: ${{ fromJSON(needs.validate.outputs.episodes) }}
+        # Each entry is one or more space-separated episode ids; large catalogs
+        # are spread over at most 64 jobs (GitHub caps a matrix at 256).
+        shard: ${{ fromJSON(needs.validate.outputs.episodes) }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -69,17 +71,25 @@ jobs:
       - run: npm ci
       - name: Install FFmpeg for render QA
         run: sudo apt-get update && sudo apt-get install --yes ffmpeg
-      - run: npm run video -- ${{ matrix.episode }}
-      - run: npm run sheet -- ${{ matrix.episode }}
-      - run: npm run still -- ${{ matrix.episode }}
-      - run: npm run description -- ${{ matrix.episode }}
+      - name: Render, contact sheet, cover and description
+        env:
+          SHARD: ${{ matrix.shard }}
+        run: |
+          for id in $SHARD; do
+            echo "::group::$id"
+            npm run video -- "$id"
+            npm run sheet -- "$id"
+            npm run still -- "$id"
+            npm run description -- "$id"
+            echo "::endgroup::"
+          done
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: ${{ matrix.episode }}
+          name: render-${{ strategy.job-index }}
           path: |
-            out/${{ matrix.episode }}.mp4
-            out/${{ matrix.episode }}-contact-sheet.png
-            out/${{ matrix.episode }}-cover.png
-            out/${{ matrix.episode }}-description.txt
+            out/*.mp4
+            out/*-contact-sheet.png
+            out/*-cover.png
+            out/*-description.txt
           if-no-files-found: warn

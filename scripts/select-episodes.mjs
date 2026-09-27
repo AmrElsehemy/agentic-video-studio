@@ -1,11 +1,11 @@
-// CI helper: prints the JSON array of episodes to render.
+// CI helper: prints the render jobs as a JSON array of space-separated episode ids.
 //   node scripts/select-episodes.mjs --base=<git ref>   episodes affected since <ref>
 //   node scripts/select-episodes.mjs --full             every episode
 import {execFileSync} from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
-import {selectEpisodes} from './lib/ci-select.mjs';
+import {selectEpisodes, toShards} from './lib/ci-select.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const args = process.argv.slice(2);
@@ -27,4 +27,4 @@ const changedFiles = full ? [] : execFileSync('git', ['diff', '--name-only', `${
 const golden = JSON.parse(fs.readFileSync(path.join(root, '.github', 'golden-episodes.json'), 'utf8')).episodes;
 const {episodes, reason} = selectEpisodes({changedFiles, catalog, golden, full});
 console.error(`Rendering ${episodes.length} episode(s): ${reason}`);
-process.stdout.write(JSON.stringify(episodes));
+process.stdout.write(JSON.stringify(toShards(episodes)));
