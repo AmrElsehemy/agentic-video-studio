@@ -208,7 +208,7 @@ describe('writing from an angle', () => {
       writer: [goodReply()],
     });
     const logs: string[] = [];
-    const result = await runNewEpisode({number: 888, root: dir, verify: null, fetchJson, complete, log: (line: string) => logs.push(line)});
+    const result = await runNewEpisode({number: 888, root: dir, verify: null, critique: null, fetchJson, complete, log: (line: string) => logs.push(line)});
     assert.equal(result.angle!.id, 'crowned');
     const saved = JSON.parse(fs.readFileSync(path.join(dir, 'research/pokepulses/zacian-888.angles.json'), 'utf8'));
     assert.equal(saved.chosen.id, 'crowned');

@@ -25,6 +25,7 @@
     "sheet": "node scripts/contact-sheet.mjs",
     "validate": "node scripts/check-compiled-drafts.mjs && node --import tsx scripts/validate.ts && node scripts/engagement-audit.mjs",
     "engagement": "node scripts/engagement-audit.mjs",
+    "critic:calibrate": "node scripts/critic-calibrate.mjs",
     "qa": "node scripts/qa.mjs",
     "typecheck": "tsc --noEmit",
     "test": "node --import tsx --test \"test/**/*.test.ts\""

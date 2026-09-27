@@ -125,7 +125,7 @@ describe('fact verifier in the writer loop', () => {
     const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'verify-'));
     const logs: string[] = [];
     const reply = JSON.stringify(goodReply());
-    await runNewEpisode({number: 888, root: dir, fetchJson, complete: async () => reply, ideate: null, verify: verifierSaying('uncertain'), log: (line) => logs.push(line)});
+    await runNewEpisode({number: 888, root: dir, fetchJson, complete: async () => reply, ideate: null, critique: null, verify: verifierSaying('uncertain'), log: (line) => logs.push(line)});
     const saved = JSON.parse(fs.readFileSync(path.join(dir, 'research/pokepulses/zacian-888.verification.json'), 'utf8'));
     assert.equal(saved.episodeId, 'zacian-888');
     assert.equal(saved.uncertain.length, saved.claims.length);

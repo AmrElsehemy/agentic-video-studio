@@ -18,9 +18,10 @@ const writeJson = (file, value) => {
  * Create an episode from a National Pokédex number.
  * Research is cached in research/<show>/<id>.json; pass refreshResearch to refetch.
  * `ideate` is the completion for the Angle Generator and Critic (default: the
- * writer's); pass null to let the writer find its own angle.
+ * writer's); pass null to let the writer find its own angle. `critique` is the
+ * creative critic's (default: the writer's); null skips judging the story.
  */
-export const runNewEpisode = async ({number, root = repoRoot, showId = 'pokepulses', fetchJson, complete, verify = complete, ideate = complete, storyPattern, refreshResearch = false, overwrite = false, maxAttempts = 3, log = console.log}) => {
+export const runNewEpisode = async ({number, root = repoRoot, showId = 'pokepulses', fetchJson, complete, verify = complete, ideate = complete, critique = complete, storyPattern, refreshResearch = false, overwrite = false, maxAttempts = 3, log = console.log}) => {
   const researchDir = path.join(root, 'research', showId);
   const matches = fs.existsSync(researchDir)
     ? fs.readdirSync(researchDir).filter((file) => file.endsWith(`-${String(number).padStart(3, '0')}.json`)).sort()
@@ -63,14 +64,16 @@ export const runNewEpisode = async ({number, root = repoRoot, showId = 'pokepuls
     research,
     complete,
     verify,
+    critique,
     directing: fs.readFileSync(path.join(repoRoot, 'DIRECTING.md'), 'utf8'),
     references: selectReferences(loadReferences(), shape),
     storyPattern,
     angle,
     showId,
     maxAttempts,
-    onAttempt: ({attempt, problems, audit}) => {
-      if (problems.length === 0) log(`✓ writer: attempt ${attempt} passed every check (engagement ${audit.score}/100)`);
+    onAttempt: ({attempt, problems, audit, creative}) => {
+      const story = creative && !creative.skipped ? `, creative ${creative.score}/100` : '';
+      if (problems.length === 0) log(`✓ writer: attempt ${attempt} passed every check (production ${audit.score}/100${story})`);
       else log(`✗ writer: attempt ${attempt} rejected (${problems.length} problem${problems.length === 1 ? '' : 's'}):\n${problems.map((problem) => `    - ${problem}`).join('\n')}`);
     },
   });
@@ -81,6 +84,13 @@ export const runNewEpisode = async ({number, root = repoRoot, showId = 'pokepuls
   log(`✓ facts: ${claims.filter((claim) => claim.verdict === 'supported').length} supported, ${claims.filter((claim) => claim.verdict === 'no-claim').length} framing, ${uncertain.length} uncertain → research/${showId}/${research.id}.verification.json`);
   if (result.verification.modelError) log(`⚠ facts: the verifier model failed (${result.verification.modelError}); only the rule checks ran.`);
   for (const claim of uncertain) log(`    ? ${claim.where}: "${claim.text}" (${claim.note})`);
+  if (result.creative.skipped) {
+    log(`⚠ creative: not judged${result.creative.modelError ? ` (the critic model failed: ${result.creative.modelError})` : ' (no critic model)'}.`);
+  } else {
+    writeJson(path.join(researchDir, `${research.id}.creative.json`), {episodeId: research.id, checkedAt: new Date().toISOString(), ...result.creative});
+    const weakest = [...result.creative.criteria].sort((a, b) => a.score - b.score).slice(0, 2);
+    log(`✓ creative: ${result.creative.score}/100 (weakest: ${weakest.map((item) => `${item.criterion} ${item.score}/5`).join(', ')}) → research/${showId}/${research.id}.creative.json`);
+  }
   const manifestPath = path.join(root, 'videos', showId, research.id, 'video.json');
   fs.mkdirSync(path.dirname(manifestPath), {recursive: true});
   fs.writeFileSync(manifestPath, serializeManifest(result.manifest));
