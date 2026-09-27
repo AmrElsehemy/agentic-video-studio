@@ -32,6 +32,7 @@ const lastKey = (pointer) => pointer.match(/([A-Za-z_]\w*)(?:\[\d+\])*$/)?.[1];
 /** True when every evidence pointer names a field every Pokémon has. */
 export const isGeneric = (evidence) => evidence.every((pointer) => GENERIC_FIELDS.includes(lastKey(pointer)));
 
+const messageOf = (error) => (error instanceof Error ? error.message : String(error));
 const listOf = (reply, key) => (Array.isArray(reply) ? reply : Array.isArray(reply?.[key]) ? reply[key] : []);
 
 /**
@@ -48,7 +49,7 @@ export const validateCandidates = (items, research, {storyPattern} = {}) => {
       rejected.push({id: item?.id ?? '?', reason: parsed.error.issues.map((issue) => `${issue.path.join('.')}: ${issue.message}`).join('; ')});
       continue;
     }
-    const candidate = {...parsed.data, archetype: storyPattern ?? parsed.data.archetype};
+    const candidate = {...parsed.data, archetype: storyPattern || parsed.data.archetype};
     if (seen.has(candidate.id)) {
       rejected.push({id: candidate.id, reason: 'duplicate id'});
       continue;
@@ -143,7 +144,7 @@ export const findAngle = async ({research, generate, critique = generate, storyP
     try {
       ({candidates, rejected} = validateCandidates(listOf(parseJsonReply(await generate(buildGeneratorPrompt({research, storyPattern, feedback}))), 'angles'), research, {storyPattern}));
     } catch (caught) {
-      error = `The angle generator failed: ${caught.message}`;
+      error = `The angle generator failed: ${messageOf(caught)}`;
     }
     let ranked = [];
     let request;
@@ -154,7 +155,7 @@ export const findAngle = async ({research, generate, critique = generate, storyP
         request = typeof review?.request === 'string' ? review.request : undefined;
         if (!ranked.length) error = 'The angle critic scored none of the candidates.';
       } catch (caught) {
-        error = `The angle critic failed: ${caught.message}`;
+        error = `The angle critic failed: ${messageOf(caught)}`;
       }
     } else {
       error ??= `No usable angles${rejected.length ? `: ${rejected.map((item) => `${item.id} (${item.reason})`).join('; ')}` : ''}.`;
@@ -179,7 +180,7 @@ export const findAngle = async ({research, generate, critique = generate, storyP
 /** The chosen angle as the writer sees it, with each piece of evidence resolved. */
 export const describeAngle = (angle, research) => {
   const evidence = angle.evidence.map((pointer) => {
-    const value = JSON.stringify(resolvePointer(research, pointer));
+    const value = JSON.stringify(resolvePointer(research, pointer)) ?? '(not in the research)';
     return `- ${pointer}: ${value.length > 200 ? `${value.slice(0, 197)}...` : value}`;
   }).join('\n');
   return `Premise: ${angle.premise}

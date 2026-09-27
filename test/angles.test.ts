@@ -84,6 +84,11 @@ describe('angle candidates', () => {
     const {candidates} = validateCandidates([coins, ghostType], gimmighoul, {storyPattern: 'mystery'});
     assert.deepEqual(candidates.map((candidate) => candidate.archetype), ['mystery', 'mystery']);
   });
+
+  it('treats an empty story shape (a bare --pattern=) as not forced', () => {
+    const {candidates} = validateCandidates([coins, ghostType], gimmighoul, {storyPattern: ''});
+    assert.deepEqual(candidates.map((candidate) => candidate.archetype), ['mechanic', 'profile']);
+  });
 });
 
 describe('angle critic', () => {
@@ -145,6 +150,14 @@ describe('finding an angle', () => {
     assert.match(rounds[1].error!, /angle generator failed/);
   });
 
+  it('records failures that throw something other than an Error', async () => {
+    const generate = async (request: Request) => {
+      if (request.system.includes('You find angles')) return JSON.stringify([coins]);
+      throw 'critic offline';
+    };
+    await assert.rejects(findAngle({research: gimmighoul, generate}), /round 1: The angle critic failed: critic offline/);
+  });
+
   it('fails clearly when no round produces a scored angle', async () => {
     const {complete} = scripted({generator: [[{...coins, evidence: ['moves[0]']}], [coins]], critic: ['{}']});
     await assert.rejects(findAngle({research: gimmighoul, generate: complete}), (error: Error) => {
@@ -172,6 +185,7 @@ describe('writing from an angle', () => {
     assert.match(system, /- evolutionChain\[1\]\.method: "Level Up, 999 Gimmighoul Coins"/);
     assert.match(system, /Use storyPattern "mechanic"/);
     assert.equal(describeAngle(coins, gimmighoul).split('\n').at(-1), '- evolutionChain[1].index: "#1000"');
+    assert.equal(describeAngle({...coins, evidence: ['moves[0]']}, gimmighoul).split('\n').at(-1), '- moves[0]: (not in the research)');
   });
 
   it("rejects a draft that ignores the angle's story shape", async () => {

@@ -57,7 +57,7 @@ export const runNewEpisode = async ({number, root = repoRoot, showId = 'pokepuls
     writeJson(path.join(researchDir, `${research.id}.angles.json`), {episodeId: research.id, createdAt: new Date().toISOString(), chosen: angle, rounds: angles.rounds});
     log(`${angle.belowBar ? '⚠' : '✓'} angle: "${angle.premise}" [${angle.archetype}, ${angle.total}/25${angle.belowBar ? ', below the bar; the best found' : ''}] → research/${showId}/${research.id}.angles.json`);
   }
-  const shape = storyPattern ?? angle?.archetype;
+  const shape = storyPattern || angle?.archetype;
 
   const result = await writeEpisode({
     research,

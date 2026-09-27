@@ -46,7 +46,7 @@ try {
     number,
     fetchJson,
     complete,
-    storyPattern: option('pattern'),
+    storyPattern: option('pattern') || undefined,
     refreshResearch: flag('refresh-research'),
     overwrite: flag('overwrite'),
   }));

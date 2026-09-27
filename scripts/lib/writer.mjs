@@ -163,7 +163,7 @@ const describeArchetypes = () => Object.entries(archetypes).map(([name, archetyp
 
 /** The writer's instructions: the directing contract, the format and hard limits. */
 export const buildWriterPrompt = ({research, directing, references = [], storyPattern, angle}) => {
-  const shape = storyPattern ?? angle?.archetype;
+  const shape = storyPattern || angle?.archetype;
   const artworkNames = [...artworkChoices(research).values()].map((item) => item.name).join(', ');
   const system = `You are the head writer of PokePulses, a vertical short-form video series about Pokémon. You turn researched facts into one tight, surprising story.
 
@@ -223,7 +223,7 @@ export const parseReply = (text) => {
  */
 export const writeEpisode = async ({research, complete, verify, directing, references = [], storyPattern, angle, showId = 'pokepulses', maxAttempts = 3, onAttempt = () => {}}) => {
   const {system, user} = buildWriterPrompt({research, directing, references, storyPattern, angle});
-  const shape = storyPattern ?? angle?.archetype;
+  const shape = storyPattern || angle?.archetype;
   const messages = [{role: 'user', content: user}];
   let problems = [];
   for (let attempt = 1; attempt <= maxAttempts; attempt++) {
