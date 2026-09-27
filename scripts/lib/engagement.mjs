@@ -2,6 +2,9 @@ import {archetypes} from '../archetypes.mjs';
 
 export const PASSING_SCORE = 80;
 
+/** Whether a story shape must include a counterpoint (a required twist beat). */
+export const requiresCounterpoint = (pattern) => Boolean(archetypes[pattern]?.beats.some((beat) => beat.role === 'twist' && beat.minScenes > 0));
+
 const countRoles = (scenes, roles) => scenes.filter((scene) => roles.includes(scene.role)).length;
 
 /**
@@ -31,7 +34,6 @@ export const scoreEpisode = (video) => {
       ['Immediate tension', scenes[0]?.role === 'hook' && scenes[0].durationSeconds <= hookLimit, 15],
       ['Evidence chain', countRoles(scenes, ['evidence', 'escalation']) >= 3, 15],
       ['Subject restraint', scenes.filter((scene) => scene.subjectFocus === 'primary').length <= Math.ceil(scenes.length / 2), 10],
-      ['Counterpoint', scenes.some((scene) => scene.role === 'twist'), 10],
     ],
     mechanic: [
       ['Immediate mechanic', scenes[0]?.role === 'hook' && scenes[0].durationSeconds <= hookLimit, 15],
@@ -55,7 +57,6 @@ export const scoreEpisode = (video) => {
       ['Immediate contrast', scenes[0]?.role === 'hook' && scenes[0].durationSeconds <= hookLimit, 15],
       ['Comparison evidence', countRoles(scenes, ['evidence', 'escalation']) >= 3, 15],
       ['Contrast shots', scenes.filter((scene) => scene.shot === 'comparison').length >= 1, 10],
-      ['Counterpoint', scenes.some((scene) => scene.role === 'twist'), 10],
     ],
     reveal: [
       ['Immediate mystery', scenes[0]?.role === 'hook' && scenes[0].durationSeconds <= hookLimit && ['absent', 'hidden'].includes(scenes[0]?.subjectFocus), 15],
@@ -79,7 +80,12 @@ export const scoreEpisode = (video) => {
     ['Payoff or counterpoint', scenes.some((scene) => ['payoff', 'twist'].includes(scene.role)), 10],
     ['Subject revealed', scenes.some((scene) => scene.subjectFocus === 'primary'), 10],
   ];
-  const checks = [...commonChecks, ...(patternChecks[pattern] ?? genericChecks)];
+  // A counterpoint is required only by story shapes that argue a position:
+  // archetypes with a required twist beat (see DIRECTING.md).
+  const counterpointChecks = requiresCounterpoint(pattern)
+    ? [['Counterpoint', scenes.some((scene) => scene.role === 'twist'), 10]]
+    : [];
+  const checks = [...commonChecks, ...(patternChecks[pattern] ?? genericChecks), ...counterpointChecks];
   const available = checks.reduce((sum, [, , points]) => sum + points, 0);
   const earned = checks.reduce((sum, [, passed, points]) => sum + (passed ? points : 0), 0);
   const score = Math.round(earned / available * 100);

@@ -8,4 +8,5 @@ export type EngagementAudit = {
 };
 
 export declare const PASSING_SCORE: number;
+export declare const requiresCounterpoint: (pattern: string) => boolean;
 export declare const scoreEpisode: (manifest: VideoManifest) => EngagementAudit;
