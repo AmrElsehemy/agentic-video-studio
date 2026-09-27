@@ -94,6 +94,17 @@ The experiments for Bulbasaur, Gimmighoul, Darmanitan, and the old Terapagos ren
 
 ## Drift protection
 
-`npm run validate` checks every draft against its compiled `video.json`. If a compiled manifest is hand-edited or stale, CI fails and tells you to recompile it.
+`npm run validate` checks every draft against its compiled `video.json`. If a compiled manifest is hand-edited or stale, CI fails, names the first field that differs, and tells you to recompile it. The comparison is by content, so reformatting a manifest is not drift — but always regenerate it with `npm run episode:compile` rather than editing it.
+
+## Compiler tests
+
+The compiler lives in `scripts/lib/compiler.mjs` as a pure function (`compileEpisode(draft, {showId})`) with no file access; `scripts/compile-episode.mjs` is the command-line wrapper.
+
+```bash
+npm test
+```
+
+- **Golden files:** every draft in `drafts/` is compiled and compared with its committed `video.json`, and checked against the renderer's schema. A compiler change that alters any episode's output fails here, so update the manifests deliberately with `npm run episode:compile` and review the diff.
+- **Unit tests** cover scene duration limits, archetype mapping, beat defaults, Pokédex-number filtering and drift detection.
 
 This makes the draft the single source of creative truth.
