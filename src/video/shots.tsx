@@ -125,11 +125,14 @@ const ComparisonShot: React.FC<ShotProps> = (props) => {
 /** Establishing shot: giant first fact behind large artwork, remaining facts listed. */
 const WideShot: React.FC<ShotProps> = ({scene, manifest, frame, accent}) => {
   const facts = scene.facts ?? [];
-  const [lead, ...rest] = facts;
+  // The first fact becomes the backdrop only when others remain for the cards,
+  // so a single fact is shown once, readably.
+  const lead = facts.length >= 2 ? facts[0] : undefined;
+  const cards = lead ? facts.slice(1) : facts;
   return <>
-    {lead ? <div style={{position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center'}}><div style={{fontFamily: displayFont, fontSize: lead.length > 10 ? 150 : 230, color: `${accent}16`, letterSpacing: 8, transform: 'rotate(-7deg)', textAlign: 'center'}}>{lead}</div></div> : null}
+    {lead ? <div style={{position: 'absolute', left: -60, right: -60, top: 640, display: 'flex', justifyContent: 'center'}}><div style={{fontFamily: displayFont, fontSize: lead.length > 10 ? 170 : 260, lineHeight: .85, color: `${accent}2e`, letterSpacing: 8, transform: 'rotate(-7deg)', textAlign: 'center', whiteSpace: 'nowrap'}}>{lead}</div></div> : null}
     <div style={{position: 'absolute', right: -15, top: 55}}><Art src={artworkOf(scene, manifest)} frame={frame} size={790} rotate={-3} /></div>
-    <div style={{position: 'absolute', left: 45, bottom: 90, width: 430, display: 'grid', gap: 14}}>{(rest.length ? rest : facts).map((fact, i) => <FactCard key={fact} text={fact} index={i} frame={frame} accent={accent} />)}</div>
+    <div style={{position: 'absolute', left: 45, bottom: 90, width: 430, display: 'grid', gap: 14}}>{cards.map((fact, i) => <FactCard key={fact} text={fact} index={i} frame={frame} accent={accent} />)}</div>
   </>;
 };
 
