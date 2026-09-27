@@ -24,9 +24,11 @@ const loadExample = () => {
  */
 export const runNewEpisode = async ({number, root = repoRoot, showId = 'pokepulses', fetchJson, complete, storyPattern, refreshResearch = false, overwrite = false, maxAttempts = 3, log = console.log}) => {
   const researchDir = path.join(root, 'research', showId);
-  const cached = fs.existsSync(researchDir)
-    ? fs.readdirSync(researchDir).find((file) => file.endsWith(`-${String(number).padStart(3, '0')}.json`))
-    : undefined;
+  const matches = fs.existsSync(researchDir)
+    ? fs.readdirSync(researchDir).filter((file) => file.endsWith(`-${String(number).padStart(3, '0')}.json`)).sort()
+    : [];
+  if (matches.length > 1 && !refreshResearch) throw new Error(`Several research files match #${number} in research/${showId}/: ${matches.join(', ')}. Remove the wrong ones or pass --refresh-research.`);
+  const cached = matches[0];
 
   let research;
   if (cached && !refreshResearch) {

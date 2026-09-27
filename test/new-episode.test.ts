@@ -112,6 +112,24 @@ describe('fact check', () => {
     assert.match(problems[1], /number 245/);
   });
 
+  it('also checks the audience promise and voice instructions', async () => {
+    const research = await research888();
+    const {draft} = assembleDraft(goodReply(), research);
+    draft.audiencePromise = 'Reveal its 7 secret forms.';
+    draft.voice.instructions = 'Speak at 150 words per minute.';
+    const problems = factCheck(draft, research);
+    assert.equal(problems.length, 2);
+    assert.match(problems[0], /audiencePromise states the number 7/);
+    assert.match(problems[1], /voiceInstructions states the number 150/);
+  });
+
+  it('accepts simple counts of types, evolution stages and forms', async () => {
+    const research = await research888();
+    const {draft} = assembleDraft(goodReply(), research);
+    draft.scenes[3].narration = 'Zacian has 2 forms, and its Crowned form has 2 types.';
+    assert.deepEqual(factCheck(draft, research), []);
+  });
+
   it('accepts researched numbers, including decimals', async () => {
     const research = await research888();
     const {draft} = assembleDraft(goodReply(), research);
@@ -173,6 +191,14 @@ describe('new episode pipeline', () => {
     assert.equal(manifestDrift(compileEpisode(draft, {showId: 'pokepulses'}).manifest, committed), null, 'saved manifest matches its draft');
     assert.ok(fs.existsSync(path.join(dir, 'research/pokepulses/zacian-888.json')));
     assert.ok(logs.some((line) => /attempt 1 passed every check \(engagement 100\/100\)/.test(line)));
+  });
+
+  it('refuses to guess between two cached research files for the same number', async () => {
+    const dir = tempRoot();
+    fs.mkdirSync(path.join(dir, 'research/pokepulses'), {recursive: true});
+    fs.writeFileSync(path.join(dir, 'research/pokepulses/zacian-888.json'), '{}');
+    fs.writeFileSync(path.join(dir, 'research/pokepulses/other-888.json'), '{}');
+    await assert.rejects(runNewEpisode({number: 888, root: dir, fetchJson, complete: scriptedWriter([]).complete, log: () => {}}), /Several research files match #888/);
   });
 
   it('reuses cached research and refuses to overwrite a draft', async () => {

@@ -64,7 +64,8 @@ export const factCheck = (draft, research) => {
   const allowed = researchNumbers(research);
   const problems = [];
   const fields = [
-    ['title', draft.title], ['premise', draft.premise], ['payoff', draft.payoff], ['openLoop', draft.openLoop], ['engagementQuestion', draft.engagementQuestion],
+    ['title', draft.title], ['premise', draft.premise], ['audiencePromise', draft.audiencePromise], ['openLoop', draft.openLoop],
+    ['payoff', draft.payoff], ['engagementQuestion', draft.engagementQuestion], ['voiceInstructions', draft.voice?.instructions ?? ''],
     ...draft.scenes.flatMap((scene) => [
       [`scene "${scene.id}" narration`, scene.narration], [`scene "${scene.id}" headline`, scene.headline],
       [`scene "${scene.id}" caption`, scene.caption], [`scene "${scene.id}" eyebrow`, scene.eyebrow ?? ''],
@@ -174,7 +175,7 @@ ${describeArchetypes()}
 Scenes fill beats in order, each beat taking its minimum number of scenes. To give a beat an extra scene, set "beat" on that scene to the beat's id. Beats must stay in order.${storyPattern ? `\nUse storyPattern "${storyPattern}".` : '\nPick the story shape that makes the strongest story for this Pokémon.'}
 
 # Hard limits
-- Use ONLY facts from the research. Never invent events, dates, numbers, moves or lore. Any number you state must appear in the research.
+- Use ONLY facts from the research. Never invent events, dates, numbers, moves or lore. Any number you state must appear in the research, or be a simple count of its types, evolution stages or forms.
 - Hook scene (first): narration at most 9 words; headline at most 8 words. It must create tension in the first second.
 - Other scenes: narration 9-14 words, spoken naturally, one idea per scene. Numbers and punctuation take longer to say, so use fewer words in lines that contain them.
 - Aim for 6-8 scenes and 24-45 seconds in total.
