@@ -27,7 +27,12 @@ export const referenceSchema = z.object({
   }).passthrough(),
 });
 
-export const loadReferences = (dir = defaultDir) => fs.readdirSync(dir)
+export const loadReferences = (dir = defaultDir) => {
+  if (!fs.existsSync(dir)) throw new Error(`Creative references folder not found: ${dir}. The writer learns from curated episodes there; restore creative-references/ from the repository.`);
+  return loadReferenceFiles(dir);
+};
+
+const loadReferenceFiles = (dir) => fs.readdirSync(dir)
   .filter((file) => file.endsWith('.json'))
   .sort()
   .map((file) => {

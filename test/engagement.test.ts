@@ -41,8 +41,9 @@ describe('counterpoint is archetype-specific', () => {
     const directing = fs.readFileSync(path.join(root, 'DIRECTING.md'), 'utf8');
     const line = directing.split('\n').find((text) => text.includes('**A counterpoint**'));
     assert.ok(line, 'DIRECTING.md describes the counterpoint rule');
-    const [required] = line!.split('**Mechanic**');
-    const named = [...required.matchAll(/\*\*([a-z]+)\*\*/g)].map((match) => match[1]).sort();
+    // Only the names listed in the "today …" clause, up to the end of that sentence.
+    const clause = line!.match(/today (.+?)[.,](?: |$)/)?.[1] ?? '';
+    const named = [...clause.matchAll(/\*\*([a-z0-9-]+)\*\*/g)].map((match) => match[1]).sort();
     assert.deepEqual(named, Object.keys(archetypes).filter(requiresCounterpoint).sort());
   });
 });
