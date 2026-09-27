@@ -19,6 +19,7 @@ jobs:
       - run: npm ci
       - run: npm run validate
       - run: npm run typecheck
+      - run: npm test
       - id: catalog
         name: Build episode matrix
         run: echo "episodes=$(node scripts/list-episode-ids.mjs --json)" >> "$GITHUB_OUTPUT"
