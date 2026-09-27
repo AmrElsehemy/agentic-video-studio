@@ -7,7 +7,7 @@ const NON_RENDERING = [/\.md$/i, /^docs\//, /^test\//, /^creative-references\//]
 
 /** The episode an episode-specific path belongs to, if any. */
 const episodeOf = (file) => {
-  const match = file.match(/^(?:drafts|research)\/[^/]+\/([a-z0-9-]+)\.json$/) ?? file.match(/^videos\/[^/]+\/([a-z0-9-]+)\//);
+  const match = file.match(/^(?:drafts|research)\/[^/]+\/([a-z0-9-]+)(?:\.[a-z]+)?\.json$/) ?? file.match(/^videos\/[^/]+\/([a-z0-9-]+)\//);
   return match?.[1];
 };
 

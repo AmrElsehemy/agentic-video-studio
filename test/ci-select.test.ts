@@ -19,6 +19,7 @@ describe('CI episode selection', () => {
     assert.deepEqual(select(['drafts/pokepulses/zacian-888.json']), ['zacian-888']);
     assert.deepEqual(select(['videos/pokepulses/terapagos-1024/video.json']), ['terapagos-1024']);
     assert.deepEqual(select(['research/pokepulses/mew-151.json', 'drafts/pokepulses/zacian-888.json']), ['mew-151', 'zacian-888']);
+    assert.deepEqual(select(['research/pokepulses/zacian-888.verification.json']), ['zacian-888']);
   });
 
   it('renders the golden set when shared code changes', () => {

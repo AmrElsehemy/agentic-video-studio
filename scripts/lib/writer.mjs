@@ -7,6 +7,7 @@ import {archetypes} from '../archetypes.mjs';
 import {episodeDraftSchema} from '../draft-schema.mjs';
 import {compileEpisode} from './compiler.mjs';
 import {scoreEpisode} from './engagement.mjs';
+import {verificationProblems, verifyDraft} from './fact-verifier.mjs';
 
 const color = z.string().regex(/^#[0-9a-f]{6}$/i);
 
@@ -210,7 +211,11 @@ export const parseReply = (text) => {
  * `complete({system, messages})` returns the model's reply text; injected so
  * tests can script replies.
  */
-export const writeEpisode = async ({research, complete, directing, references = [], storyPattern, showId = 'pokepulses', maxAttempts = 3, onAttempt = () => {}}) => {
+/**
+ * `verify` checks factual claims (a model completion for the Fact Verifier);
+ * without it only the verifier's deterministic rules run.
+ */
+export const writeEpisode = async ({research, complete, verify, directing, references = [], storyPattern, showId = 'pokepulses', maxAttempts = 3, onAttempt = () => {}}) => {
   const {system, user} = buildWriterPrompt({research, directing, references, storyPattern});
   const messages = [{role: 'user', content: user}];
   let problems = [];
@@ -227,8 +232,13 @@ export const writeEpisode = async ({research, complete, directing, references = 
         result = evaluateDraft(assembled.draft, research, {showId});
         problems = [...assembled.problems, ...result.problems];
         if (problems.length === 0) {
-          onAttempt({attempt, problems, audit: result.audit});
-          return {draft: assembled.draft, manifest: result.manifest, audit: result.audit, attempts: attempt};
+          // Only drafts that pass every production gate are fact-checked.
+          const verification = await verifyDraft({draft: assembled.draft, research, complete: verify});
+          problems = verificationProblems(verification);
+          if (problems.length === 0) {
+            onAttempt({attempt, problems, audit: result.audit, verification});
+            return {draft: assembled.draft, manifest: result.manifest, audit: result.audit, verification, attempts: attempt};
+          }
         }
       }
     } catch (error) {
