@@ -109,7 +109,7 @@ export const verifyDraft = async ({draft, research, complete}) => {
     } catch (error) {
       // A verifier failure isn't the writer's fault: keep the rules' verdicts
       // and report everything else as uncertain, with the reason.
-      modelError = error.message;
+      modelError = error instanceof Error ? error.message : String(error);
     }
   }
 

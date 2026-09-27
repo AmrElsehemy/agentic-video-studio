@@ -7,6 +7,7 @@ import {archetypes} from '../archetypes.mjs';
 import {episodeDraftSchema} from '../draft-schema.mjs';
 import {compileEpisode} from './compiler.mjs';
 import {scoreEpisode} from './engagement.mjs';
+import {describeAngle} from './angles.mjs';
 import {verificationProblems, verifyDraft} from './fact-verifier.mjs';
 
 const color = z.string().regex(/^#[0-9a-f]{6}$/i);
@@ -161,7 +162,8 @@ const describeArchetypes = () => Object.entries(archetypes).map(([name, archetyp
 }).join('\n');
 
 /** The writer's instructions: the directing contract, the format and hard limits. */
-export const buildWriterPrompt = ({research, directing, references = [], storyPattern}) => {
+export const buildWriterPrompt = ({research, directing, references = [], storyPattern, angle}) => {
+  const shape = storyPattern || angle?.archetype;
   const artworkNames = [...artworkChoices(research).values()].map((item) => item.name).join(', ');
   const system = `You are the head writer of PokePulses, a vertical short-form video series about Pokémon. You turn researched facts into one tight, surprising story.
 
@@ -173,8 +175,12 @@ title, storyPattern, numberRelevant (boolean), premise, audiencePromise, openLoo
 
 # Story shapes (storyPattern)
 ${describeArchetypes()}
-Scenes fill beats in order, each beat taking its minimum number of scenes. To give a beat an extra scene, set "beat" on that scene to the beat's id. Beats must stay in order.${storyPattern ? `\nUse storyPattern "${storyPattern}".` : '\nPick the story shape that makes the strongest story for this Pokémon.'}
-
+Scenes fill beats in order, each beat taking its minimum number of scenes. To give a beat an extra scene, set "beat" on that scene to the beat's id. Beats must stay in order.${shape ? `\nUse storyPattern "${shape}".` : '\nPick the story shape that makes the strongest story for this Pokémon.'}
+${angle ? `
+# The angle
+The creative director chose this angle. Build the whole episode around this one idea: the hook states it, every beat escalates it, the payoff resolves it. Don't drift into unrelated facts.
+${describeAngle(angle, research)}
+` : ''}
 # Hard limits
 - Use ONLY facts from the research. Never invent events, dates, numbers, moves or lore. Any number you state must appear in the research, or be a simple count of its types, evolution stages or forms.
 - Hook scene (first): narration at most 9 words; headline at most 8 words. It must create tension in the first second.
@@ -215,8 +221,9 @@ export const parseReply = (text) => {
  * `verify` checks factual claims (a model completion for the Fact Verifier);
  * without it only the verifier's deterministic rules run.
  */
-export const writeEpisode = async ({research, complete, verify, directing, references = [], storyPattern, showId = 'pokepulses', maxAttempts = 3, onAttempt = () => {}}) => {
-  const {system, user} = buildWriterPrompt({research, directing, references, storyPattern});
+export const writeEpisode = async ({research, complete, verify, directing, references = [], storyPattern, angle, showId = 'pokepulses', maxAttempts = 3, onAttempt = () => {}}) => {
+  const {system, user} = buildWriterPrompt({research, directing, references, storyPattern, angle});
+  const shape = storyPattern || angle?.archetype;
   const messages = [{role: 'user', content: user}];
   let problems = [];
   for (let attempt = 1; attempt <= maxAttempts; attempt++) {
@@ -231,6 +238,7 @@ export const writeEpisode = async ({research, complete, verify, directing, refer
         const assembled = assembleDraft(creative.data, research, {showId});
         result = evaluateDraft(assembled.draft, research, {showId});
         problems = [...assembled.problems, ...result.problems];
+        if (shape && creative.data.storyPattern !== shape) problems.unshift(`storyPattern is "${creative.data.storyPattern}", but this episode must use "${shape}".`);
         if (problems.length === 0) {
           // Only drafts that pass every production gate are fact-checked.
           const verification = await verifyDraft({draft: assembled.draft, research, complete: verify});

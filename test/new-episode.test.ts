@@ -184,7 +184,7 @@ describe('new episode pipeline', () => {
     const dir = tempRoot();
     const {complete} = scriptedWriter([JSON.stringify(goodReply())]);
     const logs: string[] = [];
-    const result = await runNewEpisode({number: 888, root: dir, verify: null, fetchJson, complete, log: (line: string) => logs.push(line)});
+    const result = await runNewEpisode({number: 888, root: dir, verify: null, ideate: null, fetchJson, complete, log: (line: string) => logs.push(line)});
     assert.equal(result.id, 'zacian-888');
     const draft = JSON.parse(fs.readFileSync(path.join(dir, 'drafts/pokepulses/zacian-888.json'), 'utf8'));
     const committed = fs.readFileSync(path.join(dir, 'videos/pokepulses/zacian-888/video.json'), 'utf8');
@@ -198,15 +198,15 @@ describe('new episode pipeline', () => {
     fs.mkdirSync(path.join(dir, 'research/pokepulses'), {recursive: true});
     fs.writeFileSync(path.join(dir, 'research/pokepulses/zacian-888.json'), '{}');
     fs.writeFileSync(path.join(dir, 'research/pokepulses/other-888.json'), '{}');
-    await assert.rejects(runNewEpisode({number: 888, root: dir, verify: null, fetchJson, complete: scriptedWriter([]).complete, log: () => {}}), /Several research files match #888/);
+    await assert.rejects(runNewEpisode({number: 888, root: dir, verify: null, ideate: null, fetchJson, complete: scriptedWriter([]).complete, log: () => {}}), /Several research files match #888/);
   });
 
   it('reuses cached research and refuses to overwrite a draft', async () => {
     const dir = tempRoot();
-    await runNewEpisode({number: 888, root: dir, verify: null, fetchJson, complete: scriptedWriter([JSON.stringify(goodReply())]).complete, log: () => {}});
+    await runNewEpisode({number: 888, root: dir, verify: null, ideate: null, fetchJson, complete: scriptedWriter([JSON.stringify(goodReply())]).complete, log: () => {}});
     const offline = async () => { throw new Error('network should not be used'); };
-    await assert.rejects(runNewEpisode({number: 888, root: dir, verify: null, fetchJson: offline, complete: scriptedWriter([]).complete, log: () => {}}), /already exists/);
-    const again = await runNewEpisode({number: 888, root: dir, verify: null, fetchJson: offline, complete: scriptedWriter([JSON.stringify(goodReply())]).complete, overwrite: true, log: () => {}});
+    await assert.rejects(runNewEpisode({number: 888, root: dir, verify: null, ideate: null, fetchJson: offline, complete: scriptedWriter([]).complete, log: () => {}}), /already exists/);
+    const again = await runNewEpisode({number: 888, root: dir, verify: null, ideate: null, fetchJson: offline, complete: scriptedWriter([JSON.stringify(goodReply())]).complete, overwrite: true, log: () => {}});
     assert.equal(again.id, 'zacian-888');
   });
 });

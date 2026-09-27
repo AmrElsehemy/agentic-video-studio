@@ -12,7 +12,7 @@ const number = Number(args.find((arg) => !arg.startsWith('--')));
 if (!Number.isInteger(number) || number < 1) {
   console.error(`Usage: npm run episode:new -- <pokedex-number> [options]
 
-  --pattern=<archetype>   force a story shape (default: the writer chooses)
+  --pattern=<archetype>   force a story shape (default: the chosen angle's)
   --voice=local|openai    generate narration after certifying (openai is paid)
   --render                render the video after certifying
   --refresh-research      refetch PokéAPI data instead of reusing research/
@@ -46,7 +46,7 @@ try {
     number,
     fetchJson,
     complete,
-    storyPattern: option('pattern'),
+    storyPattern: option('pattern') || undefined,
     refreshResearch: flag('refresh-research'),
     overwrite: flag('overwrite'),
   }));
