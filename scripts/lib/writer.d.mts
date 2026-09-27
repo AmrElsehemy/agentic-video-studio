@@ -1,6 +1,7 @@
 import type {VideoManifest} from '../../src/schema';
 import type {EngagementAudit} from './engagement.mjs';
 import type {Research} from './pokeapi.mjs';
+import type {CreativeReference} from './references.mjs';
 
 type DraftScene = {id: string; beat?: string; eyebrow?: string; headline: string; narration: string; caption: string; facts?: string[]; accent?: string; artworkUrl: string};
 export type Draft = {
@@ -31,6 +32,6 @@ export declare const researchNumbers: (research: Research) => Set<number>;
 export declare const factCheck: (draft: Draft, research: Research) => string[];
 export declare const assembleDraft: (creative: unknown, research: Research, options?: {showId?: string}) => {draft: Draft; problems: string[]; showId: string};
 export declare const evaluateDraft: (draft: Draft, research: Research, options?: {showId?: string}) => {problems: string[]; manifest?: VideoManifest; audit?: EngagementAudit};
-export declare const buildWriterPrompt: (options: {research: Research; directing: string; example: unknown; storyPattern?: string}) => {system: string; user: string};
+export declare const buildWriterPrompt: (options: {research: Research; directing: string; references?: CreativeReference[]; storyPattern?: string}) => {system: string; user: string};
 export declare const parseReply: (text: string) => unknown;
-export declare const writeEpisode: (options: {research: Research; complete: Complete; directing: string; example: unknown; storyPattern?: string; showId?: string; maxAttempts?: number; onAttempt?: (attempt: {attempt: number; problems: string[]; audit?: EngagementAudit}) => void}) => Promise<{draft: Draft; manifest: VideoManifest; audit: EngagementAudit; attempts: number}>;
+export declare const writeEpisode: (options: {research: Research; complete: Complete; directing: string; references?: CreativeReference[]; storyPattern?: string; showId?: string; maxAttempts?: number; onAttempt?: (attempt: {attempt: number; problems: string[]; audit?: EngagementAudit}) => void}) => Promise<{draft: Draft; manifest: VideoManifest; audit: EngagementAudit; attempts: number}>;
