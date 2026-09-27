@@ -22,6 +22,7 @@
     "video:local": "node scripts/render.mjs --voice=local",
     "video:openai": "node scripts/render.mjs --voice=openai",
     "still": "node scripts/render-still.mjs",
+    "sheet": "node scripts/contact-sheet.mjs",
     "validate": "node scripts/check-compiled-drafts.mjs && node --import tsx scripts/validate.ts && node scripts/engagement-audit.mjs",
     "engagement": "node scripts/engagement-audit.mjs",
     "qa": "node scripts/qa.mjs",

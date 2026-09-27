@@ -19,6 +19,7 @@ npm run validate               # Validate every episode manifest
 npm run engagement -- bulbasaur-001 # Score hook, story tension, pacing and interaction
 npm run typecheck              # TypeScript checks
 npm run still -- bulbasaur-001 # Render the cover frame
+npm run sheet -- bulbasaur-001 # One frame per scene from the rendered video, tiled (after npm run video)
 npm run voice -- bulbasaur-001 # Generate scene-fitted AI narration (requires OPENAI_API_KEY + FFmpeg)
 npm run voice:local -- bulbasaur-001 # Free macOS draft narration using the built-in `say` voice
 npm run video:local -- bulbasaur-001 # Render explicitly with the free draft voice
@@ -70,6 +71,14 @@ Milestone 0.2 implements the deterministic visual pipeline plus an opt-in narrat
 Agentic planning, automated factual review, publishing, and analytics feedback are later milestones. The episode manifest is the contract those agents will produce.
 
 The directing rules live in [DIRECTING.md](DIRECTING.md). They force every episode to make one arguable promise, escalate it, pay it off, and invite a meaningful verdict; story shapes that argue a position (profile, comparison) must also survive a counterpoint.
+
+## Continuous integration
+
+Every push and pull request runs the global checks (validate, typecheck, tests). Rendering is selective so CI scales with the catalog:
+
+- **Pull requests and pushes** render only episodes whose draft, manifest or research changed, plus the golden regression set in [`.github/golden-episodes.json`](.github/golden-episodes.json) when shared code (renderer, compiler, scripts, archetypes, dependencies) changes. Docs, tests and creative references render nothing.
+- **Nightly**, and on demand from the Actions tab (`workflow_dispatch`), every episode renders.
+- Each render uploads the MP4, a **contact sheet** (one frame per scene), the cover and the description.
 
 ## Voice workflow
 
