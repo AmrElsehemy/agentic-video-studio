@@ -2,6 +2,7 @@ import type {VideoManifest} from '../../src/schema';
 import type {EngagementAudit} from './engagement.mjs';
 import type {Research} from './pokeapi.mjs';
 import type {CreativeReference} from './references.mjs';
+import type {VerificationReport} from './fact-verifier.mjs';
 
 type DraftScene = {id: string; beat?: string; eyebrow?: string; headline: string; narration: string; caption: string; facts?: string[]; accent?: string; artworkUrl: string};
 export type Draft = {
@@ -34,4 +35,4 @@ export declare const assembleDraft: (creative: unknown, research: Research, opti
 export declare const evaluateDraft: (draft: Draft, research: Research, options?: {showId?: string}) => {problems: string[]; manifest?: VideoManifest; audit?: EngagementAudit};
 export declare const buildWriterPrompt: (options: {research: Research; directing: string; references?: CreativeReference[]; storyPattern?: string}) => {system: string; user: string};
 export declare const parseReply: (text: string) => unknown;
-export declare const writeEpisode: (options: {research: Research; complete: Complete; directing: string; references?: CreativeReference[]; storyPattern?: string; showId?: string; maxAttempts?: number; onAttempt?: (attempt: {attempt: number; problems: string[]; audit?: EngagementAudit}) => void}) => Promise<{draft: Draft; manifest: VideoManifest; audit: EngagementAudit; attempts: number}>;
+export declare const writeEpisode: (options: {research: Research; complete: Complete; verify?: Complete | null; directing: string; references?: CreativeReference[]; storyPattern?: string; showId?: string; maxAttempts?: number; onAttempt?: (attempt: {attempt: number; problems: string[]; audit?: EngagementAudit; verification?: VerificationReport}) => void}) => Promise<{draft: Draft; manifest: VideoManifest; audit: EngagementAudit; verification: VerificationReport; attempts: number}>;

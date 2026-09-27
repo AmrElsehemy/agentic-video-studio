@@ -17,7 +17,7 @@ const writeJson = (file, value) => {
  * Create an episode from a National Pokédex number.
  * Research is cached in research/<show>/<id>.json; pass refreshResearch to refetch.
  */
-export const runNewEpisode = async ({number, root = repoRoot, showId = 'pokepulses', fetchJson, complete, storyPattern, refreshResearch = false, overwrite = false, maxAttempts = 3, log = console.log}) => {
+export const runNewEpisode = async ({number, root = repoRoot, showId = 'pokepulses', fetchJson, complete, verify = complete, storyPattern, refreshResearch = false, overwrite = false, maxAttempts = 3, log = console.log}) => {
   const researchDir = path.join(root, 'research', showId);
   const matches = fs.existsSync(researchDir)
     ? fs.readdirSync(researchDir).filter((file) => file.endsWith(`-${String(number).padStart(3, '0')}.json`)).sort()
@@ -41,6 +41,7 @@ export const runNewEpisode = async ({number, root = repoRoot, showId = 'pokepuls
   const result = await writeEpisode({
     research,
     complete,
+    verify,
     directing: fs.readFileSync(path.join(repoRoot, 'DIRECTING.md'), 'utf8'),
     references: selectReferences(loadReferences(), storyPattern),
     storyPattern,
@@ -53,6 +54,10 @@ export const runNewEpisode = async ({number, root = repoRoot, showId = 'pokepuls
   });
 
   writeJson(draftPath, result.draft);
+  writeJson(path.join(researchDir, `${research.id}.verification.json`), {episodeId: research.id, checkedAt: new Date().toISOString(), ...result.verification});
+  const {claims, uncertain} = result.verification;
+  log(`✓ facts: ${claims.filter((claim) => claim.verdict === 'supported').length} supported, ${claims.filter((claim) => claim.verdict === 'no-claim').length} framing, ${uncertain.length} uncertain → research/${showId}/${research.id}.verification.json`);
+  for (const claim of uncertain) log(`    ? ${claim.where}: "${claim.text}" (${claim.note})`);
   const manifestPath = path.join(root, 'videos', showId, research.id, 'video.json');
   fs.mkdirSync(path.dirname(manifestPath), {recursive: true});
   fs.writeFileSync(manifestPath, serializeManifest(result.manifest));
