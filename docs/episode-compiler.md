@@ -113,9 +113,21 @@ Legacy `reveal` and `debate` patterns remain accepted in existing hand-authored 
 
 ## Renderer model
 
-Engine-v2 compiled episodes use `CompiledEpisodeScene`, a reusable visual grammar driven by the compiled scene data. New Pokémon should **not** receive a Pokémon-specific React renderer unless they expose a genuinely reusable visual grammar that deserves to become a new archetype primitive.
+Engine-v2 episodes render through `CompiledEpisodeScene`, which draws each scene with the **shot library** in `src/video/shots.tsx`. The archetype beats assign every scene a `shot`, and each shot has its own visual grammar:
 
-The experiments for Bulbasaur, Gimmighoul, Darmanitan, and the old Terapagos renderer remain useful as reference implementations, but new episodes should prefer engine v2.
+| Shot | Look |
+| --- | --- |
+| `mystery` | Big headline; the subject is a silhouette with a "?" until a glow reveal |
+| `impact` | Big headline; artwork punches in from the corner with facts beside it |
+| `macro` | Oversized, edge-cropped artwork with facts stacked beside it |
+| `tracking` | Artwork drifting with a light sweep; facts in a row |
+| `comparison` | One artwork gives way to another (subject vs. the scene's Pokémon or its evolution); without a second artwork, facts line up under the art |
+| `wide` | The first fact as a giant backdrop behind large artwork |
+| `interaction` | Two sides with a VS badge (or lettered options with one artwork) for the viewer's verdict |
+
+Changing a beat's `shots` in an archetype file changes what viewers see. To add a new visual grammar, add a shot component and its name to the `shot` enums in `src/schema.ts` and `scripts/archetypes.mjs`.
+
+The hand-built renderers for Bulbasaur, Gimmighoul and Darmanitan remain for those legacy episodes (#20); new episodes should always compile through engine v2.
 
 ## Drift protection
 
