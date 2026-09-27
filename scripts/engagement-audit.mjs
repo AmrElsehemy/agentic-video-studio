@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import {archetypes} from './archetypes.mjs';
 
 const requested = process.argv[2];
 const manifests = [];
@@ -22,6 +23,8 @@ for (const manifestPath of manifests) {
   const duration = scenes.reduce((sum, scene) => sum + scene.durationSeconds, 0);
   const distinctShots = new Set(scenes.map((scene) => scene.shot)).size;
   const pattern = video.direction?.storyPattern ?? 'profile';
+  // Hook limit comes from the archetype file; legacy patterns (reveal, debate) keep 4.8s.
+  const hookLimit = archetypes[pattern]?.beats[0].maxSeconds ?? 4.8;
 
   const commonChecks = [
     ['Short hook copy', scenes[0]?.headline.trim().split(/\s+/).length <= 8, 10],
@@ -35,50 +38,58 @@ for (const manifestPath of manifests) {
 
   const patternChecks = {
     profile: [
-      ['Immediate tension', scenes[0]?.role === 'hook' && scenes[0].durationSeconds <= 4.8, 15],
+      ['Immediate tension', scenes[0]?.role === 'hook' && scenes[0].durationSeconds <= hookLimit, 15],
       ['Evidence chain', countRoles(scenes, ['evidence', 'escalation']) >= 3, 15],
       ['Subject restraint', scenes.filter((scene) => scene.subjectFocus === 'primary').length <= Math.ceil(scenes.length / 2), 10],
       ['Counterpoint', scenes.some((scene) => scene.role === 'twist'), 10],
     ],
     mechanic: [
-      ['Immediate mechanic', scenes[0]?.role === 'hook' && scenes[0].durationSeconds <= 4.8, 15],
+      ['Immediate mechanic', scenes[0]?.role === 'hook' && scenes[0].durationSeconds <= hookLimit, 15],
       ['Mechanic escalation', countRoles(scenes, ['evidence', 'escalation', 'payoff']) >= 3, 15],
       ['Clear payoff', countRoles(scenes, ['payoff']) >= 1, 10],
       ['Subject-led visual story', scenes.filter((scene) => ['primary', 'secondary'].includes(scene.subjectFocus)).length >= Math.ceil(scenes.length / 2), 10],
     ],
     transformation: [
-      ['Immediate change promise', scenes[0]?.role === 'hook' && scenes[0].durationSeconds <= 4.8, 15],
+      ['Immediate change promise', scenes[0]?.role === 'hook' && scenes[0].durationSeconds <= hookLimit, 15],
       ['State escalation', countRoles(scenes, ['escalation', 'payoff']) >= 3, 15],
       ['Transformation payoff', countRoles(scenes, ['payoff']) >= 2, 10],
       ['Before/after visual grammar', scenes.some((scene) => ['comparison', 'impact'].includes(scene.shot)), 10],
     ],
     mystery: [
-      ['Immediate mystery', scenes[0]?.role === 'hook' && scenes[0].durationSeconds <= 4.8 && ['absent', 'hidden'].includes(scenes[0]?.subjectFocus), 15],
+      ['Immediate mystery', scenes[0]?.role === 'hook' && scenes[0].durationSeconds <= hookLimit && ['absent', 'hidden'].includes(scenes[0]?.subjectFocus), 15],
       ['Clue escalation', countRoles(scenes, ['evidence', 'escalation']) >= 2, 15],
       ['Layered reveal', countRoles(scenes, ['payoff']) >= 2, 10],
       ['Reveal contrast', scenes.some((scene) => ['comparison', 'impact'].includes(scene.shot)), 10],
     ],
     comparison: [
-      ['Immediate contrast', scenes[0]?.role === 'hook' && scenes[0].durationSeconds <= 4.8, 15],
+      ['Immediate contrast', scenes[0]?.role === 'hook' && scenes[0].durationSeconds <= hookLimit, 15],
       ['Comparison evidence', countRoles(scenes, ['evidence', 'escalation']) >= 3, 15],
       ['Contrast shots', scenes.filter((scene) => scene.shot === 'comparison').length >= 1, 10],
       ['Counterpoint', scenes.some((scene) => scene.role === 'twist'), 10],
     ],
     reveal: [
-      ['Immediate mystery', scenes[0]?.role === 'hook' && scenes[0].durationSeconds <= 4.8 && ['absent', 'hidden'].includes(scenes[0]?.subjectFocus), 15],
+      ['Immediate mystery', scenes[0]?.role === 'hook' && scenes[0].durationSeconds <= hookLimit && ['absent', 'hidden'].includes(scenes[0]?.subjectFocus), 15],
       ['Layered escalation', countRoles(scenes, ['escalation', 'payoff']) >= 3, 15],
       ['Multiple reveals', countRoles(scenes, ['payoff']) >= 2, 10],
       ['Final consequence', scenes.some((scene) => scene.role === 'payoff'), 10],
     ],
     debate: [
-      ['Immediate claim', scenes[0]?.role === 'hook' && scenes[0].durationSeconds <= 4.8, 15],
+      ['Immediate claim', scenes[0]?.role === 'hook' && scenes[0].durationSeconds <= hookLimit, 15],
       ['Evidence chain', countRoles(scenes, ['evidence', 'escalation']) >= 3, 15],
       ['Counterpoint', scenes.some((scene) => scene.role === 'twist'), 10],
       ['Debate close', scenes.at(-1)?.role === 'interaction', 10],
     ],
   };
 
-  const checks = [...commonChecks, ...(patternChecks[pattern] ?? patternChecks.profile)];
+  // Archetypes added as data files without their own checks get structural
+  // checks that hold for any story shape.
+  const genericChecks = [
+    ['Immediate hook', scenes[0]?.role === 'hook' && scenes[0].durationSeconds <= hookLimit, 15],
+    ['Escalating evidence', countRoles(scenes, ['evidence', 'escalation', 'payoff']) >= 3, 15],
+    ['Payoff or counterpoint', scenes.some((scene) => ['payoff', 'twist'].includes(scene.role)), 10],
+    ['Subject revealed', scenes.some((scene) => scene.subjectFocus === 'primary'), 10],
+  ];
+  const checks = [...commonChecks, ...(patternChecks[pattern] ?? genericChecks)];
   const available = checks.reduce((sum, [, , points]) => sum + points, 0);
   const earned = checks.reduce((sum, [, passed, points]) => sum + (passed ? points : 0), 0);
   const score = Math.round(earned / available * 100);

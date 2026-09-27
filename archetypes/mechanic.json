@@ -1,0 +1,88 @@
+{
+  "description": "An unusual rule, requirement or game mechanic, escalated to a clear payoff.",
+  "defaultBeat": 0.65,
+  "beats": [
+    {
+      "id": "hook",
+      "role": "hook",
+      "minScenes": 1,
+      "maxScenes": 1,
+      "shots": [
+        "impact"
+      ],
+      "visuals": [
+        "hook"
+      ],
+      "subjectFocus": [
+        "primary"
+      ],
+      "maxSeconds": 4.8
+    },
+    {
+      "id": "evidence",
+      "role": "evidence",
+      "minScenes": 1,
+      "maxScenes": 2,
+      "shots": [
+        "macro",
+        "wide"
+      ],
+      "visuals": [
+        "gauntlet"
+      ],
+      "subjectFocus": [
+        "primary"
+      ]
+    },
+    {
+      "id": "escalation",
+      "role": "escalation",
+      "minScenes": 1,
+      "maxScenes": 2,
+      "shots": [
+        "comparison",
+        "tracking"
+      ],
+      "visuals": [
+        "advantage"
+      ],
+      "subjectFocus": [
+        "secondary"
+      ]
+    },
+    {
+      "id": "payoff",
+      "role": "payoff",
+      "minScenes": 2,
+      "maxScenes": 3,
+      "shots": [
+        "tracking",
+        "impact",
+        "comparison"
+      ],
+      "visuals": [
+        "race",
+        "tradeoff",
+        "race"
+      ],
+      "subjectFocus": [
+        "primary"
+      ]
+    },
+    {
+      "id": "verdict",
+      "role": "interaction",
+      "minScenes": 1,
+      "maxScenes": 1,
+      "shots": [
+        "interaction"
+      ],
+      "visuals": [
+        "cta"
+      ],
+      "subjectFocus": [
+        "primary"
+      ]
+    }
+  ]
+}

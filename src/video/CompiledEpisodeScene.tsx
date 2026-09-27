@@ -24,13 +24,19 @@ const FactCard: React.FC<{text: string; index: number; frame: number; accent: st
   return <div style={{padding: compact ? '14px 19px' : '20px 25px', borderRadius: compact ? 16 : 24, border: `2px solid ${accent}65`, background: `${accent}12`, fontFamily: displayFont, fontSize: compact ? 27 : 34, letterSpacing: 1.3, opacity: enter, transform: `translateY(${(1 - enter) * 26}px) scale(${.9 + enter * .1})`}}>{text}</div>;
 };
 
+const transformationLayouts = ['hook', 'before', 'change', 'reveal', 'aftermath', 'verdict'];
+
 const TransformationVisual: React.FC<{scene: VideoScene; manifest: VideoManifest; sceneIndex: number; frame: number; durationInFrames: number; accent: string}> = ({scene, manifest, sceneIndex, frame, durationInFrames, accent}) => {
   const subject = manifest.subject.artworkUrl;
   const evolved = manifest.evolutions[0]?.artworkUrl;
   const artwork = scene.artworkUrl ?? subject;
   const facts = scene.facts ?? [];
+  // Layouts follow the transformation beats, so a beat with several scenes
+  // reuses its layout. Manifests without a known beat fall back to scene order.
+  const beatLayout = scene.beat ? transformationLayouts.indexOf(scene.beat) : -1;
+  const layout = beatLayout === -1 ? sceneIndex : beatLayout;
 
-  if (sceneIndex === 0) {
+  if (layout === 0) {
     const revealAt = Math.round(durationInFrames * .34);
     return <>
       <div style={{position: 'absolute', left: 40, right: 40, top: 20, fontFamily: displayFont, fontSize: 124, lineHeight: .82, textAlign: 'left', letterSpacing: 1}}>{scene.headline}</div>
@@ -39,7 +45,7 @@ const TransformationVisual: React.FC<{scene: VideoScene; manifest: VideoManifest
     </>;
   }
 
-  if (sceneIndex === 1) {
+  if (layout === 1) {
     return <>
       <div style={{position: 'absolute', left: -65, top: 90}}><Art src={artwork} frame={frame} size={760} rotate={3} /></div>
       <div style={{position: 'absolute', right: 40, top: 180, width: 400, display: 'grid', gap: 17}}>{facts.map((fact, i) => <FactCard key={fact} text={fact} index={i} frame={frame} accent={accent} />)}</div>
@@ -47,7 +53,7 @@ const TransformationVisual: React.FC<{scene: VideoScene; manifest: VideoManifest
     </>;
   }
 
-  if (sceneIndex === 2) {
+  if (layout === 2) {
     const sweep = interpolate(frame, [0, durationInFrames], [-260, 1000], clamp);
     return <>
       <div style={{position: 'absolute', left: 70, top: 85}}><Art src={artwork} frame={frame} size={610} /></div>
@@ -56,7 +62,7 @@ const TransformationVisual: React.FC<{scene: VideoScene; manifest: VideoManifest
     </>;
   }
 
-  if (sceneIndex === 3 && evolved) {
+  if (layout === 3 && evolved) {
     const switcher = interpolate(frame, [durationInFrames * .2, durationInFrames * .78], [0, 1], clamp);
     return <>
       <div style={{position: 'absolute', left: 35, top: 145, opacity: 1 - switcher, transform: `translateX(${-switcher * 130}px)`}}><Art src={subject} frame={frame} size={500} /></div>
@@ -66,7 +72,7 @@ const TransformationVisual: React.FC<{scene: VideoScene; manifest: VideoManifest
     </>;
   }
 
-  if (sceneIndex === 4) {
+  if (layout === 4) {
     return <>
       <div style={{position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center'}}><div style={{fontFamily: displayFont, fontSize: 230, color: `${accent}16`, letterSpacing: 8, transform: 'rotate(-7deg)'}}>{facts[0] ?? 'EVOLVED'}</div></div>
       <div style={{position: 'absolute', right: -15, top: 55}}><Art src={artwork} frame={frame} size={790} rotate={-3} /></div>
@@ -74,7 +80,7 @@ const TransformationVisual: React.FC<{scene: VideoScene; manifest: VideoManifest
     </>;
   }
 
-  if (sceneIndex === 5 && evolved) {
+  if (layout === 5 && evolved) {
     const pulse = 1 + Math.sin(frame / 4) * .025;
     return <>
       <div style={{position: 'absolute', left: -50, top: 165, transform: `scale(${pulse})`}}><Art src={subject} frame={frame} size={520} /></div>

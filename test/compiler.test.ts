@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {describe, it} from 'node:test';
 import {fileURLToPath} from 'node:url';
-import {archetypes} from '../scripts/archetypes.mjs';
+import {archetypes, archetypeSchema, planScenes} from '../scripts/archetypes.mjs';
 import {compileEpisode, estimatedSpeech, manifestDrift, MAX_SCENE, MIN_SCENE, safeDuration, serializeManifest} from '../scripts/lib/compiler.mjs';
 import {videoSchema} from '../src/schema';
 
@@ -89,35 +89,153 @@ describe('scene durations', () => {
 });
 
 describe('archetype mapping', () => {
+  const compileWith = (mutate: (draft: ReturnType<typeof sampleDraft>) => void) => {
+    const draft = sampleDraft();
+    mutate(draft);
+    return compileEpisode(draft, {showId: 'pokepulses'}).manifest;
+  };
+  // A short line that fits any beat, including the hook limit.
+  const extraScene = (id: string, beat?: string) => ({id, ...(beat ? {beat} : {}), headline: 'EXTRA BEAT', narration: 'One more clue.', caption: 'ONE MORE CLUE'});
+
   for (const [pattern, archetype] of Object.entries(archetypes)) {
-    it(`${pattern} assigns roles, shots, focus and visuals by position`, () => {
-      const draft = {...sampleDraft(), storyPattern: pattern};
-      const {manifest} = compileEpisode(draft, {showId: 'pokepulses'});
-      assert.deepEqual(manifest.scenes.map((scene) => scene.role), archetype.sceneRoles);
-      assert.deepEqual(manifest.scenes.map((scene) => scene.shot), archetype.shots);
-      assert.deepEqual(manifest.scenes.map((scene) => scene.subjectFocus), archetype.subjectFocus);
-      assert.deepEqual(manifest.scenes.map((scene) => scene.visual), archetype.visuals);
+    it(`${pattern}: a draft with each beat's minimum scenes follows the beats in order`, () => {
+      const minimum = archetype.beats.reduce((sum, beat) => sum + beat.minScenes, 0);
+      const manifest = compileWith((draft) => {
+        draft.storyPattern = pattern;
+        draft.scenes = draft.scenes.slice(0, minimum);
+      });
+      const expected = archetype.beats.flatMap((beat) => Array.from({length: beat.minScenes}, (_, occurrence) => ({
+        beat: beat.id,
+        role: beat.role,
+        shot: beat.shots[occurrence % beat.shots.length],
+        visual: beat.visuals[occurrence % beat.visuals.length],
+        subjectFocus: beat.subjectFocus[occurrence % beat.subjectFocus.length],
+      })));
+      assert.deepEqual(manifest.scenes.map(({beat, role, shot, visual, subjectFocus}) => ({beat, role, shot, visual, subjectFocus})), expected);
+    });
+
+    it(`${pattern}: opens with a hook, closes with an interaction, and limits the hook`, () => {
+      assert.equal(archetype.beats[0].role, 'hook');
+      assert.equal(archetype.beats.at(-1)!.role, 'interaction');
+      assert.ok(archetype.beats[0].maxSeconds, 'hook beat should set maxSeconds');
     });
   }
 
+  it('lets a tagged scene repeat a beat, cycling its shots', () => {
+    const manifest = compileWith((draft) => {
+      draft.scenes.splice(2, 0, extraScene('extra-clue', 'clue'));
+    });
+    assert.deepEqual(manifest.scenes.map((scene) => scene.beat), ['hook', 'clue', 'clue', 'escalation', 'reveal', 'reveal', 'verdict']);
+    assert.equal(manifest.scenes[2].shot, archetypes.mystery.beats[1].shots[1]);
+  });
+
+  it('rejects a beat repeated beyond its maximum', () => {
+    assert.throws(() => compileWith((draft) => {
+      draft.scenes.splice(2, 0, extraScene('clue-2', 'clue'), extraScene('clue-3', 'clue'), extraScene('clue-4', 'clue'));
+    }), /allows at most 3/);
+  });
+
+  it('rejects scenes that go back to an earlier beat', () => {
+    assert.throws(() => compileWith((draft) => {
+      draft.scenes.splice(4, 0, extraScene('late-clue', 'clue'));
+    }), /beats must stay in order/);
+  });
+
+  it('rejects an unknown beat', () => {
+    assert.throws(() => compileWith((draft) => {
+      draft.scenes[1].beat = 'epilogue';
+    }), /unknown beat "epilogue"/);
+  });
+
+  it('rejects a story missing a required beat', () => {
+    assert.throws(() => compileWith((draft) => {
+      draft.scenes = draft.scenes.slice(0, 4);
+    }), /needs at least/);
+  });
+
+  it('rejects an untagged scene after the final beat', () => {
+    assert.throws(() => compileWith((draft) => {
+      draft.scenes.push(extraScene('encore'));
+    }), /no beat left/);
+  });
+
+  it('enforces the hook time limit', () => {
+    assert.throws(() => compileWith((draft) => {
+      draft.scenes[0].narration = 'This tiny Mythical Pokémon may carry the genetic code of every single Pokémon.';
+    }), /hook beat allows at most 4.8s/);
+  });
+
+  it('enforces the total length limit now that scene counts vary', () => {
+    // Every beat at its maximum: 1 + 3 + 2 + 3 + 1 = 10 scenes of ~5.3s each.
+    const long = 'Scientists still argue about where this creature came from and why.';
+    const beats = ['clue', 'clue', 'clue', 'escalation', 'escalation', 'reveal', 'reveal', 'reveal'];
+    assert.throws(() => compileWith((draft) => {
+      draft.scenes = [draft.scenes[0], ...beats.map((beat, index) => ({...extraScene(`s${index}`, beat), narration: long})), draft.scenes.at(-1)];
+    }), /compiler target is <=45s/);
+  });
+
   it('uses the archetype beat unless a scene overrides it', () => {
-    const draft = sampleDraft();
-    draft.targetSecondsBetweenVisualChanges = undefined;
-    draft.scenes[1].beatEverySeconds = 1.1;
-    const {manifest} = compileEpisode(draft, {showId: 'pokepulses'});
+    const manifest = compileWith((draft) => {
+      draft.targetSecondsBetweenVisualChanges = undefined;
+      draft.scenes[1].beatEverySeconds = 1.1;
+    });
     assert.equal(manifest.scenes[0].beatEverySeconds, archetypes.mystery.defaultBeat);
     assert.equal(manifest.scenes[1].beatEverySeconds, 1.1);
     assert.equal(manifest.direction.targetSecondsBetweenVisualChanges, archetypes.mystery.defaultBeat);
   });
 
-  it('rejects an unknown archetype', () => {
-    assert.throws(() => compileEpisode({...sampleDraft(), storyPattern: 'timeline'}, {showId: 'pokepulses'}));
+});
+
+describe('archetype files', () => {
+  const timeline = {
+    description: 'Events in order, with an optional flashback.',
+    defaultBeat: 0.7,
+    beats: [
+      {id: 'hook', role: 'hook', minScenes: 1, maxScenes: 1, shots: ['impact'], visuals: ['hook'], subjectFocus: ['hidden'], maxSeconds: 4.8},
+      {id: 'flashback', role: 'evidence', minScenes: 0, maxScenes: 1, shots: ['wide'], visuals: ['gauntlet'], subjectFocus: ['secondary']},
+      {id: 'events', role: 'escalation', minScenes: 2, maxScenes: 4, shots: ['tracking', 'macro'], visuals: ['race'], subjectFocus: ['primary']},
+      {id: 'verdict', role: 'interaction', minScenes: 1, maxScenes: 1, shots: ['interaction'], visuals: ['cta'], subjectFocus: ['primary']},
+    ],
+  };
+  const scenes = (...beats: (string | undefined)[]) => beats.map((beat, index) => ({id: `s${index}`, ...(beat ? {beat} : {})}));
+
+  it('accepts a valid archetype', () => {
+    assert.doesNotThrow(() => archetypeSchema.parse(timeline));
   });
 
-  it('rejects a draft without exactly 6 scenes', () => {
-    const draft = sampleDraft();
-    draft.scenes = draft.scenes.slice(0, 5);
-    assert.throws(() => compileEpisode(draft, {showId: 'pokepulses'}));
+  it('rejects archetypes that do not open with a hook or close with an interaction', () => {
+    assert.throws(() => archetypeSchema.parse({...timeline, beats: timeline.beats.slice(1)}), /hook/);
+    assert.throws(() => archetypeSchema.parse({...timeline, beats: timeline.beats.slice(0, -1)}), /interaction/);
+  });
+
+  it('rejects duplicate beat ids and max below min', () => {
+    assert.throws(() => archetypeSchema.parse({...timeline, beats: [timeline.beats[0], timeline.beats[2], timeline.beats[2], timeline.beats[3]]}), /unique/);
+    assert.throws(() => archetypeSchema.parse({...timeline, beats: [timeline.beats[0], {...timeline.beats[2], minScenes: 3, maxScenes: 2}, timeline.beats[3]]}), /maxScenes/);
+  });
+
+  it('requires a timed, non-optional hook and a non-optional closing beat', () => {
+    const [hook, ...rest] = timeline.beats;
+    const withHook = (changes: object) => ({...timeline, beats: [{...hook, ...changes}, ...rest]});
+    assert.throws(() => archetypeSchema.parse(withHook({minScenes: 0})), /hook beat must have minScenes/);
+    assert.throws(() => archetypeSchema.parse(withHook({maxSeconds: undefined})), /hook beat must set maxSeconds/);
+    const closing = {...timeline.beats.at(-1)!, minScenes: 0};
+    assert.throws(() => archetypeSchema.parse({...timeline, beats: [...timeline.beats.slice(0, -1), closing]}), /last beat must have minScenes/);
+  });
+
+  it('rejects a badly formatted story pattern with a clear message', () => {
+    assert.throws(() => compileEpisode({...sampleDraft(), storyPattern: 'Mystery '}, {showId: 'pokepulses'}), /lowercase archetype name/);
+  });
+
+  it('skips an optional beat for untagged scenes', () => {
+    assert.deepEqual(planScenes(timeline as never, scenes(undefined, undefined, undefined, undefined)).map((plan) => plan.beat), ['hook', 'events', 'events', 'verdict']);
+  });
+
+  it('uses an optional beat when a scene is tagged with it', () => {
+    assert.deepEqual(planScenes(timeline as never, scenes(undefined, 'flashback', undefined, undefined, undefined)).map((plan) => plan.beat), ['hook', 'flashback', 'events', 'events', 'verdict']);
+  });
+
+  it('rejects a draft naming an archetype that has no file', () => {
+    assert.throws(() => compileEpisode({...sampleDraft(), storyPattern: 'timeline'}, {showId: 'pokepulses'}), /Unknown story archetype.*timeline/);
   });
 });
 

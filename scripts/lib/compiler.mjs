@@ -1,5 +1,5 @@
 import {isDeepStrictEqual} from 'node:util';
-import {getArchetype} from '../archetypes.mjs';
+import {getArchetype, planScenes} from '../archetypes.mjs';
 import {episodeDraftSchema} from '../draft-schema.mjs';
 
 export const DEFAULT_SPEED = 1.08;
@@ -36,22 +36,29 @@ export const compileEpisode = (rawDraft, {showId}) => {
   const indexTokens = new Set([draft.subject.index, ...(draft.evolutions ?? []).map((evolution) => evolution.index)]);
   const cleanFacts = (facts = []) => facts.filter((fact) => numberRelevant || !indexTokens.has(fact));
 
-  const scenes = draft.scenes.map((scene, index) => ({
-    id: scene.id,
-    durationSeconds: safeDuration(scene.narration, speed),
-    role: archetype.sceneRoles[index],
-    shot: archetype.shots[index],
-    subjectFocus: archetype.subjectFocus[index],
-    beatEverySeconds: scene.beatEverySeconds ?? archetype.defaultBeat,
-    ...(scene.eyebrow ? {eyebrow: scene.eyebrow} : {}),
-    headline: scene.headline,
-    narration: scene.narration,
-    caption: scene.caption,
-    visual: archetype.visuals[index],
-    ...(scene.artworkUrl ? {artworkUrl: scene.artworkUrl} : {}),
-    ...(scene.accent ? {accent: scene.accent} : {}),
-    ...(scene.facts ? {facts: cleanFacts(scene.facts)} : {}),
-  }));
+  const plan = planScenes(archetype, draft.scenes);
+  const scenes = draft.scenes.map((scene, index) => {
+    const {beat, role, shot, visual, subjectFocus, maxSeconds} = plan[index];
+    const durationSeconds = safeDuration(scene.narration, speed);
+    if (maxSeconds && durationSeconds > maxSeconds) throw new Error(`Scene "${scene.id}" (${beat}) needs ${durationSeconds.toFixed(1)}s but the ${draft.storyPattern} ${beat} beat allows at most ${maxSeconds}s. Shorten: "${scene.narration}"`);
+    return {
+      id: scene.id,
+      durationSeconds,
+      beat,
+      role,
+      shot,
+      subjectFocus,
+      beatEverySeconds: scene.beatEverySeconds ?? archetype.defaultBeat,
+      ...(scene.eyebrow ? {eyebrow: scene.eyebrow} : {}),
+      headline: scene.headline,
+      narration: scene.narration,
+      caption: scene.caption,
+      visual,
+      ...(scene.artworkUrl ? {artworkUrl: scene.artworkUrl} : {}),
+      ...(scene.accent ? {accent: scene.accent} : {}),
+      ...(scene.facts ? {facts: cleanFacts(scene.facts)} : {}),
+    };
+  });
 
   // Durations are whole tenths of a second; sum them as integers so float
   // rounding can't push the total across the limit.

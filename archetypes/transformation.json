@@ -1,0 +1,100 @@
+{
+  "description": "A state or form change with a before/after payoff.",
+  "defaultBeat": 0.62,
+  "beats": [
+    {
+      "id": "hook",
+      "role": "hook",
+      "minScenes": 1,
+      "maxScenes": 1,
+      "shots": [
+        "impact"
+      ],
+      "visuals": [
+        "hook"
+      ],
+      "subjectFocus": [
+        "primary"
+      ],
+      "maxSeconds": 4.8
+    },
+    {
+      "id": "before",
+      "role": "evidence",
+      "minScenes": 1,
+      "maxScenes": 2,
+      "shots": [
+        "macro",
+        "wide"
+      ],
+      "visuals": [
+        "gauntlet"
+      ],
+      "subjectFocus": [
+        "primary"
+      ]
+    },
+    {
+      "id": "change",
+      "role": "escalation",
+      "minScenes": 1,
+      "maxScenes": 2,
+      "shots": [
+        "tracking",
+        "macro"
+      ],
+      "visuals": [
+        "race"
+      ],
+      "subjectFocus": [
+        "secondary"
+      ]
+    },
+    {
+      "id": "reveal",
+      "role": "payoff",
+      "minScenes": 1,
+      "maxScenes": 1,
+      "shots": [
+        "comparison"
+      ],
+      "visuals": [
+        "advantage"
+      ],
+      "subjectFocus": [
+        "primary"
+      ]
+    },
+    {
+      "id": "aftermath",
+      "role": "payoff",
+      "minScenes": 1,
+      "maxScenes": 2,
+      "shots": [
+        "wide",
+        "impact"
+      ],
+      "visuals": [
+        "tradeoff"
+      ],
+      "subjectFocus": [
+        "secondary"
+      ]
+    },
+    {
+      "id": "verdict",
+      "role": "interaction",
+      "minScenes": 1,
+      "maxScenes": 1,
+      "shots": [
+        "interaction"
+      ],
+      "visuals": [
+        "cta"
+      ],
+      "subjectFocus": [
+        "primary"
+      ]
+    }
+  ]
+}
