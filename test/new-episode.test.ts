@@ -144,7 +144,7 @@ describe('writer loop', () => {
     bad.scenes[0].narration = 'This legendary hero from ancient legends more than triples its weight before every single battle.';
     bad.scenes[4].headline = '245 KG HEAVIER';
     const {complete, calls} = scriptedWriter([JSON.stringify(bad), `\`\`\`json\n${JSON.stringify(goodReply())}\n\`\`\``]);
-    const result = await writeEpisode({research: await research888(), complete, directing: 'contract', example: {}});
+    const result = await writeEpisode({research: await research888(), complete, directing: 'contract'});
     assert.equal(result.attempts, 2);
     assert.equal(result.draft.id, 'zacian-888');
     const feedback = calls[1].messages.at(-1)!.content;
@@ -156,7 +156,7 @@ describe('writer loop', () => {
 
   it('gives up with the remaining problems after the last attempt', async () => {
     const {complete} = scriptedWriter(['not json', '{"title": "x"}']);
-    await assert.rejects(writeEpisode({research: await research888(), complete, directing: '', example: {}, maxAttempts: 2}), (error: Error & {problems: string[]}) => {
+    await assert.rejects(writeEpisode({research: await research888(), complete, directing: '', maxAttempts: 2}), (error: Error & {problems: string[]}) => {
       assert.match(error.message, /after 2 attempts/);
       assert.ok(error.problems.length > 0);
       return true;
@@ -164,7 +164,7 @@ describe('writer loop', () => {
   });
 
   it('tells the writer the archetypes, artwork and a forced story shape', async () => {
-    const {system} = buildWriterPrompt({research: await research888(), directing: 'CONTRACT', example: {}, storyPattern: 'mystery'});
+    const {system} = buildWriterPrompt({research: await research888(), directing: 'CONTRACT', storyPattern: 'mystery'});
     assert.match(system, /CONTRACT/);
     assert.match(system, /- mystery: .*Beats: hook \(1\) → clue \(1-3\)/);
     assert.match(system, /one of: Zacian, Zacian Crowned/);

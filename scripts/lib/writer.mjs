@@ -160,7 +160,7 @@ const describeArchetypes = () => Object.entries(archetypes).map(([name, archetyp
 }).join('\n');
 
 /** The writer's instructions: the directing contract, the format and hard limits. */
-export const buildWriterPrompt = ({research, directing, example, storyPattern}) => {
+export const buildWriterPrompt = ({research, directing, references = [], storyPattern}) => {
   const artworkNames = [...artworkChoices(research).values()].map((item) => item.name).join(', ');
   const system = `You are the head writer of PokePulses, a vertical short-form video series about Pokémon. You turn researched facts into one tight, surprising story.
 
@@ -184,7 +184,15 @@ Scenes fill beats in order, each beat taking its minimum number of scenes. To gi
 - Palette: dark background and surface, high-contrast ink, accents that fit the Pokémon's colors.
 - voiceInstructions: tone and pacing for the narrator. Never ask it to imitate a known person or character.`;
 
-  const user = `Research:\n${JSON.stringify(research, null, 2)}\n\nExample of a finished draft for a different Pokémon (match the tone and quality, not the content):\n${JSON.stringify(example, null, 2)}\n\nWrite the episode.`;
+  const referenceText = references.map((reference) => `## ${reference.subject} (${reference.archetypes.join(', ')})
+Why it works:
+${reference.whyItWorks.map((note) => `- ${note}`).join('\n')}
+Episode:
+${JSON.stringify(reference.episode, null, 2)}`).join('\n\n');
+  const referenceIntro = references.length
+    ? `Reference episodes: curated winners from this series. Learn the craft (one sharp idea, concrete specifics, escalating reveals, an earned payoff, a real either/or question). Never copy their content, structure word-for-word or phrasing.\n\n${referenceText}\n\n`
+    : '';
+  const user = `Research:\n${JSON.stringify(research, null, 2)}\n\n${referenceIntro}Write the episode.`;
   return {system, user};
 };
 
@@ -202,8 +210,8 @@ export const parseReply = (text) => {
  * `complete({system, messages})` returns the model's reply text; injected so
  * tests can script replies.
  */
-export const writeEpisode = async ({research, complete, directing, example, storyPattern, showId = 'pokepulses', maxAttempts = 3, onAttempt = () => {}}) => {
-  const {system, user} = buildWriterPrompt({research, directing, example, storyPattern});
+export const writeEpisode = async ({research, complete, directing, references = [], storyPattern, showId = 'pokepulses', maxAttempts = 3, onAttempt = () => {}}) => {
+  const {system, user} = buildWriterPrompt({research, directing, references, storyPattern});
   const messages = [{role: 'user', content: user}];
   let problems = [];
   for (let attempt = 1; attempt <= maxAttempts; attempt++) {

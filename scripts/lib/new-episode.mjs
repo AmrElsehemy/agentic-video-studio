@@ -4,18 +4,13 @@ import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {serializeManifest} from './compiler.mjs';
 import {researchPokemon} from './pokeapi.mjs';
+import {loadReferences, selectReferences} from './references.mjs';
 import {writeEpisode} from './writer.mjs';
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
 const writeJson = (file, value) => {
   fs.mkdirSync(path.dirname(file), {recursive: true});
   fs.writeFileSync(file, `${JSON.stringify(value, null, 2)}\n`);
-};
-
-/** The finished example draft the writer imitates, without boilerplate. */
-const loadExample = () => {
-  const {rights: _rights, sources: _sources, ...example} = JSON.parse(fs.readFileSync(path.join(repoRoot, 'drafts', 'pokepulses', 'swablu-333.json'), 'utf8'));
-  return example;
 };
 
 /**
@@ -47,7 +42,7 @@ export const runNewEpisode = async ({number, root = repoRoot, showId = 'pokepuls
     research,
     complete,
     directing: fs.readFileSync(path.join(repoRoot, 'DIRECTING.md'), 'utf8'),
-    example: loadExample(),
+    references: selectReferences(loadReferences(), storyPattern),
     storyPattern,
     showId,
     maxAttempts,
