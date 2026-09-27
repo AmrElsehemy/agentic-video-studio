@@ -213,6 +213,19 @@ describe('archetype files', () => {
     assert.throws(() => archetypeSchema.parse({...timeline, beats: [timeline.beats[0], {...timeline.beats[2], minScenes: 3, maxScenes: 2}, timeline.beats[3]]}), /maxScenes/);
   });
 
+  it('requires a timed, non-optional hook and a non-optional closing beat', () => {
+    const [hook, ...rest] = timeline.beats;
+    const withHook = (changes: object) => ({...timeline, beats: [{...hook, ...changes}, ...rest]});
+    assert.throws(() => archetypeSchema.parse(withHook({minScenes: 0})), /hook beat must have minScenes/);
+    assert.throws(() => archetypeSchema.parse(withHook({maxSeconds: undefined})), /hook beat must set maxSeconds/);
+    const closing = {...timeline.beats.at(-1)!, minScenes: 0};
+    assert.throws(() => archetypeSchema.parse({...timeline, beats: [...timeline.beats.slice(0, -1), closing]}), /last beat must have minScenes/);
+  });
+
+  it('rejects a badly formatted story pattern with a clear message', () => {
+    assert.throws(() => compileEpisode({...sampleDraft(), storyPattern: 'Mystery '}, {showId: 'pokepulses'}), /lowercase archetype name/);
+  });
+
   it('skips an optional beat for untagged scenes', () => {
     assert.deepEqual(planScenes(timeline as never, scenes(undefined, undefined, undefined, undefined)).map((plan) => plan.beat), ['hook', 'events', 'events', 'verdict']);
   });

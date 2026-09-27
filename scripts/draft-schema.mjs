@@ -3,7 +3,7 @@ import {archetypes} from './archetypes.mjs';
 
 const color = z.string().regex(/^#[0-9a-f]{6}$/i, 'Expected a six-digit hex color');
 // Any archetype defined in archetypes/<name>.json.
-const storyPattern = z.string().superRefine((name, context) => {
+const storyPattern = z.string().regex(/^[a-z0-9-]+$/, 'Expected a lowercase archetype name, e.g. "mystery"').superRefine((name, context) => {
   if (!Object.hasOwn(archetypes, name)) context.addIssue({code: 'custom', message: `Unknown story archetype "${name}". Supported: ${Object.keys(archetypes).join(', ')}`});
 });
 

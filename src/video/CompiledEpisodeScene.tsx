@@ -32,8 +32,9 @@ const TransformationVisual: React.FC<{scene: VideoScene; manifest: VideoManifest
   const artwork = scene.artworkUrl ?? subject;
   const facts = scene.facts ?? [];
   // Layouts follow the transformation beats, so a beat with several scenes
-  // reuses its layout. Manifests without beats fall back to scene order.
-  const layout = scene.beat ? transformationLayouts.indexOf(scene.beat) : sceneIndex;
+  // reuses its layout. Manifests without a known beat fall back to scene order.
+  const beatLayout = scene.beat ? transformationLayouts.indexOf(scene.beat) : -1;
+  const layout = beatLayout === -1 ? sceneIndex : beatLayout;
 
   if (layout === 0) {
     const revealAt = Math.round(durationInFrames * .34);

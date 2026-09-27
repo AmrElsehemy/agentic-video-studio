@@ -30,8 +30,12 @@ export const archetypeSchema = z.object({
 }).superRefine((archetype, context) => {
   const ids = archetype.beats.map((beat) => beat.id);
   if (new Set(ids).size !== ids.length) context.addIssue({code: 'custom', message: 'Beat ids must be unique'});
-  if (archetype.beats[0].role !== 'hook') context.addIssue({code: 'custom', message: 'The first beat must have role "hook"'});
-  if (archetype.beats.at(-1).role !== 'interaction') context.addIssue({code: 'custom', message: 'The last beat must have role "interaction"'});
+  const [hook, closing] = [archetype.beats[0], archetype.beats.at(-1)];
+  if (hook.role !== 'hook') context.addIssue({code: 'custom', message: 'The first beat must have role "hook"'});
+  if (hook.minScenes < 1) context.addIssue({code: 'custom', message: 'The hook beat must have minScenes >= 1'});
+  if (hook.maxSeconds === undefined) context.addIssue({code: 'custom', message: 'The hook beat must set maxSeconds'});
+  if (closing.role !== 'interaction') context.addIssue({code: 'custom', message: 'The last beat must have role "interaction"'});
+  if (closing.minScenes < 1) context.addIssue({code: 'custom', message: 'The last beat must have minScenes >= 1'});
 });
 
 const loadArchetypes = () => {
