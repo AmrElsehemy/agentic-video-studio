@@ -4,7 +4,7 @@ import type {Complete, Draft} from './writer.mjs';
 export type Verdict = 'supported' | 'unsupported' | 'uncertain' | 'no-claim';
 export type Claim = {id: string; where: string; text: string};
 export type CheckedClaim = Claim & {verdict: Verdict; evidence: string[]; note: string; checkedBy: 'rules' | 'model' | 'none'};
-export type VerificationReport = {claims: CheckedClaim[]; unsupported: CheckedClaim[]; uncertain: CheckedClaim[]};
+export type VerificationReport = {modelError?: string; claims: CheckedClaim[]; unsupported: CheckedClaim[]; uncertain: CheckedClaim[]};
 
 export declare const VERDICTS: Verdict[];
 export declare const POKEMON_TYPES: string[];

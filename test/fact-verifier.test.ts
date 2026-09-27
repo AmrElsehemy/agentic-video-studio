@@ -78,6 +78,22 @@ describe('fact verifier', () => {
     assert.match(report.uncertain[0].note, /no verifier model/);
   });
 
+  it('ignores verdict lists of the wrong shape instead of crashing', async () => {
+    for (const reply of ['{"claims": {"c1": "supported"}}', '{"verdicts": "none"}', '"just a string"', '[1, 2, {"id": "c1"}]']) {
+      const report = await verifyDraft({draft: await draft888(), research: await research888(), complete: async () => reply});
+      assert.equal(report.uncertain.length, report.claims.length, reply);
+    }
+  });
+
+  it('keeps the rules and marks the rest uncertain when the verifier model fails', async () => {
+    const draft = await draft888();
+    draft.scenes[1].narration = 'Zacian is a Ghost Pokémon that haunts old castles.';
+    const report = await verifyDraft({draft, research: await research888(), complete: async () => 'I cannot help with that.'});
+    assert.match(report.modelError!, /did not contain JSON/);
+    assert.equal(report.unsupported.length, 1, 'the rule still rejects the false type');
+    assert.match(report.uncertain[0].note, /the verifier model failed/);
+  });
+
   it('reads JSON arrays from chatty or fenced replies', () => {
     assert.deepEqual(parseJsonReply('Sure:\n```json\n[{"id": "c1"}]\n```'), [{id: 'c1'}]);
     assert.throws(() => parseJsonReply('no json'), /did not contain JSON/);
@@ -96,6 +112,13 @@ describe('fact verifier in the writer loop', () => {
     }});
     assert.equal(result.attempts, 2);
     assert.match(sent[1], /scenes\.warrior\.narration says "Zacian is a Ghost Pokémon.*research does not support.*Ghost type/);
+  });
+
+  it('does not blame the writer when the verifier model fails', async () => {
+    const reply = JSON.stringify(goodReply());
+    const result = await writeEpisode({research: await research888(), directing: '', complete: async () => reply, verify: async () => { throw new Error('verifier overloaded'); }});
+    assert.equal(result.attempts, 1);
+    assert.match(result.verification.modelError!, /verifier overloaded/);
   });
 
   it('saves the verification report and logs uncertain claims', async () => {

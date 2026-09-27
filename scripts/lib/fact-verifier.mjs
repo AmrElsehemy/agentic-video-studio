@@ -45,7 +45,11 @@ export const resolvePointer = (research, pointer) => {
   return value;
 };
 
-const researchText = (research) => JSON.stringify(research, (key, value) => (key === 'artworkUrl' || key === 'url' ? undefined : value)).toLowerCase();
+const researchTextCache = new WeakMap();
+const researchText = (research) => {
+  if (!researchTextCache.has(research)) researchTextCache.set(research, JSON.stringify(research, (key, value) => (key === 'artworkUrl' || key === 'url' ? undefined : value)).toLowerCase());
+  return researchTextCache.get(research);
+};
 
 /**
  * Deterministic checks that need no model. A Pokémon type named in the text
@@ -92,12 +96,20 @@ Reply with a JSON array only: [{"id": "c1", "verdict": "supported", "evidence": 
 export const verifyDraft = async ({draft, research, complete}) => {
   const claims = extractClaims(draft);
   const modelVerdicts = new Map();
+  let modelError;
   if (complete) {
-    const reply = parseJsonReply(await complete(buildVerifierPrompt({research, claims})));
-    const list = Array.isArray(reply) ? reply : reply.claims ?? reply.verdicts ?? [];
-    for (const item of list) {
-      const parsed = verdictSchema.safeParse(item);
-      if (parsed.success) modelVerdicts.set(parsed.data.id, parsed.data);
+    try {
+      const reply = parseJsonReply(await complete(buildVerifierPrompt({research, claims})));
+      // Accept a bare array or {claims: [...]} / {verdicts: [...]}; anything else yields no verdicts.
+      const candidates = Array.isArray(reply) ? reply : [reply?.claims, reply?.verdicts].find(Array.isArray) ?? [];
+      for (const item of candidates) {
+        const parsed = verdictSchema.safeParse(item);
+        if (parsed.success) modelVerdicts.set(parsed.data.id, parsed.data);
+      }
+    } catch (error) {
+      // A verifier failure isn't the writer's fault: keep the rules' verdicts
+      // and report everything else as uncertain, with the reason.
+      modelError = error.message;
     }
   }
 
@@ -105,7 +117,10 @@ export const verifyDraft = async ({draft, research, complete}) => {
     const deterministic = deterministicCheck(claim, research);
     if (deterministic) return {...claim, ...deterministic, checkedBy: 'rules'};
     const verdict = modelVerdicts.get(claim.id);
-    if (!verdict) return {...claim, verdict: 'uncertain', evidence: [], note: complete ? 'The verifier returned no verdict for this text.' : 'Not checked: no verifier model configured.', checkedBy: complete ? 'model' : 'none'};
+    if (!verdict) {
+      const note = modelError ? `Not checked: the verifier model failed (${modelError}).` : complete ? 'The verifier returned no verdict for this text.' : 'Not checked: no verifier model configured.';
+      return {...claim, verdict: 'uncertain', evidence: [], note, checkedBy: complete && !modelError ? 'model' : 'none'};
+    }
     // A "supported" verdict must point at evidence that exists.
     const broken = verdict.evidence.filter((pointer) => resolvePointer(research, pointer) === undefined);
     if (verdict.verdict === 'supported' && (broken.length || !verdict.evidence.length)) {
@@ -115,6 +130,7 @@ export const verifyDraft = async ({draft, research, complete}) => {
   });
 
   return {
+    ...(modelError ? {modelError} : {}),
     claims: results,
     unsupported: results.filter((result) => result.verdict === 'unsupported'),
     uncertain: results.filter((result) => result.verdict === 'uncertain'),

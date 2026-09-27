@@ -57,6 +57,7 @@ export const runNewEpisode = async ({number, root = repoRoot, showId = 'pokepuls
   writeJson(path.join(researchDir, `${research.id}.verification.json`), {episodeId: research.id, checkedAt: new Date().toISOString(), ...result.verification});
   const {claims, uncertain} = result.verification;
   log(`✓ facts: ${claims.filter((claim) => claim.verdict === 'supported').length} supported, ${claims.filter((claim) => claim.verdict === 'no-claim').length} framing, ${uncertain.length} uncertain → research/${showId}/${research.id}.verification.json`);
+  if (result.verification.modelError) log(`⚠ facts: the verifier model failed (${result.verification.modelError}); only the rule checks ran.`);
   for (const claim of uncertain) log(`    ? ${claim.where}: "${claim.text}" (${claim.note})`);
   const manifestPath = path.join(root, 'videos', showId, research.id, 'video.json');
   fs.mkdirSync(path.dirname(manifestPath), {recursive: true});
