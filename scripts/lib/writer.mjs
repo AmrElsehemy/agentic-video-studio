@@ -191,6 +191,7 @@ ${TIERS.map((tier) => `- ${tier} (${tierRules(research)[tier].join(', ')}): ${TI
 
 # Hard limits
 - Use ONLY facts from the research. Never invent events, dates, numbers, moves or lore. Any number you state must appear in the research, or be a simple count of its types, evolution stages or forms.
+- Paraphrase freely and punchily, but never make a fact stronger than the research: if it says a Pokémon "stops moving", don't upgrade that to "is paralysed" or "dies".
 - Hook scene (first): narration at most 9 words; headline at most 8 words. It must create tension in the first second.
 - Other scenes: narration 9-14 words, spoken naturally, one idea per scene. Numbers and punctuation take longer to say, so use fewer words in lines that contain them.
 - Aim for 6-8 scenes and 24-45 seconds in total.

@@ -4,7 +4,7 @@ import os from 'node:os';
 import path from 'node:path';
 import {describe, it} from 'node:test';
 import {fileURLToPath} from 'node:url';
-import {deterministicCheck, extractClaims, parseJsonReply, resolvePointer, verifyDraft} from '../scripts/lib/fact-verifier.mjs';
+import {buildVerifierPrompt, deterministicCheck, extractClaims, typeMentions, parseJsonReply, resolvePointer, verifyDraft} from '../scripts/lib/fact-verifier.mjs';
 import {runNewEpisode} from '../scripts/lib/new-episode.mjs';
 import {researchPokemon} from '../scripts/lib/pokeapi.mjs';
 import {assembleDraft, writeEpisode} from '../scripts/lib/writer.mjs';
@@ -45,6 +45,28 @@ describe('fact verifier', () => {
     assert.equal(result?.verdict, 'unsupported');
     assert.match(result!.note, /Dragon type, which appears nowhere/);
     assert.doesNotMatch(result!.note, /Steel and/, 'Steel is in the research (Crowned form)');
+  });
+
+  it('only counts type words used as types, not everyday words', () => {
+    assert.deepEqual(typeMentions('FROM LIGHT TO DARK'), []);
+    assert.deepEqual(typeMentions('In its dark state, Necrozma seems frozen in place.'), []);
+    assert.deepEqual(typeMentions('A fire burns in its tail, hard as rock.'), []);
+    assert.deepEqual(typeMentions('It is a Dark-type Pokémon.'), ['dark']);
+    assert.deepEqual(typeMentions('Mew is a Steel Pokémon'), ['steel']);
+    assert.deepEqual(typeMentions('It becomes Fire and Psychic.'), ['fire', 'psychic']);
+    assert.deepEqual(typeMentions('GRASS / POISON'), ['grass', 'poison']);
+    assert.deepEqual(typeMentions('FIRE + PSYCHIC, then Steel types'), ['fire', 'psychic', 'steel']);
+  });
+
+  it('does not reject everyday uses of type words (the Necrozma false positive)', async () => {
+    const research = await research888();
+    for (const text of ['FROM LIGHT TO DARK', 'In its dark state, Zacian seems frozen in place.']) {
+      assert.equal(deterministicCheck({id: 'c1', where: 'scenes.reveal.headline', text}, research), undefined, text);
+    }
+  });
+
+  it('tells the verifier model to judge meaning, not wording', () => {
+    assert.match(buildVerifierPrompt({research: {} as never, claims: []}).system, /faithful paraphrase is "supported"/);
   });
 
   it('catches "Mew is a Steel Pokémon" in a full draft', async () => {

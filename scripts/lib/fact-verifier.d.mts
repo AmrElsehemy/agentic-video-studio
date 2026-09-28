@@ -11,6 +11,7 @@ export declare const POKEMON_TYPES: string[];
 export declare const extractClaims: (draft: Draft) => Claim[];
 export declare const parseJsonReply: (text: string) => unknown;
 export declare const resolvePointer: (research: Research, pointer: string) => unknown;
+export declare const typeMentions: (text: string) => string[];
 export declare const deterministicCheck: (claim: Claim, research: Research) => {verdict: Verdict; evidence: string[]; note: string} | undefined;
 export declare const buildVerifierPrompt: (options: {research: Research; claims: Claim[]}) => {system: string; messages: {role: string; content: string}[]};
 export declare const verifyDraft: (options: {draft: Draft; research: Research; complete?: Complete | null}) => Promise<VerificationReport>;

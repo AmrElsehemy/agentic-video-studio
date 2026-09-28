@@ -52,15 +52,41 @@ const researchText = (research) => {
   return researchTextCache.get(research);
 };
 
+const CONNECTORS = new Set(['and', 'or', '/', '+', '&', ',']);
+const TYPE_NOUNS = new Set(['type', 'types', 'pokemon']);
+
 /**
- * Deterministic checks that need no model. A Pokémon type named in the text
- * must appear somewhere in the research (the subject's, its evolutions' or
- * forms' types, or Pokédex text); "Mew is a Steel Pokémon" is rejected.
+ * Type words the text uses as types. Many types are everyday words ("from
+ * light to dark", "a fire in its belly"), so a type word counts only when it
+ * is followed by "type" or "Pokémon" ("Dark-type", "a Steel Pokémon") or
+ * listed with another type ("Fire and Psychic", "GRASS / POISON").
+ */
+export const typeMentions = (text) => {
+  const tokens = text.toLowerCase().replace(/pokémon/g, 'pokemon').match(/[a-z]+|[\/+&,]/g) ?? [];
+  const mentions = new Set();
+  for (let i = 0; i < tokens.length; i++) {
+    if (!POKEMON_TYPES.includes(tokens[i])) continue;
+    const run = [tokens[i]];
+    let end = i;
+    while (CONNECTORS.has(tokens[end + 1]) && POKEMON_TYPES.includes(tokens[end + 2])) {
+      run.push(tokens[end + 2]);
+      end += 2;
+    }
+    if (run.length > 1 || TYPE_NOUNS.has(tokens[end + 1])) run.forEach((type) => mentions.add(type));
+    i = end;
+  }
+  return [...mentions];
+};
+
+/**
+ * Deterministic checks that need no model. A Pokémon type the text names as
+ * a type must appear somewhere in the research (the subject's, its
+ * evolutions' or forms' types, or Pokédex text); "Mew is a Steel Pokémon" is
+ * rejected, "its dark state" is not.
  */
 export const deterministicCheck = (claim, research) => {
   const known = researchText(research);
-  const words = claim.text.toLowerCase().match(/[a-z]+/g) ?? [];
-  const unknownTypes = [...new Set(words.filter((word) => POKEMON_TYPES.includes(word) && !new RegExp(`\\b${word}\\b`).test(known)))];
+  const unknownTypes = typeMentions(claim.text).filter((word) => !new RegExp(`\\b${word}\\b`).test(known));
   if (!unknownTypes.length) return undefined;
   const typeName = (word) => word.charAt(0).toUpperCase() + word.slice(1);
   return {
@@ -82,9 +108,11 @@ export const buildVerifierPrompt = ({research, claims}) => ({
 
 Verdicts:
 - "supported": every factual statement is backed by the research. Give evidence pointers into the research JSON, e.g. "types[0]", "pokedexEntries[1].text", "evolutionChain[1].method", "varieties[0].weightKg".
-- "unsupported": at least one statement contradicts the research or has no basis in it. Say which, in the note.
-- "uncertain": plausibly true but only loosely or partially backed (for example a paraphrase that stretches a Pokédex entry). Explain in the note.
+- "unsupported": at least one statement contradicts the research, or adds a fact that has no basis in it (a new ability, number, event or cause). Say which, in the note.
+- "uncertain": plausibly true but only loosely backed: it stretches or exaggerates what the research says. Explain in the note.
 - "no-claim": no factual statement (a question, a hook phrase, framing, an opinion clearly presented as one).
+
+This is short-form video copy: headlines and captions are punchy and compressed. Judge meaning, not wording. A faithful paraphrase is "supported": "stops moving", "freezes" and "goes still" all say the same thing; "loses its light" restates "light is its energy source" running out. Dramatic phrasing of a researched fact is "supported" or at most "uncertain", never "unsupported". Ordinary words that are also type names ("dark", "fire", "rock") are not type claims unless the text uses them as types.
 
 Evidence from "lore" is community material (fan theories, trivia): it supports a statement only when the text presents it as lore ("some fans believe…", "legend says…"). Prefer official evidence (types, Pokédex entries, sizes) whenever it exists.
 
