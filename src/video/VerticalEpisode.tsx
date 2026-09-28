@@ -2,27 +2,19 @@ import React from 'react';
 import {AbsoluteFill, Audio, Sequence, staticFile} from 'remotion';
 import type {VideoManifest} from '../schema';
 import {CompiledEpisodeScene} from './CompiledEpisodeScene';
-import {PokeProfileScene} from './PokeProfileScene';
-import {Scene} from './scene';
 
+// Every episode renders through the same scene engine: what differs between
+// episodes is data (story shape, shots, primitives, palette), never code.
 export const VerticalEpisode: React.FC<{manifest: VideoManifest}> = ({manifest}) => {
   let cursor = 0;
-  const useCompiledEngine = manifest.direction.engineVersion === 2;
-  const usePokeProfile = manifest.show.id === 'pokepulses';
 
   const sequences = manifest.scenes.map((scene, index) => {
     const from = cursor;
     const durationInFrames = Math.round(scene.durationSeconds * manifest.format.fps);
     cursor += durationInFrames;
-    const SceneRenderer = useCompiledEngine
-      ? CompiledEpisodeScene
-      : usePokeProfile
-        ? PokeProfileScene
-        : Scene;
-
     return (
       <Sequence key={scene.id} from={from} durationInFrames={durationInFrames} premountFor={30}>
-        <SceneRenderer
+        <CompiledEpisodeScene
           scene={scene}
           manifest={manifest}
           sceneIndex={index}

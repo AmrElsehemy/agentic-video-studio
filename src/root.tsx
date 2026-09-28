@@ -1,10 +1,10 @@
 import {Composition} from 'remotion';
-import defaultManifest from '../videos/pokepulses/bulbasaur-001/video.json';
 import {EpisodeCover} from './video/EpisodeCover';
 import {VerticalEpisode} from './video/VerticalEpisode';
+import {previewManifest} from './preview-manifest';
 import {getDurationInFrames, videoSchema} from './schema';
 
-const parsedDefault = videoSchema.parse(defaultManifest);
+const parsedDefault = videoSchema.parse(previewManifest);
 
 export const StudioRoot: React.FC = () => (
   <>
