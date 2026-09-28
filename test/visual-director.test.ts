@@ -28,6 +28,10 @@ describe('visual primitives', () => {
     assert.equal(primitiveSchema.safeParse({kind: 'meter', label: 'HP', from: 100, to: 150}).success, false);
     assert.equal(primitiveSchema.safeParse({kind: 'counter', to: 999, label: 'COINS', color: 'gold'}).success, false, 'no unknown keys');
     assert.equal(primitiveSchema.safeParse({kind: 'helix'}).success, false);
+    assert.equal(primitiveSchema.safeParse({kind: 'meter', label: 'HP', from: 100, to: 50, threshold: 25}).success, false, 'threshold never crossed');
+    assert.equal(primitiveSchema.safeParse({kind: 'meter', label: 'HP', from: 100, to: 50, thresholdLabel: 'ZEN'}).success, false, 'label without threshold');
+    assert.equal(primitiveSchema.safeParse({kind: 'meter', label: 'HP', from: 50, to: 50}).success, false, 'meter must move');
+    assert.equal(primitiveSchema.safeParse({kind: 'meter', label: 'HP', from: 20, to: 80, threshold: 80}).success, true, 'rising, threshold at the end');
   });
 
   it('lists the numbers and words each primitive states', () => {
@@ -81,7 +85,7 @@ describe('visual director', () => {
     assert.deepEqual(result.rejected.map((item) => item.id), ['metal', 'verdict', 'weight', 'sword', 'hook']);
     assert.match(result.rejected[0].reason, /counter states 5000, which is not in the research/);
     assert.match(result.rejected[1].reason, /last scene/);
-    assert.match(result.rejected[2].reason, /already has a primitive/);
+    assert.match(result.rejected[2].reason, /names this scene more than once/);
     assert.match(result.rejected[3].reason, /no such scene/);
     assert.equal(result.draft.scenes.find((scene) => scene.id === 'weight')!.primitive!.kind, 'bars');
     assert.equal(result.manifest.scenes.find((scene) => scene.id === 'weight')!.primitive!.kind, 'bars');

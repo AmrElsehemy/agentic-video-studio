@@ -22,7 +22,15 @@ export const primitiveSchema = z.discriminatedUnion('kind', [
   z.object({kind: z.literal('timeline'), steps: z.array(z.object({label: z.string().min(1).max(20), detail: z.string().min(1).max(24).optional()}).strict()).min(2).max(4), active: z.number().int().min(0).max(3).optional()}).strict(),
   // Requirements ruled in or out: no stone, no trade, 999 coins.
   z.object({kind: z.literal('checklist'), items: z.array(z.object({label: z.string().min(1).max(22), met: z.boolean()}).strict()).min(2).max(4)}).strict(),
-]);
+]).superRefine((primitive, context) => {
+  if (primitive.kind !== 'meter') return;
+  // A meter must move, and its threshold must be one it actually crosses.
+  if (primitive.from === primitive.to) context.addIssue({code: 'custom', path: ['to'], message: 'A meter must move: from and to are equal'});
+  if (primitive.thresholdLabel !== undefined && primitive.threshold === undefined) context.addIssue({code: 'custom', path: ['thresholdLabel'], message: 'thresholdLabel needs a threshold'});
+  if (primitive.threshold !== undefined && (primitive.threshold < Math.min(primitive.from, primitive.to) || primitive.threshold > Math.max(primitive.from, primitive.to))) {
+    context.addIssue({code: 'custom', path: ['threshold'], message: `threshold ${primitive.threshold} is never crossed between ${primitive.from} and ${primitive.to}`});
+  }
+});
 
 export const PRIMITIVE_KINDS = primitiveSchema.options.map((option) => option.shape.kind.value);
 

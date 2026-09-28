@@ -70,7 +70,7 @@ export const compileEpisode = (rawDraft, {showId}) => {
   const manifest = {
     schemaVersion: 1,
     id: episodeId,
-    show: draft.show ?? {id: showId, name: showId === 'pokepulses' ? 'PokePulses' : showId, handle: `@${showId}`},
+    show: draft.show ?? (showId === 'pokepulses' ? {id: showId, name: 'PokePulses', handle: '@PokePulses'} : {id: showId, name: showId, handle: `@${showId}`}),
     title: draft.title,
     direction: {
       engineVersion: 2,

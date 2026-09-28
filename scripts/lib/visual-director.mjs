@@ -85,7 +85,7 @@ export const directVisuals = async ({draft, research, angle, complete, showId = 
     const reject = (reason) => rejected.push({id, reason});
     if (!draft.scenes.some((scene) => scene.id === id)) { reject('no such scene'); continue; }
     if (id === lastId) { reject('the last scene keeps its verdict layout'); continue; }
-    if (chosen.has(id)) { reject('scene already has a primitive'); continue; }
+    if (chosen.has(id)) { reject('the reply names this scene more than once; the first valid primitive is kept'); continue; }
     const parsed = primitiveSchema.safeParse(item.primitive);
     if (!parsed.success) { reject(parsed.error.issues.map((issue) => `${issue.path.join('.') || 'primitive'}: ${issue.message}`).join('; ')); continue; }
     const problems = checkPrimitive(parsed.data, research);

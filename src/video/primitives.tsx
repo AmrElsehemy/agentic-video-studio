@@ -53,7 +53,8 @@ const MeterPrimitive: React.FC<PrimitiveProps<'meter'>> = ({data, scene, manifes
   const threshold = data.threshold;
   const falling = data.to < data.from;
   const crossed = threshold !== undefined && (falling ? value <= threshold : value >= threshold);
-  const crossedAt = threshold === undefined ? endAt : Math.round(interpolate(Math.abs(threshold - data.from) / Math.max(1, Math.abs(data.to - data.from)), [0, 1], [6, endAt]));
+  // Frame at which the gauge reaches the threshold, kept inside the animation.
+  const crossedAt = threshold === undefined ? endAt : Math.round(interpolate(Math.abs(threshold - data.from) / Math.max(1, Math.abs(data.to - data.from)), [0, 1], [6, endAt], clamp));
   const flash = crossed ? interpolate(frame, [crossedAt, crossedAt + 4, crossedAt + 18], [0, 1, 0], clamp) : 0;
   const pair = artworkPair(scene, manifest);
   const fill = value > 50 ? '#56e39f' : value > 25 ? '#f6c945' : '#ff5b5b';
