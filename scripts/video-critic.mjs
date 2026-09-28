@@ -60,7 +60,10 @@ try {
     run('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-y', '-ss', at.toFixed(3), '-i', videoPath, '-frames:v', '1', file]);
     return {file, text: ocr(file), gray: thumbnail(file)};
   });
-  const cover = fs.existsSync(coverPath) ? {file: coverPath, text: ocr(coverPath), gray: thumbnail(coverPath)} : undefined;
+  // Work on a copy of the cover so OCR bands and resized images stay in the temp folder.
+  const coverCopy = path.join(tempDir, 'cover.png');
+  if (fs.existsSync(coverPath)) fs.copyFileSync(coverPath, coverCopy);
+  const cover = fs.existsSync(coverCopy) ? {file: coverCopy, text: ocr(coverCopy), gray: thumbnail(coverCopy)} : undefined;
 
   const issues = auditFrames({manifest, frames, cover});
   let visionReport;
