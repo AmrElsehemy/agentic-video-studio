@@ -31,6 +31,7 @@ export const safeDuration = (text, speed) => {
  * violates production limits.
  */
 export const compileEpisode = (rawDraft, {showId, show = loadShow(showId)}) => {
+  if (show.id !== showId) throw new Error(`compileEpisode was asked for the ${showId} show but given the ${show.id} profile.`);
   const draft = episodeDraftSchema.parse(rawDraft);
   const episodeId = draft.id;
   if (draft.show?.id && draft.show.id !== show.id) throw new Error(`${episodeId} sets show id "${draft.show.id}" but is compiled for the ${show.id} show.`);

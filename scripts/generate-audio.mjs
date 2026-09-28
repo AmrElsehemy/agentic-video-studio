@@ -57,4 +57,4 @@ for (let i = 0; i < sampleCount; i++) {
 const output = path.join(root, 'public', 'generated', `${episodeId}-bed.wav`);
 fs.mkdirSync(path.dirname(output), {recursive: true});
 fs.writeFileSync(output, wav);
-console.log(`✓ original audio bed: ${path.relative(root, output)} (${duration.toFixed(1)}s, ${bpm} bpm)`);
+console.log(`✓ music bed (generated for ${manifest.show.name}): ${path.relative(root, output)} (${duration.toFixed(1)}s, ${bpm} bpm)`);

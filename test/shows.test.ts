@@ -81,5 +81,6 @@ describe('compiling for a show', () => {
   it('rejects story shapes the show does not use, and a draft claiming another show', () => {
     assert.throws(() => compileEpisode(mewDraft(), {showId: 'autodex', show: autodex()}), /AutoDex doesn't use the "mystery" story shape\. Allowed in shows\/autodex\.json: profile, mechanic/);
     assert.throws(() => compileEpisode({...mewDraft(), show: {id: 'autodex'}}, {showId: 'pokepulses'}), /sets show id "autodex" but is compiled for the pokepulses show/);
+    assert.throws(() => compileEpisode(asProfile(mewDraft()), {showId: 'pokepulses', show: autodex()}), /asked for the pokepulses show but given the autodex profile/);
   });
 });

@@ -14,6 +14,10 @@ describe('network errors', () => {
     assert.equal((error.cause as Error).message, 'fetch failed');
   });
 
+  it('still explains the failure when the URL itself is malformed', () => {
+    assert.match(networkError('PokéAPI', 'not a url', fetchFailed('ENOTFOUND')).message, /^PokéAPI request to not a url failed \(ENOTFOUND/);
+  });
+
   it('explains TLS interception by a corporate proxy', () => {
     assert.match(networkError('OpenAI', 'https://api.openai.com/v1/x', fetchFailed('UNABLE_TO_GET_ISSUER_CERT_LOCALLY')).message, /NODE_EXTRA_CA_CERTS/);
   });

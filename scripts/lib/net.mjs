@@ -20,6 +20,15 @@ const rootCause = (error) => {
   return current;
 };
 
+/** The URL's origin for the message; never throws, so the real failure isn't masked by a bad URL. */
+const hostOf = (url) => {
+  try {
+    return new URL(url).origin;
+  } catch {
+    return String(url);
+  }
+};
+
 /** Explain a failed request: which service and URL, the underlying reason, and what to check. */
 export const networkError = (label, url, error) => {
   const cause = rootCause(error);
@@ -28,7 +37,7 @@ export const networkError = (label, url, error) => {
   const hint = HINTS[code] ?? (process.env.HTTPS_PROXY || process.env.https_proxy
     ? 'HTTPS_PROXY is set, but Node\'s fetch ignores it: run with NODE_USE_ENV_PROXY=1 (Node 24+) or unset it'
     : 'check your internet connection, VPN or proxy');
-  const wrapped = new Error(`${label} request to ${new URL(url).origin} failed (${reason}): ${hint}.`);
+  const wrapped = new Error(`${label} request to ${hostOf(url)} failed (${reason}): ${hint}.`);
   wrapped.cause = error;
   return wrapped;
 };
