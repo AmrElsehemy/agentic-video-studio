@@ -16,12 +16,12 @@ describe('shot library', () => {
     assert.deepEqual(artworkPair(mewtwoScene, mew), [mew.subject.artworkUrl, mewtwoScene.artworkUrl]);
   });
 
-  it('pairs the subject with its evolution when the scene shows the subject', () => {
+  it('pairs the subject with its first related subject when the scene shows the subject', () => {
     const swablu = load('swablu-333');
-    assert.deepEqual(artworkPair(swablu.scenes[0], swablu), [swablu.subject.artworkUrl, swablu.evolutions[0].artworkUrl]);
+    assert.deepEqual(artworkPair(swablu.scenes[0], swablu), [swablu.subject.artworkUrl, swablu.related[0].artworkUrl]);
   });
 
-  it('has no pair for a subject-only scene without evolutions', () => {
+  it('has no pair for a subject-only scene without related subjects', () => {
     const mew = load('mew-151');
     assert.equal(artworkPair(mew.scenes[1], mew), undefined);
   });

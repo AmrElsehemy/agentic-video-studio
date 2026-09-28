@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "id": "swablu-333",
   "show": {
     "id": "pokepulses",
@@ -29,15 +29,16 @@
   },
   "subject": {
     "name": "Swablu",
-    "index": "#333",
     "category": "Cotton Bird Pokémon",
-    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/333.png"
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/333.png",
+    "identifier": "#333"
   },
-  "evolutions": [
+  "related": [
     {
       "name": "Altaria",
-      "index": "#334",
-      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/334.png"
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/334.png",
+      "identifier": "#334"
     }
   ],
   "format": {

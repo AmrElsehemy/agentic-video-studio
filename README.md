@@ -69,6 +69,8 @@ brew install ffmpeg tesseract   # Linux: sudo apt-get install ffmpeg tesseract-o
 
 A show's branding lives in `shows/<id>.json`: name and handle, wordmark, fonts, default palette, music bed, narration voice, rights notices and allowed story shapes (see [shows/README.md](shows/README.md)). The compiler merges it under each draft in `drafts/<id>/` and embeds it in the manifests, so a second show is a new profile plus drafts, with no code changes.
 
+Subjects are not tied to Pokémon. A draft's `subject` is `{name, category, artworkUrl, identifier?, attributes?}` and `related` lists other subjects with how they relate (`evolves-to`, `evolves-from`, `form`, `related`); the first related subject is the before/after and "VS" partner. The `identifier` (a Pokédex number, a model code) only appears on screen when `numberRelevant` is true, and a show can require a format for it (`subjects.identifierPattern`; PokePulses requires `#001`-style numbers). Drafts in the older shape (`subject.index`, `evolutions`) are upgraded automatically when compiled.
+
 ## Create an episode from a Pokédex number
 
 ```bash

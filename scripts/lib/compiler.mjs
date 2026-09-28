@@ -39,9 +39,17 @@ export const compileEpisode = (rawDraft, {showId, show = loadShow(showId)}) => {
   const archetype = getArchetype(draft.storyPattern);
   const speed = draft.voice?.speed ?? show.voice.speed;
 
+  const related = draft.related ?? [];
+  if (show.subjects) {
+    const pattern = new RegExp(show.subjects.identifierPattern);
+    for (const item of [draft.subject, ...related]) {
+      if (item.identifier !== undefined && !pattern.test(item.identifier)) throw new Error(`${item.name}'s identifier "${item.identifier}" isn't a valid ${show.subjects.identifierLabel} for ${show.name} (expected ${show.subjects.identifierPattern}).`);
+    }
+  }
+  // Identifiers (e.g. Pokédex numbers) stay off screen unless the story is about them.
   const numberRelevant = draft.numberRelevant ?? false;
-  const indexTokens = new Set([draft.subject.index, ...(draft.evolutions ?? []).map((evolution) => evolution.index)]);
-  const cleanFacts = (facts = []) => facts.filter((fact) => numberRelevant || !indexTokens.has(fact));
+  const identifiers = new Set([draft.subject.identifier, ...related.map((item) => item.identifier)].filter(Boolean));
+  const cleanFacts = (facts = []) => facts.filter((fact) => numberRelevant || !identifiers.has(fact));
 
   const plan = planScenes(archetype, draft.scenes);
   const scenes = draft.scenes.map((scene, index) => {
@@ -75,7 +83,7 @@ export const compileEpisode = (rawDraft, {showId, show = loadShow(showId)}) => {
   if (totalTenths > MAX_TOTAL * 10) throw new Error(`${episodeId} compiles to ${totalSeconds.toFixed(1)}s. Shorten narration in the draft; compiler target is <=${MAX_TOTAL}s.`);
 
   const manifest = {
-    schemaVersion: 1,
+    schemaVersion: 2,
     id: episodeId,
     show: {
       id: show.id,
@@ -98,7 +106,7 @@ export const compileEpisode = (rawDraft, {showId, show = loadShow(showId)}) => {
       targetSecondsBetweenVisualChanges: draft.targetSecondsBetweenVisualChanges ?? archetype.defaultBeat,
     },
     subject: draft.subject,
-    evolutions: draft.evolutions ?? [],
+    related,
     format: {width: 1080, height: 1920, fps: 30},
     palette: draft.palette ?? show.palette,
     audio: {

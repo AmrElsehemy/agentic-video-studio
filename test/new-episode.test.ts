@@ -71,8 +71,8 @@ describe('draft assembly', () => {
     const research = await research888();
     const {draft, problems} = assembleDraft(goodReply(), research);
     assert.deepEqual(problems, []);
-    assert.deepEqual(draft.subject, {name: 'Zacian', index: '#888', category: 'Warrior Pokémon', artworkUrl: research.artworkUrl});
-    assert.equal(draft.evolutions[0].name, 'Zacian Crowned');
+    assert.deepEqual(draft.subject, {name: 'Zacian', category: 'Warrior Pokémon', artworkUrl: research.artworkUrl, identifier: '#888'});
+    assert.deepEqual(draft.related.map((item) => [item.name, item.relation, item.identifier]), [['Zacian Crowned', 'form', '#888']]);
     assert.equal(draft.scenes[3].artworkUrl, research.varieties[0].artworkUrl);
     assert.deepEqual(draft.rights.assets.map((asset) => asset.licenseStatus), ['unverified', 'unverified']);
     assert.equal(draft.rights.publicReleaseApproved, false);
@@ -82,7 +82,7 @@ describe('draft assembly', () => {
   it('puts later evolutions first so the before/after reveal uses them', async () => {
     const research = await researchPokemon(333, {fetchJson});
     const reply = {...goodReply(), scenes: goodReply().scenes.map((scene: {artwork: string}) => ({...scene, artwork: 'Swablu'}))};
-    assert.deepEqual(assembleDraft(reply, research).draft.evolutions.map((item) => item.name), ['Altaria']);
+    assert.deepEqual(assembleDraft(reply, research).draft.related.map((item) => [item.name, item.relation]), [['Altaria', 'evolves-to']]);
   });
 
   it('reports artwork that does not exist', async () => {

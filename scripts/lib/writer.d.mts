@@ -18,10 +18,10 @@ export type Draft = {
   payoff: string;
   targetEmotion: string;
   engagementQuestion: string;
-  subject: {name: string; index: string; category: string; artworkUrl: string};
-  evolutions: {name: string; index: string; artworkUrl: string}[];
+  subject: import('../subject-schema.mjs').Subject;
+  related: import('../subject-schema.mjs').RelatedSubject[];
   palette: Record<string, string>;
-  voice: {voice: string; speed: number; instructions: string};
+  voice: {voice?: string; speed?: number; instructions: string};
   rights: {releaseStatus: string; publicReleaseApproved: boolean; ownershipNotice: string; nonAffiliationNotice: string; assets: {kind: string; sourceUrl: string; owner: string; licenseStatus: string; publicReleaseApproved: boolean; notes?: string}[]};
   scenes: DraftScene[];
   sources: {label: string; url: string}[];

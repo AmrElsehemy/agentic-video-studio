@@ -1,6 +1,7 @@
 import {z} from 'zod';
 import {primitiveSchema} from '../scripts/primitive-schema.mjs';
 import {fontsSchema, musicBedSchema, wordmarkSchema} from '../scripts/show-schema.mjs';
+import {relatedSchema, subjectSchema} from '../scripts/subject-schema.mjs';
 
 const color = z.string().regex(/^#[0-9a-f]{6}$/i, 'Expected a six-digit hex color');
 
@@ -28,7 +29,8 @@ export const sceneSchema = z.object({
 export const storyPatternSchema = z.string().regex(/^[a-z0-9-]+$/);
 
 export const videoSchema = z.object({
-  schemaVersion: z.literal(1),
+  // 2: generic subject (identifier, attributes) and related subjects instead of Pokédex index and evolutions.
+  schemaVersion: z.literal(2),
   id: z.string().regex(/^[a-z0-9-]+$/),
   show: z.object({
     id: z.string().regex(/^[a-z0-9-]+$/),
@@ -51,17 +53,8 @@ export const videoSchema = z.object({
     engagementQuestion: z.string().min(1).max(140),
     targetSecondsBetweenVisualChanges: z.number().positive().max(1.5),
   }),
-  subject: z.object({
-    name: z.string().min(1),
-    index: z.string().regex(/^#[0-9]{3,4}$/),
-    category: z.string().min(1),
-    artworkUrl: z.string().url(),
-  }),
-  evolutions: z.array(z.object({
-    name: z.string().min(1),
-    index: z.string().regex(/^#[0-9]{3,4}$/),
-    artworkUrl: z.string().url(),
-  })).max(3).default([]),
+  subject: subjectSchema,
+  related: z.array(relatedSchema).max(3).default([]),
   format: z.object({width: z.literal(1080), height: z.literal(1920), fps: z.literal(30)}),
   palette: z.object({background: color, surface: color, primary: color, secondary: color, ink: color}),
   audio: z.object({

@@ -24,14 +24,11 @@ const CoverTitle: React.FC<{headline: string; subject: string; accent: string}> 
 export const EpisodeCover: React.FC<Props> = ({manifest}) => {
   const accent = manifest.palette.primary;
   const hook = manifest.scenes[0];
-  const mentionsNumber = (text?: string) => Boolean(text && /#\s*\d/.test(text));
-  // Pokédex numbers stay off the cover unless the story is about the number.
-  // Compiled episodes say so explicitly; hand-authored ones predate the flag,
-  // so a number in their hook counts as intent.
-  const showNumber = manifest.direction.engineVersion === 2
-    ? Boolean(manifest.direction.numberRelevant)
-    : mentionsNumber(hook.eyebrow) || mentionsNumber(hook.headline);
-  const tag = hook.eyebrow && (showNumber || !mentionsNumber(hook.eyebrow)) ? hook.eyebrow : undefined;
+  const identifier = manifest.subject.identifier;
+  const mentionsIdentifier = (text?: string) => Boolean(text && identifier && text.includes(identifier));
+  // The identifier (e.g. a Pokédex number) stays off the cover unless the story is about it.
+  const showIdentifier = Boolean(identifier && manifest.direction.numberRelevant);
+  const tag = hook.eyebrow && (showIdentifier || !mentionsIdentifier(hook.eyebrow)) ? hook.eyebrow : undefined;
   // Shrink long hooks so they stay within three lines.
   const titleSize = Math.round(Math.min(132, Math.max(88, 132 * Math.sqrt(26 / Math.max(26, hook.headline.length)))));
 
@@ -54,7 +51,7 @@ export const EpisodeCover: React.FC<Props> = ({manifest}) => {
         }}
       />
       <Wordmark show={manifest.show} accent={accent} style={{position: 'absolute', top: 74, left: 64, fontSize: 42, letterSpacing: 6}} />
-      {showNumber ? (
+      {showIdentifier ? (
         <div
           style={{
             position: 'absolute',
@@ -69,11 +66,11 @@ export const EpisodeCover: React.FC<Props> = ({manifest}) => {
             letterSpacing: 2,
           }}
         >
-          {manifest.subject.index}
+          {identifier}
         </div>
       ) : null}
 
-      {showNumber ? (
+      {showIdentifier ? (
         <div
           style={{
             position: 'absolute',
@@ -86,7 +83,7 @@ export const EpisodeCover: React.FC<Props> = ({manifest}) => {
             letterSpacing: -16,
           }}
         >
-          {manifest.subject.index.replace('#', '')}
+          {identifier?.replace(/^#/, '')}
         </div>
       ) : null}
       <div

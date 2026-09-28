@@ -105,10 +105,10 @@ export const assembleDraft = (creative, research, {showId = 'pokepulses'} = {}) 
   const subjectStage = research.evolutionChain.find((member) => member.isSubject)?.stage ?? 1;
   const others = research.evolutionChain.filter((member) => !member.isSubject);
   const related = [
-    ...others.filter((member) => member.stage > subjectStage),
-    ...others.filter((member) => member.stage <= subjectStage),
-    ...research.varieties.map((variety) => ({...variety, index: research.index})),
-  ].slice(0, 3).map(({name, index, artworkUrl}) => ({name, index, artworkUrl}));
+    ...others.filter((member) => member.stage > subjectStage).map((member) => ({...member, relation: 'evolves-to'})),
+    ...others.filter((member) => member.stage <= subjectStage).map((member) => ({...member, relation: 'evolves-from'})),
+    ...research.varieties.map((variety) => ({...variety, index: research.index, relation: 'form'})),
+  ].slice(0, 3).map(({name, relation, index, artworkUrl}) => ({name, relation, artworkUrl, identifier: index}));
 
   const draft = {
     id: research.id,
@@ -121,10 +121,11 @@ export const assembleDraft = (creative, research, {showId = 'pokepulses'} = {}) 
     payoff: creative.payoff,
     targetEmotion: creative.targetEmotion,
     engagementQuestion: creative.engagementQuestion,
-    subject: {name: research.name, index: research.index, category: research.category, artworkUrl: research.artworkUrl},
-    evolutions: related,
+    subject: {name: research.name, category: research.category, artworkUrl: research.artworkUrl, identifier: research.index},
+    related,
     palette: creative.palette,
-    voice: {voice: 'marin', speed: 1.08, instructions: creative.voiceInstructions},
+    // Voice and speed come from the show profile; the writer sets the delivery.
+    voice: {instructions: creative.voiceInstructions},
     rights: {
       releaseStatus: 'internal-prototype',
       publicReleaseApproved: false,
