@@ -1,6 +1,7 @@
 import {isDeepStrictEqual} from 'node:util';
 import {getArchetype, planScenes} from '../archetypes.mjs';
 import {episodeDraftSchema} from '../draft-schema.mjs';
+import {loadShow} from './shows.mjs';
 
 export const DEFAULT_SPEED = 1.08;
 export const BASE_WPM = 145;
@@ -23,14 +24,20 @@ export const safeDuration = (text, speed) => {
 };
 
 /**
- * Compile a creative draft into a video manifest. Pure: no file system access.
- * Throws on an invalid draft or a draft that violates production limits.
+ * Compile a creative draft into a video manifest, merging the show profile
+ * (shows/<id>.json) under the draft's own values. Deterministic: the same
+ * draft and profile always give the same manifest. Pass `show` to use a
+ * profile that isn't on disk. Throws on an invalid draft or a draft that
+ * violates production limits.
  */
-export const compileEpisode = (rawDraft, {showId}) => {
+export const compileEpisode = (rawDraft, {showId, show = loadShow(showId)}) => {
+  if (show.id !== showId) throw new Error(`compileEpisode was asked for the ${showId} show but given the ${show.id} profile.`);
   const draft = episodeDraftSchema.parse(rawDraft);
   const episodeId = draft.id;
+  if (draft.show?.id && draft.show.id !== show.id) throw new Error(`${episodeId} sets show id "${draft.show.id}" but is compiled for the ${show.id} show.`);
+  if (!show.archetypes.includes(draft.storyPattern)) throw new Error(`${show.name} doesn't use the "${draft.storyPattern}" story shape. Allowed in shows/${show.id}.json: ${show.archetypes.join(', ')}.`);
   const archetype = getArchetype(draft.storyPattern);
-  const speed = draft.voice?.speed ?? DEFAULT_SPEED;
+  const speed = draft.voice?.speed ?? show.voice.speed;
 
   const numberRelevant = draft.numberRelevant ?? false;
   const indexTokens = new Set([draft.subject.index, ...(draft.evolutions ?? []).map((evolution) => evolution.index)]);
@@ -70,7 +77,13 @@ export const compileEpisode = (rawDraft, {showId}) => {
   const manifest = {
     schemaVersion: 1,
     id: episodeId,
-    show: draft.show ?? (showId === 'pokepulses' ? {id: showId, name: 'PokePulses', handle: '@PokePulses'} : {id: showId, name: showId, handle: `@${showId}`}),
+    show: {
+      id: show.id,
+      name: draft.show?.name ?? show.name,
+      handle: draft.show?.handle ?? show.handle,
+      wordmark: draft.show?.wordmark ?? show.wordmark,
+      fonts: draft.show?.fonts ?? show.fonts,
+    },
     title: draft.title,
     direction: {
       engineVersion: 2,
@@ -87,15 +100,16 @@ export const compileEpisode = (rawDraft, {showId}) => {
     subject: draft.subject,
     evolutions: draft.evolutions ?? [],
     format: {width: 1080, height: 1920, fps: 30},
-    palette: draft.palette ?? {background: '#07111f', surface: '#10233b', primary: '#69d7ff', secondary: '#a875ff', ink: '#f7fbff'},
+    palette: draft.palette ?? show.palette,
     audio: {
       music: `generated/${episodeId}-bed.wav`,
-      musicVolume: draft.musicVolume ?? 0.09,
+      musicVolume: draft.musicVolume ?? show.music.volume,
+      bed: {bpm: show.music.bpm, notes: show.music.notes},
       voice: {
         provider: 'openai',
-        model: draft.voice?.model ?? 'gpt-4o-mini-tts',
-        voice: draft.voice?.voice ?? 'marin',
-        instructions: draft.voice?.instructions ?? 'Energetic, natural short-form narrator. Sound like a knowledgeable fan sharing a surprising discovery with a friend. Crisp, playful, and never rushed. Never imitate a known person or character.',
+        model: draft.voice?.model ?? show.voice.model,
+        voice: draft.voice?.voice ?? show.voice.voice,
+        instructions: draft.voice?.instructions ?? show.voice.instructions,
         speed,
         output: `generated/${episodeId}-voice.wav`,
       },

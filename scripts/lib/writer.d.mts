@@ -29,7 +29,7 @@ export type Draft = {
 export type Complete = (request: {system: string; messages: {role: string; content: string}[]}) => Promise<string>;
 
 export declare const creativeSchema: unknown;
-export declare const POKEPULSES_NOTICES: {ownershipNotice: string; nonAffiliationNotice: string};
+export declare const showNotices: (showId: string) => {ownershipNotice: string; nonAffiliationNotice: string};
 export declare const artworkChoices: (research: Research) => Map<string, {name: string; index: string; artworkUrl: string}>;
 export declare const researchNumbers: (research: Research) => Set<number>;
 export declare const factCheck: (draft: Draft, research: Research) => string[];

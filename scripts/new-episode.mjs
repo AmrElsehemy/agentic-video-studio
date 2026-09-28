@@ -2,6 +2,7 @@ import {spawnSync} from 'node:child_process';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {createCompletion} from './lib/llm.mjs';
+import {fetchWithReason} from './lib/net.mjs';
 import {runNewEpisode} from './lib/new-episode.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -26,7 +27,7 @@ const voice = option('voice');
 if (voice && !['local', 'openai'].includes(voice)) throw new Error(`Unsupported --voice=${voice}; use local or openai.`);
 
 const fetchJson = async (url) => {
-  const response = await fetch(url);
+  const response = await fetchWithReason('PokéAPI', url);
   if (!response.ok) throw new Error(`PokéAPI request failed (${response.status}) for ${url}`);
   return response.json();
 };

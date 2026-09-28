@@ -1,7 +1,8 @@
 import React from 'react';
 import {AbsoluteFill, Img} from 'remotion';
 import type {VideoManifest} from '../schema';
-import {bodyFont, displayFont} from './typography';
+import {bodyFont, displayFont, fontVariables} from './typography';
+import {Wordmark} from './wordmark';
 
 type Props = {
   manifest: VideoManifest;
@@ -37,6 +38,7 @@ export const EpisodeCover: React.FC<Props> = ({manifest}) => {
   return (
     <AbsoluteFill
       style={{
+        ...fontVariables(manifest),
         overflow: 'hidden',
         color: manifest.palette.ink,
         background: `radial-gradient(circle at 72% 36%, ${accent}45, transparent 34%), linear-gradient(155deg, ${manifest.palette.surface} 0%, ${manifest.palette.background} 55%, #000000 100%)`,
@@ -51,9 +53,7 @@ export const EpisodeCover: React.FC<Props> = ({manifest}) => {
           backgroundSize: '72px 72px',
         }}
       />
-      <div style={{position: 'absolute', top: 74, left: 64, fontFamily: displayFont, fontSize: 42, letterSpacing: 6}}>
-        POKE<span style={{color: accent}}>PULSES</span>
-      </div>
+      <Wordmark show={manifest.show} accent={accent} style={{position: 'absolute', top: 74, left: 64, fontSize: 42, letterSpacing: 6}} />
       {showNumber ? (
         <div
           style={{

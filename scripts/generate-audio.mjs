@@ -23,9 +23,10 @@ wav.writeUInt16LE(16, 34);
 wav.write('data', 36);
 wav.writeUInt32LE(dataSize, 40);
 
-const bpm = 126;
+// The show's music bed (manifest.audio.bed, from shows/<id>.json); manifests
+// compiled before show profiles use the original PokePulses bed.
+const {bpm, notes} = manifest.audio.bed ?? {bpm: 126, notes: [110, 130.81, 146.83, 164.81, 146.83, 130.81, 98, 130.81]};
 const beatSeconds = 60 / bpm;
-const notes = [110, 130.81, 146.83, 164.81, 146.83, 130.81, 98, 130.81];
 const sceneStarts = [];
 let sceneCursor = 0;
 for (const scene of manifest.scenes) {
@@ -56,4 +57,4 @@ for (let i = 0; i < sampleCount; i++) {
 const output = path.join(root, 'public', 'generated', `${episodeId}-bed.wav`);
 fs.mkdirSync(path.dirname(output), {recursive: true});
 fs.writeFileSync(output, wav);
-console.log(`✓ original audio bed: ${path.relative(root, output)} (${duration.toFixed(1)}s)`);
+console.log(`✓ music bed (generated for ${manifest.show.name}): ${path.relative(root, output)} (${duration.toFixed(1)}s, ${bpm} bpm)`);

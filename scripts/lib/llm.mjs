@@ -1,6 +1,7 @@
 // Model access for the agents. Every agent talks to a model through one
 // interface, complete({system, messages}) → reply text, so any stage can use
 // any provider.
+import {fetchWithReason} from './net.mjs';
 
 export const PROVIDERS = {
   anthropic: {keyEnv: 'ANTHROPIC_API_KEY', defaultModel: 'claude-opus-5-5'},
@@ -20,11 +21,11 @@ const openaiContent = (content) => (typeof content === 'string' ? content : part
 const failure = async (label, response) => new Error(`${label} request failed (${response.status}): ${await response.text()}`);
 
 const anthropicAdapter = ({apiKey, model, maxTokens, fetchImpl}) => async ({system, messages}) => {
-  const response = await fetchImpl('https://api.anthropic.com/v1/messages', {
+  const response = await fetchWithReason('Claude', 'https://api.anthropic.com/v1/messages', {
     method: 'POST',
     headers: {'x-api-key': apiKey, 'anthropic-version': '2023-06-01', 'content-type': 'application/json'},
     body: JSON.stringify({model, max_tokens: maxTokens, system, messages: messages.map((message) => ({...message, content: anthropicContent(message.content)}))}),
-  });
+  }, fetchImpl);
   if (!response.ok) throw await failure('Claude', response);
   const data = await response.json();
   if (data.stop_reason === 'max_tokens') throw new Error('Claude reply was cut off (max_tokens). Increase maxTokens.');
@@ -32,11 +33,11 @@ const anthropicAdapter = ({apiKey, model, maxTokens, fetchImpl}) => async ({syst
 };
 
 const openaiAdapter = ({apiKey, model, maxTokens, fetchImpl}) => async ({system, messages}) => {
-  const response = await fetchImpl('https://api.openai.com/v1/chat/completions', {
+  const response = await fetchWithReason('OpenAI', 'https://api.openai.com/v1/chat/completions', {
     method: 'POST',
     headers: {Authorization: `Bearer ${apiKey}`, 'content-type': 'application/json'},
     body: JSON.stringify({model, max_completion_tokens: maxTokens, messages: [{role: 'system', content: system}, ...messages.map((message) => ({...message, content: openaiContent(message.content)}))]}),
-  });
+  }, fetchImpl);
   if (!response.ok) throw await failure('OpenAI', response);
   const data = await response.json();
   const choice = data.choices?.[0];

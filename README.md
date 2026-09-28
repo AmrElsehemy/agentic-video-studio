@@ -36,6 +36,39 @@ REMOTION_BROWSER_EXECUTABLE="/Applications/Google Chrome.app/Contents/MacOS/Goog
 npm run studio -- --browser-executable="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 ```
 
+## Test it locally
+
+One-time setup (Node 20+):
+
+```bash
+npm install
+brew install ffmpeg tesseract   # Linux: sudo apt-get install ffmpeg tesseract-ocr
+```
+
+1. **Fast checks** (no keys, no browser): `npm test && npm run typecheck && npm run validate`
+2. **Look at an episode** (no keys):
+   ```bash
+   npm run studio                          # Remotion Studio, with a built-in preview episode
+   npm run video -- gimmighoul-999         # out/gimmighoul-999.mp4 (music bed, no narration)
+   npm run still -- gimmighoul-999         # the cover
+   npm run sheet -- gimmighoul-999         # one frame per scene, tiled
+   npm run critic:video -- gimmighoul-999  # OCR/pixel review of the render
+   ```
+   To preview a specific episode in Studio, paste its `videos/pokepulses/<id>/video.json` into the `manifest` prop.
+3. **With narration**: `npm run voice:local -- <id> && npm run video:local -- <id>` (free macOS voice), or `voice:openai` / `video:openai` with `OPENAI_API_KEY`.
+4. **The agents** (needs `ANTHROPIC_API_KEY` or `OPENAI_API_KEY`):
+   ```bash
+   npm run episode:new -- 888                          # research → draft → checks → manifest
+   npm run episode:new -- 888 --voice=local --render   # …plus narration, render, cover and video critic
+   npm run critic:calibrate                            # the creative critic against the curated references
+   npm run critic:video -- zacian-888 --vision         # add the vision model's review
+   ```
+   The agents' reasoning is saved in `research/pokepulses/<id>.angles.json`, `.verification.json` and `.creative.json`. Edit `drafts/pokepulses/<id>.json` by hand if you like, then `npm run episode:compile -- <id>` and render again.
+
+## Shows
+
+A show's branding lives in `shows/<id>.json`: name and handle, wordmark, fonts, default palette, music bed, narration voice, rights notices and allowed story shapes (see [shows/README.md](shows/README.md)). The compiler merges it under each draft in `drafts/<id>/` and embeds it in the manifests, so a second show is a new profile plus drafts, with no code changes.
+
 ## Create an episode from a Pokédex number
 
 ```bash

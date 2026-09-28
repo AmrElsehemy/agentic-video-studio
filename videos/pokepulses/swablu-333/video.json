@@ -4,7 +4,15 @@
   "show": {
     "id": "pokepulses",
     "name": "PokePulses",
-    "handle": "@PokePulses"
+    "handle": "@PokePulses",
+    "wordmark": {
+      "lead": "POKE",
+      "accent": "PULSES"
+    },
+    "fonts": {
+      "display": "Bebas Neue",
+      "body": "system"
+    }
   },
   "title": "The Tiny Cloud Bird That Becomes a Dragon",
   "direction": {
@@ -47,6 +55,19 @@
   "audio": {
     "music": "generated/swablu-333-bed.wav",
     "musicVolume": 0.09,
+    "bed": {
+      "bpm": 126,
+      "notes": [
+        110,
+        130.81,
+        146.83,
+        164.81,
+        146.83,
+        130.81,
+        98,
+        130.81
+      ]
+    },
     "voice": {
       "provider": "openai",
       "model": "gpt-4o-mini-tts",

@@ -10,6 +10,7 @@ import {scoreEpisode} from './engagement.mjs';
 import {describeAngle} from './angles.mjs';
 import {creativeProblems, critiqueDraft} from './creative-critic.mjs';
 import {verificationProblems, verifyDraft} from './fact-verifier.mjs';
+import {loadShow} from './shows.mjs';
 import {TIER_GUIDANCE, TIERS, tierRules} from './source-tiers.mjs';
 
 const color = z.string().regex(/^#[0-9a-f]{6}$/i);
@@ -39,9 +40,10 @@ export const creativeSchema = z.object({
   })).min(3).max(12),
 });
 
-export const POKEPULSES_NOTICES = {
-  ownershipNotice: 'Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.',
-  nonAffiliationNotice: 'PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.',
+/** A show's rights notices, in the draft's field names (from shows/<id>.json). */
+export const showNotices = (showId) => {
+  const {notices} = loadShow(showId);
+  return {ownershipNotice: notices.ownership, nonAffiliationNotice: notices.nonAffiliation};
 };
 
 /** Every piece of artwork the writer may use, by name. */
@@ -126,7 +128,7 @@ export const assembleDraft = (creative, research, {showId = 'pokepulses'} = {}) 
     rights: {
       releaseStatus: 'internal-prototype',
       publicReleaseApproved: false,
-      ...POKEPULSES_NOTICES,
+      ...showNotices(showId),
       assets: [...used.values()].map((item) => ({
         kind: `${item.name} official artwork mirror`,
         sourceUrl: item.artworkUrl,
@@ -189,6 +191,7 @@ ${TIERS.map((tier) => `- ${tier} (${tierRules(research)[tier].join(', ')}): ${TI
 
 # Hard limits
 - Use ONLY facts from the research. Never invent events, dates, numbers, moves or lore. Any number you state must appear in the research, or be a simple count of its types, evolution stages or forms.
+- Paraphrase freely and punchily, but never make a fact stronger than the research: if it says a Pokémon "stops moving", don't upgrade that to "is paralysed" or "dies".
 - Hook scene (first): narration at most 9 words; headline at most 8 words. It must create tension in the first second.
 - Other scenes: narration 9-14 words, spoken naturally, one idea per scene. Numbers and punctuation take longer to say, so use fewer words in lines that contain them.
 - Aim for 6-8 scenes and 24-45 seconds in total.
