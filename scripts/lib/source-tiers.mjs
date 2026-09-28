@@ -27,16 +27,19 @@ export const TIER_GUIDANCE = {
   community: 'fan lore and theories: never state it as fact. Only use it hedged ("some fans believe…", "legend says…", "may"), or leave it out.',
 };
 
+/** The tier rules for a research record: its own per tier, falling back to the defaults for any tier it omits. */
+export const tierRules = (research) => Object.fromEntries(TIERS.map((tier) => [tier, research?.tiers?.[tier] ?? DEFAULT_TIERS[tier]]));
+
 const normalize = (pointer) => pointer.replace(/\[\d+\]/g, '[]').replace(/\s+/g, '');
 
 /** The tier of the research field a pointer names; unknown fields count as trusted_secondary. */
 export const tierOf = (pointer, research) => {
-  const rules = research?.tiers ?? DEFAULT_TIERS;
+  const rules = tierRules(research);
   const normalized = normalize(pointer);
   // The longest matching pattern wins, so "evolutionChain[].method" beats "evolutionChain".
   let best;
   for (const tier of TIERS) {
-    for (const pattern of rules[tier] ?? []) {
+    for (const pattern of rules[tier]) {
       const matches = normalized === pattern || normalized.startsWith(`${pattern}.`) || normalized.startsWith(`${pattern}[`);
       if (matches && (!best || pattern.length > best.pattern.length)) best = {tier, pattern};
     }

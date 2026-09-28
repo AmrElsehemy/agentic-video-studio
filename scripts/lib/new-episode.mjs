@@ -3,6 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {findAngle} from './angles.mjs';
+import {TIERS} from './source-tiers.mjs';
 import {serializeManifest} from './compiler.mjs';
 import {researchPokemon} from './pokeapi.mjs';
 import {loadReferences, selectReferences} from './references.mjs';
@@ -92,7 +93,7 @@ export const runNewEpisode = async ({number, root = repoRoot, showId = 'pokepuls
   writeJson(path.join(researchDir, `${research.id}.verification.json`), {episodeId: research.id, checkedAt: new Date().toISOString(), ...result.verification});
   const {claims, uncertain} = result.verification;
   const supported = claims.filter((claim) => claim.verdict === 'supported');
-  const byTier = ['official', 'trusted_secondary', 'community'].map((tier) => [tier, supported.filter((claim) => claim.tier === tier).length]).filter(([, count]) => count);
+  const byTier = TIERS.map((tier) => [tier, supported.filter((claim) => claim.tier === tier).length]).filter(([, count]) => count);
   log(`✓ facts: ${supported.length} supported${byTier.length ? ` (${byTier.map(([tier, count]) => `${count} ${tier}`).join(', ')})` : ''}, ${claims.filter((claim) => claim.verdict === 'no-claim').length} framing, ${uncertain.length} uncertain → research/${showId}/${research.id}.verification.json`);
   if (result.verification.modelError) log(`⚠ facts: the verifier model failed (${result.verification.modelError}); only the rule checks ran.`);
   for (const claim of uncertain) log(`    ? ${claim.where}: "${claim.text}" (${claim.note})`);

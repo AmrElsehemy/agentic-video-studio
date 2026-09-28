@@ -38,6 +38,7 @@ describe('source tiers', () => {
     assert.equal(tierOf('lore[0].text', research), 'community');
     assert.equal(tierOf('somethingNew', research), 'trusted_secondary');
     assert.equal(tierOf('types[0]', {tiers: {official: [], trusted_secondary: [], community: ['types']}}), 'community', 'a research file can override');
+    assert.equal(tierOf('lore[0].text', {tiers: {official: ['types']} as never}), 'community', 'omitted tiers fall back to the defaults');
   });
 
   it('takes the strongest tier among the evidence', async () => {
@@ -64,6 +65,9 @@ describe('source tiers', () => {
     assert.match(system, /# Source tiers/);
     assert.match(system, /- official \(name, .*pokedexEntries.*\): official Pokédex text and game data: state it plainly\./);
     assert.match(system, /- community \(lore\): fan lore and theories: never state it as fact/);
+    const partial = buildWriterPrompt({research: {...(await researchWithLore()), tiers: {official: ['types'], community: null} as never}, directing: ''});
+    assert.match(partial.system, /- official \(types\):/);
+    assert.match(partial.system, /- trusted_secondary \(evolutionChain\[\]\.method, /, 'a partial override does not crash the prompt');
   });
 });
 

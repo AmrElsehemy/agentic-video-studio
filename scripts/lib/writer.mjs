@@ -10,7 +10,7 @@ import {scoreEpisode} from './engagement.mjs';
 import {describeAngle} from './angles.mjs';
 import {creativeProblems, critiqueDraft} from './creative-critic.mjs';
 import {verificationProblems, verifyDraft} from './fact-verifier.mjs';
-import {DEFAULT_TIERS, TIER_GUIDANCE, TIERS} from './source-tiers.mjs';
+import {TIER_GUIDANCE, TIERS, tierRules} from './source-tiers.mjs';
 
 const color = z.string().regex(/^#[0-9a-f]{6}$/i);
 
@@ -185,7 +185,7 @@ ${describeAngle(angle, research)}
 ` : ''}
 # Source tiers
 Research fields differ in how safely they can be stated:
-${TIERS.map((tier) => `- ${tier} (${(research.tiers ?? DEFAULT_TIERS)[tier].join(', ')}): ${TIER_GUIDANCE[tier]}`).join('\n')}
+${TIERS.map((tier) => `- ${tier} (${tierRules(research)[tier].join(', ')}): ${TIER_GUIDANCE[tier]}`).join('\n')}
 
 # Hard limits
 - Use ONLY facts from the research. Never invent events, dates, numbers, moves or lore. Any number you state must appear in the research, or be a simple count of its types, evolution stages or forms.

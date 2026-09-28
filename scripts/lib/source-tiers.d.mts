@@ -9,3 +9,4 @@ export declare const TIER_GUIDANCE: Record<Tier, string>;
 export declare const tierOf: (pointer: string, research?: Pick<Research, 'tiers'>) => Tier;
 export declare const strongestTier: (evidence: string[], research?: Pick<Research, 'tiers'>) => Tier | undefined;
 export declare const isHedged: (text: string) => boolean;
+export declare const tierRules: (research?: {tiers?: Partial<Record<Tier, string[] | null>>}) => TierRules;
