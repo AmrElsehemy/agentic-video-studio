@@ -57,6 +57,7 @@ export const compileEpisode = (rawDraft, {showId}) => {
       ...(scene.artworkUrl ? {artworkUrl: scene.artworkUrl} : {}),
       ...(scene.accent ? {accent: scene.accent} : {}),
       ...(scene.facts ? {facts: cleanFacts(scene.facts)} : {}),
+      ...(scene.primitive ? {primitive: scene.primitive} : {}),
     };
   });
 
@@ -69,7 +70,7 @@ export const compileEpisode = (rawDraft, {showId}) => {
   const manifest = {
     schemaVersion: 1,
     id: episodeId,
-    show: draft.show ?? {id: showId, name: showId === 'pokepulses' ? 'PokePulses' : showId, handle: `@${showId}`},
+    show: draft.show ?? (showId === 'pokepulses' ? {id: showId, name: 'PokePulses', handle: '@PokePulses'} : {id: showId, name: showId, handle: `@${showId}`}),
     title: draft.title,
     direction: {
       engineVersion: 2,

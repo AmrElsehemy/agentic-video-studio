@@ -126,7 +126,7 @@ describe('creative gate in the writer loop', () => {
   it('saves the creative review in episode:new', async () => {
     const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'creative-'));
     const logs: string[] = [];
-    await runNewEpisode({number: 888, root: dir, verify: null, ideate: null, critique: criticScoring(4, {hook: 5}), fetchJson, complete: async () => JSON.stringify(goodReply()), log: (line: string) => logs.push(line)});
+    await runNewEpisode({number: 888, root: dir, verify: null, ideate: null, direct: null, critique: criticScoring(4, {hook: 5}), fetchJson, complete: async () => JSON.stringify(goodReply()), log: (line: string) => logs.push(line)});
     const saved = JSON.parse(fs.readFileSync(path.join(dir, 'research/pokepulses/zacian-888.creative.json'), 'utf8'));
     assert.equal(saved.score, 83);
     assert.ok(logs.some((line) => /production 100\/100, creative 83\/100/.test(line)));

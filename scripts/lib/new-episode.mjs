@@ -6,6 +6,7 @@ import {findAngle} from './angles.mjs';
 import {serializeManifest} from './compiler.mjs';
 import {researchPokemon} from './pokeapi.mjs';
 import {loadReferences, selectReferences} from './references.mjs';
+import {directVisuals} from './visual-director.mjs';
 import {writeEpisode} from './writer.mjs';
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
@@ -20,8 +21,10 @@ const writeJson = (file, value) => {
  * `ideate` is the completion for the Angle Generator and Critic (default: the
  * writer's); pass null to let the writer find its own angle. `critique` is the
  * creative critic's (default: the writer's); null skips judging the story.
+ * `direct` is the Visual Director's (default: the writer's); null keeps the
+ * archetype's shots for every scene.
  */
-export const runNewEpisode = async ({number, root = repoRoot, showId = 'pokepulses', fetchJson, complete, verify = complete, ideate = complete, critique = complete, storyPattern, refreshResearch = false, overwrite = false, maxAttempts = 3, log = console.log}) => {
+export const runNewEpisode = async ({number, root = repoRoot, showId = 'pokepulses', fetchJson, complete, verify = complete, ideate = complete, critique = complete, direct = complete, storyPattern, refreshResearch = false, overwrite = false, maxAttempts = 3, log = console.log}) => {
   const researchDir = path.join(root, 'research', showId);
   const matches = fs.existsSync(researchDir)
     ? fs.readdirSync(researchDir).filter((file) => file.endsWith(`-${String(number).padStart(3, '0')}.json`)).sort()
@@ -78,6 +81,13 @@ export const runNewEpisode = async ({number, root = repoRoot, showId = 'pokepuls
     },
   });
 
+  const visuals = await directVisuals({draft: result.draft, research, angle, complete: direct, showId});
+  if (visuals.modelError) log(`⚠ visuals: the visual director failed (${visuals.modelError}); every scene keeps its archetype shot.`);
+  else if (direct) log(`✓ visuals: ${visuals.assigned.length ? visuals.assigned.map((item) => `${item.id} → ${item.kind}`).join(', ') : 'no primitives; archetype shots throughout'}${visuals.rejected.length ? ` (${visuals.rejected.length} rejected)` : ''}`);
+  for (const item of visuals.rejected) log(`    ✗ ${item.id}: ${item.reason}`);
+  result.draft = visuals.draft;
+  result.manifest = visuals.manifest;
+
   writeJson(draftPath, result.draft);
   writeJson(path.join(researchDir, `${research.id}.verification.json`), {episodeId: research.id, checkedAt: new Date().toISOString(), ...result.verification});
   const {claims, uncertain} = result.verification;
@@ -97,5 +107,5 @@ export const runNewEpisode = async ({number, root = repoRoot, showId = 'pokepuls
   const seconds = result.manifest.scenes.reduce((sum, scene) => sum + scene.durationSeconds, 0);
   log(`✓ draft: drafts/${showId}/${research.id}.json — "${result.draft.title}" [${result.draft.storyPattern}, ${result.draft.scenes.length} scenes, ${seconds.toFixed(1)}s]`);
   log(`✓ compiled: videos/${showId}/${research.id}/video.json`);
-  return {id: research.id, research, angle, ...result};
+  return {id: research.id, research, angle, visuals: {assigned: visuals.assigned, rejected: visuals.rejected, ...(visuals.modelError ? {modelError: visuals.modelError} : {})}, ...result};
 };

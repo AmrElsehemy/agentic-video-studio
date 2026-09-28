@@ -259,6 +259,7 @@ describe('number relevance', () => {
 describe('show fallback', () => {
   it('derives show identity from the drafts folder when the draft has none', () => {
     const {manifest} = compileEpisode(sampleDraft(), {showId: 'pokepulses'});
-    assert.deepEqual(manifest.show, {id: 'pokepulses', name: 'PokePulses', handle: '@pokepulses'});
+    assert.deepEqual(manifest.show, {id: 'pokepulses', name: 'PokePulses', handle: '@PokePulses'});
+    assert.deepEqual(compileEpisode(sampleDraft(), {showId: 'autodex'}).manifest.show, {id: 'autodex', name: 'autodex', handle: '@autodex'});
   });
 });
