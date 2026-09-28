@@ -57,7 +57,7 @@ Rules:
 - Labels are short and uppercase-friendly (max 28 characters; timeline labels 20, bar labels 16, checklist items 22).
 
 Reply with a JSON object only: {"scenes": [{"id": "<scene id>", "primitive": {...}, "why": "one sentence"}]}`,
-  messages: [{role: 'user', content: `${angle ? `The episode's angle: ${angle.premise}\n\n` : ''}Research:\n${JSON.stringify(research, (key, value) => (key === 'artworkUrl' || key === 'sources' ? undefined : value), 2)}\n\nScenes:\n${JSON.stringify(manifest.scenes.map((scene) => ({id: scene.id, role: scene.role, defaultShot: scene.shot, headline: scene.headline, narration: scene.narration, facts: scene.facts ?? []})), null, 2)}\n\nPokémon in this episode (for timeline labels): ${[draft.subject.name, ...(draft.evolutions ?? []).map((evolution) => evolution.name)].join(', ')}`}],
+  messages: [{role: 'user', content: `${angle ? `The episode's angle: ${angle.premise}\n\n` : ''}Research:\n${JSON.stringify(research, (key, value) => (key === 'artworkUrl' || key === 'sources' ? undefined : value), 2)}\n\nScenes:\n${JSON.stringify(manifest.scenes.map((scene) => ({id: scene.id, role: scene.role, defaultShot: scene.shot, headline: scene.headline, narration: scene.narration, facts: scene.facts ?? []})), null, 2)}\n\nSubjects in this episode (for timeline labels): ${[draft.subject.name, ...(draft.related ?? []).map((item) => `${item.name} (${item.relation})`)].join(', ')}`}],
 });
 
 /**

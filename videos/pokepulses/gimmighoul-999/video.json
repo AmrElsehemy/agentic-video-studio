@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "id": "gimmighoul-999",
   "show": {
     "id": "pokepulses",
@@ -29,15 +29,16 @@
   },
   "subject": {
     "name": "Gimmighoul",
-    "index": "#999",
     "category": "Coin Chest Pokémon",
-    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/999.png"
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/999.png",
+    "identifier": "#999"
   },
-  "evolutions": [
+  "related": [
     {
       "name": "Gholdengo",
-      "index": "#1000",
-      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1000.png"
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1000.png",
+      "identifier": "#1000"
     }
   ],
   "format": {

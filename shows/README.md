@@ -12,6 +12,7 @@ Each file here defines one show. A new show is a new `shows/<id>.json` plus draf
 | `music` | The generated music bed: `bpm`, a repeating bass line `notes` (Hz) and its `volume`. |
 | `voice` | Default narration voice, speed, model and instructions. |
 | `notices` | Ownership and non-affiliation text written into every draft's rights. |
+| `subjects` | Optional rules for subjects: `identifierLabel` (e.g. "Pokédex number") and `identifierPattern`, a regular expression every `identifier` must match. |
 | `archetypes` | Story shapes (`archetypes/<name>.json`) the show allows. |
 
 `shows/pokepulses.json` is the reference.

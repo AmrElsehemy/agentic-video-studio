@@ -40,14 +40,15 @@ const artworkOf = (scene: VideoScene, manifest: VideoManifest) => scene.artworkU
 
 /**
  * Two artworks to set against each other: the subject and the scene's own
- * artwork when they differ, otherwise the subject and its first evolution.
+ * artwork when they differ, otherwise the subject and its first related
+ * subject (its evolution, form or rival).
  */
 export const artworkPair = (scene: VideoScene, manifest: VideoManifest): [string, string] | undefined => {
   const subject = manifest.subject.artworkUrl;
   const own = artworkOf(scene, manifest);
   if (own !== subject) return [subject, own];
-  const evolved = manifest.evolutions[0]?.artworkUrl;
-  return evolved && evolved !== subject ? [subject, evolved] : undefined;
+  const partner = manifest.related[0]?.artworkUrl;
+  return partner && partner !== subject ? [subject, partner] : undefined;
 };
 
 /** Hook shot: the subject stays a silhouette, then is revealed. */

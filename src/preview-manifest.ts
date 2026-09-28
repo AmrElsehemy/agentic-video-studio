@@ -6,7 +6,7 @@ import type {VideoManifest} from './schema';
 const artwork = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/132.png';
 
 export const previewManifest: VideoManifest = {
-  schemaVersion: 1,
+  schemaVersion: 2,
   id: 'studio-preview',
   show: {id: 'studio', name: 'Studio preview', handle: '@studio'},
   title: 'Studio preview',
@@ -22,8 +22,8 @@ export const previewManifest: VideoManifest = {
     engagementQuestion: 'Shot or primitive?',
     targetSecondsBetweenVisualChanges: 0.65,
   },
-  subject: {name: 'Ditto', index: '#132', category: 'Transform Pokémon', artworkUrl: artwork},
-  evolutions: [],
+  subject: {name: 'Ditto', category: 'Transform Pokémon', artworkUrl: artwork, identifier: '#132'},
+  related: [],
   format: {width: 1080, height: 1920, fps: 30},
   palette: {background: '#140b1f', surface: '#2a1640', primary: '#c79bff', secondary: '#6fd3ff', ink: '#fbf7ff'},
   audio: {musicVolume: 0.09},

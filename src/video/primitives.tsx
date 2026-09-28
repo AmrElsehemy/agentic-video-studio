@@ -143,10 +143,10 @@ const TypeShiftPrimitive: React.FC<PrimitiveProps<'type-shift'>> = ({data, scene
 const artworkNamed = (name: string, manifest: VideoManifest) => {
   const wanted = name.trim().toLowerCase();
   if (manifest.subject.name.toLowerCase() === wanted) return manifest.subject.artworkUrl;
-  return manifest.evolutions.find((evolution) => evolution.name.toLowerCase() === wanted)?.artworkUrl;
+  return manifest.related.find((item) => item.name.toLowerCase() === wanted)?.artworkUrl;
 };
 
-/** Ordered steps revealed one by one; a step named after a Pokémon in the episode shows its artwork. */
+/** Ordered steps revealed one by one; a step named after the subject or a related subject shows its artwork. */
 const TimelinePrimitive: React.FC<PrimitiveProps<'timeline'>> = ({data, manifest, frame, durationInFrames, accent}) => {
   const count = data.steps.length;
   const every = Math.max(8, Math.round(durationInFrames * .6 / count));

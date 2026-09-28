@@ -71,18 +71,30 @@ describe('draft assembly', () => {
     const research = await research888();
     const {draft, problems} = assembleDraft(goodReply(), research);
     assert.deepEqual(problems, []);
-    assert.deepEqual(draft.subject, {name: 'Zacian', index: '#888', category: 'Warrior Pokémon', artworkUrl: research.artworkUrl});
-    assert.equal(draft.evolutions[0].name, 'Zacian Crowned');
+    assert.deepEqual(draft.subject, {name: 'Zacian', category: 'Warrior Pokémon', artworkUrl: research.artworkUrl, identifier: '#888'});
+    assert.deepEqual(draft.related.map((item) => [item.name, item.relation, item.identifier]), [['Zacian Crowned', 'form', '#888']]);
     assert.equal(draft.scenes[3].artworkUrl, research.varieties[0].artworkUrl);
     assert.deepEqual(draft.rights.assets.map((asset) => asset.licenseStatus), ['unverified', 'unverified']);
     assert.equal(draft.rights.publicReleaseApproved, false);
     assert.deepEqual(draft.sources, research.sources);
   });
 
+  it('orders and labels related subjects in a branched evolution line', async () => {
+    const research = await researchPokemon(333, {fetchJson});
+    const art = (n: number) => `https://example.com/${n}.png`;
+    const member = (name: string, index: string, stage: number, isSubject = false) => ({name, index, stage, types: ['Normal'], artworkUrl: art(stage), isSubject});
+    // A made-up line: Base → Middle (the subject), Middle's sibling Branch, → Final.
+    research.evolutionChain = [member('Base', '#001', 1), member('Middle', '#002', 2, true), member('Branch', '#003', 2), member('Final', '#004', 3)];
+    research.varieties = [];
+    const reply = {...goodReply(), scenes: goodReply().scenes.map((scene: {artwork: string}) => ({...scene, artwork: 'Swablu'}))};
+    const {draft} = assembleDraft(reply, {...research, name: 'Middle'} as typeof research);
+    assert.deepEqual(draft.related.map((item) => [item.name, item.relation]), [['Final', 'evolves-to'], ['Base', 'evolves-from'], ['Branch', 'related']]);
+  });
+
   it('puts later evolutions first so the before/after reveal uses them', async () => {
     const research = await researchPokemon(333, {fetchJson});
     const reply = {...goodReply(), scenes: goodReply().scenes.map((scene: {artwork: string}) => ({...scene, artwork: 'Swablu'}))};
-    assert.deepEqual(assembleDraft(reply, research).draft.evolutions.map((item) => item.name), ['Altaria']);
+    assert.deepEqual(assembleDraft(reply, research).draft.related.map((item) => [item.name, item.relation]), [['Altaria', 'evolves-to']]);
   });
 
   it('reports artwork that does not exist', async () => {

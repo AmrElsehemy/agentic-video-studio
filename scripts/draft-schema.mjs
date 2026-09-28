@@ -2,6 +2,7 @@ import {z} from 'zod';
 import {archetypes} from './archetypes.mjs';
 import {primitiveSchema} from './primitive-schema.mjs';
 import {fontsSchema, wordmarkSchema} from './show-schema.mjs';
+import {relatedSchema, subjectSchema, upgradeLegacySubject} from './subject-schema.mjs';
 
 const color = z.string().regex(/^#[0-9a-f]{6}$/i, 'Expected a six-digit hex color');
 // Any archetype defined in archetypes/<name>.json.
@@ -9,7 +10,8 @@ const storyPattern = z.string().regex(/^[a-z0-9-]+$/, 'Expected a lowercase arch
   if (!Object.hasOwn(archetypes, name)) context.addIssue({code: 'custom', message: `Unknown story archetype "${name}". Supported: ${Object.keys(archetypes).join(', ')}`});
 });
 
-export const episodeDraftSchema = z.object({
+// Drafts with the old Pokémon-only subject (index, evolutions) are upgraded on read.
+export const episodeDraftSchema = z.preprocess(upgradeLegacySubject, z.object({
   id: z.string().regex(/^[a-z0-9-]+$/),
   title: z.string().min(1).max(120),
   storyPattern,
@@ -29,17 +31,9 @@ export const episodeDraftSchema = z.object({
     wordmark: wordmarkSchema.optional(),
     fonts: fontsSchema.optional(),
   }).optional(),
-  subject: z.object({
-    name: z.string().min(1),
-    index: z.string().regex(/^#[0-9]{3,4}$/),
-    category: z.string().min(1),
-    artworkUrl: z.string().url(),
-  }),
-  evolutions: z.array(z.object({
-    name: z.string().min(1),
-    index: z.string().regex(/^#[0-9]{3,4}$/),
-    artworkUrl: z.string().url(),
-  })).max(3).optional(),
+  subject: subjectSchema,
+  // Other subjects the episode shows: evolutions, forms, rivals. The first is the before/after partner.
+  related: z.array(relatedSchema).max(3).optional(),
   palette: z.object({background: color, surface: color, primary: color, secondary: color, ink: color}).optional(),
   musicVolume: z.number().min(0).max(1).optional(),
   voice: z.object({
@@ -78,4 +72,4 @@ export const episodeDraftSchema = z.object({
     primitive: primitiveSchema.optional(),
   })).min(3).max(12),
   sources: z.array(z.object({label: z.string().min(1), url: z.string().url()})).min(1),
-});
+}));

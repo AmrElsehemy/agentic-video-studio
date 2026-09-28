@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "id": "bulbasaur-001",
   "show": {
     "id": "pokepulses",
@@ -29,20 +29,22 @@
   },
   "subject": {
     "name": "Bulbasaur",
-    "index": "#001",
     "category": "Seed Pokémon",
-    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png"
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
+    "identifier": "#001"
   },
-  "evolutions": [
+  "related": [
     {
       "name": "Venusaur",
-      "index": "#003",
-      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/3.png"
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/3.png",
+      "identifier": "#003"
     },
     {
       "name": "Ivysaur",
-      "index": "#002",
-      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/2.png"
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/2.png",
+      "identifier": "#002"
     }
   ],
   "format": {

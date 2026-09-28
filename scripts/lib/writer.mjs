@@ -100,15 +100,18 @@ export const assembleDraft = (creative, research, {showId = 'pokepulses'} = {}) 
     return {...rest, artworkUrl: picked.artworkUrl};
   });
 
-  // Later evolutions first (the renderer's before/after uses the first),
-  // then earlier stages, then alternate forms.
+  // The renderer's before/after and VS partner is the first related subject,
+  // so order them: later evolutions (the final stage first), then earlier
+  // stages (the nearest first), then same-stage branches, then alternate forms.
   const subjectStage = research.evolutionChain.find((member) => member.isSubject)?.stage ?? 1;
   const others = research.evolutionChain.filter((member) => !member.isSubject);
+  const byStageDescending = (a, b) => b.stage - a.stage;
   const related = [
-    ...others.filter((member) => member.stage > subjectStage),
-    ...others.filter((member) => member.stage <= subjectStage),
-    ...research.varieties.map((variety) => ({...variety, index: research.index})),
-  ].slice(0, 3).map(({name, index, artworkUrl}) => ({name, index, artworkUrl}));
+    ...others.filter((member) => member.stage > subjectStage).sort(byStageDescending).map((member) => ({...member, relation: 'evolves-to'})),
+    ...others.filter((member) => member.stage < subjectStage).sort(byStageDescending).map((member) => ({...member, relation: 'evolves-from'})),
+    ...others.filter((member) => member.stage === subjectStage).map((member) => ({...member, relation: 'related'})),
+    ...research.varieties.map((variety) => ({...variety, index: research.index, relation: 'form'})),
+  ].slice(0, 3).map(({name, relation, index, artworkUrl}) => ({name, relation, artworkUrl, identifier: index}));
 
   const draft = {
     id: research.id,
@@ -121,10 +124,11 @@ export const assembleDraft = (creative, research, {showId = 'pokepulses'} = {}) 
     payoff: creative.payoff,
     targetEmotion: creative.targetEmotion,
     engagementQuestion: creative.engagementQuestion,
-    subject: {name: research.name, index: research.index, category: research.category, artworkUrl: research.artworkUrl},
-    evolutions: related,
+    subject: {name: research.name, category: research.category, artworkUrl: research.artworkUrl, identifier: research.index},
+    related,
     palette: creative.palette,
-    voice: {voice: 'marin', speed: 1.08, instructions: creative.voiceInstructions},
+    // Voice and speed come from the show profile; the writer sets the delivery.
+    voice: {instructions: creative.voiceInstructions},
     rights: {
       releaseStatus: 'internal-prototype',
       publicReleaseApproved: false,

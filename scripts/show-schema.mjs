@@ -29,6 +29,11 @@ export const showSchema = z.object({
   music: musicBedSchema.extend({volume: z.number().min(0).max(1).default(0.09)}).strict(),
   voice: z.object({voice: voiceName, speed: z.number().min(0.25).max(4), model: z.string().min(1).default('gpt-4o-mini-tts'), instructions: z.string().min(1).max(1000)}).strict(),
   notices: z.object({ownership: z.string().min(1), nonAffiliation: z.string().min(1)}).strict(),
+  /** Rules for the show's subjects, e.g. PokePulses identifiers are Pokédex numbers like "#001". */
+  subjects: z.object({
+    identifierLabel: z.string().min(1).max(40),
+    identifierPattern: z.string().min(1).refine((pattern) => { try { new RegExp(pattern); return true; } catch { return false; } }, 'Expected a valid regular expression'),
+  }).strict().optional(),
   /** Story shapes (archetypes/<name>.json) this show uses. */
   archetypes: z.array(z.string().regex(/^[a-z0-9-]+$/)).min(1),
 }).strict();

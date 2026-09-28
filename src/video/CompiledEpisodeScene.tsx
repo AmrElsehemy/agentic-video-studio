@@ -25,13 +25,14 @@ export const CompiledEpisodeScene: React.FC<Props> = ({scene, manifest, sceneInd
   const progress = (sceneIndex + frame / Math.max(1, durationInFrames)) / sceneCount;
   const pattern = manifest.direction.storyPattern;
   const glow = pattern === 'mechanic' ? '#f4c84d' : pattern === 'transformation' ? manifest.palette.secondary : pattern === 'mystery' ? '#a875ff' : accent;
-  const showNumber = Boolean(manifest.direction.numberRelevant);
+  // The subject's identifier (e.g. a Pokédex number) shows only when the story is about it.
+  const identifier = manifest.direction.numberRelevant ? manifest.subject.identifier : undefined;
 
   return <AbsoluteFill style={{overflow: 'hidden', color: manifest.palette.ink, background: `radial-gradient(circle at ${sceneIndex % 2 ? '25%' : '75%'} 38%, ${glow}30 0%, transparent 38%), linear-gradient(160deg, ${manifest.palette.surface}, ${manifest.palette.background} 64%)`, opacity: exit, fontFamily: bodyFont}}>
     <div style={{position: 'absolute', inset: -260, opacity: .055, transform: `rotate(${frame * .07 + sceneIndex * 23}deg)`, background: `repeating-conic-gradient(from 0deg, transparent 0deg 20deg, ${glow} 20.4deg 21deg)`}} />
     <div style={{position: 'absolute', top: 58, left: 58, right: 58, display: 'flex', justifyContent: 'space-between', alignItems: 'center', zIndex: 30}}>
       <Wordmark show={manifest.show} accent={accent} style={{fontSize: 29, letterSpacing: 5}} />
-      {showNumber ? <div style={{fontFamily: displayFont, fontSize: 24, color: accent, letterSpacing: 2}}>{manifest.subject.index}</div> : <div style={{fontFamily: displayFont, fontSize: 21, color: '#ffffff66', letterSpacing: 3}}>{String(sceneIndex + 1).padStart(2, '0')} / {String(sceneCount).padStart(2, '0')}</div>}
+      {identifier ? <div style={{fontFamily: displayFont, fontSize: 24, color: accent, letterSpacing: 2}}>{identifier}</div> : <div style={{fontFamily: displayFont, fontSize: 21, color: '#ffffff66', letterSpacing: 3}}>{String(sceneIndex + 1).padStart(2, '0')} / {String(sceneCount).padStart(2, '0')}</div>}
     </div>
     <div style={{position: 'absolute', top: 122, left: 58, right: 58, height: 5, background: '#ffffff16', borderRadius: 99, overflow: 'hidden', zIndex: 30}}><div style={{height: '100%', width: `${progress * 100}%`, background: accent, boxShadow: `0 0 22px ${accent}`}} /></div>
 
