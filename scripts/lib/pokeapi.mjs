@@ -1,6 +1,8 @@
 // Research stage: gathers the facts an episode may use from PokéAPI.
 // Everything the writer is allowed to state comes from this record.
 
+import {DEFAULT_TIERS} from './source-tiers.mjs';
+
 export const POKEAPI = 'https://pokeapi.co/api/v2';
 
 const idFromUrl = (url) => Number(url.match(/\/(\d+)\/?$/)?.[1]);
@@ -112,10 +114,15 @@ export const researchPokemon = async (number, {fetchJson}) => {
     pokedexEntries,
     evolutionChain,
     varieties,
+    // Community lore (fan theories, wiki trivia) with its source, added by
+    // hand or by later research stages; PokéAPI has none. Tier: community.
+    lore: [],
+    // Which fields are safe to state plainly (see source-tiers.mjs).
+    tiers: DEFAULT_TIERS,
     sources: [
-      {label: `Official Pokémon Pokédex — ${name}`, url: `https://www.pokemon.com/us/pokedex/${slug}`},
-      {label: `Bulbapedia — ${name}`, url: `https://bulbapedia.bulbagarden.net/wiki/${encodeURIComponent(`${name.replace(/ /g, '_')}_(Pokémon)`)}`},
-      {label: `PokéAPI — ${name}`, url: `${POKEAPI}/pokemon-species/${number}`},
+      {label: `Official Pokémon Pokédex — ${name}`, url: `https://www.pokemon.com/us/pokedex/${slug}`, tier: 'official'},
+      {label: `Bulbapedia — ${name}`, url: `https://bulbapedia.bulbagarden.net/wiki/${encodeURIComponent(`${name.replace(/ /g, '_')}_(Pokémon)`)}`, tier: 'trusted_secondary'},
+      {label: `PokéAPI — ${name}`, url: `${POKEAPI}/pokemon-species/${number}`, tier: 'trusted_secondary'},
     ],
   };
 };

@@ -91,7 +91,9 @@ export const runNewEpisode = async ({number, root = repoRoot, showId = 'pokepuls
   writeJson(draftPath, result.draft);
   writeJson(path.join(researchDir, `${research.id}.verification.json`), {episodeId: research.id, checkedAt: new Date().toISOString(), ...result.verification});
   const {claims, uncertain} = result.verification;
-  log(`✓ facts: ${claims.filter((claim) => claim.verdict === 'supported').length} supported, ${claims.filter((claim) => claim.verdict === 'no-claim').length} framing, ${uncertain.length} uncertain → research/${showId}/${research.id}.verification.json`);
+  const supported = claims.filter((claim) => claim.verdict === 'supported');
+  const byTier = ['official', 'trusted_secondary', 'community'].map((tier) => [tier, supported.filter((claim) => claim.tier === tier).length]).filter(([, count]) => count);
+  log(`✓ facts: ${supported.length} supported${byTier.length ? ` (${byTier.map(([tier, count]) => `${count} ${tier}`).join(', ')})` : ''}, ${claims.filter((claim) => claim.verdict === 'no-claim').length} framing, ${uncertain.length} uncertain → research/${showId}/${research.id}.verification.json`);
   if (result.verification.modelError) log(`⚠ facts: the verifier model failed (${result.verification.modelError}); only the rule checks ran.`);
   for (const claim of uncertain) log(`    ? ${claim.where}: "${claim.text}" (${claim.note})`);
   if (result.creative.skipped) {
