@@ -2,6 +2,7 @@ import React from 'react';
 import {AbsoluteFill, Audio, Sequence, staticFile} from 'remotion';
 import type {VideoManifest} from '../schema';
 import {CompiledEpisodeScene} from './CompiledEpisodeScene';
+import {fontVariables} from './typography';
 
 // Every episode renders through the same scene engine: what differs between
 // episodes is data (story shape, shots, primitives, palette), never code.
@@ -26,7 +27,7 @@ export const VerticalEpisode: React.FC<{manifest: VideoManifest}> = ({manifest})
   });
 
   return (
-    <AbsoluteFill style={{backgroundColor: manifest.palette.background}}>
+    <AbsoluteFill style={{...fontVariables(manifest), backgroundColor: manifest.palette.background}}>
       {sequences}
       {manifest.audio.music ? <Audio src={staticFile(manifest.audio.music)} volume={manifest.audio.voiceover ? Math.min(manifest.audio.musicVolume, 0.045) : manifest.audio.musicVolume} loop /> : null}
       {manifest.audio.voiceover ? <Audio src={staticFile(manifest.audio.voiceover)} /> : null}

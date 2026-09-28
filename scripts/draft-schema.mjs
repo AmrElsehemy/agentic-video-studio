@@ -1,6 +1,7 @@
 import {z} from 'zod';
 import {archetypes} from './archetypes.mjs';
 import {primitiveSchema} from './primitive-schema.mjs';
+import {fontsSchema, wordmarkSchema} from './show-schema.mjs';
 
 const color = z.string().regex(/^#[0-9a-f]{6}$/i, 'Expected a six-digit hex color');
 // Any archetype defined in archetypes/<name>.json.
@@ -20,10 +21,13 @@ export const episodeDraftSchema = z.object({
   targetEmotion: z.enum(['curiosity', 'surprise', 'debate', 'awe']).default('surprise'),
   engagementQuestion: z.string().min(1).max(140),
   targetSecondsBetweenVisualChanges: z.number().positive().max(1.5).optional(),
+  // Overrides for the show profile's identity and branding (shows/<id>.json).
   show: z.object({
-    id: z.string().regex(/^[a-z0-9-]+$/),
-    name: z.string().min(1),
-    handle: z.string().startsWith('@'),
+    id: z.string().regex(/^[a-z0-9-]+$/).optional(),
+    name: z.string().min(1).optional(),
+    handle: z.string().startsWith('@').optional(),
+    wordmark: wordmarkSchema.optional(),
+    fonts: fontsSchema.optional(),
   }).optional(),
   subject: z.object({
     name: z.string().min(1),

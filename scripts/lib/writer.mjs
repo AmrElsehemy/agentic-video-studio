@@ -10,6 +10,7 @@ import {scoreEpisode} from './engagement.mjs';
 import {describeAngle} from './angles.mjs';
 import {creativeProblems, critiqueDraft} from './creative-critic.mjs';
 import {verificationProblems, verifyDraft} from './fact-verifier.mjs';
+import {loadShow} from './shows.mjs';
 import {TIER_GUIDANCE, TIERS, tierRules} from './source-tiers.mjs';
 
 const color = z.string().regex(/^#[0-9a-f]{6}$/i);
@@ -39,9 +40,10 @@ export const creativeSchema = z.object({
   })).min(3).max(12),
 });
 
-export const POKEPULSES_NOTICES = {
-  ownershipNotice: 'Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.',
-  nonAffiliationNotice: 'PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.',
+/** A show's rights notices, in the draft's field names (from shows/<id>.json). */
+export const showNotices = (showId) => {
+  const {notices} = loadShow(showId);
+  return {ownershipNotice: notices.ownership, nonAffiliationNotice: notices.nonAffiliation};
 };
 
 /** Every piece of artwork the writer may use, by name. */
@@ -126,7 +128,7 @@ export const assembleDraft = (creative, research, {showId = 'pokepulses'} = {}) 
     rights: {
       releaseStatus: 'internal-prototype',
       publicReleaseApproved: false,
-      ...POKEPULSES_NOTICES,
+      ...showNotices(showId),
       assets: [...used.values()].map((item) => ({
         kind: `${item.name} official artwork mirror`,
         sourceUrl: item.artworkUrl,

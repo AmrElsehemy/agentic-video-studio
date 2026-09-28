@@ -1,5 +1,6 @@
 import {z} from 'zod';
 import {primitiveSchema} from '../scripts/primitive-schema.mjs';
+import {fontsSchema, musicBedSchema, wordmarkSchema} from '../scripts/show-schema.mjs';
 
 const color = z.string().regex(/^#[0-9a-f]{6}$/i, 'Expected a six-digit hex color');
 
@@ -33,6 +34,9 @@ export const videoSchema = z.object({
     id: z.string().regex(/^[a-z0-9-]+$/),
     name: z.string().min(1),
     handle: z.string().startsWith('@'),
+    // Branding from the show profile (shows/<id>.json); without it the renderer shows the name in Bebas Neue.
+    wordmark: wordmarkSchema.optional(),
+    fonts: fontsSchema.optional(),
   }),
   title: z.string().min(1),
   direction: z.object({
@@ -71,6 +75,8 @@ export const videoSchema = z.object({
       output: z.string().min(1),
     }).optional(),
     music: z.string().optional(),
+    // How scripts/generate-audio.mjs builds the music bed (from the show profile).
+    bed: musicBedSchema.optional(),
     musicVolume: z.number().min(0).max(1).default(0.12),
   }).default({musicVolume: 0.12}),
   rights: z.object({

@@ -256,10 +256,10 @@ describe('number relevance', () => {
   });
 });
 
-describe('show fallback', () => {
-  it('derives show identity from the drafts folder when the draft has none', () => {
+describe('show identity', () => {
+  it('comes from the show profile of the drafts folder', () => {
     const {manifest} = compileEpisode(sampleDraft(), {showId: 'pokepulses'});
-    assert.deepEqual(manifest.show, {id: 'pokepulses', name: 'PokePulses', handle: '@PokePulses'});
-    assert.deepEqual(compileEpisode(sampleDraft(), {showId: 'autodex'}).manifest.show, {id: 'autodex', name: 'autodex', handle: '@autodex'});
+    assert.deepEqual(manifest.show, {id: 'pokepulses', name: 'PokePulses', handle: '@PokePulses', wordmark: {lead: 'POKE', accent: 'PULSES'}, fonts: {display: 'Bebas Neue', body: 'system'}});
+    assert.throws(() => compileEpisode(sampleDraft(), {showId: 'autodex'}), /No show profile for "autodex": create shows\/autodex\.json/);
   });
 });
