@@ -10,10 +10,10 @@ const requestedVoice = args.find((arg) => arg.startsWith('--voice='))?.split('='
 if (!['auto', 'openai', 'local', 'none'].includes(requestedVoice)) throw new Error(`Unsupported voice selection: ${requestedVoice}`);
 const {root, manifestPath} = findManifest(episodeId);
 
-// Validate every manifest before Remotion bundles the project. The Studio root
-// imports a default episode, so an invalid unrelated manifest can otherwise
-// break rendering of a perfectly valid target episode.
-const validation = spawnSync(process.execPath, ['--import', 'tsx', 'scripts/validate.ts'], {cwd: root, stdio: 'inherit'});
+// Validate the target manifest before Remotion bundles the project. The Studio
+// root uses a built-in preview manifest, so other episodes' manifests are
+// never loaded and can't break this render.
+const validation = spawnSync(process.execPath, ['--import', 'tsx', 'scripts/validate.ts', episodeId], {cwd: root, stdio: 'inherit'});
 if (validation.status !== 0) process.exit(validation.status ?? 1);
 
 const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));

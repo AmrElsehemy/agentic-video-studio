@@ -101,7 +101,7 @@ Every push and pull request runs the global checks (validate, typecheck, tests).
 
 `npm run critic:video -- <id>` reviews a rendered episode (`npm run video`, plus `npm run still` for the cover) one mid-scene frame at a time, and exits non-zero on any blocking issue. CI runs it after every render, and `episode:new --render` runs it too.
 
-- **Frame audit** (always, deterministic): OCR (tesseract, on the header, visual area and caption bands) checks every scene's headline and caption are readable, the caption is drawn once, and the cover's title is this episode's hook headline. Pixel statistics catch blank frames and flag consecutive scenes that look the same. Legacy hand-authored renderers draw their own copy, so their headline mismatches are warnings.
+- **Frame audit** (always, deterministic): OCR (tesseract, on the header, visual area and caption bands) checks every scene's headline and caption are readable, the caption is drawn once, and the cover's title is this episode's hook headline. Pixel statistics catch blank frames and flag consecutive scenes that look the same.
 - **Vision critic** (`--vision`, or `VIDEO_CRITIC_VISION=1`; in CI the repository variable `VIDEO_CRITIC_VISION=1` plus a model key secret): a vision model reviews the frames and cover against what each scene should show: legibility, overlap (including faint backdrop words hidden behind artwork), visible artwork, platform safe areas, variety and whether each frame expresses its beat.
 
 The review is saved as `out/<id>-video-review.json`.

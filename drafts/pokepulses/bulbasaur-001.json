@@ -1,23 +1,18 @@
 {
-  "schemaVersion": 1,
   "id": "bulbasaur-001",
+  "title": "Why Bulbasaur Is the Perfect First Pokémon",
+  "storyPattern": "profile",
+  "numberRelevant": true,
+  "premise": "Make Bulbasaur the hero and explain why #001 is such a strong first partner without turning the short into an infographic.",
+  "audiencePromise": "Show why early Kanto favors Bulbasaur, its starting dual type, fast evolution, and the later trade-offs that keep it balanced.",
+  "openLoop": "Why does Bulbasaur feel so perfectly designed as Pokémon #001?",
+  "payoff": "It gets an unusually friendly opening, starts as Grass/Poison, and reaches Venusaur early—but later matchups stop it from being a free win.",
+  "targetEmotion": "curiosity",
+  "engagementQuestion": "Would you pick Bulbasaur first?",
   "show": {
     "id": "pokepulses",
     "name": "PokePulses",
     "handle": "@PokePulses"
-  },
-  "title": "Why Bulbasaur Is the Perfect First Pokémon",
-  "direction": {
-    "engineVersion": 2,
-    "storyPattern": "profile",
-    "numberRelevant": true,
-    "premise": "Make Bulbasaur the hero and explain why #001 is such a strong first partner without turning the short into an infographic.",
-    "audiencePromise": "Show why early Kanto favors Bulbasaur, its starting dual type, fast evolution, and the later trade-offs that keep it balanced.",
-    "openLoop": "Why does Bulbasaur feel so perfectly designed as Pokémon #001?",
-    "payoff": "It gets an unusually friendly opening, starts as Grass/Poison, and reaches Venusaur early—but later matchups stop it from being a free win.",
-    "targetEmotion": "curiosity",
-    "engagementQuestion": "Would you pick Bulbasaur first?",
-    "targetSecondsBetweenVisualChanges": 0.72
   },
   "subject": {
     "name": "Bulbasaur",
@@ -37,11 +32,6 @@
       "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/2.png"
     }
   ],
-  "format": {
-    "width": 1080,
-    "height": 1920,
-    "fps": 30
-  },
   "palette": {
     "background": "#061a13",
     "surface": "#113e2d",
@@ -49,17 +39,10 @@
     "secondary": "#6d65d8",
     "ink": "#f7fff9"
   },
-  "audio": {
-    "music": "generated/bulbasaur-001-bed.wav",
-    "musicVolume": 0.09,
-    "voice": {
-      "provider": "openai",
-      "model": "gpt-4o-mini-tts",
-      "voice": "marin",
-      "instructions": "Energetic, warm short-form narrator. Sound like a knowledgeable fan telling a great story, not a documentary announcer. Crisp, conversational delivery, light smile, quick but never rushed. Emphasize the surprising words and leave tiny natural pauses between ideas. Never imitate a known person or character.",
-      "speed": 1.05,
-      "output": "generated/bulbasaur-001-voice.wav"
-    }
+  "voice": {
+    "voice": "marin",
+    "speed": 1.05,
+    "instructions": "Energetic, warm short-form narrator. Sound like a knowledgeable fan telling a great story, not a documentary announcer. Crisp, conversational delivery, light smile, quick but never rushed. Emphasize the surprising words and leave tiny natural pauses between ideas. Never imitate a known person or character."
   },
   "rights": {
     "releaseStatus": "internal-prototype",
@@ -96,32 +79,18 @@
   "scenes": [
     {
       "id": "hook",
-      "durationSeconds": 4.5,
-      "beat": "hook",
-      "role": "hook",
-      "shot": "mystery",
-      "subjectFocus": "hidden",
-      "beatEverySeconds": 0.72,
       "eyebrow": "POKÉMON #001",
       "headline": "WHY BULBASAUR WORKS SO WELL",
       "narration": "Bulbasaur might be the most perfectly designed first Pokémon.",
       "caption": "MEET NUMBER ONE",
-      "visual": "hook",
       "accent": "#f3d95b"
     },
     {
       "id": "gyms",
-      "durationSeconds": 5.5,
-      "beat": "evidence",
-      "role": "evidence",
-      "shot": "tracking",
-      "subjectFocus": "secondary",
-      "beatEverySeconds": 0.72,
       "eyebrow": "KANTO IS KIND TO IT",
       "headline": "BROCK. THEN MISTY.",
       "narration": "Right away, its Grass typing is great into Brock and Misty.",
       "caption": "A VERY FRIENDLY START",
-      "visual": "gauntlet",
       "primitive": {
         "kind": "checklist",
         "items": [
@@ -138,17 +107,10 @@
     },
     {
       "id": "dual-type",
-      "durationSeconds": 4.9,
-      "beat": "evidence",
-      "role": "evidence",
-      "shot": "macro",
-      "subjectFocus": "secondary",
-      "beatEverySeconds": 0.72,
       "eyebrow": "AND IT STARTS DIFFERENT",
       "headline": "GRASS + POISON",
       "narration": "And Bulbasaur is Grass and Poison from the very start.",
       "caption": "TWO TYPES. LEVEL FIVE.",
-      "visual": "advantage",
       "facts": [
         "GRASS",
         "POISON"
@@ -156,17 +118,10 @@
     },
     {
       "id": "evolution-race",
-      "durationSeconds": 5.6,
-      "beat": "escalation",
-      "role": "escalation",
-      "shot": "comparison",
-      "subjectFocus": "primary",
-      "beatEverySeconds": 0.72,
       "eyebrow": "THEN THE PAYOFF COMES EARLY",
       "headline": "VENUSAUR AT LEVEL 32",
       "narration": "It reaches Venusaur at level thirty-two—four levels before Charizard or Blastoise.",
       "caption": "FULLY EVOLVED FIRST",
-      "visual": "race",
       "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/3.png",
       "primitive": {
         "kind": "bars",
@@ -189,38 +144,24 @@
     },
     {
       "id": "tradeoff",
-      "durationSeconds": 5.7,
-      "beat": "twist",
-      "role": "twist",
-      "shot": "impact",
-      "subjectFocus": "primary",
-      "beatEverySeconds": 0.72,
       "eyebrow": "BUT IT ISN'T A CHEAT CODE",
       "headline": "LATER KANTO PUSHES BACK",
       "narration": "Later, Fire, Psychic, Ice and Flying attacks can punish it hard.",
       "caption": "THE EASY START DOESN'T LAST",
-      "visual": "tradeoff",
-      "accent": "#ff706d",
       "facts": [
         "FIRE",
         "PSYCHIC",
         "ICE",
         "FLYING"
-      ]
+      ],
+      "accent": "#ff706d"
     },
     {
       "id": "verdict",
-      "durationSeconds": 5.1,
-      "beat": "verdict",
-      "role": "interaction",
-      "shot": "interaction",
-      "subjectFocus": "primary",
-      "beatEverySeconds": 0.72,
       "eyebrow": "NUMBER ONE FOR A REASON",
       "headline": "WOULD YOU PICK BULBASAUR?",
       "narration": "So—if you started Kanto again today, would you pick Bulbasaur?",
       "caption": "#001. YOUR FIRST PICK?",
-      "visual": "cta",
       "accent": "#f3d95b"
     }
   ],

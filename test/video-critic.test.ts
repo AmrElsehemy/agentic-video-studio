@@ -74,15 +74,6 @@ describe('frame audit', () => {
     assert.equal(difference([0, 10], [4, 10]), 2);
   });
 
-  it('only warns about headlines on legacy renderers, which draw their own copy', () => {
-    const manifest = manifestOf('bulbasaur-001');
-    const texts = goodText(manifest);
-    texts[1] = `THE OPENING HOURS FAVOR GRASS.\n${manifest.scenes[1].caption}`;
-    const issues = auditFrames({manifest, frames: frames(manifest, texts)});
-    assert.deepEqual(checks(issues), ['warning scene 2 (gyms) headline']);
-    assert.match(issues[0].message, /legacy renderer draws its own copy/);
-  });
-
   it('skips text checks when there is no OCR text', () => {
     const manifest = darmanitan();
     assert.deepEqual(auditFrames({manifest, frames: thumbnails(manifest.scenes.length).map((gray) => ({gray}))}), []);

@@ -57,16 +57,13 @@ export const difference = (a, b) => [...a].reduce((sum, value, index) => sum + M
 export const auditFrames = ({manifest, frames, cover}) => {
   const issues = [];
   const add = (where, check, severity, message) => issues.push({where, check, severity, message, source: 'audit'});
-  // Legacy hand-authored renderers draw their own copy instead of the
-  // manifest's headlines, so a mismatch there is a warning until they are migrated (#20).
-  const legacy = manifest.direction?.engineVersion !== 2;
   manifest.scenes.forEach((scene, index) => {
     const frame = frames[index];
     if (!frame) return;
     const where = `scene ${index + 1} (${scene.id})`;
     if (frame.text !== undefined) {
       const headline = coverage(scene.headline, frame.text);
-      if (headline < MIN_COVERAGE) add(where, 'headline', legacy ? 'warning' : 'blocking', `Headline "${scene.headline}" is not readable on screen (${Math.round(headline * 100)}% of its words found)${legacy ? '; this legacy renderer draws its own copy' : ''}.`);
+      if (headline < MIN_COVERAGE) add(where, 'headline', 'blocking', `Headline "${scene.headline}" is not readable on screen (${Math.round(headline * 100)}% of its words found).`);
       const caption = coverage(scene.caption, frame.text);
       if (caption < MIN_COVERAGE) add(where, 'caption', 'blocking', `Caption "${scene.caption}" is not readable on screen (${Math.round(caption * 100)}% of its words found).`);
       // The caption is drawn once, at the bottom; a second copy means two layers both draw it.
