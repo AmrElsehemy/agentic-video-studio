@@ -9,4 +9,4 @@ export declare const createCompletion: (options?: {
   maxTokens?: number;
   env?: Record<string, string | undefined>;
   fetchImpl?: typeof fetch;
-}) => Complete & {provider: string; model: string};
+}) => Complete & import('./video-critic.mjs').VisionComplete & {provider: string; model: string};
