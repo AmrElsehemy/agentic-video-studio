@@ -1,24 +1,14 @@
 {
-  "schemaVersion": 1,
   "id": "darmanitan-555",
-  "show": {
-    "id": "pokepulses",
-    "name": "PokePulses",
-    "handle": "@pokepulses"
-  },
   "title": "The Pokémon That Changes When Its HP Hits Half",
-  "direction": {
-    "engineVersion": 2,
-    "storyPattern": "mechanic",
-    "numberRelevant": true,
-    "premise": "Darmanitan can transform in battle when its HP falls to half or less.",
-    "audiencePromise": "Show the 50% HP trigger, the type change, and the dramatic stat swap of Zen Mode.",
-    "openLoop": "What happens to Pokémon #555 when its HP drops to half?",
-    "payoff": "Zen Mode turns Darmanitan from pure Fire into Fire/Psychic and completely reshapes its battle stats.",
-    "targetEmotion": "surprise",
-    "engagementQuestion": "Would you risk dropping below half HP to trigger Zen Mode?",
-    "targetSecondsBetweenVisualChanges": 0.65
-  },
+  "storyPattern": "mechanic",
+  "numberRelevant": true,
+  "premise": "Darmanitan can transform in battle when its HP falls to half or less.",
+  "audiencePromise": "Show the 50% HP trigger, the type change, and the dramatic stat swap of Zen Mode.",
+  "openLoop": "What happens to Pokémon #555 when its HP drops to half?",
+  "payoff": "Zen Mode turns Darmanitan from pure Fire into Fire/Psychic and completely reshapes its battle stats.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "Would you risk dropping below half HP to trigger Zen Mode?",
   "subject": {
     "name": "Darmanitan",
     "index": "#555",
@@ -32,11 +22,6 @@
       "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10017.png"
     }
   ],
-  "format": {
-    "width": 1080,
-    "height": 1920,
-    "fps": 30
-  },
   "palette": {
     "background": "#160607",
     "surface": "#351012",
@@ -44,17 +29,10 @@
     "secondary": "#54a9ff",
     "ink": "#fff6ec"
   },
-  "audio": {
-    "music": "generated/darmanitan-555-bed.wav",
-    "musicVolume": 0.09,
-    "voice": {
-      "provider": "openai",
-      "model": "gpt-4o-mini-tts",
-      "voice": "marin",
-      "instructions": "Fast, energetic Pokémon short narrator. Start punchy and surprised, build tension as the HP falls, then slow for half a beat before the Zen Mode reveal. Keep it playful, crisp, and natural. Never imitate a known person or character.",
-      "speed": 1.08,
-      "output": "generated/darmanitan-555-voice.wav"
-    }
+  "voice": {
+    "voice": "marin",
+    "speed": 1.08,
+    "instructions": "Fast, energetic Pokémon short narrator. Start punchy and surprised, build tension as the HP falls, then slow for half a beat before the Zen Mode reveal. Keep it playful, crisp, and natural. Never imitate a known person or character."
   },
   "rights": {
     "releaseStatus": "internal-prototype",
@@ -83,32 +61,18 @@
   "scenes": [
     {
       "id": "hook",
-      "durationSeconds": 4.4,
-      "beat": "hook",
-      "role": "hook",
-      "shot": "impact",
-      "subjectFocus": "primary",
-      "beatEverySeconds": 0.65,
       "eyebrow": "POKÉDEX #555",
       "headline": "HURT IT. IT TRANSFORMS.",
       "narration": "This Pokémon transforms when its health drops to half.",
       "caption": "50% HP = TRANSFORMATION",
-      "visual": "hook",
       "accent": "#ff5b36"
     },
     {
       "id": "identity",
-      "durationSeconds": 4.7,
-      "beat": "evidence",
-      "role": "evidence",
-      "shot": "macro",
-      "subjectFocus": "primary",
-      "beatEverySeconds": 0.65,
       "eyebrow": "MEET DARMANITAN",
       "headline": "PURE FIRE. FULL POWER.",
       "narration": "Darmanitan, number five fifty-five, normally fights as pure Fire.",
       "caption": "STANDARD MODE • FIRE",
-      "visual": "gauntlet",
       "facts": [
         "#555",
         "FIRE"
@@ -116,17 +80,10 @@
     },
     {
       "id": "hp-drop",
-      "durationSeconds": 4.6,
-      "beat": "escalation",
-      "role": "escalation",
-      "shot": "comparison",
-      "subjectFocus": "secondary",
-      "beatEverySeconds": 0.65,
       "eyebrow": "WATCH THE HP",
       "headline": "WATCH THE HP",
       "narration": "Its Hidden Ability, Zen Mode, triggers at half HP.",
       "caption": "THE TRIGGER IS 50%",
-      "visual": "advantage",
       "primitive": {
         "kind": "meter",
         "label": "HP",
@@ -138,17 +95,10 @@
     },
     {
       "id": "transform",
-      "durationSeconds": 3.9,
-      "beat": "payoff",
-      "role": "payoff",
-      "shot": "tracking",
-      "subjectFocus": "primary",
-      "beatEverySeconds": 0.65,
       "eyebrow": "ZEN MODE",
       "headline": "FIRE BECOMES FIRE + PSYCHIC",
       "narration": "It turns blue and becomes Fire and Psychic.",
       "caption": "FIRE → FIRE + PSYCHIC",
-      "visual": "race",
       "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10017.png",
       "primitive": {
         "kind": "type-shift",
@@ -163,56 +113,42 @@
     },
     {
       "id": "stats",
-      "durationSeconds": 4.5,
-      "beat": "payoff",
-      "role": "payoff",
-      "shot": "impact",
-      "subjectFocus": "primary",
-      "beatEverySeconds": 0.65,
       "eyebrow": "THE WEIRD PART",
       "headline": "ITS STATS FLIP TOO",
       "narration": "Attack crashes, while Special Attack and both defenses surge.",
       "caption": "140 ATTACK → 140 SPECIAL ATTACK",
-      "visual": "tradeoff",
       "primitive": {
         "kind": "bars",
         "bars": [
           {
             "label": "ATTACK",
-            "value": 30,
-            "from": 140
+            "from": 140,
+            "value": 30
           },
           {
             "label": "SP. ATTACK",
-            "value": 140,
-            "from": 30
+            "from": 30,
+            "value": 140
           },
           {
             "label": "DEFENSE",
-            "value": 105,
-            "from": 55
+            "from": 55,
+            "value": 105
           },
           {
             "label": "SP. DEFENSE",
-            "value": 105,
-            "from": 55
+            "from": 55,
+            "value": 105
           }
         ]
       }
     },
     {
       "id": "cta",
-      "durationSeconds": 4.4,
-      "beat": "verdict",
-      "role": "interaction",
-      "shot": "interaction",
-      "subjectFocus": "primary",
-      "beatEverySeconds": 0.65,
       "eyebrow": "YOUR CALL",
       "headline": "WOULD YOU TRIGGER IT?",
       "narration": "Would you risk half your HP for Zen Mode?",
       "caption": "RISK IT FOR ZEN MODE?",
-      "visual": "cta",
       "accent": "#54a9ff"
     }
   ],

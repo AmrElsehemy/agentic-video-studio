@@ -1,24 +1,14 @@
 {
-  "schemaVersion": 1,
   "id": "gimmighoul-999",
-  "show": {
-    "id": "pokepulses",
-    "name": "PokePulses",
-    "handle": "@pokepulses"
-  },
   "title": "The Pokémon That Needs 999 Coins to Evolve",
-  "direction": {
-    "engineVersion": 2,
-    "storyPattern": "mechanic",
-    "numberRelevant": true,
-    "premise": "Pokédex #999 evolves only after you collect 999 Gimmighoul Coins and level it up.",
-    "audiencePromise": "Reveal Gimmighoul's 999-coin evolution, then pay it off by landing on Pokémon #1000.",
-    "openLoop": "Why does Pokémon #999 need exactly 999 coins?",
-    "payoff": "The 999-coin requirement turns Gimmighoul into Gholdengo, Pokédex #1000.",
-    "targetEmotion": "surprise",
-    "engagementQuestion": "Is 999 coins a brilliant evolution gimmick or just too much work?",
-    "targetSecondsBetweenVisualChanges": 0.65
-  },
+  "storyPattern": "mechanic",
+  "numberRelevant": true,
+  "premise": "Pokédex #999 evolves only after you collect 999 Gimmighoul Coins and level it up.",
+  "audiencePromise": "Reveal Gimmighoul's 999-coin evolution, then pay it off by landing on Pokémon #1000.",
+  "openLoop": "Why does Pokémon #999 need exactly 999 coins?",
+  "payoff": "The 999-coin requirement turns Gimmighoul into Gholdengo, Pokédex #1000.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "Is 999 coins a brilliant evolution gimmick or just too much work?",
   "subject": {
     "name": "Gimmighoul",
     "index": "#999",
@@ -32,11 +22,6 @@
       "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1000.png"
     }
   ],
-  "format": {
-    "width": 1080,
-    "height": 1920,
-    "fps": 30
-  },
   "palette": {
     "background": "#120d05",
     "surface": "#2d2108",
@@ -44,17 +29,10 @@
     "secondary": "#8a6cff",
     "ink": "#fff9df"
   },
-  "audio": {
-    "music": "generated/gimmighoul-999-bed.wav",
-    "musicVolume": 0.09,
-    "voice": {
-      "provider": "openai",
-      "model": "gpt-4o-mini-tts",
-      "voice": "marin",
-      "instructions": "Fast, playful, curious short-form narrator. Sound like a knowledgeable Pokémon fan sharing a bizarre mechanic with a friend. Punch the words 999 and 1000. Keep the delivery energetic but natural, with tiny pauses before each reveal. Never imitate a known person or character.",
-      "speed": 1.08,
-      "output": "generated/gimmighoul-999-voice.wav"
-    }
+  "voice": {
+    "voice": "marin",
+    "speed": 1.08,
+    "instructions": "Fast, playful, curious short-form narrator. Sound like a knowledgeable Pokémon fan sharing a bizarre mechanic with a friend. Punch the words 999 and 1000. Keep the delivery energetic but natural, with tiny pauses before each reveal. Never imitate a known person or character."
   },
   "rights": {
     "releaseStatus": "internal-prototype",
@@ -83,32 +61,18 @@
   "scenes": [
     {
       "id": "hook",
-      "durationSeconds": 4.5,
-      "beat": "hook",
-      "role": "hook",
-      "shot": "impact",
-      "subjectFocus": "primary",
-      "beatEverySeconds": 0.65,
       "eyebrow": "POKÉDEX #999",
       "headline": "999 COINS. ONE EVOLUTION.",
       "narration": "This Pokémon needs nine hundred ninety-nine coins to evolve.",
       "caption": "999 COINS TO EVOLVE",
-      "visual": "hook",
       "accent": "#f6c945"
     },
     {
       "id": "identity",
-      "durationSeconds": 6.2,
-      "beat": "evidence",
-      "role": "evidence",
-      "shot": "macro",
-      "subjectFocus": "primary",
-      "beatEverySeconds": 0.65,
       "eyebrow": "MEET GIMMIGHOUL",
       "headline": "A GHOST IN A TREASURE CHEST",
       "narration": "Meet Gimmighoul: Ghost-type, number nine hundred ninety-nine, hiding in a treasure chest.",
       "caption": "A GHOST. IN A CHEST.",
-      "visual": "gauntlet",
       "facts": [
         "GHOST",
         "#999"
@@ -116,17 +80,10 @@
     },
     {
       "id": "not-normal",
-      "durationSeconds": 4.7,
-      "beat": "escalation",
-      "role": "escalation",
-      "shot": "comparison",
-      "subjectFocus": "secondary",
-      "beatEverySeconds": 0.65,
       "eyebrow": "NOT THE NORMAL WAY",
       "headline": "NO STONE. NO TRADE.",
       "narration": "No evolution stone. No trade. No fixed evolution level.",
       "caption": "NO STONE • NO TRADE",
-      "visual": "advantage",
       "primitive": {
         "kind": "checklist",
         "items": [
@@ -151,17 +108,10 @@
     },
     {
       "id": "coins",
-      "durationSeconds": 6,
-      "beat": "payoff",
-      "role": "payoff",
-      "shot": "tracking",
-      "subjectFocus": "primary",
-      "beatEverySeconds": 0.65,
       "eyebrow": "THE REAL REQUIREMENT",
       "headline": "COLLECT 999 GIMMIGHOUL COINS",
       "narration": "Collect coins until you hit nine hundred ninety-nine. Then level Gimmighoul up.",
       "caption": "COLLECT 999 COINS",
-      "visual": "race",
       "primitive": {
         "kind": "counter",
         "from": 0,
@@ -171,23 +121,16 @@
     },
     {
       "id": "evolution",
-      "durationSeconds": 5.5,
-      "beat": "payoff",
-      "role": "payoff",
-      "shot": "impact",
-      "subjectFocus": "primary",
-      "beatEverySeconds": 0.65,
       "eyebrow": "AND THEN…",
       "headline": "#999 BECOMES #1000",
       "narration": "That turns number nine hundred ninety-nine into Gholdengo: Pokémon one thousand.",
       "caption": "#999 → #1000",
-      "visual": "tradeoff",
-      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1000.png",
-      "accent": "#ffd95b",
       "facts": [
         "GIMMIGHOUL #999",
         "GHOLDENGO #1000"
       ],
+      "accent": "#ffd95b",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1000.png",
       "primitive": {
         "kind": "timeline",
         "steps": [
@@ -208,17 +151,10 @@
     },
     {
       "id": "cta",
-      "durationSeconds": 3.8,
-      "beat": "verdict",
-      "role": "interaction",
-      "shot": "interaction",
-      "subjectFocus": "primary",
-      "beatEverySeconds": 0.65,
       "eyebrow": "YOUR CALL",
       "headline": "BRILLIANT OR TOO MUCH?",
       "narration": "Brilliant gimmick—or way too much work?",
       "caption": "BRILLIANT OR RIDICULOUS?",
-      "visual": "cta",
       "accent": "#f6c945"
     }
   ],

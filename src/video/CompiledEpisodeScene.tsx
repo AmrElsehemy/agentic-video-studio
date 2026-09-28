@@ -1,6 +1,7 @@
 import React from 'react';
 import {AbsoluteFill, interpolate, spring, useCurrentFrame, useVideoConfig} from 'remotion';
 import type {VideoManifest, VideoScene} from '../schema';
+import {PrimitiveVisual} from './primitives';
 import {HEADLINE_SHOTS, ShotVisual} from './shots';
 import {bodyFont, displayFont} from './typography';
 
@@ -35,11 +36,14 @@ export const CompiledEpisodeScene: React.FC<Props> = ({scene, manifest, sceneInd
 
     <div style={{position: 'absolute', top: 158, left: 54, right: 54, zIndex: 25, opacity: enter}}>
       <div style={{fontFamily: displayFont, fontSize: 24, letterSpacing: 5, color: accent, marginBottom: 12}}>{scene.eyebrow}</div>
-      {HEADLINE_SHOTS.has(scene.shot) ? null : <div style={{fontFamily: displayFont, fontSize: 76, lineHeight: .86, letterSpacing: .5, maxWidth: 880}}>{scene.headline}</div>}
+      {HEADLINE_SHOTS.has(scene.shot) && !scene.primitive ? null : <div style={{fontFamily: displayFont, fontSize: 76, lineHeight: .86, letterSpacing: .5, maxWidth: 880}}>{scene.headline}</div>}
     </div>
 
     <div style={{position: 'absolute', inset: '315px 35px 285px', zIndex: 10, opacity: enter}}>
-      <ShotVisual scene={scene} manifest={manifest} frame={frame} durationInFrames={durationInFrames} accent={accent} />
+      {/* A semantic primitive, when the Visual Director chose one; otherwise the beat's shot. */}
+      {scene.primitive
+        ? <PrimitiveVisual primitive={scene.primitive} scene={scene} manifest={manifest} frame={frame} durationInFrames={durationInFrames} accent={accent} />
+        : <ShotVisual scene={scene} manifest={manifest} frame={frame} durationInFrames={durationInFrames} accent={accent} />}
     </div>
 
     <div style={{position: 'absolute', left: 58, right: 58, bottom: 66, zIndex: 30}}>

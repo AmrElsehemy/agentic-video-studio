@@ -57,6 +57,7 @@ export const compileEpisode = (rawDraft, {showId}) => {
       ...(scene.artworkUrl ? {artworkUrl: scene.artworkUrl} : {}),
       ...(scene.accent ? {accent: scene.accent} : {}),
       ...(scene.facts ? {facts: cleanFacts(scene.facts)} : {}),
+      ...(scene.primitive ? {primitive: scene.primitive} : {}),
     };
   });
 

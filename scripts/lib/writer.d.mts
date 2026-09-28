@@ -6,7 +6,7 @@ import type {VerificationReport} from './fact-verifier.mjs';
 import type {Angle} from './angles.mjs';
 import type {CreativeReview} from './creative-critic.mjs';
 
-type DraftScene = {id: string; beat?: string; eyebrow?: string; headline: string; narration: string; caption: string; facts?: string[]; accent?: string; artworkUrl: string};
+type DraftScene = {id: string; beat?: string; eyebrow?: string; headline: string; narration: string; caption: string; facts?: string[]; accent?: string; artworkUrl: string; primitive?: import('../primitive-schema.mjs').Primitive};
 export type Draft = {
   id: string;
   title: string;

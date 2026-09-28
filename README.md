@@ -49,7 +49,8 @@ npm run episode:new -- 888 --voice=openai --render  # …with the polished paid 
 2. **Find the angle** — an **Angle Generator** proposes about six candidate ideas, each with a hook, a story shape and evidence pointers into the research; an **Angle Critic** scores them 1–5 on uniqueness to this Pokémon, surprise, specificity, visual potential and factual support. An angle that rests only on fields every Pokémon has (type, category, generation) can't score above 2 for uniqueness, so "Gimmighoul needs 999 coins" beats "Gimmighoul is a Ghost type". Below 16/25 the critic asks for a second round. Candidates, scores and the choice are saved in `research/<show>/<id>.angles.json`.
 3. **Write** — a writer agent (Claude or OpenAI) builds the episode around the chosen angle and its story shape, writing the creative draft from the research only, following [DIRECTING.md](DIRECTING.md) and learning from the curated winners in [creative-references/](creative-references/README.md) for that shape. Identity, artwork URLs, rights and sources are filled in from the research, never by the model.
 4. **Check and revise** — the draft goes through the schema, the compiler (beats, hook and scene timing), the production audit (80+ required) and a number check, then the **Fact Verifier**: every headline, narration line, caption and fact gets a verdict (supported / unsupported / uncertain) with evidence pointers into the research (e.g. `types[0]`, `pokedexEntries[1].text`). Unsupported claims, such as a type the research never mentions, go back to the writer with the other problems, up to 3 attempts. The report is saved as `research/<show>/<id>.verification.json`; uncertain lines are listed for review. Last, a **creative critic** judges the story itself (hook, specificity, tension, escalation, surprise, variety, payoff, question; see [DIRECTING.md](DIRECTING.md#checking-it)) and sends quoted, concrete revision notes back when it scores below 70; the review is saved as `research/<show>/<id>.creative.json`.
-5. **Save** — `drafts/<show>/<id>.json` and the compiled `videos/<show>/<id>/video.json`, then the fast certification. Review the draft before paying for voice.
+5. **Direct the visuals** — a **Visual Director** reads the finished draft and gives the scenes whose idea can be *shown* a semantic visual primitive with its data (see below). Every number and type it uses must be in the research; anything else is rejected and logged, and those scenes keep their story shape's shot.
+6. **Save** — `drafts/<show>/<id>.json` and the compiled `videos/<show>/<id>/video.json`, then the fast certification. Review the draft before paying for voice.
 
 Options: `--pattern=<archetype>` forces a story shape, `--overwrite` replaces an existing draft. The writer uses whichever key is set (`ANTHROPIC_API_KEY` first); `WRITER_PROVIDER=anthropic|openai` chooses explicitly and `WRITER_MODEL` overrides the model (defaults: `claude-opus-5-5`, `gpt-4o`).
 
@@ -72,6 +73,21 @@ Milestone 0.2 implements the deterministic visual pipeline plus an opt-in narrat
 Agentic planning, automated factual review, publishing, and analytics feedback are later milestones. The episode manifest is the contract those agents will produce.
 
 The directing rules live in [DIRECTING.md](DIRECTING.md). They force every episode to make one arguable promise, escalate it, pay it off, and invite a meaningful verdict; story shapes that argue a position (profile, comparison) must also survive a counterpoint.
+
+## Visual primitives
+
+Each beat of a story shape has a default **shot** (artwork, headline and fact cards, in seven layouts). A scene can instead carry a **primitive**: a component that visualises its idea from data, defined in [`scripts/primitive-schema.mjs`](scripts/primitive-schema.mjs) and drawn by [`src/video/primitives.tsx`](src/video/primitives.tsx):
+
+| Primitive | Shows | Example |
+| --- | --- | --- |
+| `counter` | a number climbing to a target | Gimmighoul's 999 coins |
+| `meter` | a gauge crossing a threshold (the artwork changes when it does) | Darmanitan's HP falling to half |
+| `bars` | values side by side, optionally changing | Darmanitan's stat swap, Zacian's weight |
+| `type-shift` | a change of type | Fire → Fire/Psychic |
+| `timeline` | ordered steps, with artwork for any Pokémon named | Gimmighoul → 999 coins → Gholdengo |
+| `checklist` | requirements ruled out or in | no stone, no trade, 999 coins |
+
+Authors can set `"primitive"` on a draft scene by hand; `episode:new` lets the Visual Director choose.
 
 ## Continuous integration
 

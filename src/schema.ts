@@ -1,4 +1,5 @@
 import {z} from 'zod';
+import {primitiveSchema} from '../scripts/primitive-schema.mjs';
 
 const color = z.string().regex(/^#[0-9a-f]{6}$/i, 'Expected a six-digit hex color');
 
@@ -18,6 +19,7 @@ export const sceneSchema = z.object({
   artworkUrl: z.string().url().optional(),
   accent: color.optional(),
   facts: z.array(z.string().min(1).max(45)).max(4).optional(),
+  primitive: primitiveSchema.optional(),
 });
 
 // Compiled episodes use an archetype from archetypes/<name>.json (checked by

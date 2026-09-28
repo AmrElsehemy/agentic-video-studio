@@ -1,5 +1,6 @@
 import {z} from 'zod';
 import {archetypes} from './archetypes.mjs';
+import {primitiveSchema} from './primitive-schema.mjs';
 
 const color = z.string().regex(/^#[0-9a-f]{6}$/i, 'Expected a six-digit hex color');
 // Any archetype defined in archetypes/<name>.json.
@@ -69,6 +70,8 @@ export const episodeDraftSchema = z.object({
     facts: z.array(z.string().min(1).max(45)).max(4).optional(),
     accent: color.optional(),
     beatEverySeconds: z.number().positive().max(1.5).optional(),
+    // A semantic visual (counter, meter, ...) chosen by the Visual Director; the beat's shot is the fallback.
+    primitive: primitiveSchema.optional(),
   })).min(3).max(12),
   sources: z.array(z.object({label: z.string().min(1), url: z.string().url()})).min(1),
 });

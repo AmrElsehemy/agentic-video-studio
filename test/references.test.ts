@@ -60,7 +60,7 @@ describe('creative references', () => {
     const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'references-'));
     const sent: string[] = [];
     const reply = fs.readFileSync(path.join(root, 'test/fixtures/writer-zacian.json'), 'utf8');
-    await runNewEpisode({number: 888, root: dir, verify: null, ideate: null, critique: null, fetchJson, storyPattern: 'transformation', log: () => {}, complete: async ({messages}) => {
+    await runNewEpisode({number: 888, root: dir, verify: null, ideate: null, critique: null, direct: null, fetchJson, storyPattern: 'transformation', log: () => {}, complete: async ({messages}) => {
       sent.push(messages[0].content);
       return reply;
     }});
