@@ -7,13 +7,23 @@ export const PROVIDERS = {
   openai: {keyEnv: 'OPENAI_API_KEY', defaultModel: 'gpt-4o'},
 };
 
+// A message's content is a string, or a list of parts:
+// {type: 'text', text} | {type: 'image', mediaType: 'image/png', data: <base64>}.
+const partsOf = (content) => (typeof content === 'string' ? [{type: 'text', text: content}] : content);
+const anthropicContent = (content) => (typeof content === 'string' ? content : partsOf(content).map((part) => (part.type === 'image'
+  ? {type: 'image', source: {type: 'base64', media_type: part.mediaType, data: part.data}}
+  : {type: 'text', text: part.text})));
+const openaiContent = (content) => (typeof content === 'string' ? content : partsOf(content).map((part) => (part.type === 'image'
+  ? {type: 'image_url', image_url: {url: `data:${part.mediaType};base64,${part.data}`}}
+  : {type: 'text', text: part.text})));
+
 const failure = async (label, response) => new Error(`${label} request failed (${response.status}): ${await response.text()}`);
 
 const anthropicAdapter = ({apiKey, model, maxTokens, fetchImpl}) => async ({system, messages}) => {
   const response = await fetchImpl('https://api.anthropic.com/v1/messages', {
     method: 'POST',
     headers: {'x-api-key': apiKey, 'anthropic-version': '2023-06-01', 'content-type': 'application/json'},
-    body: JSON.stringify({model, max_tokens: maxTokens, system, messages}),
+    body: JSON.stringify({model, max_tokens: maxTokens, system, messages: messages.map((message) => ({...message, content: anthropicContent(message.content)}))}),
   });
   if (!response.ok) throw await failure('Claude', response);
   const data = await response.json();
@@ -25,7 +35,7 @@ const openaiAdapter = ({apiKey, model, maxTokens, fetchImpl}) => async ({system,
   const response = await fetchImpl('https://api.openai.com/v1/chat/completions', {
     method: 'POST',
     headers: {Authorization: `Bearer ${apiKey}`, 'content-type': 'application/json'},
-    body: JSON.stringify({model, max_completion_tokens: maxTokens, messages: [{role: 'system', content: system}, ...messages]}),
+    body: JSON.stringify({model, max_completion_tokens: maxTokens, messages: [{role: 'system', content: system}, ...messages.map((message) => ({...message, content: openaiContent(message.content)}))]}),
   });
   if (!response.ok) throw await failure('OpenAI', response);
   const data = await response.json();

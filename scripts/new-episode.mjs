@@ -14,7 +14,7 @@ if (!Number.isInteger(number) || number < 1) {
 
   --pattern=<archetype>   force a story shape (default: the chosen angle's)
   --voice=local|openai    generate narration after certifying (openai is paid)
-  --render                render the video after certifying
+  --render                render the video and cover, then run the video critic
   --refresh-research      refetch PokéAPI data instead of reusing research/
   --overwrite             replace an existing draft
 
@@ -57,7 +57,11 @@ try {
 
 run('Certify', 'scripts/certify-episode.mjs', [id, '--fast']);
 if (voice) run(`Narration (${voice})`, 'scripts/generate-voice.mjs', [id, `--provider=${voice}`]);
-if (flag('render')) run('Render', 'scripts/render.mjs', [id, `--voice=${voice ?? 'none'}`]);
+if (flag('render')) {
+  run('Render', 'scripts/render.mjs', [id, `--voice=${voice ?? 'none'}`]);
+  run('Cover', 'scripts/render-still.mjs', [id]);
+  run('Video critic', 'scripts/video-critic.mjs', [id]);
+}
 
 console.log(`\n✓ ${id} is ready.`);
 if (!flag('render')) console.log(`  Review drafts/pokepulses/${id}.json, then: npm run voice:local -- ${id} && npm run video:local -- ${id}`);

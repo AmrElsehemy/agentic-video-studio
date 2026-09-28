@@ -23,6 +23,7 @@
     "video:openai": "node scripts/render.mjs --voice=openai",
     "still": "node scripts/render-still.mjs",
     "sheet": "node scripts/contact-sheet.mjs",
+    "critic:video": "node scripts/video-critic.mjs",
     "validate": "node scripts/check-compiled-drafts.mjs && node --import tsx scripts/validate.ts && node scripts/engagement-audit.mjs",
     "engagement": "node scripts/engagement-audit.mjs",
     "critic:calibrate": "node scripts/critic-calibrate.mjs",

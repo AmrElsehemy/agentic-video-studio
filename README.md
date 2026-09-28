@@ -95,7 +95,16 @@ Every push and pull request runs the global checks (validate, typecheck, tests).
 
 - **Pull requests and pushes** render only episodes whose draft, manifest or research changed, plus the golden regression set in [`.github/golden-episodes.json`](.github/golden-episodes.json) when shared code (renderer, compiler, scripts, archetypes, dependencies, CI config) changes. Docs, tests and creative references render nothing.
 - **Nightly**, and on demand from the Actions tab (`workflow_dispatch`), every episode renders.
-- Each render uploads the MP4, a **contact sheet** (one frame per scene), the cover and the description. Large selections are batched into at most 64 render jobs.
+- Each render uploads the MP4, a **contact sheet** (one frame per scene), the cover, the description and the **video critic's review**. Large selections are batched into at most 64 render jobs.
+
+## Video critic
+
+`npm run critic:video -- <id>` reviews a rendered episode (`npm run video`, plus `npm run still` for the cover) one mid-scene frame at a time, and exits non-zero on any blocking issue. CI runs it after every render, and `episode:new --render` runs it too.
+
+- **Frame audit** (always, deterministic): OCR (tesseract, on the header, visual area and caption bands) checks every scene's headline and caption are readable, the caption is drawn once, and the cover's title is this episode's hook headline. Pixel statistics catch blank frames and flag consecutive scenes that look the same. Legacy hand-authored renderers draw their own copy, so their headline mismatches are warnings.
+- **Vision critic** (`--vision`, or `VIDEO_CRITIC_VISION=1`; in CI the repository variable `VIDEO_CRITIC_VISION=1` plus a model key secret): a vision model reviews the frames and cover against what each scene should show: legibility, overlap (including faint backdrop words hidden behind artwork), visible artwork, platform safe areas, variety and whether each frame expresses its beat.
+
+The review is saved as `out/<id>-video-review.json`.
 
 ## Voice workflow
 
