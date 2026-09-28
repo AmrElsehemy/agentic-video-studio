@@ -27,7 +27,11 @@ export type Research = {
   pokedexEntries: {game: string; text: string}[];
   evolutionChain: EvolutionMember[];
   varieties: {name: string; types: string[]; heightMeters: number; weightKg: number; artworkUrl: string}[];
-  sources: {label: string; url: string}[];
+  /** Community lore with its source; may only be stated hedged. */
+  lore?: {text: string; source: {label: string; url: string}}[];
+  /** Field patterns per source tier; research cached before tiers existed uses DEFAULT_TIERS. */
+  tiers?: import('./source-tiers.mjs').TierRules;
+  sources: {label: string; url: string; tier?: import('./source-tiers.mjs').Tier}[];
 };
 
 export declare const POKEAPI: string;

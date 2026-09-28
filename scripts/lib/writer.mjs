@@ -10,6 +10,7 @@ import {scoreEpisode} from './engagement.mjs';
 import {describeAngle} from './angles.mjs';
 import {creativeProblems, critiqueDraft} from './creative-critic.mjs';
 import {verificationProblems, verifyDraft} from './fact-verifier.mjs';
+import {TIER_GUIDANCE, TIERS, tierRules} from './source-tiers.mjs';
 
 const color = z.string().regex(/^#[0-9a-f]{6}$/i);
 
@@ -182,6 +183,10 @@ ${angle ? `
 The creative director chose this angle. Build the whole episode around this one idea: the hook states it, every beat escalates it, the payoff resolves it. Don't drift into unrelated facts.
 ${describeAngle(angle, research)}
 ` : ''}
+# Source tiers
+Research fields differ in how safely they can be stated:
+${TIERS.map((tier) => `- ${tier} (${tierRules(research)[tier].join(', ')}): ${TIER_GUIDANCE[tier]}`).join('\n')}
+
 # Hard limits
 - Use ONLY facts from the research. Never invent events, dates, numbers, moves or lore. Any number you state must appear in the research, or be a simple count of its types, evolution stages or forms.
 - Hook scene (first): narration at most 9 words; headline at most 8 words. It must create tension in the first second.

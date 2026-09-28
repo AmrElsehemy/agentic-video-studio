@@ -3,6 +3,7 @@
 // no-claim for pure framing) with evidence pointers into the research JSON,
 // e.g. "types[0]" or "pokedexEntries[1].text".
 import {z} from 'zod';
+import {isHedged, strongestTier} from './source-tiers.mjs';
 
 export const VERDICTS = ['supported', 'unsupported', 'uncertain', 'no-claim'];
 export const POKEMON_TYPES = ['normal', 'fire', 'water', 'grass', 'electric', 'ice', 'fighting', 'poison', 'ground', 'flying', 'psychic', 'bug', 'rock', 'ghost', 'dragon', 'dark', 'steel', 'fairy'];
@@ -85,6 +86,8 @@ Verdicts:
 - "uncertain": plausibly true but only loosely or partially backed (for example a paraphrase that stretches a Pokédex entry). Explain in the note.
 - "no-claim": no factual statement (a question, a hook phrase, framing, an opinion clearly presented as one).
 
+Evidence from "lore" is community material (fan theories, trivia): it supports a statement only when the text presents it as lore ("some fans believe…", "legend says…"). Prefer official evidence (types, Pokédex entries, sizes) whenever it exists.
+
 Reply with a JSON array only: [{"id": "c1", "verdict": "supported", "evidence": ["types[0]"], "note": ""}, ...], one entry per id.`,
   messages: [{role: 'user', content: `Research:\n${JSON.stringify(research, null, 2)}\n\nText to check:\n${JSON.stringify(claims, null, 2)}`}],
 });
@@ -115,7 +118,7 @@ export const verifyDraft = async ({draft, research, complete}) => {
 
   const results = claims.map((claim) => {
     const deterministic = deterministicCheck(claim, research);
-    if (deterministic) return {...claim, ...deterministic, checkedBy: 'rules'};
+    if (deterministic) return {...claim, ...deterministic, tier: 'official', checkedBy: 'rules'};
     const verdict = modelVerdicts.get(claim.id);
     if (!verdict) {
       const note = modelError ? `Not checked: the verifier model failed (${modelError}).` : complete ? 'The verifier returned no verdict for this text.' : 'Not checked: no verifier model configured.';
@@ -126,7 +129,12 @@ export const verifyDraft = async ({draft, research, complete}) => {
     if (verdict.verdict === 'supported' && (broken.length || !verdict.evidence.length)) {
       return {...claim, ...verdict, verdict: 'uncertain', note: `Marked supported, but ${verdict.evidence.length ? `the evidence ${broken.join(', ')} does not exist in the research` : 'no evidence was given'}.`, checkedBy: 'model'};
     }
-    return {...claim, ...verdict, checkedBy: 'model'};
+    const tier = strongestTier(verdict.evidence, research);
+    // Community lore may only be told as lore.
+    if (verdict.verdict === 'supported' && tier === 'community' && !isHedged(claim.text)) {
+      return {...claim, ...verdict, tier, verdict: 'unsupported', note: `Rests only on community sources (${verdict.evidence.join(', ')}), but states it as fact. Hedge it ("some fans believe…", "legend says…") or cut it.`, checkedBy: 'model'};
+    }
+    return {...claim, ...verdict, ...(tier ? {tier} : {}), checkedBy: 'model'};
   });
 
   return {
