@@ -25,6 +25,9 @@ const writerStructureBrief = (shape) => {
   return `\n\n# Exact structure for this episode\nThe storyPattern is ${shape}. Do not infer the scene structure yourself.\nUse this exact minimum beat sequence, in this order: ${minimumPlan.join(' → ')}.\nSet the \"beat\" field explicitly on EVERY scene. Valid beat ids and ranges: ${allowed}.\nStart with exactly ${minimumPlan.length} scenes following that minimum sequence. Add extra scenes only when they materially improve the story and never exceed a beat's maximum. Never invent a beat id such as \"interaction\" unless it is explicitly listed above.\nvoiceInstructions MUST be a plain JSON string, never an object.\nNarration timing is a hard production constraint, not a suggestion: keep non-hook narration to 8-11 spoken words, and keep the final either/or question to at most 10 spoken words. Prefer short common words. Avoid semicolons, em dashes, parenthetical phrases, and stacked clauses because they speak slowly. Never use 12+ words unless the line is exceptionally short in syllables.\nBefore replying, count the scenes per beat and verify every minimum/maximum above is satisfied. Then count the spoken words in every narration line and shorten any line that could approach the 6.4-second scene ceiling.`;
 };
 
+/** Closest attempt first: passes production, story approved, fewest unsupported lines, best story. */
+const rankBest = (attempt) => (attempt.production ? 1e6 : 0) + (attempt.storyPassed ? 1e5 : 0) - (attempt.factProblems ?? 99) * 1e3 + (attempt.score ?? 0);
+
 const rankedAngleFallbacks = (angles, limit = 3) => {
   const ranked = angles.rounds
     .flatMap((round) => round.candidates)
@@ -44,7 +47,7 @@ const rankedAngleFallbacks = (angles, limit = 3) => {
  * `direct` is the Visual Director's (default: the writer's); null keeps the
  * archetype's shots for every scene.
  */
-export const runNewEpisode = async ({number, root = repoRoot, showId = 'pokepulses', fetchJson, complete, verify = complete, ideate = complete, critique = complete, direct = complete, storyPattern, refreshResearch = false, overwrite = false, maxAttempts = 3, log = console.log}) => {
+export const runNewEpisode = async ({number, root = repoRoot, showId = 'pokepulses', fetchJson, complete, verify = complete, ideate = complete, critique = complete, direct = complete, storyPattern, refreshResearch = false, overwrite = false, maxAttempts = 3, maxWriterCalls = maxAttempts * 3, log = console.log}) => {
   const researchDir = path.join(root, 'research', showId);
   const matches = fs.existsSync(researchDir)
     ? fs.readdirSync(researchDir).filter((file) => file.endsWith(`-${String(number).padStart(3, '0')}.json`)).sort()
@@ -88,8 +91,11 @@ export const runNewEpisode = async ({number, root = repoRoot, showId = 'pokepuls
 
   let result;
   let writerError;
+  let best;
+  let callsLeft = maxWriterCalls;
   const attemptedAngles = [];
   for (const [index, candidate] of angleCandidates.entries()) {
+    if (callsLeft <= 0) break;
     angle = candidate;
     if (candidate) {
       attemptedAngles.push(candidate.id);
@@ -97,6 +103,7 @@ export const runNewEpisode = async ({number, root = repoRoot, showId = 'pokepuls
     }
     const shape = storyPattern || candidate?.archetype;
     const directing = `${fs.readFileSync(path.join(repoRoot, 'DIRECTING.md'), 'utf8')}${writerStructureBrief(shape)}`;
+    const attempts = Math.min(maxAttempts, callsLeft);
     try {
       result = await writeEpisode({
         research,
@@ -108,21 +115,44 @@ export const runNewEpisode = async ({number, root = repoRoot, showId = 'pokepuls
         storyPattern,
         angle: candidate,
         showId,
-        maxAttempts,
-        onAttempt: ({attempt, problems, audit, creative}) => {
+        maxAttempts: attempts,
+        onAttempt: ({attempt, problems, audit, creative, repaired}) => {
           const story = creative && !creative.skipped ? `, creative ${creative.score}/100` : '';
-          if (problems.length === 0) log(`✓ writer: attempt ${attempt} passed every check (production ${audit.score}/100${story})`);
-          else log(`✗ writer: attempt ${attempt} rejected (${problems.length} problem${problems.length === 1 ? '' : 's'}):\n${problems.map((problem) => `    - ${problem}`).join('\n')}`);
+          const fixed = repaired?.length ? ` after repairing ${repaired.join(', ')}` : '';
+          if (problems.length === 0) log(`✓ writer: attempt ${attempt} passed every check${fixed} (production ${audit.score}/100${story})`);
+          else if (creative?.passed && !creative.skipped && !repaired) log(`↻ writer: attempt ${attempt} story approved${story}; repairing ${problems.length} unsupported line${problems.length === 1 ? '' : 's'}:\n${problems.map((problem) => `    - ${problem}`).join('\n')}`);
+          else log(`✗ writer: attempt ${attempt} rejected (${problems.length} problem${problems.length === 1 ? '' : 's'}${story}):\n${problems.map((problem) => `    - ${problem}`).join('\n')}`);
         },
       });
       writerError = undefined;
       break;
     } catch (error) {
       writerError = error;
+      callsLeft -= error.attempts ?? attempts;
+      if (error.best && (!best || rankBest(error.best) > rankBest(best))) best = {...error.best, angle: candidate};
       const next = angleCandidates[index + 1];
       if (!next) break;
-      log(`⚠ angle "${candidate?.premise ?? '(writer-chosen)'}" exhausted ${maxAttempts} writer attempts; trying the next strong angle.`);
+      if (callsLeft <= 0) {
+        log(`⚠ writer budget spent (${maxWriterCalls} calls); not trying the remaining angles.`);
+        break;
+      }
+      log(`⚠ angle "${candidate?.premise ?? '(writer-chosen)'}" exhausted ${attempts} writer attempts; trying the next strong angle (${callsLeft} writer call${callsLeft === 1 ? '' : 's'} left).`);
     }
+  }
+  if (!result && best?.creative) {
+    // Never throw the work away: keep the closest draft for a person to finish.
+    const bestPath = path.join(root, 'out', `${research.id}.best-attempt.json`);
+    writeJson(bestPath, {
+      episodeId: research.id,
+      createdAt: new Date().toISOString(),
+      angle: best.angle ?? null,
+      creativeScore: best.score ?? null,
+      unsupportedLines: best.factProblems ?? null,
+      remainingProblems: best.problems,
+      draft: best.draft ?? null,
+      reply: best.creative,
+    });
+    log(`↳ closest draft${best.score !== undefined ? ` (creative ${best.score}/100, ${best.factProblems} unsupported line${best.factProblems === 1 ? '' : 's'})` : ''} saved to out/${research.id}.best-attempt.json. Fix the listed problems in its "draft", save it as drafts/${showId}/${research.id}.json and run: npm run episode:compile -- ${research.id}`);
   }
   if (!result) throw writerError;
 

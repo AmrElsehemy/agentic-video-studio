@@ -225,60 +225,145 @@ export const parseReply = (text) => {
   return JSON.parse(unfenced.slice(start, end + 1));
 };
 
+/** Most unsupported lines a story-approved draft may have and still be repaired line by line. */
+export const REPAIRABLE_LINES = 4;
+
+/** Location of a line in a creative reply: "payoff", "scenes.<id>.caption", "scenes.<id>.facts[1]". */
+const LINE = /^(?:(title|premise|audiencePromise|openLoop|payoff|engagementQuestion)|scenes\.([a-z0-9-]+)\.(eyebrow|headline|narration|caption|facts)(?:\[(\d+)\])?)$/;
+
+/**
+ * Replace single lines of a creative reply, e.g. {"scenes.hook.caption": "..."}.
+ * An empty replacement drops a facts label. Returns the patched copy and any
+ * locations that couldn't be applied.
+ */
+export const patchLines = (creative, patches) => {
+  const patched = structuredClone(creative);
+  const unknown = [];
+  const dropped = new Map();
+  for (const [where, text] of Object.entries(patches ?? {})) {
+    const match = typeof text === 'string' ? where.match(LINE) : null;
+    const scene = match?.[2] ? patched.scenes.find((item) => item.id === match[2]) : undefined;
+    if (!match || (match[2] && !scene)) {
+      unknown.push(where);
+    } else if (match[1]) {
+      patched[match[1]] = text;
+    } else if (match[3] === 'facts') {
+      const index = Number(match[4]);
+      if (!Array.isArray(scene.facts) || match[4] === undefined || index >= scene.facts.length) unknown.push(where);
+      else if (text.trim()) scene.facts[index] = text;
+      else dropped.set(scene, [...(dropped.get(scene) ?? []), index]);
+    } else {
+      scene[match[3]] = text;
+    }
+  }
+  for (const [scene, indexes] of dropped) scene.facts = scene.facts.filter((_, index) => !indexes.includes(index));
+  return {creative: patched, unknown};
+};
+
+const repairRequest = (problems) => `The story passed the creative director. Only these lines are not supported by the research:
+${problems.map((problem, index) => `${index + 1}. ${problem}`).join('\n')}
+
+Rewrite only these lines, keeping their role in the story, using only researched facts (a faithful, punchy paraphrase is fine; never a stronger claim). To drop a facts label, use "". Reply with a JSON object only, mapping each location to its new text, e.g. {"scenes.hook.caption": "..."}.`;
+
+/** Better attempts sort first: passes production, story approved, fewest fact problems, highest story score. */
+const rank = (attempt) => [attempt.production ? 1 : 0, attempt.storyPassed ? 1 : 0, -(attempt.factProblems ?? 99), attempt.score ?? -1];
+const better = (a, b) => {
+  if (!b) return true;
+  const [x, y] = [rank(a), rank(b)];
+  for (let index = 0; index < x.length; index++) if (x[index] !== y[index]) return x[index] > y[index];
+  return false;
+};
+
 /**
  * Write an episode draft, revising until it passes every gate or attempts run out.
  * `complete({system, messages})` returns the model's reply text; injected so
  * tests can script replies.
- */
-/**
+ *
  * `verify` checks factual claims (a model completion for the Fact Verifier);
  * without it only the verifier's deterministic rules run. `critique` is the
  * creative critic's completion; without it the story isn't judged.
- * Gates run in order: production (schema, compiler, audit, numbers), facts, creative.
+ * The production gate (schema, compiler, audit, numbers) runs first; a draft
+ * that passes it is judged on facts and story together, so one revision fixes
+ * both instead of trading one for the other. When the story is approved and
+ * only a few lines are unsupported, the writer rewrites just those lines and
+ * they are patched into the approved draft. Every writer call counts as an
+ * attempt. On failure the error carries the best attempt (`error.best`).
  */
 export const writeEpisode = async ({research, complete, verify, critique, directing, references = [], storyPattern, angle, showId = 'pokepulses', maxAttempts = 3, onAttempt = () => {}}) => {
   const {system, user} = buildWriterPrompt({research, directing, references, storyPattern, angle});
   const shape = storyPattern || angle?.archetype;
   const messages = [{role: 'user', content: user}];
   let problems = [];
-  let lastCreative;
+  let best;
+  // Set while repairing single lines of a story-approved draft.
+  let approved;
   for (let attempt = 1; attempt <= maxAttempts; attempt++) {
     const reply = await complete({system, messages});
     messages.push({role: 'assistant', content: reply});
+    let creativeData;
     let result;
+    let verification;
+    let review = approved?.review;
+    let repaired;
     try {
-      const creative = creativeSchema.safeParse(parseReply(reply));
-      if (!creative.success) {
-        problems = creative.error.issues.map((issue) => `${issue.path.join('.') || 'reply'}: ${issue.message}`);
+      const parsed = parseReply(reply);
+      // A model may answer a repair request with a whole draft: judge it as one.
+      if (approved && creativeSchema.safeParse(parsed).success) {
+        approved = undefined;
+        review = undefined;
+      }
+      if (approved) {
+        const {creative: patched, unknown} = patchLines(approved.creative, parsed);
+        creativeData = patched;
+        repaired = Object.keys(parsed).filter((where) => !unknown.includes(where));
+        problems = unknown.map((where) => `"${where}" is not a line of the draft. Use the locations exactly as listed.`);
       } else {
-        const assembled = assembleDraft(creative.data, research, {showId});
+        const creative = creativeSchema.safeParse(parsed);
+        if (creative.success) creativeData = creative.data;
+        problems = creative.success ? [] : creative.error.issues.map((issue) => `${issue.path.join('.') || 'reply'}: ${issue.message}`);
+      }
+      if (creativeData && !problems.length) {
+        const assembled = assembleDraft(creativeData, research, {showId});
         result = evaluateDraft(assembled.draft, research, {showId});
         problems = [...assembled.problems, ...result.problems];
-        if (shape && creative.data.storyPattern !== shape) problems.unshift(`storyPattern is "${creative.data.storyPattern}", but this episode must use "${shape}".`);
+        if (shape && creativeData.storyPattern !== shape) problems.unshift(`storyPattern is "${creativeData.storyPattern}", but this episode must use "${shape}".`);
         if (problems.length === 0) {
-          // Only drafts that pass every production gate are fact-checked.
-          const verification = await verifyDraft({draft: assembled.draft, research, complete: verify});
-          problems = verificationProblems(verification);
+          // Facts and story are judged together; a repaired draft keeps its approved story review.
+          verification = await verifyDraft({draft: assembled.draft, research, complete: verify});
+          const factProblems = verificationProblems(verification);
+          if (!approved) review = await critiqueDraft({draft: assembled.draft, research, angle, complete: critique});
+          const storyProblems = approved ? [] : creativeProblems(review);
+          problems = [...factProblems, ...storyProblems];
+          const candidate = {draft: assembled.draft, creative: creativeData, manifest: result.manifest, audit: result.audit, verification, review, production: true, storyPassed: storyProblems.length === 0, factProblems: factProblems.length, score: review?.score, problems};
+          if (better(candidate, best)) best = candidate;
           if (problems.length === 0) {
-            // Only true drafts are judged as stories.
-            const review = await critiqueDraft({draft: assembled.draft, research, angle, complete: critique});
-            problems = creativeProblems(review);
-            if (problems.length === 0) {
-              onAttempt({attempt, problems, audit: result.audit, verification, creative: review});
-              return {draft: assembled.draft, manifest: result.manifest, audit: result.audit, verification, creative: review, attempts: attempt};
-            }
-            lastCreative = review;
+            onAttempt({attempt, problems, audit: result.audit, verification, creative: review, repaired});
+            return {draft: assembled.draft, manifest: result.manifest, audit: result.audit, verification, creative: review, attempts: attempt, ...(repaired ? {repaired} : {})};
+          }
+          if (!storyProblems.length && factProblems.length <= REPAIRABLE_LINES) {
+            approved = {creative: creativeData, review};
+            onAttempt({attempt, problems, audit: result.audit, verification, creative: review, repaired});
+            messages.push({role: 'user', content: repairRequest(factProblems)});
+            continue;
           }
         }
       }
     } catch (error) {
       problems = [`Could not read the reply as JSON: ${error.message}`];
     }
-    onAttempt({attempt, problems, audit: result?.audit, creative: lastCreative});
-    lastCreative = undefined;
-    messages.push({role: 'user', content: `The draft was rejected. Fix every problem below and reply with the complete corrected JSON object only.\n${problems.map((problem, index) => `${index + 1}. ${problem}`).join('\n')}`});
+    if (!best && creativeData && result?.problems) best = {creative: creativeData, production: false, problems};
+    onAttempt({attempt, problems, audit: result?.audit, verification, creative: approved ? undefined : review, repaired});
+    if (approved) {
+      // The repair broke something: go back to full revisions from the approved draft.
+      messages.push({role: 'user', content: `That repair didn't pass. Reply with the complete corrected JSON object only, starting from the draft the creative director approved and fixing every problem below.\n${problems.map((problem, index) => `${index + 1}. ${problem}`).join('\n')}\n\nApproved draft:\n${JSON.stringify(approved.creative)}`});
+      approved = undefined;
+      continue;
+    }
+    messages.push({role: 'user', content: `The draft was rejected. Fix every problem below and reply with the complete corrected JSON object only. Keep what already works: change only what these problems need.\n${problems.map((problem, index) => `${index + 1}. ${problem}`).join('\n')}`});
   }
   const error = new Error(`The writer could not produce a draft that passes every check after ${maxAttempts} attempts:\n${problems.map((problem) => `- ${problem}`).join('\n')}`);
   error.problems = problems;
+  error.attempts = maxAttempts;
+  error.best = best;
   throw error;
 };

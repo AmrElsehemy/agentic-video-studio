@@ -57,7 +57,9 @@ try {
     storyPattern: option('pattern') || undefined,
     refreshResearch: flag('refresh-research'),
     overwrite: flag('overwrite'),
-    maxAttempts: 5,
+    // Up to 4 writer calls per angle and 10 in total across angles.
+    maxAttempts: 4,
+    maxWriterCalls: 10,
   }));
 } catch (error) {
   console.error(`\n✗ ${error.message}`);
