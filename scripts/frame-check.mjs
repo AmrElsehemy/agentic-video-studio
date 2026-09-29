@@ -18,13 +18,24 @@ const voice = args.find((arg) => arg.startsWith('--voice='))?.split('=')[1] ?? p
 if (episodeIds.length === 0) throw new Error('Usage: npm run frames -- <episode-id> [<episode-id> ...]');
 
 const started = Date.now();
+const failed = [];
+// Prepare every episode first: this generates its music bed and sound effects
+// into public/, and the bundle only serves the public files present when it's built.
+const prepared = [];
+for (const episodeId of episodeIds) {
+  try {
+    prepared.push({episodeId, manifest: prepareRenderProps(episodeId, {voice}).manifest});
+  } catch (error) {
+    console.error(`✗ ${episodeId}: ${error.message}`);
+    failed.push(episodeId);
+  }
+}
+
 const serveUrl = await bundle({entryPoint: path.join(root, 'src', 'index.ts')});
 const browser = await openBrowser('chrome', {browserExecutable: process.env.REMOTION_BROWSER_EXECUTABLE || null});
-const failed = [];
 try {
-  for (const episodeId of episodeIds) {
+  for (const {episodeId, manifest} of prepared) {
     try {
-      const {manifest} = prepareRenderProps(episodeId, {voice});
       const inputProps = {manifest};
       const episode = await selectComposition({serveUrl, id: 'VerticalEpisode', inputProps, puppeteerInstance: browser});
       const frames = reviewFrames(manifest);
