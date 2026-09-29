@@ -4,6 +4,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import {findManifest} from './catalog.mjs';
+import {buildVoiceInstructions} from './lib/voice-direction.mjs';
 import {voiceInputHash} from './lib/voice-lock.mjs';
 
 const args = process.argv.slice(2);
@@ -45,7 +46,8 @@ const probePeakVolume = (file) => {
   return match ? Number(match[1]) : Number.NEGATIVE_INFINITY;
 };
 
-const cacheKey = (scene) => crypto.createHash('sha256').update(JSON.stringify({provider, model: config.model, voice: config.voice, speed: config.speed, instructions: config.instructions, narration: scene.narration})).digest('hex').slice(0, 20);
+const instructionsFor = (scene) => buildVoiceInstructions({baseInstructions: config.instructions, scene});
+const cacheKey = (scene) => crypto.createHash('sha256').update(JSON.stringify({provider, model: config.model, voice: config.voice, speed: config.speed, instructions: instructionsFor(scene), narration: scene.narration})).digest('hex').slice(0, 20);
 
 try {
   fs.mkdirSync(cacheRoot, {recursive: true});
@@ -62,7 +64,7 @@ try {
       const response = await fetch('https://api.openai.com/v1/audio/speech', {
         method: 'POST',
         headers: {Authorization: `Bearer ${apiKey}`, 'Content-Type': 'application/json'},
-        body: JSON.stringify({model: config.model, voice: config.voice, input: scene.narration, instructions: config.instructions, response_format: 'wav', speed: config.speed}),
+        body: JSON.stringify({model: config.model, voice: config.voice, input: scene.narration, instructions: instructionsFor(scene), response_format: 'wav', speed: config.speed}),
       });
       if (!response.ok) throw new Error(`OpenAI speech request failed (${response.status}): ${await response.text()}`);
       fs.writeFileSync(rawTrack, Buffer.from(await response.arrayBuffer()));
