@@ -48,7 +48,7 @@ const rankedAngleFallbacks = (angles, limit = 3) => {
  * `direct` is the Visual Director's (default: the writer's); null keeps the
  * archetype's shots for every scene.
  */
-export const runNewEpisode = async ({number, root = repoRoot, showId = 'pokepulses', fetchJson, complete, verify = complete, ideate = complete, angleCritique = ideate, critique = complete, direct = complete, storyPattern, refreshResearch = false, overwrite = false, maxAttempts = 3, maxWriterCalls = maxAttempts * 3, log = console.log}) => {
+export const runNewEpisode = async ({number, root = repoRoot, showId = 'pokepulses', fetchJson, complete, verify = complete, ideate = complete, angleCritique = ideate, critique = complete, direct = complete, storyPattern, refreshResearch = false, overwrite = false, maxAttempts = 3, maxWriterCalls = maxAttempts * 3, storyRevisions = 1, strictStory = false, log = console.log}) => {
   const researchDir = path.join(root, 'research', showId);
   const matches = fs.existsSync(researchDir)
     ? fs.readdirSync(researchDir).filter((file) => file.endsWith(`-${String(number).padStart(3, '0')}.json`)).sort()
@@ -118,11 +118,13 @@ export const runNewEpisode = async ({number, root = repoRoot, showId = 'pokepuls
         angle: candidate,
         showId,
         maxAttempts: attempts,
-        onAttempt: ({attempt, problems, audit, creative, repaired}) => {
+        storyRevisions,
+        strictStory,
+        onAttempt: ({attempt, problems, audit, creative, repaired, repairing, belowBar}) => {
           const story = creative && !creative.skipped ? `, creative ${creative.score}/100` : '';
           const fixed = repaired?.length ? ` after repairing ${repaired.join(', ')}` : '';
-          if (problems.length === 0) log(`✓ writer: attempt ${attempt} passed every check${fixed} (production ${audit.score}/100${story})`);
-          else if (creative?.passed && !creative.skipped && !repaired) log(`↻ writer: attempt ${attempt} story approved${story}; repairing ${problems.length} unsupported line${problems.length === 1 ? '' : 's'}:\n${problems.map((problem) => `    - ${problem}`).join('\n')}`);
+          if (problems.length === 0) log(`${belowBar ? '⚠' : '✓'} writer: attempt ${attempt} ${belowBar ? 'accepted: facts pass, story below the bar' : 'passed every check'}${fixed} (production ${audit.score}/100${story})`);
+          else if (repairing) log(`↻ writer: attempt ${attempt} story settled${story}; repairing ${repairing.length} unsupported line${repairing.length === 1 ? '' : 's'}:\n${repairing.map((problem) => `    - ${problem}`).join('\n')}`);
           else log(`✗ writer: attempt ${attempt} rejected (${problems.length} problem${problems.length === 1 ? '' : 's'}${story}):\n${problems.map((problem) => `    - ${problem}`).join('\n')}`);
         },
       });
@@ -186,9 +188,9 @@ export const runNewEpisode = async ({number, root = repoRoot, showId = 'pokepuls
   if (result.creative.skipped) {
     log(`⚠ creative: not judged${result.creative.modelError ? ` (the critic model failed: ${result.creative.modelError})` : ' (no critic model)'}.`);
   } else {
-    writeJson(path.join(researchDir, `${research.id}.creative.json`), {episodeId: research.id, checkedAt: new Date().toISOString(), ...result.creative});
+    writeJson(path.join(researchDir, `${research.id}.creative.json`), {episodeId: research.id, checkedAt: new Date().toISOString(), ...(result.belowBar ? {belowBar: true} : {}), ...result.creative});
     const weakest = [...result.creative.criteria].sort((a, b) => a.score - b.score).slice(0, 2);
-    log(`✓ creative: ${result.creative.score}/100 (weakest: ${weakest.map((item) => `${item.criterion} ${item.score}/5`).join(', ')}) → research/${showId}/${research.id}.creative.json`);
+    log(`${result.belowBar ? '⚠' : '✓'} creative: ${result.creative.score}/100${result.belowBar ? ' (below the bar: review the story before publishing)' : ''} (weakest: ${weakest.map((item) => `${item.criterion} ${item.score}/5`).join(', ')}) → research/${showId}/${research.id}.creative.json`);
   }
   const manifestPath = path.join(root, 'videos', showId, research.id, 'video.json');
   fs.mkdirSync(path.dirname(manifestPath), {recursive: true});

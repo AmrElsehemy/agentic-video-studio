@@ -106,6 +106,46 @@ describe('writer loop', () => {
   });
 });
 
+describe('story acceptance', () => {
+  it('accepts the best fact-clean draft, flagged below the bar, after one story revision', async () => {
+    const drafts = ['Stronger', 'Weaker'].map((title) => ({...goodReply(), title}));
+    const {complete, calls} = scripted(drafts.map((draft) => JSON.stringify(draft)));
+    let judgedCount = 0;
+    const critique = async () => {
+      const score = judgedCount++ === 0 ? 3 : 2;
+      return JSON.stringify(Object.fromEntries(Object.keys(CREATIVE_CRITERIA).map((criterion) => [criterion, {score, quote: 'q', revision: ''}])));
+    };
+    const result = await writeEpisode({research: await research888(), complete, verify: verifierRejecting(/^$/), critique, directing: '', maxAttempts: 4});
+    assert.equal(calls.length, 2, 'one draft and one story revision, then stop');
+    assert.equal(judgedCount, 2);
+    assert.equal(result.belowBar, true);
+    assert.equal(result.draft.title, 'Stronger', 'the better-scoring draft wins, not the latest');
+    assert.equal('score' in result.creative && result.creative.score, 60);
+  });
+
+  it('repairs the settled draft when its facts need a small fix', async () => {
+    const first = {...goodReply(), payoff: 'A totally invented payoff.'};
+    const {complete, calls} = scripted([JSON.stringify(first), JSON.stringify({...goodReply(), title: 'Worse'}), JSON.stringify({payoff: goodReply().payoff})]);
+    let judgedCount = 0;
+    const critique = async () => {
+      const score = judgedCount++ === 0 ? 3 : 2;
+      return JSON.stringify(Object.fromEntries(Object.keys(CREATIVE_CRITERIA).map((criterion) => [criterion, {score, quote: 'q', revision: ''}])));
+    };
+    const result = await writeEpisode({research: await research888(), complete, verify: verifierRejecting(/invented/), critique, directing: '', maxAttempts: 4});
+    assert.equal(calls.length, 3);
+    assert.match(calls[2].messages.at(-1)!.content, /Only these lines are not supported/);
+    assert.match(calls[2].messages[1].content, /A totally invented payoff/, 'the repair starts from the better draft');
+    assert.deepEqual(result.repaired, ['payoff']);
+    assert.equal(result.draft.payoff, goodReply().payoff);
+    assert.equal(result.belowBar, true);
+  });
+
+  it('keeps the story as a hard gate with strictStory', async () => {
+    const {complete} = scripted([1, 2, 3].map(() => JSON.stringify(goodReply())));
+    await assert.rejects(writeEpisode({research: await research888(), complete, verify: null, critique: critic(2).complete, directing: '', maxAttempts: 3, strictStory: true}), /could not produce a draft/);
+  });
+});
+
 describe('revision history', () => {
   it('sends only the brief, the latest draft and its problems, however many revisions', async () => {
     const drafts = [1, 2, 3].map((n) => ({...goodReply(), title: `Draft ${n}`, scenes: []}));
@@ -135,11 +175,11 @@ describe('episode:new writer budget', () => {
       reply.storyPattern = 'profile';
       return JSON.stringify(reply);
     };
-    await assert.rejects(runNewEpisode({number: 888, root: dir, fetchJson, complete, ideate, verify: null, critique: critic(2).complete, direct: null, maxAttempts: 2, maxWriterCalls: 3, log: (line: string) => logs.push(line)}));
+    await assert.rejects(runNewEpisode({number: 888, root: dir, fetchJson, complete, ideate, verify: verifierRejecting(/.+/), critique: critic(2).complete, direct: null, maxAttempts: 2, maxWriterCalls: 3, log: (line: string) => logs.push(line)}));
     assert.equal(writerCalls.length, 3, 'never more writer calls than the budget');
     assert.ok(logs.some((line) => /writer budget spent \(3 calls\)/.test(line)), logs.join('\n'));
     const saved = JSON.parse(fs.readFileSync(path.join(dir, 'out/zacian-888.best-attempt.json'), 'utf8'));
-    assert.equal(saved.creativeScore, 40);
+    assert.ok(saved.unsupportedLines > 4, 'no draft could pass on facts');
     assert.ok(saved.draft.scenes.length > 0);
     assert.ok(logs.some((line) => line.includes('out/zacian-888.best-attempt.json')));
   });

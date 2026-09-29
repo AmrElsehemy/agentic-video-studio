@@ -179,7 +179,7 @@ ${directing}
 
 # Output
 Reply with a single JSON object and nothing else, with exactly these fields:
-title, storyPattern, numberRelevant (boolean), premise, audiencePromise, openLoop, payoff, targetEmotion ("curiosity" | "surprise" | "debate" | "awe"), engagementQuestion, palette {background, surface, primary, secondary, ink as #rrggbb}, voiceInstructions, scenes[] {id (lowercase-slug), beat (optional), eyebrow (optional, max 40 chars), headline (max 70 chars), narration, caption (max 120 chars), facts (optional, up to 4 short labels, max 45 chars each), accent (optional #rrggbb), artwork (one of: ${artworkNames})}.
+title (max 120 chars), storyPattern, numberRelevant (boolean), premise, audiencePromise, openLoop, payoff (each max 140 chars), targetEmotion ("curiosity" | "surprise" | "debate" | "awe"), engagementQuestion (max 140 chars), palette {background, surface, primary, secondary, ink as #rrggbb}, voiceInstructions, scenes[] {id (lowercase-slug), beat (optional), eyebrow (optional, max 40 chars), headline (max 70 chars), narration, caption (max 120 chars), facts (optional, up to 4 short labels, max 45 chars each), accent (optional #rrggbb), artwork (one of: ${artworkNames})}.
 
 # Story shapes (storyPattern)
 ${describeArchetypes()}
@@ -260,7 +260,7 @@ export const patchLines = (creative, patches) => {
   return {creative: patched, unknown};
 };
 
-const repairRequest = (problems) => `The story passed the creative director. Only these lines are not supported by the research:
+const repairRequest = (problems) => `The story is settled. Only these lines are not supported by the research:
 ${problems.map((problem, index) => `${index + 1}. ${problem}`).join('\n')}
 
 Rewrite only these lines, keeping their role in the story, using only researched facts (a faithful, punchy paraphrase is fine; never a stronger claim). To drop a facts label, use "". Reply with a JSON object only, mapping each location to its new text, e.g. {"scenes.hook.caption": "..."}.`;
@@ -275,21 +275,24 @@ const better = (a, b) => {
 };
 
 /**
- * Write an episode draft, revising until it passes every gate or attempts run out.
- * `complete({system, messages})` returns the model's reply text; injected so
- * tests can script replies.
+ * Write an episode draft. `complete({system, messages})` returns the model's
+ * reply text; injected so tests can script replies.
  *
  * `verify` checks factual claims (a model completion for the Fact Verifier);
  * without it only the verifier's deterministic rules run. `critique` is the
  * creative critic's completion; without it the story isn't judged.
- * The production gate (schema, compiler, audit, numbers) runs first; a draft
- * that passes it is judged on facts and story together, so one revision fixes
- * both instead of trading one for the other. When the story is approved and
- * only a few lines are unsupported, the writer rewrites just those lines and
- * they are patched into the approved draft. Every writer call counts as an
- * attempt. On failure the error carries the best attempt (`error.best`).
+ *
+ * Production (schema, compiler, audit, numbers) and facts are hard gates. The
+ * story is judged alongside facts, but a model's taste score is noisy and
+ * revising towards it doesn't converge, so it gets `storyRevisions` full
+ * revisions; after that the best-scoring draft whose facts pass (or can be
+ * repaired) is accepted and flagged `belowBar` for a person to review.
+ * `strictStory` restores the story as a hard gate. When the story is settled
+ * and only a few lines are unsupported, the writer rewrites just those lines
+ * and they are patched in. Every writer call counts as an attempt; on failure
+ * the error carries the best attempt (`error.best`).
  */
-export const writeEpisode = async ({research, complete, verify, critique, directing, references = [], storyPattern, angle, showId = 'pokepulses', maxAttempts = 3, onAttempt = () => {}}) => {
+export const writeEpisode = async ({research, complete, verify, critique, directing, references = [], storyPattern, angle, showId = 'pokepulses', maxAttempts = 3, storyRevisions = 1, strictStory = false, onAttempt = () => {}}) => {
   const {system, user} = buildWriterPrompt({research, directing, references, storyPattern, angle});
   const shape = storyPattern || angle?.archetype;
   const brief = {role: 'user', content: user};
@@ -299,9 +302,20 @@ export const writeEpisode = async ({research, complete, verify, critique, direct
   const revise = (draft, feedback) => {
     messages = [brief, {role: 'assistant', content: draft}, {role: 'user', content: feedback}];
   };
+  const accept = (candidate, attempt, repaired) => ({
+    draft: candidate.draft, manifest: candidate.manifest, audit: candidate.audit, verification: candidate.verification, creative: candidate.review, attempts: attempt,
+    ...(candidate.storyPassed ? {} : {belowBar: true}),
+    ...(repaired ? {repaired} : {}),
+  });
   let problems = [];
   let best;
-  // Set while repairing single lines of a story-approved draft.
+  // Every draft the critic judged, for picking the best once story revisions run out.
+  const judged = [];
+  // Every draft that passed production.
+  const drafts = [];
+  // The story's final verdict ({review, storyPassed}) once it is settled.
+  let verdict;
+  // Set while repairing single lines of a draft whose story is settled.
   let approved;
   for (let attempt = 1; attempt <= maxAttempts; attempt++) {
     const reply = await complete({system, messages});
@@ -310,6 +324,8 @@ export const writeEpisode = async ({research, complete, verify, critique, direct
     let verification;
     let review = approved?.review;
     let repaired;
+    // The draft the next revision starts from (the settled one, once the story is settled).
+    let carryFrom = reply;
     try {
       const parsed = parseReply(reply);
       // A model may answer a repair request with a whole draft: judge it as one.
@@ -333,22 +349,40 @@ export const writeEpisode = async ({research, complete, verify, critique, direct
         problems = [...assembled.problems, ...result.problems];
         if (shape && creativeData.storyPattern !== shape) problems.unshift(`storyPattern is "${creativeData.storyPattern}", but this episode must use "${shape}".`);
         if (problems.length === 0) {
-          // Facts and story are judged together; a repaired draft keeps its approved story review.
+          // Facts and story are judged together; a repaired draft keeps its story review.
           verification = await verifyDraft({draft: assembled.draft, research, complete: verify});
           const factProblems = verificationProblems(verification);
-          if (!approved) review = await critiqueDraft({draft: assembled.draft, research, angle, complete: critique});
-          const storyProblems = approved ? [] : creativeProblems(review);
-          problems = [...factProblems, ...storyProblems];
-          const candidate = {draft: assembled.draft, creative: creativeData, manifest: result.manifest, audit: result.audit, verification, review, production: true, storyPassed: storyProblems.length === 0, factProblems: factProblems.length, score: review?.score, problems};
-          if (better(candidate, best)) best = candidate;
-          if (problems.length === 0) {
-            onAttempt({attempt, problems, audit: result.audit, verification, creative: review, repaired});
-            return {draft: assembled.draft, manifest: result.manifest, audit: result.audit, verification, creative: review, attempts: attempt, ...(repaired ? {repaired} : {})};
+          // The story stays open to revision until it passes or (unless strict) its revisions are used up;
+          // after that, drafts inherit the settled verdict instead of being judged again.
+          const storyOpen = !verdict && (strictStory || judged.length <= storyRevisions);
+          if (storyOpen) review = await critiqueDraft({draft: assembled.draft, research, angle, complete: critique});
+          else review = verdict?.review ?? review;
+          const storyProblems = storyOpen ? creativeProblems(review) : [];
+          const candidate = {
+            draft: assembled.draft, creative: creativeData, manifest: result.manifest, audit: result.audit, verification, review,
+            production: true, storyPassed: storyOpen ? storyProblems.length === 0 : Boolean(verdict?.storyPassed), factProblems: factProblems.length, factList: factProblems, score: review?.score,
+          };
+          if (storyOpen) judged.push(candidate);
+          drafts.push(candidate);
+          let settled = candidate;
+          if (storyOpen && (candidate.storyPassed || (!strictStory && judged.length > storyRevisions))) {
+            // Settling now: carry on from the best-scoring judged draft that can still pass on facts.
+            if (!candidate.storyPassed) settled = [...judged].filter((item) => item.factProblems <= REPAIRABLE_LINES).sort((a, b) => (b.score ?? 0) - (a.score ?? 0) || a.factProblems - b.factProblems)[0] ?? candidate;
+            verdict = {review: settled.review, storyPassed: settled.storyPassed};
           }
-          if (!storyProblems.length && factProblems.length <= REPAIRABLE_LINES) {
-            approved = {creative: creativeData, review};
-            onAttempt({attempt, problems, audit: result.audit, verification, creative: review, repaired});
-            revise(JSON.stringify(creativeData), repairRequest(factProblems));
+          const storySettled = Boolean(verdict);
+          if (storySettled) carryFrom = JSON.stringify(settled.creative);
+          problems = [...factProblems, ...(storySettled ? [] : storyProblems)];
+          candidate.problems = problems;
+          if (better(candidate, best)) best = candidate;
+          if (storySettled && settled.factProblems === 0) {
+            onAttempt({attempt, problems: [], audit: settled.audit, verification: settled.verification, creative: settled.review, repaired, belowBar: !settled.storyPassed});
+            return accept(settled, attempt, repaired);
+          }
+          if (storySettled && settled.factProblems <= REPAIRABLE_LINES) {
+            approved = {creative: settled.creative, review: settled.review};
+            onAttempt({attempt, problems, audit: result.audit, verification, creative: review, repaired, repairing: settled.factList});
+            revise(JSON.stringify(settled.creative), repairRequest(settled.factList));
             continue;
           }
         }
@@ -359,13 +393,16 @@ export const writeEpisode = async ({research, complete, verify, critique, direct
     if (!best && creativeData && result?.problems) best = {creative: creativeData, production: false, problems};
     onAttempt({attempt, problems, audit: result?.audit, verification, creative: approved ? undefined : review, repaired});
     if (approved) {
-      // The repair broke something: go back to full revisions from the approved draft.
-      revise(JSON.stringify(approved.creative), `That repair didn't pass. Reply with the complete corrected JSON object only, starting from your draft above (the one the creative director approved) and fixing every problem below.\n${problems.map((problem, index) => `${index + 1}. ${problem}`).join('\n')}`);
+      // The repair broke something: go back to full revisions from the settled draft.
+      revise(JSON.stringify(approved.creative), `That repair didn't pass. Reply with the complete corrected JSON object only, starting from your draft above and fixing every problem below.\n${problems.map((problem, index) => `${index + 1}. ${problem}`).join('\n')}`);
       approved = undefined;
       continue;
     }
-    revise(reply, `The draft was rejected. Fix every problem below and reply with the complete corrected JSON object only. Keep what already works: change only what these problems need.\n${problems.map((problem, index) => `${index + 1}. ${problem}`).join('\n')}`);
+    revise(carryFrom, `The draft was rejected. Fix every problem below and reply with the complete corrected JSON object only. Keep what already works: change only what these problems need.\n${problems.map((problem, index) => `${index + 1}. ${problem}`).join('\n')}`);
   }
+  // Out of attempts: a draft whose facts pass is still worth keeping, flagged for review.
+  const factClean = drafts.filter((item) => item.factProblems === 0).sort((a, b) => Number(b.storyPassed) - Number(a.storyPassed) || (b.score ?? 0) - (a.score ?? 0))[0];
+  if (factClean && !strictStory) return accept(factClean, maxAttempts);
   const error = new Error(`The writer could not produce a draft that passes every check after ${maxAttempts} attempts:\n${problems.map((problem) => `- ${problem}`).join('\n')}`);
   error.problems = problems;
   error.attempts = maxAttempts;
