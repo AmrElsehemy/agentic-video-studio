@@ -28,15 +28,18 @@ export const VerticalEpisode: React.FC<{manifest: VideoManifest}> = ({manifest})
   });
 
   const audio = manifest.audio as RuntimeAudio;
+  // Short-form mix: narration remains dominant, but not so dominant that the
+  // bed and punctuation disappear perceptually on phone speakers.
+  const voiceVolume = 0.94;
+  const musicVolume = audio.musicVolume;
+  const sfxVolume = audio.sfxVolume ?? 0.82;
 
   return (
     <AbsoluteFill style={{...fontVariables(manifest), backgroundColor: manifest.palette.background}}>
       {sequences}
-      {/* The generated bed is normalized before render, so the configured show volume is now meaningful. */}
-      {audio.music ? <Audio src={staticFile(audio.music)} volume={audio.musicVolume} loop /> : null}
-      {/* SFX live on their own track so impacts/reveals are not buried by music ducking. */}
-      {audio.sfx ? <Audio src={staticFile(audio.sfx)} volume={audio.sfxVolume ?? 0.48} /> : null}
-      {audio.voiceover ? <Audio src={staticFile(audio.voiceover)} /> : null}
+      {audio.music ? <Audio src={staticFile(audio.music)} volume={musicVolume} loop /> : null}
+      {audio.sfx ? <Audio src={staticFile(audio.sfx)} volume={sfxVolume} /> : null}
+      {audio.voiceover ? <Audio src={staticFile(audio.voiceover)} volume={voiceVolume} /> : null}
     </AbsoluteFill>
   );
 };
