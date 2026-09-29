@@ -65,6 +65,9 @@ if (fresh) {
 const assets = spawnSync(process.execPath, ['scripts/generate-audio.mjs', episodeId], {cwd: root, stdio: 'inherit'});
 if (assets.status !== 0) process.exit(assets.status ?? 1);
 
+// Runtime-only mix overrides: keep compiled manifests stable while making the
+// rendered short clearly audible on phone speakers.
+manifest.audio.musicVolume = 0.18;
 manifest.audio.sfx = `generated/${episodeId}-sfx.wav`;
 manifest.audio.sfxVolume = 0.82;
 console.log(`✓ audio mix: voice=0.94 music=${manifest.audio.musicVolume.toFixed(2)} sfx=${manifest.audio.sfxVolume.toFixed(2)}`);
