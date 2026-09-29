@@ -91,6 +91,8 @@ Options: `--pattern=<archetype>` forces a story shape, `--overwrite` replaces an
 
 ## Pipeline
 
+The agents and how they hand work to each other are drawn in [`docs/architecture.drawio`](docs/architecture.drawio) (open it at [app.diagrams.net](https://app.diagrams.net) or with the draw.io VS Code extension).
+
 `Idea → research → script → storyboard → assets → voice/music → Remotion → QA → publish`
 
 Milestone 0.2 implements the deterministic visual pipeline plus an opt-in narration stage:
