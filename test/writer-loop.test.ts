@@ -131,8 +131,13 @@ describe('story acceptance', () => {
       const score = judgedCount++ === 0 ? 3 : 2;
       return JSON.stringify(Object.fromEntries(Object.keys(CREATIVE_CRITERIA).map((criterion) => [criterion, {score, quote: 'q', revision: ''}])));
     };
-    const result = await writeEpisode({research: await research888(), complete, verify: verifierRejecting(/invented/), critique, directing: '', maxAttempts: 4});
+    const repairing: (number | undefined)[] = [];
+    const onAttempt = ({repairing: lines, creative}: {repairing?: string[]; creative?: object}) => {
+      if (lines) repairing.push(creative && 'score' in creative ? creative.score as number : undefined);
+    };
+    const result = await writeEpisode({research: await research888(), complete, verify: verifierRejecting(/invented/), critique, directing: '', maxAttempts: 4, onAttempt});
     assert.equal(calls.length, 3);
+    assert.deepEqual(repairing, [60], "the repair log reports the settled draft's score, not the rejected one's");
     assert.match(calls[2].messages.at(-1)!.content, /Only these lines are not supported/);
     assert.match(calls[2].messages[1].content, /A totally invented payoff/, 'the repair starts from the better draft');
     assert.deepEqual(result.repaired, ['payoff']);

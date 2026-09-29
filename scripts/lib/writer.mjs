@@ -381,7 +381,7 @@ export const writeEpisode = async ({research, complete, verify, critique, direct
           }
           if (storySettled && settled.factProblems <= REPAIRABLE_LINES) {
             approved = {creative: settled.creative, review: settled.review};
-            onAttempt({attempt, problems, audit: result.audit, verification, creative: review, repaired, repairing: settled.factList});
+            onAttempt({attempt, problems, audit: settled.audit, verification: settled.verification, creative: settled.review, repaired, repairing: settled.factList});
             revise(JSON.stringify(settled.creative), repairRequest(settled.factList));
             continue;
           }
