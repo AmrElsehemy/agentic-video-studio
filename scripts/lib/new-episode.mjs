@@ -2,6 +2,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
+import {getArchetype} from '../archetypes.mjs';
 import {findAngle} from './angles.mjs';
 import {TIERS} from './source-tiers.mjs';
 import {serializeManifest} from './compiler.mjs';
@@ -14,6 +15,14 @@ const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..'
 const writeJson = (file, value) => {
   fs.mkdirSync(path.dirname(file), {recursive: true});
   fs.writeFileSync(file, `${JSON.stringify(value, null, 2)}\n`);
+};
+
+const writerStructureBrief = (shape) => {
+  if (!shape) return '';
+  const archetype = getArchetype(shape);
+  const minimumPlan = archetype.beats.flatMap((beat) => Array.from({length: beat.minScenes}, () => beat.id));
+  const allowed = archetype.beats.map((beat) => `${beat.id} (${beat.minScenes}-${beat.maxScenes})`).join(', ');
+  return `\n\n# Exact structure for this episode\nThe storyPattern is ${shape}. Do not infer the scene structure yourself.\nUse this exact minimum beat sequence, in this order: ${minimumPlan.join(' → ')}.\nSet the \"beat\" field explicitly on EVERY scene. Valid beat ids and ranges: ${allowed}.\nStart with exactly ${minimumPlan.length} scenes following that minimum sequence. Add extra scenes only when they materially improve the story and never exceed a beat's maximum. Never invent a beat id such as \"interaction\" unless it is explicitly listed above.\nvoiceInstructions MUST be a plain JSON string, never an object.\nBefore replying, count the scenes per beat and verify every minimum/maximum above is satisfied.`;
 };
 
 /**
@@ -63,13 +72,14 @@ export const runNewEpisode = async ({number, root = repoRoot, showId = 'pokepuls
     log(`${angle.belowBar ? '⚠' : '✓'} angle: "${angle.premise}" [${angle.archetype}, ${angle.total}/25${angle.belowBar ? ', below the bar; the best found' : ''}] → research/${showId}/${research.id}.angles.json`);
   }
   const shape = storyPattern || angle?.archetype;
+  const directing = `${fs.readFileSync(path.join(repoRoot, 'DIRECTING.md'), 'utf8')}${writerStructureBrief(shape)}`;
 
   const result = await writeEpisode({
     research,
     complete,
     verify,
     critique,
-    directing: fs.readFileSync(path.join(repoRoot, 'DIRECTING.md'), 'utf8'),
+    directing,
     references: selectReferences(loadReferences(), shape),
     storyPattern,
     angle,
