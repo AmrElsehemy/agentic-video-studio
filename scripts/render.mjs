@@ -10,9 +10,6 @@ const requestedVoice = args.find((arg) => arg.startsWith('--voice='))?.split('='
 if (!['auto', 'openai', 'local', 'none'].includes(requestedVoice)) throw new Error(`Unsupported voice selection: ${requestedVoice}`);
 const {root, manifestPath} = findManifest(episodeId);
 
-// Validate the target manifest before Remotion bundles the project. The Studio
-// root uses a built-in preview manifest, so other episodes' manifests are
-// never loaded and can't break this render.
 const validation = spawnSync(process.execPath, ['--import', 'tsx', 'scripts/validate.ts', episodeId], {cwd: root, stdio: 'inherit'});
 if (validation.status !== 0) process.exit(validation.status ?? 1);
 
@@ -21,19 +18,10 @@ const propsPath = path.join(root, 'out', `${episodeId}.props.json`);
 const outputPath = path.join(root, 'out', `${episodeId}.mp4`);
 fs.mkdirSync(path.dirname(outputPath), {recursive: true});
 
-// Related subjects are research context, not automatic cast members. Keep one
-// available to the renderer only when the actual scene explicitly references
-// that subject by artwork or by name in visible/spoken/primitive content.
 const sceneExplicitlyReferences = (scene, item) => {
   if (scene.artworkUrl === item.artworkUrl) return true;
-  const text = [
-    scene.eyebrow,
-    scene.headline,
-    scene.narration,
-    scene.caption,
-    ...(scene.facts ?? []),
-    scene.primitive ? JSON.stringify(scene.primitive) : '',
-  ].filter(Boolean).join(' ').toLowerCase();
+  const text = [scene.eyebrow, scene.headline, scene.narration, scene.caption, ...(scene.facts ?? []), scene.primitive ? JSON.stringify(scene.primitive) : '']
+    .filter(Boolean).join(' ').toLowerCase();
   return text.includes(item.name.toLowerCase());
 };
 manifest.related = (manifest.related ?? []).filter((item) => manifest.scenes.some((scene) => sceneExplicitlyReferences(scene, item)));
@@ -44,8 +32,6 @@ const providerFor = (candidate) => candidate === localVoice ? 'local' : 'openai'
 const timingPathFor = (provider) => path.join(root, 'public', 'generated', `${episodeId}-${provider}-timing.json`);
 const readTiming = (provider) => fs.existsSync(timingPathFor(provider)) ? JSON.parse(fs.readFileSync(timingPathFor(provider), 'utf8')) : null;
 
-// A narration track is only usable while it matches the manifest it was
-// generated from. Otherwise the video would ship old narration and timing.
 const voiceCandidates = requestedVoice === 'openai' ? [openAiVoice] : requestedVoice === 'local' ? [localVoice] : requestedVoice === 'none' ? [] : [openAiVoice, localVoice];
 const existing = voiceCandidates
   .filter((candidate) => candidate && fs.existsSync(path.join(root, 'public', candidate)))
@@ -79,10 +65,9 @@ if (fresh) {
 const assets = spawnSync(process.execPath, ['scripts/generate-audio.mjs', episodeId], {cwd: root, stdio: 'inherit'});
 if (assets.status !== 0) process.exit(assets.status ?? 1);
 
-// Runtime-only sound-design track. It stays out of the compiled manifest so
-// show-profile changes don't create draft/manifest parity churn.
 manifest.audio.sfx = `generated/${episodeId}-sfx.wav`;
-manifest.audio.sfxVolume = 0.48;
+manifest.audio.sfxVolume = 0.82;
+console.log(`✓ audio mix: voice=0.94 music=${manifest.audio.musicVolume.toFixed(2)} sfx=${manifest.audio.sfxVolume.toFixed(2)}`);
 
 fs.writeFileSync(propsPath, JSON.stringify({manifest}, null, 2));
 
