@@ -3,10 +3,49 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {describe, it} from 'node:test';
 import {fileURLToPath} from 'node:url';
-import {framePath, reviewFrames} from '../scripts/lib/render-props.mjs';
+import {enforceSubjectOnlyArtwork, framePath, reviewFrames} from '../scripts/lib/render-props.mjs';
 import {getDurationInFrames, videoSchema} from '../src/schema';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+
+describe('PokePulses subject-only artwork', () => {
+  it('removes related Pokemon and replaces foreign scene artwork with the subject', () => {
+    const manifest = {
+      show: {id: 'pokepulses'},
+      subject: {name: 'Bulbasaur', artworkUrl: 'bulbasaur.png'},
+      related: [
+        {name: 'Ivysaur', artworkUrl: 'ivysaur.png'},
+        {name: 'Venusaur', artworkUrl: 'venusaur.png'},
+      ],
+      scenes: [
+        {id: 'hook'},
+        {id: 'evolution', artworkUrl: 'venusaur.png'},
+        {id: 'self', artworkUrl: 'bulbasaur.png'},
+      ],
+    };
+
+    enforceSubjectOnlyArtwork(manifest);
+
+    assert.deepEqual(manifest.related, []);
+    assert.equal(manifest.scenes[0].artworkUrl, undefined);
+    assert.equal(manifest.scenes[1].artworkUrl, 'bulbasaur.png');
+    assert.equal(manifest.scenes[2].artworkUrl, 'bulbasaur.png');
+  });
+
+  it('does not alter other shows', () => {
+    const manifest = {
+      show: {id: 'another-show'},
+      subject: {name: 'A', artworkUrl: 'a.png'},
+      related: [{name: 'B', artworkUrl: 'b.png'}],
+      scenes: [{id: 'compare', artworkUrl: 'b.png'}],
+    };
+
+    enforceSubjectOnlyArtwork(manifest);
+
+    assert.equal(manifest.related.length, 1);
+    assert.equal(manifest.scenes[0].artworkUrl, 'b.png');
+  });
+});
 
 describe('review frames', () => {
   it('picks one frame per scene, 60% of the way in', () => {
