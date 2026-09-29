@@ -34,10 +34,9 @@ const writeMonoWav = (samples, output, targetPeak) => {
   }
   fs.mkdirSync(path.dirname(output), {recursive: true});
   fs.writeFileSync(output, wav);
-  return peak * gain;
+  return {sourcePeak: peak, gain};
 };
 
-// The show's music bed (manifest.audio.bed, from shows/<id>.json).
 const {bpm, notes} = manifest.audio.bed ?? {bpm: 126, notes: [110, 130.81, 146.83, 164.81, 146.83, 130.81, 98, 130.81]};
 const beatSeconds = 60 / bpm;
 const soundEvents = planSoundEvents(manifest.scenes);
@@ -83,30 +82,34 @@ const sfxSamples = new Float32Array(sampleCount);
 
 for (let i = 0; i < sampleCount; i++) {
   const time = i / rate;
-  const beat = Math.floor(time / beatSeconds);
+  const beatIndex = Math.floor(time / beatSeconds);
   const beatPhase = (time % beatSeconds) / beatSeconds;
-  const frequency = notes[beat % notes.length];
+  const eighthPhase = (time % (beatSeconds / 2)) / (beatSeconds / 2);
+  const frequency = notes[beatIndex % notes.length];
   const activeScene = sceneWindows.find((window) => time >= window.start && time < window.end);
   const energy = activeScene?.energy ?? 1;
 
-  const bass = Math.sin(2 * Math.PI * frequency * time) * 0.20;
-  const shimmer = Math.sin(2 * Math.PI * frequency * 2 * time) * 0.045;
-  const kick = Math.sin(2 * Math.PI * (62 - beatPhase * 30) * time) * Math.exp(-beatPhase * 15) * 0.27;
-  const microPhase = (time % 1.1) / 1.1;
-  const tick = Math.sin(i * 12.9898) * Math.exp(-microPhase * 45) * 0.035;
-  const pulse = 0.74 + 0.26 * Math.sin(Math.PI * beatPhase);
-  const fade = Math.max(0, Math.min(1, time / 0.45, (duration - time) / 0.65));
-  musicSamples[i] = ((bass + shimmer + kick) * pulse + tick) * energy * fade;
+  // A compact electro-pop bed: bass, octave arp, kick, backbeat and hats.
+  const bass = Math.sin(2 * Math.PI * frequency * time) * 0.18;
+  const arpGate = Math.exp(-eighthPhase * 6.5);
+  const arpFrequency = frequency * (beatIndex % 2 === 0 ? 2 : 3);
+  const arp = Math.sin(2 * Math.PI * arpFrequency * time) * arpGate * 0.12;
+  const pad = (Math.sin(2 * Math.PI * frequency * 0.5 * time) + Math.sin(2 * Math.PI * frequency * 0.75 * time) * 0.6) * 0.055;
+  const kick = Math.sin(2 * Math.PI * (66 - beatPhase * 34) * time) * Math.exp(-beatPhase * 16) * 0.34;
+  const backbeat = beatIndex % 2 === 1 ? Math.sin(i * 1.971 + beatIndex * 17.3) * Math.exp(-beatPhase * 34) * 0.12 : 0;
+  const hat = Math.sin(i * 7.113) * Math.exp(-eighthPhase * 38) * 0.055;
+  const pulse = 0.78 + 0.22 * Math.sin(Math.PI * beatPhase);
+  const fade = Math.max(0, Math.min(1, time / 0.32, (duration - time) / 0.52));
+  musicSamples[i] = ((bass + arp + pad) * pulse + kick + backbeat + hat) * energy * fade;
 
-  // SFX intentionally do NOT use the global music fade. The old design muted
-  // the hook impact at t=0 and then attenuated every cue with the music bed.
+  // SFX intentionally stay outside the music fade and normalization.
   sfxSamples[i] = soundEvents.reduce((sum, event) => sum + cueSample(event, time, i), 0);
 }
 
 const musicOutput = path.join(root, 'public', 'generated', `${episodeId}-bed.wav`);
 const sfxOutput = path.join(root, 'public', 'generated', `${episodeId}-sfx.wav`);
-const musicPeak = writeMonoWav(musicSamples, musicOutput, 0.88);
-const sfxPeak = writeMonoWav(sfxSamples, sfxOutput, 0.96);
+const musicStats = writeMonoWav(musicSamples, musicOutput, 0.92);
+const sfxStats = writeMonoWav(sfxSamples, sfxOutput, 0.98);
 
-console.log(`✓ music bed: ${path.relative(root, musicOutput)} (${duration.toFixed(1)}s, ${bpm} bpm, normalized peak ${musicPeak.toFixed(2)})`);
-console.log(`✓ sound effects: ${path.relative(root, sfxOutput)} (${soundEvents.length} cues, normalized peak ${sfxPeak.toFixed(2)})`);
+console.log(`✓ music bed: ${path.relative(root, musicOutput)} (${duration.toFixed(1)}s, ${bpm} bpm, gain ${musicStats.gain.toFixed(2)}x)`);
+console.log(`✓ sound effects: ${path.relative(root, sfxOutput)} (${soundEvents.length} cues, gain ${sfxStats.gain.toFixed(2)}x)`);
