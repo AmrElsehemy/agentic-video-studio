@@ -65,10 +65,18 @@ export const buildCreativeCriticPrompt = ({draft, research, angle}) => ({
 Score each criterion from 1 (poor) to 5 (excellent). Be strict: a competent but forgettable draft scores 3.
 ${Object.entries(CREATIVE_CRITERIA).map(([key, description]) => `- ${key}: ${description}`).join('\n')}
 
-For each, quote the exact words from the draft your score is based on, and give one concrete revision (what to change and how), or "" if it scores 5.
+CRITICAL EVIDENCE RULE:
+- Every revision you recommend must be achievable using ONLY facts explicitly present in the supplied research.
+- Never suggest inventing consequences, motives, strategies, battles, predators, risks, benefits, abilities, learned behavior, or interactions that the research does not state.
+- Never suggest strengthening a claim beyond the evidence. For example, "sometimes struck by lightning" cannot become "attracts lightning like a magnet" or "harnesses lightning".
+- You may improve framing, ordering, curiosity, contrast, pacing, wording, reveal timing, or ask a non-assertive question grounded in the evidence.
+- If the research is too thin to support a stronger factual twist, say so and recommend a stronger presentation of the existing evidence instead of inventing one.
+- Treat the chosen angle as a framing constraint, not as independent evidence. If the angle overstates the research, do not reinforce the overstatement.
+
+For each, quote the exact words from the draft your score is based on, and give one concrete evidence-safe revision (what to change and how), or "" if it scores 5.
 
 Reply with a JSON object only: {${Object.keys(CREATIVE_CRITERIA).map((key) => `"${key}": {"score": 1-5, "quote": "...", "revision": "..."}`).join(', ')}}`,
-  messages: [{role: 'user', content: `${angle ? `The chosen angle: ${angle.premise}\n\n` : ''}${research ? `Research (for judging specificity):\n${JSON.stringify({name: research.name, category: research.category, types: research.types, pokedexEntries: research.pokedexEntries, evolutionChain: research.evolutionChain.map(({name, method}) => ({name, method})), varieties: research.varieties.map(({name, types}) => ({name, types}))}, null, 2)}\n\n` : `Subject: ${draft.subject.name}\n\n`}Draft:\n${JSON.stringify({title: draft.title, premise: draft.premise, openLoop: draft.openLoop, payoff: draft.payoff, engagementQuestion: draft.engagementQuestion, scenes: draft.scenes.map(({id, headline, narration, caption}) => ({id, headline, narration, caption}))}, null, 2)}`}],
+  messages: [{role: 'user', content: `${angle ? `The chosen angle: ${angle.premise}\n\n` : ''}${research ? `Research (the ONLY factual source for revision advice):\n${JSON.stringify({name: research.name, category: research.category, types: research.types, pokedexEntries: research.pokedexEntries, evolutionChain: research.evolutionChain.map(({name, method}) => ({name, method})), varieties: research.varieties.map(({name, types}) => ({name, types}))}, null, 2)}\n\n` : `Subject: ${draft.subject.name}\n\n`}Draft:\n${JSON.stringify({title: draft.title, premise: draft.premise, openLoop: draft.openLoop, payoff: draft.payoff, engagementQuestion: draft.engagementQuestion, scenes: draft.scenes.map(({id, headline, narration, caption}) => ({id, headline, narration, caption}))}, null, 2)}`}],
 });
 
 /**
