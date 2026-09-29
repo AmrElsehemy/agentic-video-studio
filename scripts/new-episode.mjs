@@ -69,9 +69,12 @@ try {
     storyPattern: option('pattern') || undefined,
     refreshResearch: flag('refresh-research'),
     overwrite: flag('overwrite'),
-    // Up to 4 writer calls per angle and 10 in total across angles.
+    // Up to 4 writer calls per angle and 10 in total across angles. The story
+    // gets one revision; then the best draft whose facts pass is kept, flagged
+    // for review (--strict-story makes the story a hard gate again).
     maxAttempts: 4,
     maxWriterCalls: 10,
+    strictStory: flag('strict-story'),
   }));
 } catch (error) {
   console.error(`\n✗ ${error.message}`);

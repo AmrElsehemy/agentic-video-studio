@@ -23,5 +23,7 @@ export declare const runNewEpisode: (options: {
   overwrite?: boolean;
   maxAttempts?: number;
   maxWriterCalls?: number;
+  storyRevisions?: number;
+  strictStory?: boolean;
   log?: (line: string) => void;
-}) => Promise<{id: string; research: Research; angle?: RankedAngle & {belowBar?: boolean}; visuals: {assigned: VisualAssignment[]; rejected: {id: string; reason: string}[]; modelError?: string}; draft: Draft; manifest: VideoManifest; audit: EngagementAudit; verification: VerificationReport; creative: CreativeReview; attempts: number}>;
+}) => Promise<{id: string; research: Research; angle?: RankedAngle & {belowBar?: boolean}; visuals: {assigned: VisualAssignment[]; rejected: {id: string; reason: string}[]; modelError?: string}; draft: Draft; manifest: VideoManifest; audit: EngagementAudit; verification: VerificationReport; creative: CreativeReview; attempts: number; belowBar?: boolean}>;
