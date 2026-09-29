@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {getArchetype} from '../archetypes.mjs';
-import {findAngle} from './angles.mjs';
+import {findAngle, MIN_ANGLE_SCORE} from './angles.mjs';
 import {TIERS} from './source-tiers.mjs';
 import {serializeManifest} from './compiler.mjs';
 import {researchPokemon} from './pokeapi.mjs';
@@ -23,6 +23,16 @@ const writerStructureBrief = (shape) => {
   const minimumPlan = archetype.beats.flatMap((beat) => Array.from({length: beat.minScenes}, () => beat.id));
   const allowed = archetype.beats.map((beat) => `${beat.id} (${beat.minScenes}-${beat.maxScenes})`).join(', ');
   return `\n\n# Exact structure for this episode\nThe storyPattern is ${shape}. Do not infer the scene structure yourself.\nUse this exact minimum beat sequence, in this order: ${minimumPlan.join(' → ')}.\nSet the \"beat\" field explicitly on EVERY scene. Valid beat ids and ranges: ${allowed}.\nStart with exactly ${minimumPlan.length} scenes following that minimum sequence. Add extra scenes only when they materially improve the story and never exceed a beat's maximum. Never invent a beat id such as \"interaction\" unless it is explicitly listed above.\nvoiceInstructions MUST be a plain JSON string, never an object.\nNarration timing is a hard production constraint, not a suggestion: keep non-hook narration to 8-11 spoken words, and keep the final either/or question to at most 10 spoken words. Prefer short common words. Avoid semicolons, em dashes, parenthetical phrases, and stacked clauses because they speak slowly. Never use 12+ words unless the line is exceptionally short in syllables.\nBefore replying, count the scenes per beat and verify every minimum/maximum above is satisfied. Then count the spoken words in every narration line and shorten any line that could approach the 6.4-second scene ceiling.`;
+};
+
+const rankedAngleFallbacks = (angles, limit = 3) => {
+  const ranked = angles.rounds
+    .flatMap((round) => round.candidates)
+    .filter((candidate) => candidate.total !== undefined && candidate.total >= MIN_ANGLE_SCORE)
+    .sort((a, b) => b.total - a.total);
+  const unique = new Map([[angles.chosen.id, angles.chosen]]);
+  for (const candidate of ranked) if (!unique.has(candidate.id)) unique.set(candidate.id, candidate);
+  return [...unique.values()].slice(0, limit);
 };
 
 /**
@@ -56,8 +66,11 @@ export const runNewEpisode = async ({number, root = repoRoot, showId = 'pokepuls
   if (fs.existsSync(draftPath) && !overwrite) throw new Error(`drafts/${showId}/${research.id}.json already exists. Pass --overwrite to replace it.`);
 
   let angle;
+  let angles;
+  let angleCandidates = [undefined];
+  const anglePath = path.join(researchDir, `${research.id}.angles.json`);
   if (ideate) {
-    const angles = await findAngle({
+    angles = await findAngle({
       research,
       generate: ideate,
       storyPattern,
@@ -68,29 +81,60 @@ export const runNewEpisode = async ({number, root = repoRoot, showId = 'pokepuls
       },
     });
     angle = angles.chosen;
-    writeJson(path.join(researchDir, `${research.id}.angles.json`), {episodeId: research.id, createdAt: new Date().toISOString(), chosen: angle, rounds: angles.rounds});
+    angleCandidates = rankedAngleFallbacks(angles);
+    writeJson(anglePath, {episodeId: research.id, createdAt: new Date().toISOString(), chosen: angle, rounds: angles.rounds});
     log(`${angle.belowBar ? '⚠' : '✓'} angle: "${angle.premise}" [${angle.archetype}, ${angle.total}/25${angle.belowBar ? ', below the bar; the best found' : ''}] → research/${showId}/${research.id}.angles.json`);
   }
-  const shape = storyPattern || angle?.archetype;
-  const directing = `${fs.readFileSync(path.join(repoRoot, 'DIRECTING.md'), 'utf8')}${writerStructureBrief(shape)}`;
 
-  const result = await writeEpisode({
-    research,
-    complete,
-    verify,
-    critique,
-    directing,
-    references: selectReferences(loadReferences(), shape),
-    storyPattern,
-    angle,
-    showId,
-    maxAttempts,
-    onAttempt: ({attempt, problems, audit, creative}) => {
-      const story = creative && !creative.skipped ? `, creative ${creative.score}/100` : '';
-      if (problems.length === 0) log(`✓ writer: attempt ${attempt} passed every check (production ${audit.score}/100${story})`);
-      else log(`✗ writer: attempt ${attempt} rejected (${problems.length} problem${problems.length === 1 ? '' : 's'}):\n${problems.map((problem) => `    - ${problem}`).join('\n')}`);
-    },
-  });
+  let result;
+  let writerError;
+  const attemptedAngles = [];
+  for (const [index, candidate] of angleCandidates.entries()) {
+    angle = candidate;
+    if (candidate) {
+      attemptedAngles.push(candidate.id);
+      if (index > 0) log(`↻ angle fallback ${index + 1}/${angleCandidates.length}: "${candidate.premise}" [${candidate.archetype}, ${candidate.total}/25]`);
+    }
+    const shape = storyPattern || candidate?.archetype;
+    const directing = `${fs.readFileSync(path.join(repoRoot, 'DIRECTING.md'), 'utf8')}${writerStructureBrief(shape)}`;
+    try {
+      result = await writeEpisode({
+        research,
+        complete,
+        verify,
+        critique,
+        directing,
+        references: selectReferences(loadReferences(), shape),
+        storyPattern,
+        angle: candidate,
+        showId,
+        maxAttempts,
+        onAttempt: ({attempt, problems, audit, creative}) => {
+          const story = creative && !creative.skipped ? `, creative ${creative.score}/100` : '';
+          if (problems.length === 0) log(`✓ writer: attempt ${attempt} passed every check (production ${audit.score}/100${story})`);
+          else log(`✗ writer: attempt ${attempt} rejected (${problems.length} problem${problems.length === 1 ? '' : 's'}):\n${problems.map((problem) => `    - ${problem}`).join('\n')}`);
+        },
+      });
+      writerError = undefined;
+      break;
+    } catch (error) {
+      writerError = error;
+      const next = angleCandidates[index + 1];
+      if (!next) break;
+      log(`⚠ angle "${candidate?.premise ?? '(writer-chosen)'}" exhausted ${maxAttempts} writer attempts; trying the next strong angle.`);
+    }
+  }
+  if (!result) throw writerError;
+
+  if (angles && angle) {
+    writeJson(anglePath, {
+      episodeId: research.id,
+      createdAt: new Date().toISOString(),
+      chosen: angle,
+      rounds: angles.rounds,
+      ...(angle.id !== angles.chosen.id ? {initialChoice: angles.chosen, attemptedAngles} : {}),
+    });
+  }
 
   const visuals = await directVisuals({draft: result.draft, research, angle, complete: direct, showId});
   if (visuals.modelError) log(`⚠ visuals: the visual director failed (${visuals.modelError}); every scene keeps its archetype shot.`);

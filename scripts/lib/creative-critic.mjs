@@ -107,18 +107,21 @@ export const critiqueDraft = async ({draft, research, angle, complete}) => {
 };
 
 /**
- * Writer feedback deliberately excludes the critic's free-form revision text.
- * The critic is a scorer, not a factual source: feeding its prose back to the
- * writer can inject unsupported ideas even when the critic was told not to.
- * The writer gets the weak criterion and offending quote, then revises using
- * the original research already present in its conversation.
+ * Writer feedback keeps deterministic, code-generated guidance (which cannot
+ * hallucinate facts) but deliberately excludes the model critic's free-form
+ * revision text. The writer revises model-scored weaknesses using the original
+ * research already present in its conversation.
  */
 export const creativeProblems = (review) => {
   if (review.passed || !review.criteria) return [];
   return [...review.criteria]
     .filter((item) => item.score < 4)
     .sort((a, b) => a.score - b.score)
-    .map((item) => `Creative ${item.criterion} scored ${item.score}/5${item.quote ? ` ("${item.quote}")` : ''}. Improve ${CREATIVE_CRITERIA[item.criterion]} Use only facts already present in the research; do not add a new factual claim to solve this.`)
+    .map((item) => {
+      const prefix = `Creative ${item.criterion} scored ${item.score}/5${item.quote ? ` ("${item.quote}")` : ''}`;
+      if (item.capped && item.revision) return `${prefix}: ${item.revision}`;
+      return `${prefix}. Improve ${CREATIVE_CRITERIA[item.criterion]} Use only facts already present in the research; do not add a new factual claim to solve this.`;
+    })
     .concat(`Creative score ${review.score}/100 (needs ${CREATIVE_PASSING_SCORE}, and no criterion at ${CRITERION_FLOOR} or below).`);
 };
 
