@@ -292,14 +292,19 @@ const better = (a, b) => {
 export const writeEpisode = async ({research, complete, verify, critique, directing, references = [], storyPattern, angle, showId = 'pokepulses', maxAttempts = 3, onAttempt = () => {}}) => {
   const {system, user} = buildWriterPrompt({research, directing, references, storyPattern, angle});
   const shape = storyPattern || angle?.archetype;
-  const messages = [{role: 'user', content: user}];
+  const brief = {role: 'user', content: user};
+  // Each revision sends only the brief, the latest draft and its problems, not
+  // the whole history: earlier drafts cost tokens on every call and add nothing.
+  let messages = [brief];
+  const revise = (draft, feedback) => {
+    messages = [brief, {role: 'assistant', content: draft}, {role: 'user', content: feedback}];
+  };
   let problems = [];
   let best;
   // Set while repairing single lines of a story-approved draft.
   let approved;
   for (let attempt = 1; attempt <= maxAttempts; attempt++) {
     const reply = await complete({system, messages});
-    messages.push({role: 'assistant', content: reply});
     let creativeData;
     let result;
     let verification;
@@ -343,7 +348,7 @@ export const writeEpisode = async ({research, complete, verify, critique, direct
           if (!storyProblems.length && factProblems.length <= REPAIRABLE_LINES) {
             approved = {creative: creativeData, review};
             onAttempt({attempt, problems, audit: result.audit, verification, creative: review, repaired});
-            messages.push({role: 'user', content: repairRequest(factProblems)});
+            revise(JSON.stringify(creativeData), repairRequest(factProblems));
             continue;
           }
         }
@@ -355,11 +360,11 @@ export const writeEpisode = async ({research, complete, verify, critique, direct
     onAttempt({attempt, problems, audit: result?.audit, verification, creative: approved ? undefined : review, repaired});
     if (approved) {
       // The repair broke something: go back to full revisions from the approved draft.
-      messages.push({role: 'user', content: `That repair didn't pass. Reply with the complete corrected JSON object only, starting from the draft the creative director approved and fixing every problem below.\n${problems.map((problem, index) => `${index + 1}. ${problem}`).join('\n')}\n\nApproved draft:\n${JSON.stringify(approved.creative)}`});
+      revise(JSON.stringify(approved.creative), `That repair didn't pass. Reply with the complete corrected JSON object only, starting from your draft above (the one the creative director approved) and fixing every problem below.\n${problems.map((problem, index) => `${index + 1}. ${problem}`).join('\n')}`);
       approved = undefined;
       continue;
     }
-    messages.push({role: 'user', content: `The draft was rejected. Fix every problem below and reply with the complete corrected JSON object only. Keep what already works: change only what these problems need.\n${problems.map((problem, index) => `${index + 1}. ${problem}`).join('\n')}`});
+    revise(reply, `The draft was rejected. Fix every problem below and reply with the complete corrected JSON object only. Keep what already works: change only what these problems need.\n${problems.map((problem, index) => `${index + 1}. ${problem}`).join('\n')}`);
   }
   const error = new Error(`The writer could not produce a draft that passes every check after ${maxAttempts} attempts:\n${problems.map((problem) => `- ${problem}`).join('\n')}`);
   error.problems = problems;

@@ -41,13 +41,14 @@ const rankedAngleFallbacks = (angles, limit = 3) => {
 /**
  * Create an episode from a National Pokédex number.
  * Research is cached in research/<show>/<id>.json; pass refreshResearch to refetch.
- * `ideate` is the completion for the Angle Generator and Critic (default: the
- * writer's); pass null to let the writer find its own angle. `critique` is the
+ * `ideate` is the completion for the Angle Generator (default: the writer's)
+ * and `angleCritique` for the Angle Critic (default: `ideate`); pass `ideate`
+ * null to let the writer find its own angle. `critique` is the
  * creative critic's (default: the writer's); null skips judging the story.
  * `direct` is the Visual Director's (default: the writer's); null keeps the
  * archetype's shots for every scene.
  */
-export const runNewEpisode = async ({number, root = repoRoot, showId = 'pokepulses', fetchJson, complete, verify = complete, ideate = complete, critique = complete, direct = complete, storyPattern, refreshResearch = false, overwrite = false, maxAttempts = 3, maxWriterCalls = maxAttempts * 3, log = console.log}) => {
+export const runNewEpisode = async ({number, root = repoRoot, showId = 'pokepulses', fetchJson, complete, verify = complete, ideate = complete, angleCritique = ideate, critique = complete, direct = complete, storyPattern, refreshResearch = false, overwrite = false, maxAttempts = 3, maxWriterCalls = maxAttempts * 3, log = console.log}) => {
   const researchDir = path.join(root, 'research', showId);
   const matches = fs.existsSync(researchDir)
     ? fs.readdirSync(researchDir).filter((file) => file.endsWith(`-${String(number).padStart(3, '0')}.json`)).sort()
@@ -76,6 +77,7 @@ export const runNewEpisode = async ({number, root = repoRoot, showId = 'pokepuls
     angles = await findAngle({
       research,
       generate: ideate,
+      critique: angleCritique ?? ideate,
       storyPattern,
       onRound: ({round, candidates, rejected, error}) => {
         const scored = candidates.filter((candidate) => candidate.total !== undefined);

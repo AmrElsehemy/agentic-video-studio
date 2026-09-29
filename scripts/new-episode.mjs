@@ -48,12 +48,24 @@ const run = (label, script, scriptArgs) => {
 console.log(`▶ Creating an episode for Pokédex #${number}`);
 let id;
 try {
-  const complete = createCompletion();
-  console.log(`  writer: ${complete.provider} (${complete.model})`);
+  // Each agent can run on its own model (see "Models" in the README).
+  const models = Object.fromEntries(['writer', 'angles', 'angle-critic', 'verifier', 'critic', 'director'].map((role) => [role, createCompletion({role})]));
+  const complete = models.writer;
+  const byModel = new Map();
+  for (const [role, {provider, model}] of Object.entries(models)) {
+    const label = `${provider} (${model})`;
+    byModel.set(label, [...(byModel.get(label) ?? []), role]);
+  }
+  for (const [label, roles] of byModel) console.log(`  ${roles.join(', ')}: ${label}`);
   ({id} = await runNewEpisode({
     number,
     fetchJson,
     complete,
+    ideate: models.angles,
+    angleCritique: models['angle-critic'],
+    verify: models.verifier,
+    critique: models.critic,
+    direct: models.director,
     storyPattern: option('pattern') || undefined,
     refreshResearch: flag('refresh-research'),
     overwrite: flag('overwrite'),

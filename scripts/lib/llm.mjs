@@ -5,7 +5,7 @@ import {fetchWithReason} from './net.mjs';
 
 export const PROVIDERS = {
   anthropic: {keyEnv: 'ANTHROPIC_API_KEY', defaultModel: 'claude-opus-5-5'},
-  openai: {keyEnv: 'OPENAI_API_KEY', defaultModel: 'gpt-4o'},
+  openai: {keyEnv: 'OPENAI_API_KEY', defaultModel: 'gpt-5.6-terra'},
 };
 
 // A message's content is a string, or a list of parts:
@@ -48,8 +48,8 @@ const openaiAdapter = ({apiKey, model, maxTokens, fetchImpl}) => async ({system,
 const adapters = {anthropic: anthropicAdapter, openai: openaiAdapter};
 
 /**
- * Pick the provider: an explicit choice (WRITER_PROVIDER), otherwise the
- * first one whose API key is set.
+ * Pick the provider: an explicit choice, otherwise the first one whose API
+ * key is set.
  */
 export const resolveProvider = ({provider, env = process.env} = {}) => {
   if (provider) {
@@ -61,12 +61,46 @@ export const resolveProvider = ({provider, env = process.env} = {}) => {
   return available;
 };
 
-/** complete({system, messages}) for the chosen provider and model. */
-export const createCompletion = ({provider, model, apiKey, maxTokens = 8000, env = process.env, fetchImpl = fetch} = {}) => {
-  const name = resolveProvider({provider: provider ?? env.WRITER_PROVIDER, env});
-  const {keyEnv, defaultModel} = PROVIDERS[name];
+/**
+ * Agents and the environment prefix that picks each one's model. Judging
+ * roles also read CHECKER_*, so one setting can move all of them to a cheaper
+ * model; everything falls back to WRITER_*.
+ */
+export const AGENT_ROLES = {
+  writer: {prefix: 'WRITER', checker: false},
+  angles: {prefix: 'ANGLES', checker: false},
+  'angle-critic': {prefix: 'ANGLE_CRITIC', checker: true},
+  verifier: {prefix: 'VERIFIER', checker: true},
+  critic: {prefix: 'CRITIC', checker: true},
+  director: {prefix: 'DIRECTOR', checker: true},
+  vision: {prefix: 'VISION', checker: true},
+};
+
+/**
+ * The provider and model for a role. Settings are read most specific first
+ * (e.g. VERIFIER_*, then CHECKER_*, then WRITER_*). A model setting only
+ * applies to the provider chosen at its own level or a more specific one, so
+ * CHECKER_PROVIDER=anthropic never inherits an OpenAI WRITER_MODEL.
+ */
+export const resolveRole = (role = 'writer', env = process.env, {provider: explicit} = {}) => {
+  const agent = AGENT_ROLES[role];
+  if (!agent) throw new Error(`Unknown agent role "${role}". Known: ${Object.keys(AGENT_ROLES).join(', ')}.`);
+  const levels = [...new Set([agent.prefix, ...(agent.checker ? ['CHECKER'] : []), 'WRITER'])];
+  const providerLevel = levels.findIndex((level) => env[`${level}_PROVIDER`]);
+  const provider = resolveProvider({provider: explicit ?? (providerLevel === -1 ? undefined : env[`${levels[providerLevel]}_PROVIDER`]), env});
+  // Model settings from levels that chose another provider don't apply.
+  const eligible = levels.filter((level, index) => (providerLevel === -1 || index <= providerLevel) && (!env[`${level}_PROVIDER`] || env[`${level}_PROVIDER`] === provider));
+  const modelLevel = eligible.find((level) => env[`${level}_MODEL`]);
+  return {provider, model: modelLevel ? env[`${modelLevel}_MODEL`] : PROVIDERS[provider].defaultModel, source: modelLevel ? `${modelLevel}_MODEL` : 'default'};
+};
+
+/** complete({system, messages}) for an agent role (default: the writer), or an explicit provider and model. */
+export const createCompletion = ({role = 'writer', provider, model, apiKey, maxTokens = 16000, env = process.env, fetchImpl = fetch} = {}) => {
+  const resolved = resolveRole(role, env, {provider});
+  const chosen = model ?? resolved.model;
+  const {keyEnv} = PROVIDERS[resolved.provider];
   const key = apiKey ?? env[keyEnv];
-  if (!key) throw new Error(`${keyEnv} is required for the ${name} provider.`);
-  const complete = adapters[name]({apiKey: key, model: model ?? env.WRITER_MODEL ?? defaultModel, maxTokens, fetchImpl});
-  return Object.assign(complete, {provider: name, model: model ?? env.WRITER_MODEL ?? defaultModel});
+  if (!key) throw new Error(`${keyEnv} is required for the ${resolved.provider} provider.`);
+  const complete = adapters[resolved.provider]({apiKey: key, model: chosen, maxTokens, fetchImpl});
+  return Object.assign(complete, {provider: resolved.provider, model: chosen, role});
 };

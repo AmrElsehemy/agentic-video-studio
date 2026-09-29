@@ -106,6 +106,19 @@ describe('writer loop', () => {
   });
 });
 
+describe('revision history', () => {
+  it('sends only the brief, the latest draft and its problems, however many revisions', async () => {
+    const drafts = [1, 2, 3].map((n) => ({...goodReply(), title: `Draft ${n}`, scenes: []}));
+    const {complete, calls} = scripted([...drafts.map((draft) => JSON.stringify(draft)), JSON.stringify(goodReply())]);
+    const result = await writeEpisode({research: await research888(), complete, directing: '', maxAttempts: 4});
+    assert.equal(result.attempts, 4);
+    assert.deepEqual(calls.map((call) => call.messages.length), [1, 3, 3, 3]);
+    assert.deepEqual(calls[3].messages[0], calls[0].messages[0], 'the brief is always first');
+    assert.match(calls[3].messages[1].content, /Draft 3/);
+    assert.doesNotMatch(JSON.stringify(calls[3].messages), /Draft 1|Draft 2/);
+  });
+});
+
 describe('episode:new writer budget', () => {
   it('stops at the budget and saves the closest draft', async () => {
     const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'budget-'));

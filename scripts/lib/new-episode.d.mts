@@ -15,6 +15,7 @@ export declare const runNewEpisode: (options: {
   complete: Complete;
   verify?: Complete | null;
   ideate?: Complete | null;
+  angleCritique?: Complete | null;
   critique?: Complete | null;
   direct?: Complete | null;
   storyPattern?: string;

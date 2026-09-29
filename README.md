@@ -87,7 +87,23 @@ npm run episode:new -- 888 --voice=openai --render  # …with the polished paid 
 5. **Direct the visuals** — a **Visual Director** reads the finished draft and gives the scenes whose idea can be *shown* a semantic visual primitive with its data (see below). Every number and type it uses must be in the research; anything else is rejected and logged, and those scenes keep their story shape's shot.
 6. **Save** — `drafts/<show>/<id>.json` and the compiled `videos/<show>/<id>/video.json`, then the fast certification. Review the draft before paying for voice.
 
-Options: `--pattern=<archetype>` forces a story shape, `--overwrite` replaces an existing draft. The writer uses whichever key is set (`ANTHROPIC_API_KEY` first); `WRITER_PROVIDER=anthropic|openai` chooses explicitly and `WRITER_MODEL` overrides the model (defaults: `claude-opus-5-5`, `gpt-4o`).
+Options: `--pattern=<archetype>` forces a story shape, `--overwrite` replaces an existing draft.
+
+**Models.** The agents use whichever key is set (`ANTHROPIC_API_KEY` first); `WRITER_PROVIDER=anthropic|openai` chooses explicitly and `WRITER_MODEL` sets the model for every agent (defaults: `claude-opus-5-5`, `gpt-5.6-terra`). Each agent can also run on its own model, so the judging work can use a cheaper one:
+
+| Agent | Setting | Falls back to |
+|---|---|---|
+| Writer | `WRITER_MODEL` | provider default |
+| Angle Generator | `ANGLES_MODEL` | `WRITER_MODEL` |
+| Angle Critic, Fact Verifier, Creative Critic, Visual Director, Video Critic (vision) | `ANGLE_CRITIC_MODEL`, `VERIFIER_MODEL`, `CRITIC_MODEL`, `DIRECTOR_MODEL`, `VISION_MODEL` | `CHECKER_MODEL`, then `WRITER_MODEL` |
+
+Each `*_MODEL` has a matching `*_PROVIDER`. A model setting only applies to its own provider, so `CHECKER_PROVIDER=anthropic` never inherits an OpenAI `WRITER_MODEL`. `episode:new` prints which model each agent uses. A cheap OpenAI setup keeps the writer and fact checking on a capable model and moves the rest down a tier:
+
+```bash
+export WRITER_MODEL=gpt-5.6-terra VERIFIER_MODEL=gpt-5.6-terra CHECKER_MODEL=gpt-5.6-luna
+```
+
+The fact verifier is the one check worth keeping on the stronger model: a weak one either lets invented claims through or rejects good lines. Each writer revision sends only the brief, the latest draft and its problems, not the whole conversation.
 
 ## Pipeline
 
