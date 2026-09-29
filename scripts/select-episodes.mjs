@@ -1,4 +1,6 @@
-// CI helper: prints the render jobs as a JSON array of space-separated episode ids.
+// CI helper: prints GitHub Actions outputs: `episodes`, the full-render jobs as a
+// JSON array of space-separated episode ids, and `frames`, the episodes to
+// frame-check in one job (space-separated).
 //   node scripts/select-episodes.mjs --base=<git ref>   episodes affected since <ref>
 //   node scripts/select-episodes.mjs --full             every episode
 import {execFileSync} from 'node:child_process';
@@ -25,6 +27,6 @@ walk(path.join(root, 'videos'));
 
 const changedFiles = full ? [] : execFileSync('git', ['diff', '--name-only', `${base}...HEAD`], {cwd: root, encoding: 'utf8'}).split('\n').filter(Boolean);
 const golden = JSON.parse(fs.readFileSync(path.join(root, '.github', 'golden-episodes.json'), 'utf8')).episodes;
-const {episodes, reason} = selectEpisodes({changedFiles, catalog, golden, full});
-console.error(`Rendering ${episodes.length} episode(s): ${reason}`);
-process.stdout.write(JSON.stringify(toShards(episodes)));
+const {episodes, frames, reason} = selectEpisodes({changedFiles, catalog, golden, full});
+console.error(`Full renders: ${episodes.length}; frame checks: ${frames.length}. ${reason}`);
+process.stdout.write(`episodes=${JSON.stringify(toShards(episodes))}\nframes=${frames.join(' ')}\n`);

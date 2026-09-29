@@ -19,6 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       episodes: ${{ steps.select.outputs.episodes }}
+      frames: ${{ steps.select.outputs.frames }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -50,8 +51,54 @@ jobs:
           else
             args="--base=HEAD~1"
           fi
-          echo "episodes=$(node scripts/select-episodes.mjs $args)" >> "$GITHUB_OUTPUT"
+          node scripts/select-episodes.mjs $args >> "$GITHUB_OUTPUT"
 
+  # Shared-code changes: render only the frames the video critic reads (one per
+  # scene, plus the cover) for the whole golden set, in one job and one browser.
+  frame-check:
+    runs-on: ubuntu-latest
+    needs: validate
+    if: needs.validate.outputs.frames != ''
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Install FFmpeg and Tesseract for render QA
+        run: sudo apt-get update && sudo apt-get install --yes --no-install-recommends ffmpeg tesseract-ocr
+      - name: Review frames, contact sheet, description and video critic
+        env:
+          EPISODES: ${{ needs.validate.outputs.frames }}
+          VIDEO_CRITIC_VISION: ${{ vars.VIDEO_CRITIC_VISION }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          npm run frames -- $EPISODES
+          failed=""
+          for id in $EPISODES; do
+            echo "::group::$id"
+            npm run sheet -- "$id" --frames
+            npm run description -- "$id"
+            npm run critic:video -- "$id" --frames || failed="$failed $id"
+            echo "::endgroup::"
+          done
+          if [ -n "$failed" ]; then echo "::error::Video critic found blocking issues in:$failed"; exit 1; fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: frame-check
+          path: |
+            out/*-frames/*.png
+            out/*-contact-sheet.png
+            out/*-cover.png
+            out/*-description.txt
+            out/*-video-review.json
+          if-no-files-found: warn
+
+  # Full MP4s: episodes whose own files changed, one audio/encoding smoke test,
+  # and every episode nightly.
   render-episodes:
     runs-on: ubuntu-latest
     needs: validate
@@ -70,7 +117,7 @@ jobs:
           cache: npm
       - run: npm ci
       - name: Install FFmpeg and Tesseract for render QA
-        run: sudo apt-get update && sudo apt-get install --yes ffmpeg tesseract-ocr
+        run: sudo apt-get update && sudo apt-get install --yes --no-install-recommends ffmpeg tesseract-ocr
       - name: Render, contact sheet, cover, description and video critic
         env:
           SHARD: ${{ matrix.shard }}
