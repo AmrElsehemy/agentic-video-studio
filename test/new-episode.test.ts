@@ -163,7 +163,7 @@ describe('writer loop', () => {
     assert.match(feedback, /rejected/);
     assert.match(feedback, /1\. /);
     assert.match(feedback, /max scene is 6.4s|hook beat allows at most 4.8s/);
-    assert.equal(calls[1].messages.length, 3, 'revision request carries the conversation so far');
+    assert.equal(calls[1].messages.length, 3, 'revision request carries the brief, the rejected draft and its problems');
   });
 
   it('gives up with the remaining problems after the last attempt', async () => {

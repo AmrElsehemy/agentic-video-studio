@@ -20,7 +20,7 @@ const stories = [
 
 let complete;
 try {
-  complete = createCompletion();
+  complete = createCompletion({role: 'critic'});
 } catch (error) {
   console.error(`✗ ${error.message}`);
   process.exit(1);

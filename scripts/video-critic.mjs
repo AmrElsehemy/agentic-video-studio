@@ -76,7 +76,7 @@ try {
       run('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-y', '-i', file, '-vf', 'scale=540:-2', out]);
       return fs.readFileSync(out).toString('base64');
     };
-    const complete = createCompletion({maxTokens: 4000});
+    const complete = createCompletion({role: 'vision', maxTokens: 4000});
     console.log(`  vision critic: ${complete.provider} (${complete.model})`);
     visionReport = await critiqueFrames({manifest, frames: frames.map((frame) => ({png: small(frame.file)})), cover: cover ? {png: small(cover.file)} : undefined, complete});
     if (visionReport.modelError) console.warn(`⚠ vision critic failed: ${visionReport.modelError}`);

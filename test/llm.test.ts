@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import {describe, it} from 'node:test';
-import {createCompletion, PROVIDERS, resolveProvider} from '../scripts/lib/llm.mjs';
+import {createCompletion, PROVIDERS, resolveProvider, resolveRole} from '../scripts/lib/llm.mjs';
 
 type Call = {url: string; init: {headers: Record<string, string>; body: string}};
 
@@ -41,6 +41,34 @@ describe('provider selection', () => {
     const complete = createCompletion({env: {WRITER_PROVIDER: 'openai', WRITER_MODEL: 'custom-model', OPENAI_API_KEY: 'o'}});
     assert.equal(complete.provider, 'openai');
     assert.equal(complete.model, 'custom-model');
+  });
+});
+
+describe('models per agent', () => {
+  const env = {OPENAI_API_KEY: 'o', WRITER_MODEL: 'gpt-5.6-terra', CHECKER_MODEL: 'gpt-5.6-luna', VERIFIER_MODEL: 'gpt-5.6-terra'};
+
+  it('reads the most specific setting: the role, then CHECKER_* for judges, then WRITER_*', () => {
+    assert.equal(resolveRole('writer', env).model, 'gpt-5.6-terra');
+    assert.equal(resolveRole('angles', env).model, 'gpt-5.6-terra', 'generating angles is creative work, not a check');
+    assert.equal(resolveRole('critic', env).model, 'gpt-5.6-luna');
+    assert.equal(resolveRole('director', env).model, 'gpt-5.6-luna');
+    assert.deepEqual(resolveRole('verifier', env), {provider: 'openai', model: 'gpt-5.6-terra', source: 'VERIFIER_MODEL'});
+    assert.equal(createCompletion({role: 'vision', env}).model, 'gpt-5.6-luna');
+  });
+
+  it('falls back to the writer, then the provider default', () => {
+    assert.equal(resolveRole('critic', {OPENAI_API_KEY: 'o', WRITER_MODEL: 'w'}).model, 'w');
+    assert.deepEqual(resolveRole('critic', {OPENAI_API_KEY: 'o'}), {provider: 'openai', model: PROVIDERS.openai.defaultModel, source: 'default'});
+  });
+
+  it("never pairs a provider with another provider's model", () => {
+    const mixed = {OPENAI_API_KEY: 'o', ANTHROPIC_API_KEY: 'a', WRITER_PROVIDER: 'openai', WRITER_MODEL: 'gpt-5.6-terra', CHECKER_PROVIDER: 'anthropic'};
+    assert.deepEqual(resolveRole('critic', mixed), {provider: 'anthropic', model: PROVIDERS.anthropic.defaultModel, source: 'default'});
+    assert.equal(resolveRole('writer', mixed).model, 'gpt-5.6-terra');
+  });
+
+  it('rejects unknown roles', () => {
+    assert.throws(() => resolveRole('narrator', env), /Unknown agent role "narrator"/);
   });
 });
 

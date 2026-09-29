@@ -15,11 +15,13 @@ export declare const runNewEpisode: (options: {
   complete: Complete;
   verify?: Complete | null;
   ideate?: Complete | null;
+  angleCritique?: Complete | null;
   critique?: Complete | null;
   direct?: Complete | null;
   storyPattern?: string;
   refreshResearch?: boolean;
   overwrite?: boolean;
   maxAttempts?: number;
+  maxWriterCalls?: number;
   log?: (line: string) => void;
 }) => Promise<{id: string; research: Research; angle?: RankedAngle & {belowBar?: boolean}; visuals: {assigned: VisualAssignment[]; rejected: {id: string; reason: string}[]; modelError?: string}; draft: Draft; manifest: VideoManifest; audit: EngagementAudit; verification: VerificationReport; creative: CreativeReview; attempts: number}>;
