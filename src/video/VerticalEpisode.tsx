@@ -26,10 +26,17 @@ export const VerticalEpisode: React.FC<{manifest: VideoManifest}> = ({manifest})
     );
   });
 
+  // Voiceover used to clamp every music bed to 0.045, making the configured
+  // PokePulses bed effectively disappear. Keep narration dominant, but allow
+  // enough of the bed and scene accents through to provide momentum.
+  const musicVolume = manifest.audio.voiceover
+    ? Math.min(manifest.audio.musicVolume, 0.075)
+    : manifest.audio.musicVolume;
+
   return (
     <AbsoluteFill style={{...fontVariables(manifest), backgroundColor: manifest.palette.background}}>
       {sequences}
-      {manifest.audio.music ? <Audio src={staticFile(manifest.audio.music)} volume={manifest.audio.voiceover ? Math.min(manifest.audio.musicVolume, 0.045) : manifest.audio.musicVolume} loop /> : null}
+      {manifest.audio.music ? <Audio src={staticFile(manifest.audio.music)} volume={musicVolume} loop /> : null}
       {manifest.audio.voiceover ? <Audio src={staticFile(manifest.audio.voiceover)} /> : null}
     </AbsoluteFill>
   );
