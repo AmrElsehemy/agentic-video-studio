@@ -21,6 +21,23 @@ const propsPath = path.join(root, 'out', `${episodeId}.props.json`);
 const outputPath = path.join(root, 'out', `${episodeId}.mp4`);
 fs.mkdirSync(path.dirname(outputPath), {recursive: true});
 
+// Related subjects are research context, not automatic cast members. Keep one
+// available to the renderer only when the actual scene explicitly references
+// that subject by artwork or by name in visible/spoken/primitive content.
+const sceneExplicitlyReferences = (scene, item) => {
+  if (scene.artworkUrl === item.artworkUrl) return true;
+  const text = [
+    scene.eyebrow,
+    scene.headline,
+    scene.narration,
+    scene.caption,
+    ...(scene.facts ?? []),
+    scene.primitive ? JSON.stringify(scene.primitive) : '',
+  ].filter(Boolean).join(' ').toLowerCase();
+  return text.includes(item.name.toLowerCase());
+};
+manifest.related = (manifest.related ?? []).filter((item) => manifest.scenes.some((scene) => sceneExplicitlyReferences(scene, item)));
+
 const openAiVoice = manifest.audio.voice?.output;
 const localVoice = openAiVoice?.replace(/\.wav$/i, '-local.wav');
 const providerFor = (candidate) => candidate === localVoice ? 'local' : 'openai';
@@ -61,6 +78,11 @@ if (fresh) {
 
 const assets = spawnSync(process.execPath, ['scripts/generate-audio.mjs', episodeId], {cwd: root, stdio: 'inherit'});
 if (assets.status !== 0) process.exit(assets.status ?? 1);
+
+// Runtime-only sound-design track. It stays out of the compiled manifest so
+// show-profile changes don't create draft/manifest parity churn.
+manifest.audio.sfx = `generated/${episodeId}-sfx.wav`;
+manifest.audio.sfxVolume = 0.48;
 
 fs.writeFileSync(propsPath, JSON.stringify({manifest}, null, 2));
 

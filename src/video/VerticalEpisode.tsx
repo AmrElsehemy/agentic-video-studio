@@ -4,6 +4,8 @@ import type {VideoManifest} from '../schema';
 import {CompiledEpisodeScene} from './CompiledEpisodeScene';
 import {fontVariables} from './typography';
 
+type RuntimeAudio = VideoManifest['audio'] & {sfx?: string; sfxVolume?: number};
+
 // Every episode renders through the same scene engine: what differs between
 // episodes is data (story shape, shots, primitives, palette), never code.
 export const VerticalEpisode: React.FC<{manifest: VideoManifest}> = ({manifest}) => {
@@ -19,25 +21,22 @@ export const VerticalEpisode: React.FC<{manifest: VideoManifest}> = ({manifest})
           scene={scene}
           manifest={manifest}
           sceneIndex={index}
-          sceneCount={manifest.scenes.length}
           durationInFrames={durationInFrames}
         />
       </Sequence>
     );
   });
 
-  // Voiceover used to clamp every music bed to 0.045, making the configured
-  // PokePulses bed effectively disappear. Keep narration dominant, but allow
-  // enough of the bed and scene accents through to provide momentum.
-  const musicVolume = manifest.audio.voiceover
-    ? Math.min(manifest.audio.musicVolume, 0.075)
-    : manifest.audio.musicVolume;
+  const audio = manifest.audio as RuntimeAudio;
 
   return (
     <AbsoluteFill style={{...fontVariables(manifest), backgroundColor: manifest.palette.background}}>
       {sequences}
-      {manifest.audio.music ? <Audio src={staticFile(manifest.audio.music)} volume={musicVolume} loop /> : null}
-      {manifest.audio.voiceover ? <Audio src={staticFile(manifest.audio.voiceover)} /> : null}
+      {/* The generated bed is normalized before render, so the configured show volume is now meaningful. */}
+      {audio.music ? <Audio src={staticFile(audio.music)} volume={audio.musicVolume} loop /> : null}
+      {/* SFX live on their own track so impacts/reveals are not buried by music ducking. */}
+      {audio.sfx ? <Audio src={staticFile(audio.sfx)} volume={audio.sfxVolume ?? 0.48} /> : null}
+      {audio.voiceover ? <Audio src={staticFile(audio.voiceover)} /> : null}
     </AbsoluteFill>
   );
 };
