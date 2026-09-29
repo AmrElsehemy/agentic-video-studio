@@ -17,6 +17,25 @@ const sceneExplicitlyReferences = (scene, item) => {
 };
 
 /**
+ * PokePulses is a Pokédex-first series: one episode, one visual hero.
+ * Narration and data visualizations may mention evolutions, rivals, or other
+ * Pokémon, but character artwork must always remain the episode subject.
+ * This is enforced at the render boundary so prompts/compiler changes cannot
+ * accidentally introduce a cameo.
+ */
+export const enforceSubjectOnlyArtwork = (manifest) => {
+  if (manifest.show?.id !== 'pokepulses' || !manifest.subject?.artworkUrl) return manifest;
+  manifest.related = [];
+  manifest.scenes = (manifest.scenes ?? []).map((scene) => ({
+    ...scene,
+    ...(scene.artworkUrl && scene.artworkUrl !== manifest.subject.artworkUrl
+      ? {artworkUrl: manifest.subject.artworkUrl}
+      : {}),
+  }));
+  return manifest;
+};
+
+/**
  * Build out/<id>.props.json. Throws when the only narration is stale, so a
  * render can never pair a script with audio recorded for an older one.
  * @param {string} episodeId
@@ -29,7 +48,11 @@ export const prepareRenderProps = (episodeId, {voice: requestedVoice = 'auto', l
   const propsPath = path.join(root, 'out', `${episodeId}.props.json`);
   fs.mkdirSync(path.dirname(propsPath), {recursive: true});
 
-  manifest.related = (manifest.related ?? []).filter((item) => manifest.scenes.some((scene) => sceneExplicitlyReferences(scene, item)));
+  if (manifest.show?.id === 'pokepulses') {
+    enforceSubjectOnlyArtwork(manifest);
+  } else {
+    manifest.related = (manifest.related ?? []).filter((item) => manifest.scenes.some((scene) => sceneExplicitlyReferences(scene, item)));
+  }
 
   const openAiVoice = manifest.audio.voice?.output;
   const localVoice = openAiVoice?.replace(/\.wav$/i, '-local.wav');
