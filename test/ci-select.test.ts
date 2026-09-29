@@ -8,7 +8,8 @@ import {MAX_SHARDS, selectEpisodes, toShards} from '../scripts/lib/ci-select.mjs
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const catalog = ['bulbasaur-001', 'darmanitan-555', 'gimmighoul-999', 'mew-151', 'swablu-333', 'terapagos-1024', 'zacian-888'];
 const golden = ['bulbasaur-001', 'gimmighoul-999', 'swablu-333', 'mew-151'];
-const select = (changedFiles: string[], full = false) => selectEpisodes({changedFiles, catalog, golden, full}).episodes;
+const plan = (changedFiles: string[], full = false) => selectEpisodes({changedFiles, catalog, golden, full});
+const select = (changedFiles: string[], full = false) => plan(changedFiles, full).episodes;
 
 describe('CI episode selection', () => {
   it('renders nothing for docs, tests and creative references', () => {
@@ -22,22 +23,36 @@ describe('CI episode selection', () => {
     assert.deepEqual(select(['research/pokepulses/zacian-888.verification.json']), ['zacian-888']);
   });
 
-  it('renders the golden set when shared code changes', () => {
-    for (const file of ['src/video/shots.tsx', 'scripts/lib/compiler.mjs', 'archetypes/mystery.json', 'package-lock.json', '.github/workflows/quality.yml']) {
-      assert.deepEqual(select([file]), [...golden].sort(), file);
+  it('frame-checks the golden set, without full renders, when shared visual code changes', () => {
+    for (const file of ['src/video/shots.tsx', 'src/video/primitives/counter.tsx', 'scripts/lib/compiler.mjs', 'archetypes/mystery.json']) {
+      assert.deepEqual(plan([file]).episodes, [], file);
+      assert.deepEqual(plan([file]).frames, [...golden].sort(), file);
     }
   });
 
-  it('adds changed episodes to the golden set', () => {
-    assert.deepEqual(select(['src/video/shots.tsx', 'drafts/pokepulses/zacian-888.json']), [...golden, 'zacian-888'].sort());
+  it('adds one full golden render as a smoke test when audio or encoding may have changed', () => {
+    for (const file of ['scripts/render.mjs', 'scripts/generate-audio.mjs', 'scripts/lib/sound-design.mjs', 'src/video/VerticalEpisode.tsx', 'shows/pokepulses.json', 'package-lock.json', '.github/workflows/quality.yml']) {
+      assert.deepEqual(plan([file]).episodes, ['bulbasaur-001'], file);
+      assert.deepEqual(plan([file]).frames, ['gimmighoul-999', 'mew-151', 'swablu-333'], file);
+    }
+  });
+
+  it('fully renders changed episodes, frame-checks the rest of the golden set, and needs no extra smoke render', () => {
+    assert.deepEqual(plan(['src/video/shots.tsx', 'drafts/pokepulses/zacian-888.json']), {
+      episodes: ['zacian-888'],
+      frames: [...golden].sort(),
+      reason: 'full render of changed episodes: zacian-888; frame check of the golden set, because shared code changed (e.g. src/video/shots.tsx)',
+    });
+    assert.deepEqual(plan(['package.json', 'drafts/pokepulses/mew-151.json']).episodes, ['mew-151']);
+    assert.deepEqual(plan(['package.json', 'drafts/pokepulses/mew-151.json']).frames, ['bulbasaur-001', 'gimmighoul-999', 'swablu-333'], 'a golden episode is never both rendered and frame-checked');
   });
 
   it('skips episodes that no longer exist', () => {
     assert.deepEqual(select(['drafts/pokepulses/deleted-999.json']), []);
   });
 
-  it('renders the golden set when the golden set itself changes', () => {
-    assert.deepEqual(select(['.github/golden-episodes.json']), [...golden].sort());
+  it('frame-checks the golden set when the golden set itself changes', () => {
+    assert.deepEqual(plan(['.github/golden-episodes.json']).frames, [...golden].sort());
   });
 
   it('gives each episode its own job when the selection is small', () => {
@@ -55,8 +70,8 @@ describe('CI episode selection', () => {
     assert.equal(shards.flatMap((shard) => shard.split(' ')).length, 1025, 'every episode rendered once');
   });
 
-  it('renders every episode on a full run', () => {
-    assert.deepEqual(select([], true), [...catalog].sort());
+  it('renders every episode in full on a full run', () => {
+    assert.deepEqual(plan([], true), {episodes: [...catalog].sort(), frames: [], reason: 'full catalog run'});
   });
 
   it('keeps the golden set to real episodes covering each rendering path', () => {

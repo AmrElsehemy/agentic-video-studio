@@ -1,8 +1,8 @@
 // Video Critic: review a rendered episode frame by frame.
-// Usage: npm run critic:video -- <episode-id> [--vision]
+// Usage: npm run critic:video -- <episode-id> [--vision] [--frames]
 //
-// Needs out/<id>.mp4 (npm run video) and uses out/<id>-cover.png when present
-// (npm run still). Always runs the deterministic frame audit (OCR with
+// Needs out/<id>.mp4 (npm run video), or with --frames the review frames from
+// npm run frames, and uses out/<id>-cover.png when present (npm run still). Always runs the deterministic frame audit (OCR with
 // tesseract, plus pixel checks); --vision (or VIDEO_CRITIC_VISION=1) also asks
 // a vision model. Writes out/<id>-video-review.json and exits 1 on any
 // blocking issue.
@@ -13,17 +13,21 @@ import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {auditFrames} from './lib/frame-audit.mjs';
 import {createCompletion} from './lib/llm.mjs';
+import {framePath, reviewFrames} from './lib/render-props.mjs';
 import {critiqueFrames} from './lib/video-critic.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const args = process.argv.slice(2);
 const episodeId = args.find((arg) => !arg.startsWith('--'));
-if (!episodeId) throw new Error('Usage: npm run critic:video -- <episode-id> [--vision]');
+if (!episodeId) throw new Error('Usage: npm run critic:video -- <episode-id> [--vision] [--frames]');
+const fromFrames = args.includes('--frames');
 const vision = args.includes('--vision') || process.env.VIDEO_CRITIC_VISION === '1';
 const videoPath = path.join(root, 'out', `${episodeId}.mp4`);
 const propsPath = path.join(root, 'out', `${episodeId}.props.json`);
 const coverPath = path.join(root, 'out', `${episodeId}-cover.png`);
-if (!fs.existsSync(videoPath) || !fs.existsSync(propsPath)) throw new Error(`Render ${episodeId} first: npm run video -- ${episodeId}`);
+if (fromFrames ? !fs.existsSync(framePath(root, episodeId, 0)) || !fs.existsSync(propsPath) : !fs.existsSync(videoPath) || !fs.existsSync(propsPath)) {
+  throw new Error(fromFrames ? `Render the review frames first: npm run frames -- ${episodeId}` : `Render ${episodeId} first: npm run video -- ${episodeId}`);
+}
 const {manifest} = JSON.parse(fs.readFileSync(propsPath, 'utf8'));
 
 const run = (command, commandArgs, options = {}) => {
@@ -52,12 +56,10 @@ const thumbnail = (file) => new Uint8Array(run('ffmpeg', ['-hide_banner', '-logl
 
 const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), `${episodeId}-critic-`));
 try {
-  let start = 0;
-  const frames = manifest.scenes.map((scene, index) => {
-    const at = start + scene.durationSeconds * 0.6;
-    start += scene.durationSeconds;
+  const frames = reviewFrames(manifest).map(({index, seconds}) => {
     const file = path.join(tempDir, `${String(index).padStart(2, '0')}.png`);
-    run('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-y', '-ss', at.toFixed(3), '-i', videoPath, '-frames:v', '1', file]);
+    if (fromFrames) fs.copyFileSync(framePath(root, episodeId, index), file);
+    else run('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-y', '-ss', seconds.toFixed(3), '-i', videoPath, '-frames:v', '1', file]);
     return {file, text: ocr(file), gray: thumbnail(file)};
   });
   // Work on a copy of the cover so OCR bands and resized images stay in the temp folder.

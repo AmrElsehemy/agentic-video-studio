@@ -1,9 +1,28 @@
-// Which episodes CI should render for a change. Rendering every episode on
-// every push doesn't scale to a full Pokédex, so a change renders only the
-// episodes it touches, plus a small golden set when shared code changes.
+// Which episodes CI should render for a change, and how. Rendering every
+// episode on every push doesn't scale to a full Pokédex, so a change renders
+// only the episodes it touches (as full MP4s), and a shared-code change checks
+// a small golden set frame by frame: the video critic only reads one frame per
+// scene and the cover, so rendering just those catches the same problems for a
+// fraction of the cost. Nightly runs still render every episode in full.
 
 /** Paths that can't change how any episode renders. */
 const NON_RENDERING = [/\.md$/i, /^docs\//, /^test\//, /^creative-references\//];
+
+/**
+ * Shared paths that can change the MP4 in ways review frames can't show:
+ * audio, encoding, the render script and its QA, dependencies and the workflow.
+ * A change here adds one full golden render as a smoke test.
+ */
+const MP4_ONLY = [
+  /^scripts\/(render|qa|generate-audio|generate-voice|generate-openai-voice)\.mjs$/,
+  /^scripts\/lib\/(render-props|sound-design|voice-lock)\.mjs$/,
+  /^src\/video\/VerticalEpisode\.tsx$/,
+  /^public\//,
+  /^shows\//,
+  /^remotion\.config\.ts$/,
+  /^package(-lock)?\.json$/,
+  /^\.github\/workflows\//,
+];
 
 /** The episode an episode-specific path belongs to, if any. */
 const episodeOf = (file) => {
@@ -17,14 +36,15 @@ const episodeOf = (file) => {
  * @param {string[]} options.catalog every episode id that exists now
  * @param {string[]} options.golden the regression set
  * @param {boolean} [options.full] render everything (nightly / manual)
- * @returns {{episodes: string[], reason: string}}
+ * @returns {{episodes: string[], frames: string[], reason: string}} episodes to render as full MP4s, and episodes to check frame by frame
  */
 export const selectEpisodes = ({changedFiles, catalog, golden, full = false}) => {
   const exists = new Set(catalog);
-  if (full) return {episodes: [...catalog].sort(), reason: 'full catalog run'};
+  if (full) return {episodes: [...catalog].sort(), frames: [], reason: 'full catalog run'};
 
   const touched = new Set();
   let sharedChange;
+  let mp4Change;
   for (const file of changedFiles) {
     const episode = episodeOf(file);
     if (episode) {
@@ -33,14 +53,20 @@ export const selectEpisodes = ({changedFiles, catalog, golden, full = false}) =>
     }
     if (NON_RENDERING.some((pattern) => pattern.test(file))) continue;
     sharedChange ??= file;
+    if (MP4_ONLY.some((pattern) => pattern.test(file))) mp4Change ??= file;
   }
 
   const episodes = new Set(touched);
-  if (sharedChange) for (const id of golden) if (exists.has(id)) episodes.add(id);
+  const goldenNow = golden.filter((id) => exists.has(id));
+  const smoke = mp4Change ? goldenNow.find((id) => !touched.has(id)) : undefined;
+  if (smoke && !touched.size) episodes.add(smoke);
+  const frames = sharedChange ? goldenNow.filter((id) => !episodes.has(id)) : [];
+
   const reasons = [];
-  if (touched.size) reasons.push(`changed episodes: ${[...touched].sort().join(', ')}`);
-  if (sharedChange) reasons.push(`golden set, because shared code changed (e.g. ${sharedChange})`);
-  return {episodes: [...episodes].sort(), reason: reasons.join('; ') || 'nothing that affects rendering changed'};
+  if (touched.size) reasons.push(`full render of changed episodes: ${[...touched].sort().join(', ')}`);
+  if (smoke && !touched.size) reasons.push(`full render of ${smoke}, because audio or encoding may have changed (e.g. ${mp4Change})`);
+  if (frames.length) reasons.push(`frame check of the golden set, because shared code changed (e.g. ${sharedChange})`);
+  return {episodes: [...episodes].sort(), frames: frames.sort(), reason: reasons.join('; ') || 'nothing that affects rendering changed'};
 };
 
 /** GitHub Actions caps a job matrix at 256 entries; stay well below it. */

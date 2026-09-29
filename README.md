@@ -130,9 +130,10 @@ Authors can set `"primitive"` on a draft scene by hand; `episode:new` lets the V
 
 Every push and pull request runs the global checks (validate, typecheck, tests). Rendering is selective so CI scales with the catalog:
 
-- **Pull requests and pushes** render only episodes whose draft, manifest or research changed, plus the golden regression set in [`.github/golden-episodes.json`](.github/golden-episodes.json) when shared code (renderer, compiler, scripts, archetypes, dependencies, CI config) changes. Docs, tests and creative references render nothing.
-- **Nightly**, and on demand from the Actions tab (`workflow_dispatch`), every episode renders.
-- Each render uploads the MP4, a **contact sheet** (one frame per scene), the cover, the description and the **video critic's review**. Large selections are batched into at most 64 render jobs.
+- **Pull requests and pushes** render full MP4s only for episodes whose draft, manifest or research changed. When shared code changes (renderer, compiler, scripts, archetypes, dependencies, CI config), the golden regression set in [`.github/golden-episodes.json`](.github/golden-episodes.json) gets a **frame check** instead: one job renders just the frames the video critic reads (one per scene, plus the cover) for every golden episode, in one browser, and runs the contact sheet and critic on them. That's the same frames an MP4 would give the critic, for a fraction of the time. If the change can affect audio or encoding (render/audio scripts, show profiles, dependencies, CI config), the first golden episode is also rendered in full as a smoke test. Docs, tests and creative references render nothing.
+- **Nightly**, and on demand from the Actions tab (`workflow_dispatch`), every episode renders in full.
+- Each full render uploads the MP4, a **contact sheet** (one frame per scene), the cover, the description and the **video critic's review**; the frame check uploads the same minus the MP4, plus the frames. Large selections are batched into at most 64 render jobs.
+- Run the frame check locally with `npm run frames -- <id> [<id> ...]`, then `npm run sheet -- <id> --frames` and `npm run critic:video -- <id> --frames`.
 
 ## Video critic
 

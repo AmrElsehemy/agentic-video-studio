@@ -1,18 +1,24 @@
 // One mid-scene frame per scene from a rendered episode, tiled into
 // out/<id>-contact-sheet.png so a whole episode can be reviewed at a glance.
-// Run after `npm run video -- <id>`; uses the timing that render applied.
+// Run after `npm run video -- <id>`, or after `npm run frames -- <id>` with
+// --frames; uses the timing that render applied.
 import {spawnSync} from 'node:child_process';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
+import {framePath, reviewFrames} from './lib/render-props.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const episodeId = process.argv[2];
-if (!episodeId) throw new Error('Usage: npm run sheet -- <episode-id>');
+const args = process.argv.slice(2);
+const episodeId = args.find((arg) => !arg.startsWith('--'));
+const fromFrames = args.includes('--frames');
+if (!episodeId) throw new Error('Usage: npm run sheet -- <episode-id> [--frames]');
 const videoPath = path.join(root, 'out', `${episodeId}.mp4`);
 const propsPath = path.join(root, 'out', `${episodeId}.props.json`);
-if (!fs.existsSync(videoPath) || !fs.existsSync(propsPath)) throw new Error(`Render ${episodeId} first: npm run video -- ${episodeId}`);
+if (fromFrames ? !fs.existsSync(framePath(root, episodeId, 0)) || !fs.existsSync(propsPath) : !fs.existsSync(videoPath) || !fs.existsSync(propsPath)) {
+  throw new Error(fromFrames ? `Render the review frames first: npm run frames -- ${episodeId}` : `Render ${episodeId} first: npm run video -- ${episodeId}`);
+}
 
 const {manifest} = JSON.parse(fs.readFileSync(propsPath, 'utf8'));
 const TILE_WIDTH = 270;
@@ -24,12 +30,10 @@ const ffmpeg = (args) => {
 };
 
 try {
-  let start = 0;
-  const frames = manifest.scenes.map((scene, index) => {
-    const at = start + scene.durationSeconds * 0.6;
-    start += scene.durationSeconds;
+  const frames = reviewFrames(manifest).map(({index, seconds}) => {
     const frame = path.join(tempDir, `${String(index).padStart(2, '0')}.png`);
-    ffmpeg(['-ss', at.toFixed(3), '-i', videoPath, '-frames:v', '1', '-vf', `scale=${TILE_WIDTH}:-2`, frame]);
+    const input = fromFrames ? ['-i', framePath(root, episodeId, index)] : ['-ss', seconds.toFixed(3), '-i', videoPath];
+    ffmpeg([...input, '-frames:v', '1', '-vf', `scale=${TILE_WIDTH}:-2`, frame]);
     return frame;
   });
 
