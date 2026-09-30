@@ -83,6 +83,14 @@ describe('compiling map scenes', () => {
     });
   });
 
+  it('requires a map or artwork in every scene when the subject has no artwork', () => {
+    const draft = draftWithMap(shots['between-two-seas']);
+    delete draft.subject.artworkUrl;
+    assert.throws(() => compileEpisode(draft, {showId: 'pokepulses'}), /subject has no artwork, so every scene needs a geo-map primitive or its own artworkUrl\. Missing: /);
+    draft.scenes.forEach((scene: {primitive?: unknown}) => { scene.primitive = shots['fly-to-georgia']; });
+    assert.ok(compileEpisode(draft, {showId: 'pokepulses'}).manifest.scenes.every((scene) => scene.primitive?.kind === 'geo-map'));
+  });
+
   it('leaves episodes without maps exactly as they were', () => {
     const draft = JSON.parse(fs.readFileSync(path.join(root, 'drafts/pokepulses/mew-151.json'), 'utf8'));
     const committed = JSON.parse(fs.readFileSync(path.join(root, 'videos/pokepulses/mew-151/video.json'), 'utf8'));

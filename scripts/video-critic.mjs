@@ -44,9 +44,13 @@ if (!hasTesseract) console.warn('⚠ tesseract is not installed, so text checks 
 // a busy dark frame far better this way than as one page, and no text is
 // counted twice.
 const BANDS = [[0, 315, 6], [315, 1635, 11], [1635, 1920, 6]];
-const ocr = (file) => {
+// The cover's title block (EpisodeCover, from y≈1185) read as one block of
+// text: sparse-text mode over the whole middle band loses words next to the
+// artwork or map, while this reads the title exactly.
+const COVER_BANDS = [...BANDS, [1100, 1620, 6]];
+const ocr = (file, bands = BANDS) => {
   if (!hasTesseract) return undefined;
-  return BANDS.map(([top, bottom, pageMode], index) => {
+  return bands.map(([top, bottom, pageMode], index) => {
     const band = `${file}.band${index}.png`;
     run('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-y', '-i', file, '-vf', `scale=1080:1920,crop=1080:${bottom - top}:0:${top},format=gray,negate`, band]);
     return run('tesseract', [band, '-', '--psm', String(pageMode)], {encoding: 'utf8'});
@@ -66,7 +70,7 @@ try {
   // Work on a copy of the cover so OCR bands and resized images stay in the temp folder.
   const coverCopy = path.join(tempDir, 'cover.png');
   if (fs.existsSync(coverPath)) fs.copyFileSync(coverPath, coverCopy);
-  const cover = fs.existsSync(coverCopy) ? {file: coverCopy, text: ocr(coverCopy), gray: thumbnail(coverCopy)} : undefined;
+  const cover = fs.existsSync(coverCopy) ? {file: coverCopy, text: ocr(coverCopy, COVER_BANDS), gray: thumbnail(coverCopy)} : undefined;
 
   const issues = auditFrames({manifest, frames, cover});
   let visionReport;

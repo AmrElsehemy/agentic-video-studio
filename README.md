@@ -189,6 +189,10 @@ Geography episodes (the GeoMotion epic, #69) draw countries, seas and disputed a
 
 A scene draws a map with one `geo-map` primitive: camera keyframes (world → region → country), highlighted places, and labels, markers and arrows, all referring to places by registry id. See [docs/geomotion-primitives.md](docs/geomotion-primitives.md). `npm run geo:golden` renders the golden map shots and compares them with `test/golden/geo/`.
 
+## Geographica
+
+The second show, [`shows/geographica.json`](shows/geographica.json), tells geography stories with animated maps. Its first episode, `georgia-wine` ("Where Did Wine Begin?"), is seven `geo-map` scenes built from hand-curated research ([`research/geographica/georgia-wine.json`](research/geographica/georgia-wine.json)), where every narrated fact cites its source. A subject without artwork (a country) is allowed when every scene brings its own visual; the cover then shows the episode's first map. Map episodes credit Natural Earth in the description, and `preflight:publish` blocks them until a person records how disputed borders are shown (`rights.bordersReview`). See the [review checklist](docs/geomotion-review.md).
+
 ## Project structure
 
 ```text
