@@ -46,6 +46,14 @@ export const showNotices = (showId) => {
   return {ownershipNotice: notices.ownership, nonAffiliationNotice: notices.nonAffiliation};
 };
 
+/** How a new episode records subject artwork: cleared by the show's recorded legal review, or unverified until someone reviews it. */
+export const artworkRights = (showId) => {
+  const clearance = loadShow(showId).artworkClearance;
+  return clearance
+    ? {asset: {licenseStatus: 'permission-required', publicReleaseApproved: true, notes: `No licence. Cleared for publication by a legal review (${clearance.reviewer}, ${clearance.date}); see rights.artworkReview.`}, review: {artworkReview: clearance}}
+    : {asset: {licenseStatus: 'unverified', publicReleaseApproved: false, notes: 'Internal prototype only pending legal review or replacement.'}, review: {}};
+};
+
 /** Every piece of artwork the writer may use, by name. */
 export const artworkChoices = (research) => {
   const choices = new Map([[research.name.toLowerCase(), {name: research.name, index: research.index, artworkUrl: research.artworkUrl}]]);
@@ -133,13 +141,12 @@ export const assembleDraft = (creative, research, {showId = 'pokepulses'} = {}) 
       releaseStatus: 'internal-prototype',
       publicReleaseApproved: false,
       ...showNotices(showId),
+      ...artworkRights(showId).review,
       assets: [...used.values()].map((item) => ({
         kind: `${item.name} official artwork mirror`,
         sourceUrl: item.artworkUrl,
         owner: 'The Pokémon Company / Nintendo / Creatures / GAME FREAK',
-        licenseStatus: 'unverified',
-        publicReleaseApproved: false,
-        notes: 'Internal prototype only pending legal review or replacement.',
+        ...artworkRights(showId).asset,
       })),
     },
     scenes,

@@ -22,7 +22,7 @@ export type Draft = {
   related: import('../subject-schema.mjs').RelatedSubject[];
   palette: Record<string, string>;
   voice: {voice?: string; speed?: number; instructions: string};
-  rights: {releaseStatus: string; publicReleaseApproved: boolean; ownershipNotice: string; nonAffiliationNotice: string; assets: {kind: string; sourceUrl: string; owner: string; licenseStatus: string; publicReleaseApproved: boolean; notes?: string}[]};
+  rights: {releaseStatus: string; publicReleaseApproved: boolean; ownershipNotice: string; nonAffiliationNotice: string; artworkReview?: {reviewer: string; date: string; decision: string}; assets: {kind: string; sourceUrl: string; owner: string; licenseStatus: string; publicReleaseApproved: boolean; notes?: string}[]};
   scenes: DraftScene[];
   sources: {label: string; url: string}[];
 };
@@ -30,6 +30,7 @@ export type Complete = (request: {system: string; messages: {role: string; conte
 
 export declare const creativeSchema: unknown;
 export declare const showNotices: (showId: string) => {ownershipNotice: string; nonAffiliationNotice: string};
+export declare const artworkRights: (showId: string) => {asset: {licenseStatus: 'permission-required' | 'unverified'; publicReleaseApproved: boolean; notes: string}; review: {artworkReview?: {reviewer: string; date: string; decision: string}}};
 export declare const artworkChoices: (research: Research) => Map<string, {name: string; index: string; artworkUrl: string}>;
 export declare const researchNumbers: (research: Research) => Set<number>;
 export declare const factCheck: (draft: Draft, research: Research) => string[];

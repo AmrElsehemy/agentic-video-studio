@@ -21,6 +21,8 @@ export declare const sceneText: {
   facts: z.ZodOptional<z.ZodArray<z.ZodString>>;
   accent: z.ZodOptional<z.ZodString>;
 };
+export type Review = {reviewer: string; date: string; decision: string};
+export declare const reviewSchema: z.ZodType<Review>;
 type Asset = {kind: string; sourceUrl: string; owner: string; licenseStatus: 'owned' | 'licensed' | 'public-domain' | 'permission-required' | 'unverified'; publicReleaseApproved: boolean; notes?: string};
 export type Rights = {
   releaseStatus: 'internal-prototype' | 'editorial-review' | 'cleared';
@@ -28,7 +30,8 @@ export type Rights = {
   ownershipNotice: string;
   nonAffiliationNotice: string;
   assets: Asset[];
-  bordersReview?: {reviewer: string; date: string; decision: string};
+  bordersReview?: Review;
+  artworkReview?: Review;
 };
 export declare const rightsSchema: z.ZodType<Rights>;
 export declare const sourcesSchema: z.ZodType<{label: string; url: string}[]>;

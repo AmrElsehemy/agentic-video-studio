@@ -14,7 +14,12 @@ export const publishBlockers = (manifest, geo) => {
   if (rights.releaseStatus !== 'cleared') blockers.push(`release-status: Status is ${rights.releaseStatus}, not cleared.`);
   if (!rights.publicReleaseApproved) blockers.push('episode: Episode-level public release has not been approved.');
   for (const asset of rights.assets) {
-    if (!asset.publicReleaseApproved || !['owned', 'licensed', 'public-domain'].includes(asset.licenseStatus)) blockers.push(`${asset.kind}: ${asset.notes ?? asset.licenseStatus}`);
+    // Without a licence, art may go out only when approved and backed by a recorded legal review; unverified art never does.
+    const cleared = ['owned', 'licensed', 'public-domain'].includes(asset.licenseStatus) || (asset.licenseStatus === 'permission-required' && rights.artworkReview);
+    if (!asset.publicReleaseApproved || !cleared) {
+      const why = asset.licenseStatus === 'permission-required' && !rights.artworkReview ? 'permission-required without a recorded rights.artworkReview' : asset.notes ?? asset.licenseStatus;
+      blockers.push(`${asset.kind}: ${why}`);
+    }
   }
 
   const maps = manifest.scenes.filter((scene) => scene.primitive?.kind === 'geo-map');
