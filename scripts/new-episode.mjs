@@ -9,9 +9,15 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const args = process.argv.slice(2);
 const option = (name) => args.find((arg) => arg.startsWith(`--${name}=`))?.split('=')[1];
 const flag = (name) => args.includes(`--${name}`);
-const number = Number(args.find((arg) => !arg.startsWith('--')));
-if (!Number.isInteger(number) || number < 1) {
-  console.error(`Usage: npm run episode:new -- <pokedex-number> [options]\n\n  --pattern=<archetype>   force a story shape (default: the chosen angle's)\n  --voice=local|openai    generate narration after certifying (openai is paid)\n  --render                render the video and cover, then run the video critic\n  --refresh-research      refetch PokéAPI data instead of reusing research/\n  --overwrite             replace an existing draft\n\nRequires ANTHROPIC_API_KEY or OPENAI_API_KEY for the writer.\nOptional: WRITER_PROVIDER (anthropic | openai), WRITER_MODEL.`);
+// Pokédex numbers: "5", "5 6 7" or ranges like "5-9"; each episode runs in turn.
+const numbers = args.filter((arg) => !arg.startsWith('--')).flatMap((arg) => {
+  const range = arg.match(/^(\d+)-(\d+)$/);
+  if (!range) return [Number(arg)];
+  const [from, to] = [Number(range[1]), Number(range[2])];
+  return from <= to ? Array.from({length: to - from + 1}, (_, index) => from + index) : [NaN];
+});
+if (!numbers.length || numbers.some((number) => !Number.isInteger(number) || number < 1)) {
+  console.error(`Usage: npm run episode:new -- <pokedex-number>... [options]\n\n  Numbers: 5, several (5 6 7) or a range (5-9). A failed episode doesn't stop the rest; a summary follows.\n\n  --pattern=<archetype>   force a story shape (default: the chosen angle's)\n  --voice=local|openai    generate narration after certifying (openai is paid)\n  --render                render the video and cover, then run the video critic\n  --refresh-research      refetch PokéAPI data instead of reusing research/\n  --overwrite             replace an existing draft\n  --strict-story          keep rewriting until the story critic passes (costs more)\n\nRequires ANTHROPIC_API_KEY or OPENAI_API_KEY for the writer.\nOptional: WRITER_PROVIDER (anthropic | openai), WRITER_MODEL.`);
   process.exit(1);
 }
 const voice = option('voice');
@@ -39,55 +45,75 @@ const fetchJson = async (url, {maxAttempts = 4} = {}) => {
   throw lastError;
 };
 
+/** Run a stage as its own process; returns whether it passed. */
 const run = (label, script, scriptArgs) => {
   console.log(`\n▶ ${label}`);
   const result = spawnSync(process.execPath, [script, ...scriptArgs], {cwd: root, stdio: 'inherit'});
-  if (result.status !== 0) process.exit(result.status ?? 1);
+  return result.status === 0;
 };
 
-console.log(`▶ Creating an episode for Pokédex #${number}`);
-let id;
-try {
-  // Each agent can run on its own model (see "Models" in the README).
-  const models = Object.fromEntries(['writer', 'angles', 'angle-critic', 'verifier', 'critic', 'director'].map((role) => [role, createCompletion({role})]));
-  const complete = models.writer;
-  const byModel = new Map();
-  for (const [role, {provider, model}] of Object.entries(models)) {
-    const label = `${provider} (${model})`;
-    byModel.set(label, [...(byModel.get(label) ?? []), role]);
-  }
+// Each agent can run on its own model (see "Models" in the README).
+const models = Object.fromEntries(['writer', 'angles', 'angle-critic', 'verifier', 'critic', 'director'].map((role) => [role, createCompletion({role})]));
+const byModel = new Map();
+for (const [role, {provider, model}] of Object.entries(models)) {
+  const label = `${provider} (${model})`;
+  byModel.set(label, [...(byModel.get(label) ?? []), role]);
+}
+
+/** Create, certify and (optionally) voice and render one episode. Returns {id?, failed?: stage}. */
+const createEpisode = async (number) => {
+  console.log(`▶ Creating an episode for Pokédex #${number}`);
   for (const [label, roles] of byModel) console.log(`  ${roles.join(', ')}: ${label}`);
-  ({id} = await runNewEpisode({
-    number,
-    fetchJson,
-    complete,
-    ideate: models.angles,
-    angleCritique: models['angle-critic'],
-    verify: models.verifier,
-    critique: models.critic,
-    direct: models.director,
-    storyPattern: option('pattern') || undefined,
-    refreshResearch: flag('refresh-research'),
-    overwrite: flag('overwrite'),
-    // Up to 4 writer calls per angle and 10 in total across angles. The story
-    // gets one revision; then the best draft whose facts pass is kept, flagged
-    // for review (--strict-story makes the story a hard gate again).
-    maxAttempts: 4,
-    maxWriterCalls: 10,
-    strictStory: flag('strict-story'),
-  }));
-} catch (error) {
-  console.error(`\n✗ ${error.message}`);
-  process.exit(1);
-}
+  let id;
+  try {
+    ({id} = await runNewEpisode({
+      number,
+      fetchJson,
+      complete: models.writer,
+      ideate: models.angles,
+      angleCritique: models['angle-critic'],
+      verify: models.verifier,
+      critique: models.critic,
+      direct: models.director,
+      storyPattern: option('pattern') || undefined,
+      refreshResearch: flag('refresh-research'),
+      overwrite: flag('overwrite'),
+      // Up to 4 writer calls per angle and 10 in total across angles. The story
+      // gets one revision; then the best draft whose facts pass is kept, flagged
+      // for review (--strict-story makes the story a hard gate again).
+      maxAttempts: 4,
+      maxWriterCalls: 10,
+      strictStory: flag('strict-story'),
+    }));
+  } catch (error) {
+    console.error(`\n✗ ${error.message}`);
+    return {failed: 'writing'};
+  }
 
-run('Certify', 'scripts/certify-episode.mjs', [id, '--fast']);
-if (voice) run(`Narration (${voice})`, 'scripts/generate-voice.mjs', [id, `--provider=${voice}`]);
-if (flag('render')) {
-  run('Render', 'scripts/render.mjs', [id, `--voice=${voice ?? 'none'}`]);
-  run('Cover', 'scripts/render-still.mjs', [id]);
-  run('Video critic', 'scripts/video-critic.mjs', [id]);
-}
+  const stages = [
+    ['Certify', 'scripts/certify-episode.mjs', [id, '--fast']],
+    ...(voice ? [[`Narration (${voice})`, 'scripts/generate-voice.mjs', [id, `--provider=${voice}`]]] : []),
+    ...(flag('render') ? [
+      ['Render', 'scripts/render.mjs', [id, `--voice=${voice ?? 'none'}`]],
+      ['Cover', 'scripts/render-still.mjs', [id]],
+      ['Video critic', 'scripts/video-critic.mjs', [id]],
+    ] : []),
+  ];
+  for (const [label, script, scriptArgs] of stages) {
+    if (!run(label, script, scriptArgs)) return {id, failed: label};
+  }
+  console.log(`\n✓ ${id} is ready.`);
+  if (!flag('render')) console.log(`  Review drafts/pokepulses/${id}.json, then: npm run voice:local -- ${id} && npm run video:local -- ${id}`);
+  return {id};
+};
 
-console.log(`\n✓ ${id} is ready.`);
-if (!flag('render')) console.log(`  Review drafts/pokepulses/${id}.json, then: npm run voice:local -- ${id} && npm run video:local -- ${id}`);
+const results = [];
+for (const number of numbers) {
+  if (results.length) console.log(`\n${'─'.repeat(60)}\n`);
+  results.push({number, ...(await createEpisode(number))});
+}
+if (numbers.length > 1) {
+  console.log(`\n${'─'.repeat(60)}\nSummary: ${results.filter((result) => !result.failed).length}/${results.length} ready`);
+  for (const {number, id, failed} of results) console.log(`  ${failed ? '✗' : '✓'} #${number}${id ? ` ${id}` : ''}${failed ? `: failed at ${failed}` : ''}`);
+}
+process.exit(results.some((result) => result.failed) ? 1 : 0);
