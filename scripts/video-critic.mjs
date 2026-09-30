@@ -15,10 +15,11 @@ import {auditFrames} from './lib/frame-audit.mjs';
 import {createCompletion} from './lib/llm.mjs';
 import {framePath, reviewFrames} from './lib/render-props.mjs';
 import {critiqueFrames} from './lib/video-critic.mjs';
+import {resolveEpisodeId} from './catalog.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const args = process.argv.slice(2);
-const episodeId = args.find((arg) => !arg.startsWith('--'));
+const episodeId = resolveEpisodeId(args.find((arg) => !arg.startsWith('--')));
 if (!episodeId) throw new Error('Usage: npm run critic:video -- <episode-id> [--vision] [--frames]');
 const fromFrames = args.includes('--frames');
 const vision = args.includes('--vision') || process.env.VIDEO_CRITIC_VISION === '1';

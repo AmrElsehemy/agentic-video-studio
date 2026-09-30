@@ -2,10 +2,11 @@ import {spawnSync} from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
+import {resolveEpisodeId} from './catalog.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const args = process.argv.slice(2);
-const episodeId = args.find((arg) => !arg.startsWith('--'));
+const episodeId = resolveEpisodeId(args.find((arg) => !arg.startsWith('--')));
 const fast = args.includes('--fast');
 if (!episodeId) throw new Error('Usage: node scripts/certify-episode.mjs <episode-id> [--fast]');
 

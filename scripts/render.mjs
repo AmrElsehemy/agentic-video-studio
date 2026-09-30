@@ -2,9 +2,10 @@ import {spawnSync} from 'node:child_process';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {prepareRenderProps} from './lib/render-props.mjs';
+import {resolveEpisodeId} from './catalog.mjs';
 
 const args = process.argv.slice(2);
-const episodeId = args.find((arg) => !arg.startsWith('--')) ?? 'bulbasaur-001';
+const episodeId = resolveEpisodeId(args.find((arg) => !arg.startsWith('--')) ?? 'bulbasaur-001');
 const voice = args.find((arg) => arg.startsWith('--voice='))?.split('=')[1] ?? process.env.VOICE_PROVIDER ?? 'auto';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');

@@ -1,9 +1,9 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import {findManifest} from './catalog.mjs';
+import {findManifest, resolveEpisodeId} from './catalog.mjs';
 import {planSoundEvents, sceneEnergy} from './lib/sound-design.mjs';
 
-const episodeId = process.argv[2] ?? 'bulbasaur-001';
+const episodeId = resolveEpisodeId(process.argv[2] ?? 'bulbasaur-001');
 const {root, manifestPath} = findManifest(episodeId);
 const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
 const duration = manifest.scenes.reduce((sum, scene) => sum + scene.durationSeconds, 0);

@@ -8,10 +8,11 @@ import os from 'node:os';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {framePath, reviewFrames} from './lib/render-props.mjs';
+import {resolveEpisodeId} from './catalog.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const args = process.argv.slice(2);
-const episodeId = args.find((arg) => !arg.startsWith('--'));
+const episodeId = resolveEpisodeId(args.find((arg) => !arg.startsWith('--')));
 const fromFrames = args.includes('--frames');
 if (!episodeId) throw new Error('Usage: npm run sheet -- <episode-id> [--frames]');
 const videoPath = path.join(root, 'out', `${episodeId}.mp4`);

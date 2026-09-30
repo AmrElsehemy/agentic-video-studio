@@ -1,8 +1,8 @@
 import fs from 'node:fs';
-import {findManifest} from './catalog.mjs';
+import {findManifest, resolveEpisodeId} from './catalog.mjs';
 import {videoSchema} from '../src/schema';
 
-const episodeId = process.argv[2] ?? 'bulbasaur-001';
+const episodeId = resolveEpisodeId(process.argv[2] ?? 'bulbasaur-001');
 const {manifestPath} = findManifest(episodeId);
 const manifest = videoSchema.parse(JSON.parse(fs.readFileSync(manifestPath, 'utf8')));
 const blockers = manifest.rights.assets.filter((asset) => !asset.publicReleaseApproved || !['owned', 'licensed'].includes(asset.licenseStatus));

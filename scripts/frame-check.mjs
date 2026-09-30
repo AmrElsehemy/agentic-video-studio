@@ -10,10 +10,11 @@ import {fileURLToPath} from 'node:url';
 import {bundle} from '@remotion/bundler';
 import {openBrowser, renderStill, selectComposition} from '@remotion/renderer';
 import {framePath, prepareRenderProps, reviewFrames} from './lib/render-props.mjs';
+import {resolveEpisodeId} from './catalog.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const args = process.argv.slice(2);
-const episodeIds = args.filter((arg) => !arg.startsWith('--'));
+const episodeIds = args.filter((arg) => !arg.startsWith('--')).map((arg) => resolveEpisodeId(arg));
 const voice = args.find((arg) => arg.startsWith('--voice='))?.split('=')[1] ?? process.env.VOICE_PROVIDER ?? 'auto';
 if (episodeIds.length === 0) throw new Error('Usage: npm run frames -- <episode-id> [<episode-id> ...]');
 
