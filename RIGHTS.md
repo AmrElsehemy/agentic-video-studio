@@ -10,7 +10,7 @@ Attribution and a non-affiliation disclaimer do **not** grant permission or crea
 
 ## Artwork decision (2026-09-30)
 
-PokePulses uses official Pokémon artwork mirrored by PokéAPI. **No licence has been obtained** from the rights holders. After his own legal review, the channel owner (Amr Elsehemy) decided the artwork may be published in PokePulses episodes and accepts the risk. This is recorded:
+PokePulses uses official Pokémon artwork mirrored by PokéAPI. **No licence has been obtained** from the rights holders. After their own legal review, the channel owner (Amr Elsehemy) decided the artwork may be published in PokePulses episodes and accepts the risk. This is recorded:
 - in the show profile, as `artworkClearance` in `shows/pokepulses.json`;
 - in every episode, as `rights.artworkReview`. The episode's artwork assets are marked `permission-required` and approved.
 
