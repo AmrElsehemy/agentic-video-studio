@@ -1,3 +1,5 @@
+import type {Review} from '../episode-fields.mjs';
+
 export type ShowProfile = {
   id: string;
   name: string;
@@ -10,6 +12,8 @@ export type ShowProfile = {
   voice: {voice: string; speed: number; model: string; instructions: string};
   notices: {ownership: string; nonAffiliation: string};
   subjects?: {identifierLabel: string; identifierPattern: string};
+  /** A recorded legal review allowing the show's subject artwork to be published without a licence. */
+  artworkClearance?: Review;
   archetypes: string[];
 };
 
