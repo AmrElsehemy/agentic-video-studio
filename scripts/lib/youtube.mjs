@@ -4,6 +4,8 @@ import path from 'node:path';
 import {spawn} from 'node:child_process';
 
 export const YOUTUBE_UPLOAD_SCOPE = 'https://www.googleapis.com/auth/youtube.upload';
+/** Read-only analytics, for npm run analytics -- fetch (#25). */
+export const YOUTUBE_ANALYTICS_SCOPE = 'https://www.googleapis.com/auth/yt-analytics.readonly';
 
 const secretDir = (root) => path.join(root, '.secrets');
 const tokenPath = (root) => path.join(secretDir(root), 'youtube-token.json');
@@ -81,7 +83,7 @@ export const authorizeInteractively = async (root, {port = 53682} = {}) => {
     client_id: client.client_id,
     redirect_uri: redirectUri,
     response_type: 'code',
-    scope: YOUTUBE_UPLOAD_SCOPE,
+    scope: [YOUTUBE_UPLOAD_SCOPE, YOUTUBE_ANALYTICS_SCOPE].join(' '),
     access_type: 'offline',
     prompt: 'consent',
     state,

@@ -75,6 +75,25 @@ out/<episode-id>-youtube.json
 
 The receipt contains the YouTube video ID, URL, upload timestamp, privacy request, schedule, and title.
 
+The upload also links the episode to its video in `analytics/<show>/<episode-id>.json`. That file is committed, unlike the receipt, and holds the episode's performance history.
+
+## Performance (analytics)
+
+```bash
+npm run analytics -- link <id> <video id or Shorts URL> [--published-at=<ISO>]   # for videos uploaded by hand
+npm run analytics -- record <id> --views=1520 --avg-seconds=23.4 --avg-percent=75 --likes=90 --comments=12 --shares=7 --subs=3
+npm run analytics -- fetch <id>     # the same numbers plus the retention curve, from the YouTube Analytics API
+npm run analytics -- report         # every published episode: its numbers next to how it was built
+```
+
+Each `record` or `fetch` adds a dated snapshot, so it's worth taking one at 24 hours and another at 7 days.
+
+`fetch` needs the read-only analytics scope (`yt-analytics.readonly`), which `youtube:auth` now requests along with upload. If your token predates this, run `npm run youtube:auth` once more.
+
+The report lines each episode's average % viewed, hook hold and engagement up against its story shape, hook length, total length and engagement-audit score:
+- **Hook hold** is the share of viewers still watching when the hook scene ends.
+- **Trends:** once five episodes have numbers, the report also shows how each lever correlates with completion. That is the evidence for retuning the director's defaults (#25).
+
 ## Shorts
 
 There is no separate Shorts upload API. Upload the existing 9:16 MP4 normally; YouTube determines Shorts presentation from the uploaded video. Do not add black bars.
