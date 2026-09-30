@@ -13,7 +13,7 @@ const select = (changedFiles: string[], full = false) => plan(changedFiles, full
 
 describe('CI episode selection', () => {
   it('renders nothing for docs, tests and creative references', () => {
-    assert.deepEqual(select(['README.md', 'docs/episode-compiler.md', 'DIRECTING.md', 'test/compiler.test.ts', 'creative-references/gimmighoul-999.json', 'public/geo/countries.geojson', 'scripts/geo-data.mjs', 'scripts/lib/geo-data.mjs']), []);
+    assert.deepEqual(select(['README.md', 'docs/episode-compiler.md', 'DIRECTING.md', 'test/compiler.test.ts', 'creative-references/gimmighoul-999.json']), []);
   });
 
   it('renders only the episode whose draft, manifest or research changed', () => {
@@ -41,6 +41,7 @@ describe('CI episode selection', () => {
     assert.deepEqual(plan(['src/video/shots.tsx', 'drafts/pokepulses/zacian-888.json']), {
       episodes: ['zacian-888'],
       frames: [...golden].sort(),
+      geo: false,
       reason: 'full render of changed episodes: zacian-888; frame check of the golden set, because shared code changed (e.g. src/video/shots.tsx)',
     });
     assert.deepEqual(plan(['package.json', 'drafts/pokepulses/mew-151.json']).episodes, ['mew-151']);
@@ -70,8 +71,23 @@ describe('CI episode selection', () => {
     assert.equal(shards.flatMap((shard) => shard.split(' ')).length, 1025, 'every episode rendered once');
   });
 
+  it('checks only the geo golden frames when map-only code changes', () => {
+    for (const file of ['public/geo/countries.geojson', 'src/video/geo/GeoMap.tsx', 'scripts/geo-data.mjs', 'scripts/lib/geo-primitives.mjs', 'scripts/geo-golden.mjs', 'test/golden/geo/fly-to-georgia-end.png', 'test/fixtures/geo-georgia-shots.json']) {
+      assert.deepEqual({...plan([file]), reason: ''}, {episodes: [], frames: [], geo: true, reason: ''}, file);
+    }
+    assert.equal(plan(['README.md']).geo, false);
+    assert.equal(plan(['drafts/pokepulses/zacian-888.json']).geo, false);
+  });
+
+  it('checks the geo golden frames too when shared code that shapes maps changes', () => {
+    for (const file of ['scripts/primitive-schema.mjs', 'src/video/primitives.tsx', 'src/video/CompiledEpisodeScene.tsx', 'package-lock.json']) {
+      assert.equal(plan([file]).geo, true, file);
+      assert.ok(plan([file]).frames.length + plan([file]).episodes.length > 0, `${file} still checks PokePulses`);
+    }
+  });
+
   it('renders every episode in full on a full run', () => {
-    assert.deepEqual(plan([], true), {episodes: [...catalog].sort(), frames: [], reason: 'full catalog run'});
+    assert.deepEqual(plan([], true), {episodes: [...catalog].sort(), frames: [], geo: true, reason: 'full catalog run'});
   });
 
   it('keeps the golden set to real episodes covering each rendering path', () => {

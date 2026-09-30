@@ -69,6 +69,9 @@ export const slug = (text) => text.normalize('NFKD').replace(/[̀-ͯ]/g, '').toL
 
 const featureCollection = (features) => ({type: 'FeatureCollection', features});
 
+/** Code-unit order: the same on every machine, unlike localeCompare, whose collation depends on ICU and locale. */
+const byText = (a, b) => (a < b ? -1 : a > b ? 1 : 0);
+
 /** Countries: stable id "country:<ADM0_A3>", ISO code, name, Wikidata id; coordinates to 3 decimals (~100 m). */
 export const slimCountries = (source) => featureCollection(source.features
   .map((feature) => ({
@@ -82,7 +85,7 @@ export const slimCountries = (source) => featureCollection(source.features
     },
     geometry: roundGeometry(feature.geometry, 3),
   }))
-  .sort((a, b) => a.id.localeCompare(b.id)));
+  .sort((a, b) => byText(a.id, b.id)));
 
 /** Seas, oceans, gulfs…: id "water:<slug>", numbered (-2, -3…) when a name repeats; coordinates to 2 decimals (~1 km). */
 export const slimWater = (source) => {
@@ -94,7 +97,7 @@ export const slimWater = (source) => {
       geometry: roundGeometry(feature.geometry, 2),
     }))
     // A stable order (name, then position) so repeated names always get the same numbers.
-    .sort((a, b) => a.properties.name.localeCompare(b.properties.name) || bboxOf(a.geometry).join().localeCompare(bboxOf(b.geometry).join()));
+    .sort((a, b) => byText(a.properties.name, b.properties.name) || byText(bboxOf(a.geometry).join(), bboxOf(b.geometry).join()));
   const seen = new Map();
   for (const feature of features) {
     const base = slug(feature.properties.name);
@@ -102,7 +105,7 @@ export const slimWater = (source) => {
     seen.set(base, count);
     feature.id = `water:${count === 1 ? base : `${base}-${count}`}`;
   }
-  return featureCollection(features.map(({properties, geometry, id}) => ({type: 'Feature', id, properties, geometry})).sort((a, b) => a.id.localeCompare(b.id)));
+  return featureCollection(features.map(({properties, geometry, id}) => ({type: 'Feature', id, properties, geometry})).sort((a, b) => byText(a.id, b.id)));
 };
 
 /** Breakaway and disputed areas, kept separately so they are never silently drawn as settled borders. */
@@ -113,7 +116,7 @@ export const slimDisputed = (source) => featureCollection(source.features
     properties: {name: feature.properties.BRK_NAME || feature.properties.NAME, administeredBy: feature.properties.SOVEREIGNT, note: feature.properties.NOTE_BRK ?? null},
     geometry: roundGeometry(feature.geometry, 3),
   }))
-  .sort((a, b) => a.id.localeCompare(b.id)));
+  .sort((a, b) => byText(a.id, b.id)));
 
 const overlaps = ([w1, s1, e1, n1], [w2, s2, e2, n2]) => {
   if (s1 > n2 || s2 > n1) return false;
@@ -152,7 +155,7 @@ export const buildEntities = ({countries, water, disputed}) => {
       };
     }),
   ];
-  return entities.sort((a, b) => a.id.localeCompare(b.id));
+  return entities.sort((a, b) => byText(a.id, b.id));
 };
 
 /** Stable JSON: sorted input, fixed formatting, trailing newline, so assets hash the same on every machine. */

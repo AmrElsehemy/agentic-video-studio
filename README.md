@@ -187,7 +187,7 @@ Each generated track is locked to the narration, scene timing and voice settings
 
 Geography episodes (the GeoMotion epic, #69) draw countries, seas and disputed areas from pinned, public-domain Natural Earth data in `public/geo/`, with an entity registry (`country:GEO`, `water:black-sea`, …) and checksums. `npm run geo:prepare` rebuilds it from the pinned source; `npm run geo:verify` (in CI) checks it. Decisions (data, license, projection, disputed borders) are in [docs/geomotion-data.md](docs/geomotion-data.md).
 
-A scene draws a map with one `geo-map` primitive: camera keyframes (world → region → country), highlighted places, and labels, markers and arrows, all referring to places by registry id. See [docs/geomotion-primitives.md](docs/geomotion-primitives.md).
+A scene draws a map with one `geo-map` primitive: camera keyframes (world → region → country), highlighted places, and labels, markers and arrows, all referring to places by registry id. See [docs/geomotion-primitives.md](docs/geomotion-primitives.md). `npm run geo:golden` renders the golden map shots and compares them with `test/golden/geo/`.
 
 ## Project structure
 
