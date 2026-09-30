@@ -196,6 +196,8 @@ export const PrimitiveVisual: React.FC<ShotProps & {primitive: Primitive}> = ({p
     case 'type-shift': return <TypeShiftPrimitive {...props} data={primitive} />;
     case 'timeline': return <TimelinePrimitive {...props} data={primitive} />;
     case 'checklist': return <ChecklistPrimitive {...props} data={primitive} />;
+    // Fail loudly rather than render an empty map.
+    case 'geo-map': throw new Error('The geo-map renderer is not available yet (#72).');
   }
 };
 

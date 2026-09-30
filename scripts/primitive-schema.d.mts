@@ -8,9 +8,21 @@ export type Primitive =
   | {kind: 'bars'; unit?: string; bars: {label: string; value: number; from?: number}[]}
   | {kind: 'type-shift'; from: PokemonTypeName[]; to: PokemonTypeName[]}
   | {kind: 'timeline'; steps: {label: string; detail?: string}[]; active?: number}
-  | {kind: 'checklist'; items: {label: string; met: boolean}[]};
+  | {kind: 'checklist'; items: {label: string; met: boolean}[]}
+  | GeoMapPrimitive;
+export type GeoEntityId = string;
+export type GeoPoint = {lon: number; lat: number};
+export type GeoAnchor = GeoEntityId | GeoPoint;
+export type GeoCameraKey = {target: 'world' | GeoEntityId | {bbox: [number, number, number, number]}; at: number; padding: number; ease: 'linear' | 'in-out'};
+export type GeoHighlight = {entity: GeoEntityId; style: 'fill' | 'outline' | 'trace'; at: number; color?: string};
+export type GeoAnnotation =
+  | {type: 'label'; anchor: GeoAnchor; text: string; at: number}
+  | {type: 'marker'; anchor: GeoAnchor; text?: string; at: number}
+  | {type: 'arrow'; from: GeoAnchor; to: GeoAnchor; text?: string; at: number};
+export type GeoMapPrimitive = {kind: 'geo-map'; camera: GeoCameraKey[]; highlights: GeoHighlight[]; annotations: GeoAnnotation[]; dataset: 'natural-earth'};
 export type PrimitiveKind = Primitive['kind'];
 
+export declare const GEO_ENTITY_ID: RegExp;
 export declare const POKEMON_TYPE_NAMES: PokemonTypeName[];
 export declare const primitiveSchema: z.ZodType<Primitive>;
 export declare const PRIMITIVE_KINDS: PrimitiveKind[];
