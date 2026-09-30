@@ -1,20 +1,9 @@
 import fs from 'node:fs';
-import path from 'node:path';
-import {fileURLToPath} from 'node:url';
 import {PASSING_SCORE, scoreEpisode} from './lib/engagement.mjs';
-import {resolveEpisodeId} from './catalog.mjs';
+import {listManifests, resolveEpisodeId} from './catalog.mjs';
 
-const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const requested = process.argv[2] && resolveEpisodeId(process.argv[2]);
-const manifests = [];
-const walk = (directory) => {
-  for (const entry of fs.readdirSync(directory, {withFileTypes: true})) {
-    const target = path.join(directory, entry.name);
-    if (entry.isDirectory()) walk(target);
-    else if (entry.name === 'video.json') manifests.push(target);
-  }
-};
-walk(path.join(root, 'videos'));
+const manifests = listManifests();
 
 for (const manifestPath of manifests) {
   const video = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));

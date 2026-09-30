@@ -9,8 +9,11 @@ const episodeId = resolveEpisodeId(args.find((arg) => !arg.startsWith('--')) ?? 
 const voice = args.find((arg) => arg.startsWith('--voice='))?.split('=')[1] ?? process.env.VOICE_PROVIDER ?? 'auto';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const validation = spawnSync(process.execPath, ['--import', 'tsx', 'scripts/validate.ts', episodeId], {cwd: root, stdio: 'inherit'});
-if (validation.status !== 0) process.exit(validation.status ?? 1);
+// npm run pipeline has already validated this episode in the same run (its lint stage).
+if (process.env.STUDIO_CHECKED !== episodeId) {
+  const validation = spawnSync(process.execPath, ['--import', 'tsx', 'scripts/validate.ts', episodeId], {cwd: root, stdio: 'inherit'});
+  if (validation.status !== 0) process.exit(validation.status ?? 1);
+}
 
 let propsPath;
 try {

@@ -6,7 +6,7 @@
 // fraction of the cost. Nightly runs still render every episode in full.
 
 /** Paths that can't change how any episode renders. */
-const NON_RENDERING = [/\.md$/i, /^docs\//, /^test\//, /^creative-references\//];
+const NON_RENDERING = [/\.md$/i, /^docs\//, /^test\//, /^creative-references\//, /^scripts\/(lib\/)?pipeline\.(mjs|d\.mts)$/];
 
 /** Map-only paths: they can't change an episode without a map, so they run the geo golden frames instead. */
 const GEO_ONLY = [/^public\/geo\//, /^src\/video\/geo\//, /^scripts\/(lib\/)?geo-[a-z-]+\.(mjs|d\.mts|json)$/, /^test\/(golden\/geo|fixtures\/geo-)/];
@@ -19,7 +19,7 @@ const GEO_SHARED = [/^scripts\/primitive-schema\./, /^src\/video\/(primitives|Co
  * A change here adds one full golden render as a smoke test.
  */
 const MP4_ONLY = [
-  /^scripts\/(render|qa|generate-audio|generate-voice|generate-openai-voice)\.mjs$/,
+  /^scripts\/(render|qa|generate-audio|generate-voice)\.mjs$/,
   /^scripts\/lib\/(render-props|sound-design|voice-lock)\.mjs$/,
   /^src\/video\/VerticalEpisode\.tsx$/,
   /^public\//,

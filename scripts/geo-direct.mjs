@@ -11,6 +11,7 @@ import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {directGeoVisuals} from './lib/geo-director.mjs';
 import {createCompletion} from './lib/llm.mjs';
+import {findDraft} from './catalog.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const args = process.argv.slice(2);
@@ -21,8 +22,7 @@ if (!target || !/^([a-z0-9-]+\/)?[a-z0-9-]+$/.test(target)) {
   process.exit(1);
 }
 const episodeId = target.split('/').at(-1);
-const showId = target.includes('/') ? target.split('/')[0]
-  : fs.readdirSync(path.join(root, 'drafts')).find((show) => fs.existsSync(path.join(root, 'drafts', show, `${episodeId}.json`)));
+const showId = target.includes('/') ? target.split('/')[0] : findDraft(episodeId)?.showId;
 if (!showId) { console.error(`✗ no draft named ${episodeId} in drafts/.`); process.exit(1); }
 const draftPath = path.join(root, 'drafts', showId, `${episodeId}.json`);
 const researchPath = option('research') ? path.resolve(option('research')) : path.join(root, 'research', showId, `${episodeId}.json`);

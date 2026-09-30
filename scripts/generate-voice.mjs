@@ -17,7 +17,8 @@ const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
 const config = manifest.audio.voice;
 if (!config) throw new Error(`${episodeId} does not define audio.voice.`);
 
-if (provider === 'openai') {
+// npm run pipeline has already certified this episode in the same run (its lint stage).
+if (provider === 'openai' && process.env.STUDIO_CHECKED !== episodeId) {
   console.log(`▶ certifying ${episodeId} before any paid TTS request`);
   const certification = spawnSync(process.execPath, ['scripts/certify-episode.mjs', episodeId, '--fast'], {cwd: root, stdio: 'inherit'});
   if (certification.status !== 0) process.exit(certification.status ?? 1);

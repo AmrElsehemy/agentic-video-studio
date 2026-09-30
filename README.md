@@ -128,6 +128,38 @@ Milestone 0.2 implements the deterministic visual pipeline plus an opt-in narrat
 
 Agentic planning, automated factual review, publishing, and analytics feedback are later milestones. The episode manifest is the contract those agents will produce.
 
+### One command per episode
+
+`npm run pipeline -- <id>` takes an episode from its draft to a checked MP4:
+
+```
+compile → lint → preview → approve → voice → render
+```
+
+Each stage records the hash of its inputs in `build/<id>/lock.json` when it succeeds, and is skipped next time if they haven't changed. Running it twice in a row does nothing the second time. Stages hash what the stage before them *produced*, so work stops as soon as an output is unchanged:
+- **Narration edit:** compile, lint, preview, voice and render run again.
+- **Headline edit:** narration isn't regenerated.
+- **Reformatted draft:** if the compiled manifest is the same, only compile runs.
+
+| Stage | Runs | Re-runs when |
+|---|---|---|
+| compile | draft → `videos/<show>/<id>/video.json` (skipped for hand-written manifests) | the draft, show profile, compiler or map ids change |
+| lint | schema, engagement audit, voice timing preflight, `tsc` | the manifest or any source file changes |
+| preview | review frames in `out/<id>-frames/` (no voice) | the manifest or render code changes |
+| approve | a gate for paid voice: waits until a person approves this manifest | the manifest changes |
+| voice | `--voice=local` or `--voice=openai` narration (per-scene cache) | narration or voice settings change |
+| render | full render + media QA → `out/<id>.mp4` | the manifest, narration or render code changes |
+
+```bash
+npm run pipeline -- lesotho-enclave                           # every stage, rendered without narration
+npm run pipeline -- lesotho-enclave --voice=openai            # stops at approve: review the frames first
+npm run pipeline -- lesotho-enclave --voice=openai --approve  # approve this version, then voice and render
+npm run pipeline -- lesotho-enclave --until=preview --dry-run # what would run
+npm run pipeline -- lesotho-enclave --force=render            # re-run a stage anyway
+```
+
+Validation and `tsc` run once per invocation: voice and render skip their own checks when the pipeline has already run them. A failing stage stops the run, and the stages before it stay done. Research and drafting stay in `npm run episode:new`; publishing stays in `npm run youtube:upload`.
+
 The directing rules live in [DIRECTING.md](DIRECTING.md). They force every episode to make one arguable promise, escalate it, pay it off, and invite a meaningful verdict; story shapes that argue a position (profile, comparison) must also survive a counterpoint.
 
 ## Visual primitives
