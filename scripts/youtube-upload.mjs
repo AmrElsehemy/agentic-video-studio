@@ -3,6 +3,7 @@ import path from 'node:path';
 import {spawnSync} from 'node:child_process';
 import {findManifest, resolveEpisodeId} from './catalog.mjs';
 import {getAccessToken, youtubeMetadata} from './lib/youtube.mjs';
+import {analyticsPath, linkVideo, readAnalytics, writeAnalytics} from './lib/analytics.mjs';
 
 const args = process.argv.slice(2);
 const episodeId = resolveEpisodeId(args.find((arg) => !arg.startsWith('--')));
@@ -96,5 +97,8 @@ const receipt = {
 };
 const receiptPath = path.join(root, 'out', `${episodeId}-youtube.json`);
 fs.writeFileSync(receiptPath, `${JSON.stringify(receipt, null, 2)}\n`);
+// Link the episode to its video for npm run analytics (committed, unlike the receipt in out/).
+const analyticsFile = analyticsPath(root, manifest.show.id, episodeId);
+writeAnalytics(analyticsFile, linkVideo(readAnalytics(analyticsFile), {episodeId, video: video.id, publishedAt: metadata.status.publishAt}));
 console.log(`✓ YouTube upload complete: ${receipt.url}`);
 console.log(`✓ receipt: ${path.relative(root, receiptPath)}`);

@@ -1,4 +1,5 @@
 export declare const YOUTUBE_UPLOAD_SCOPE: string;
+export declare const YOUTUBE_ANALYTICS_SCOPE: string;
 export declare const loadClient: (root: string) => {client_id: string; client_secret: string};
 export declare const saveToken: (root: string, token: Record<string, unknown>) => void;
 export declare const refreshAccessToken: (root: string, existing?: Record<string, any>) => Promise<Record<string, any>>;
