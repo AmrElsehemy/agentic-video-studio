@@ -5,7 +5,7 @@ import {interpolate} from 'remotion';
 import type {GeoAnchor, GeoMapPrimitive} from '../../../scripts/primitive-schema.mjs';
 import type {ShotProps} from '../shots';
 import {displayFont} from '../typography';
-import {cameraAt, fitView, worldView, type BBox, type CameraKey, type Size} from './camera';
+import {cameraAt, cameraKeys, MAP_SIZE, type BBox, type CameraKey, type Size} from './camera';
 import {useGeoData, type GeoData} from './data';
 
 // A map drawn entirely from the pinned data and the primitive: the camera flies
@@ -13,8 +13,7 @@ import {useGeoData, type GeoData} from './data';
 // here knows which episode or country it is drawing.
 
 const clamp = {extrapolateLeft: 'clamp' as const, extrapolateRight: 'clamp' as const};
-/** The visual area the scene gives primitives (CompiledEpisodeScene: inset 300px 35px 245px on 1080×1920). */
-const SIZE: Size = {width: 1010, height: 1375};
+const SIZE: Size = MAP_SIZE;
 /** Labels stay this far inside the edges so they never collide with the headline or caption. */
 const SAFE = 48;
 /** Frames an appearing layer takes to fade/draw in. */
@@ -85,10 +84,7 @@ export const GeoMapVisual: React.FC<ShotProps & {data: GeoMapPrimitive}> = ({dat
   const data = useGeoData();
   const keys = useMemo<CameraKey[] | undefined>(() => {
     if (!data) return undefined;
-    // "world" centres on the first specific place the camera visits.
-    const destination = primitive.camera.find((key) => key.target !== 'world');
-    const heading = destination ? fitView(targetBox(destination.target, data), SIZE).lon : 20;
-    return primitive.camera.map((key) => ({view: key.target === 'world' ? worldView(heading, SIZE, Math.min(key.padding, .1)) : fitView(targetBox(key.target, data), SIZE, key.padding), at: key.at, ease: key.ease}));
+    return cameraKeys(primitive.camera, (target) => targetBox(target, data), SIZE);
   }, [data, primitive]);
   if (!data || !keys) return null;
 

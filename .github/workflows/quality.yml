@@ -68,6 +68,12 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
+      # Remotion downloads Chrome Headless Shell into node_modules/.remotion on first use; keep it between runs.
+      - name: Cache the Remotion browser
+        uses: actions/cache@v4
+        with:
+          path: node_modules/.remotion
+          key: remotion-browser-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
       - name: Install FFmpeg and Tesseract for render QA
         run: sudo apt-get update && sudo apt-get install --yes --no-install-recommends ffmpeg tesseract-ocr
       - name: Review frames, contact sheet, description and video critic
@@ -111,6 +117,12 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
+      # Remotion downloads Chrome Headless Shell into node_modules/.remotion on first use; keep it between runs.
+      - name: Cache the Remotion browser
+        uses: actions/cache@v4
+        with:
+          path: node_modules/.remotion
+          key: remotion-browser-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
       - name: Install FFmpeg for frame comparison
         run: sudo apt-get update && sudo apt-get install --yes --no-install-recommends ffmpeg
       - run: npm run geo:golden
@@ -140,6 +152,12 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
+      # Remotion downloads Chrome Headless Shell into node_modules/.remotion on first use; keep it between runs.
+      - name: Cache the Remotion browser
+        uses: actions/cache@v4
+        with:
+          path: node_modules/.remotion
+          key: remotion-browser-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
       - name: Install FFmpeg and Tesseract for render QA
         run: sudo apt-get update && sudo apt-get install --yes --no-install-recommends ffmpeg tesseract-ocr
       - name: Render, contact sheet, cover, description and video critic
@@ -153,7 +171,8 @@ jobs:
           failed=""
           for id in $SHARD; do
             echo "::group::$id"
-            npm run video -- "$id"
+            # The validate job already checked every manifest, so the render skips its own validation.
+            STUDIO_CHECKED="$id" npm run video -- "$id"
             npm run sheet -- "$id"
             npm run still -- "$id"
             npm run description -- "$id"
