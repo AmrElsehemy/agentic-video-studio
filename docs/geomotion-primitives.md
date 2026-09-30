@@ -43,6 +43,7 @@ The issue proposed `geo-map`, `geo-highlight` and `geo-annotation` as separate p
 
 - **Schema** (`scripts/primitive-schema.mjs`, shared by drafts, the compiler and the renderer): shapes, ranges, keyframe order, and unknown fields.
 - **Compiler** (`scripts/lib/geo-primitives.mjs`): every place id must exist in the pinned map data. Otherwise compilation fails, listing each unknown id with where it's used and the nearest real ids (*`camera[0].target: unknown geo entity "country:GEORGIA"; did you mean country:GEO (Georgia)?`*). A map never renders empty.
+- **Camera** (`test/geo-episodes.test.ts`, part of `npm test`): every map scene in the catalog and the golden fixture is run through the renderer's own camera maths (`cameraKeys`/`cameraAt` in `src/video/geo/camera.ts`). A view that collapses (a blank map) or zooms far past the world framing fails. So does a target framed at under 20% of the frame. No render is needed.
 - **Rights:** an episode with a map scene gets one `map-data` rights entry crediting Natural Earth (`public-domain`, with the attribution line). `preflight:publish` accepts `public-domain` assets.
 - **Visual Director:** map shots are chosen by the Geo Visual Director from resolved places and researched points, never raw coordinates ([docs/geomotion-director.md](geomotion-director.md)). The PokePulses Visual Director doesn't offer `geo-map`.
 

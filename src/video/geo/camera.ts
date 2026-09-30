@@ -40,6 +40,24 @@ export const worldView = (lon: number, {height}: Size, padding = .05): View => (
   scale: (height * (1 - 2 * padding)) / (mercatorY(WORLD_LATS[1]) - mercatorY(WORLD_LATS[0])),
 });
 
+/** The frame the map is drawn into: the scene's visual area (CompiledEpisodeScene: inset 300px 35px 245px on 1080×1920). */
+export const MAP_SIZE: Size = {width: 1010, height: 1375};
+
+type CameraTarget = 'world' | string | {bbox: BBox};
+/**
+ * A geo-map's camera keyframes as views. `boxOf` gives a place's camera box.
+ * "world" is centred on the first specific place the camera visits.
+ */
+export const cameraKeys = (camera: {target: CameraTarget; at: number; padding: number; ease: 'linear' | 'in-out'}[], boxOf: (target: Exclude<CameraTarget, 'world'>) => BBox, size: Size = MAP_SIZE): CameraKey[] => {
+  const destination = camera.find((key) => key.target !== 'world');
+  const heading = destination ? fitView(boxOf(destination.target as Exclude<CameraTarget, 'world'>), size).lon : 20;
+  return camera.map((key) => ({
+    view: key.target === 'world' ? worldView(heading, size, Math.min(key.padding, .1)) : fitView(boxOf(key.target), size, key.padding),
+    at: key.at,
+    ease: key.ease,
+  }));
+};
+
 const easeInOut = (t: number) => (t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
 
 /**
