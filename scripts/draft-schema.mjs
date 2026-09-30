@@ -51,7 +51,7 @@ export const episodeDraftSchema = z.preprocess(upgradeLegacySubject, z.object({
       kind: z.string().min(1),
       sourceUrl: z.string().url(),
       owner: z.string().min(1),
-      licenseStatus: z.enum(['owned', 'licensed', 'permission-required', 'unverified']),
+      licenseStatus: z.enum(['owned', 'licensed', 'public-domain', 'permission-required', 'unverified']),
       publicReleaseApproved: z.boolean(),
       notes: z.string().optional(),
     })).min(1),

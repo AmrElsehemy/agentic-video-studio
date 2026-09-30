@@ -5,7 +5,7 @@ import {videoSchema} from '../src/schema';
 const episodeId = resolveEpisodeId(process.argv[2] ?? 'bulbasaur-001');
 const {manifestPath} = findManifest(episodeId);
 const manifest = videoSchema.parse(JSON.parse(fs.readFileSync(manifestPath, 'utf8')));
-const blockers = manifest.rights.assets.filter((asset) => !asset.publicReleaseApproved || !['owned', 'licensed'].includes(asset.licenseStatus));
+const blockers = manifest.rights.assets.filter((asset) => !asset.publicReleaseApproved || !['owned', 'licensed', 'public-domain'].includes(asset.licenseStatus));
 
 if (!manifest.rights.publicReleaseApproved) blockers.unshift({kind: 'episode', sourceUrl: manifest.sources[0].url, owner: 'release owner', licenseStatus: 'permission-required', publicReleaseApproved: false, notes: 'Episode-level public release has not been approved.'});
 if (manifest.rights.releaseStatus !== 'cleared') blockers.unshift({kind: 'release-status', sourceUrl: manifest.sources[0].url, owner: 'release owner', licenseStatus: 'permission-required', publicReleaseApproved: false, notes: `Status is ${manifest.rights.releaseStatus}, not cleared.`});

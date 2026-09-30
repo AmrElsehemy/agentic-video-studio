@@ -1,0 +1,31 @@
+{
+  "_note": "The three GeoMotion golden shots (#71/#72): primitives only, no episode-specific code. Used by the schema tests now and the renderer's golden frames in #72.",
+  "shots": {
+    "fly-to-georgia": {
+      "kind": "geo-map",
+      "camera": [
+        {"target": "world", "at": 0},
+        {"target": {"bbox": [36, 38, 52, 46]}, "at": 0.45},
+        {"target": "country:GEO", "at": 0.8, "padding": 0.2}
+      ],
+      "highlights": [{"entity": "country:GEO", "style": "fill", "at": 0.7}]
+    },
+    "georgia-border": {
+      "kind": "geo-map",
+      "camera": [{"target": "country:GEO", "at": 0, "padding": 0.12}],
+      "highlights": [{"entity": "country:GEO", "style": "trace", "at": 0}],
+      "annotations": [{"type": "label", "anchor": "country:GEO", "text": "GEORGIA", "at": 0.55}]
+    },
+    "between-two-seas": {
+      "kind": "geo-map",
+      "camera": [{"target": {"bbox": [27, 36, 55, 48]}, "at": 0, "padding": 0.05}],
+      "highlights": [{"entity": "country:GEO", "style": "fill", "at": 0}],
+      "annotations": [
+        {"type": "label", "anchor": "water:black-sea", "text": "BLACK SEA", "at": 0.15},
+        {"type": "label", "anchor": "water:caspian-sea", "text": "CASPIAN SEA", "at": 0.35},
+        {"type": "arrow", "from": "water:black-sea", "to": "country:GEO", "at": 0.55},
+        {"type": "arrow", "from": "water:caspian-sea", "to": "country:GEO", "at": 0.7}
+      ]
+    }
+  }
+}

@@ -1,6 +1,7 @@
 import {isDeepStrictEqual} from 'node:util';
 import {getArchetype, planScenes} from '../archetypes.mjs';
 import {episodeDraftSchema} from '../draft-schema.mjs';
+import {geoProblems, geoRightsAsset, loadGeoData} from './geo-primitives.mjs';
 import {loadShow} from './shows.mjs';
 
 export const DEFAULT_SPEED = 1.08;
@@ -30,7 +31,7 @@ export const safeDuration = (text, speed) => {
  * profile that isn't on disk. Throws on an invalid draft or a draft that
  * violates production limits.
  */
-export const compileEpisode = (rawDraft, {showId, show = loadShow(showId)}) => {
+export const compileEpisode = (rawDraft, {showId, show = loadShow(showId), geo}) => {
   if (show.id !== showId) throw new Error(`compileEpisode was asked for the ${showId} show but given the ${show.id} profile.`);
   const draft = episodeDraftSchema.parse(rawDraft);
   const episodeId = draft.id;
@@ -50,6 +51,12 @@ export const compileEpisode = (rawDraft, {showId, show = loadShow(showId)}) => {
   const numberRelevant = draft.numberRelevant ?? false;
   const identifiers = new Set([draft.subject.identifier, ...related.map((item) => item.identifier)].filter(Boolean));
   const cleanFacts = (facts = []) => facts.filter((fact) => numberRelevant || !identifiers.has(fact));
+
+  // Map scenes must name places that exist in the pinned map data (public/geo/).
+  const geoScenes = draft.scenes.filter((scene) => scene.primitive?.kind === 'geo-map');
+  const geoData = geoScenes.length ? geo ?? loadGeoData() : undefined;
+  const geoErrors = geoScenes.flatMap((scene) => geoProblems(scene.primitive, geoData).map((problem) => `scene "${scene.id}" ${problem}`));
+  if (geoErrors.length) throw new Error(`${episodeId} has map scenes that refer to unknown places:\n${geoErrors.map((error) => `- ${error}`).join('\n')}`);
 
   const plan = planScenes(archetype, draft.scenes);
   const scenes = draft.scenes.map((scene, index) => {
@@ -122,7 +129,10 @@ export const compileEpisode = (rawDraft, {showId, show = loadShow(showId)}) => {
         output: `generated/${episodeId}-voice.wav`,
       },
     },
-    rights: draft.rights,
+    // Map scenes credit the map data they draw.
+    rights: geoData && !draft.rights.assets.some((asset) => asset.kind === 'map-data')
+      ? {...draft.rights, assets: [...draft.rights.assets, geoRightsAsset(geoData)]}
+      : draft.rights,
     scenes,
     sources: draft.sources,
   };

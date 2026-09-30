@@ -9,6 +9,31 @@ export const POKEMON_TYPE_NAMES = ['Normal', 'Fire', 'Water', 'Grass', 'Electric
 const label = z.string().min(1).max(28);
 const typeName = z.enum(POKEMON_TYPE_NAMES);
 
+// GeoMotion: places are referenced by a stable id from the geo entity registry
+// (public/geo/entities.json), never by hand-drawn outlines; points may use
+// longitude/latitude. Times are fractions of the scene (0 = start, 1 = end),
+// so choreography follows the scene's narration timing.
+export const GEO_ENTITY_ID = /^(country|water|disputed):[A-Za-z0-9-]+$/;
+const geoEntity = z.string().regex(GEO_ENTITY_ID, 'Use a geo entity id such as "country:GEO" or "water:black-sea"');
+const point = z.object({lon: z.number().min(-180).max(180), lat: z.number().min(-90).max(90)}).strict();
+const anchor = z.union([geoEntity, point]);
+const bbox = z.tuple([z.number().min(-180).max(180), z.number().min(-90).max(90), z.number().min(-180).max(180), z.number().min(-90).max(90)]);
+const moment = z.number().min(0).max(1);
+const hexColor = z.string().regex(/^#[0-9a-f]{6}$/i);
+const cameraKey = z.object({
+  // "world", a registry id, or an explicit box [west, south, east, north] (west > east crosses the antimeridian).
+  target: z.union([z.literal('world'), geoEntity, z.object({bbox}).strict()]),
+  at: moment,
+  // Margin around the target, as a fraction of the frame.
+  padding: z.number().min(0).max(.5).default(.15),
+  ease: z.enum(['linear', 'in-out']).default('in-out'),
+}).strict();
+const geoAnnotation = z.discriminatedUnion('type', [
+  z.object({type: z.literal('label'), anchor, text: label, at: moment.default(0)}).strict(),
+  z.object({type: z.literal('marker'), anchor, text: label.optional(), at: moment.default(0)}).strict(),
+  z.object({type: z.literal('arrow'), from: anchor, to: anchor, text: label.optional(), at: moment.default(0)}).strict(),
+]);
+
 export const primitiveSchema = z.discriminatedUnion('kind', [
   // A number climbing to a target: Gimmighoul's 999 coins.
   z.object({kind: z.literal('counter'), from: z.number().min(0).default(0), to: z.number().positive(), label}).strict(),
@@ -22,7 +47,25 @@ export const primitiveSchema = z.discriminatedUnion('kind', [
   z.object({kind: z.literal('timeline'), steps: z.array(z.object({label: z.string().min(1).max(20), detail: z.string().min(1).max(24).optional()}).strict()).min(2).max(4), active: z.number().int().min(0).max(3).optional()}).strict(),
   // Requirements ruled in or out: no stone, no trade, 999 coins.
   z.object({kind: z.literal('checklist'), items: z.array(z.object({label: z.string().min(1).max(22), met: z.boolean()}).strict()).min(2).max(4)}).strict(),
+  // A map: the camera flies between framings while places light up and labels, markers and arrows appear.
+  z.object({
+    kind: z.literal('geo-map'),
+    camera: z.array(cameraKey).min(1).max(4),
+    highlights: z.array(z.object({entity: geoEntity, style: z.enum(['fill', 'outline', 'trace']).default('fill'), at: moment.default(0), color: hexColor.optional()}).strict()).max(4).default([]),
+    annotations: z.array(geoAnnotation).max(4).default([]),
+    // The pinned map dataset the ids refer to (see docs/geomotion-data.md).
+    dataset: z.literal('natural-earth').default('natural-earth'),
+  }).strict(),
 ]).superRefine((primitive, context) => {
+  if (primitive.kind === 'geo-map') {
+    // Keyframes start at the beginning of the scene and move forward in time.
+    if (primitive.camera[0].at !== 0) context.addIssue({code: 'custom', path: ['camera', 0, 'at'], message: 'The first camera keyframe must be at 0 (the start of the scene)'});
+    primitive.camera.forEach((key, index) => {
+      if (index > 0 && key.at <= primitive.camera[index - 1].at) context.addIssue({code: 'custom', path: ['camera', index, 'at'], message: `Camera keyframes must move forward in time: ${key.at} follows ${primitive.camera[index - 1].at}`});
+      if (typeof key.target === 'object' && key.target.bbox[1] >= key.target.bbox[3]) context.addIssue({code: 'custom', path: ['camera', index, 'target', 'bbox'], message: 'A box must have south below north'});
+    });
+    return;
+  }
   if (primitive.kind !== 'meter') return;
   // A meter must move, and its threshold must be one it actually crosses.
   if (primitive.from === primitive.to) context.addIssue({code: 'custom', path: ['to'], message: 'A meter must move: from and to are equal'});
@@ -53,6 +96,8 @@ export const primitiveText = (primitive) => {
     case 'type-shift': return `${primitive.from.join('/')} becomes ${primitive.to.join('/')}`;
     case 'timeline': return primitive.steps.map((step) => `${step.label}${step.detail ? ` (${step.detail})` : ''}`).join(' → ');
     case 'checklist': return primitive.items.map((item) => `${item.met ? 'yes' : 'no'}: ${item.label}`).join(', ');
+    // Only the words on screen are claims; the places come from the map data.
+    case 'geo-map': return primitive.annotations.map((annotation) => annotation.text).filter(Boolean).join(', ');
     default: return '';
   }
 };

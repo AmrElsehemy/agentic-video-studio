@@ -22,7 +22,8 @@ const directorSaying = (scenes: unknown[]) => async () => `Plan:\n${JSON.stringi
 
 describe('visual primitives', () => {
   it('accepts each documented example and rejects malformed data', () => {
-    assert.deepEqual(PRIMITIVE_GUIDE.map(([kind]) => kind), PRIMITIVE_KINDS);
+    // Map scenes need resolved places, so the Visual Director is taught geo-map separately (#74).
+    assert.deepEqual(PRIMITIVE_GUIDE.map(([kind]) => kind), PRIMITIVE_KINDS.filter((kind) => kind !== 'geo-map'));
     for (const [, , example] of PRIMITIVE_GUIDE) assert.ok(primitiveSchema.safeParse(JSON.parse(example)).success, example);
     assert.equal(primitiveSchema.safeParse({kind: 'type-shift', from: ['Fire'], to: ['Plasma']}).success, false);
     assert.equal(primitiveSchema.safeParse({kind: 'meter', label: 'HP', from: 100, to: 150}).success, false);
