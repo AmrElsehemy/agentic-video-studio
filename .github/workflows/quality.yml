@@ -34,6 +34,7 @@ jobs:
       - run: npm run validate
       - run: npm run typecheck
       - run: npm test
+      - run: npm run geo:verify
       - id: select
         name: Choose episodes to render
         env:

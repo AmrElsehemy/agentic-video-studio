@@ -6,7 +6,11 @@
 // fraction of the cost. Nightly runs still render every episode in full.
 
 /** Paths that can't change how any episode renders. */
-const NON_RENDERING = [/\.md$/i, /^docs\//, /^test\//, /^creative-references\//];
+const NON_RENDERING = [
+  /\.md$/i, /^docs\//, /^test\//, /^creative-references\//,
+  // GeoMotion map data isn't used by any episode renderer yet (#72 will add geo golden frames, #75).
+  /^public\/geo\//, /^scripts\/(lib\/)?geo-data\.(mjs|d\.mts)$/,
+];
 
 /**
  * Shared paths that can change the MP4 in ways review frames can't show:

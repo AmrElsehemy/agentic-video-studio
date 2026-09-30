@@ -33,7 +33,9 @@
     "qa": "node scripts/qa.mjs",
     "typecheck": "tsc --noEmit",
     "test": "node --import tsx --test \"test/**/*.test.ts\"",
-    "frames": "node scripts/frame-check.mjs"
+    "frames": "node scripts/frame-check.mjs",
+    "geo:prepare": "node scripts/geo-data.mjs",
+    "geo:verify": "node scripts/geo-data.mjs --verify"
   },
   "dependencies": {
     "@remotion/cli": "4.0.526",
