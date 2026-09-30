@@ -32,7 +32,7 @@ const linked = (file, episodeId) => {
 const number = (name) => {
   const value = option(name);
   if (value === undefined) return undefined;
-  const parsed = Number(value.replace(/[,%s]/g, ''));
+  const parsed = Number(value.replace(/[,%\s]/g, ''));
   if (!Number.isFinite(parsed)) throw new Error(`--${name} must be a number (got ${value})`);
   return parsed;
 };
