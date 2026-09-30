@@ -44,15 +44,31 @@ The issue proposed `geo-map`, `geo-highlight` and `geo-annotation` as separate p
 - **Schema** (`scripts/primitive-schema.mjs`, shared by drafts, the compiler and the renderer): shapes, ranges, keyframe order, and unknown fields.
 - **Compiler** (`scripts/lib/geo-primitives.mjs`): every place id must exist in the pinned map data. Otherwise compilation fails, listing each unknown id with where it's used and the nearest real ids (*`camera[0].target: unknown geo entity "country:GEORGIA"; did you mean country:GEO (Georgia)?`*). A map never renders empty.
 - **Rights:** an episode with a map scene gets one `map-data` rights entry crediting Natural Earth (`public-domain`, with the attribution line). `preflight:publish` accepts `public-domain` assets.
-- **Renderer:** until #72, a `geo-map` scene stops the render with an error instead of drawing nothing.
 - **Visual Director:** it doesn't offer `geo-map` yet. Choosing map shots needs resolved places and evidence (#74).
 
 Existing episodes are unaffected: all current drafts compile to their committed manifests byte for byte.
 
+## Renderer (#72)
+
+`src/video/geo/` draws the primitive inside the scene's visual area (1010×1375 px, between headline and caption):
+- **Camera:** Web Mercator views fitted to each target, interpolated the short way round the globe with geometric zoom. `"world"` fills the frame's height, centred on the first place the camera visits.
+- **Data:** loaded once from the bundle's `public/geo/` files. The render waits for it, with no network and no tiles.
+- **Map:** land is every country (the palette's surface colour) on a water background.
+- **Highlights:** fill with a glow, outline, or a self-drawing border trace. Disputed areas get hatching.
+- **Annotations:** labels have a halo and are kept 48 px inside the frame. Markers pulse. Arrows arc upward (away from the caption), start clear of any label on their anchor, and stop short of their target.
+
+Golden frames: `npm run geo:golden` renders every fixture shot at its start, middle and end through the real scene layout, and compares them with `test/golden/geo/` by SSIM.
+- Default threshold 0.97: catches a blank or wrongly framed map while tolerating font anti-aliasing differences between machines.
+- `--strict` (0.995): also catches a moved label or arrow.
+- `--update`: replaces the committed frames after you have reviewed them.
+
+CI runs the check (and uploads the frames) whenever map code, map data, the primitive contract or the scene layout changes.
+
 ## Examples
 
-The three golden shots the renderer is built against (#72) live in [`test/fixtures/geo-georgia-shots.json`](../test/fixtures/geo-georgia-shots.json):
+The golden shots the renderer is built against (#72) live in [`test/fixtures/geo-georgia-shots.json`](../test/fixtures/geo-georgia-shots.json):
 
 1. **`fly-to-georgia`**: world → Caucasus → Georgia, with Georgia filling in on arrival.
 2. **`georgia-border`**: Georgia's border traces itself, then the label `GEORGIA` appears.
 3. **`between-two-seas`**: a Caucasus framing with the Black Sea and Caspian Sea labelled, and arrows from each sea to Georgia.
+4. **`fiji-antimeridian`**: Fiji, which crosses the ±180° meridian, framed and filled whole.

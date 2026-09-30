@@ -6,11 +6,12 @@
 // fraction of the cost. Nightly runs still render every episode in full.
 
 /** Paths that can't change how any episode renders. */
-const NON_RENDERING = [
-  /\.md$/i, /^docs\//, /^test\//, /^creative-references\//,
-  // GeoMotion map data isn't used by any episode renderer yet (#72 will add geo golden frames, #75).
-  /^public\/geo\//, /^scripts\/(lib\/)?geo-data\.(mjs|d\.mts)$/,
-];
+const NON_RENDERING = [/\.md$/i, /^docs\//, /^test\//, /^creative-references\//];
+
+/** Map-only paths: they can't change an episode without a map, so they run the geo golden frames instead. */
+const GEO_ONLY = [/^public\/geo\//, /^src\/video\/geo\//, /^scripts\/(lib\/)?geo-[a-z-]+\.(mjs|d\.mts)$/, /^test\/(golden\/geo|fixtures\/geo-)/];
+/** Shared paths that also shape map scenes (the primitive contract, the scene layout, dependencies). */
+const GEO_SHARED = [/^scripts\/primitive-schema\./, /^src\/video\/(primitives|CompiledEpisodeScene)\.tsx$/, /^src\/schema\.ts$/, /^package(-lock)?\.json$/, /^\.github\/workflows\//];
 
 /**
  * Shared paths that can change the MP4 in ways review frames can't show:
@@ -40,16 +41,22 @@ const episodeOf = (file) => {
  * @param {string[]} options.catalog every episode id that exists now
  * @param {string[]} options.golden the regression set
  * @param {boolean} [options.full] render everything (nightly / manual)
- * @returns {{episodes: string[], frames: string[], reason: string}} episodes to render as full MP4s, and episodes to check frame by frame
+ * @returns {{episodes: string[], frames: string[], geo: boolean, reason: string}} episodes to render as full MP4s, episodes to check frame by frame, and whether to check the geo golden frames
  */
 export const selectEpisodes = ({changedFiles, catalog, golden, full = false}) => {
   const exists = new Set(catalog);
-  if (full) return {episodes: [...catalog].sort(), frames: [], reason: 'full catalog run'};
+  if (full) return {episodes: [...catalog].sort(), frames: [], geo: true, reason: 'full catalog run'};
 
   const touched = new Set();
   let sharedChange;
   let mp4Change;
+  let geoChange;
   for (const file of changedFiles) {
+    if (GEO_ONLY.some((pattern) => pattern.test(file))) {
+      geoChange ??= file;
+      continue;
+    }
+    if (GEO_SHARED.some((pattern) => pattern.test(file))) geoChange ??= file;
     const episode = episodeOf(file);
     if (episode) {
       if (exists.has(episode)) touched.add(episode);
@@ -70,7 +77,8 @@ export const selectEpisodes = ({changedFiles, catalog, golden, full = false}) =>
   if (touched.size) reasons.push(`full render of changed episodes: ${[...touched].sort().join(', ')}`);
   if (smoke && !touched.size) reasons.push(`full render of ${smoke}, because audio or encoding may have changed (e.g. ${mp4Change})`);
   if (frames.length) reasons.push(`frame check of the golden set, because shared code changed (e.g. ${sharedChange})`);
-  return {episodes: [...episodes].sort(), frames: frames.sort(), reason: reasons.join('; ') || 'nothing that affects rendering changed'};
+  if (geoChange) reasons.push(`geo golden frames, because map rendering may have changed (e.g. ${geoChange})`);
+  return {episodes: [...episodes].sort(), frames: frames.sort(), geo: Boolean(geoChange), reason: reasons.join('; ') || 'nothing that affects rendering changed'};
 };
 
 /** GitHub Actions caps a job matrix at 256 entries; stay well below it. */

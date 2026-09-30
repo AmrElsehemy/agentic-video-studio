@@ -3,6 +3,7 @@ import {interpolate, spring} from 'remotion';
 import type {Primitive} from '../../scripts/primitive-schema.mjs';
 import type {VideoManifest} from '../schema';
 import {Art, artworkPair, type ShotProps} from './shots';
+import {GeoMapVisual} from './geo/GeoMap';
 import {bodyFont, displayFont} from './typography';
 
 // Semantic visual primitives: each visualises an idea (a count, a threshold,
@@ -196,8 +197,7 @@ export const PrimitiveVisual: React.FC<ShotProps & {primitive: Primitive}> = ({p
     case 'type-shift': return <TypeShiftPrimitive {...props} data={primitive} />;
     case 'timeline': return <TimelinePrimitive {...props} data={primitive} />;
     case 'checklist': return <ChecklistPrimitive {...props} data={primitive} />;
-    // Fail loudly rather than render an empty map.
-    case 'geo-map': throw new Error('The geo-map renderer is not available yet (#72).');
+    case 'geo-map': return <GeoMapVisual {...props} data={primitive} />;
   }
 };
 
