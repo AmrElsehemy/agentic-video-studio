@@ -2,6 +2,7 @@
 // assets and an entity registry the renderer and Visual Director can rely on.
 // Pure functions only; scripts/geo-data.mjs does the downloading and writing.
 import crypto from 'node:crypto';
+import {geoArea} from 'd3-geo';
 
 /** The pinned source. Changing it is a deliberate, reviewed update (see docs/geomotion-data.md). */
 export const NATURAL_EARTH = {
@@ -64,6 +65,22 @@ export const bboxOf = (geometry) => {
 };
 
 export const crossesAntimeridian = ([west, , east]) => west > east;
+
+/** Parts at least this share of the largest part's area belong in a place's camera frame. */
+export const FRAME_SHARE = .2;
+
+/**
+ * The box a camera should frame: the largest part and any part at least
+ * FRAME_SHARE of its area, leaving out remote islands (South Africa's Prince
+ * Edward Islands, French Guiana) that would shrink the place to a speck.
+ */
+export const frameOf = (geometry) => {
+  const parts = geometry.type === 'Polygon' ? [geometry.coordinates] : geometry.coordinates;
+  if (parts.length === 1) return bboxOf(geometry);
+  const areas = parts.map((coordinates) => geoArea({type: 'Polygon', coordinates}));
+  const largest = Math.max(...areas);
+  return bboxOf({type: 'MultiPolygon', coordinates: parts.filter((_, index) => areas[index] >= largest * FRAME_SHARE)});
+};
 
 export const slug = (text) => text.normalize('NFKD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 
@@ -140,10 +157,11 @@ export const buildEntities = ({countries, water, disputed}) => {
   const entities = [
     ...countries.features.map((feature) => {
       const bbox = bboxOf(feature.geometry);
+      const frame = frameOf(feature.geometry);
       const areas = disputed.features.filter((area) => overlaps(bbox, bboxOf(area.geometry)) && concerns(area, feature.properties.name));
       return {
         id: feature.id, kind: 'country', name: feature.properties.name, iso3: feature.properties.iso3, wikidata: feature.properties.wikidata,
-        bbox, ...(crossesAntimeridian(bbox) ? {crossesAntimeridian: true} : {}), label: feature.properties.label, layer: 'countries',
+        bbox, ...(crossesAntimeridian(bbox) ? {crossesAntimeridian: true} : {}), ...(frame.join() === bbox.join() ? {} : {frame}), label: feature.properties.label, layer: 'countries',
         ...(areas.length ? {review: areas.map((area) => ({disputed: area.id, name: area.properties.name, note: area.properties.note}))} : {}),
       };
     }),

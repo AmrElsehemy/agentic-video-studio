@@ -71,3 +71,14 @@ describe('pinned geo assets', () => {
     assert.equal(byId.get('country:GEO')!.crossesAntimeridian, undefined);
   });
 });
+
+describe('camera frames', () => {
+  const entities = JSON.parse(fs.readFileSync(path.join(root, 'public/geo/entities.json'), 'utf8')) as GeoEntity[];
+  const byId = new Map(entities.map((entity) => [entity.id, entity]));
+
+  it("leaves out remote islands so a country fills the shot", () => {
+    assert.ok(byId.get('country:ZAF')!.frame![1] > -35, "South Africa's frame stops at the mainland, not the Prince Edward Islands");
+    assert.ok(byId.get('country:FRA')!.frame![0] > -10, 'France is framed as metropolitan France');
+    assert.equal(byId.get('country:GEO')!.frame, undefined, 'single-piece countries use their box');
+  });
+});

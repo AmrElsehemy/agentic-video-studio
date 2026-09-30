@@ -35,7 +35,7 @@ The issue proposed `geo-map`, `geo-highlight` and `geo-annotation` as separate p
 | Points | `{lon, lat}` within ±180 / ±90. Use them only for things the registry doesn't have, such as a city marker. |
 | Boxes | `[west, south, east, north]`. South must be below north. West greater than east means the box crosses the antimeridian. |
 | Time | `at` is a fraction of the scene (0 = start, 1 = end), so the choreography follows the narration's timing. Camera keyframes must start at 0 and move forward. |
-| Camera | `padding` (0-0.5, default 0.15) is the margin around the target. `ease` is `in-out` (default) or `linear`. |
+| Camera | `padding` (0-0.4, default 0.15) is the margin around the target, as a share of each side (0.5 would leave no room for the place). `ease` is `in-out` (default) or `linear`. |
 | Text | Labels are at most 28 characters. They are the only on-screen words, so they are the only part the fact checks read. Place names come from the map data. |
 | Defaults | `highlights: []`, `annotations: []`, `dataset: "natural-earth"`, highlight `style: "fill"`, `at: 0`. |
 
@@ -44,7 +44,7 @@ The issue proposed `geo-map`, `geo-highlight` and `geo-annotation` as separate p
 - **Schema** (`scripts/primitive-schema.mjs`, shared by drafts, the compiler and the renderer): shapes, ranges, keyframe order, and unknown fields.
 - **Compiler** (`scripts/lib/geo-primitives.mjs`): every place id must exist in the pinned map data. Otherwise compilation fails, listing each unknown id with where it's used and the nearest real ids (*`camera[0].target: unknown geo entity "country:GEORGIA"; did you mean country:GEO (Georgia)?`*). A map never renders empty.
 - **Rights:** an episode with a map scene gets one `map-data` rights entry crediting Natural Earth (`public-domain`, with the attribution line). `preflight:publish` accepts `public-domain` assets.
-- **Visual Director:** it doesn't offer `geo-map` yet. Choosing map shots needs resolved places and evidence (#74).
+- **Visual Director:** map shots are chosen by the Geo Visual Director from resolved places and researched points, never raw coordinates ([docs/geomotion-director.md](geomotion-director.md)). The PokePulses Visual Director doesn't offer `geo-map`.
 
 Existing episodes are unaffected: all current drafts compile to their committed manifests byte for byte.
 

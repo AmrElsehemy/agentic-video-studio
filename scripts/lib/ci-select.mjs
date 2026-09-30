@@ -9,7 +9,7 @@
 const NON_RENDERING = [/\.md$/i, /^docs\//, /^test\//, /^creative-references\//];
 
 /** Map-only paths: they can't change an episode without a map, so they run the geo golden frames instead. */
-const GEO_ONLY = [/^public\/geo\//, /^src\/video\/geo\//, /^scripts\/(lib\/)?geo-[a-z-]+\.(mjs|d\.mts)$/, /^test\/(golden\/geo|fixtures\/geo-)/];
+const GEO_ONLY = [/^public\/geo\//, /^src\/video\/geo\//, /^scripts\/(lib\/)?geo-[a-z-]+\.(mjs|d\.mts|json)$/, /^test\/(golden\/geo|fixtures\/geo-)/];
 /** Shared paths that also shape map scenes (the primitive contract, the scene layout, dependencies). */
 const GEO_SHARED = [/^scripts\/primitive-schema\./, /^src\/video\/(primitives|CompiledEpisodeScene)\.tsx$/, /^src\/schema\.ts$/, /^package(-lock)?\.json$/, /^\.github\/workflows\//];
 

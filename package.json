@@ -36,7 +36,8 @@
     "frames": "node scripts/frame-check.mjs",
     "geo:prepare": "node scripts/geo-data.mjs",
     "geo:verify": "node scripts/geo-data.mjs --verify",
-    "geo:golden": "node scripts/geo-golden.mjs"
+    "geo:golden": "node scripts/geo-golden.mjs",
+    "geo:direct": "node scripts/geo-direct.mjs"
   },
   "dependencies": {
     "@remotion/cli": "4.0.526",

@@ -5,7 +5,7 @@ import type {Feature, FeatureCollection, Geometry} from 'geojson';
 // The pinned map data (public/geo/, see docs/geomotion-data.md), loaded once per
 // render tab from the bundle's own static files: no network, no tiles.
 
-export type GeoEntity = {id: string; kind: string; name: string; bbox: [number, number, number, number]; label?: [number, number]};
+export type GeoEntity = {id: string; kind: string; name: string; bbox: [number, number, number, number]; frame?: [number, number, number, number]; label?: [number, number]};
 export type GeoData = {
   entities: Map<string, GeoEntity>;
   features: Map<string, Feature<Geometry>>;

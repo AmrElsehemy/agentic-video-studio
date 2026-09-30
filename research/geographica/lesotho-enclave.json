@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 1,
+  "id": "lesotho-enclave",
+  "subject": "Lesotho",
+  "kind": "curated",
+  "note": "Hand-curated research for the second Geographica episode (#74). Claims are cited to pinned Wikipedia revisions (trusted_secondary: state plainly and precisely). Map geometry is drawn from Natural Earth and is not evidence for any of these claims.",
+  "regions": ["South Africa", "Italy", "Vatican City", "San Marino", "Indian Ocean"],
+  "claims": [
+    {
+      "id": "enclave",
+      "text": "Lesotho is a landlocked country completely surrounded by South Africa.",
+      "tier": "trusted_secondary",
+      "sources": ["wikipedia-lesotho"]
+    },
+    {
+      "id": "three-enclaves",
+      "text": "Lesotho is the largest of the world's three independent states completely surrounded by another country; the other two, Vatican City and San Marino, are surrounded by Italy.",
+      "tier": "trusted_secondary",
+      "sources": ["wikipedia-lesotho"]
+    },
+    {
+      "id": "above-1000",
+      "text": "Lesotho is the only independent state that lies entirely above 1,000 metres in elevation.",
+      "tier": "trusted_secondary",
+      "sources": ["wikipedia-lesotho"]
+    },
+    {
+      "id": "lowest-point",
+      "text": "Its lowest point, 1,400 metres, is the highest lowest point of any country in the world.",
+      "tier": "trusted_secondary",
+      "sources": ["wikipedia-lesotho"]
+    },
+    {
+      "id": "above-1800",
+      "text": "Over 80% of Lesotho lies above 1,800 metres.",
+      "tier": "trusted_secondary",
+      "sources": ["wikipedia-lesotho"]
+    },
+    {
+      "id": "thabana-ntlenyana",
+      "text": "Thabana Ntlenyana, in Lesotho's Maloti Mountains, is the highest mountain in southern Africa at 3,482 metres.",
+      "tier": "trusted_secondary",
+      "sources": ["wikipedia-thabana-ntlenyana"]
+    },
+    {
+      "id": "capital",
+      "text": "Lesotho's capital and largest city is Maseru.",
+      "tier": "trusted_secondary",
+      "sources": ["wikipedia-lesotho", "wikipedia-maseru"]
+    }
+  ],
+  "places": {
+    "maseru": {
+      "lon": 27.48,
+      "lat": -29.31,
+      "source": "wikipedia-maseru",
+      "note": "Capital of Lesotho, on the western border with South Africa."
+    },
+    "thabana-ntlenyana": {
+      "lon": 29.267,
+      "lat": -29.467,
+      "source": "wikipedia-thabana-ntlenyana",
+      "note": "Summit of the highest mountain in southern Africa."
+    }
+  },
+  "sources": {
+    "wikipedia-lesotho": {
+      "label": "Wikipedia: Lesotho (revision 1377338235)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Lesotho&oldid=1377338235"
+    },
+    "wikipedia-thabana-ntlenyana": {
+      "label": "Wikipedia: Thabana Ntlenyana (revision 1369724167)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Thabana_Ntlenyana&oldid=1369724167"
+    },
+    "wikipedia-maseru": {
+      "label": "Wikipedia: Maseru (revision 1377338556)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Maseru&oldid=1377338556"
+    },
+    "natural-earth": {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  }
+}

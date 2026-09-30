@@ -25,7 +25,7 @@ const cameraKey = z.object({
   target: z.union([z.literal('world'), geoEntity, z.object({bbox}).strict()]),
   at: moment,
   // Margin around the target, as a fraction of the frame.
-  padding: z.number().min(0).max(.5).default(.15),
+  padding: z.number().min(0).max(.4).default(.15),
   ease: z.enum(['linear', 'in-out']).default('in-out'),
 }).strict();
 const geoAnnotation = z.discriminatedUnion('type', [
