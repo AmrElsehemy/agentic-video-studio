@@ -37,12 +37,25 @@ const shots: {where: string; primitive: GeoMapPrimitive}[] = [
 
 /** The smallest zoom any shot may reach: well below the world framing, which already shows every continent. */
 const MIN_SCALE = worldView(0, MAP_SIZE, .1).scale * .4;
-/** A framed place must fill at least this share of the frame's width or height. */
+/**
+ * A framed place must fill at least this share of the frame's width or height:
+ * the most the schema's largest padding (0.4) leaves. EPSILON absorbs rounding
+ * (1 - 2 × 0.4 is 0.19999999999999996 in floating point).
+ */
 const MIN_TARGET_SHARE = .2;
+const EPSILON = 1e-9;
 
 describe('map scenes in the catalog', () => {
   it('has map scenes to check', () => {
     assert.ok(shots.length >= 14, `found ${shots.length}`);
+  });
+
+  it('accepts a target framed with the largest padding the schema allows', () => {
+    const keys = cameraKeys([{target: 'country:LSO', at: 0, padding: .4, ease: 'in-out'}], boxOf);
+    const [west, south, east, north] = boxOf('country:LSO');
+    const share = Math.max(lonSpan(west, east) * (Math.PI / 180) * keys[0].view.scale / MAP_SIZE.width, (mercatorY(north) - mercatorY(south)) * keys[0].view.scale / MAP_SIZE.height);
+    assert.ok(share < MIN_TARGET_SHARE, 'the boundary case really is just under 0.2 in floating point');
+    assert.ok(share >= MIN_TARGET_SHARE - EPSILON);
   });
 
   for (const {where, primitive} of shots) {
@@ -59,7 +72,7 @@ describe('map scenes in the catalog', () => {
         const {scale} = keys[index].view;
         const width = lonSpan(west, east) * (Math.PI / 180) * scale / MAP_SIZE.width;
         const height = (mercatorY(north) - mercatorY(south)) * scale / MAP_SIZE.height;
-        assert.ok(Math.max(width, height) >= MIN_TARGET_SHARE, `camera[${index}] frames its target at ${Math.round(Math.max(width, height) * 100)}% of the frame`);
+        assert.ok(Math.max(width, height) >= MIN_TARGET_SHARE - EPSILON, `camera[${index}] frames its target at ${Math.round(Math.max(width, height) * 100)}% of the frame`);
       });
     });
   }
