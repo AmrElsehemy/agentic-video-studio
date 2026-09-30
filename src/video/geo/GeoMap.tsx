@@ -29,7 +29,8 @@ const sameAnchor = (a: GeoAnchor, b: GeoAnchor) => (typeof a === 'string' || typ
 const targetBox = (target: Exclude<GeoMapPrimitive['camera'][number]['target'], 'world'>, data: GeoData): BBox => {
   if (typeof target === 'object') return target.bbox;
   const entity = data.entities.get(target);
-  if (entity) return entity.bbox;
+  // A place's camera frame leaves out remote islands (see frameOf in scripts/lib/geo-data.mjs).
+  if (entity) return entity.frame ?? entity.bbox;
   const feature = data.features.get(target);
   if (!feature) throw new Error(`Unknown geo entity ${target}`);
   const [[west, south], [east, north]] = geoPath().bounds(feature);

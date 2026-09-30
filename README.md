@@ -193,6 +193,16 @@ A scene draws a map with one `geo-map` primitive: camera keyframes (world → re
 
 The second show, [`shows/geographica.json`](shows/geographica.json), tells geography stories with animated maps. Its first episode, `georgia-wine` ("Where Did Wine Begin?"), is seven `geo-map` scenes built from hand-curated research ([`research/geographica/georgia-wine.json`](research/geographica/georgia-wine.json)), where every narrated fact cites its source. A subject without artwork (a country) is allowed when every scene brings its own visual; the cover then shows the episode's first map. Map episodes credit Natural Earth in the description, and `preflight:publish` blocks them until a person records how disputed borders are shown (`rights.bordersReview`). See the [review checklist](docs/geomotion-review.md).
 
+The second episode, `lesotho-enclave` ("The Country Completely Surrounded by Another Country"), was directed by the **Geo Visual Director**. Its map shots contain no hand-written coordinates:
+
+```bash
+npm run geo:direct -- lesotho-enclave            # the director model writes out/lesotho-enclave.geo-directed.json
+npm run geo:direct -- lesotho-enclave --write    # replace the draft's map shots
+npm run geo:direct -- lesotho-enclave --reply=test/fixtures/geo-director/lesotho-enclave.reply.json --write   # replay a saved reply
+```
+
+The research names places ("South Africa", "Vatican City"), which are resolved to map ids, and points (a capital, a summit) with their sources. The director may only use those. Numbers on screen must be in the research's claims, and an approximate point must say so. A shot that breaks a rule becomes a plain map of the subject, with the reason printed. See [docs/geomotion-director.md](docs/geomotion-director.md).
+
 ## Project structure
 
 ```text

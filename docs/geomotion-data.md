@@ -76,6 +76,7 @@ A country or sea that crosses the ±180° meridian (Russia, the USA, Fiji…) ha
 | `name`, `iso3`, `wikidata` | `Georgia`, `GEO`, `Q230` |
 | `bbox` | `[west, south, east, north]` in degrees |
 | `label` | Natural Earth's label point (countries) |
+| `frame` | The box a camera frames when it differs from `bbox`. It covers the largest part plus any part at least 20% of its size, so South Africa's Prince Edward Islands or French Guiana don't shrink the country to a speck |
 | `review` | Disputed areas that concern this country |
 
 The Georgia fixture covers: `country:GEO` `[39.978, 41.07, 46.673, 43.57]`, `country:ARM`, `country:AZE`, `country:TUR`, `country:RUS`, `water:black-sea` `[27.48, 40.92, 41.76, 47.21]` and `water:caspian-sea` `[46.71, 36.61, 54.02, 47.11]`. `test/geo-data.test.ts` checks it.
