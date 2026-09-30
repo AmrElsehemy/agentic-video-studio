@@ -44,6 +44,10 @@ if (!hasTesseract) console.warn('⚠ tesseract is not installed, so text checks 
 // a busy dark frame far better this way than as one page, and no text is
 // counted twice.
 const BANDS = [[0, 315, 6], [315, 1635, 11], [1635, 1920, 6]];
+// The headline block (eyebrow and up to three headline lines, y≈140-700) read
+// again as a block: sparse-text mode garbles long two-line headlines
+// ("ONE POKÉMON. THREE FORMS." came back as "ONE Ste THREE").
+const HEADLINE_BAND = [140, 700, 4];
 // The cover's title block (EpisodeCover, from y≈1185) read as one block of
 // text: sparse-text mode over the whole middle band loses words next to the
 // artwork or map, while this reads the title exactly.
@@ -65,7 +69,7 @@ try {
     const file = path.join(tempDir, `${String(index).padStart(2, '0')}.png`);
     if (fromFrames) fs.copyFileSync(framePath(root, episodeId, index), file);
     else run('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-y', '-ss', seconds.toFixed(3), '-i', videoPath, '-frames:v', '1', file]);
-    return {file, text: ocr(file), gray: thumbnail(file)};
+    return {file, text: ocr(file), headlineText: ocr(file, [HEADLINE_BAND]), gray: thumbnail(file)};
   });
   // Work on a copy of the cover so OCR bands and resized images stay in the temp folder.
   const coverCopy = path.join(tempDir, 'cover.png');

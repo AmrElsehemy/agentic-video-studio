@@ -30,9 +30,18 @@ describe('publish checks', () => {
     assert.match(publishBlockers(georgia, geo).join('\n'), /map-data: Map scenes need a map-data rights entry/);
   });
 
-  it('keeps blocking PokePulses episodes on their artwork', () => {
+  it('lets PokePulses artwork through on the recorded legal review, once the episode is approved', () => {
+    const mew = manifestOf('pokepulses', 'mew-151');
+    assert.deepEqual(publishBlockers(mew).map((blocker) => blocker.split(':')[0]), ['release-status', 'episode'], 'only the episode approval is left');
+    assert.deepEqual(publishBlockers(approved(mew)), []);
+  });
+
+  it('blocks unlicensed art without a recorded review, and unverified art always', () => {
     const mew = approved(manifestOf('pokepulses', 'mew-151'));
-    assert.match(publishBlockers(mew).join('\n'), /Internal prototype only/);
-    assert.doesNotMatch(publishBlockers(mew).join('\n'), /borders-review|map-data/);
+    const {artworkReview, ...unreviewed} = mew.rights;
+    assert.ok(artworkReview);
+    assert.match(publishBlockers({...mew, rights: unreviewed}).join('\n'), /permission-required without a recorded rights\.artworkReview/);
+    const unverified = {...mew, rights: {...mew.rights, assets: mew.rights.assets.map((asset) => ({...asset, licenseStatus: 'unverified' as const}))}};
+    assert.equal(publishBlockers(unverified).length, mew.rights.assets.length);
   });
 });

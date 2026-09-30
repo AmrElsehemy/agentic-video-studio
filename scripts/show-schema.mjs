@@ -3,6 +3,7 @@
 // and embeds the result in the manifest, so the renderer and audio read
 // branding only from the manifest.
 import {z} from 'zod';
+import {reviewSchema} from './episode-fields.mjs';
 
 /** Fonts the renderer can load (Google Fonts bundled with Remotion). */
 export const DISPLAY_FONTS = ['Bebas Neue', 'Anton', 'Oswald', 'Archivo Black', 'Bangers'];
@@ -34,6 +35,13 @@ export const showSchema = z.object({
     identifierLabel: z.string().min(1).max(40),
     identifierPattern: z.string().min(1).refine((pattern) => { try { new RegExp(pattern); return true; } catch { return false; } }, 'Expected a valid regular expression'),
   }).strict().optional(),
+  /**
+   * A recorded legal review allowing the show's subject artwork to be published
+   * without a licence. New episodes copy it into rights.artworkReview and mark
+   * their artwork 'permission-required' and approved; each episode still needs
+   * its own release approval.
+   */
+  artworkClearance: reviewSchema.optional(),
   /** Story shapes (archetypes/<name>.json) this show uses. */
   archetypes: z.array(z.string().regex(/^[a-z0-9-]+$/)).min(1),
 }).strict();

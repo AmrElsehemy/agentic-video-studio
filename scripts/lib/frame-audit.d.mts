@@ -1,7 +1,7 @@
 import type {VideoManifest} from '../../src/schema';
 
 export type FrameIssue = {where: string; check: string; severity: 'blocking' | 'warning'; message: string; source?: 'audit' | 'vision'};
-export type AuditedFrame = {text?: string; gray?: Uint8Array | number[]};
+export type AuditedFrame = {text?: string; headlineText?: string; gray?: Uint8Array | number[]};
 
 export declare const words: (text: string) => string[];
 export declare const coverage: (expected: string, ocrText: string) => number;

@@ -7,7 +7,7 @@ import {fileURLToPath} from 'node:url';
 import {compileEpisode, manifestDrift} from '../scripts/lib/compiler.mjs';
 import {runNewEpisode} from '../scripts/lib/new-episode.mjs';
 import {researchPokemon} from '../scripts/lib/pokeapi.mjs';
-import {assembleDraft, buildWriterPrompt, evaluateDraft, factCheck, parseReply, writeEpisode} from '../scripts/lib/writer.mjs';
+import {artworkRights, assembleDraft, buildWriterPrompt, evaluateDraft, factCheck, parseReply, writeEpisode} from '../scripts/lib/writer.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const {responses} = JSON.parse(fs.readFileSync(path.join(root, 'test/fixtures/pokeapi.json'), 'utf8')) as {responses: Record<string, unknown>};
@@ -74,8 +74,12 @@ describe('draft assembly', () => {
     assert.deepEqual(draft.subject, {name: 'Zacian', category: 'Warrior Pokémon', artworkUrl: research.artworkUrl, identifier: '#888'});
     assert.deepEqual(draft.related.map((item) => [item.name, item.relation, item.identifier]), [['Zacian Crowned', 'form', '#888']]);
     assert.equal(draft.scenes[3].artworkUrl, research.varieties[0].artworkUrl);
-    assert.deepEqual(draft.rights.assets.map((asset) => asset.licenseStatus), ['unverified', 'unverified']);
+    // PokePulses records a legal review of its artwork (shows/pokepulses.json), so the art is approved but unlicensed...
+    assert.deepEqual(draft.rights.assets.map((asset) => [asset.licenseStatus, asset.publicReleaseApproved]), [['permission-required', true], ['permission-required', true]]);
+    assert.equal(draft.rights.artworkReview?.date, '2026-09-30');
+    // ...and the episode itself still waits for a person to approve its release.
     assert.equal(draft.rights.publicReleaseApproved, false);
+    assert.equal(draft.rights.releaseStatus, 'internal-prototype');
     assert.deepEqual(draft.sources, research.sources);
   });
 
@@ -220,5 +224,13 @@ describe('new episode pipeline', () => {
     await assert.rejects(runNewEpisode({number: 888, root: dir, verify: null, ideate: null, critique: null, direct: null, fetchJson: offline, complete: scriptedWriter([]).complete, log: () => {}}), /already exists/);
     const again = await runNewEpisode({number: 888, root: dir, verify: null, ideate: null, critique: null, direct: null, fetchJson: offline, complete: scriptedWriter([JSON.stringify(goodReply())]).complete, overwrite: true, log: () => {}});
     assert.equal(again.id, 'zacian-888');
+  });
+});
+
+describe('artwork rights by show', () => {
+  it('leaves art unverified and unapproved for a show without a recorded clearance', () => {
+    const {asset, review} = artworkRights('geographica');
+    assert.deepEqual([asset.licenseStatus, asset.publicReleaseApproved], ['unverified', false]);
+    assert.deepEqual(review, {});
   });
 });

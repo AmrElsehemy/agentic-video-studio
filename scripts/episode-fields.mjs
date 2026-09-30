@@ -29,6 +29,9 @@ export const sceneText = {
   accent: colorSchema.optional(),
 };
 
+/** A person's recorded decision: who, when, and what they decided. */
+export const reviewSchema = z.object({reviewer: z.string().min(1), date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/), decision: z.string().min(1).max(500)}).strict();
+
 export const rightsSchema = z.object({
   releaseStatus: z.enum(['internal-prototype', 'editorial-review', 'cleared']),
   publicReleaseApproved: z.boolean(),
@@ -43,7 +46,9 @@ export const rightsSchema = z.object({
     notes: z.string().optional(),
   })).min(1),
   // A person's sign-off on how disputed borders or names are shown (map episodes touching flagged places).
-  bordersReview: z.object({reviewer: z.string().min(1), date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/), decision: z.string().min(1).max(500)}).strict().optional(),
+  bordersReview: reviewSchema.optional(),
+  // The rights owner's own legal review allowing 'permission-required' artwork to be published without a licence.
+  artworkReview: reviewSchema.optional(),
 });
 
 export const sourcesSchema = z.array(z.object({label: z.string().min(1), url: z.string().url()})).min(1);

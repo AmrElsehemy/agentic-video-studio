@@ -51,7 +51,9 @@ export const difference = (a, b) => [...a].reduce((sum, value, index) => sum + M
 
 /**
  * Audit one episode's frames. `frames` is one entry per scene, in order:
- * {text, gray}; `cover` is optional {text, gray}. Returns issues:
+ * {text, headlineText?, gray}. `headlineText` is an extra read of the
+ * headline block, used only to find the headline (it overlaps `text`, so it
+ * never counts towards duplicates); `cover` is optional {text, gray}. Returns issues:
  * {where, check, severity: 'blocking' | 'warning', message}.
  */
 export const auditFrames = ({manifest, frames, cover}) => {
@@ -62,7 +64,7 @@ export const auditFrames = ({manifest, frames, cover}) => {
     if (!frame) return;
     const where = `scene ${index + 1} (${scene.id})`;
     if (frame.text !== undefined) {
-      const headline = coverage(scene.headline, frame.text);
+      const headline = coverage(scene.headline, `${frame.text}\n${frame.headlineText ?? ''}`);
       if (headline < MIN_COVERAGE) add(where, 'headline', 'blocking', `Headline "${scene.headline}" is not readable on screen (${Math.round(headline * 100)}% of its words found).`);
       const caption = coverage(scene.caption, frame.text);
       if (caption < MIN_COVERAGE) add(where, 'caption', 'blocking', `Caption "${scene.caption}" is not readable on screen (${Math.round(caption * 100)}% of its words found).`);
