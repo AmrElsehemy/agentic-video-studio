@@ -13,7 +13,7 @@ const select = (changedFiles: string[], full = false) => plan(changedFiles, full
 
 describe('CI episode selection', () => {
   it('renders nothing for docs, tests and creative references', () => {
-    assert.deepEqual(select(['README.md', 'docs/episode-compiler.md', 'DIRECTING.md', 'test/compiler.test.ts', 'creative-references/gimmighoul-999.json']), []);
+    assert.deepEqual(select(['README.md', 'docs/episode-compiler.md', 'DIRECTING.md', 'test/compiler.test.ts', 'creative-references/gimmighoul-999.json', 'public/geo/countries.geojson', 'scripts/geo-data.mjs', 'scripts/lib/geo-data.mjs']), []);
   });
 
   it('renders only the episode whose draft, manifest or research changed', () => {
