@@ -6,7 +6,7 @@
 // fraction of the cost. Nightly runs still render every episode in full.
 
 /** Paths that can't change how any episode renders. */
-const NON_RENDERING = [/\.md$/i, /^docs\//, /^test\//, /^creative-references\//];
+const NON_RENDERING = [/\.md$/i, /^docs\//, /^test\//, /^creative-references\//, /^scripts\/(lib\/)?pipeline\.(mjs|d\.mts)$/];
 
 /** Map-only paths: they can't change an episode without a map, so they run the geo golden frames instead. */
 const GEO_ONLY = [/^public\/geo\//, /^src\/video\/geo\//, /^scripts\/(lib\/)?geo-[a-z-]+\.(mjs|d\.mts|json)$/, /^test\/(golden\/geo|fixtures\/geo-)/];

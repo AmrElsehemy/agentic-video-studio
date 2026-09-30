@@ -37,7 +37,8 @@
     "geo:prepare": "node scripts/geo-data.mjs",
     "geo:verify": "node scripts/geo-data.mjs --verify",
     "geo:golden": "node scripts/geo-golden.mjs",
-    "geo:direct": "node scripts/geo-direct.mjs"
+    "geo:direct": "node scripts/geo-direct.mjs",
+    "pipeline": "node scripts/pipeline.mjs"
   },
   "dependencies": {
     "@remotion/cli": "4.0.526",
