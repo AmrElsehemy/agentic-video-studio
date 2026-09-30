@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {compileEpisode, manifestDrift, serializeManifest} from './lib/compiler.mjs';
-import {resolveEpisodeId} from './catalog.mjs';
+import {findDraft, resolveEpisodeId} from './catalog.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const args = process.argv.slice(2);
@@ -10,18 +10,9 @@ const episodeId = resolveEpisodeId(args.find((arg) => !arg.startsWith('--')));
 const checkOnly = args.includes('--check');
 if (!episodeId) throw new Error('Usage: npm run episode:compile -- <episode-id> [--check]');
 
-const findDraft = () => {
-  const draftsRoot = path.join(root, 'drafts');
-  if (!fs.existsSync(draftsRoot)) throw new Error('No drafts directory exists.');
-  for (const show of fs.readdirSync(draftsRoot, {withFileTypes: true})) {
-    if (!show.isDirectory()) continue;
-    const candidate = path.join(draftsRoot, show.name, `${episodeId}.json`);
-    if (fs.existsSync(candidate)) return {draftPath: candidate, showId: show.name};
-  }
-  throw new Error(`Unknown episode draft: ${episodeId}`);
-};
-
-const {draftPath, showId} = findDraft();
+const draft = findDraft(episodeId);
+if (!draft) throw new Error(`Unknown episode draft: ${episodeId}`);
+const {draftPath, showId} = draft;
 const rawDraft = JSON.parse(fs.readFileSync(draftPath, 'utf8'));
 if (rawDraft.id !== episodeId) throw new Error(`Draft ID ${rawDraft.id} does not match requested ID ${episodeId}.`);
 const {manifest, totalSeconds} = compileEpisode(rawDraft, {showId});

@@ -3,23 +3,17 @@ import {getArchetype, planScenes} from '../archetypes.mjs';
 import {episodeDraftSchema} from '../draft-schema.mjs';
 import {geoProblems, geoRightsAsset, loadGeoData} from './geo-primitives.mjs';
 import {loadShow} from './shows.mjs';
+import {COMPILE_FILL, END_PADDING, estimatedSpeech} from './speech.mjs';
+
+export {estimatedSpeech} from './speech.mjs';
 
 export const DEFAULT_SPEED = 1.08;
-export const BASE_WPM = 145;
-export const SAFE_RATIO = 0.86;
-export const END_PADDING = 0.12;
 export const MIN_SCENE = 3.8;
 export const MAX_SCENE = 6.4;
 export const MAX_TOTAL = 45;
 
-const words = (text) => text.trim().split(/\s+/).filter(Boolean).length;
-const punctuation = (text) => ((text.match(/[,;:]/g) ?? []).length * 0.10) + ((text.match(/[.!?]/g) ?? []).length * 0.16) + ((text.match(/[—–-]/g) ?? []).length * 0.08);
-const numbers = (text) => (text.match(/\b\d[\d,]*\b/g) ?? []).length * 0.18;
-
-export const estimatedSpeech = (text, speed) => (words(text) / BASE_WPM) * 60 / speed + punctuation(text) + numbers(text);
-
 export const safeDuration = (text, speed) => {
-  const required = estimatedSpeech(text, speed) / SAFE_RATIO + END_PADDING;
+  const required = estimatedSpeech(text, speed) / COMPILE_FILL + END_PADDING;
   if (required > MAX_SCENE) throw new Error(`Narration needs ${required.toFixed(2)}s but compiler max scene is ${MAX_SCENE}s. Shorten: "${text}"`);
   return Math.max(MIN_SCENE, Math.ceil(required * 10) / 10);
 };

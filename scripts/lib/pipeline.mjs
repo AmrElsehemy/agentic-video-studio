@@ -9,6 +9,7 @@ import {spawnSync} from 'node:child_process';
 import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
+import {findDraft, listManifests} from '../catalog.mjs';
 import {compileEpisode, serializeManifest} from './compiler.mjs';
 import {voiceInputHash} from './voice-lock.mjs';
 
@@ -136,13 +137,10 @@ const RENDER_CODE = ['src', 'public/geo', 'remotion.config.ts', 'scripts/lib/ren
  */
 export const episodeStages = ({root, episodeId, voice = 'none', exec = execStep(root, {STUDIO_CHECKED: episodeId})}) => {
   if (!PIPELINE_VOICES.includes(voice)) throw new Error(`Unsupported voice "${voice}". Use one of: ${PIPELINE_VOICES.join(', ')}.`);
-  const find = (folder, file) => {
-    const base = path.join(root, folder);
-    const show = fs.existsSync(base) ? fs.readdirSync(base).find((name) => fs.existsSync(path.join(base, name, file))) : undefined;
-    return show ? {showId: show, file: path.join(base, show, file)} : undefined;
-  };
-  const draft = find('drafts', `${episodeId}.json`);
-  const manifestFile = () => find('videos', path.join(episodeId, 'video.json'))?.file ?? (draft && path.join(root, 'videos', draft.showId, episodeId, 'video.json'));
+  const found = findDraft(episodeId, path.join(root, 'drafts'));
+  const draft = found && {showId: found.showId, file: found.draftPath};
+  const manifestFile = () => listManifests(path.join(root, 'videos')).find((file) => path.basename(path.dirname(file)) === episodeId)
+    ?? (draft && path.join(root, 'videos', draft.showId, episodeId, 'video.json'));
   const manifestText = () => {
     const file = manifestFile();
     if (!file || !fs.existsSync(file)) throw new Error(`${episodeId} has no compiled manifest (videos/<show>/${episodeId}/video.json) and no draft to compile.`);

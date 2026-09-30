@@ -4,39 +4,41 @@ import {fileURLToPath} from 'node:url';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
-export const findManifest = (episodeId) => {
-  const matches = [];
-  for (const show of fs.readdirSync(path.join(root, 'videos'), {withFileTypes: true})) {
-    if (!show.isDirectory()) continue;
-    const candidate = path.join(root, 'videos', show.name, episodeId, 'video.json');
-    if (fs.existsSync(candidate)) matches.push(candidate);
-  }
+/** The repository root: every path here is resolved from it, so scripts work from any directory. */
+export const repoRoot = root;
+const defaultVideos = path.join(root, 'videos');
+const defaultDrafts = path.join(root, 'drafts');
+
+const folders = (dir) => (fs.existsSync(dir) ? fs.readdirSync(dir, {withFileTypes: true}).filter((entry) => entry.isDirectory()).map((entry) => entry.name).sort() : []);
+
+/** Every compiled manifest, videos/<show>/<episode>/video.json, in a stable order. */
+export const listManifests = (videosDir = defaultVideos) => folders(videosDir)
+  .flatMap((show) => folders(path.join(videosDir, show)).map((episode) => path.join(videosDir, show, episode, 'video.json')))
+  .filter((file) => fs.existsSync(file));
+
+/** The one compiled manifest for an episode; throws when it is missing or its id is used by two shows. */
+export const findManifest = (episodeId, videosDir = defaultVideos) => {
+  const matches = listManifests(videosDir).filter((file) => path.basename(path.dirname(file)) === episodeId);
   if (matches.length !== 1) {
     throw new Error(matches.length === 0 ? `Unknown episode: ${episodeId}` : `Episode ID is not unique: ${episodeId}`);
   }
   return {root, manifestPath: matches[0]};
 };
 
+/** Every creative draft, drafts/<show>/<id>.json. */
+export const listDrafts = (draftsDir = defaultDrafts) => folders(draftsDir).flatMap((showId) => fs.readdirSync(path.join(draftsDir, showId))
+  .filter((file) => /^[a-z0-9-]+\.json$/.test(file))
+  .sort()
+  .map((file) => ({id: file.slice(0, -'.json'.length), showId, draftPath: path.join(draftsDir, showId, file)})));
+
+/** An episode's draft, or undefined when it only has a hand-written manifest. */
+export const findDraft = (episodeId, draftsDir = defaultDrafts) => listDrafts(draftsDir).find((draft) => draft.id === episodeId);
 
 /** Every episode id with a draft or a compiled manifest. */
-export const episodeIds = () => {
-  const ids = new Set();
-  const videos = path.join(root, 'videos');
-  for (const show of fs.existsSync(videos) ? fs.readdirSync(videos, {withFileTypes: true}) : []) {
-    if (!show.isDirectory()) continue;
-    for (const episode of fs.readdirSync(path.join(videos, show.name), {withFileTypes: true})) {
-      if (episode.isDirectory() && fs.existsSync(path.join(videos, show.name, episode.name, 'video.json'))) ids.add(episode.name);
-    }
-  }
-  const drafts = path.join(root, 'drafts');
-  for (const show of fs.existsSync(drafts) ? fs.readdirSync(drafts, {withFileTypes: true}) : []) {
-    if (!show.isDirectory()) continue;
-    for (const file of fs.readdirSync(path.join(drafts, show.name))) {
-      if (/^[a-z0-9-]+\.json$/.test(file)) ids.add(file.slice(0, -'.json'.length));
-    }
-  }
-  return [...ids].sort();
-};
+export const episodeIds = () => [...new Set([
+  ...listManifests().map((file) => path.basename(path.dirname(file))),
+  ...listDrafts().map((draft) => draft.id),
+])].sort();
 
 /**
  * Accept an episode by its id ("charmander-004") or its Pokédex number

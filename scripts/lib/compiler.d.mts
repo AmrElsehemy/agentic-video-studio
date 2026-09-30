@@ -1,9 +1,6 @@
 import type {VideoManifest} from '../../src/schema';
 
 export declare const DEFAULT_SPEED: number;
-export declare const BASE_WPM: number;
-export declare const SAFE_RATIO: number;
-export declare const END_PADDING: number;
 export declare const MIN_SCENE: number;
 export declare const MAX_SCENE: number;
 export declare const MAX_TOTAL: number;

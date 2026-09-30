@@ -19,7 +19,7 @@ const GEO_SHARED = [/^scripts\/primitive-schema\./, /^src\/video\/(primitives|Co
  * A change here adds one full golden render as a smoke test.
  */
 const MP4_ONLY = [
-  /^scripts\/(render|qa|generate-audio|generate-voice|generate-openai-voice)\.mjs$/,
+  /^scripts\/(render|qa|generate-audio|generate-voice)\.mjs$/,
   /^scripts\/lib\/(render-props|sound-design|voice-lock)\.mjs$/,
   /^src\/video\/VerticalEpisode\.tsx$/,
   /^public\//,
