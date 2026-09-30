@@ -1,0 +1,21 @@
+{
+  "id": "geographica",
+  "name": "Geographica",
+  "handle": "@Geographica",
+  "description": "a vertical short-form video series about places, their borders and the stories they hold, told with animated maps",
+  "wordmark": {"lead": "GEO", "accent": "GRAPHICA"},
+  "fonts": {"display": "Oswald", "body": "Inter"},
+  "palette": {"background": "#0b1a2a", "surface": "#23473d", "primary": "#e4b363", "secondary": "#8c2f39", "ink": "#f6f1e7"},
+  "music": {"bpm": 96, "notes": [98, 116.54, 130.81, 146.83, 130.81, 116.54, 87.31, 98], "volume": 0.09},
+  "voice": {
+    "voice": "cedar",
+    "speed": 1.06,
+    "model": "gpt-4o-mini-tts",
+    "instructions": "Warm, curious storyteller walking a friend across a map. Clear and confident, with a sense of discovery on each reveal; slow slightly on dates and place names so they land. Conversational and human, never a documentary announcer, lecture, or neutral TTS. Never imitate a known person or character."
+  },
+  "notices": {
+    "ownership": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliation": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such."
+  },
+  "archetypes": ["profile", "comparison", "mechanic", "transformation", "mystery"]
+}

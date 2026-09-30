@@ -1,5 +1,5 @@
 // The episode's subject, independent of Pokémon: a name, a category, an
-// artwork, an optional identifier (a Pokédex number, a model code) and free
+// optional artwork (map-driven episodes have none), an optional identifier (a Pokédex number, a model code) and free
 // attributes, plus related subjects with how they relate. Show profiles add
 // their own rules (e.g. PokePulses identifiers look like "#001").
 import {z} from 'zod';
@@ -11,7 +11,7 @@ const identifier = z.string().min(1).max(12);
 export const subjectSchema = z.object({
   name: z.string().min(1),
   category: z.string().min(1),
-  artworkUrl: z.string().url(),
+  artworkUrl: z.string().url().optional(),
   /** A short code shown on screen when the story is about it, e.g. "#001". */
   identifier: identifier.optional(),
   attributes: z.record(z.string(), z.union([z.string(), z.number()])).optional(),

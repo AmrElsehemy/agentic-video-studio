@@ -85,6 +85,8 @@ export const videoSchema = z.object({
       publicReleaseApproved: z.boolean(),
       notes: z.string().optional(),
     })).min(1),
+    // A person's sign-off on how disputed borders or names are shown (map episodes touching flagged places).
+    bordersReview: z.object({reviewer: z.string().min(1), date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/), decision: z.string().min(1).max(500)}).strict().optional(),
   }),
   scenes: z.array(sceneSchema).min(3).max(12),
   sources: z.array(z.object({label: z.string(), url: z.string().url()})).min(1),

@@ -1,5 +1,6 @@
-// GeoMotion golden frames (#72/#75): render the three Georgia golden shots
-// (test/fixtures/geo-georgia-shots.json) at the start, middle and end of each
+// GeoMotion golden frames (#72/#75): render every shot in the fixture
+// (test/fixtures/geo-georgia-shots.json: the Georgia shots and the Fiji
+// antimeridian shot) at the start, middle and end of each
 // scene, and compare them with the committed frames in test/golden/geo/.
 //   npm run geo:golden               render and compare (fails when a map breaks)
 //   npm run geo:golden -- --strict   also fail on small changes (a label or arrow moving)

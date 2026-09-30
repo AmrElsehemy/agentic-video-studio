@@ -46,6 +46,33 @@ const anchorLonLat = (anchor: GeoAnchor, data: GeoData): [number, number] => {
   return geoCentroid(feature);
 };
 
+/**
+ * Whether a place's box can be on screen: the frame's corners and edge midpoints,
+ * inverted to lon/lat, give the visible range (with a margin). Wide views
+ * (more than half the globe) draw everything.
+ */
+const visibleFilter = (projection: GeoProjection) => {
+  const points = [[0, 0], [SIZE.width / 2, 0], [SIZE.width, 0], [SIZE.width, SIZE.height / 2], [SIZE.width, SIZE.height], [SIZE.width / 2, SIZE.height], [0, SIZE.height], [0, SIZE.height / 2]]
+    .map(([x, y]) => projection.invert?.([x, y]))
+    .filter((point): point is [number, number] => Boolean(point));
+  const [centreLon] = projection.invert?.([SIZE.width / 2, SIZE.height / 2]) ?? [0];
+  const offsets = points.map(([lon]) => ((lon - centreLon + 540) % 360) - 180);
+  const halfSpan = Math.max(...offsets.map(Math.abs));
+  if (points.length < 8 || halfSpan > 90) return () => true;
+  const margin = halfSpan * .25 + 1;
+  const [south, north] = [Math.min(...points.map(([, lat]) => lat)) - margin, Math.max(...points.map(([, lat]) => lat)) + margin];
+  return (bbox?: BBox) => {
+    if (!bbox) return true;
+    const [west, bSouth, east, bNorth] = bbox;
+    if (bNorth < south || bSouth > north) return false;
+    // Longitudes relative to the centre, so boxes across the antimeridian compare correctly.
+    const rel = (lon: number) => ((lon - centreLon + 540) % 360) - 180;
+    const [w, e] = [rel(west), rel(east)];
+    if (w > e) return true;
+    return e >= -(halfSpan + margin) && w <= halfSpan + margin;
+  };
+};
+
 const keepInside = ([x, y]: [number, number]): [number, number] => [Math.max(SAFE, Math.min(SIZE.width - SAFE, x)), Math.max(SAFE, Math.min(SIZE.height - SAFE, y))];
 
 const Label: React.FC<{x: number; y: number; text: string; opacity: number; color: string; halo: string; size?: number}> = ({x, y, text, opacity, color, halo, size = LABEL_SIZE}) => (
@@ -71,6 +98,8 @@ export const GeoMapVisual: React.FC<ShotProps & {data: GeoMapPrimitive}> = ({dat
   const appear = (at: number, frames = APPEAR) => interpolate(frame, [at * durationInFrames, at * durationInFrames + frames], [0, 1], clamp);
   const point = (lonLat: [number, number]) => projection(lonLat) as [number, number];
   const {palette} = manifest;
+  // Projecting every country each frame is the render's main cost; skip those whose box is off screen.
+  const onScreen = visibleFilter(projection);
   const labels = primitive.annotations.filter((annotation): annotation is Extract<GeoMapPrimitive['annotations'][number], {type: 'label'}> => annotation.type === 'label');
 
   return <svg width={SIZE.width} height={SIZE.height} viewBox={`0 0 ${SIZE.width} ${SIZE.height}`} style={{position: 'absolute', inset: 0, borderRadius: 36, overflow: 'hidden'}}>
@@ -84,7 +113,7 @@ export const GeoMapVisual: React.FC<ShotProps & {data: GeoMapPrimitive}> = ({dat
     <rect width={SIZE.width} height={SIZE.height} fill={palette.background} />
     <rect width={SIZE.width} height={SIZE.height} fill={palette.secondary} opacity=".12" />
     <g>
-      {data.countries.map((feature) => <path key={String(feature.id)} d={path(feature) ?? ''} fill={palette.surface} stroke={palette.ink} strokeOpacity=".28" strokeWidth={1.2} />)}
+      {data.countries.filter((feature) => onScreen(data.entities.get(String(feature.id))?.bbox)).map((feature) => <path key={String(feature.id)} d={path(feature) ?? ''} fill={palette.surface} stroke={palette.ink} strokeOpacity=".28" strokeWidth={1.2} />)}
     </g>
 
     {primitive.highlights.map((highlight, index) => {

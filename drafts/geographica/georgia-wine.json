@@ -1,0 +1,399 @@
+{
+  "id": "georgia-wine",
+  "title": "Where Did Wine Begin? Follow the Map to Georgia",
+  "storyPattern": "mystery",
+  "numberRelevant": false,
+  "premise": "Fly from the whole world down to the hills of Georgia, where the oldest chemically identified grape wine was found.",
+  "audiencePromise": "See exactly where wine's oldest known chemical traces were found, and how old they are.",
+  "openLoop": "Where on the map was grape wine first made?",
+  "payoff": "About 50 km south of Tbilisi, jars from around 6000 BC held the earliest chemical evidence of grape wine.",
+  "targetEmotion": "curiosity",
+  "engagementQuestion": "Would you taste 8,000 years of winemaking, or pass?",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica"
+  },
+  "subject": {
+    "name": "Georgia",
+    "category": "Country",
+    "attributes": {
+      "geoEntity": "country:GEO"
+    }
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "eyebrow": "A MAP MYSTERY",
+      "headline": "WHERE DID WINE BEGIN?",
+      "narration": "Where was wine first made? Follow the map.",
+      "caption": "THE FIRST WINE",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "world",
+            "at": 0
+          },
+          {
+            "target": {
+              "bbox": [
+                36,
+                38,
+                52,
+                46
+              ]
+            },
+            "at": 0.5
+          },
+          {
+            "target": "country:GEO",
+            "at": 0.85,
+            "padding": 0.2
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:GEO",
+            "style": "fill",
+            "at": 0.8
+          }
+        ]
+      }
+    },
+    {
+      "id": "two-seas",
+      "eyebrow": "CLUE ONE",
+      "headline": "BETWEEN TWO SEAS",
+      "narration": "Here is the Caucasus, a land bridge between the Black and Caspian seas.",
+      "caption": "THE CAUCASUS",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                27,
+                36,
+                55,
+                48
+              ]
+            },
+            "at": 0,
+            "padding": 0.05
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:GEO",
+            "style": "outline",
+            "at": 0.55
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "water:black-sea",
+            "text": "BLACK SEA",
+            "at": 0.1
+          },
+          {
+            "type": "label",
+            "anchor": "water:caspian-sea",
+            "text": "CASPIAN SEA",
+            "at": 0.3
+          }
+        ]
+      }
+    },
+    {
+      "id": "georgia",
+      "beat": "clue",
+      "eyebrow": "CLUE TWO",
+      "headline": "ON THE BLACK SEA COAST",
+      "narration": "On its western side, facing the Black Sea, lies Georgia.",
+      "caption": "MEET GEORGIA",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "country:GEO",
+            "at": 0,
+            "padding": 0.12
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:GEO",
+            "style": "trace",
+            "at": 0
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:GEO",
+            "text": "GEORGIA",
+            "at": 0.55
+          }
+        ]
+      }
+    },
+    {
+      "id": "dig",
+      "eyebrow": "THE DIG",
+      "headline": "SOUTH OF THE CAPITAL",
+      "narration": "Archaeologists dug at two villages about fifty kilometres south of Tbilisi.",
+      "caption": "TWO NEOLITHIC VILLAGES",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "country:GEO",
+            "at": 0,
+            "padding": 0.12
+          },
+          {
+            "target": {
+              "bbox": [
+                43.9,
+                40.7,
+                45.7,
+                42.3
+              ]
+            },
+            "at": 0.35,
+            "padding": 0.08
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:GEO",
+            "style": "outline",
+            "at": 0
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": {
+              "lon": 45.5,
+              "lat": 42.05
+            },
+            "text": "GEORGIA",
+            "at": 0.3
+          },
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 44.817,
+              "lat": 41.717
+            },
+            "text": "TBILISI",
+            "at": 0.4
+          },
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 44.8,
+              "lat": 41.3
+            },
+            "text": "DIG SITES (APPROX.)",
+            "at": 0.6
+          },
+          {
+            "type": "arrow",
+            "from": {
+              "lon": 44.817,
+              "lat": 41.717
+            },
+            "to": {
+              "lon": 44.8,
+              "lat": 41.3
+            },
+            "at": 0.7
+          }
+        ]
+      }
+    },
+    {
+      "id": "jars",
+      "eyebrow": "THE REVEAL",
+      "headline": "WINE IN THE JARS",
+      "narration": "Their clay jars held traces of wine from around 6000 BC.",
+      "caption": "ABOUT 8,000 YEARS OLD",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                43.9,
+                40.7,
+                45.7,
+                42.3
+              ]
+            },
+            "at": 0,
+            "padding": 0.08
+          },
+          {
+            "target": {
+              "bbox": [
+                44.3,
+                40.95,
+                45.3,
+                41.8
+              ]
+            },
+            "at": 0.6,
+            "padding": 0.1
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:GEO",
+            "style": "fill",
+            "at": 0,
+            "color": "#8c2f39"
+          }
+        ],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 44.8,
+              "lat": 41.3
+            },
+            "text": "6000–5800 BC",
+            "at": 0.3
+          }
+        ]
+      }
+    },
+    {
+      "id": "earliest",
+      "eyebrow": "THE RECORD",
+      "headline": "THE OLDEST KNOWN TRACE",
+      "narration": "A 2017 study called it the earliest chemical evidence of grape wine.",
+      "caption": "EARLIEST CHEMICAL EVIDENCE (2017)",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                43.9,
+                40.7,
+                45.7,
+                42.3
+              ]
+            },
+            "at": 0,
+            "padding": 0.08
+          },
+          {
+            "target": {
+              "bbox": [
+                20,
+                25,
+                65,
+                50
+              ]
+            },
+            "at": 0.55
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:GEO",
+            "style": "fill",
+            "at": 0.3
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:GEO",
+            "text": "GEORGIA",
+            "at": 0.7
+          }
+        ]
+      }
+    },
+    {
+      "id": "verdict",
+      "eyebrow": "STILL POURING",
+      "headline": "A LIVING TRADITION",
+      "narration": "Its clay-jar winemaking is UNESCO heritage. Would you taste it, or pass?",
+      "caption": "QVEVRI · UNESCO 2013",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "country:GEO",
+            "at": 0,
+            "padding": 0.15
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:GEO",
+            "style": "fill",
+            "at": 0
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:GEO",
+            "text": "QVEVRI · UNESCO",
+            "at": 0.25
+          }
+        ]
+      }
+    }
+  ],
+  "sources": [
+    {
+      "label": "McGovern et al., Early Neolithic wine of Georgia in the South Caucasus, PNAS (2017)",
+      "url": "https://doi.org/10.1073/pnas.1714728114"
+    },
+    {
+      "label": "UNESCO: Ancient Georgian traditional Qvevri wine-making method",
+      "url": "https://ich.unesco.org/en/RL/ancient-traditional-georgian-winemaking-method-using-the-qvevri-00870"
+    },
+    {
+      "label": "Britannica: Georgia",
+      "url": "https://www.britannica.com/place/Georgia"
+    },
+    {
+      "label": "Britannica: Tbilisi",
+      "url": "https://www.britannica.com/place/Tbilisi"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    },
+    {
+      "label": "University of Toronto: World's earliest evidence of grape wine-making discovered in Georgia (2017)",
+      "url": "https://www.artsci.utoronto.ca/node/2695"
+    }
+  ]
+}

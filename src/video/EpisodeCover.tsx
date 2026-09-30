@@ -1,12 +1,16 @@
 import React from 'react';
 import {AbsoluteFill, Img} from 'remotion';
 import type {VideoManifest} from '../schema';
+import {GeoMapVisual} from './geo/GeoMap';
 import {bodyFont, displayFont, fontVariables} from './typography';
 import {Wordmark} from './wordmark';
 
 type Props = {
   manifest: VideoManifest;
 };
+
+/** The cover shows a map scene's final state: its camera settled and every layer drawn in. */
+const COVER_MAP_FRAMES = 300;
 
 const escapeRegExp = (text: string) => text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
@@ -24,6 +28,7 @@ const CoverTitle: React.FC<{headline: string; subject: string; accent: string}> 
 export const EpisodeCover: React.FC<Props> = ({manifest}) => {
   const accent = manifest.palette.primary;
   const hook = manifest.scenes[0];
+  const mapScene = manifest.scenes.find((scene) => scene.primitive?.kind === 'geo-map');
   const identifier = manifest.subject.identifier;
   const mentionsIdentifier = (text?: string) => Boolean(text && identifier && text.includes(identifier));
   // The identifier (e.g. a Pokédex number) stays off the cover unless the story is about it.
@@ -86,30 +91,39 @@ export const EpisodeCover: React.FC<Props> = ({manifest}) => {
           {identifier?.replace(/^#/, '')}
         </div>
       ) : null}
-      <div
-        style={{
-          position: 'absolute',
-          top: 245,
-          left: 112,
-          width: 890,
-          height: 890,
-          borderRadius: '50%',
-          border: `5px solid ${accent}55`,
-          boxShadow: `inset 0 0 110px ${accent}28, 0 0 100px ${accent}18`,
-        }}
-      />
-      <Img
-        src={manifest.subject.artworkUrl}
-        style={{
-          position: 'absolute',
-          top: 210,
-          left: 105,
-          width: 900,
-          height: 900,
-          objectFit: 'contain',
-          filter: 'drop-shadow(0 48px 42px #000a)',
-        }}
-      />
+      {manifest.subject.artworkUrl ? <>
+        <div
+          style={{
+            position: 'absolute',
+            top: 245,
+            left: 112,
+            width: 890,
+            height: 890,
+            borderRadius: '50%',
+            border: `5px solid ${accent}55`,
+            boxShadow: `inset 0 0 110px ${accent}28, 0 0 100px ${accent}18`,
+          }}
+        />
+        <Img
+          src={manifest.subject.artworkUrl}
+          style={{
+            position: 'absolute',
+            top: 210,
+            left: 105,
+            width: 900,
+            height: 900,
+            objectFit: 'contain',
+            filter: 'drop-shadow(0 48px 42px #000a)',
+          }}
+        />
+      </> : mapScene?.primitive?.kind === 'geo-map' ? (
+        // Episodes told with maps show their first map, finished (the hook's answer, before any labels), where the artwork would be.
+        <div style={{position: 'absolute', top: 190, left: 65, width: 950, height: 950, borderRadius: 40, overflow: 'hidden', boxShadow: `0 0 0 5px ${accent}55, 0 40px 80px #000a`}}>
+          <div style={{position: 'absolute', left: -30, top: -212, transform: 'scale(1)'}}>
+            <GeoMapVisual data={mapScene.primitive} scene={mapScene} manifest={manifest} frame={COVER_MAP_FRAMES} durationInFrames={COVER_MAP_FRAMES + 1} accent={accent} />
+          </div>
+        </div>
+      ) : null}
       {tag ? <div
         style={{
           position: 'absolute',

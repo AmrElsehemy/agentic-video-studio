@@ -19,7 +19,9 @@ export type ShotProps = {
 /** Shots that draw the scene headline themselves, large. */
 export const HEADLINE_SHOTS = new Set<VideoScene['shot']>(['mystery', 'impact']);
 
-export const Art: React.FC<{src: string; frame: number; size?: number; hidden?: boolean; rotate?: number}> = ({src, frame, size = 610, hidden = false, rotate = 0}) => {
+/** The subject's (or a scene's) artwork, floating in. Nothing when there is none (the compiler stops such scenes). */
+export const Art: React.FC<{src?: string; frame: number; size?: number; hidden?: boolean; rotate?: number}> = ({src, frame, size = 610, hidden = false, rotate = 0}) => {
+  if (!src) return null;
   const enter = spring({frame, fps: 30, config: {damping: 13, stiffness: 150, mass: .8}});
   const float = Math.sin(frame / 10) * 11;
   return <Img src={src} style={{width: size, height: size, objectFit: 'contain', opacity: enter, transform: `translateY(${float + (1 - enter) * 90}px) rotate(${rotate}deg) scale(${0.72 + enter * 0.28})`, filter: `${hidden ? 'brightness(0)' : ''} drop-shadow(0 34px 38px rgba(0,0,0,.44))`}} />;
@@ -46,6 +48,7 @@ const artworkOf = (scene: VideoScene, manifest: VideoManifest) => scene.artworkU
 export const artworkPair = (scene: VideoScene, manifest: VideoManifest): [string, string] | undefined => {
   const subject = manifest.subject.artworkUrl;
   const own = artworkOf(scene, manifest);
+  if (!subject || !own) return undefined;
   if (own !== subject) return [subject, own];
   const partner = manifest.related[0]?.artworkUrl;
   return partner && partner !== subject ? [subject, partner] : undefined;

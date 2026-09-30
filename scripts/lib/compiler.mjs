@@ -52,6 +52,13 @@ export const compileEpisode = (rawDraft, {showId, show = loadShow(showId), geo})
   const identifiers = new Set([draft.subject.identifier, ...related.map((item) => item.identifier)].filter(Boolean));
   const cleanFacts = (facts = []) => facts.filter((fact) => numberRelevant || !identifiers.has(fact));
 
+  // A subject without artwork (e.g. a country, told with maps) needs every scene to bring its own visual:
+  // a map, or artwork of its own. Other primitives and the archetype's shots draw the subject's artwork.
+  if (!draft.subject.artworkUrl) {
+    const bare = draft.scenes.filter((scene) => !scene.artworkUrl && scene.primitive?.kind !== 'geo-map').map((scene) => scene.id);
+    if (bare.length) throw new Error(`${episodeId}'s subject has no artwork, so every scene needs a geo-map primitive or its own artworkUrl. Missing: ${bare.join(', ')}.`);
+  }
+
   // Map scenes must name places that exist in the pinned map data (public/geo/).
   const geoScenes = draft.scenes.filter((scene) => scene.primitive?.kind === 'geo-map');
   const geoData = geoScenes.length ? geo ?? loadGeoData() : undefined;
