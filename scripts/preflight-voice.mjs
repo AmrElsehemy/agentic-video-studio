@@ -1,8 +1,8 @@
 import fs from 'node:fs';
-import {findManifest} from './catalog.mjs';
+import {findManifest, resolveEpisodeId} from './catalog.mjs';
 
 const args = process.argv.slice(2);
-const episodeId = args.find((arg) => !arg.startsWith('--')) ?? 'bulbasaur-001';
+const episodeId = resolveEpisodeId(args.find((arg) => !arg.startsWith('--')) ?? 'bulbasaur-001');
 const {manifestPath} = findManifest(episodeId);
 const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
 const speed = manifest.audio?.voice?.speed ?? 1;

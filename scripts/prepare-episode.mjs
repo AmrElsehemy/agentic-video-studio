@@ -1,9 +1,10 @@
 import {spawnSync} from 'node:child_process';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
+import {resolveEpisodeId} from './catalog.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const episodeId = process.argv[2];
+const episodeId = process.argv[2] && resolveEpisodeId(process.argv[2]);
 if (!episodeId) throw new Error('Usage: npm run episode:prepare -- <episode-id>');
 
 const run = (label, args) => {

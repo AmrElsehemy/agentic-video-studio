@@ -2,10 +2,11 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {compileEpisode, manifestDrift, serializeManifest} from './lib/compiler.mjs';
+import {resolveEpisodeId} from './catalog.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const args = process.argv.slice(2);
-const episodeId = args.find((arg) => !arg.startsWith('--'));
+const episodeId = resolveEpisodeId(args.find((arg) => !arg.startsWith('--')));
 const checkOnly = args.includes('--check');
 if (!episodeId) throw new Error('Usage: npm run episode:compile -- <episode-id> [--check]');
 

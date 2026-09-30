@@ -3,12 +3,12 @@ import crypto from 'node:crypto';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import {findManifest} from './catalog.mjs';
+import {findManifest, resolveEpisodeId} from './catalog.mjs';
 import {buildVoiceInstructions} from './lib/voice-direction.mjs';
 import {voiceInputHash} from './lib/voice-lock.mjs';
 
 const args = process.argv.slice(2);
-const episodeId = args.find((arg) => !arg.startsWith('--')) ?? 'bulbasaur-001';
+const episodeId = resolveEpisodeId(args.find((arg) => !arg.startsWith('--')) ?? 'bulbasaur-001');
 const provider = args.find((arg) => arg.startsWith('--provider='))?.split('=')[1] ?? 'openai';
 if (!['openai', 'local'].includes(provider)) throw new Error(`Unsupported voice provider: ${provider}`);
 

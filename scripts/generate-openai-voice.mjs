@@ -1,9 +1,10 @@
 import {spawnSync} from 'node:child_process';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
+import {resolveEpisodeId} from './catalog.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const episodeId = process.argv.slice(2).find((arg) => !arg.startsWith('--'));
+const episodeId = resolveEpisodeId(process.argv.slice(2).find((arg) => !arg.startsWith('--')));
 if (!episodeId) throw new Error('Usage: npm run voice:openai -- <episode-id>');
 
 const certify = spawnSync(process.execPath, ['scripts/certify-episode.mjs', '--fast', episodeId], {cwd: root, stdio: 'inherit'});

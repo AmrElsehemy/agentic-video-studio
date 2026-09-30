@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {pathToFileURL} from 'node:url';
 import {videoSchema} from '../src/schema';
+import {resolveEpisodeId} from './catalog.mjs';
 
 /** Every videos/<show>/<episode>/video.json under a folder. */
 const allManifests = (videosDir: string) => {
@@ -46,4 +47,4 @@ export const validateCatalog = ({videosDir = path.resolve('videos'), requested, 
   return manifests.length;
 };
 
-if (process.argv[1] && import.meta.url === pathToFileURL(path.resolve(process.argv[1])).href) validateCatalog({requested: process.argv[2]});
+if (process.argv[1] && import.meta.url === pathToFileURL(path.resolve(process.argv[1])).href) validateCatalog({requested: process.argv[2] && resolveEpisodeId(process.argv[2])});

@@ -1,11 +1,11 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import {spawnSync} from 'node:child_process';
-import {findManifest} from './catalog.mjs';
+import {findManifest, resolveEpisodeId} from './catalog.mjs';
 import {getAccessToken, youtubeMetadata} from './lib/youtube.mjs';
 
 const args = process.argv.slice(2);
-const episodeId = args.find((arg) => !arg.startsWith('--'));
+const episodeId = resolveEpisodeId(args.find((arg) => !arg.startsWith('--')));
 if (!episodeId) throw new Error('Usage: npm run youtube:upload -- <episode-id> [--privacy=private|unlisted|public] [--publish-at=<ISO>] [--made-for-kids=true|false] [--notify-subscribers=true|false] [--dry-run]');
 
 const valueOf = (name) => args.find((arg) => arg.startsWith(`--${name}=`))?.slice(name.length + 3);
