@@ -49,6 +49,23 @@ describe('frame audit', () => {
     assert.deepEqual(checks(auditFrames({manifest, frames: frames(manifest, texts)})), ['blocking scene 1 (hook) headline']);
   });
 
+  it('finds the headline in the block read when the sparse read garbles it', () => {
+    const manifest = darmanitan();
+    const texts = goodText(manifest);
+    // The sparse read of Terapagos's hook: "ONE POKÉMON. THREE FORMS." came back as "ONE Ste THREE".
+    texts[0] = texts[0].replace(manifest.scenes[0].headline, 'Ste');
+    const garbled: {text: string; headlineText?: string; gray: Uint8Array}[] = frames(manifest, texts);
+    assert.deepEqual(checks(auditFrames({manifest, frames: garbled})), ['blocking scene 1 (hook) headline']);
+    garbled[0] = {...garbled[0], headlineText: `${manifest.scenes[0].eyebrow ?? ''}\n${manifest.scenes[0].headline}`};
+    assert.deepEqual(auditFrames({manifest, frames: garbled}), []);
+  });
+
+  it('never counts the headline read towards duplicate captions', () => {
+    const manifest = darmanitan();
+    const withHeadline = frames(manifest).map((frame, index) => ({...frame, headlineText: `${manifest.scenes[index].headline}\n${manifest.scenes[index].caption}`}));
+    assert.deepEqual(auditFrames({manifest, frames: withHeadline}), []);
+  });
+
   it('catches a caption drawn twice, unless the caption repeats other on-screen text by design', () => {
     const manifest = darmanitan();
     const texts = goodText(manifest);
