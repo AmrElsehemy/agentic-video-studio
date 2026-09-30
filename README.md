@@ -78,6 +78,7 @@ export ANTHROPIC_API_KEY=...            # the writer agent (or OPENAI_API_KEY)
 npm run episode:new -- 888              # research → angle → write → check → compile → certify
 npm run episode:new -- 888 --voice=local --render   # …and narrate + render a preview (macOS voice)
 npm run episode:new -- 888 --voice=openai --render  # …with the polished paid voice
+npm run episode:new -- 5-9 --voice=openai --render   # a batch: 5 to 9 (or list them: 5 6 7); a failed episode doesn't stop the rest
 ```
 
 1. **Research** — fetches the Pokémon's species, types, size, Pokédex entries, evolution line and alternate forms from PokéAPI into `research/<show>/<id>.json`, with sources. Reused on later runs; `--refresh-research` refetches. Every field has a **source tier** (`tiers` in the file): `official` (Pokédex text, types, sizes: stated plainly), `trusted_secondary` (PokéAPI-derived evolution conditions and form names: stated precisely) and `community` (the `lore` list, for fan theories and trivia you add by hand with a source: only ever stated hedged, e.g. "some fans believe…").
