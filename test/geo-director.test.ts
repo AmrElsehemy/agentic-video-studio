@@ -96,6 +96,7 @@ describe('geo visual director', () => {
     assert.throws(shot({annotations: [{type: 'label', anchor: 'disputed:abkhazia-B35', text: 'ABKHAZIA', at: 0}]}), /can only be highlighted/);
     assert.throws(shot({annotations: [{type: 'marker', anchor: {place: 'dig-sites-approx'}, text: 'DIG SITES', at: 0}]}), /approximate point/);
     assert.throws(shot({annotations: [{type: 'label', anchor: 'country:GEO', text: '9,000 YEARS OLD', at: 0}]}), /states 9000, which is not in the research/);
+    assert.throws(shot({annotations: [{type: 'arrow', from: 'water:black-sea', to: 'country:GEO', text: '500 KM', at: 0}]}), /states 500, which is not in the research/);
     assert.throws(shot({annotations: [{type: 'marker', anchor: {place: 'rome'}, text: 'ROME', at: 0}]}), /no named point "rome"/);
     // Numbers the claims state are fine, however they are written.
     assert.doesNotThrow(shot({annotations: [{type: 'label', anchor: 'country:GEO', text: '6000–5800 BC · 8,000 YRS', at: 0}]}));

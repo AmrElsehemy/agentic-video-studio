@@ -93,13 +93,14 @@ export const shotToPrimitive = (shot, {places, research}) => {
   const numbers = geoResearchNumbers(research);
   const annotations = (Array.isArray(shot.annotations) ? shot.annotations : []).map((annotation, index) => {
     const where = `annotations[${index}]`;
+    // Arrow text is drawn too, so every annotation's numbers are checked.
+    for (const number of textNumbers(annotation?.text ?? '')) {
+      if (!numbers.has(number)) throw new Error(`${where}: "${annotation.text}" states ${number}, which is not in the research`);
+    }
     if (annotation?.type === 'arrow') return {...annotation, from: anchor(annotation.from, `${where}.from`), to: anchor(annotation.to, `${where}.to`)};
     const ref = annotation?.anchor;
     if (ref && typeof ref === 'object' && research.places[ref.place]?.approximate && !APPROXIMATE.test(annotation.text ?? '')) {
       throw new Error(`${where}: "${ref.place}" is an approximate point, so its text must say so (e.g. "${String(annotation.text ?? '').slice(0, 18)} (APPROX.)")`);
-    }
-    for (const number of textNumbers(annotation?.text ?? '')) {
-      if (!numbers.has(number)) throw new Error(`${where}: "${annotation.text}" states ${number}, which is not in the research`);
     }
     return {...annotation, anchor: anchor(ref, where)};
   });
