@@ -8,6 +8,7 @@ const manifest = {
   subject: {name: 'Charmander', identifier: '#004'},
   sources: [{label: 'PokéAPI', url: 'https://pokeapi.co/'}],
   audio: {voice: {model: 'gpt-4o-mini-tts'}},
+  scenes: [{role: 'hook', narration: 'Charmander can do more than breathe fire.'}],
   rights: {
     nonAffiliationNotice: 'Unofficial fan-made educational project.',
     ownershipNotice: 'Pokémon IP belongs to its respective owners.',
@@ -21,8 +22,9 @@ test('youtube metadata', async (t) => {
     assert.match(metadata.snippet.title, /#Shorts$/);
     assert.ok(metadata.snippet.title.length <= 100);
     assert.ok(metadata.snippet.tags.includes('Charmander'));
-    assert.match(metadata.snippet.description, /Narration: AI-generated voice/);
-    assert.match(metadata.snippet.description, /#Pokemon #PokePulses #Shorts/);
+    assert.match(metadata.snippet.description, /^Charmander can do more than breathe fire\.\n\n#Pokemon #PokePulses #Shorts/);
+    assert.doesNotMatch(metadata.snippet.description, /AI-generated/);
+    assert.ok(metadata.snippet.description.indexOf('Sources:') < metadata.snippet.description.indexOf('Unofficial fan-made'));
   });
 
   await t.test('uses private plus publishAt for scheduled releases', () => {

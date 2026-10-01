@@ -145,19 +145,19 @@ export const youtubeMetadata = (manifest, {privacy = 'private', publishAt, madeF
   const titleBase = manifest.title.length > 91 ? `${manifest.title.slice(0, 88).trim()}…` : manifest.title;
   const title = /#shorts/i.test(titleBase) ? titleBase : `${titleBase} #Shorts`;
   const sourceLines = (manifest.sources ?? []).map((source) => `- ${source.label}: ${source.url}`).join('\n');
-  const disclosure = manifest.audio?.voice ? '\nNarration: AI-generated voice.' : '';
+  // Lead with the hook: the first lines are all a viewer sees before "more". The notices and sources follow.
+  const hook = manifest.scenes?.find((scene) => scene.role === 'hook')?.narration ?? manifest.title;
   const description = [
-    `${manifest.title}`,
+    hook,
+    '',
+    '#Pokemon #PokePulses #Shorts',
+    '',
+    sourceLines && 'Sources:',
+    sourceLines,
     '',
     manifest.rights?.nonAffiliationNotice,
     manifest.rights?.ownershipNotice,
-    disclosure.trim(),
-    '',
-    'Sources:',
-    sourceLines,
-    '',
-    '#Pokemon #PokePulses #Shorts',
-  ].filter((line) => line !== undefined && line !== null).join('\n').slice(0, 5000);
+  ].filter((line) => line !== undefined && line !== null && line !== false).join('\n').replace(/\n{3,}/g, '\n\n').trim().slice(0, 5000);
   const tags = unique(['Pokemon', 'Pokémon', 'PokePulses', 'Shorts', 'Pokemon facts', subject, cleanTag(manifest.subject?.identifier)]).slice(0, 30);
   const status = {privacyStatus: publishAt ? 'private' : privacy};
   if (publishAt) status.publishAt = new Date(publishAt).toISOString();
