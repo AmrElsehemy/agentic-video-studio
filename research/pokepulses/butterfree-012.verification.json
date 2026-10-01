@@ -1,0 +1,539 @@
+{
+  "episodeId": "butterfree-012",
+  "checkedAt": "2026-09-30T08:46:34.942Z",
+  "claims": [
+    {
+      "id": "c1",
+      "where": "title",
+      "text": "Butterfree’s Toxic Answer to Caterpie Hunters",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[13].text"
+      ],
+      "note": "Bird Pokémon going after Caterpie are driven off by Butterfree's scales.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c2",
+      "where": "premise",
+      "text": "When bird Pokémon go after Caterpie, Butterfree uses toxic scales to drive them away.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[13].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c3",
+      "where": "audiencePromise",
+      "text": "See why Butterfree’s pretty wing scales make it a dangerous protector for Caterpie.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[13].text"
+      ],
+      "note": "Its toxic scales and Caterpie-protecting behavior are supported, but the scales being “pretty” is not established by the research.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c4",
+      "where": "openLoop",
+      "text": "What does Butterfree do when a bird Pokémon targets Caterpie?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "This is a question.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c5",
+      "where": "payoff",
+      "text": "Butterfree drives Caterpie hunters away with toxic scales, and uses those scales to defend itself too.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[13].text",
+        "pokedexEntries[12].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c6",
+      "where": "scenes.toxic-answer.headline",
+      "text": "A TERRIFYING ANSWER",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "A dramatic headline without a specific factual assertion.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c7",
+      "where": "scenes.toxic-answer.narration",
+      "text": "Butterfree has a terrifying answer for Caterpie hunters.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[13].text"
+      ],
+      "note": "“Terrifying” is dramatic phrasing for the documented toxic-scale response.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c8",
+      "where": "scenes.toxic-answer.caption",
+      "text": "A BIRD SWOOPS. BUTTERFREE BLOCKS THE PATH.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[13].text"
+      ],
+      "note": "Bird Pokémon going after Caterpie is supported, but swooping and physically blocking their path are unstated staging details.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c9",
+      "where": "scenes.toxic-answer.eyebrow",
+      "text": "CATERPIE IS IN TROUBLE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[13].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c10",
+      "where": "scenes.toxic-answer.facts[0]",
+      "text": "TOXIC SCALES",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[13].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c11",
+      "where": "scenes.wings-are-toxic.headline",
+      "text": "TOXIC SCALES",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[13].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c12",
+      "where": "scenes.wings-are-toxic.narration",
+      "text": "Butterfree's wings carry toxic scales, not harmless glittering dust.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[13].text"
+      ],
+      "note": "The entry directly says Butterfree's wings are covered in toxic scales; the contrast with harmless dust is faithful dramatic wording.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c13",
+      "where": "scenes.wings-are-toxic.caption",
+      "text": "THE SPARKLE IS A WARNING.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[13].text"
+      ],
+      "note": "The toxicity is supported, but the research does not establish that the scales sparkle or function as a warning display.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c14",
+      "where": "scenes.wings-are-toxic.eyebrow",
+      "text": "PRETTY DOES NOT MEAN SAFE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[13].text"
+      ],
+      "note": "It is a stylistic way of emphasizing that Butterfree's scales are toxic.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c15",
+      "where": "scenes.wings-are-toxic.facts[0]",
+      "text": "WINGS COVERED IN TOXIC SCALES",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[13].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c16",
+      "where": "scenes.caterpie-defender.headline",
+      "text": "IT STEPS IN",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[13].text"
+      ],
+      "note": "Butterfree intervenes by sprinkling scales on bird Pokémon pursuing Caterpie to drive them off.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c17",
+      "where": "scenes.caterpie-defender.narration",
+      "text": "When bird Pokémon target Caterpie, Butterfree sprinkles those scales on them.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[13].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c18",
+      "where": "scenes.caterpie-defender.caption",
+      "text": "BUTTERFREE INTERCEPTS THE HUNTERS.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[13].text"
+      ],
+      "note": "“Intercepts” faithfully summarizes driving off bird Pokémon that are going after Caterpie.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c19",
+      "where": "scenes.caterpie-defender.eyebrow",
+      "text": "WHEN BIRDS HUNT",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[13].text"
+      ],
+      "note": "“Hunt” is a concise paraphrase of bird Pokémon going after Caterpie.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c20",
+      "where": "scenes.caterpie-defender.facts[0]",
+      "text": "BIRD POKÉMON",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[13].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c21",
+      "where": "scenes.caterpie-defender.facts[1]",
+      "text": "CATERPIE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[13].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c22",
+      "where": "scenes.caterpie-defender.facts[2]",
+      "text": "SPRINKLES SCALES",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[13].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c23",
+      "where": "scenes.toxic-cloud.headline",
+      "text": "DRIVE THEM AWAY",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[13].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c24",
+      "where": "scenes.toxic-cloud.narration",
+      "text": "Those scales drive birds away. It also releases toxic battle dust.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[13].text",
+        "pokedexEntries[0].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c25",
+      "where": "scenes.toxic-cloud.caption",
+      "text": "A SPARKLING CLOUD BECOMES A TOXIC BARRIER.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[13].text",
+        "pokedexEntries[0].text"
+      ],
+      "note": "Toxic scales and highly toxic airborne dust are supported, but a sparkling cloud becoming a physical barrier is dramatic visual staging not stated in the research.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c26",
+      "where": "scenes.toxic-cloud.eyebrow",
+      "text": "THE CLOUD GETS WORSE",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[0].text",
+        "pokedexEntries[13].text"
+      ],
+      "note": "The research supports toxic scales and highly toxic dust, but does not describe a cloud escalating or “getting worse.”",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c27",
+      "where": "scenes.toxic-cloud.facts[0]",
+      "text": "DRIVES BIRDS AWAY",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[13].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c28",
+      "where": "scenes.toxic-cloud.facts[1]",
+      "text": "HIGHLY TOXIC DUST",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c29",
+      "where": "scenes.not-just-a-guardian.headline",
+      "text": "IT PROTECTS ITSELF TOO",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[12].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c30",
+      "where": "scenes.not-just-a-guardian.narration",
+      "text": "But it scatters poisonous scales when other Pokémon attack it.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[12].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c31",
+      "where": "scenes.not-just-a-guardian.caption",
+      "text": "THE SAME DEFENSE WORKS FOR BUTTERFREE.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[13].text",
+        "pokedexEntries[12].text"
+      ],
+      "note": "Butterfree uses poisonous/toxic scales both to drive off birds pursuing Caterpie and to defend itself.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c32",
+      "where": "scenes.not-just-a-guardian.eyebrow",
+      "text": "THE COUNTERPOINT",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Framing label only.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c33",
+      "where": "scenes.not-just-a-guardian.facts[0]",
+      "text": "POISONOUS SCALES",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[12].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c34",
+      "where": "scenes.not-just-a-guardian.facts[1]",
+      "text": "SELF-DEFENSE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[12].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c35",
+      "where": "scenes.guardian-or-survivor.headline",
+      "text": "GUARDIAN OR SURVIVOR?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "This is a question.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c36",
+      "where": "scenes.guardian-or-survivor.narration",
+      "text": "Caterpie's guardian or toxic survivor, which Butterfree feels truer?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "This is a question inviting interpretation.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c37",
+      "where": "scenes.guardian-or-survivor.caption",
+      "text": "TOXIC SCALES. TWO PURPOSES.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[13].text",
+        "pokedexEntries[12].text"
+      ],
+      "note": "The scales are used against birds pursuing Caterpie and in Butterfree's own defense.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c38",
+      "where": "scenes.guardian-or-survivor.eyebrow",
+      "text": "TWO SIDES OF BUTTERFREE",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Framing label only.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c39",
+      "where": "scenes.guardian-or-survivor.facts[0]",
+      "text": "PROTECTS CATERPIE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[13].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c40",
+      "where": "scenes.guardian-or-survivor.facts[1]",
+      "text": "DEFENDS ITSELF",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[12].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    }
+  ],
+  "unsupported": [],
+  "uncertain": [
+    {
+      "id": "c3",
+      "where": "audiencePromise",
+      "text": "See why Butterfree’s pretty wing scales make it a dangerous protector for Caterpie.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[13].text"
+      ],
+      "note": "Its toxic scales and Caterpie-protecting behavior are supported, but the scales being “pretty” is not established by the research.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c8",
+      "where": "scenes.toxic-answer.caption",
+      "text": "A BIRD SWOOPS. BUTTERFREE BLOCKS THE PATH.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[13].text"
+      ],
+      "note": "Bird Pokémon going after Caterpie is supported, but swooping and physically blocking their path are unstated staging details.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c13",
+      "where": "scenes.wings-are-toxic.caption",
+      "text": "THE SPARKLE IS A WARNING.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[13].text"
+      ],
+      "note": "The toxicity is supported, but the research does not establish that the scales sparkle or function as a warning display.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c25",
+      "where": "scenes.toxic-cloud.caption",
+      "text": "A SPARKLING CLOUD BECOMES A TOXIC BARRIER.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[13].text",
+        "pokedexEntries[0].text"
+      ],
+      "note": "Toxic scales and highly toxic airborne dust are supported, but a sparkling cloud becoming a physical barrier is dramatic visual staging not stated in the research.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c26",
+      "where": "scenes.toxic-cloud.eyebrow",
+      "text": "THE CLOUD GETS WORSE",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[0].text",
+        "pokedexEntries[13].text"
+      ],
+      "note": "The research supports toxic scales and highly toxic dust, but does not describe a cloud escalating or “getting worse.”",
+      "tier": "official",
+      "checkedBy": "model"
+    }
+  ]
+}

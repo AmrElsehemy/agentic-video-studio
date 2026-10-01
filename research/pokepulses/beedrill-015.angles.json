@@ -1,0 +1,166 @@
+{
+  "episodeId": "beedrill-015",
+  "createdAt": "2026-09-30T08:56:08.728Z",
+  "chosen": {
+    "id": "three-stingers-one-deadliest",
+    "premise": "Beedrill has three poison barbs, but its tail barb secretes its most powerful poison.",
+    "hook": "Beedrill has three stingers—but one is the worst.",
+    "archetype": "comparison",
+    "evidence": [
+      "pokedexEntries[1].text",
+      "pokedexEntries[3].text"
+    ],
+    "visualIdea": "Three stingers receive on-screen labels; the tail stinger gets a pulsing venom meter that maxes out.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 4,
+      "specificity": 5,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 24,
+    "note": "A sharply Beedrill-specific contradiction: three poison barbs, but the tail barb is the most dangerous. The Pokédex directly supports it and the venom-meter visual is immediate."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "three-stingers-one-deadliest",
+          "premise": "Beedrill has three poison barbs, but its tail barb secretes its most powerful poison.",
+          "hook": "Beedrill has three stingers—but one is the worst.",
+          "archetype": "comparison",
+          "evidence": [
+            "pokedexEntries[1].text",
+            "pokedexEntries[3].text"
+          ],
+          "visualIdea": "Three stingers receive on-screen labels; the tail stinger gets a pulsing venom meter that maxes out.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 24,
+          "note": "A sharply Beedrill-specific contradiction: three poison barbs, but the tail barb is the most dangerous. The Pokédex directly supports it and the venom-meter visual is immediate."
+        },
+        {
+          "id": "level-7-to-level-10",
+          "premise": "Weedle becomes Kakuna at level 7, then just three levels later evolves into Beedrill.",
+          "hook": "This Pokémon's cocoon phase lasts only three levels.",
+          "archetype": "transformation",
+          "evidence": [
+            "evolutionChain[0]",
+            "evolutionChain[1].method",
+            "evolutionChain[2].method"
+          ],
+          "visualIdea": "A level counter climbs from 7 to 10 while Kakuna's shell cracks into Beedrill in three rapid beats.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 23,
+          "note": "The three-level Kakuna window is concrete and highly visual. It is compelling, though its surprise depends on the audience knowing the evolution chain and the cited levels come from secondary data."
+        },
+        {
+          "id": "mega-beedrill-growth-spurt",
+          "premise": "Mega Beedrill is 0.4 meters taller and 11 kilograms heavier than Beedrill.",
+          "hook": "Mega Beedrill adds 40 centimeters—and 11 kilos.",
+          "archetype": "comparison",
+          "evidence": [
+            "heightMeters",
+            "weightKg",
+            "varieties[0].name",
+            "varieties[0].heightMeters",
+            "varieties[0].weightKg"
+          ],
+          "visualIdea": "Regular and Mega Beedrill stand on a height chart and scales as +0.4 m and +11 kg snap onscreen.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 3,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 22,
+          "note": "The comparison is precise and fully supported, but Mega stat differences are less inherently surprising than Beedrill's venom hierarchy."
+        },
+        {
+          "id": "prey-to-nest",
+          "premise": "Beedrill defeats prey with poisonous stings, then carries the victim back to its nest for food.",
+          "hook": "Beedrill doesn't just sting prey—it takes it home.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[4].text",
+            "pokedexEntries[0].text",
+            "pokedexEntries[5].text"
+          ],
+          "visualIdea": "A sharp three-step sequence: high-speed sting, prey silhouette, then Beedrill flying toward a guarded nest.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 4,
+            "visual": 4,
+            "support": 4
+          },
+          "total": 22,
+          "note": "Very distinctive and unsettling: Beedrill takes defeated prey home. The Pokédex supports the sequence, though carrying the victim is slightly more interpretive than the other wording."
+        },
+        {
+          "id": "hit-and-run-poison-flight",
+          "premise": "Beedrill's best attack is a high-speed loop: strike with poison needles, then fly away.",
+          "hook": "Beedrill's best move is: sting, vanish, repeat.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[9].text",
+            "pokedexEntries[0].text"
+          ],
+          "visualIdea": "A looping flight trail circles a target as Beedrill darts in, lands poison hits, and exits at speed.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 3,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 21,
+          "note": "Strongly supported and easy to animate, but the sting-and-retreat behavior feels more like a combat tactic than a surprising Beedrill revelation."
+        },
+        {
+          "id": "dont-approach-the-nest",
+          "premise": "Approaching a Beedrill nest can trigger a furious swarm because Beedrill is extremely territorial.",
+          "hook": "The one place you should never go near: a Beedrill nest.",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[5].text",
+            "pokedexEntries[6].text",
+            "pokedexEntries[12].text"
+          ],
+          "visualIdea": "A camera creeps toward a nest; one Beedrill becomes a darkening swarm racing straight at the lens.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 3,
+            "surprise": 3,
+            "specificity": 4,
+            "visual": 4,
+            "support": 5
+          },
+          "total": 19,
+          "note": "The swarm escalation is well supported, but territorial nest defense is a broadly expected bee-like trait and the premise lacks a distinctive rule or number."
+        }
+      ],
+      "rejected": [],
+      "request": "N/A"
+    }
+  ]
+}

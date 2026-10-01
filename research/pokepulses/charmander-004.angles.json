@@ -1,0 +1,167 @@
+{
+  "episodeId": "charmander-004",
+  "createdAt": "2026-09-30T04:58:49.911Z",
+  "chosen": {
+    "id": "rain-makes-steam-not-extinction",
+    "premise": "Rain makes steam spout from Charmander’s tail, yet a healthy flame can keep burning while wet.",
+    "hook": "Rain hits Charmander’s tail—and it starts steaming.",
+    "archetype": "mystery",
+    "evidence": [
+      "pokedexEntries[0].text",
+      "pokedexEntries[4].text",
+      "pokedexEntries[8].text"
+    ],
+    "visualIdea": "Raindrops strike the tail flame in slow motion, creating steam before the flame stays lit.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 5,
+      "specificity": 5,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 25,
+    "note": "A concrete, memorable contradiction: rain creates steam, yet a healthy flame can keep burning while wet. The cited entries directly support both halves."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "rain-makes-steam-not-extinction",
+          "premise": "Rain makes steam spout from Charmander’s tail, yet a healthy flame can keep burning while wet.",
+          "hook": "Rain hits Charmander’s tail—and it starts steaming.",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[0].text",
+            "pokedexEntries[4].text",
+            "pokedexEntries[8].text"
+          ],
+          "visualIdea": "Raindrops strike the tail flame in slow motion, creating steam before the flame stays lit.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 25,
+          "note": "A concrete, memorable contradiction: rain creates steam, yet a healthy flame can keep burning while wet. The cited entries directly support both halves."
+        },
+        {
+          "id": "the-flame-you-can-hear",
+          "premise": "Charmander’s burning tail makes a sound, but only quiet places let you hear it.",
+          "hook": "Charmander’s flame has a sound—if the world is quiet enough.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[1].text"
+          ],
+          "visualIdea": "A noisy scene mutes the flame’s sound; the world fades silent and tiny crackles appear as waveforms.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 25,
+          "note": "Extremely distinctive and concise, with an excellent sound-design hook. It relies on one Pokédex entry, but that entry directly supports the entire premise."
+        },
+        {
+          "id": "tail-flame-life-meter",
+          "premise": "Charmander’s tail flame is its life meter: weak health means a weak flame, and extinction means death.",
+          "hook": "Charmander carries its life bar on the end of its tail.",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[2].text",
+            "pokedexEntries[3].text",
+            "pokedexEntries[7].text",
+            "pokedexEntries[9].text"
+          ],
+          "visualIdea": "A glowing tail-flame HUD drains from bright to dim, ending on a dramatic flame-out warning.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 23,
+          "note": "A highly Charmander-specific survival rule with strong visual stakes, though the life-force idea is familiar to many fans."
+        },
+        {
+          "id": "born-with-a-burning-tail",
+          "premise": "Charmander is born with its tail already burning, and that flame remains tied to whether it survives.",
+          "hook": "Charmander is born with a flame that cannot go out.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[7].text",
+            "pokedexEntries[2].text",
+            "pokedexEntries[3].text"
+          ],
+          "visualIdea": "A newborn silhouette reveals a lit tail, then the flame shifts from faint to brilliant like a vital sign.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 22,
+          "note": "Strong life-cycle framing, but the hook slightly overstates the evidence: the flame is said to burn from birth and death follows if it goes out, not that it categorically cannot go out."
+        },
+        {
+          "id": "tail-flame-emotion-tell",
+          "premise": "Charmander’s tail gives away its mood: it wavers in happiness but blazes fiercely in rage.",
+          "hook": "You can read Charmander’s emotions from its tail.",
+          "archetype": "comparison",
+          "evidence": [
+            "pokedexEntries[5].text",
+            "pokedexEntries[6].text"
+          ],
+          "visualIdea": "Split-screen Charmander: a gently wavering happy flame versus an explosive rage blaze.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 3,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 21,
+          "note": "Clear and well-supported, but emotional flame behavior is a less surprising premise than the survival or sound details."
+        },
+        {
+          "id": "16-to-36-flight-upgrade",
+          "premise": "Charmander evolves at level 16, then waits 20 more levels for Charizard—and the line finally gains Flying.",
+          "hook": "Charmander’s line waits until level 36 to take flight.",
+          "archetype": "transformation",
+          "evidence": [
+            "evolutionChain[0].types",
+            "evolutionChain[1].method",
+            "evolutionChain[1].types",
+            "evolutionChain[2].method",
+            "evolutionChain[2].types"
+          ],
+          "visualIdea": "A level counter races 16 to 36 as Charmander becomes Charmeleon, then Charizard bursts upward with Flying added.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 3,
+            "surprise": 3,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 21,
+          "note": "The level gap and delayed Flying type are concrete and easy to animate, but the angle is mainly about the evolution line rather than Charmander itself."
+        }
+      ],
+      "rejected": [],
+      "request": "The strongest angles are already supported. A still stronger version would add an official gameplay or animation example showing Charmander remaining lit in rain, but the Pokédex evidence is sufficient for this episode."
+    }
+  ]
+}

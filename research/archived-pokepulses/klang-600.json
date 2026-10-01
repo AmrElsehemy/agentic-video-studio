@@ -1,0 +1,125 @@
+{
+  "schemaVersion": 1,
+  "id": "klang-600",
+  "number": 600,
+  "index": "#600",
+  "name": "Klang",
+  "slug": "klang",
+  "category": "Gear Pokémon",
+  "generation": "Generation V",
+  "isLegendary": false,
+  "isMythical": false,
+  "types": [
+    "Steel"
+  ],
+  "heightMeters": 0.6,
+  "weightKg": 51,
+  "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/600.png",
+  "pokedexEntries": [
+    {
+      "game": "Black",
+      "text": "By changing the direction in which it rotates, it communicates its feelings to others. When angry, it rotates faster."
+    },
+    {
+      "game": "White",
+      "text": "Spinning minigears are rotated at high speed and repeatedly fired away. It is dangerous if the gears don’t return."
+    },
+    {
+      "game": "Black 2",
+      "text": "A minigear and big gear comprise its body. If the minigear it launches at a foe doesn’t return, it will die."
+    },
+    {
+      "game": "Sword",
+      "text": "When Klang goes all out, the minigear links up perfectly with the outer part of the big gear, and this Pokémon’s rotation speed increases sharply."
+    },
+    {
+      "game": "Shield",
+      "text": "Many companies in the Galar region choose Klang as their logo. This Pokémon is considered the symbol of industrial technology."
+    }
+  ],
+  "evolutionChain": [
+    {
+      "name": "Klink",
+      "index": "#599",
+      "stage": 1,
+      "types": [
+        "Steel"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/599.png",
+      "isSubject": false
+    },
+    {
+      "name": "Klang",
+      "index": "#600",
+      "stage": 2,
+      "evolvesFrom": "Klink",
+      "method": "Level Up, level 38",
+      "types": [
+        "Steel"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/600.png",
+      "isSubject": true
+    },
+    {
+      "name": "Klinklang",
+      "index": "#601",
+      "stage": 3,
+      "evolvesFrom": "Klang",
+      "method": "Level Up, level 49",
+      "types": [
+        "Steel"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/601.png",
+      "isSubject": false
+    }
+  ],
+  "varieties": [],
+  "lore": [],
+  "tiers": {
+    "official": [
+      "name",
+      "index",
+      "number",
+      "category",
+      "generation",
+      "isLegendary",
+      "isMythical",
+      "types",
+      "heightMeters",
+      "weightKg",
+      "pokedexEntries",
+      "evolutionChain[].name",
+      "evolutionChain[].index",
+      "evolutionChain[].types",
+      "evolutionChain[].stage",
+      "varieties[].types",
+      "varieties[].heightMeters",
+      "varieties[].weightKg"
+    ],
+    "trusted_secondary": [
+      "evolutionChain[].method",
+      "evolutionChain[].evolvesFrom",
+      "varieties[].name"
+    ],
+    "community": [
+      "lore"
+    ]
+  },
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Klang",
+      "url": "https://www.pokemon.com/us/pokedex/klang",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Klang",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Klang_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Klang",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/600",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

@@ -1,0 +1,517 @@
+{
+  "episodeId": "venusaur-003",
+  "checkedAt": "2026-09-30T04:55:12.748Z",
+  "claims": [
+    {
+      "id": "c1",
+      "where": "title",
+      "text": "Rain Turns Venusaur Into a Pokémon Beacon",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[9].text"
+      ],
+      "note": "“Beacon” is a dramatic description of the stronger post-rain scent attracting other Pokémon.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c2",
+      "where": "premise",
+      "text": "After rain, Venusaur’s flower smells stronger and draws other Pokémon toward it.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[9].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c3",
+      "where": "audiencePromise",
+      "text": "Follow Venusaur’s scent from sunlight fragrance to a rain-powered Pokémon beacon.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text",
+        "pokedexEntries[9].text"
+      ],
+      "note": "The flower releases fragrance while absorbing sunlight, and its scent is stronger after rain and attracts Pokémon.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c4",
+      "where": "openLoop",
+      "text": "Why do other Pokémon follow Venusaur after a rainy day?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Question framing.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c5",
+      "where": "payoff",
+      "text": "Rain strengthens Venusaur’s flower scent, attracting other Pokémon, while its aroma can also soothe people.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[9].text",
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c6",
+      "where": "scenes.rain-beacon.headline",
+      "text": "RAIN MAKES A BEACON",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[9].text"
+      ],
+      "note": "“Beacon” is figurative for a stronger scent that attracts Pokémon.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c7",
+      "where": "scenes.rain-beacon.narration",
+      "text": "Rain turns Venusaur into a Pokémon beacon.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[9].text"
+      ],
+      "note": "“Beacon” is a dramatic description of the attraction caused by Venusaur’s stronger post-rain scent.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c8",
+      "where": "scenes.rain-beacon.caption",
+      "text": "ONE FLOWER. A STRONGER SIGNAL.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[9].text"
+      ],
+      "note": "A stronger scent that attracts Pokémon is faithfully compressed as a stronger signal.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c9",
+      "where": "scenes.rain-beacon.eyebrow",
+      "text": "AFTER THE STORM",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[9].text"
+      ],
+      "note": "The research says after a rainy day, not specifically after a storm.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c10",
+      "where": "scenes.rain-beacon.facts[0]",
+      "text": "RAINY DAY",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[9].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c11",
+      "where": "scenes.rain-beacon.facts[1]",
+      "text": "STRONGER SCENT",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[9].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c12",
+      "where": "scenes.sunlight-fragrance.headline",
+      "text": "SUNLIGHT RELEASES FRAGRANCE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c13",
+      "where": "scenes.sunlight-fragrance.narration",
+      "text": "Its back flower already releases fragrance in sunlight.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c14",
+      "where": "scenes.sunlight-fragrance.caption",
+      "text": "THE PETALS GIVE OFF A PLEASANT SCENT.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c15",
+      "where": "scenes.sunlight-fragrance.eyebrow",
+      "text": "FIRST CLUE",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Framing label.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c16",
+      "where": "scenes.sunlight-fragrance.facts[0]",
+      "text": "FLOWER PETALS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c17",
+      "where": "scenes.sunlight-fragrance.facts[1]",
+      "text": "SUNLIGHT",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c18",
+      "where": "scenes.sunlight-fragrance.facts[2]",
+      "text": "FRAGRANCE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c19",
+      "where": "scenes.rain-strengthens.headline",
+      "text": "RAIN MAKES IT STRONGER",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[9].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c20",
+      "where": "scenes.rain-strengthens.narration",
+      "text": "Then rain passes, and that flower smells even stronger.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[9].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c21",
+      "where": "scenes.rain-strengthens.caption",
+      "text": "THE SCENT CLOUD EXPANDS AFTER RAIN.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[9].text"
+      ],
+      "note": "The scent is stated to smell stronger after rain, but the research does not specifically say that a scent cloud expands.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c22",
+      "where": "scenes.rain-strengthens.eyebrow",
+      "text": "THE SCENT CHANGES",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[9].text"
+      ],
+      "note": "The scent becoming stronger is a change.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c23",
+      "where": "scenes.rain-strengthens.facts[0]",
+      "text": "AFTER RAIN",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[9].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c24",
+      "where": "scenes.rain-strengthens.facts[1]",
+      "text": "STRONGER SMELL",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[9].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c25",
+      "where": "scenes.pokemon-follow.headline",
+      "text": "OTHER POKÉMON FOLLOW IT",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[9].text"
+      ],
+      "note": "Other Pokémon being attracted is faithfully expressed as following it.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c26",
+      "where": "scenes.pokemon-follow.narration",
+      "text": "That stronger scent attracts other Pokémon to Venusaur.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[9].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c27",
+      "where": "scenes.pokemon-follow.caption",
+      "text": "SILHOUETTES FOLLOW THE FLOWER’S TRAIL.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[9].text"
+      ],
+      "note": "Following the flower’s scent trail is a dramatic depiction of other Pokémon being attracted to the stronger scent.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c28",
+      "where": "scenes.pokemon-follow.eyebrow",
+      "text": "FIRST REVEAL",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Framing label.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c29",
+      "where": "scenes.pokemon-follow.facts[0]",
+      "text": "ATTRACTS POKÉMON",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[9].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c30",
+      "where": "scenes.pokemon-follow.facts[1]",
+      "text": "STRONGER SCENT",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[9].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c31",
+      "where": "scenes.people-soothed.headline",
+      "text": "ITS AROMA SOOTHES PEOPLE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c32",
+      "where": "scenes.people-soothed.narration",
+      "text": "Its flower aroma can also soothe people's emotions.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c33",
+      "where": "scenes.people-soothed.caption",
+      "text": "ONE FLOWER CAN CALL POKÉMON AND CALM PEOPLE.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[9].text",
+        "pokedexEntries[5].text"
+      ],
+      "note": "“Call Pokémon” is figurative for attracting them.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c34",
+      "where": "scenes.people-soothed.eyebrow",
+      "text": "SECOND REVEAL",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Framing label.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c35",
+      "where": "scenes.people-soothed.facts[0]",
+      "text": "FLOWER AROMA",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c36",
+      "where": "scenes.people-soothed.facts[1]",
+      "text": "SOOTHES EMOTIONS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c37",
+      "where": "scenes.flower-verdict.headline",
+      "text": "BEACON OR CALM?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Question framing.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c38",
+      "where": "scenes.flower-verdict.narration",
+      "text": "Rain beacon or sunlight calm, which Venusaur flower wins?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "A question inviting a preference or verdict.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c39",
+      "where": "scenes.flower-verdict.caption",
+      "text": "PICK VENUSAUR’S BEST FLOWER POWER.",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Audience prompt requesting an opinion.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c40",
+      "where": "scenes.flower-verdict.eyebrow",
+      "text": "YOUR VERDICT",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Framing label.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c41",
+      "where": "scenes.flower-verdict.facts[0]",
+      "text": "RAIN BEACON",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[9].text"
+      ],
+      "note": "“Rain beacon” is figurative shorthand for the stronger rainy-day scent attracting Pokémon.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c42",
+      "where": "scenes.flower-verdict.facts[1]",
+      "text": "SUNLIGHT CALM",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text",
+        "pokedexEntries[5].text"
+      ],
+      "note": "Sunlight is associated with fragrance release, and the flower’s aroma soothes people’s emotions.",
+      "tier": "official",
+      "checkedBy": "model"
+    }
+  ],
+  "unsupported": [],
+  "uncertain": [
+    {
+      "id": "c9",
+      "where": "scenes.rain-beacon.eyebrow",
+      "text": "AFTER THE STORM",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[9].text"
+      ],
+      "note": "The research says after a rainy day, not specifically after a storm.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c21",
+      "where": "scenes.rain-strengthens.caption",
+      "text": "THE SCENT CLOUD EXPANDS AFTER RAIN.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[9].text"
+      ],
+      "note": "The scent is stated to smell stronger after rain, but the research does not specifically say that a scent cloud expands.",
+      "tier": "official",
+      "checkedBy": "model"
+    }
+  ]
+}

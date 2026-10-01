@@ -1,0 +1,166 @@
+{
+  "episodeId": "kakuna-014",
+  "createdAt": "2026-09-30T08:52:54.511Z",
+  "chosen": {
+    "id": "hot-shell-secret",
+    "premise": "Kakuna looks frozen on a tree, but its shell gets hot because it is intensely preparing to evolve inside.",
+    "hook": "Kakuna’s shell gets hot because it’s secretly working nonstop.",
+    "archetype": "mystery",
+    "evidence": [
+      "pokedexEntries[5].text",
+      "pokedexEntries[6].text"
+    ],
+    "visualIdea": "A motionless Kakuna clings to a tree as a thermal-camera glow builds inside its shell.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 5,
+      "specificity": 4,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 24,
+    "note": "A highly Kakuna-specific contradiction: almost motionless outside, intensely active and visibly hot inside. The Ruby and Emerald entries directly support it."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "hot-shell-secret",
+          "premise": "Kakuna looks frozen on a tree, but its shell gets hot because it is intensely preparing to evolve inside.",
+          "hook": "Kakuna’s shell gets hot because it’s secretly working nonstop.",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[5].text",
+            "pokedexEntries[6].text"
+          ],
+          "visualIdea": "A motionless Kakuna clings to a tree as a thermal-camera glow builds inside its shell.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 24,
+          "note": "A highly Kakuna-specific contradiction: almost motionless outside, intensely active and visibly hot inside. The Ruby and Emerald entries directly support it."
+        },
+        {
+          "id": "soft-body-hard-shell",
+          "premise": "As Kakuna’s body becomes softer on the inside, its external shell hardens on the outside.",
+          "hook": "Kakuna gets softer and harder at the exact same time.",
+          "archetype": "transformation",
+          "evidence": [
+            "pokedexEntries[3].text",
+            "pokedexEntries[10].text"
+          ],
+          "visualIdea": "Split-shell X-ray: the interior morphs softer while the outer casing visibly hardens like armor.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 23,
+          "note": "A concrete, visually strong transformation paradox, though it is slightly less distinctive than the hot-shell detail."
+        },
+        {
+          "id": "immobile-but-armed",
+          "premise": "Nearly unable to move, Kakuna still has one emergency move: extending a poisonous stinger at attackers.",
+          "hook": "Kakuna can barely move—except when it needs to poison you.",
+          "archetype": "comparison",
+          "evidence": [
+            "pokedexEntries[1].text",
+            "pokedexEntries[2].text",
+            "pokedexEntries[0].text"
+          ],
+          "visualIdea": "Kakuna is shown nearly motionless; an approaching predator triggers a sudden stinger extension.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 22,
+          "note": "Strong contrast and excellent action potential. The entries support both Kakuna's limited movement and its poisonous barb, but the idea is less unusual than the hot shell."
+        },
+        {
+          "id": "level-seven-to-ten",
+          "premise": "Kakuna exists for only three level-ups: Weedle evolves at 7, then Kakuna becomes Beedrill at 10.",
+          "hook": "Kakuna’s entire stage lasts just three levels.",
+          "archetype": "mechanic",
+          "evidence": [
+            "evolutionChain[1].method",
+            "evolutionChain[2].method",
+            "evolutionChain[0].stage",
+            "evolutionChain[1].stage",
+            "evolutionChain[2].stage"
+          ],
+          "visualIdea": "A level meter races from 7 to 10 as Weedle becomes Kakuna, then immediately bursts into Beedrill.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 4,
+            "support": 4
+          },
+          "total": 21,
+          "note": "The three-level window is clear and compelling, but it depends on secondary evolution-method data and is more game-mechanic than character lore."
+        },
+        {
+          "id": "tree-bound-hideout",
+          "premise": "Kakuna spends its vulnerable evolution stage hiding under leaves and branch nooks while leaning on stout trees.",
+          "hook": "Kakuna’s survival strategy is to become part of the tree.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[4].text",
+            "pokedexEntries[9].text",
+            "pokedexEntries[5].text"
+          ],
+          "visualIdea": "A camera searches a dense tree canopy before revealing Kakuna concealed beneath leaves in a branch nook.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 3,
+            "specificity": 3,
+            "visual": 4,
+            "support": 4
+          },
+          "total": 18,
+          "note": "The hiding behavior is supported, but 'become part of the tree' overstates the evidence and the premise is less sharply defined."
+        },
+        {
+          "id": "the-living-fortress",
+          "premise": "Kakuna cannot run from predators, so its main defense is hardening its shell when danger arrives.",
+          "hook": "When Kakuna can’t escape, it turns itself into a fortress.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[0].text",
+            "pokedexEntries[8].text",
+            "pokedexEntries[7].text"
+          ],
+          "visualIdea": "A predator closes in as Kakuna’s shell gains layered armor textures and absorbs the threat.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 3,
+            "surprise": 3,
+            "specificity": 4,
+            "visual": 4,
+            "support": 4
+          },
+          "total": 18,
+          "note": "The defensive premise is supported, but 'fortress' is a broadly applicable metaphor and the visual of absorbing attacks is not stated by the research."
+        }
+      ],
+      "rejected": [],
+      "request": "Stronger angles would need an even sharper Kakuna-only contradiction or quantifiable reveal, while remaining directly supported by the Pokédex text and easy to visualize without adding unsupported behavior."
+    }
+  ]
+}

@@ -1,0 +1,516 @@
+{
+  "episodeId": "charmeleon-005",
+  "checkedAt": "2026-09-30T05:32:44.938Z",
+  "claims": [
+    {
+      "id": "c1",
+      "where": "title",
+      "text": "Charmeleon Only Calms When Someone Loses",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text",
+        "pokedexEntries[10].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c2",
+      "where": "premise",
+      "text": "Charmeleon constantly seeks opponents, and its Pokédex says winning is the only thing that calms it.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text",
+        "pokedexEntries[10].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c3",
+      "where": "audiencePromise",
+      "text": "See how fights excite Charmeleon, strong foes make it aggressive, and only victory calms it.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[5].text",
+        "pokedexEntries[2].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c4",
+      "where": "openLoop",
+      "text": "What does its temper do before victory finally calms it?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "This is phrased as a question.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c5",
+      "where": "payoff",
+      "text": "Victory is its off switch: tough fights excite it, strong foes make it aggressive, and agitation can incinerate its surroundings.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[5].text",
+        "pokedexEntries[4].text",
+        "pokedexEntries[2].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c6",
+      "where": "scenes.someone-has-to-lose.headline",
+      "text": "SOMEONE HAS TO LOSE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c7",
+      "where": "scenes.someone-has-to-lose.narration",
+      "text": "Charmeleon only calms when someone else loses.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text",
+        "pokedexEntries[10].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c8",
+      "where": "scenes.someone-has-to-lose.caption",
+      "text": "CALM HAS ONE CONDITION",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c9",
+      "where": "scenes.someone-has-to-lose.eyebrow",
+      "text": "TEMPER CHECK",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c10",
+      "where": "scenes.someone-has-to-lose.facts[0]",
+      "text": "CALMS ONLY WHEN IT WINS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text",
+        "pokedexEntries[10].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c11",
+      "where": "scenes.seeks-opponents.headline",
+      "text": "IT CONSTANTLY SEEKS FIGHTS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text",
+        "pokedexEntries[10].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c12",
+      "where": "scenes.seeks-opponents.narration",
+      "text": "Its hotheaded nature keeps it constantly seeking opponents to fight.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text",
+        "pokedexEntries[10].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c13",
+      "where": "scenes.seeks-opponents.caption",
+      "text": "HOTHEADED AND LOOKING FOR OPPONENTS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c14",
+      "where": "scenes.seeks-opponents.eyebrow",
+      "text": "NO QUIET MOMENT",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c15",
+      "where": "scenes.seeks-opponents.facts[0]",
+      "text": "HOTHEADED NATURE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c16",
+      "where": "scenes.seeks-opponents.facts[1]",
+      "text": "CONSTANTLY SEEKS OPPONENTS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text",
+        "pokedexEntries[10].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c17",
+      "where": "scenes.tough-fights-excite.headline",
+      "text": "TOUGH FIGHTS EXCITE IT",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[11].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c18",
+      "where": "scenes.tough-fights-excite.narration",
+      "text": "A tough fight can excite it into bluish-white flames.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[11].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c19",
+      "where": "scenes.tough-fights-excite.caption",
+      "text": "EXCITEMENT CAN CHANGE THE FLAME",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[11].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c20",
+      "where": "scenes.tough-fights-excite.eyebrow",
+      "text": "HEAT RISING",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text",
+        "pokedexEntries[8].text",
+        "pokedexEntries[1].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c21",
+      "where": "scenes.tough-fights-excite.facts[0]",
+      "text": "TOUGH FIGHTS EXCITE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[11].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c22",
+      "where": "scenes.tough-fights-excite.facts[1]",
+      "text": "BLUISH-WHITE FLAMES",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c23",
+      "where": "scenes.strong-foes-escalate.headline",
+      "text": "STRONG FOES MAKE IT WORSE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c24",
+      "where": "scenes.strong-foes-escalate.narration",
+      "text": "Strong foes do not soothe it. They turn it aggressive.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[2].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c25",
+      "where": "scenes.strong-foes-escalate.caption",
+      "text": "A BIGGER CHALLENGE RAISES THE HEAT",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c26",
+      "where": "scenes.strong-foes-escalate.eyebrow",
+      "text": "NOT RELIEF",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[2].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c27",
+      "where": "scenes.strong-foes-escalate.facts[0]",
+      "text": "STRONG FOE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c28",
+      "where": "scenes.strong-foes-escalate.facts[1]",
+      "text": "TURNS AGGRESSIVE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c29",
+      "where": "scenes.victory-after-danger.headline",
+      "text": "CALM COMES AFTER THE DAMAGE",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[2].text",
+        "pokedexEntries[4].text"
+      ],
+      "note": "The research says it calms only when it wins and that agitation can incinerate its surroundings, but it does not establish that calm specifically comes after damage.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c30",
+      "where": "scenes.victory-after-danger.narration",
+      "text": "Winning calms it, but agitation can incinerate its surroundings.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text",
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c31",
+      "where": "scenes.victory-after-danger.caption",
+      "text": "VICTORY IS THE OFF SWITCH",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c32",
+      "where": "scenes.victory-after-danger.eyebrow",
+      "text": "THE REAL CATCH",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Framing phrase without a factual assertion.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c33",
+      "where": "scenes.victory-after-danger.facts[0]",
+      "text": "INTENSE FLAMES",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c34",
+      "where": "scenes.victory-after-danger.facts[1]",
+      "text": "INCINERATES SURROUNDINGS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c35",
+      "where": "scenes.victory-after-danger.facts[2]",
+      "text": "CALMS ONLY WHEN IT WINS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text",
+        "pokedexEntries[10].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c36",
+      "where": "scenes.chasing-calm-or-fights.headline",
+      "text": "CURE OR COMPULSION?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "This is a question.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c37",
+      "where": "scenes.chasing-calm-or-fights.narration",
+      "text": "Is it chasing calm, or chasing the next fight?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "This is a question inviting interpretation.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c38",
+      "where": "scenes.chasing-calm-or-fights.caption",
+      "text": "ONLY A WIN BRINGS CALM",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text",
+        "pokedexEntries[10].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c39",
+      "where": "scenes.chasing-calm-or-fights.eyebrow",
+      "text": "YOUR VERDICT",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Audience-prompt framing without a factual assertion.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c40",
+      "where": "scenes.chasing-calm-or-fights.facts[0]",
+      "text": "CALMS ONLY WHEN IT WINS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text",
+        "pokedexEntries[10].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    }
+  ],
+  "unsupported": [],
+  "uncertain": [
+    {
+      "id": "c29",
+      "where": "scenes.victory-after-danger.headline",
+      "text": "CALM COMES AFTER THE DAMAGE",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[2].text",
+        "pokedexEntries[4].text"
+      ],
+      "note": "The research says it calms only when it wins and that agitation can incinerate its surroundings, but it does not establish that calm specifically comes after damage.",
+      "tier": "official",
+      "checkedBy": "model"
+    }
+  ]
+}

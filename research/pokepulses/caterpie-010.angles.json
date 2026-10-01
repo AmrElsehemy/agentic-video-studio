@@ -1,0 +1,166 @@
+{
+  "episodeId": "caterpie-010",
+  "createdAt": "2026-09-30T08:39:05.824Z",
+  "chosen": {
+    "id": "hundred-leaf-growth-spurt",
+    "premise": "Caterpie may eat 100 leaves a day because it wants to grow up quickly.",
+    "hook": "This tiny Caterpie can eat 100 leaves a day.",
+    "archetype": "mechanic",
+    "evidence": [
+      "pokedexEntries[12].text",
+      "pokedexEntries[5].text",
+      "pokedexEntries[6].text"
+    ],
+    "visualIdea": "A 0.3-meter Caterpie rapidly chomps through a counter of 100 oversized leaves, then snaps into its evolution line.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 4,
+      "surprise": 5,
+      "specificity": 5,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 24,
+    "note": "The exact 100-leaf claim is highly surprising, concrete, and directly supported by the Pokédex; the growth motivation is also stated, though it is slightly speculative in wording."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "hundred-leaf-growth-spurt",
+          "premise": "Caterpie may eat 100 leaves a day because it wants to grow up quickly.",
+          "hook": "This tiny Caterpie can eat 100 leaves a day.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[12].text",
+            "pokedexEntries[5].text",
+            "pokedexEntries[6].text"
+          ],
+          "visualIdea": "A 0.3-meter Caterpie rapidly chomps through a counter of 100 oversized leaves, then snaps into its evolution line.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 24,
+          "note": "The exact 100-leaf claim is highly surprising, concrete, and directly supported by the Pokédex; the growth motivation is also stated, though it is slightly speculative in wording."
+        },
+        {
+          "id": "bigger-than-its-body",
+          "premise": "Caterpie can devour a leaf larger than its entire body right before your eyes.",
+          "hook": "Caterpie eats leaves bigger than itself.",
+          "archetype": "comparison",
+          "evidence": [
+            "pokedexEntries[5].text",
+            "pokedexEntries[6].text",
+            "heightMeters"
+          ],
+          "visualIdea": "A tiny Caterpie is measured beside a giant leaf, then eats it from one edge until only the stem remains.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 22,
+          "note": "A clear Caterpie-specific size contradiction with excellent visual potential. It is memorable, but less distinctive than the exact 100-leaf count."
+        },
+        {
+          "id": "level-seven-cocoon",
+          "premise": "At level 7, Caterpie becomes Metapod: it sheds skin, wraps itself in silk, and turns into a cocoon.",
+          "hook": "At level 7, Caterpie disappears inside a cocoon.",
+          "archetype": "transformation",
+          "evidence": [
+            "evolutionChain[1].method",
+            "evolutionChain[1].evolvesFrom",
+            "pokedexEntries[7].text",
+            "evolutionChain[2].method"
+          ],
+          "visualIdea": "A level meter hits 7; Caterpie sheds its green skin, silk spirals around it, and the silhouette resolves into Metapod.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 22,
+          "note": "Level 7 gives this a strong concrete structure and the transformation is highly visual. The evolution method comes from secondary research, and “disappears” is a dramatic paraphrase rather than a literal fact."
+        },
+        {
+          "id": "antenna-stink-defense",
+          "premise": "Caterpie’s red head antenna is a chemical defense that releases a terrible stench—yet birds still eat it.",
+          "hook": "Caterpie’s antenna is basically a stink bomb.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[8].text",
+            "pokedexEntries[10].text",
+            "pokedexEntries[13].text"
+          ],
+          "visualIdea": "A red antenna flashes like an alarm, unleashing a green odor cloud at a bird silhouette—then the bird still swoops in.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 21,
+          "note": "The stink defense and ironic fact that birds still eat Caterpie are supported. Chemical-defense language is an interpretation, not a direct research phrase."
+        },
+        {
+          "id": "climbs-any-surface",
+          "premise": "Caterpie’s tiny feet use suction pads to cling to slopes, walls, trees, and any surface.",
+          "hook": "Caterpie can climb walls with suction-cup feet.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[0].text",
+            "pokedexEntries[3].text"
+          ],
+          "visualIdea": "Macro shots turn Caterpie’s feet into suction cups as it races up a wall, upside down across a branch, and up a steep slope.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 3,
+            "surprise": 3,
+            "specificity": 4,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 19,
+          "note": "The suction-pad detail is supported, but wall-climbing is a familiar Pokémon ability and the footage concept slightly overextends the cited evidence."
+        },
+        {
+          "id": "green-leaf-disguise",
+          "premise": "Caterpie hides in foliage by matching its green body to leaves of the same color.",
+          "hook": "Can you spot the Caterpie hiding in this bush?",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[4].text",
+            "pokedexEntries[7].text"
+          ],
+          "visualIdea": "A dense field of identical green leaves holds a hidden Caterpie; the camera searches before its antenna and eyes reveal it.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 3,
+            "specificity": 3,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 19,
+          "note": "The camouflage claim is supported and easy to turn into a viewer challenge, but it lacks a sharper numerical or contradictory hook; matching leaves are inferred from the text."
+        }
+      ],
+      "rejected": [],
+      "request": "Stronger angles would need an equally specific, well-supported contradiction or number, plus a more uniquely Caterpie-specific reveal than ordinary climbing, camouflage, or evolution."
+    }
+  ]
+}

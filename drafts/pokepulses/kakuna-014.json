@@ -1,0 +1,178 @@
+{
+  "id": "kakuna-014",
+  "title": "Kakuna Looks Helpless, But Its Hot Shell Gives It Away",
+  "storyPattern": "mystery",
+  "numberRelevant": false,
+  "premise": "Kakuna looks frozen on a tree, but its shell gets hot because it is intensely preparing to evolve inside.",
+  "audiencePromise": "Reveal why a nearly motionless Kakuna has a hot shell, then uncover the body changes hidden inside.",
+  "openLoop": "Why would a helpless cocoon feel hot to touch?",
+  "payoff": "Kakuna’s heat is the clue that it is rebuilding for evolution, with a softening body beneath a hardening shell.",
+  "targetEmotion": "curiosity",
+  "engagementQuestion": "Hard shell or hidden work: which impresses you more?",
+  "subject": {
+    "name": "Kakuna",
+    "category": "Cocoon Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/14.png",
+    "identifier": "#014"
+  },
+  "related": [
+    {
+      "name": "Beedrill",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/15.png",
+      "identifier": "#015"
+    },
+    {
+      "name": "Weedle",
+      "relation": "evolves-from",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/13.png",
+      "identifier": "#013"
+    }
+  ],
+  "palette": {
+    "background": "#10150d",
+    "surface": "#25301a",
+    "primary": "#d6b83f",
+    "secondary": "#f06a32",
+    "ink": "#fff8dc"
+  },
+  "voice": {
+    "instructions": "{\"tone\":\"quietly mysterious, then increasingly amazed\",\"pacing\":\"short deliberate phrases with a stronger lift on each reveal\",\"delivery\":\"stress helpless, hot, inside, softens, and hardens\"}"
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "assets": [
+      {
+        "kind": "Kakuna official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/14.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "unverified",
+        "publicReleaseApproved": false,
+        "notes": "Internal prototype only pending legal review or replacement."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hot-shell-hook",
+      "beat": "hook",
+      "eyebrow": "MOTIONLESS?",
+      "headline": "THIS COCOON RUNS HOT",
+      "narration": "Kakuna looks helpless. Its hot shell gives it away.",
+      "caption": "A STILL COCOON WITH A HOT SECRET",
+      "facts": [
+        "VIRTUALLY IMMOBILE",
+        "SHELL GETS HOT"
+      ],
+      "accent": "#f06a32",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/14.png"
+    },
+    {
+      "id": "tree-clue",
+      "beat": "clue",
+      "eyebrow": "THE OUTSIDE STORY",
+      "headline": "IT CLINGS TO A TREE",
+      "narration": "It clings to a tree, nearly unable to move.",
+      "caption": "NO ESCAPE. JUST A STILL COCOON.",
+      "facts": [
+        "CLINGS TO TREES",
+        "NEARLY IMMOBILE"
+      ],
+      "accent": "#d6b83f",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/14.png"
+    },
+    {
+      "id": "shell-escalation",
+      "beat": "escalation",
+      "eyebrow": "THE FIRST WARNING",
+      "headline": "THE SHELL BETRAYS IT",
+      "narration": "But its hot shell exposes activity hidden inside.",
+      "caption": "THE HEAT DOES NOT MATCH THE STILLNESS",
+      "facts": [
+        "HOT SHELL",
+        "HIDDEN ACTIVITY"
+      ],
+      "accent": "#f06a32",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/14.png"
+    },
+    {
+      "id": "body-reveal",
+      "beat": "reveal",
+      "eyebrow": "THE SECRET INSIDE",
+      "headline": "IT IS MAKING A BODY",
+      "narration": "Inside, Kakuna busily prepares its body for evolution.",
+      "caption": "THE COCOON IS A TEMPORARY STAGE",
+      "facts": [
+        "BUSY INSIDE",
+        "PREPARING TO EVOLVE"
+      ],
+      "accent": "#f06a32",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/14.png",
+      "primitive": {
+        "kind": "timeline",
+        "steps": [
+          {
+            "label": "Weedle",
+            "detail": "LEVEL 7 → KAKUNA"
+          },
+          {
+            "label": "Kakuna",
+            "detail": "LEVEL 10 → BEEDRILL"
+          },
+          {
+            "label": "Beedrill"
+          }
+        ],
+        "active": 1
+      }
+    },
+    {
+      "id": "shell-reveal",
+      "beat": "reveal",
+      "eyebrow": "TWO CHANGES AT ONCE",
+      "headline": "SOFT BODY. HARD SHELL.",
+      "narration": "Its body softens while the outer shell hardens.",
+      "caption": "REBUILDING UNDER ITS PROTECTIVE SHELL",
+      "facts": [
+        "BODY SOFTENS",
+        "SHELL HARDENS"
+      ],
+      "accent": "#d6b83f",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/14.png"
+    },
+    {
+      "id": "hidden-work-verdict",
+      "beat": "verdict",
+      "eyebrow": "THE VERDICT",
+      "headline": "THE HEAT IS THE CLUE",
+      "narration": "Hard shell or hidden work: which impresses you more?",
+      "caption": "HEAT REVEALS THE EVOLUTION INSIDE",
+      "facts": [
+        "HOT SHELL",
+        "EVOLUTION PREP"
+      ],
+      "accent": "#f06a32",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/14.png"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Kakuna",
+      "url": "https://www.pokemon.com/us/pokedex/kakuna",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Kakuna",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Kakuna_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Kakuna",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/14",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

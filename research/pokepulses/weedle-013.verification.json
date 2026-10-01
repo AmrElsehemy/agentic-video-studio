@@ -1,0 +1,501 @@
+{
+  "episodeId": "weedle-013",
+  "checkedAt": "2026-09-30T08:50:03.855Z",
+  "claims": [
+    {
+      "id": "c1",
+      "where": "title",
+      "text": "Weedle Eats Its Own Weight in Leaves Every Day",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[9].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c2",
+      "where": "premise",
+      "text": "At 3.2 kg, Weedle eats its own body weight in leaves every day.",
+      "verdict": "supported",
+      "evidence": [
+        "weightKg",
+        "pokedexEntries[9].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c3",
+      "where": "audiencePromise",
+      "text": "Watch Weedle's daily leaf pile match its body weight, then discover how specifically it chooses those leaves.",
+      "verdict": "supported",
+      "evidence": [
+        "weightKg",
+        "pokedexEntries[9].text",
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c4",
+      "where": "openLoop",
+      "text": "How does a 3.2 kg Weedle choose an equal-weight leaf meal?",
+      "verdict": "supported",
+      "evidence": [
+        "weightKg",
+        "pokedexEntries[9].text",
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c5",
+      "where": "payoff",
+      "text": "The equal-weight meal is selective: Weedle sniffs out favorite leaves, while its head carries a venomous stinger.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[0].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c6",
+      "where": "scenes.weedle-eats-itself.headline",
+      "text": "WEEDLE EATS ITSELF?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "A rhetorical question, not a factual assertion that Weedle eats itself.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c7",
+      "where": "scenes.weedle-eats-itself.narration",
+      "text": "Weedle eats its weight in leaves. Every day.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[9].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c8",
+      "where": "scenes.weedle-eats-itself.caption",
+      "text": "ONE WEEDLE'S WEIGHT, IN LEAVES",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[9].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c9",
+      "where": "scenes.weedle-eats-itself.eyebrow",
+      "text": "DAILY APPETITE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[9].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c10",
+      "where": "scenes.weedle-eats-itself.facts[0]",
+      "text": "DAILY LEAF MEAL",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[9].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c11",
+      "where": "scenes.weedle-weight.headline",
+      "text": "JUST 3.2 KILOS",
+      "verdict": "supported",
+      "evidence": [
+        "weightKg"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c12",
+      "where": "scenes.weedle-weight.narration",
+      "text": "It weighs only three point two kilos, yet eats that much.",
+      "verdict": "supported",
+      "evidence": [
+        "weightKg",
+        "pokedexEntries[9].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c13",
+      "where": "scenes.weedle-weight.caption",
+      "text": "WEEDLE'S ENTIRE BODY: 3.2 KG",
+      "verdict": "supported",
+      "evidence": [
+        "weightKg"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c14",
+      "where": "scenes.weedle-weight.eyebrow",
+      "text": "THE BODY COUNT",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Framing phrase only.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c15",
+      "where": "scenes.weedle-weight.facts[0]",
+      "text": "WEIGHT: 3.2 KG",
+      "verdict": "supported",
+      "evidence": [
+        "weightKg"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c16",
+      "where": "scenes.leaf-pile-scale.headline",
+      "text": "ONE WHOLE WEEDLE OF LEAVES",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[9].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c17",
+      "where": "scenes.leaf-pile-scale.narration",
+      "text": "That means its leaf pile equals a whole Weedle.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[9].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c18",
+      "where": "scenes.leaf-pile-scale.caption",
+      "text": "BODY WEIGHT = DAILY LEAVES",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[9].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c19",
+      "where": "scenes.leaf-pile-scale.eyebrow",
+      "text": "THE DAILY PILE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[9].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c20",
+      "where": "scenes.leaf-pile-scale.facts[0]",
+      "text": "EATS ITS WEIGHT",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[9].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c21",
+      "where": "scenes.leaf-pile-scale.facts[1]",
+      "text": "LEAVES DAILY",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[9].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c22",
+      "where": "scenes.red-proboscis.headline",
+      "text": "THE BIG RED NOSE PICKS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c23",
+      "where": "scenes.red-proboscis.narration",
+      "text": "Its big red proboscis sniffs out favorite leaves.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c24",
+      "where": "scenes.red-proboscis.caption",
+      "text": "IT CAN TELL FAVORITES FROM DISLIKED LEAVES",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c25",
+      "where": "scenes.red-proboscis.eyebrow",
+      "text": "IT DOES NOT GUESS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "A compressed restatement of its ability to distinguish favorite leaves from disliked ones by smell.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c26",
+      "where": "scenes.red-proboscis.facts[0]",
+      "text": "ACUTE SMELL",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c27",
+      "where": "scenes.red-proboscis.facts[1]",
+      "text": "BIG RED PROBOSCIS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c28",
+      "where": "scenes.red-proboscis.facts[2]",
+      "text": "FAVORITE LEAVES",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c29",
+      "where": "scenes.head-stinger.headline",
+      "text": "BUT ITS HEAD IS ARMED",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c30",
+      "where": "scenes.head-stinger.narration",
+      "text": "That leaf-picker's head also carries a sharp venomous stinger.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[0].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c31",
+      "where": "scenes.head-stinger.caption",
+      "text": "A FOOD-FINDER AND A POISON DEFENSE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c32",
+      "where": "scenes.head-stinger.eyebrow",
+      "text": "THE OTHER HEAD TOOL",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[0].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c33",
+      "where": "scenes.head-stinger.facts[0]",
+      "text": "SHARP STINGER",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c34",
+      "where": "scenes.head-stinger.facts[1]",
+      "text": "VENOMOUS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c35",
+      "where": "scenes.head-stinger.facts[2]",
+      "text": "HEAD STINGER",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c36",
+      "where": "scenes.warning-or-barb.headline",
+      "text": "COLOR WARNING OR BARB?",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text",
+        "pokedexEntries[3].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c37",
+      "where": "scenes.warning-or-barb.narration",
+      "text": "Would you trust Weedle's warning colors or fear its barb?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "A question addressed to the audience.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c38",
+      "where": "scenes.warning-or-barb.caption",
+      "text": "SELECTIVE LEAF-EATER. VENOMOUS DEFENDER.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c39",
+      "where": "scenes.warning-or-barb.eyebrow",
+      "text": "YOUR CALL",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Audience framing phrase only.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c40",
+      "where": "scenes.warning-or-barb.facts[0]",
+      "text": "WARNING COLORS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c41",
+      "where": "scenes.warning-or-barb.facts[1]",
+      "text": "VENOMOUS BARB",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].text",
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    }
+  ],
+  "unsupported": [],
+  "uncertain": []
+}

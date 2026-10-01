@@ -1,0 +1,164 @@
+{
+  "episodeId": "charmeleon-005",
+  "createdAt": "2026-09-30T05:32:32.756Z",
+  "chosen": {
+    "id": "only-calms-after-winning",
+    "premise": "Charmeleon constantly seeks opponents—and according to its Pokédex, it calms down only after it wins.",
+    "hook": "Charmeleon has one way to calm down: win.",
+    "archetype": "profile",
+    "evidence": [
+      "pokedexEntries[2].text",
+      "pokedexEntries[10].text"
+    ],
+    "visualIdea": "A restless Charmeleon scans for challengers as a “CALM?” meter stays red, then flips blue only after victory.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 4,
+      "specificity": 5,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 24,
+    "note": "A highly specific behavioral rule with a strong visual meter concept. The repeated Gold and HeartGold entries directly support the premise."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "only-calms-after-winning",
+          "premise": "Charmeleon constantly seeks opponents—and according to its Pokédex, it calms down only after it wins.",
+          "hook": "Charmeleon has one way to calm down: win.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[2].text",
+            "pokedexEntries[10].text"
+          ],
+          "visualIdea": "A restless Charmeleon scans for challengers as a “CALM?” meter stays red, then flips blue only after victory.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 24,
+          "note": "A highly specific behavioral rule with a strong visual meter concept. The repeated Gold and HeartGold entries directly support the premise."
+        },
+        {
+          "id": "mountain-stars-are-tails",
+          "premise": "At night in rocky mountains, Charmeleon’s fiery tails can shine like stars.",
+          "hook": "Those mountain stars might be Charmeleon tails.",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[9].text"
+          ],
+          "visualIdea": "A dark rocky mountain appears full of stars; the camera zooms in as each “star” resolves into a fiery tail.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 24,
+          "note": "Unusually evocative and surprising, with an excellent reveal visual. It relies on one Pokédex entry and the phrasing should stay faithful to the claim that the tails shine like stars."
+        },
+        {
+          "id": "blue-white-rage-flame",
+          "premise": "A strong opponent can push Charmeleon into an excited state where its tail flame turns bluish-white.",
+          "hook": "Charmeleon's flame changes color when it meets a strong foe.",
+          "archetype": "transformation",
+          "evidence": [
+            "pokedexEntries[5].text",
+            "pokedexEntries[6].text",
+            "pokedexEntries[1].text",
+            "pokedexEntries[11].text"
+          ],
+          "visualIdea": "A Charmeleon faces an escalating shadow opponent; its ordinary tail flame flares into vivid bluish-white.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 23,
+          "note": "A distinctive Charmeleon-only trigger and visible flame transformation, supported by multiple Pokédex entries. The exact flame-color change is concrete, though the emotional cause is somewhat repetitive across sources."
+        },
+        {
+          "id": "tail-first-claws-second",
+          "premise": "Charmeleon’s battle pattern is brutal: knock a foe down with its tail, then tear into it with sharp claws.",
+          "hook": "Charmeleon doesn't just attack—it has a two-step takedown.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[7].text",
+            "pokedexEntries[3].text"
+          ],
+          "visualIdea": "A clean fight-diagram animation: fiery tail sweep knocks down a silhouette, then claws slash in as step two.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 3,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 22,
+          "note": "The two-step attack sequence is concrete and well supported, but the broader idea of a Pokémon using multiple attacks is less surprising."
+        },
+        {
+          "id": "twenty-level-middle-stage",
+          "premise": "Charmeleon evolves from Charmander at level 16, then waits another 20 levels before becoming Charizard at level 36.",
+          "hook": "Charmeleon spends 20 levels stuck between Charmander and Charizard.",
+          "archetype": "comparison",
+          "evidence": [
+            "evolutionChain[1].method",
+            "evolutionChain[2].method",
+            "evolutionChain[0].stage",
+            "evolutionChain[1].stage",
+            "evolutionChain[2].stage"
+          ],
+          "visualIdea": "An evolution timeline marks Charmander at 16, then stretches a long 20-level runway to Charizard at 36.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 3,
+            "specificity": 5,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 21,
+          "note": "The 20-level gap is clean and easy to animate, but it is primarily a game-progression fact rather than a surprising Charmeleon behavior, and the evolution methods come from a secondary source."
+        },
+        {
+          "id": "unbearable-air-temperature",
+          "premise": "Simply swinging its burning tail can raise the surrounding air to unbearably high temperatures.",
+          "hook": "Charmeleon can make the air unbearable just by swinging its tail.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[0].text",
+            "pokedexEntries[8].text"
+          ],
+          "visualIdea": "Each tail swing sends a heat-wave ripple across the frame while a thermometer rockets upward into a danger zone.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 3,
+            "specificity": 3,
+            "visual": 4,
+            "support": 5
+          },
+          "total": 19,
+          "note": "The heat-wave visual works and the entries support it, but “unbearably high” gives no measurable temperature and makes the premise less precise."
+        }
+      ],
+      "rejected": [],
+      "request": "Not applicable; the chosen angle is strong enough. Stronger alternatives would need an equally distinctive Charmeleon-specific rule or transformation, clear Pokédex support, and a reveal that can be shown visually within seconds."
+    }
+  ]
+}

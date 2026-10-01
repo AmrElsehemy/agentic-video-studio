@@ -1,0 +1,251 @@
+{
+  "schemaVersion": 2,
+  "id": "blastoise-009",
+  "show": {
+    "id": "pokepulses",
+    "name": "PokePulses",
+    "handle": "@PokePulses",
+    "wordmark": {
+      "lead": "POKE",
+      "accent": "PULSES"
+    },
+    "fonts": {
+      "display": "Bebas Neue",
+      "body": "system"
+    }
+  },
+  "title": "Blastoise Can Snipe an Empty Can From Over 160 Feet Away",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "comparison",
+    "numberRelevant": true,
+    "premise": "Blastoise is not just a water cannon. Its shell spouts can precisely hit empty cans from over 160 feet away.",
+    "audiencePromise": "See why Blastoise is built like both a precision sniper and a steel-punching cannon.",
+    "openLoop": "How can Blastoise hit an empty can far away while firing cannon-level water jets?",
+    "payoff": "Blastoise pairs can-level accuracy with water cannons powerful enough to punch holes through thick steel.",
+    "targetEmotion": "debate",
+    "engagementQuestion": "Would you trust its aim or its steel-punching force?",
+    "targetSecondsBetweenVisualChanges": 0.7
+  },
+  "subject": {
+    "name": "Blastoise",
+    "category": "Shellfish Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/9.png",
+    "identifier": "#009"
+  },
+  "related": [
+    {
+      "name": "Wartortle",
+      "relation": "evolves-from",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/8.png",
+      "identifier": "#008"
+    },
+    {
+      "name": "Squirtle",
+      "relation": "evolves-from",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png",
+      "identifier": "#007"
+    },
+    {
+      "name": "Blastoise Mega",
+      "relation": "form",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10036.png",
+      "identifier": "#009"
+    }
+  ],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#071827",
+    "surface": "#102b40",
+    "primary": "#4fb6e8",
+    "secondary": "#f0c64f",
+    "ink": "#f4fbff"
+  },
+  "audio": {
+    "music": "generated/blastoise-009-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 126,
+      "notes": [
+        110,
+        130.81,
+        146.83,
+        164.81,
+        146.83,
+        130.81,
+        98,
+        130.81
+      ]
+    },
+    "voice": {
+      "provider": "openai",
+      "model": "gpt-4o-mini-tts",
+      "voice": "marin",
+      "instructions": "Deliver with controlled suspense and crisp emphasis. Start quiet and precise, then build forcefully on steel and recoil. Leave a short beat before the final either-or question.",
+      "speed": 1.12,
+      "output": "generated/blastoise-009-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "assets": [
+      {
+        "kind": "Blastoise official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/9.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "unverified",
+        "publicReleaseApproved": false,
+        "notes": "Internal prototype only pending legal review or replacement."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "can-shot-hook",
+      "durationSeconds": 3.8,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "comparison",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "TARGET LOCKED",
+      "headline": "EMPTY CAN. 160+ FEET.",
+      "narration": "Blastoise nails empty cans past 160 feet.",
+      "caption": "EMPTY CAN. OVER 160 FEET AWAY.",
+      "visual": "hook",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/9.png",
+      "accent": "#f0c64f",
+      "facts": [
+        "OVER 160 FEET",
+        "EMPTY CAN"
+      ],
+      "primitive": {
+        "kind": "counter",
+        "from": 0,
+        "to": 160,
+        "label": "DISTANCE: 160+ FEET"
+      }
+    },
+    {
+      "id": "water-bullet-accuracy",
+      "durationSeconds": 4.8,
+      "beat": "evidence",
+      "role": "evidence",
+      "shot": "wide",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "BEFORE THE SHOT",
+      "headline": "IT PLANTS ITS FEET",
+      "narration": "Before firing, Blastoise firmly plants its feet on the ground.",
+      "caption": "LOCKED DOWN BEFORE FIRING",
+      "visual": "gauntlet",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/9.png",
+      "accent": "#4fb6e8",
+      "facts": [
+        "FIRMLY PLANTS FEET",
+        "WATER JETS"
+      ]
+    },
+    {
+      "id": "empty-can-proof",
+      "durationSeconds": 3.8,
+      "beat": "evidence",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "SHELL SPOUTS",
+      "headline": "WATER BULLETS, NOT A SPRAY",
+      "narration": "Then its water bullets precisely nail empty cans.",
+      "caption": "WATER BULLET → EMPTY CAN",
+      "visual": "advantage",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/9.png",
+      "accent": "#f0c64f",
+      "facts": [
+        "HIGHLY ACCURATE",
+        "WATER BULLETS"
+      ]
+    },
+    {
+      "id": "steel-cannon-escalation",
+      "durationSeconds": 4.7,
+      "beat": "escalation",
+      "role": "escalation",
+      "shot": "tracking",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "NOW RAISE THE POWER",
+      "headline": "THE SAME JETS HIT STEEL",
+      "narration": "Those water cannons can also punch holes through thick steel.",
+      "caption": "EMPTY CAN → THICK STEEL",
+      "visual": "race",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/9.png",
+      "accent": "#e85b5b",
+      "facts": [
+        "ROCKET CANNONS",
+        "THICK STEEL"
+      ]
+    },
+    {
+      "id": "recoil-twist",
+      "durationSeconds": 4.3,
+      "beat": "twist",
+      "role": "twist",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "THE TRADE-OFF",
+      "headline": "THAT POWER HAS RECOIL",
+      "narration": "Blastoise makes itself heavy to withstand its water-jet recoil.",
+      "caption": "HEAVY BODY. HUGE RECOIL.",
+      "visual": "tradeoff",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/9.png",
+      "accent": "#f0c64f",
+      "facts": [
+        "HEAVY BODY",
+        "WITHSTANDS RECOIL"
+      ]
+    },
+    {
+      "id": "sniper-or-cannon-verdict",
+      "durationSeconds": 4.3,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "YOUR VERDICT",
+      "headline": "AIM OR RAW FORCE?",
+      "narration": "Would you trust its aim or its steel-punching force?",
+      "caption": "CAN ACCURACY. STEEL-PUNCHING FORCE.",
+      "visual": "cta",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/9.png",
+      "accent": "#4fb6e8",
+      "facts": [
+        "PRECISION",
+        "POWER"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Blastoise",
+      "url": "https://www.pokemon.com/us/pokedex/blastoise"
+    },
+    {
+      "label": "Bulbapedia — Blastoise",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Blastoise_(Pok%C3%A9mon)"
+    },
+    {
+      "label": "PokéAPI — Blastoise",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/9"
+    }
+  ]
+}

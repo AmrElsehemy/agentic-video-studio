@@ -1,0 +1,262 @@
+{
+  "schemaVersion": 2,
+  "id": "raticate-020",
+  "show": {
+    "id": "pokepulses",
+    "name": "PokePulses",
+    "handle": "@PokePulses",
+    "wordmark": {
+      "lead": "POKE",
+      "accent": "PULSES"
+    },
+    "fonts": {
+      "display": "Bebas Neue",
+      "body": "system"
+    }
+  },
+  "title": "Raticate’s Balance Has Teeth",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "mystery",
+    "numberRelevant": false,
+    "premise": "Raticate’s whiskers keep it balanced, and touching them can earn an angry bite.",
+    "audiencePromise": "Discover why Raticate treats its whiskers like the one thing nobody should touch.",
+    "openLoop": "Why does Raticate defend a balance tool with an angry bite?",
+    "payoff": "Its whiskers are essential for balance, and Raticate apparently slows down without them, making its warning feel earned.",
+    "targetEmotion": "surprise",
+    "engagementQuestion": "Balance keeper or bite trigger: which defines Raticate better?",
+    "targetSecondsBetweenVisualChanges": 0.68
+  },
+  "subject": {
+    "name": "Raticate",
+    "category": "Mouse Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/20.png",
+    "identifier": "#020"
+  },
+  "related": [
+    {
+      "name": "Rattata",
+      "relation": "evolves-from",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/19.png",
+      "identifier": "#019"
+    },
+    {
+      "name": "Raticate Alola",
+      "relation": "form",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10092.png",
+      "identifier": "#020"
+    },
+    {
+      "name": "Raticate Totem Alola",
+      "relation": "form",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10093.png",
+      "identifier": "#020"
+    }
+  ],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#15110e",
+    "surface": "#2b211b",
+    "primary": "#c67a3f",
+    "secondary": "#f2d49b",
+    "ink": "#fff6df"
+  },
+  "audio": {
+    "music": "generated/raticate-020-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 126,
+      "notes": [
+        110,
+        130.81,
+        146.83,
+        164.81,
+        146.83,
+        130.81,
+        98,
+        130.81
+      ]
+    },
+    "voice": {
+      "provider": "openai",
+      "model": "gpt-4o-mini-tts",
+      "voice": "marin",
+      "instructions": "Tense, curious, and quick. Land the hook like a strange warning. Build from anger to bite, then slow slightly for the balance reveal. End with a playful challenge.",
+      "speed": 1.12,
+      "output": "generated/raticate-020-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "assets": [
+      {
+        "kind": "Raticate official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/20.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "unverified",
+        "publicReleaseApproved": false,
+        "notes": "Internal prototype only pending legal review or replacement."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "balance-has-teeth",
+      "durationSeconds": 3.8,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "mystery",
+      "subjectFocus": "hidden",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "A STRANGE WARNING",
+      "headline": "BALANCE HAS TEETH",
+      "narration": "Raticate’s balance has teeth.",
+      "caption": "WHY WOULD A BALANCE TOOL BITE BACK?",
+      "visual": "hook",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/20.png",
+      "accent": "#e05032",
+      "facts": [
+        "WHISKERS",
+        "ANGRY BITE"
+      ]
+    },
+    {
+      "id": "friendly-isnt-safe",
+      "durationSeconds": 5.2,
+      "beat": "clue",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "FIRST CLUE",
+      "headline": "FRIENDLY IS NOT SAFE",
+      "narration": "No matter how friendly you are, touching them makes it angry.",
+      "caption": "FRIENDLY HANDS STILL MAKE RATICATE ANGRY.",
+      "visual": "gauntlet",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/20.png",
+      "accent": "#f2d49b",
+      "facts": [
+        "TOUCH WHISKERS",
+        "GETS ANGRY"
+      ],
+      "primitive": {
+        "kind": "checklist",
+        "items": [
+          {
+            "label": "FRIENDLY",
+            "met": true
+          },
+          {
+            "label": "TOUCH WHISKERS",
+            "met": true
+          },
+          {
+            "label": "GETS ANGRY",
+            "met": true
+          },
+          {
+            "label": "BITES",
+            "met": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "the-bite",
+      "durationSeconds": 4.2,
+      "beat": "escalation",
+      "role": "escalation",
+      "shot": "tracking",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "THEN IT ESCALATES",
+      "headline": "ANGER BECOMES A BITE",
+      "narration": "Raticate gets angry and bites if you touch them.",
+      "caption": "TOUCH ITS WHISKERS, AND IT BITES.",
+      "visual": "advantage",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/20.png",
+      "accent": "#e05032",
+      "facts": [
+        "ANGRY",
+        "BITE"
+      ]
+    },
+    {
+      "id": "real-purpose",
+      "durationSeconds": 3.8,
+      "beat": "reveal",
+      "role": "payoff",
+      "shot": "comparison",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "REVEAL ONE",
+      "headline": "THEY HOLD ITS BALANCE",
+      "narration": "Its whiskers are essential for maintaining its balance.",
+      "caption": "THESE ARE NOT JUST FACE WHISKERS.",
+      "visual": "race",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/20.png",
+      "accent": "#f2d49b",
+      "facts": [
+        "ESSENTIAL",
+        "MAINTAINS BALANCE"
+      ]
+    },
+    {
+      "id": "slower-without-them",
+      "durationSeconds": 3.9,
+      "beat": "reveal",
+      "role": "payoff",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "REVEAL TWO",
+      "headline": "LOSE THEM, SLOW DOWN",
+      "narration": "Without whiskers, Raticate apparently starts moving more slowly.",
+      "caption": "CUT THEM OFF, AND IT APPARENTLY SLOWS.",
+      "visual": "tradeoff",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/20.png",
+      "accent": "#c67a3f",
+      "facts": [
+        "WHISKERS CUT",
+        "APPARENTLY SLOWS"
+      ]
+    },
+    {
+      "id": "balance-or-bite",
+      "durationSeconds": 4.3,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "YOUR VERDICT",
+      "headline": "BALANCE KEEPER. BITE TRIGGER.",
+      "narration": "Balance keeper or bite trigger: which defines Raticate better?",
+      "caption": "TOUCH ITS WHISKERS, AND IT GETS ANGRY.",
+      "visual": "cta",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/20.png",
+      "accent": "#c67a3f"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Raticate",
+      "url": "https://www.pokemon.com/us/pokedex/raticate"
+    },
+    {
+      "label": "Bulbapedia — Raticate",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Raticate_(Pok%C3%A9mon)"
+    },
+    {
+      "label": "PokéAPI — Raticate",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/20"
+    }
+  ]
+}

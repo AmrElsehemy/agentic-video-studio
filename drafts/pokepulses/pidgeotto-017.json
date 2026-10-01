@@ -1,0 +1,160 @@
+{
+  "id": "pidgeotto-017",
+  "title": "Pidgeotto’s 60-Mile Prey Flight",
+  "storyPattern": "mechanic",
+  "numberRelevant": false,
+  "premise": "Pidgeotto immobilizes prey with its claws, then can carry it over 60 miles back to its nest.",
+  "audiencePromise": "Follow Pidgeotto’s hunt from its aerial search to its startlingly distant nest run.",
+  "openLoop": "How can a sky-high scout turn one catch into a 60-mile carry?",
+  "payoff": "Pidgeotto first renders prey immobile, then can carry prey such as Exeggcute over 60 miles to its nest.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "Sharp-eyed scout or clawed hunter: which defines Pidgeotto?",
+  "subject": {
+    "name": "Pidgeotto",
+    "category": "Bird Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/17.png",
+    "identifier": "#017"
+  },
+  "related": [
+    {
+      "name": "Pidgeot",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/18.png",
+      "identifier": "#018"
+    },
+    {
+      "name": "Pidgey",
+      "relation": "evolves-from",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/16.png",
+      "identifier": "#016"
+    }
+  ],
+  "palette": {
+    "background": "#101820",
+    "surface": "#1d2b35",
+    "primary": "#d9823b",
+    "secondary": "#e8d6aa",
+    "ink": "#fff7e8"
+  },
+  "voice": {
+    "instructions": "Use a tense, documentary tone. Start sharp and urgent, then widen with awe as the route expands. Keep each line clean, direct, and slightly incredulous."
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "assets": [
+      {
+        "kind": "Pidgeotto official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/17.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "unverified",
+        "publicReleaseApproved": false,
+        "notes": "Internal prototype only pending legal review or replacement."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "sixty-mile-hook",
+      "beat": "hook",
+      "eyebrow": "THE HUNT DOES NOT END",
+      "headline": "CAUGHT HERE. NEST 60 MILES AWAY.",
+      "narration": "Caught by Pidgeotto? Your trip home exceeds sixty miles.",
+      "caption": "CAUGHT → CARRIED → OVER 60 MILES",
+      "facts": [
+        "OVER 60 MILES"
+      ],
+      "accent": "#d9823b",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/17.png",
+      "primitive": {
+        "kind": "counter",
+        "from": 0,
+        "to": 60,
+        "label": "MILES TO NEST"
+      }
+    },
+    {
+      "id": "claw-lock",
+      "beat": "evidence",
+      "eyebrow": "THE SEARCH BEGINS",
+      "headline": "IT CIRCLES FOR PREY",
+      "narration": "It circles slowly, keeping a sharp lookout for prey.",
+      "caption": "A SLOW CIRCULAR SEARCH",
+      "facts": [
+        "SHARP LOOKOUT"
+      ],
+      "accent": "#e8d6aa",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/17.png"
+    },
+    {
+      "id": "flight-route",
+      "beat": "escalation",
+      "eyebrow": "EVEN FROM HIGH ABOVE",
+      "headline": "PREY MOVEMENTS STAND OUT",
+      "narration": "However high it flies, Pidgeotto spots its prey's movements.",
+      "caption": "IT CAN DISTINGUISH PREY MOVEMENTS",
+      "facts": [
+        "OUTSTANDING VISION"
+      ],
+      "accent": "#d9823b",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/17.png"
+    },
+    {
+      "id": "distance-payoff",
+      "beat": "payoff",
+      "eyebrow": "THE CAPTURE RULE",
+      "headline": "CLAWS MAKE PREY IMMOBILE",
+      "narration": "Well-developed claws render prey immobile before Pidgeotto carries it.",
+      "caption": "FIRST: PREY STOPS MOVING",
+      "facts": [
+        "WELL-DEVELOPED CLAWS",
+        "PREY IMMOBILE"
+      ],
+      "accent": "#e8d6aa",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/17.png"
+    },
+    {
+      "id": "exeggcute-payoff",
+      "beat": "payoff",
+      "eyebrow": "THE DISTANCE REVEAL",
+      "headline": "EXEGGCUTE CAN MAKE THE TRIP",
+      "narration": "Exeggcute is named as prey carried over sixty miles.",
+      "caption": "EXEGGCUTE → NEST: OVER 60 MILES",
+      "facts": [
+        "PREY SUCH AS EXEGGCUTE",
+        "OVER 60 MILES"
+      ],
+      "accent": "#d9823b",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/17.png"
+    },
+    {
+      "id": "verdict",
+      "beat": "verdict",
+      "eyebrow": "YOUR CALL",
+      "headline": "SCOUT OR HUNTER?",
+      "narration": "Sharp-eyed scout or clawed hunter: which defines Pidgeotto?",
+      "caption": "SCOUT OR HUNTER?",
+      "accent": "#e8d6aa",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/17.png"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Pidgeotto",
+      "url": "https://www.pokemon.com/us/pokedex/pidgeotto",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Pidgeotto",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Pidgeotto_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Pidgeotto",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/17",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

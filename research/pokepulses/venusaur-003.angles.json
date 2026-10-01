@@ -1,0 +1,167 @@
+{
+  "episodeId": "venusaur-003",
+  "createdAt": "2026-09-30T04:55:05.751Z",
+  "chosen": {
+    "id": "rain-makes-the-scent-stronger",
+    "premise": "After rain, Venusaur’s flower smells stronger—and that stronger scent attracts other Pokémon.",
+    "hook": "Rain turns Venusaur into a stronger-smelling Pokémon beacon.",
+    "archetype": "mystery",
+    "evidence": [
+      "pokedexEntries[9].text",
+      "pokedexEntries[4].text",
+      "pokedexEntries[5].text"
+    ],
+    "visualIdea": "Rain falls on Venusaur’s flower, its scent cloud expands, and silhouettes of other Pokémon follow the trail toward it.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 5,
+      "specificity": 5,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 25,
+    "note": "This is an unusually specific chain: rain intensifies the flower’s scent, which attracts other Pokémon. It is directly supported, visually obvious, and more novel than generic solar-energy lore."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "rain-makes-the-scent-stronger",
+          "premise": "After rain, Venusaur’s flower smells stronger—and that stronger scent attracts other Pokémon.",
+          "hook": "Rain turns Venusaur into a stronger-smelling Pokémon beacon.",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[9].text",
+            "pokedexEntries[4].text",
+            "pokedexEntries[5].text"
+          ],
+          "visualIdea": "Rain falls on Venusaur’s flower, its scent cloud expands, and silhouettes of other Pokémon follow the trail toward it.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 25,
+          "note": "This is an unusually specific chain: rain intensifies the flower’s scent, which attracts other Pokémon. It is directly supported, visually obvious, and more novel than generic solar-energy lore."
+        },
+        {
+          "id": "flower-that-calms-fights",
+          "premise": "Venusaur’s flower fragrance can soothe emotions—and even calm Pokémon already battling.",
+          "hook": "Venusaur’s flower can stop a battle without attacking.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[5].text",
+            "pokedexEntries[6].text",
+            "pokedexEntries[7].text"
+          ],
+          "visualIdea": "Two Pokémon square off, then Venusaur’s flower releases visible scent waves that soften their expressions and lower their stances.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 23,
+          "note": "Venusaur’s fragrance soothing people and calming Pokémon in battle is highly characteristic and directly supported. “Stop a battle” slightly overstates the entries, which say the fragrance becalms combatants."
+        },
+        {
+          "id": "gmax-twelve-times-taller",
+          "premise": "Gigantamax Venusaur is 24 meters tall—12 times the height of its normal 2-meter form.",
+          "hook": "Venusaur can grow from 2 meters to a ridiculous 24.",
+          "archetype": "comparison",
+          "evidence": [
+            "heightMeters",
+            "varieties[1].name",
+            "varieties[1].heightMeters"
+          ],
+          "visualIdea": "Normal Venusaur stands beside a height ruler, then rapidly scales up until Gmax Venusaur towers 24 meters high.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 3,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 22,
+          "note": "The exact 12× comparison is concrete and highly visual, but giant-form size comparisons are a familiar Pokémon angle and the fact is not especially surprising to fans."
+        },
+        {
+          "id": "gmax-tenfold-weight",
+          "premise": "Gigantamax Venusaur weighs 1,000 kg, exactly 10 times normal Venusaur’s 100 kg.",
+          "hook": "Gigantamax Venusaur weighs exactly ten Venusaurs.",
+          "archetype": "comparison",
+          "evidence": [
+            "weightKg",
+            "varieties[1].name",
+            "varieties[1].weightKg"
+          ],
+          "visualIdea": "A scale fills with ten normal Venusaur weight blocks, then slams down beside one 1,000-kg Gigantamax Venusaur.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 4,
+            "support": 5
+          },
+          "total": 22,
+          "note": "The exact tenfold comparison is well supported and more unexpected than height, though the scale-block visual is less immediately readable than a towering size comparison."
+        },
+        {
+          "id": "sun-chasing-flower",
+          "premise": "Venusaur stays on the move to seek sunlight because its back flower absorbs it for energy.",
+          "hook": "Why would a 100-kilo Venusaur keep chasing the sun?",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[0].text",
+            "pokedexEntries[1].text",
+            "pokedexEntries[2].text"
+          ],
+          "visualIdea": "Venusaur follows a moving sunbeam across a landscape; its flower opens, catches rays, and charges its body.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 22,
+          "note": "Multiple Pokédex entries directly support the flower converting sunlight into energy and Venusaur seeking sunlight. The premise is distinctive, but the hook could fit several solar-powered Grass Pokémon."
+        },
+        {
+          "id": "summer-power-up",
+          "premise": "Venusaur converts sunlight into energy, making it explicitly more powerful in summertime.",
+          "hook": "Venusaur has a seasonal power-up: summer.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[3].text",
+            "pokedexEntries[11].text",
+            "pokedexEntries[2].text"
+          ],
+          "visualIdea": "A seasonal dial flips from winter to summer as sunlight pours into Venusaur’s flower and a power meter rises.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 5,
+            "specificity": 4,
+            "visual": 4,
+            "support": 5
+          },
+          "total": 22,
+          "note": "The explicit summertime power boost is genuinely surprising and directly stated in two entries. It is a strong claim, though the research does not quantify how much stronger Venusaur becomes."
+        }
+      ],
+      "rejected": [],
+      "request": "Not applicable; this angle is strong enough. Even stronger alternatives would need an equally specific, directly sourced contradiction or measurable rule, plus a clear visual transformation."
+    }
+  ]
+}

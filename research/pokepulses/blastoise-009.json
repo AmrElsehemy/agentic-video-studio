@@ -1,0 +1,176 @@
+{
+  "schemaVersion": 1,
+  "id": "blastoise-009",
+  "number": 9,
+  "index": "#009",
+  "name": "Blastoise",
+  "slug": "blastoise",
+  "category": "Shellfish Pokémon",
+  "generation": "Generation I",
+  "isLegendary": false,
+  "isMythical": false,
+  "types": [
+    "Water"
+  ],
+  "heightMeters": 1.6,
+  "weightKg": 85.5,
+  "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/9.png",
+  "pokedexEntries": [
+    {
+      "game": "Red",
+      "text": "A brutal POKéMON with pressurized water jets on its shell. They are used for high speed tackles."
+    },
+    {
+      "game": "Yellow",
+      "text": "Once it takes aim at its enemy, it blasts out water with even more force than a fire hose."
+    },
+    {
+      "game": "Gold",
+      "text": "It deliberately makes itself heavy so it can with stand the recoil of the water jets it fires."
+    },
+    {
+      "game": "Silver",
+      "text": "The rocket cannons on its shell fire jets of water capable of punch ing holes through thick steel."
+    },
+    {
+      "game": "Crystal",
+      "text": "It firmly plants its feet on the ground before shooting water from the jets on its back."
+    },
+    {
+      "game": "Ruby",
+      "text": "BLASTOISE has water spouts that protrude from its shell. The water spouts are very accurate. They can shoot bullets of water with enough accuracy to strike empty cans from a distance of over 160 feet."
+    },
+    {
+      "game": "Emerald",
+      "text": "The waterspouts that protrude from its shell are highly accurate. Their bullets of water can precisely nail tin cans from a distance of over 160 feet."
+    },
+    {
+      "game": "Firered",
+      "text": "It crushes its foe under its heavy body to cause fainting. In a pinch, it will withdraw inside its shell."
+    },
+    {
+      "game": "Leafgreen",
+      "text": "The pressurized water jets on this brutal POKéMON’s shell are used for high- speed tackles."
+    },
+    {
+      "game": "Diamond",
+      "text": "The jets of water it spouts from the rocket cannons on its shell can punch through thick steel."
+    },
+    {
+      "game": "Heartgold",
+      "text": "It deliberately makes itself heavy so it can withstand the recoil of the water jets it fires."
+    },
+    {
+      "game": "Soulsilver",
+      "text": "The rocket cannons on its shell fire jets of water capable of punching holes through thick steel."
+    },
+    {
+      "game": "Y",
+      "text": "The pressurized water jets on this brutal Pokémon’s shell are used for high-speed tackles."
+    }
+  ],
+  "evolutionChain": [
+    {
+      "name": "Squirtle",
+      "index": "#007",
+      "stage": 1,
+      "types": [
+        "Water"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png",
+      "isSubject": false
+    },
+    {
+      "name": "Wartortle",
+      "index": "#008",
+      "stage": 2,
+      "evolvesFrom": "Squirtle",
+      "method": "Level Up, level 16",
+      "types": [
+        "Water"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/8.png",
+      "isSubject": false
+    },
+    {
+      "name": "Blastoise",
+      "index": "#009",
+      "stage": 3,
+      "evolvesFrom": "Wartortle",
+      "method": "Level Up, level 36",
+      "types": [
+        "Water"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/9.png",
+      "isSubject": true
+    }
+  ],
+  "varieties": [
+    {
+      "name": "Blastoise Mega",
+      "types": [
+        "Water"
+      ],
+      "heightMeters": 1.6,
+      "weightKg": 101.1,
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10036.png"
+    },
+    {
+      "name": "Blastoise Gmax",
+      "types": [
+        "Water"
+      ],
+      "heightMeters": 25,
+      "weightKg": 1000,
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10197.png"
+    }
+  ],
+  "lore": [],
+  "tiers": {
+    "official": [
+      "name",
+      "index",
+      "number",
+      "category",
+      "generation",
+      "isLegendary",
+      "isMythical",
+      "types",
+      "heightMeters",
+      "weightKg",
+      "pokedexEntries",
+      "evolutionChain[].name",
+      "evolutionChain[].index",
+      "evolutionChain[].types",
+      "evolutionChain[].stage",
+      "varieties[].types",
+      "varieties[].heightMeters",
+      "varieties[].weightKg"
+    ],
+    "trusted_secondary": [
+      "evolutionChain[].method",
+      "evolutionChain[].evolvesFrom",
+      "varieties[].name"
+    ],
+    "community": [
+      "lore"
+    ]
+  },
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Blastoise",
+      "url": "https://www.pokemon.com/us/pokedex/blastoise",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Blastoise",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Blastoise_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Blastoise",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/9",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

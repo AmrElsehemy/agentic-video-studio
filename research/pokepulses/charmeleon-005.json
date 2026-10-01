@@ -1,0 +1,154 @@
+{
+  "schemaVersion": 1,
+  "id": "charmeleon-005",
+  "number": 5,
+  "index": "#005",
+  "name": "Charmeleon",
+  "slug": "charmeleon",
+  "category": "Flame Pokémon",
+  "generation": "Generation I",
+  "isLegendary": false,
+  "isMythical": false,
+  "types": [
+    "Fire"
+  ],
+  "heightMeters": 1.1,
+  "weightKg": 19,
+  "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/5.png",
+  "pokedexEntries": [
+    {
+      "game": "Red",
+      "text": "When it swings its burning tail, it elevates the temperature to unbearably high levels."
+    },
+    {
+      "game": "Yellow",
+      "text": "Tough fights could excite this POKéMON. When excited, it may blow out bluish- white flames."
+    },
+    {
+      "game": "Gold",
+      "text": "It is very hot headed by nature, so it constantly seeks opponents. It calms down only when it wins."
+    },
+    {
+      "game": "Silver",
+      "text": "It has a barbaric nature. In battle, it whips its fiery tail around and slashes away with sharp claws."
+    },
+    {
+      "game": "Crystal",
+      "text": "If it becomes agitated during battle, it spouts intense flames, incinerating its surroundings."
+    },
+    {
+      "game": "Ruby",
+      "text": "CHARMELEON mercilessly destroys its foes using its sharp claws. If it encounters a strong foe, it turns aggressive. In this excited state, the flame at the tip of its tail flares with a bluish white color."
+    },
+    {
+      "game": "Emerald",
+      "text": "Without pity, its sharp claws destroy foes. If it encounters a strong enemy, it becomes agitated, and the flame on its tail flares with a bluish white color."
+    },
+    {
+      "game": "Firered",
+      "text": "It lashes about with its tail to knock down its foe. It then tears up the fallen opponent with sharp claws."
+    },
+    {
+      "game": "Leafgreen",
+      "text": "When it swings its burning tail, it elevates the air temperature to unbearably high levels."
+    },
+    {
+      "game": "Diamond",
+      "text": "In the rocky mountains where CHARMELEON live, their fiery tails shine at night like stars."
+    },
+    {
+      "game": "Heartgold",
+      "text": "It is very hotheaded by nature, so it constantly seeks opponents. It calms down only when it wins."
+    },
+    {
+      "game": "Lets Go Pikachu",
+      "text": "Tough fights could excite this Pokémon. When excited, it may breathe out bluish-white flames."
+    }
+  ],
+  "evolutionChain": [
+    {
+      "name": "Charmander",
+      "index": "#004",
+      "stage": 1,
+      "types": [
+        "Fire"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png",
+      "isSubject": false
+    },
+    {
+      "name": "Charmeleon",
+      "index": "#005",
+      "stage": 2,
+      "evolvesFrom": "Charmander",
+      "method": "Level Up, level 16",
+      "types": [
+        "Fire"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/5.png",
+      "isSubject": true
+    },
+    {
+      "name": "Charizard",
+      "index": "#006",
+      "stage": 3,
+      "evolvesFrom": "Charmeleon",
+      "method": "Level Up, level 36",
+      "types": [
+        "Fire",
+        "Flying"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/6.png",
+      "isSubject": false
+    }
+  ],
+  "varieties": [],
+  "lore": [],
+  "tiers": {
+    "official": [
+      "name",
+      "index",
+      "number",
+      "category",
+      "generation",
+      "isLegendary",
+      "isMythical",
+      "types",
+      "heightMeters",
+      "weightKg",
+      "pokedexEntries",
+      "evolutionChain[].name",
+      "evolutionChain[].index",
+      "evolutionChain[].types",
+      "evolutionChain[].stage",
+      "varieties[].types",
+      "varieties[].heightMeters",
+      "varieties[].weightKg"
+    ],
+    "trusted_secondary": [
+      "evolutionChain[].method",
+      "evolutionChain[].evolvesFrom",
+      "varieties[].name"
+    ],
+    "community": [
+      "lore"
+    ]
+  },
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Charmeleon",
+      "url": "https://www.pokemon.com/us/pokedex/charmeleon",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Charmeleon",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Charmeleon_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Charmeleon",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/5",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

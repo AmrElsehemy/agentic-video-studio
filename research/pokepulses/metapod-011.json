@@ -1,0 +1,170 @@
+{
+  "schemaVersion": 1,
+  "id": "metapod-011",
+  "number": 11,
+  "index": "#011",
+  "name": "Metapod",
+  "slug": "metapod",
+  "category": "Cocoon Pokémon",
+  "generation": "Generation I",
+  "isLegendary": false,
+  "isMythical": false,
+  "types": [
+    "Bug"
+  ],
+  "heightMeters": 0.7,
+  "weightKg": 9.9,
+  "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/11.png",
+  "pokedexEntries": [
+    {
+      "game": "Red",
+      "text": "This POKéMON is vulnerable to attack while its shell is soft, exposing its weak and tender body."
+    },
+    {
+      "game": "Yellow",
+      "text": "Hardens its shell to protect itself. However, a large impact may cause it to pop out of its shell."
+    },
+    {
+      "game": "Gold",
+      "text": "Inside the shell, it is soft and weak as it pre pares to evolve. It stays motion less in the shell."
+    },
+    {
+      "game": "Silver",
+      "text": "It prepares for evolution by har dening its shell as much as possi ble to protect its soft body."
+    },
+    {
+      "game": "Crystal",
+      "text": "This is its pre- evolved form. At this stage, it can only harden, so it remains motionless to avoid attack."
+    },
+    {
+      "game": "Ruby",
+      "text": "The shell covering this POKéMON’s body is as hard as an iron slab. METAPOD does not move very much. It stays still because it is preparing its soft innards for evolution inside the hard shell."
+    },
+    {
+      "game": "Emerald",
+      "text": "Its shell is as hard as an iron slab. A METAPOD does not move very much because it is preparing its soft innards for evolution inside the shell."
+    },
+    {
+      "game": "Firered",
+      "text": "Even though it is encased in a sturdy shell, the body inside is tender. It can’t withstand a harsh attack."
+    },
+    {
+      "game": "Diamond",
+      "text": "A steel-hard shell protects its tender body. It quietly endures hardships while awaiting evolution."
+    },
+    {
+      "game": "Heartgold",
+      "text": "Inside the shell, it is soft and weak as it prepares to evolve. It stays motionless in the shell."
+    },
+    {
+      "game": "Soulsilver",
+      "text": "It prepares for evolution by hardening its shell as much as possible to protect its soft body."
+    },
+    {
+      "game": "Sun",
+      "text": "Its shell is filled with its soft innards. It doesn’t move much because of the risk it might carelessly spill its innards out."
+    },
+    {
+      "game": "Moon",
+      "text": "Its shell is hard, but it’s still just a bug shell. It’s been known to break, so intense battles with it should be avoided."
+    },
+    {
+      "game": "Ultra Sun",
+      "text": "Its shell is filled with a thick liquid. All of the cells throughout its body are being rebuilt in preparation for evolution."
+    },
+    {
+      "game": "Ultra Moon",
+      "text": "Its hard shell doesn’t crack a bit even if Pikipek pecks at it, but it will tip over, spilling out its insides."
+    },
+    {
+      "game": "Sword",
+      "text": "It is waiting for the moment to evolve. At this stage, it can only harden, so it remains motionless to avoid attack."
+    }
+  ],
+  "evolutionChain": [
+    {
+      "name": "Caterpie",
+      "index": "#010",
+      "stage": 1,
+      "types": [
+        "Bug"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10.png",
+      "isSubject": false
+    },
+    {
+      "name": "Metapod",
+      "index": "#011",
+      "stage": 2,
+      "evolvesFrom": "Caterpie",
+      "method": "Level Up, level 7",
+      "types": [
+        "Bug"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/11.png",
+      "isSubject": true
+    },
+    {
+      "name": "Butterfree",
+      "index": "#012",
+      "stage": 3,
+      "evolvesFrom": "Metapod",
+      "method": "Level Up, level 10",
+      "types": [
+        "Bug",
+        "Flying"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/12.png",
+      "isSubject": false
+    }
+  ],
+  "varieties": [],
+  "lore": [],
+  "tiers": {
+    "official": [
+      "name",
+      "index",
+      "number",
+      "category",
+      "generation",
+      "isLegendary",
+      "isMythical",
+      "types",
+      "heightMeters",
+      "weightKg",
+      "pokedexEntries",
+      "evolutionChain[].name",
+      "evolutionChain[].index",
+      "evolutionChain[].types",
+      "evolutionChain[].stage",
+      "varieties[].types",
+      "varieties[].heightMeters",
+      "varieties[].weightKg"
+    ],
+    "trusted_secondary": [
+      "evolutionChain[].method",
+      "evolutionChain[].evolvesFrom",
+      "varieties[].name"
+    ],
+    "community": [
+      "lore"
+    ]
+  },
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Metapod",
+      "url": "https://www.pokemon.com/us/pokedex/metapod",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Metapod",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Metapod_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Metapod",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/11",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

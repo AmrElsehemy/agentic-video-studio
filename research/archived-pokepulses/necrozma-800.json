@@ -1,0 +1,136 @@
+{
+  "schemaVersion": 1,
+  "id": "necrozma-800",
+  "number": 800,
+  "index": "#800",
+  "name": "Necrozma",
+  "slug": "necrozma",
+  "category": "Prism Pokémon",
+  "generation": "Generation VII",
+  "isLegendary": true,
+  "isMythical": false,
+  "types": [
+    "Psychic"
+  ],
+  "heightMeters": 2.4,
+  "weightKg": 230,
+  "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/800.png",
+  "pokedexEntries": [
+    {
+      "game": "Sun",
+      "text": "Reminiscent of the Ultra Beasts, this life-form, apparently asleep underground, is thought to have come from another world in ancient times."
+    },
+    {
+      "game": "Moon",
+      "text": "Light is apparently the source of its energy. It has an extraordinarily vicious disposition and is constantly firing off laser beams."
+    },
+    {
+      "game": "Ultra Sun",
+      "text": "It looks somehow pained as it rages around in search of light, which serves as its energy. It’s apparently from another world."
+    },
+    {
+      "game": "Ultra Moon",
+      "text": "Light is the source of its energy. If it isn’t devouring light, impurities build up in it and on it, and Necrozma darkens and stops moving."
+    },
+    {
+      "game": "Sword",
+      "text": "It survives by absorbing light. After a long time spent slumbering underground, impurities accumulated within it, causing its body to darken."
+    },
+    {
+      "game": "Shield",
+      "text": "It needs light to survive, and it goes on a rampage seeking it out. Its laser beams will cut anything to pieces."
+    }
+  ],
+  "evolutionChain": [
+    {
+      "name": "Necrozma",
+      "index": "#800",
+      "stage": 1,
+      "types": [
+        "Psychic"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/800.png",
+      "isSubject": true
+    }
+  ],
+  "varieties": [
+    {
+      "name": "Necrozma Dusk",
+      "types": [
+        "Psychic",
+        "Steel"
+      ],
+      "heightMeters": 3.8,
+      "weightKg": 460,
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10155.png"
+    },
+    {
+      "name": "Necrozma Dawn",
+      "types": [
+        "Psychic",
+        "Ghost"
+      ],
+      "heightMeters": 4.2,
+      "weightKg": 350,
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10156.png"
+    },
+    {
+      "name": "Necrozma Ultra",
+      "types": [
+        "Psychic",
+        "Dragon"
+      ],
+      "heightMeters": 7.5,
+      "weightKg": 230,
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10157.png"
+    }
+  ],
+  "lore": [],
+  "tiers": {
+    "official": [
+      "name",
+      "index",
+      "number",
+      "category",
+      "generation",
+      "isLegendary",
+      "isMythical",
+      "types",
+      "heightMeters",
+      "weightKg",
+      "pokedexEntries",
+      "evolutionChain[].name",
+      "evolutionChain[].index",
+      "evolutionChain[].types",
+      "evolutionChain[].stage",
+      "varieties[].types",
+      "varieties[].heightMeters",
+      "varieties[].weightKg"
+    ],
+    "trusted_secondary": [
+      "evolutionChain[].method",
+      "evolutionChain[].evolvesFrom",
+      "varieties[].name"
+    ],
+    "community": [
+      "lore"
+    ]
+  },
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Necrozma",
+      "url": "https://www.pokemon.com/us/pokedex/necrozma",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Necrozma",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Necrozma_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Necrozma",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/800",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

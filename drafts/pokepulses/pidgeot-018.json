@@ -1,0 +1,175 @@
+{
+  "id": "pidgeot-018",
+  "title": "How Pidgeot Hunts Magikarp From 3,300 Feet Up",
+  "storyPattern": "mechanic",
+  "numberRelevant": true,
+  "premise": "Pidgeot can spot splashing Magikarp from 3,300 feet up, then race toward prey at Mach 2.",
+  "audiencePromise": "See how Pidgeot turns one tiny splash far below into a water-skimming hunt.",
+  "openLoop": "What can Pidgeot do after spotting a Magikarp splash from that high?",
+  "payoff": "Its vision finds the target, Mach 2 speed closes distance, and feared talons threaten at the waterline.",
+  "targetEmotion": "awe",
+  "engagementQuestion": "Sky hunter or water hunter: which is scarier?",
+  "subject": {
+    "name": "Pidgeot",
+    "category": "Bird Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/18.png",
+    "identifier": "#018"
+  },
+  "related": [
+    {
+      "name": "Pidgeotto",
+      "relation": "evolves-from",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/17.png",
+      "identifier": "#017"
+    },
+    {
+      "name": "Pidgey",
+      "relation": "evolves-from",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/16.png",
+      "identifier": "#016"
+    },
+    {
+      "name": "Pidgeot Mega",
+      "relation": "form",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10073.png",
+      "identifier": "#018"
+    }
+  ],
+  "palette": {
+    "background": "#071522",
+    "surface": "#102b3d",
+    "primary": "#e7c56b",
+    "secondary": "#c94b35",
+    "ink": "#f7f3e8"
+  },
+  "voice": {
+    "instructions": "Urgent, cinematic, and precise. Pause after each number. Build from distant wonder to sudden danger, then end with a playful challenge."
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "assets": [
+      {
+        "kind": "Pidgeot official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/18.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "unverified",
+        "publicReleaseApproved": false,
+        "notes": "Internal prototype only pending legal review or replacement."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "splash-from-above",
+      "beat": "hook",
+      "eyebrow": "HUNTING ALTITUDE",
+      "headline": "A SPLASH FROM 3,300 FEET",
+      "narration": "Pidgeot spots Magikarp from 3,300 feet.",
+      "caption": "ONE TINY SPLASH BELOW",
+      "facts": [
+        "SPOTS SPLASHING MAGIKARP",
+        "3,300 FEET"
+      ],
+      "accent": "#e7c56b",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/18.png",
+      "primitive": {
+        "kind": "counter",
+        "from": 0,
+        "to": 3300,
+        "label": "ALTITUDE (FEET)"
+      }
+    },
+    {
+      "id": "vision-lock",
+      "beat": "evidence",
+      "eyebrow": "OUTSTANDING VISION",
+      "headline": "THE SPLASH GIVES IT AWAY",
+      "narration": "It notices the splash while already flying far overhead.",
+      "caption": "TARGET FOUND",
+      "facts": [
+        "OUTSTANDING VISION",
+        "SPLASHING MAGIKARP"
+      ],
+      "accent": "#f7f3e8",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/18.png"
+    },
+    {
+      "id": "mach-two-pursuit",
+      "beat": "escalation",
+      "eyebrow": "NOW IT MOVES",
+      "headline": "MACH 2 TOWARD PREY",
+      "narration": "Then it races through the sky at Mach 2.",
+      "caption": "FASTER THAN SOUND",
+      "facts": [
+        "MACH 2 SPEED",
+        "SEEKING PREY"
+      ],
+      "accent": "#c94b35",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/18.png",
+      "primitive": {
+        "kind": "counter",
+        "from": 0,
+        "to": 2,
+        "label": "MACH SPEED"
+      }
+    },
+    {
+      "id": "waterline-run",
+      "beat": "payoff",
+      "eyebrow": "THE HUNT CLOSES",
+      "headline": "IT SKIMS THE WATER",
+      "narration": "At that speed, Pidgeot skims water to hunt Magikarp.",
+      "caption": "SKIMMING THE SURFACE",
+      "facts": [
+        "HUNTS MAGIKARP",
+        "SKIMS WATER"
+      ],
+      "accent": "#4aa7c9",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/18.png"
+    },
+    {
+      "id": "talon-threat",
+      "beat": "payoff",
+      "eyebrow": "THE LAST PASS",
+      "headline": "TALONS AT THE WATERLINE",
+      "narration": "Its feared talons make that waterline pass a threat.",
+      "caption": "FEARED TALONS",
+      "facts": [
+        "LARGE TALONS",
+        "WICKED WEAPONS"
+      ],
+      "accent": "#c94b35",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/18.png"
+    },
+    {
+      "id": "hunter-verdict",
+      "beat": "verdict",
+      "eyebrow": "YOUR CALL",
+      "headline": "SKY OR WATER HUNTER?",
+      "narration": "Sky hunter or water hunter: which is scarier?",
+      "caption": "CHOOSE ONE",
+      "accent": "#e7c56b",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/18.png"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Pidgeot",
+      "url": "https://www.pokemon.com/us/pokedex/pidgeot",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Pidgeot",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Pidgeot_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Pidgeot",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/18",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

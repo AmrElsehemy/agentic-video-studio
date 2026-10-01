@@ -1,0 +1,195 @@
+{
+  "episodeId": "bulbasaur-001",
+  "createdAt": "2026-09-29T22:18:27.339Z",
+  "chosen": {
+    "id": "seed-feeds-the-baby",
+    "premise": "When Bulbasaur is young, it grows by using nutrients stored in the seed on its own back.",
+    "hook": "Before Bulbasaur grows up, its seed feeds it.",
+    "archetype": "mechanic",
+    "evidence": [
+      "pokedexEntries[4].text",
+      "pokedexEntries[7].text",
+      "pokedexEntries[8].text"
+    ],
+    "visualIdea": "An x-ray-style animation sends nutrient particles from Bulbasaur’s back seed through its body as it grows taller.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 4,
+      "specificity": 4,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 23,
+    "note": "A distinctive biological contradiction—its back seed nourishes it—supported by three consistent entries and easy to show with an internal nutrient animation."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "born-with-a-seed",
+          "premise": "Bulbasaur begins life with a strange seed already planted on its back, and that plant grows alongside it.",
+          "hook": "Bulbasaur is born with something planted in its back.",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[0].text",
+            "pokedexEntries[3].text",
+            "pokedexEntries[6].text"
+          ],
+          "visualIdea": "A baby Bulbasaur silhouette reveals a seed on its back, then a split-screen timelapse shows both body and seed growing.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 24,
+          "note": "A defining Bulbasaur premise, strongly supported across multiple Pokédex entries, with an immediately visual birth-and-growth reveal."
+        },
+        {
+          "id": "seed-feeds-the-baby",
+          "premise": "When Bulbasaur is young, it grows by using nutrients stored in the seed on its own back.",
+          "hook": "Before Bulbasaur grows up, its seed feeds it.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[4].text",
+            "pokedexEntries[7].text",
+            "pokedexEntries[8].text"
+          ],
+          "visualIdea": "An x-ray-style animation sends nutrient particles from Bulbasaur’s back seed through its body as it grows taller.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 23,
+          "note": "A distinctive biological contradiction—its back seed nourishes it—supported by three consistent entries and easy to show with an internal nutrient animation."
+        },
+        {
+          "id": "sunlight-makes-the-seed-grow",
+          "premise": "Bulbasaur naps in bright sunlight, and the sun’s rays make the seed on its back progressively larger.",
+          "hook": "Bulbasaur’s nap time is also growing time.",
+          "archetype": "transformation",
+          "evidence": [
+            "pokedexEntries[5].text"
+          ],
+          "visualIdea": "A sleeping Bulbasaur naps under a moving sun; each beam fills a growth meter and enlarges the seed.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 22,
+          "note": "Strong visual transformation and official support, though sunlight-driven growth is a narrower variation on the broader seed premise."
+        },
+        {
+          "id": "sixteen-then-thirty-two",
+          "premise": "Bulbasaur’s entire three-stage line advances on a clean level pattern: evolve at 16, then again at 32.",
+          "hook": "Bulbasaur’s evolution schedule doubles perfectly.",
+          "archetype": "mechanic",
+          "evidence": [
+            "evolutionChain[0].stage",
+            "evolutionChain[1].name",
+            "evolutionChain[1].method",
+            "evolutionChain[2].name",
+            "evolutionChain[2].method"
+          ],
+          "visualIdea": "A level bar hits 16 to transform Bulbasaur into Ivysaur, then races to 32 for Venusaur, with 16 → 32 highlighted.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 3,
+            "surprise": 3,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 21,
+          "note": "The 16-to-32 pattern is concrete and well supported, but evolution-level patterns are not especially unique to Bulbasaur."
+        },
+        {
+          "id": "same-two-types-all-the-way",
+          "premise": "Bulbasaur keeps the exact same Grass/Poison type pairing through every stage, from #001 to #003.",
+          "hook": "Bulbasaur evolves twice—but never changes its type combo.",
+          "archetype": "comparison",
+          "evidence": [
+            "types",
+            "evolutionChain[0].index",
+            "evolutionChain[0].types",
+            "evolutionChain[1].index",
+            "evolutionChain[1].types",
+            "evolutionChain[2].index",
+            "evolutionChain[2].types"
+          ],
+          "visualIdea": "Bulbasaur, Ivysaur, and Venusaur slide in as #001, #002, and #003, each stamped with identical Grass and Poison badges.",
+          "generic": true,
+          "scores": {
+            "uniqueness": 2,
+            "surprise": 3,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 20,
+          "note": "Clear and screen-friendly, but unchanged typing across an evolution line is a comparison format that can apply to many Pokémon. (Uniqueness capped at 2: its evidence is only fields every Pokémon has.)"
+        },
+        {
+          "id": "days-without-food",
+          "premise": "Bulbasaur can go days without food because the bulb on its back stores energy.",
+          "hook": "Bulbasaur can skip meals for days—because of its back.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[1].text"
+          ],
+          "visualIdea": "A day counter climbs from Day 1 to Day 3+ while the glowing bulb acts like an energy battery meter.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 3,
+            "visual": 4,
+            "support": 4
+          },
+          "total": 19,
+          "note": "The energy-storage mechanic is interesting and visual, but “days” is not quantified and the premise rests on one entry."
+        }
+      ],
+      "rejected": [],
+      "request": "No stronger angle is required; born-with-a-seed is the best episode premise. A stronger alternative would need a more surprising, uniquely Bulbasaur contradiction or quantified mechanic while retaining equally direct Pokédex support."
+    }
+  ],
+  "initialChoice": {
+    "id": "born-with-a-seed",
+    "premise": "Bulbasaur begins life with a strange seed already planted on its back, and that plant grows alongside it.",
+    "hook": "Bulbasaur is born with something planted in its back.",
+    "archetype": "mystery",
+    "evidence": [
+      "pokedexEntries[0].text",
+      "pokedexEntries[3].text",
+      "pokedexEntries[6].text"
+    ],
+    "visualIdea": "A baby Bulbasaur silhouette reveals a seed on its back, then a split-screen timelapse shows both body and seed growing.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 4,
+      "specificity": 5,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 24,
+    "note": "A defining Bulbasaur premise, strongly supported across multiple Pokédex entries, with an immediately visual birth-and-growth reveal."
+  },
+  "attemptedAngles": [
+    "born-with-a-seed",
+    "seed-feeds-the-baby"
+  ]
+}

@@ -1,0 +1,172 @@
+{
+  "episodeId": "pidgeot-018",
+  "createdAt": "2026-09-30T09:05:37.342Z",
+  "chosen": {
+    "id": "mach-2-magikarp-sniper",
+    "premise": "Pidgeot can spot splashing Magikarp from 3,300 feet up, then dive-hunt at Mach 2.",
+    "hook": "Pidgeot can find a Magikarp from 3,300 feet in the air.",
+    "archetype": "mechanic",
+    "evidence": [
+      "pokedexEntries[4].text",
+      "pokedexEntries[1].text",
+      "pokedexEntries[0].text"
+    ],
+    "visualIdea": "A tiny Magikarp splash seen from a 3,300-foot altitude overlay, then Pidgeot locks on and streaks down at Mach 2.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 5,
+      "specificity": 5,
+      "visual": 5,
+      "support": 4
+    },
+    "total": 24,
+    "note": "A highly Pidgeot-specific hunting mechanic with a striking altitude-to-speed sequence. The entries support spotting Magikarp at 3,300 feet and Mach 2 flight, though they do not explicitly say the attack is a Mach 2 dive."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "mach-2-magikarp-sniper",
+          "premise": "Pidgeot can spot splashing Magikarp from 3,300 feet up, then dive-hunt at Mach 2.",
+          "hook": "Pidgeot can find a Magikarp from 3,300 feet in the air.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[4].text",
+            "pokedexEntries[1].text",
+            "pokedexEntries[0].text"
+          ],
+          "visualIdea": "A tiny Magikarp splash seen from a 3,300-foot altitude overlay, then Pidgeot locks on and streaks down at Mach 2.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 24,
+          "note": "A highly Pidgeot-specific hunting mechanic with a striking altitude-to-speed sequence. The entries support spotting Magikarp at 3,300 feet and Mach 2 flight, though they do not explicitly say the attack is a Mach 2 dive."
+        },
+        {
+          "id": "the-mach-2-tree-bender",
+          "premise": "Pidgeot combines Mach 2 flight with wings powerful enough to bend tall trees and talons feared as weapons.",
+          "hook": "Pidgeot is a Mach 2 bird that can bend trees with its wings.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[1].text",
+            "pokedexEntries[8].text",
+            "pokedexEntries[3].text"
+          ],
+          "visualIdea": "Three escalating stat-style reveals: Mach 2 flight, talon close-up, then a wingbeat forcing tall trees sideways.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 5,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 23,
+          "note": "Excellent power profile combining speed, talons, and tree-bending wings. It is well supported, but slightly broad and less focused than the altitude-based hunting premise."
+        },
+        {
+          "id": "beauty-is-a-threat-display",
+          "premise": "Pidgeot's gorgeous wings and head feathers attract trainers, but it spreads those same wings to intimidate enemies.",
+          "hook": "Pidgeot's prettiest feature is also its threat display.",
+          "archetype": "comparison",
+          "evidence": [
+            "pokedexEntries[5].text",
+            "pokedexEntries[6].text",
+            "pokedexEntries[3].text",
+            "pokedexEntries[7].text"
+          ],
+          "visualIdea": "Split screen: trainers admire Pidgeot's glossy crest, then the wings snap open as an enemy recoils.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 22,
+          "note": "A clear, supported contradiction: the same beautiful plumage that attracts trainers helps intimidate enemies. Strong visual contrast, though less mechanically surprising than the hunting angle."
+        },
+        {
+          "id": "mega-pidgeot-growth-spurt",
+          "premise": "Mega Pidgeot grows from 1.5 m and 39.5 kg to 2.2 m and 50.5 kg without changing its types.",
+          "hook": "Mega Pidgeot gets 70 centimeters taller—and keeps both types.",
+          "archetype": "transformation",
+          "evidence": [
+            "heightMeters",
+            "weightKg",
+            "types",
+            "varieties[0].name",
+            "varieties[0].heightMeters",
+            "varieties[0].weightKg",
+            "varieties[0].types"
+          ],
+          "visualIdea": "A silhouette ruler shows Pidgeot rising from 1.5 m to 2.2 m while a scale climbs from 39.5 to 50.5 kg.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 3,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 22,
+          "note": "Precise, easy-to-visualize measurements with solid data support, but the size increase is more of a stat reveal than a surprising Pidgeot-specific story."
+        },
+        {
+          "id": "few-flaps-windstorm",
+          "premise": "Pidgeot needs only a few wing flaps to create a gusty windstorm—and full force can bend tall trees.",
+          "hook": "How many flaps does it take for Pidgeot to make a windstorm?",
+          "archetype": "comparison",
+          "evidence": [
+            "pokedexEntries[2].text",
+            "pokedexEntries[8].text"
+          ],
+          "visualIdea": "Count three wing flaps as the gust escalates from swirling leaves to tall trees visibly bending.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 3,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 20,
+          "note": "The windstorm and tree-bending claims are well supported and visually strong, but 'a few' is imprecise and counting exactly three flaps would be invented."
+        },
+        {
+          "id": "pidgey-to-mach-2",
+          "premise": "The #016 bird line keeps its Normal/Flying types through all three stages, ending with Pidgeot at Mach 2.",
+          "hook": "Pidgey never changes type—but its final form flies at Mach 2.",
+          "archetype": "transformation",
+          "evidence": [
+            "evolutionChain[0]",
+            "evolutionChain[1]",
+            "evolutionChain[2]",
+            "pokedexEntries[1].text"
+          ],
+          "visualIdea": "Pidgey evolves at level 18, Pidgeotto evolves at level 36, then Pidgeot blasts through a Mach 2 speed gauge.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 3,
+            "surprise": 3,
+            "specificity": 4,
+            "visual": 4,
+            "support": 5
+          },
+          "total": 19,
+          "note": "The unchanged typing and evolution milestones are accurate, but type continuity is not especially distinctive and the Mach 2 fact is not directly tied to the evolution itself."
+        }
+      ],
+      "rejected": [],
+      "request": "No stronger angle is necessary; if refining it, avoid claiming an explicitly Mach 2 dive and frame the evidence as Pidgeot spotting Magikarp from 3,300 feet and flying at Mach 2."
+    }
+  ]
+}

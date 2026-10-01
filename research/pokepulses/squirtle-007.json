@@ -1,0 +1,157 @@
+{
+  "schemaVersion": 1,
+  "id": "squirtle-007",
+  "number": 7,
+  "index": "#007",
+  "name": "Squirtle",
+  "slug": "squirtle",
+  "category": "Tiny Turtle Pokémon",
+  "generation": "Generation I",
+  "isLegendary": false,
+  "isMythical": false,
+  "types": [
+    "Water"
+  ],
+  "heightMeters": 0.5,
+  "weightKg": 9,
+  "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png",
+  "pokedexEntries": [
+    {
+      "game": "Red",
+      "text": "After birth, its back swells and hardens into a shell. Powerfully sprays foam from its mouth."
+    },
+    {
+      "game": "Yellow",
+      "text": "Shoots water at prey while in the water. Withdraws into its shell when in danger."
+    },
+    {
+      "game": "Gold",
+      "text": "The shell is soft when it is born. It soon becomes so resilient, prod ding fingers will bounce off it."
+    },
+    {
+      "game": "Silver",
+      "text": "The shell, which hardens soon after it is born, is resilient. If you poke it, it will bounce back out."
+    },
+    {
+      "game": "Crystal",
+      "text": "When it feels threatened, it draws its legs inside its shell and sprays water from its mouth."
+    },
+    {
+      "game": "Ruby",
+      "text": "SQUIRTLE’s shell is not merely used for protection. The shell’s rounded shape and the grooves on its surface help minimize resistance in water, enabling this POKéMON to swim at high speeds."
+    },
+    {
+      "game": "Emerald",
+      "text": "Its shell is not just for protection. Its rounded shape and the grooves on its surface minimize resistance in water, enabling SQUIRTLE to swim at high speeds."
+    },
+    {
+      "game": "Firered",
+      "text": "When it retracts its long neck into its shell, it squirts out water with vigorous force."
+    },
+    {
+      "game": "Leafgreen",
+      "text": "After birth, its back swells and hardens into a shell. It powerfully sprays foam from its mouth."
+    },
+    {
+      "game": "Diamond",
+      "text": "It shelters itself in its shell, then strikes back with spouts of water at every opportunity."
+    },
+    {
+      "game": "Heartgold",
+      "text": "The shell is soft when it is born. It soon becomes so resilient, prodding fingers will bounce off it."
+    },
+    {
+      "game": "Black 2",
+      "text": "It shelters itself in its shell then strikes back with spouts of water at every opportunity."
+    },
+    {
+      "game": "Shield",
+      "text": "When it feels threatened, it draws its limbs inside its shell and sprays water from its mouth."
+    }
+  ],
+  "evolutionChain": [
+    {
+      "name": "Squirtle",
+      "index": "#007",
+      "stage": 1,
+      "types": [
+        "Water"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png",
+      "isSubject": true
+    },
+    {
+      "name": "Wartortle",
+      "index": "#008",
+      "stage": 2,
+      "evolvesFrom": "Squirtle",
+      "method": "Level Up, level 16",
+      "types": [
+        "Water"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/8.png",
+      "isSubject": false
+    },
+    {
+      "name": "Blastoise",
+      "index": "#009",
+      "stage": 3,
+      "evolvesFrom": "Wartortle",
+      "method": "Level Up, level 36",
+      "types": [
+        "Water"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/9.png",
+      "isSubject": false
+    }
+  ],
+  "varieties": [],
+  "lore": [],
+  "tiers": {
+    "official": [
+      "name",
+      "index",
+      "number",
+      "category",
+      "generation",
+      "isLegendary",
+      "isMythical",
+      "types",
+      "heightMeters",
+      "weightKg",
+      "pokedexEntries",
+      "evolutionChain[].name",
+      "evolutionChain[].index",
+      "evolutionChain[].types",
+      "evolutionChain[].stage",
+      "varieties[].types",
+      "varieties[].heightMeters",
+      "varieties[].weightKg"
+    ],
+    "trusted_secondary": [
+      "evolutionChain[].method",
+      "evolutionChain[].evolvesFrom",
+      "varieties[].name"
+    ],
+    "community": [
+      "lore"
+    ]
+  },
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Squirtle",
+      "url": "https://www.pokemon.com/us/pokedex/squirtle",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Squirtle",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Squirtle_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Squirtle",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/7",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

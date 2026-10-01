@@ -1,0 +1,463 @@
+{
+  "episodeId": "necrozma-800",
+  "checkedAt": "2026-09-29T10:17:24.444Z",
+  "claims": [
+    {
+      "id": "c1",
+      "where": "title",
+      "text": "What Happens When Necrozma Can't Absorb Light?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "It's a question raising curiosity about Necrozma's behavior.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c2",
+      "where": "premise",
+      "text": "Necrozma's survival hinges on absorbing light, but what occurs if it's deprived of this vital energy source?",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].text",
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c3",
+      "where": "audiencePromise",
+      "text": "Explain the mysterious consequences when Necrozma is deprived of light.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c4",
+      "where": "openLoop",
+      "text": "What happens to Necrozma if it doesn't get any light?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "It's a question and does not assert any facts.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c5",
+      "where": "payoff",
+      "text": "Deprived of light, Necrozma darkens, impurities build, and it stops moving altogether.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c6",
+      "where": "scenes.dark-necrozma.headline",
+      "text": "WHAT HAPPENS IN THE DARK?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "A question-intended headline, not a factual claim.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c7",
+      "where": "scenes.dark-necrozma.narration",
+      "text": "What if Necrozma doesn’t get any light?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Another question intended to prompt thought, not stating a fact.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c8",
+      "where": "scenes.dark-necrozma.caption",
+      "text": "NECROZMA IN DARKNESS",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "The caption refers to Necrozma being in darkness but does not make specific claims.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c9",
+      "where": "scenes.dark-necrozma.eyebrow",
+      "text": "INTO THE DARKNESS",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "This is a title hook, not making a specific factual statement.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c10",
+      "where": "scenes.needs-light.headline",
+      "text": "NECROZMA HUNGERS FOR LIGHT",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text",
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c11",
+      "where": "scenes.needs-light.narration",
+      "text": "Light is not just energy—it's survival for Necrozma.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c12",
+      "where": "scenes.needs-light.caption",
+      "text": "WITHOUT LIGHT, LIFE CEASES",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[3].text"
+      ],
+      "note": "While Ceases is dramatic, it's reasonably backed by evidence calling light survival critical.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c13",
+      "where": "scenes.needs-light.eyebrow",
+      "text": "LIGHT IS VITAL",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].text",
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c14",
+      "where": "scenes.needs-light.facts[0]",
+      "text": "Light is its energy",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c15",
+      "where": "scenes.needs-light.facts[1]",
+      "text": "Absorbs to survive",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c16",
+      "where": "scenes.needs-light.facts[2]",
+      "text": "Seeks light aggressively",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c17",
+      "where": "scenes.impurities.headline",
+      "text": "IMPURITIES PILE UP",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "A headline prompting thought, not making a direct assertive claim.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c18",
+      "where": "scenes.impurities.narration",
+      "text": "Without light, impurities build within and on Necrozma.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c19",
+      "where": "scenes.impurities.caption",
+      "text": "WITHOUT LIGHT, DARKNESS SPREADS",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[4].text"
+      ],
+      "note": "While interpretations can match evidence of changes without light, the phrasing is dramatic.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c20",
+      "where": "scenes.impurities.eyebrow",
+      "text": "THE BUILDUP BEGINS",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "It acts as a suggestive title, not offering specific factual information.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c21",
+      "where": "scenes.impurities.facts[0]",
+      "text": "Impurities build",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c22",
+      "where": "scenes.impurities.facts[1]",
+      "text": "Necrozma darkens",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c23",
+      "where": "scenes.suspension.headline",
+      "text": "IT STOPS MOVING",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c24",
+      "where": "scenes.suspension.narration",
+      "text": "Eventually, Necrozma darkens and becomes immobile.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c25",
+      "where": "scenes.suspension.caption",
+      "text": "MOTIONLESS IN DARK",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[3].text"
+      ],
+      "note": "Suggestion of motionlessness due to lack of light seems overly simplified.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c26",
+      "where": "scenes.suspension.eyebrow",
+      "text": "A DEADLY STILLNESS",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "This claims nothing specifically, serving primarily as an attention grabber.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c27",
+      "where": "scenes.suspension.facts[0]",
+      "text": "Stops moving",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c28",
+      "where": "scenes.suspension.facts[1]",
+      "text": "Darkens entirely",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c29",
+      "where": "scenes.light-rampage.headline",
+      "text": "LIGHT-SEEKING RAMPAGE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c30",
+      "where": "scenes.light-rampage.narration",
+      "text": "In its desperation, Necrozma goes on a rampage, destroying for light.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c31",
+      "where": "scenes.light-rampage.caption",
+      "text": "SEEKING LIGHT AT ALL COSTS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c32",
+      "where": "scenes.light-rampage.eyebrow",
+      "text": "SAVAGE PURSUIT",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Dramatic phrasing to create intrigue but lacks specific factual assertion.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c33",
+      "where": "scenes.light-rampage.facts[0]",
+      "text": "Rampages for light",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c34",
+      "where": "scenes.light-rampage.facts[1]",
+      "text": "Uses laser beams",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c35",
+      "where": "scenes.free-or-not.headline",
+      "text": "FREE OR CONTAIN?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "A choice question intended for audience engagement.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c36",
+      "where": "scenes.free-or-not.narration",
+      "text": "Do you think Necrozma should roam free or be contained?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "It's a rhetorical question that doesn't assert a fact.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c37",
+      "where": "scenes.free-or-not.caption",
+      "text": "NECROZMA'S FATE IN YOUR HANDS",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Caption meant to engage and provoke thought on a decision; not a factual statement.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c38",
+      "where": "scenes.free-or-not.eyebrow",
+      "text": "THE BIG QUESTION",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Formulation asks a broad question rather than stating data.",
+      "checkedBy": "model"
+    }
+  ],
+  "unsupported": [],
+  "uncertain": [
+    {
+      "id": "c12",
+      "where": "scenes.needs-light.caption",
+      "text": "WITHOUT LIGHT, LIFE CEASES",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[3].text"
+      ],
+      "note": "While Ceases is dramatic, it's reasonably backed by evidence calling light survival critical.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c19",
+      "where": "scenes.impurities.caption",
+      "text": "WITHOUT LIGHT, DARKNESS SPREADS",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[4].text"
+      ],
+      "note": "While interpretations can match evidence of changes without light, the phrasing is dramatic.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c25",
+      "where": "scenes.suspension.caption",
+      "text": "MOTIONLESS IN DARK",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[3].text"
+      ],
+      "note": "Suggestion of motionlessness due to lack of light seems overly simplified.",
+      "tier": "official",
+      "checkedBy": "model"
+    }
+  ]
+}

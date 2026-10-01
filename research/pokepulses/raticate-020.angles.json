@@ -1,0 +1,176 @@
+{
+  "episodeId": "raticate-020",
+  "createdAt": "2026-09-30T09:12:27.184Z",
+  "chosen": {
+    "id": "whiskers-are-its-balance",
+    "premise": "Raticate uses whiskers for balance, slows down without them, and bites anyone who touches them.",
+    "hook": "Touch this Pokémon’s whiskers, and it will bite you.",
+    "archetype": "mystery",
+    "evidence": [
+      "pokedexEntries[0].text",
+      "pokedexEntries[8].text",
+      "pokedexEntries[17].text"
+    ],
+    "visualIdea": "A running Raticate tilts off-balance as whiskers vanish, then snaps at a hand reaching toward them.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 5,
+      "specificity": 5,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 25,
+    "note": "A very Raticate-specific contradiction: delicate whiskers are essential for balance, yet touching them triggers a bite. Every part of the premise is directly supported."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "whiskers-are-its-balance",
+          "premise": "Raticate uses whiskers for balance, slows down without them, and bites anyone who touches them.",
+          "hook": "Touch this Pokémon’s whiskers, and it will bite you.",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[0].text",
+            "pokedexEntries[8].text",
+            "pokedexEntries[17].text"
+          ],
+          "visualIdea": "A running Raticate tilts off-balance as whiskers vanish, then snaps at a hand reaching toward them.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 25,
+          "note": "A very Raticate-specific contradiction: delicate whiskers are essential for balance, yet touching them triggers a bite. Every part of the premise is directly supported."
+        },
+        {
+          "id": "mouse-that-crosses-oceans",
+          "premise": "Raticate’s webbed hind feet let it cross rivers—and it can sometimes swim across oceans.",
+          "hook": "Why does a Normal-type mouse have flippers?",
+          "archetype": "comparison",
+          "evidence": [
+            "pokedexEntries[1].text",
+            "pokedexEntries[4].text",
+            "pokedexEntries[14].text",
+            "pokedexEntries[16].text"
+          ],
+          "visualIdea": "Close-up of tiny webbed rear feet transforms into flippers as Raticate swims from a river to open ocean.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 24,
+          "note": "The ocean-crossing mouse is an excellent visual surprise and explicitly supported, though the webbed-feet premise is slightly less exclusive to Raticate than the whisker mechanic."
+        },
+        {
+          "id": "alolan-totem-size-jump",
+          "premise": "Alolan Raticate weighs 25.5 kg, but its Totem form is twice as tall and weighs 105 kg.",
+          "hook": "This Raticate becomes twice as tall—and over four times heavier.",
+          "archetype": "transformation",
+          "evidence": [
+            "heightMeters",
+            "weightKg",
+            "varieties[0].name",
+            "varieties[0].heightMeters",
+            "varieties[0].weightKg",
+            "varieties[1].name",
+            "varieties[1].heightMeters",
+            "varieties[1].weightKg"
+          ],
+          "visualIdea": "Standard and Alolan Raticate stand beside a scale, then Totem Alola rises to 1.4 m as 105 kg slams onscreen.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 24,
+          "note": "The measurements create a clear, memorable transformation: 0.7 m to 1.4 m and 25.5 kg to 105 kg. Strong data-driven angle, though it depends on variant comparison rather than core Raticate biology."
+        },
+        {
+          "id": "fangs-versus-concrete",
+          "premise": "Raticate’s ever-growing fangs force it to gnaw constantly—and can even topple concrete buildings.",
+          "hook": "This mouse has to chew concrete so its teeth don’t outgrow its face.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[3].text",
+            "pokedexEntries[9].text",
+            "pokedexEntries[10].text",
+            "pokedexEntries[12].text"
+          ],
+          "visualIdea": "Fangs grow like a meter, then Raticate rapidly chews rocks, logs, a house wall, and a concrete building.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 22,
+          "note": "The concrete-chewing claim is strongly supported and highly visual, but “gnaw constantly” overstates the entries, which say the fangs grow steadily and require grinding down."
+        },
+        {
+          "id": "cute-looking-hand-biter",
+          "premise": "Raticate looks harmless, but its bite can cleanly take off a hand.",
+          "hook": "Do not judge Raticate by its face.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[12].text",
+            "pokedexEntries[15].text",
+            "pokedexEntries[17].text"
+          ],
+          "visualIdea": "Cute official art gets a sweet introduction before warning labels, huge fangs, and a hand pulling away fast.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 5,
+            "specificity": 4,
+            "visual": 4,
+            "support": 5
+          },
+          "total": 22,
+          "note": "The hand-biting warning is directly supported, but “looks harmless” is subjective and the angle overlaps with the more specific whisker-biting mechanic."
+        },
+        {
+          "id": "level-20-mouse-to-demolitionist",
+          "premise": "Rattata evolves at level 20 into a 0.7 m Raticate whose fangs can chew apart cinder walls.",
+          "hook": "At level 20, this tiny rat evolves into a wall-chewer.",
+          "archetype": "transformation",
+          "evidence": [
+            "evolutionChain[0].name",
+            "evolutionChain[1].name",
+            "evolutionChain[1].method",
+            "heightMeters",
+            "pokedexEntries[9].text"
+          ],
+          "visualIdea": "Level 19 Rattata hits level 20, evolves in a flash, then Raticate bites through a cinder-block wall.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 22,
+          "note": "The level-20 trigger and cinder-wall payoff are concrete and filmable, but the evolution method is secondary-source data and the angle combines game progression with Pokédex lore."
+        }
+      ],
+      "rejected": [],
+      "request": "Not applicable; the whisker-balance-and-bite angle is strong enough. Stronger alternatives would need an equally Raticate-specific mechanic, a directly supported contradiction or number, and a clear visual payoff."
+    }
+  ]
+}

@@ -1,0 +1,608 @@
+{
+  "episodeId": "pidgeot-018",
+  "checkedAt": "2026-09-30T09:05:42.771Z",
+  "claims": [
+    {
+      "id": "c1",
+      "where": "title",
+      "text": "How Pidgeot Hunts Magikarp From 3,300 Feet Up",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[4].text",
+        "pokedexEntries[0].text"
+      ],
+      "note": "It spots splashing Magikarp while flying at 3,300 feet and hunts by skimming water, but the research does not directly say the hunt itself occurs from that altitude.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c2",
+      "where": "premise",
+      "text": "Pidgeot can spot splashing Magikarp from 3,300 feet up, then race toward prey at Mach 2.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[4].text",
+        "pokedexEntries[1].text"
+      ],
+      "note": "Both abilities are supported, but the specific sequence of spotting a splash and then racing toward that prey at Mach 2 is not directly stated.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c3",
+      "where": "audiencePromise",
+      "text": "See how Pidgeot turns one tiny splash far below into a water-skimming hunt.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[4].text",
+        "pokedexEntries[0].text"
+      ],
+      "note": "The research supports spotting splashing Magikarp from above and water-skimming hunts, but not that one tiny splash directly leads into that hunt.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c4",
+      "where": "openLoop",
+      "text": "What can Pidgeot do after spotting a Magikarp splash from that high?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Question framing.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c5",
+      "where": "payoff",
+      "text": "Its vision finds the target, Mach 2 speed closes distance, and feared talons threaten at the waterline.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[4].text",
+        "pokedexEntries[1].text",
+        "pokedexEntries[0].text"
+      ],
+      "note": "Vision, Mach 2 flight, feared talons, and water-surface hunting are supported individually, but this exact combined attack sequence is not directly stated.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c6",
+      "where": "scenes.splash-from-above.headline",
+      "text": "A SPLASH FROM 3,300 FEET",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c7",
+      "where": "scenes.splash-from-above.narration",
+      "text": "Pidgeot spots Magikarp from 3,300 feet.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c8",
+      "where": "scenes.splash-from-above.caption",
+      "text": "ONE TINY SPLASH BELOW",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[4].text"
+      ],
+      "note": "A Magikarp splash is supported, but its size is not described as tiny.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c9",
+      "where": "scenes.splash-from-above.eyebrow",
+      "text": "HUNTING ALTITUDE",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[4].text",
+        "pokedexEntries[0].text"
+      ],
+      "note": "Pidgeot spots splashing Magikarp while flying at 3,300 feet and hunts over water, but 3,300 feet is not explicitly called its hunting altitude.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c10",
+      "where": "scenes.splash-from-above.facts[0]",
+      "text": "SPOTS SPLASHING MAGIKARP",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c11",
+      "where": "scenes.splash-from-above.facts[1]",
+      "text": "3,300 FEET",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c12",
+      "where": "scenes.vision-lock.headline",
+      "text": "THE SPLASH GIVES IT AWAY",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c13",
+      "where": "scenes.vision-lock.narration",
+      "text": "It notices the splash while already flying far overhead.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c14",
+      "where": "scenes.vision-lock.caption",
+      "text": "TARGET FOUND",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c15",
+      "where": "scenes.vision-lock.eyebrow",
+      "text": "OUTSTANDING VISION",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c16",
+      "where": "scenes.vision-lock.facts[0]",
+      "text": "OUTSTANDING VISION",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c17",
+      "where": "scenes.vision-lock.facts[1]",
+      "text": "SPLASHING MAGIKARP",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c18",
+      "where": "scenes.mach-two-pursuit.headline",
+      "text": "MACH 2 TOWARD PREY",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c19",
+      "where": "scenes.mach-two-pursuit.narration",
+      "text": "Then it races through the sky at Mach 2.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[7].text"
+      ],
+      "note": "Pidgeot can fly at Mach 2, but the stated timing after the prior sighting is not directly established.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c20",
+      "where": "scenes.mach-two-pursuit.caption",
+      "text": "MACH 2",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c21",
+      "where": "scenes.mach-two-pursuit.eyebrow",
+      "text": "NOW IT MOVES",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Dramatic scene framing without a specific factual assertion.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c22",
+      "where": "scenes.mach-two-pursuit.facts[0]",
+      "text": "MACH 2 SPEED",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c23",
+      "where": "scenes.mach-two-pursuit.facts[1]",
+      "text": "SEEKING PREY",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c24",
+      "where": "scenes.waterline-run.headline",
+      "text": "IT SKIMS THE WATER",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c25",
+      "where": "scenes.waterline-run.narration",
+      "text": "At that speed, Pidgeot skims water to hunt Magikarp.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[0].text",
+        "pokedexEntries[1].text"
+      ],
+      "note": "It skims water at high speed while hunting, and it can fly at Mach 2, but the research does not specifically identify its water-skimming speed as Mach 2.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c26",
+      "where": "scenes.waterline-run.caption",
+      "text": "SKIMMING THE SURFACE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c27",
+      "where": "scenes.waterline-run.eyebrow",
+      "text": "THE HUNT CLOSES",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[0].text"
+      ],
+      "note": "It is a hunt-related framing phrase, but the research does not establish that the hunt is nearing its conclusion.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c28",
+      "where": "scenes.waterline-run.facts[0]",
+      "text": "HUNTS MAGIKARP",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c29",
+      "where": "scenes.waterline-run.facts[1]",
+      "text": "SKIMS WATER",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c30",
+      "where": "scenes.talon-threat.headline",
+      "text": "TALONS AT THE WATERLINE",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[0].text",
+        "pokedexEntries[1].text"
+      ],
+      "note": "The research separately supports water-surface hunting and large feared talons, but does not specifically place its talons at the waterline.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c31",
+      "where": "scenes.talon-threat.narration",
+      "text": "Its feared talons make that waterline pass a threat.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[0].text",
+        "pokedexEntries[1].text"
+      ],
+      "note": "Its talons are feared weapons and it skims water while hunting, but the research does not directly say a waterline pass is threatening because of those talons.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c32",
+      "where": "scenes.talon-threat.caption",
+      "text": "FEARED TALONS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c33",
+      "where": "scenes.talon-threat.eyebrow",
+      "text": "THE LAST PASS",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Dramatic scene framing.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c34",
+      "where": "scenes.talon-threat.facts[0]",
+      "text": "LARGE TALONS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c35",
+      "where": "scenes.talon-threat.facts[1]",
+      "text": "WICKED WEAPONS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c36",
+      "where": "scenes.hunter-verdict.headline",
+      "text": "SKY OR WATER HUNTER?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Question framing.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c37",
+      "where": "scenes.hunter-verdict.narration",
+      "text": "Sky hunter or water hunter: which is scarier?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Subjective question framing.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c38",
+      "where": "scenes.hunter-verdict.caption",
+      "text": "CHOOSE ONE",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Call to action.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c39",
+      "where": "scenes.hunter-verdict.eyebrow",
+      "text": "YOUR CALL",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Call to action.",
+      "checkedBy": "model"
+    }
+  ],
+  "unsupported": [],
+  "uncertain": [
+    {
+      "id": "c1",
+      "where": "title",
+      "text": "How Pidgeot Hunts Magikarp From 3,300 Feet Up",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[4].text",
+        "pokedexEntries[0].text"
+      ],
+      "note": "It spots splashing Magikarp while flying at 3,300 feet and hunts by skimming water, but the research does not directly say the hunt itself occurs from that altitude.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c2",
+      "where": "premise",
+      "text": "Pidgeot can spot splashing Magikarp from 3,300 feet up, then race toward prey at Mach 2.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[4].text",
+        "pokedexEntries[1].text"
+      ],
+      "note": "Both abilities are supported, but the specific sequence of spotting a splash and then racing toward that prey at Mach 2 is not directly stated.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c3",
+      "where": "audiencePromise",
+      "text": "See how Pidgeot turns one tiny splash far below into a water-skimming hunt.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[4].text",
+        "pokedexEntries[0].text"
+      ],
+      "note": "The research supports spotting splashing Magikarp from above and water-skimming hunts, but not that one tiny splash directly leads into that hunt.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c5",
+      "where": "payoff",
+      "text": "Its vision finds the target, Mach 2 speed closes distance, and feared talons threaten at the waterline.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[4].text",
+        "pokedexEntries[1].text",
+        "pokedexEntries[0].text"
+      ],
+      "note": "Vision, Mach 2 flight, feared talons, and water-surface hunting are supported individually, but this exact combined attack sequence is not directly stated.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c8",
+      "where": "scenes.splash-from-above.caption",
+      "text": "ONE TINY SPLASH BELOW",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[4].text"
+      ],
+      "note": "A Magikarp splash is supported, but its size is not described as tiny.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c9",
+      "where": "scenes.splash-from-above.eyebrow",
+      "text": "HUNTING ALTITUDE",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[4].text",
+        "pokedexEntries[0].text"
+      ],
+      "note": "Pidgeot spots splashing Magikarp while flying at 3,300 feet and hunts over water, but 3,300 feet is not explicitly called its hunting altitude.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c19",
+      "where": "scenes.mach-two-pursuit.narration",
+      "text": "Then it races through the sky at Mach 2.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[7].text"
+      ],
+      "note": "Pidgeot can fly at Mach 2, but the stated timing after the prior sighting is not directly established.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c25",
+      "where": "scenes.waterline-run.narration",
+      "text": "At that speed, Pidgeot skims water to hunt Magikarp.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[0].text",
+        "pokedexEntries[1].text"
+      ],
+      "note": "It skims water at high speed while hunting, and it can fly at Mach 2, but the research does not specifically identify its water-skimming speed as Mach 2.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c27",
+      "where": "scenes.waterline-run.eyebrow",
+      "text": "THE HUNT CLOSES",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[0].text"
+      ],
+      "note": "It is a hunt-related framing phrase, but the research does not establish that the hunt is nearing its conclusion.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c30",
+      "where": "scenes.talon-threat.headline",
+      "text": "TALONS AT THE WATERLINE",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[0].text",
+        "pokedexEntries[1].text"
+      ],
+      "note": "The research separately supports water-surface hunting and large feared talons, but does not specifically place its talons at the waterline.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c31",
+      "where": "scenes.talon-threat.narration",
+      "text": "Its feared talons make that waterline pass a threat.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[0].text",
+        "pokedexEntries[1].text"
+      ],
+      "note": "Its talons are feared weapons and it skims water while hunting, but the research does not directly say a waterline pass is threatening because of those talons.",
+      "tier": "official",
+      "checkedBy": "model"
+    }
+  ]
+}

@@ -1,0 +1,182 @@
+{
+  "schemaVersion": 1,
+  "id": "butterfree-012",
+  "number": 12,
+  "index": "#012",
+  "name": "Butterfree",
+  "slug": "butterfree",
+  "category": "Butterfly Pokémon",
+  "generation": "Generation I",
+  "isLegendary": false,
+  "isMythical": false,
+  "types": [
+    "Bug",
+    "Flying"
+  ],
+  "heightMeters": 1.1,
+  "weightKg": 32,
+  "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/12.png",
+  "pokedexEntries": [
+    {
+      "game": "Red",
+      "text": "In battle, it flaps its wings at high speed to release highly toxic dust into the air."
+    },
+    {
+      "game": "Yellow",
+      "text": "Its wings, covered with poisonous powders, repel water. This allows it to fly in the rain."
+    },
+    {
+      "game": "Gold",
+      "text": "It collects honey every day. It rubs honey onto the hairs on its legs to carry it back to its nest."
+    },
+    {
+      "game": "Silver",
+      "text": "Water-repellent powder on its wings enables it to collect honey, even in the heav iest of rains."
+    },
+    {
+      "game": "Crystal",
+      "text": "It flits from flower to flower, collecting honey. It can even identify distant flowers in bloom."
+    },
+    {
+      "game": "Ruby",
+      "text": "BUTTERFREE has a superior ability to search for delicious honey from flowers. It can even search out, extract, and carry honey from flowers that are blooming over six miles from its nest."
+    },
+    {
+      "game": "Emerald",
+      "text": "It has a superior ability to search for delicious honey from flowers. It can seek, extract, and carry honey from flowers blooming over six miles away."
+    },
+    {
+      "game": "Firered",
+      "text": "The wings are protected by rain-repellent dust. As a result, this POKéMON can fly about even in rain."
+    },
+    {
+      "game": "Leafgreen",
+      "text": "In battle, it flaps its wings at great speed to release highly toxic dust into the air."
+    },
+    {
+      "game": "Diamond",
+      "text": "It loves the honey of flowers and can locate flower patches that have even tiny amounts of pollen."
+    },
+    {
+      "game": "Soulsilver",
+      "text": "Water-repellent powder on its wings enables it to collect honey, even in the heaviest of rains."
+    },
+    {
+      "game": "Sun",
+      "text": "Close examination of its large eyes reveals that each eye is composed of a myriad of tiny eyes."
+    },
+    {
+      "game": "Moon",
+      "text": "When attacked by other Pokémon, it defends itself by scattering its poisonous scales and fluttering its wings."
+    },
+    {
+      "game": "Ultra Sun",
+      "text": "Its wings are covered in toxic scales. If it finds bird Pokémon going after Caterpie, Butterfree sprinkles its scales on them to drive them off."
+    },
+    {
+      "game": "Ultra Moon",
+      "text": "Nectar from pretty flowers is its favorite food. In fields of flowers, it has heated battles with Cutiefly for territory."
+    },
+    {
+      "game": "Lets Go Pikachu",
+      "text": "Its wings, covered with poisonous powder, repel water. This allows it to fly in the rain."
+    }
+  ],
+  "evolutionChain": [
+    {
+      "name": "Caterpie",
+      "index": "#010",
+      "stage": 1,
+      "types": [
+        "Bug"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10.png",
+      "isSubject": false
+    },
+    {
+      "name": "Metapod",
+      "index": "#011",
+      "stage": 2,
+      "evolvesFrom": "Caterpie",
+      "method": "Level Up, level 7",
+      "types": [
+        "Bug"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/11.png",
+      "isSubject": false
+    },
+    {
+      "name": "Butterfree",
+      "index": "#012",
+      "stage": 3,
+      "evolvesFrom": "Metapod",
+      "method": "Level Up, level 10",
+      "types": [
+        "Bug",
+        "Flying"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/12.png",
+      "isSubject": true
+    }
+  ],
+  "varieties": [
+    {
+      "name": "Butterfree Gmax",
+      "types": [
+        "Bug",
+        "Flying"
+      ],
+      "heightMeters": 17,
+      "weightKg": 1000,
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10198.png"
+    }
+  ],
+  "lore": [],
+  "tiers": {
+    "official": [
+      "name",
+      "index",
+      "number",
+      "category",
+      "generation",
+      "isLegendary",
+      "isMythical",
+      "types",
+      "heightMeters",
+      "weightKg",
+      "pokedexEntries",
+      "evolutionChain[].name",
+      "evolutionChain[].index",
+      "evolutionChain[].types",
+      "evolutionChain[].stage",
+      "varieties[].types",
+      "varieties[].heightMeters",
+      "varieties[].weightKg"
+    ],
+    "trusted_secondary": [
+      "evolutionChain[].method",
+      "evolutionChain[].evolvesFrom",
+      "varieties[].name"
+    ],
+    "community": [
+      "lore"
+    ]
+  },
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Butterfree",
+      "url": "https://www.pokemon.com/us/pokedex/butterfree",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Butterfree",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Butterfree_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Butterfree",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/12",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

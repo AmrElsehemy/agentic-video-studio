@@ -1,0 +1,493 @@
+{
+  "episodeId": "beedrill-015",
+  "checkedAt": "2026-09-30T08:56:14.456Z",
+  "claims": [
+    {
+      "id": "c1",
+      "where": "title",
+      "text": "Beedrill Has Three Stingers, But One Is Worse",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c2",
+      "where": "premise",
+      "text": "Beedrill has three poison barbs, but its tail barb secretes the most powerful poison.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c3",
+      "where": "audiencePromise",
+      "text": "Follow Beedrill's three stingers to reveal why the tail barb is its most dangerous one.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[3].text"
+      ],
+      "note": "The tail barb has the most powerful poison, but the research does not explicitly establish it as the overall most dangerous stinger.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c4",
+      "where": "openLoop",
+      "text": "If all three stingers are poisonous, why is the tail barb worse?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "It is framed as a question.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c5",
+      "where": "payoff",
+      "text": "Beedrill can jab repeatedly with all three stingers, but its tail barb carries the most powerful poison.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[3].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c6",
+      "where": "scenes.three-stingers.headline",
+      "text": "THREE STINGERS. ONE IS WORSE.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c7",
+      "where": "scenes.three-stingers.narration",
+      "text": "Beedrill has three stingers, but one is worst.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c8",
+      "where": "scenes.three-stingers.caption",
+      "text": "THREE BARBS ENTER. ONE OUTRANKS THEM.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c9",
+      "where": "scenes.three-stingers.eyebrow",
+      "text": "POISON BEE WARNING",
+      "verdict": "supported",
+      "evidence": [
+        "category",
+        "types[1]"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c10",
+      "where": "scenes.three-stingers.facts[0]",
+      "text": "3 POISON BARBS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c11",
+      "where": "scenes.foreleg-pair.headline",
+      "text": "TWO SIT ON ITS FORELEGS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c12",
+      "where": "scenes.foreleg-pair.narration",
+      "text": "Two poisonous stingers sit on Beedrill's forelegs, part of three.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c13",
+      "where": "scenes.foreleg-pair.caption",
+      "text": "FORELEG BARB • FORELEG BARB",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c14",
+      "where": "scenes.foreleg-pair.eyebrow",
+      "text": "THE FIRST TWO",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c15",
+      "where": "scenes.foreleg-pair.facts[0]",
+      "text": "FORELEG BARB",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c16",
+      "where": "scenes.foreleg-pair.facts[1]",
+      "text": "FORELEG BARB",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c17",
+      "where": "scenes.all-three-jab.headline",
+      "text": "ALL THREE CAN JAB",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c18",
+      "where": "scenes.all-three-jab.narration",
+      "text": "Those three poisonous stingers can jab an enemy repeatedly.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c19",
+      "where": "scenes.all-three-jab.caption",
+      "text": "JAB • JAB • JAB",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c20",
+      "where": "scenes.all-three-jab.eyebrow",
+      "text": "THEY ARE ALL WEAPONS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c21",
+      "where": "scenes.all-three-jab.facts[0]",
+      "text": "3 POISONOUS STINGERS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c22",
+      "where": "scenes.all-three-jab.facts[1]",
+      "text": "REPEATED JABS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c23",
+      "where": "scenes.high-speed-strike.headline",
+      "text": "STRIKE, THEN FLY OFF",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[9].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c24",
+      "where": "scenes.high-speed-strike.narration",
+      "text": "Then Beedrill flies at high speed, striking with its stingers.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text",
+        "pokedexEntries[9].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c25",
+      "where": "scenes.high-speed-strike.caption",
+      "text": "HIGH SPEED • POISON NEEDLES",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[9].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c26",
+      "where": "scenes.high-speed-strike.eyebrow",
+      "text": "THE ATTACK RUN",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[9].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c27",
+      "where": "scenes.high-speed-strike.facts[0]",
+      "text": "HIGH SPEED",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c28",
+      "where": "scenes.high-speed-strike.facts[1]",
+      "text": "POISON NEEDLES",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[9].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c29",
+      "where": "scenes.tail-reveal.headline",
+      "text": "THE TAIL HAS STRONGER POISON",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c30",
+      "where": "scenes.tail-reveal.narration",
+      "text": "But its tail barb secretes the most powerful poison.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c31",
+      "where": "scenes.tail-reveal.caption",
+      "text": "VENOM METER: MAXED OUT",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c32",
+      "where": "scenes.tail-reveal.eyebrow",
+      "text": "THE REAL DANGER",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c33",
+      "where": "scenes.tail-reveal.facts[0]",
+      "text": "TAIL BARB",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c34",
+      "where": "scenes.tail-reveal.facts[1]",
+      "text": "MOST POWERFUL POISON",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c35",
+      "where": "scenes.choose-your-threat.headline",
+      "text": "FORELEGS OR TAIL?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "It is framed as a question.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c36",
+      "where": "scenes.choose-your-threat.narration",
+      "text": "Foreleg stingers or tail barb: which threat scares you most?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "It is framed as a subjective question to the audience.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c37",
+      "where": "scenes.choose-your-threat.caption",
+      "text": "TWO JABS OR ONE DEADLIER BARB?",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[3].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c38",
+      "where": "scenes.choose-your-threat.eyebrow",
+      "text": "PICK YOUR THREAT",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "This is audience framing.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c39",
+      "where": "scenes.choose-your-threat.facts[0]",
+      "text": "FORELEG STINGERS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c40",
+      "where": "scenes.choose-your-threat.facts[1]",
+      "text": "TAIL BARB",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    }
+  ],
+  "unsupported": [],
+  "uncertain": [
+    {
+      "id": "c3",
+      "where": "audiencePromise",
+      "text": "Follow Beedrill's three stingers to reveal why the tail barb is its most dangerous one.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[3].text"
+      ],
+      "note": "The tail barb has the most powerful poison, but the research does not explicitly establish it as the overall most dangerous stinger.",
+      "tier": "official",
+      "checkedBy": "model"
+    }
+  ]
+}

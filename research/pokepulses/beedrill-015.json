@@ -1,0 +1,172 @@
+{
+  "schemaVersion": 1,
+  "id": "beedrill-015",
+  "number": 15,
+  "index": "#015",
+  "name": "Beedrill",
+  "slug": "beedrill",
+  "category": "Poison Bee Pokémon",
+  "generation": "Generation I",
+  "isLegendary": false,
+  "isMythical": false,
+  "types": [
+    "Bug",
+    "Poison"
+  ],
+  "heightMeters": 1,
+  "weightKg": 29.5,
+  "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/15.png",
+  "pokedexEntries": [
+    {
+      "game": "Red",
+      "text": "Flies at high speed and attacks using its large venomous stingers on its forelegs and tail."
+    },
+    {
+      "game": "Yellow",
+      "text": "It has 3 poisonous stingers on its forelegs and its tail. They are used to jab its enemy repeatedly."
+    },
+    {
+      "game": "Gold",
+      "text": "It can take down any opponent with its powerful poi son stingers. It sometimes attacks in swarms."
+    },
+    {
+      "game": "Silver",
+      "text": "It has three poison barbs. The barb on its tail secretes the most powerful poison."
+    },
+    {
+      "game": "Crystal",
+      "text": "It uses sharp, poisonous stings to defeat prey, then takes the victim back to its nest for food."
+    },
+    {
+      "game": "Ruby",
+      "text": "BEEDRILL is extremely territorial. No one should ever approach its nest - this is for their own safety. If angered, they will attack in a furious swarm."
+    },
+    {
+      "game": "Emerald",
+      "text": "A BEEDRILL is extremely territorial. For safety reasons, no one should ever approach its nest. If angered, they will attack in a swarm."
+    },
+    {
+      "game": "Firered",
+      "text": "May appear in a swarm. Flies at violent speeds, all the while stabbing with the toxic stinger on its rear."
+    },
+    {
+      "game": "Leafgreen",
+      "text": "It flies at high speed and attacks using the large venomous stingers on its forelegs and tail."
+    },
+    {
+      "game": "Diamond",
+      "text": "Its best attack involves flying around at high speed, striking with poison needles, then flying off."
+    },
+    {
+      "game": "Heartgold",
+      "text": "It can take down any opponent with its powerful poison stingers. It sometimes attacks in swarms."
+    },
+    {
+      "game": "X",
+      "text": "It has three poisonous stingers on its forelegs and its tail. They are used to jab its enemy repeatedly."
+    },
+    {
+      "game": "Omega Ruby",
+      "text": "Beedrill is extremely territorial. No one should ever approach its nest—this is for their own safety. If angered, they will attack in a furious swarm."
+    }
+  ],
+  "evolutionChain": [
+    {
+      "name": "Weedle",
+      "index": "#013",
+      "stage": 1,
+      "types": [
+        "Bug",
+        "Poison"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/13.png",
+      "isSubject": false
+    },
+    {
+      "name": "Kakuna",
+      "index": "#014",
+      "stage": 2,
+      "evolvesFrom": "Weedle",
+      "method": "Level Up, level 7",
+      "types": [
+        "Bug",
+        "Poison"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/14.png",
+      "isSubject": false
+    },
+    {
+      "name": "Beedrill",
+      "index": "#015",
+      "stage": 3,
+      "evolvesFrom": "Kakuna",
+      "method": "Level Up, level 10",
+      "types": [
+        "Bug",
+        "Poison"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/15.png",
+      "isSubject": true
+    }
+  ],
+  "varieties": [
+    {
+      "name": "Beedrill Mega",
+      "types": [
+        "Bug",
+        "Poison"
+      ],
+      "heightMeters": 1.4,
+      "weightKg": 40.5,
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10090.png"
+    }
+  ],
+  "lore": [],
+  "tiers": {
+    "official": [
+      "name",
+      "index",
+      "number",
+      "category",
+      "generation",
+      "isLegendary",
+      "isMythical",
+      "types",
+      "heightMeters",
+      "weightKg",
+      "pokedexEntries",
+      "evolutionChain[].name",
+      "evolutionChain[].index",
+      "evolutionChain[].types",
+      "evolutionChain[].stage",
+      "varieties[].types",
+      "varieties[].heightMeters",
+      "varieties[].weightKg"
+    ],
+    "trusted_secondary": [
+      "evolutionChain[].method",
+      "evolutionChain[].evolvesFrom",
+      "varieties[].name"
+    ],
+    "community": [
+      "lore"
+    ]
+  },
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Beedrill",
+      "url": "https://www.pokemon.com/us/pokedex/beedrill",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Beedrill",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Beedrill_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Beedrill",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/15",
+      "tier": "trusted_secondary"
+    }
+  ]
+}
