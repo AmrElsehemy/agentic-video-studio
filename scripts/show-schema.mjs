@@ -18,6 +18,29 @@ export const fontsSchema = z.object({display: z.enum(DISPLAY_FONTS), body: z.enu
 /** The generated music bed: tempo and a repeating bass line (Hz). */
 export const musicBedSchema = z.object({bpm: z.number().min(60).max(180), notes: z.array(z.number().min(30).max(1000)).min(1).max(16)}).strict();
 
+/**
+ * How the show is uploaded to YouTube (npm run youtube:upload): the Studio
+ * fields that are otherwise clicked by hand on every video, plus the daily slot
+ * `--schedule=next` fills.
+ */
+export const youtubeSchema = z.object({
+  /** YouTube video category id: 24 is Entertainment, 27 Education. */
+  categoryId: z.string().regex(/^[0-9]+$/),
+  /** "Paid promotion" (includes a paid product placement). */
+  paidPromotion: z.boolean(),
+  /** "Altered content": realistic synthetic media. YouTube's own question, answered by the channel owner. */
+  alteredContent: z.boolean(),
+  /** "Audience": true is "Yes, it's made for kids". */
+  madeForKids: z.boolean(),
+  /** Playlist the video is added to; found by title, created (public) if the channel has none. */
+  playlist: z.string().min(1).optional(),
+  /** One release per day at this local time. */
+  schedule: z.object({
+    time: z.string().regex(/^([01][0-9]|2[0-3]):[0-5][0-9]$/, 'Expected HH:MM'),
+    timeZone: z.string().refine((zone) => { try { new Intl.DateTimeFormat('en', {timeZone: zone}); return true; } catch { return false; } }, 'Expected an IANA time zone'),
+  }).strict(),
+}).strict();
+
 export const showSchema = z.object({
   id: z.string().regex(/^[a-z0-9-]+$/),
   name: z.string().min(1),
@@ -42,6 +65,8 @@ export const showSchema = z.object({
    * its own release approval.
    */
   artworkClearance: reviewSchema.optional(),
+  /** Upload presets and release schedule for YouTube. */
+  youtube: youtubeSchema.optional(),
   /** Story shapes (archetypes/<name>.json) this show uses. */
   archetypes: z.array(z.string().regex(/^[a-z0-9-]+$/)).min(1),
 }).strict();

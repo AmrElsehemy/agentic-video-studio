@@ -13,6 +13,7 @@ Each file here defines one show. A new show is a new `shows/<id>.json` plus draf
 | `voice` | Default narration voice, speed, model and instructions. |
 | `notices` | Ownership and non-affiliation text written into every draft's rights. |
 | `subjects` | Optional rules for subjects: `identifierLabel` (e.g. "Pokédex number") and `identifierPattern`, a regular expression every `identifier` must match. |
+| `youtube` | Optional upload presets for `npm run youtube:upload`: `categoryId`, `paidPromotion`, `alteredContent`, `madeForKids`, `playlist`, and the daily `schedule` (`time`, `timeZone`). See `docs/YOUTUBE.md`. |
 | `archetypes` | Story shapes (`archetypes/<name>.json`) the show allows. |
 
 `shows/pokepulses.json` is the reference.

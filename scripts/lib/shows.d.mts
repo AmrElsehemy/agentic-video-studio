@@ -1,5 +1,14 @@
 import type {Review} from '../episode-fields.mjs';
 
+export type YoutubePresets = {
+  categoryId: string;
+  paidPromotion: boolean;
+  alteredContent: boolean;
+  madeForKids: boolean;
+  playlist?: string;
+  schedule: {time: string; timeZone: string};
+};
+
 export type ShowProfile = {
   id: string;
   name: string;
@@ -14,6 +23,7 @@ export type ShowProfile = {
   subjects?: {identifierLabel: string; identifierPattern: string};
   /** A recorded legal review allowing the show's subject artwork to be published without a licence. */
   artworkClearance?: Review;
+  youtube?: YoutubePresets;
   archetypes: string[];
 };
 

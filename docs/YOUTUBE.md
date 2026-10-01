@@ -22,7 +22,7 @@ Then authorize the PokePulses channel once:
 npm run youtube:auth
 ```
 
-The browser opens Google OAuth with the minimal `youtube.upload` scope. The refresh token is stored locally at `.secrets/youtube-token.json`.
+The browser opens Google OAuth for upload, channel management (needed to add videos to a playlist and to read your scheduled releases) and read-only analytics. If your token predates the playlist and schedule features, run this once more. The refresh token is stored locally at `.secrets/youtube-token.json`.
 
 For CI/unattended use, credentials can instead be supplied via `YOUTUBE_CLIENT_ID`, `YOUTUBE_CLIENT_SECRET`, and `YOUTUBE_REFRESH_TOKEN`.
 
@@ -61,9 +61,33 @@ Optional flags:
 ```text
 --made-for-kids=true|false
 --notify-subscribers=true|false
+--playlist=<title>|none
 ```
 
-The pipeline deliberately does not guess the made-for-kids declaration. Omit the flag unless the release owner has made that determination.
+## Show presets and the daily schedule
+
+The Studio fields you would otherwise click on every video live in the show profile's `youtube` block (`shows/<id>.json`), so the owner's decision is made once and written down. PokePulses:
+
+| Preset | Value |
+| --- | --- |
+| Category | Entertainment (`24`) |
+| Paid promotion | No |
+| Altered content ("AI use") | No |
+| Audience | Yes, made for kids |
+| Playlist | Pokemon Fun Facts (found by title, created if missing) |
+| Release | 07:00 every day, `Africa/Cairo` |
+
+`--made-for-kids` and `--playlist` override a preset for one upload. The made-for-kids and altered-content answers are legal declarations the channel owner makes; they are not inferred from the content.
+
+One release a day, filling the next free slot:
+
+```bash
+npm run youtube:upload -- charmander-004 --schedule=next
+```
+
+`--schedule=next` reads the channel's already scheduled videos, takes the first day without a release (gaps first, then the day after the last one) whose 07:00 is still at least 15 minutes away, and uploads as private with that `publishAt`. Check the slot first with `--dry-run`. For an exact time, use `--publish-at=<ISO>` instead.
+
+After the upload the video is added to the playlist. If that step fails the upload still stands: a warning says so, and the receipt records the error.
 
 ## Output
 

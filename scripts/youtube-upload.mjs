@@ -2,12 +2,13 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {spawnSync} from 'node:child_process';
 import {findManifest, resolveEpisodeId} from './catalog.mjs';
-import {getAccessToken, youtubeMetadata} from './lib/youtube.mjs';
+import {addToPlaylist, findOrCreatePlaylist, getAccessToken, listScheduledPublishTimes, nextReleaseSlot, youtubeMetadata} from './lib/youtube.mjs';
+import {loadShow} from './lib/shows.mjs';
 import {analyticsPath, linkVideo, readAnalytics, writeAnalytics} from './lib/analytics.mjs';
 
 const args = process.argv.slice(2);
 const episodeId = resolveEpisodeId(args.find((arg) => !arg.startsWith('--')));
-if (!episodeId) throw new Error('Usage: npm run youtube:upload -- <episode-id> [--privacy=private|unlisted|public] [--publish-at=<ISO>] [--made-for-kids=true|false] [--notify-subscribers=true|false] [--dry-run]');
+if (!episodeId) throw new Error('Usage: npm run youtube:upload -- <episode-id> [--privacy=private|unlisted|public] [--publish-at=<ISO>|--schedule=next] [--playlist=<title>|none] [--made-for-kids=true|false] [--notify-subscribers=true|false] [--dry-run]');
 
 const valueOf = (name) => args.find((arg) => arg.startsWith(`--${name}=`))?.slice(name.length + 3);
 const has = (name) => args.includes(`--${name}`);
@@ -20,15 +21,36 @@ const boolArg = (name) => {
 
 const privacy = valueOf('privacy') ?? 'private';
 if (!['private', 'unlisted', 'public'].includes(privacy)) throw new Error(`Unsupported privacy: ${privacy}`);
-const publishAt = valueOf('publish-at');
-const madeForKids = boolArg('made-for-kids');
+const scheduleArg = valueOf('schedule');
+if (scheduleArg !== undefined && scheduleArg !== 'next') throw new Error('--schedule only supports "next": the next free daily slot. Use --publish-at=<ISO> for an exact time.');
+if (scheduleArg && valueOf('publish-at')) throw new Error('Use either --schedule=next or --publish-at, not both.');
 const notifySubscribers = boolArg('notify-subscribers') ?? false;
 const dryRun = has('dry-run');
 
 const {root, manifestPath} = findManifest(episodeId);
 const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+const presets = loadShow(manifest.show.id).youtube;
+const madeForKids = boolArg('made-for-kids') ?? presets?.madeForKids;
+const playlistArg = valueOf('playlist');
+const playlistTitle = playlistArg === 'none' ? undefined : playlistArg ?? presets?.playlist;
 const videoPath = path.join(root, 'out', `${episodeId}.mp4`);
 if (!fs.existsSync(videoPath)) throw new Error(`Missing rendered video: ${path.relative(root, videoPath)}. Render it first.`);
+
+let accessToken;
+let publishAt = valueOf('publish-at');
+if (scheduleArg) {
+  if (!presets) throw new Error(`shows/${manifest.show.id}.json has no "youtube" block with a schedule; add one or use --publish-at.`);
+  let taken = [];
+  try {
+    accessToken = await getAccessToken(root);
+    taken = await listScheduledPublishTimes(accessToken);
+  } catch (error) {
+    if (!dryRun) throw error;
+    console.warn(`⚠ could not read the channel's scheduled videos (${error instanceof Error ? error.message : error}); the slot below assumes nothing is scheduled.`);
+  }
+  publishAt = nextReleaseSlot(presets.schedule, taken).toISOString();
+  console.log(`▶ next free slot: ${publishAt} (${presets.schedule.time} ${presets.schedule.timeZone}; ${taken.length} already scheduled)`);
+}
 
 const requiresPublicReleaseClearance = privacy !== 'private' || Boolean(publishAt);
 if (requiresPublicReleaseClearance) {
@@ -36,11 +58,19 @@ if (requiresPublicReleaseClearance) {
   if (preflight.status !== 0) process.exit(preflight.status ?? 1);
 }
 
-const metadata = youtubeMetadata(manifest, {privacy, publishAt, madeForKids});
+const metadata = youtubeMetadata(manifest, {
+  privacy,
+  publishAt,
+  madeForKids,
+  categoryId: presets?.categoryId,
+  alteredContent: presets?.alteredContent,
+  paidPromotion: presets?.paidPromotion,
+});
 const preview = {
   episodeId,
   file: path.relative(root, videoPath),
   notifySubscribers,
+  playlist: playlistTitle ?? null,
   ...metadata,
 };
 
@@ -49,11 +79,11 @@ if (dryRun) {
   process.exit(0);
 }
 
-const accessToken = await getAccessToken(root);
+accessToken ??= await getAccessToken(root);
 const stat = fs.statSync(videoPath);
 const initUrl = new URL('https://www.googleapis.com/upload/youtube/v3/videos');
 initUrl.searchParams.set('uploadType', 'resumable');
-initUrl.searchParams.set('part', 'snippet,status');
+initUrl.searchParams.set('part', Object.keys(metadata).join(','));
 initUrl.searchParams.set('notifySubscribers', String(notifySubscribers));
 
 const initResponse = await fetch(initUrl, {
@@ -94,7 +124,20 @@ const receipt = {
   scheduledPublishAt: metadata.status.publishAt ?? null,
   notifySubscribers,
   title: metadata.snippet.title,
+  playlist: null,
 };
+// The upload has succeeded, so a playlist problem only warns; the receipt keeps the video id to retry by hand.
+if (playlistTitle) {
+  try {
+    const playlist = await findOrCreatePlaylist(accessToken, playlistTitle);
+    await addToPlaylist(accessToken, playlist.id, video.id);
+    receipt.playlist = {title: playlistTitle, id: playlist.id};
+    console.log(`✓ added to playlist "${playlistTitle}"${playlist.created ? ' (created)' : ''}`);
+  } catch (error) {
+    receipt.playlistError = error instanceof Error ? error.message : String(error);
+    console.warn(`⚠ uploaded, but not added to playlist "${playlistTitle}": ${receipt.playlistError}`);
+  }
+}
 const receiptPath = path.join(root, 'out', `${episodeId}-youtube.json`);
 fs.writeFileSync(receiptPath, `${JSON.stringify(receipt, null, 2)}\n`);
 // Link the episode to its video for npm run analytics (committed, unlike the receipt in out/).
