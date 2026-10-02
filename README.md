@@ -186,6 +186,21 @@ Every push and pull request runs the global checks (validate, typecheck, tests).
 - Each full render uploads the MP4, a **contact sheet** (one frame per scene), the cover, the description and the **video critic's review**; the frame check uploads the same minus the MP4, plus the frames. Large selections are batched into at most 64 render jobs.
 - Run the frame check locally with `npm run frames -- <id> [<id> ...]`, then `npm run sheet -- <id> --frames` and `npm run critic:video -- <id> --frames`.
 
+## Visual review (approve what changed)
+
+Every visual change gets a before/after page a person approves:
+
+```bash
+npm run review:visual                      # golden PokePulses episodes + every Geographica episode, against origin/master
+npm run review:visual -- lesotho-enclave   # chosen episodes (--all for everything, --base=<ref> for another baseline)
+```
+
+It renders each scene's review frame and the cover from the base ref (in a temporary git worktree) and from your working tree, on the same machine, so unchanged code gives pixel-identical frames.
+- **The page:** `out/visual-review/index.html` shows unchanged frames once. Changed frames appear as before, after and a brightened difference.
+- **PokePulses:** must stay pixel-identical. Any change fails the run unless you pass `--allow-change`.
+
+In CI, every pull request that touches shared code runs the same review on the golden set and uploads the page with the frame-check results. A PokePulses change fails the PR unless it carries the label `pokepulses-visual-change`, which records that the change was reviewed and intended.
+
 ## Video critic
 
 `npm run critic:video -- <id>` reviews a rendered episode (`npm run video`, plus `npm run still` for the cover) one mid-scene frame at a time, and exits non-zero on any blocking issue. CI runs it after every render, and `episode:new --render` runs it too.

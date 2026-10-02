@@ -4,6 +4,8 @@ on:
   push:
     branches: [master]
   pull_request:
+    # labeled: re-run when a PR is marked pokepulses-visual-change.
+    types: [opened, synchronize, reopened, labeled]
   # Full-catalog regression: nightly, and on demand from the Actions tab.
   schedule:
     - cron: '17 3 * * *'
@@ -63,6 +65,9 @@ jobs:
     if: needs.validate.outputs.frames != ''
     steps:
       - uses: actions/checkout@v4
+        with:
+          # The visual review renders the base branch too.
+          fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
           node-version: 22
@@ -93,6 +98,14 @@ jobs:
             echo "::endgroup::"
           done
           if [ -n "$failed" ]; then echo "::error::Video critic found blocking issues in:$failed"; exit 1; fi
+      # PokePulses must look exactly as before unless the PR is labelled as an intended change.
+      # The before/after page (out/visual-review/index.html) is uploaded for approval either way.
+      - name: Visual review against the base branch
+        if: always() && github.event_name == 'pull_request'
+        env:
+          BASE_REF: ${{ github.base_ref }}
+          ALLOW: ${{ contains(github.event.pull_request.labels.*.name, 'pokepulses-visual-change') && '--allow-change' || '' }}
+        run: npm run review:visual -- --base=origin/$BASE_REF $ALLOW
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -103,6 +116,7 @@ jobs:
             out/*-cover.png
             out/*-description.txt
             out/*-video-review.json
+            out/visual-review/index.html
           if-no-files-found: warn
 
   # GeoMotion: render the map golden shots and compare them with test/golden/geo/.
