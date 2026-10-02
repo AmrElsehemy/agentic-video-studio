@@ -104,7 +104,7 @@ export const shotToPrimitive = (shot, {places, research}) => {
     }
     return {...annotation, anchor: anchor(ref, where)};
   });
-  const parsed = primitiveSchema.safeParse({kind: 'geo-map', camera, highlights, annotations});
+  const parsed = primitiveSchema.safeParse({kind: 'geo-map', camera, highlights, annotations, ...(shot.cut === true ? {cut: true} : {})});
   if (!parsed.success) throw new Error(parsed.error.issues.map((issue) => `${issue.path.join('.') || 'shot'}: ${issue.message}`).join('; '));
   return parsed.data;
 };
@@ -137,6 +137,7 @@ Rules:
 - Text is at most 28 characters. Every number in a text must appear in the research claims.
 - A good sequence moves: open wide (the world or a region), then push in; vary framings between scenes; reveal with a trace or fill; keep labels to what the narration names.
 - Disputed areas can be highlighted (outline) when the narration is about them; never frame them alone.
+- Consecutive scenes are one continuous flight: each scene's camera starts where the previous one ended and flies to its first target. Plan the episode as one journey. Add "cut": true only when the story jumps somewhere unrelated.
 
 Reply with a JSON object only: {"scenes": [<shot>, ...]}`,
   messages: [{role: 'user', content: `Places (id: name, kind):\n${[...places.values()].map((place) => `- ${place.id}: ${place.name}, ${place.kind}`).join('\n')}\n\nNamed points:\n${Object.entries(research.places).map(([key, place]) => `- ${key}${place.approximate ? ' (APPROXIMATE)' : ''}${place.note ? `: ${place.note}` : ''}`).join('\n') || '- none'}\n\nResearch claims:\n${research.claims.map((claim) => `- ${claim.text}`).join('\n')}\n\nScenes:\n${JSON.stringify(draft.scenes.map((scene) => ({id: scene.id, headline: scene.headline, narration: scene.narration, caption: scene.caption})), null, 2)}`}],

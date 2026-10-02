@@ -55,6 +55,9 @@ export const primitiveSchema = z.discriminatedUnion('kind', [
     annotations: z.array(geoAnnotation).max(4).default([]),
     // The pinned map dataset the ids refer to (see docs/geomotion-data.md).
     dataset: z.literal('natural-earth').default('natural-earth'),
+    // A map scene that follows another continues its camera (one unbroken flight);
+    // cut: true starts this scene's camera fresh instead.
+    cut: z.boolean().optional(),
   }).strict(),
 ]).superRefine((primitive, context) => {
   if (primitive.kind === 'geo-map') {

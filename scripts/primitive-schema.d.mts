@@ -19,7 +19,7 @@ export type GeoAnnotation =
   | {type: 'label'; anchor: GeoAnchor; text: string; at: number}
   | {type: 'marker'; anchor: GeoAnchor; text?: string; at: number}
   | {type: 'arrow'; from: GeoAnchor; to: GeoAnchor; text?: string; at: number};
-export type GeoMapPrimitive = {kind: 'geo-map'; camera: GeoCameraKey[]; highlights: GeoHighlight[]; annotations: GeoAnnotation[]; dataset: 'natural-earth'};
+export type GeoMapPrimitive = {kind: 'geo-map'; camera: GeoCameraKey[]; highlights: GeoHighlight[]; annotations: GeoAnnotation[]; dataset: 'natural-earth'; cut?: boolean};
 export type PrimitiveKind = Primitive['kind'];
 
 export declare const GEO_ENTITY_ID: RegExp;

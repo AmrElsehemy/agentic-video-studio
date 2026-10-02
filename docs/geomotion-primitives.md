@@ -25,7 +25,8 @@ The issue proposed `geo-map`, `geo-highlight` and `geo-annotation` as separate p
     {"type": "marker", "anchor": {"lon": 44.79, "lat": 41.72}, "text": "TBILISI", "at": 0.3},
     {"type": "arrow", "from": "water:caspian-sea", "to": "country:GEO", "at": 0.6}
   ],
-  "dataset": "natural-earth"                                        // the pinned map data (default)
+  "dataset": "natural-earth",                                       // the pinned map data (default)
+  "cut": true                                                       // optional: start this scene's camera fresh (see Continuity)
 }
 ```
 
@@ -48,6 +49,16 @@ The issue proposed `geo-map`, `geo-highlight` and `geo-annotation` as separate p
 - **Visual Director:** map shots are chosen by the Geo Visual Director from resolved places and researched points, never raw coordinates ([docs/geomotion-director.md](geomotion-director.md)). The PokePulses Visual Director doesn't offer `geo-map`.
 
 Existing episodes are unaffected: all current drafts compile to their committed manifests byte for byte.
+
+## Continuity (#85)
+
+Consecutive map scenes are one unbroken flight, by default:
+- **Camera:** a map scene that follows another starts its camera at the previous scene's last view. It reaches its own first framing by 35% of the scene, or halfway to its next keyframe if that comes sooner.
+- **Scene change:** the map and backdrop stay on screen. Only the headline, caption and the outgoing scene's highlights and labels fade out, over its last 8 frames.
+- **Opting out:** set `"cut": true` on a scene to start its camera fresh, with the usual fade between scenes.
+- **Where it applies:** scenes without a map, and scene changes into or out of one, are unchanged (PokePulses has no map scenes).
+
+`npm run review:visual` shows eight moments around every change between map scenes ("Scene changes" strips), before and after.
 
 ## Renderer (#72)
 
