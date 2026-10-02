@@ -9,11 +9,14 @@
 //   --base=<ref>            compare against another ref
 //   --strict=<show,...>     shows that must stay pixel-identical (default: pokepulses)
 //   --allow-change          report changes in strict shows without failing
+//   --no-render             rebuild the page from the last run's frames
 // Writes out/visual-review/index.html (open it, or publish it for review) and
 // exits non-zero when a strict show changed.
 import {spawnSync} from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
+import {bundle} from '@remotion/bundler';
+import {openBrowser, renderStill, selectComposition} from '@remotion/renderer';
 import {episodeIds, findManifest, repoRoot as root, resolveEpisodeId} from './catalog.mjs';
 
 const args = process.argv.slice(2);
@@ -60,6 +63,47 @@ const renderSide = (dir, side, ids) => {
   }
 };
 
+/** Frames around each scene change, relative to the first frame of the next scene: the motion across the seam. */
+export const STRIP_OFFSETS = [-12, -6, -1, 0, 6, 12, 24, 45];
+
+/** Scene changes between two map scenes, as [index of the next scene, its first frame]. */
+const mapSeams = (manifest) => {
+  const seams = [];
+  let start = 0;
+  manifest.scenes.forEach((scene, index) => {
+    if (index > 0 && scene.primitive?.kind === 'geo-map' && manifest.scenes[index - 1].primitive?.kind === 'geo-map') seams.push([index, start]);
+    start += Math.round(scene.durationSeconds * manifest.format.fps);
+  });
+  return seams;
+};
+
+/** Render the frames around every map scene change, from the props frame-check wrote in `dir`. */
+const renderStrips = async (dir, side, ids) => {
+  const withSeams = ids.filter((id) => fs.existsSync(path.join(dir, 'out', `${id}.props.json`)))
+    .map((id) => ({id, manifest: JSON.parse(fs.readFileSync(path.join(dir, 'out', `${id}.props.json`), 'utf8')).manifest}))
+    .filter(({manifest}) => mapSeams(manifest).length);
+  if (!withSeams.length) return;
+  console.log(`▶ rendering scene-change strips at ${side === 'base' ? base : 'the working tree'}`);
+  const serveUrl = await bundle({entryPoint: path.join(dir, 'src', 'index.ts'), rootDir: dir, publicDir: path.join(dir, 'public')});
+  const browser = await openBrowser('chrome', {browserExecutable: process.env.REMOTION_BROWSER_EXECUTABLE || null});
+  try {
+    for (const {id, manifest} of withSeams) {
+      const inputProps = {manifest};
+      const composition = await selectComposition({serveUrl, id: 'VerticalEpisode', inputProps, puppeteerInstance: browser});
+      const target = path.join(outDir, side, id, 'strips');
+      fs.mkdirSync(target, {recursive: true});
+      for (const [index, first] of mapSeams(manifest)) {
+        for (const offset of STRIP_OFFSETS) {
+          const frame = Math.max(0, Math.min(composition.durationInFrames - 1, first + offset));
+          await renderStill({composition, serveUrl, inputProps, frame, output: path.join(target, `${String(index).padStart(2, '0')}_${offset}.png`), imageFormat: 'png', scale: .5, puppeteerInstance: browser, overwrite: true});
+        }
+      }
+    }
+  } finally {
+    await browser.close({silent: true});
+  }
+};
+
 const pixels = (file) => run('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-i', file, '-f', 'md5', '-'], {}).trim();
 const ssim = (a, b) => Number(spawnSync('ffmpeg', ['-hide_banner', '-i', a, '-i', b, '-lavfi', 'ssim', '-f', 'null', '-'], {encoding: 'utf8'}).stderr.match(/All:([\d.]+)/)?.[1] ?? 0);
 const thumb = (file, filters = 'scale=360:-2') => {
@@ -75,7 +119,7 @@ const diffThumb = (a, b) => {
 const compareEpisode = (id) => {
   const before = path.join(outDir, 'base', id);
   const after = path.join(outDir, 'head', id);
-  const files = [...new Set([...(fs.existsSync(before) ? fs.readdirSync(before) : []), ...(fs.existsSync(after) ? fs.readdirSync(after) : [])])].sort((x, y) => (x === 'cover.png') - (y === 'cover.png') || x.localeCompare(y));
+  const files = [...new Set([...(fs.existsSync(before) ? fs.readdirSync(before) : []), ...(fs.existsSync(after) ? fs.readdirSync(after) : [])])].filter((file) => file.endsWith('.png')).sort((x, y) => (x === 'cover.png') - (y === 'cover.png') || x.localeCompare(y));
   const manifest = JSON.parse(fs.readFileSync(findManifest(id).manifestPath, 'utf8'));
   const frames = files.map((file) => {
     const a = path.join(before, file);
@@ -88,8 +132,18 @@ const compareEpisode = (id) => {
     return {label, status: 'changed', ssim: ssim(a, b), before: thumb(a), after: thumb(b), diff: diffThumb(a, b)};
   });
   const show = manifest.show.id;
-  const status = !fs.existsSync(before) ? 'new' : frames.some((frame) => frame.status !== 'identical') ? 'changed' : 'identical';
-  return {id, show, title: manifest.title, status, strict: strictShows.includes(show), frames};
+  // Scene-change strips: the same moments before and after, one row each.
+  const strips = mapSeams(manifest).map(([index]) => {
+    const name = (offset) => `${String(index).padStart(2, '0')}_${offset}.png`;
+    const cells = STRIP_OFFSETS.map((offset) => {
+      const [a, b] = [path.join(before, 'strips', name(offset)), path.join(after, 'strips', name(offset))];
+      const has = [fs.existsSync(a), fs.existsSync(b)];
+      return {offset, before: has[0] ? thumb(a, 'scale=180:-2') : null, after: has[1] ? thumb(b, 'scale=180:-2') : null, same: has[0] && has[1] && pixels(a) === pixels(b)};
+    });
+    return {label: `Scene ${index} → ${index + 1} (${manifest.scenes[index - 1].id} → ${manifest.scenes[index].id})`, cells, changed: cells.some((cell) => !cell.same)};
+  });
+  const status = !fs.existsSync(before) ? 'new' : frames.some((frame) => frame.status !== 'identical') || strips.some((strip) => strip.changed) ? 'changed' : 'identical';
+  return {id, show, title: manifest.title, status, strict: strictShows.includes(show), frames, strips};
 };
 
 const escape = (text) => String(text).replace(/[&<>"]/g, (c) => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;'}[c]));
@@ -105,6 +159,10 @@ const page = ({episodes, head, baseCommit}) => {
       ? `<figure><img src="${f.before}" alt="Before: ${escape(f.label)}"><figcaption>Before</figcaption></figure><figure><img src="${f.after}" alt="After: ${escape(f.label)}"><figcaption>After</figcaption></figure><figure><img src="${f.diff}" alt="Difference: ${escape(f.label)}"><figcaption>Difference · SSIM ${f.ssim.toFixed(4)}</figcaption></figure>`
       : `<figure><img src="${f.after ?? f.before}" alt="${escape(f.label)}"><figcaption>${f.status === 'identical' ? 'Identical to before' : f.status === 'new' ? 'New' : 'Removed'}</figcaption></figure>`;
     return `<div class="frame ${f.status}"><h4>${escape(f.label)} <span class="chip ${f.status}">${f.status}</span></h4><div class="cells">${cells}</div></div>`;
+  };
+  const stripHtml = (strip) => {
+    const row = (side) => `<div class="strip-row"><span class="side">${side === 'before' ? 'Before' : 'After'}</span>${strip.cells.map((cell) => `<figure>${cell[side] ? `<img src="${cell[side]}" alt="${side} ${cell.offset} frames">` : '<div class="missing">—</div>'}<figcaption>${cell.offset > 0 ? '+' : ''}${cell.offset}</figcaption></figure>`).join('')}</div>`;
+    return `<div class="strip"><h4>${escape(strip.label)} <span class="chip ${strip.changed ? 'changed' : 'identical'}">${strip.changed ? 'changed' : 'identical'}</span></h4><div class="strip-scroll">${row('before')}${row('after')}</div></div>`;
   };
   return `<title>Visual Review</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -132,6 +190,12 @@ section.episode{background:var(--paper);border:1px solid var(--rule);border-radi
 .frames{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px}
 .frame{display:grid;gap:6px;min-width:0}
 .frame.changed{grid-column:1/-1}
+.strips{display:grid;gap:16px;border-top:1px solid var(--rule);padding-top:14px}
+.strips>p{margin:0;color:var(--muted);font-size:13px;max-width:70ch}
+.strip{display:grid;gap:8px;min-width:0}.strip-scroll{overflow-x:auto;display:grid;gap:6px;padding-bottom:4px}
+.strip-row{display:grid;grid-template-columns:52px repeat(8,96px);gap:6px;align-items:center}
+.strip-row .side{font-family:var(--mono);font-size:11px;color:var(--muted)}
+.strip-row figcaption{text-align:center}.missing{aspect-ratio:9/16;display:grid;place-items:center;color:var(--muted);border:1px dashed var(--rule);border-radius:4px}
 .cells{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,240px));gap:10px}
 figure{margin:0;display:grid;gap:4px}figure img{width:100%;border-radius:4px;border:1px solid var(--rule);background:var(--bg)}
 figcaption{font-family:var(--mono);font-size:11px;color:var(--muted)}
@@ -141,33 +205,38 @@ figcaption{font-family:var(--mono);font-size:11px;color:var(--muted)}
 <div class="summary"><span>${episodes.length} episodes</span><span>${counts('identical')} identical</span><span>${counts('changed')} changed</span><span>${counts('new')} new</span></div>
 ${verdict}
 <p class="how">Each episode shows the frame of every scene that the video critic reads, plus its cover. Frames that did not change appear once. Changed frames show before, after and the difference (bright = changed pixels). Approve the changes you expect; anything else is a regression.</p>
-${episodes.map((episode) => `<section class="episode"><header><h2>${escape(episode.id)}</h2><span class="chip show">${escape(episode.show)}${episode.strict ? ' · must not change' : ''}</span><span class="chip ${episode.status}">${episode.status}</span><p>${escape(episode.title)}</p></header><div class="frames">${episode.frames.map(frame).join('')}</div></section>`).join('\n')}
+${episodes.map((episode) => `<section class="episode"><header><h2>${escape(episode.id)}</h2><span class="chip show">${escape(episode.show)}${episode.strict ? ' · must not change' : ''}</span><span class="chip ${episode.status}">${episode.status}</span><p>${escape(episode.title)}</p></header><div class="frames">${episode.frames.map(frame).join('')}</div>${episode.strips.length ? `<div class="strips"><h3 style="margin:0;font-size:15px">Scene changes</h3><p>Eight moments around each change between map scenes, in frames from the first frame of the next scene (30 frames = 1 second).</p>${episode.strips.map(stripHtml).join('')}</div>` : ''}</section>`).join('\n')}
 </main>`;
 };
 
 const ids = chosen();
-fs.rmSync(path.join(outDir, 'base'), {recursive: true, force: true});
-fs.rmSync(path.join(outDir, 'head'), {recursive: true, force: true});
-spawnSync('git', ['worktree', 'remove', '--force', worktree], {cwd: root});
-fs.rmSync(worktree, {recursive: true, force: true});
-fs.mkdirSync(outDir, {recursive: true});
+const reuse = args.includes('--no-render');
 const baseCommit = run('git', ['rev-parse', '--short', base], {cwd: root}).trim();
 const head = run('git', ['rev-parse', '--abbrev-ref', 'HEAD'], {cwd: root}).trim();
-run('git', ['worktree', 'add', '--detach', worktree, base], {cwd: root});
-try {
-  // Same lockfile: share the installed dependencies. A different lockfile (a
-  // Remotion or font upgrade) can change pixels by itself, so the base gets its own install.
-  const lockfile = (dir) => fs.readFileSync(path.join(dir, 'package-lock.json'), 'utf8');
-  if (lockfile(worktree) === lockfile(root)) {
-    fs.symlinkSync(path.join(root, 'node_modules'), path.join(worktree, 'node_modules'), 'dir');
-  } else {
-    console.log(`▶ package-lock.json differs from ${base}: installing the base's dependencies`);
-    run(process.platform === 'win32' ? 'npm.cmd' : 'npm', ['ci', '--no-audit', '--no-fund'], {cwd: worktree});
-  }
-  renderSide(worktree, 'base', ids.filter((id) => showOf(worktree, id)));
-  renderSide(root, 'head', ids);
-} finally {
+if (!reuse) {
+  fs.rmSync(path.join(outDir, 'base'), {recursive: true, force: true});
+  fs.rmSync(path.join(outDir, 'head'), {recursive: true, force: true});
   spawnSync('git', ['worktree', 'remove', '--force', worktree], {cwd: root});
+  fs.rmSync(worktree, {recursive: true, force: true});
+  fs.mkdirSync(outDir, {recursive: true});
+  run('git', ['worktree', 'add', '--detach', worktree, base], {cwd: root});
+  try {
+    // Same lockfile: share the installed dependencies. A different lockfile (a
+    // Remotion or font upgrade) can change pixels by itself, so the base gets its own install.
+    const lockfile = (dir) => fs.readFileSync(path.join(dir, 'package-lock.json'), 'utf8');
+    if (lockfile(worktree) === lockfile(root)) {
+      fs.symlinkSync(path.join(root, 'node_modules'), path.join(worktree, 'node_modules'), 'dir');
+    } else {
+      console.log(`▶ package-lock.json differs from ${base}: installing the base's dependencies`);
+      run(process.platform === 'win32' ? 'npm.cmd' : 'npm', ['ci', '--no-audit', '--no-fund'], {cwd: worktree});
+    }
+    renderSide(worktree, 'base', ids.filter((id) => showOf(worktree, id)));
+    renderSide(root, 'head', ids);
+    await renderStrips(worktree, 'base', ids);
+    await renderStrips(root, 'head', ids);
+  } finally {
+    spawnSync('git', ['worktree', 'remove', '--force', worktree], {cwd: root});
+  }
 }
 const episodes = ids.map(compareEpisode);
 fs.writeFileSync(path.join(outDir, 'index.html'), page({episodes, head, baseCommit}));

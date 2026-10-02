@@ -14,6 +14,8 @@ export type ShotProps = {
   frame: number;
   durationInFrames: number;
   accent: string;
+  /** Map continuity with the neighbouring scenes (#85); absent outside an episode (e.g. on the cover). */
+  seams?: {in: boolean; out: boolean};
 };
 
 /** Shots that draw the scene headline themselves, large. */

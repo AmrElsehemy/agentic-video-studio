@@ -5,7 +5,7 @@ import {interpolate} from 'remotion';
 import type {GeoAnchor, GeoMapPrimitive} from '../../../scripts/primitive-schema.mjs';
 import type {ShotProps} from '../shots';
 import {displayFont} from '../typography';
-import {cameraAt, cameraKeys, MAP_SIZE, type BBox, type CameraKey, type Size} from './camera';
+import {cameraAt, cameraKeys, episodeCameraKeys, MAP_SIZE, type BBox, type CameraKey, type Size} from './camera';
 import {useGeoData, type GeoData} from './data';
 
 // A map drawn entirely from the pinned data and the primitive: the camera flies
@@ -80,12 +80,15 @@ const Label: React.FC<{x: number; y: number; text: string; opacity: number; colo
     style={{fontFamily: displayFont, fontSize: size, letterSpacing: 3, fill: color, stroke: halo, strokeWidth: 10, paintOrder: 'stroke', strokeLinejoin: 'round'}}>{text}</text>
 );
 
-export const GeoMapVisual: React.FC<ShotProps & {data: GeoMapPrimitive}> = ({data: primitive, manifest, frame, durationInFrames, accent}) => {
+export const GeoMapVisual: React.FC<ShotProps & {data: GeoMapPrimitive}> = ({data: primitive, scene, manifest, frame, durationInFrames, accent, seams}) => {
   const data = useGeoData();
   const keys = useMemo<CameraKey[] | undefined>(() => {
     if (!data) return undefined;
-    return cameraKeys(primitive.camera, (target) => targetBox(target, data), SIZE);
-  }, [data, primitive]);
+    const boxOf = (target: Exclude<GeoMapPrimitive['camera'][number]['target'], 'world'>) => targetBox(target, data);
+    // A scene that continues the previous map starts the camera where that scene ended.
+    if (seams?.in) return episodeCameraKeys(manifest.scenes, manifest.scenes.findIndex((item) => item.id === scene.id), boxOf, SIZE);
+    return cameraKeys(primitive.camera, boxOf, SIZE);
+  }, [data, primitive, seams?.in, manifest, scene.id]);
   if (!data || !keys) return null;
 
   const t = durationInFrames > 1 ? frame / (durationInFrames - 1) : 0;
@@ -97,6 +100,8 @@ export const GeoMapVisual: React.FC<ShotProps & {data: GeoMapPrimitive}> = ({dat
   const {palette} = manifest;
   // Projecting every country each frame is the render's main cost; skip those whose box is off screen.
   const onScreen = visibleFilter(projection);
+  // When the next scene continues this map, the map stays on screen and only this scene's layers fade out.
+  const outro = seams?.out ? interpolate(frame, [Math.max(0, durationInFrames - 8), durationInFrames], [1, 0], clamp) : 1;
   const labels = primitive.annotations.filter((annotation): annotation is Extract<GeoMapPrimitive['annotations'][number], {type: 'label'}> => annotation.type === 'label');
 
   return <svg width={SIZE.width} height={SIZE.height} viewBox={`0 0 ${SIZE.width} ${SIZE.height}`} style={{position: 'absolute', inset: 0, borderRadius: 36, overflow: 'hidden'}}>
@@ -113,6 +118,7 @@ export const GeoMapVisual: React.FC<ShotProps & {data: GeoMapPrimitive}> = ({dat
       {data.countries.filter((feature) => onScreen(data.entities.get(String(feature.id))?.bbox)).map((feature) => <path key={String(feature.id)} d={path(feature) ?? ''} fill={palette.surface} stroke={palette.ink} strokeOpacity=".28" strokeWidth={1.2} />)}
     </g>
 
+    <g opacity={outro}>
     {primitive.highlights.map((highlight, index) => {
       const feature = data.features.get(highlight.entity);
       if (!feature) throw new Error(`Unknown geo entity ${highlight.entity}`);
@@ -182,5 +188,6 @@ export const GeoMapVisual: React.FC<ShotProps & {data: GeoMapPrimitive}> = ({dat
       }
       return <Label key={index} x={x} y={y} text={annotation.text} opacity={shown} color={palette.ink} halo={palette.background} />;
     })}
+    </g>
   </svg>;
 };

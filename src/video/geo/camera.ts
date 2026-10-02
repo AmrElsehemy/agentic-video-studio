@@ -58,6 +58,34 @@ export const cameraKeys = (camera: {target: CameraTarget; at: number; padding: n
   }));
 };
 
+/**
+ * Continuity (#85): consecutive map scenes are one flight. A scene that
+ * continues starts at the previous scene's last view and reaches its own first
+ * framing by CONTINUE_AT of the scene (or halfway to its next keyframe).
+ */
+export const CONTINUE_AT = .35;
+
+type SceneLike = {primitive?: {kind: string; cut?: boolean} | null};
+/** Whether scene `index` continues the map of the scene before it. */
+export const continuesMap = (scenes: SceneLike[], index: number) => index > 0 && index < scenes.length
+  && scenes[index].primitive?.kind === 'geo-map' && scenes[index - 1].primitive?.kind === 'geo-map' && !scenes[index].primitive?.cut;
+
+/** A scene's keys, starting from `from` (the previous scene's last view). */
+export const continueKeys = (keys: CameraKey[], from: View): CameraKey[] => {
+  const arrive = keys.length > 1 ? Math.min(CONTINUE_AT, keys[1].at / 2) : CONTINUE_AT;
+  return [{view: from, at: 0, ease: 'in-out'}, {...keys[0], at: arrive}, ...keys.slice(1)];
+};
+
+type CameraPrimitive = {camera: Parameters<typeof cameraKeys>[0]};
+/** Camera keys for scene `index`, following the continuous run of map scenes before it. */
+export const episodeCameraKeys = (scenes: (SceneLike & {primitive?: unknown})[], index: number, boxOf: Parameters<typeof cameraKeys>[1], size: Size = MAP_SIZE): CameraKey[] => {
+  let start = index;
+  while (continuesMap(scenes, start)) start--;
+  let keys = cameraKeys((scenes[start].primitive as unknown as CameraPrimitive).camera, boxOf, size);
+  for (let i = start + 1; i <= index; i++) keys = continueKeys(cameraKeys((scenes[i].primitive as unknown as CameraPrimitive).camera, boxOf, size), cameraAt(keys, 1));
+  return keys;
+};
+
 const easeInOut = (t: number) => (t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
 
 /**
