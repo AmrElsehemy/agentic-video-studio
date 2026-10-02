@@ -155,7 +155,15 @@ const baseCommit = run('git', ['rev-parse', '--short', base], {cwd: root}).trim(
 const head = run('git', ['rev-parse', '--abbrev-ref', 'HEAD'], {cwd: root}).trim();
 run('git', ['worktree', 'add', '--detach', worktree, base], {cwd: root});
 try {
-  fs.symlinkSync(path.join(root, 'node_modules'), path.join(worktree, 'node_modules'), 'dir');
+  // Same lockfile: share the installed dependencies. A different lockfile (a
+  // Remotion or font upgrade) can change pixels by itself, so the base gets its own install.
+  const lockfile = (dir) => fs.readFileSync(path.join(dir, 'package-lock.json'), 'utf8');
+  if (lockfile(worktree) === lockfile(root)) {
+    fs.symlinkSync(path.join(root, 'node_modules'), path.join(worktree, 'node_modules'), 'dir');
+  } else {
+    console.log(`▶ package-lock.json differs from ${base}: installing the base's dependencies`);
+    run(process.platform === 'win32' ? 'npm.cmd' : 'npm', ['ci', '--no-audit', '--no-fund'], {cwd: worktree});
+  }
   renderSide(worktree, 'base', ids.filter((id) => showOf(worktree, id)));
   renderSide(root, 'head', ids);
 } finally {
