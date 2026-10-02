@@ -1,0 +1,252 @@
+{
+  "schemaVersion": 2,
+  "id": "fearow-022",
+  "show": {
+    "id": "pokepulses",
+    "name": "PokePulses",
+    "handle": "@PokePulses",
+    "wordmark": {
+      "lead": "POKE",
+      "accent": "PULSES"
+    },
+    "fonts": {
+      "display": "Bebas Neue",
+      "body": "system"
+    }
+  },
+  "title": "Fearow Hunts Insects Hiding Underground",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "mystery",
+    "numberRelevant": false,
+    "premise": "Fearow’s long, thin beak can reach insects hiding beneath the ground.",
+    "audiencePromise": "Follow Fearow’s beak from the surface into the soil, then see how hidden insects become prey.",
+    "openLoop": "How does a flying Pokémon catch insects that think the ground protects them?",
+    "payoff": "Fearow deftly probes beneath the soil, plucks hidden insects out, and eats them.",
+    "targetEmotion": "surprise",
+    "engagementQuestion": "Ground hunter or sky hunter, which Fearow feels scarier?",
+    "targetSecondsBetweenVisualChanges": 0.68
+  },
+  "subject": {
+    "name": "Fearow",
+    "category": "Beak Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/22.png",
+    "identifier": "#022"
+  },
+  "related": [
+    {
+      "name": "Spearow",
+      "relation": "evolves-from",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/21.png",
+      "identifier": "#021"
+    }
+  ],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#10151a",
+    "surface": "#26323a",
+    "primary": "#c78748",
+    "secondary": "#d9b56d",
+    "ink": "#f7f1df"
+  },
+  "audio": {
+    "music": "generated/fearow-022-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 126,
+      "notes": [
+        110,
+        130.81,
+        146.83,
+        164.81,
+        146.83,
+        130.81,
+        98,
+        130.81
+      ]
+    },
+    "voice": {
+      "provider": "openai",
+      "model": "gpt-4o-mini-tts",
+      "voice": "marin",
+      "instructions": "{\"tone\":\"quietly ominous, then sharply revealing\",\"pacing\":\"measured at first, faster through the soil cutaway, with a clear pause before the final question\",\"delivery\":\"stress underground, thin beak, hidden, and plucks\"}",
+      "speed": 1.12,
+      "output": "generated/fearow-022-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "assets": [
+      {
+        "kind": "Fearow official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/22.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ],
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    }
+  },
+  "scenes": [
+    {
+      "id": "underground-is-not-safe",
+      "durationSeconds": 4,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "mystery",
+      "subjectFocus": "hidden",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "THE SOIL HAS A PROBLEM",
+      "headline": "UNDERGROUND IS NOT SAFE",
+      "narration": "Insects hide underground. Fearow still plucks them out.",
+      "caption": "A LONG BEAK ENTERS THE SOIL",
+      "visual": "hook",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/22.png",
+      "accent": "#d9b56d",
+      "facts": [
+        "HIDDEN INSECTS",
+        "LONG BEAK"
+      ]
+    },
+    {
+      "id": "a-beak-made-for-probing",
+      "durationSeconds": 3.9,
+      "beat": "clue",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "LOOK CLOSER",
+      "headline": "THIN. LONG. PRECISE.",
+      "narration": "Its thin, long beak is built for probing.",
+      "caption": "THE TOOL IS THE CLUE",
+      "visual": "gauntlet",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/22.png",
+      "accent": "#c78748",
+      "facts": [
+        "THIN BEAK",
+        "LONG BEAK"
+      ]
+    },
+    {
+      "id": "beneath-the-surface",
+      "durationSeconds": 4.3,
+      "beat": "escalation",
+      "role": "escalation",
+      "shot": "tracking",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "SOIL CUTAWAY",
+      "headline": "THE PREY THINKS IT'S HIDDEN",
+      "narration": "Below the soil, small insects think they are hidden.",
+      "caption": "SURFACE ABOVE • INSECTS BELOW",
+      "visual": "advantage",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/22.png",
+      "accent": "#d9b56d",
+      "facts": [
+        "SMALL INSECTS",
+        "UNDERGROUND"
+      ]
+    },
+    {
+      "id": "the-beak-reaches-down",
+      "durationSeconds": 4.2,
+      "beat": "reveal",
+      "role": "payoff",
+      "shot": "comparison",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "THE FIRST REVEAL",
+      "headline": "IT REACHES BENEATH THE GROUND",
+      "narration": "Fearow deftly moves that skinny beak beneath the ground.",
+      "caption": "THE BEAK PROBES DOWNWARD",
+      "visual": "race",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/22.png",
+      "accent": "#c78748",
+      "facts": [
+        "SKINNY BEAK",
+        "SOIL PREY"
+      ],
+      "primitive": {
+        "kind": "timeline",
+        "steps": [
+          {
+            "label": "FEAROW",
+            "detail": "LONG BEAK"
+          },
+          {
+            "label": "SOIL",
+            "detail": "HIDDEN PREY"
+          },
+          {
+            "label": "INSECTS",
+            "detail": "PLUCKED OUT"
+          }
+        ],
+        "active": 2
+      }
+    },
+    {
+      "id": "hidden-no-more",
+      "durationSeconds": 4.2,
+      "beat": "reveal",
+      "role": "payoff",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "THE SECOND REVEAL",
+      "headline": "HIDDEN DOESN'T MEAN SAFE",
+      "narration": "Then it plucks the insects out and eats them.",
+      "caption": "PROBE → PLUCK → EAT",
+      "visual": "tradeoff",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/22.png",
+      "accent": "#d9b56d",
+      "facts": [
+        "PLUCKS PREY",
+        "EATS INSECTS"
+      ]
+    },
+    {
+      "id": "ground-or-sky-hunter",
+      "durationSeconds": 4.3,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "YOUR CALL",
+      "headline": "GROUND HUNTER OR SKY HUNTER?",
+      "narration": "Ground hunter or sky hunter, which Fearow feels scarier?",
+      "caption": "WHICH VERSION OF FEAROW WINS?",
+      "visual": "cta",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/22.png",
+      "accent": "#c78748"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Fearow",
+      "url": "https://www.pokemon.com/us/pokedex/fearow"
+    },
+    {
+      "label": "Bulbapedia — Fearow",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Fearow_(Pok%C3%A9mon)"
+    },
+    {
+      "label": "PokéAPI — Fearow",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/22"
+    }
+  ]
+}

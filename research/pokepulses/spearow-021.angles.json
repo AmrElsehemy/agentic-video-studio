@@ -1,18 +1,17 @@
 {
   "episodeId": "spearow-021",
-  "createdAt": "2026-10-02T08:37:55.704Z",
+  "createdAt": "2026-10-02T09:58:22.593Z",
   "chosen": {
     "id": "half-mile-alarm",
-    "premise": "Spearow’s warning cry carries over half a mile, turning one tiny bird into a long-range danger alarm.",
-    "hook": "This tiny bird can warn Pokémon over half a mile away.",
-    "archetype": "mechanic",
+    "premise": "A 0.3-meter Spearow can broadcast danger warnings with a cry heard over half a mile away.",
+    "hook": "This tiny bird has a warning siren audible over half a mile away.",
+    "archetype": "comparison",
     "evidence": [
       "heightMeters",
-      "weightKg",
       "pokedexEntries[5].text",
       "pokedexEntries[6].text"
     ],
-    "visualIdea": "A tiny Spearow cries from a field as a soundwave ring expands past a half-mile marker and alerts distant Spearow.",
+    "visualIdea": "A tiny Spearow beside a half-mile map ring; its cry ripples outward until other Spearow react.",
     "generic": false,
     "scores": {
       "uniqueness": 4,
@@ -22,7 +21,7 @@
       "support": 5
     },
     "total": 23,
-    "note": "The half-mile figure is a strong, concrete hook directly supported by Ruby and Emerald entries. The tiny size makes the range more striking, and soundwave visualization is immediate."
+    "note": "The half-mile range is a sharp, memorable number, strongly supported by two Pokédex entries, and the tiny 0.3 m body makes the scale contrast compelling."
   },
   "rounds": [
     {
@@ -30,16 +29,15 @@
       "candidates": [
         {
           "id": "half-mile-alarm",
-          "premise": "Spearow’s warning cry carries over half a mile, turning one tiny bird into a long-range danger alarm.",
-          "hook": "This tiny bird can warn Pokémon over half a mile away.",
-          "archetype": "mechanic",
+          "premise": "A 0.3-meter Spearow can broadcast danger warnings with a cry heard over half a mile away.",
+          "hook": "This tiny bird has a warning siren audible over half a mile away.",
+          "archetype": "comparison",
           "evidence": [
             "heightMeters",
-            "weightKg",
             "pokedexEntries[5].text",
             "pokedexEntries[6].text"
           ],
-          "visualIdea": "A tiny Spearow cries from a field as a soundwave ring expands past a half-mile marker and alerts distant Spearow.",
+          "visualIdea": "A tiny Spearow beside a half-mile map ring; its cry ripples outward until other Spearow react.",
           "generic": false,
           "scores": {
             "uniqueness": 4,
@@ -49,20 +47,19 @@
             "support": 5
           },
           "total": 23,
-          "note": "The half-mile figure is a strong, concrete hook directly supported by Ruby and Emerald entries. The tiny size makes the range more striking, and soundwave visualization is immediate."
+          "note": "The half-mile range is a sharp, memorable number, strongly supported by two Pokédex entries, and the tiny 0.3 m body makes the scale contrast compelling."
         },
         {
           "id": "bad-at-flying-fast-at-defense",
-          "premise": "Spearow can’t fly high or far, yet its short wings let it dart at high speed to defend territory.",
+          "premise": "Spearow is inept at flying high, yet uses frantic high-speed flight to defend its territory.",
           "hook": "Spearow is bad at flying—until you enter its territory.",
           "archetype": "comparison",
           "evidence": [
             "pokedexEntries[1].text",
             "pokedexEntries[3].text",
-            "pokedexEntries[12].text",
             "pokedexEntries[13].text"
           ],
-          "visualIdea": "Split screen: Spearow fails to climb high, then instantly zigzags around a territory boundary at high speed.",
+          "visualIdea": "Spearow fails to gain altitude, then suddenly zips in rapid loops around a territory boundary.",
           "generic": false,
           "scores": {
             "uniqueness": 4,
@@ -72,19 +69,19 @@
             "support": 5
           },
           "total": 22,
-          "note": "A strong built-in contradiction: poor at height and long distance, but fast around its territory. Multiple entries directly support both halves, though fast defensive movement is a familiar bird-Pokémon framing."
+          "note": "A real contradiction in the entries: poor high-altitude/long-distance flight but rapid defensive movement. Strong action visual, though “bad at flying” slightly overstates that it is specifically bad at flying high and far."
         },
         {
-          "id": "farmer-bug-control",
-          "premise": "Spearow pecks Bug-type Pokémon in tall grass so effectively that farmers look after it when pests trouble fields.",
-          "hook": "Farmers protect Spearow because it eats their bug problem.",
+          "id": "farmers-bug-control-bird",
+          "premise": "Farmers look after Spearow because its vigorous appetite targets Bug-type Pokémon in their fields.",
+          "hook": "Farmers keep Spearow around for one very practical reason.",
           "archetype": "profile",
           "evidence": [
             "pokedexEntries[9].text",
             "pokedexEntries[10].text",
             "pokedexEntries[12].text"
           ],
-          "visualIdea": "A field fills with bug Pokémon; Spearow flushes them from grass, pecks them, then receives food from relieved farmers.",
+          "visualIdea": "A bug-troubled field transforms as Spearow darts through tall grass, pecking prey while a farmer watches.",
           "generic": false,
           "scores": {
             "uniqueness": 4,
@@ -94,66 +91,66 @@
             "support": 5
           },
           "total": 22,
-          "note": "The farmer relationship is a memorable ecological detail, directly supported by Moon and reinforced by its grass-foraging entries. It is slightly broader than a single measurable fact, but makes an excellent mini-story."
+          "note": "The Moon entry explicitly says farmers appreciate and look after Spearow when fields have Bug-type trouble. Practical ecological framing gives this otherwise ordinary bird a useful role."
         },
         {
-          "id": "reckless-tiny-territorial",
-          "premise": "Despite being only 0.3 meters tall and 2 kilograms, Spearow will confront even large Pokémon over territory.",
-          "hook": "This 2-kilogram bird will pick a fight with giants.",
-          "archetype": "comparison",
-          "evidence": [
-            "heightMeters",
-            "weightKg",
-            "pokedexEntries[11].text",
-            "pokedexEntries[3].text"
-          ],
-          "visualIdea": "A scale graphic dwarfs tiny Spearow beside a huge silhouette, then Spearow charges across a territorial boundary.",
-          "generic": false,
-          "scores": {
-            "uniqueness": 4,
-            "surprise": 4,
-            "specificity": 4,
-            "visual": 5,
-            "support": 5
-          },
-          "total": 22,
-          "note": "The 0.3 m, 2 kg versus large-Pokémon contrast is immediately legible and well supported by Ultra Sun. It overlaps with the fast territorial-defense angle, but has a stronger character-based visual."
-        },
-        {
-          "id": "short-wing-survival-engine",
-          "premise": "Spearow’s short wings are so limiting that it must flap rapidly just to stay airborne.",
-          "hook": "Spearow has to work this hard just to stay in the air.",
+          "id": "short-wings-survival-engine",
+          "premise": "Spearow’s short wings force it to flap at high speed just to stay airborne—and power its hunting.",
+          "hook": "Spearow has to flap at full speed just to stay in the air.",
           "archetype": "mechanic",
           "evidence": [
             "pokedexEntries[0].text",
             "pokedexEntries[2].text",
             "pokedexEntries[8].text"
           ],
-          "visualIdea": "Close-up of tiny wings beating like a rapid fan, with a hovering meter showing constant effort to remain airborne.",
+          "visualIdea": "Close-up wings blur like a hummingbird’s, then wingbeats flush insects from tall grass for Spearow’s beak.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 21,
+          "note": "The rapid flapping requirement is supported, and hunting insects in grass is supported, but the claim that the wingbeats themselves power or flush prey is only directly stated in Gold, not all cited evidence. Avoid hummingbird-like implications without a wingbeat-rate number."
+        },
+        {
+          "id": "tiny-bird-big-challenge",
+          "premise": "Despite being frail and only 0.3 meters tall, Spearow will confront even large Pokémon over territory.",
+          "hook": "This 0.3-meter bird will pick a fight with something huge.",
+          "archetype": "comparison",
+          "evidence": [
+            "heightMeters",
+            "pokedexEntries[7].text",
+            "pokedexEntries[11].text"
+          ],
+          "visualIdea": "A scale chart shrinks Spearow beside a looming silhouette, then Spearow charges across a territory line.",
           "generic": false,
           "scores": {
             "uniqueness": 3,
             "surprise": 3,
             "specificity": 4,
-            "visual": 5,
+            "visual": 4,
             "support": 5
           },
-          "total": 20,
-          "note": "Well-supported and highly animatable, especially the rapid wingbeat concept. But 'small wings flap fast' is less distinctive than Spearow's territorial behavior or half-mile cry."
+          "total": 19,
+          "note": "Well-supported by its size, frailty, and reckless territorial behavior, but the tiny creature challenging larger foes is a broadly reusable Pokémon angle rather than a distinctly Spearow-only revelation."
         },
         {
-          "id": "level-20-beak-growth",
-          "premise": "At level 20, the tiny bird Spearow evolves into Fearow while keeping its Normal/Flying typing.",
-          "hook": "At level 20, Spearow becomes Fearow—without changing type.",
+          "id": "level-20-fearow",
+          "premise": "At level 20, the Tiny Bird Pokémon Spearow evolves into Fearow without changing its Normal/Flying typing.",
+          "hook": "At level 20, Spearow changes dramatically—but keeps both types.",
           "archetype": "transformation",
           "evidence": [
-            "evolutionChain[0].name",
-            "evolutionChain[0].types",
+            "category",
+            "types",
+            "evolutionChain[0]",
             "evolutionChain[1].name",
             "evolutionChain[1].method",
             "evolutionChain[1].types"
           ],
-          "visualIdea": "A level counter climbs to 20; Spearow flashes into Fearow while Normal and Flying type badges remain fixed onscreen.",
+          "visualIdea": "A level counter hits 20 as Spearow evolves into Fearow; Normal and Flying type badges remain locked onscreen.",
           "generic": false,
           "scores": {
             "uniqueness": 2,
@@ -163,11 +160,11 @@
             "support": 5
           },
           "total": 17,
-          "note": "Accurate and concrete, but a standard evolution fact with little Spearow-specific insight. Keeping the same typing is common and not especially surprising."
+          "note": "Factually clean and concrete, but a standard evolution-and-typing fact with little surprise for fans. Keeping the same type is common and does not create a strong Spearow story."
         }
       ],
       "rejected": [],
-      "request": "None needed. The half-mile alarm is strong enough: it has a precise number, a surprising scale contrast with Spearow's 0.3 m / 2 kg body, direct official-entry support, and a clear soundwave visual."
+      "request": "None needed. The half-mile alarm is strong enough: lead with Spearow’s 0.3 m size, then reveal that its warning cry carries over half a mile and signals danger to other Spearow."
     }
   ]
 }

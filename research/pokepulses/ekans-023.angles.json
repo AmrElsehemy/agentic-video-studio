@@ -1,0 +1,164 @@
+{
+  "episodeId": "ekans-023",
+  "createdAt": "2026-10-02T08:58:10.848Z",
+  "chosen": {
+    "id": "egg-stuck-faint",
+    "premise": "Bird Pokémon eggs are Ekans's favorite food, but swallowing one whole can leave it stuck and make it faint.",
+    "hook": "Ekans loves eggs so much they can knock it out.",
+    "archetype": "mechanic",
+    "evidence": [
+      "pokedexEntries[0].text",
+      "pokedexEntries[8].text",
+      "pokedexEntries[12].text"
+    ],
+    "visualIdea": "An egg slides down Ekans's throat, gets visibly wedged, and Ekans topples over with cartoon stars.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 4,
+      "surprise": 5,
+      "specificity": 5,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 24,
+    "note": "A favorite food becoming a literal knockout hazard is a sharp, memorable contradiction. The Ultra Moon entry directly supports the egg getting stuck and Ekans fainting."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "egg-stuck-faint",
+          "premise": "Bird Pokémon eggs are Ekans's favorite food, but swallowing one whole can leave it stuck and make it faint.",
+          "hook": "Ekans loves eggs so much they can knock it out.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[0].text",
+            "pokedexEntries[8].text",
+            "pokedexEntries[12].text"
+          ],
+          "visualIdea": "An egg slides down Ekans's throat, gets visibly wedged, and Ekans topples over with cartoon stars.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 24,
+          "note": "A favorite food becoming a literal knockout hazard is a sharp, memorable contradiction. The Ultra Moon entry directly supports the egg getting stuck and Ekans fainting."
+        },
+        {
+          "id": "born-without-poison",
+          "premise": "A newborn Ekans has no poison: its bite hurts, but it is harmless until it grows older.",
+          "hook": "Baby Ekans is Poison-type—but its bite starts out harmless.",
+          "archetype": "transformation",
+          "evidence": [
+            "types[0]",
+            "pokedexEntries[3].text"
+          ],
+          "visualIdea": "A hatchling Ekans bites a target with a pain icon but no poison effect, contrasted with an older-looking silhouette.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 5,
+            "specificity": 4,
+            "visual": 4,
+            "support": 4
+          },
+          "total": 21,
+          "note": "A Poison-type whose newborn bite is harmless is an excellent contradiction and clearly supported, though the exact transition into having poison is not described beyond the newborn stage."
+        },
+        {
+          "id": "jaw-too-big-to-move",
+          "premise": "Ekans can dislocate its jaw to swallow prey larger than itself—then become too heavy to move.",
+          "hook": "Ekans can win dinner… and immediately lose the ability to move.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[2].text",
+            "pokedexEntries[10].text",
+            "pokedexEntries[11].text"
+          ],
+          "visualIdea": "Ekans unhinges its jaw around an oversized silhouette; a full belly drops it motionless onto the ground.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 3,
+            "surprise": 3,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 20,
+          "note": "The immobility consequence gives the familiar snake-swallowing mechanic a concrete payoff, but jaw dislocation and oversized meals are not especially Ekans-exclusive."
+        },
+        {
+          "id": "spiral-defense-system",
+          "premise": "Ekans sleeps curled into a spiral so it can raise its head and respond to threats from any direction.",
+          "hook": "Ekans sleeps in a shape designed to defend every side.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[5].text",
+            "pokedexEntries[6].text"
+          ],
+          "visualIdea": "Top-down spiral Ekans as threat arrows arrive from all sides; its head pops up and glares toward each one.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 3,
+            "surprise": 3,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 20,
+          "note": "The defensive resting shape is concrete and animates well, but coiling up to react defensively is fairly intuitive for a snake Pokémon."
+        },
+        {
+          "id": "two-meter-six-kilo-snake",
+          "premise": "Ekans is 2 meters long but weighs only 6.9 kilograms—and it grows longer as it gets older.",
+          "hook": "This 2-meter Pokémon weighs just 6.9 kilos.",
+          "archetype": "comparison",
+          "evidence": [
+            "heightMeters",
+            "weightKg",
+            "pokedexEntries[1].text"
+          ],
+          "visualIdea": "A 2-meter measuring tape stretches beside Ekans, then a scale lands at 6.9 kg as its body extends with age.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 2,
+            "surprise": 3,
+            "specificity": 4,
+            "visual": 4,
+            "support": 5
+          },
+          "total": 18,
+          "note": "The measurements are concrete and potentially striking in comparison, but size-and-weight trivia is not a character-specific premise and needs a stronger real-world visual benchmark."
+        },
+        {
+          "id": "tongue-tracks-prey",
+          "premise": "Ekans flicks its tongue to find prey by scent—and can also sense danger around it.",
+          "hook": "Ekans's tongue is basically its danger radar.",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[4].text",
+            "pokedexEntries[7].text"
+          ],
+          "visualIdea": "Invisible scent trails and danger waves become visible only when Ekans flicks its tongue through tall grass.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 2,
+            "surprise": 2,
+            "specificity": 3,
+            "visual": 4,
+            "support": 5
+          },
+          "total": 16,
+          "note": "The evidence is solid and scent trails are visual, but tongue-based environmental sensing is a broad snake trait rather than a distinctly Ekans story."
+        }
+      ],
+      "rejected": [],
+      "request": "None needed; egg-stuck-faint is strong enough. A still stronger version would add a clear scale comparison for the egg versus Ekans's throat while keeping the official fainting consequence as the punchline."
+    }
+  ]
+}

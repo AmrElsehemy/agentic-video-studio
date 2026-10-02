@@ -1,14 +1,14 @@
 {
   "id": "spearow-021",
-  "title": "Spearow's Half-Mile Danger Signal",
-  "storyPattern": "mechanic",
+  "title": "Spearow Can't Fly Far, But Its Cry Reaches Half a Mile",
+  "storyPattern": "comparison",
   "numberRelevant": true,
-  "premise": "Spearow’s cry can be heard over half a mile away, and its echoing call signals danger to other Spearow.",
-  "audiencePromise": "See why Spearow’s far-reaching cry is more than a loud noise.",
-  "openLoop": "Why is an echoing cry a Spearow danger signal?",
-  "payoff": "When Spearow’s high cry echoes all around, it is a sign they are warning each other of danger.",
+  "premise": "A 0.3-meter Spearow cannot fly long distances, yet its cry can be heard over half a mile away.",
+  "audiencePromise": "See how Spearow's short-range flight makes its half-mile danger cry far more surprising.",
+  "openLoop": "Why would a bird that cannot fly far need a half-mile cry?",
+  "payoff": "The cry is not just loud. Its echoing high call is a shared warning that danger is nearby.",
   "targetEmotion": "surprise",
-  "engagementQuestion": "More impressive: half-mile reach or its danger signal?",
+  "engagementQuestion": "Which helps Spearow more: fast patrols or warning cries?",
   "subject": {
     "name": "Spearow",
     "category": "Tiny Bird Pokémon",
@@ -24,14 +24,14 @@
     }
   ],
   "palette": {
-    "background": "#101417",
-    "surface": "#1d2528",
-    "primary": "#c7773c",
-    "secondary": "#f2d37c",
-    "ink": "#fff6df"
+    "background": "#10151b",
+    "surface": "#1d2730",
+    "primary": "#c8834f",
+    "secondary": "#e7d27c",
+    "ink": "#fff7e8"
   },
   "voice": {
-    "instructions": "Urgent and amazed. Start tight and quiet, then build with each expanding soundwave. Land the final question with a playful challenge."
+    "instructions": "Use a sharp, urgent tone. Start on the contradiction, then widen the scale with each scene. Slow slightly on \"half a mile.\" Make the final reveal feel like Spearow's cry has changed from noise into a message."
   },
   "rights": {
     "releaseStatus": "internal-prototype",
@@ -56,99 +56,81 @@
   },
   "scenes": [
     {
-      "id": "half-mile-hook",
+      "id": "cry-versus-flight",
       "beat": "hook",
-      "eyebrow": "TINY BIRD, DISTANT DANGER",
-      "headline": "A HALF-MILE DANGER CRY",
-      "narration": "Tiny Spearow's danger cry reaches over half a mile.",
-      "caption": "OVER HALF A MILE",
+      "eyebrow": "A TINY BIRD CONTRADICTION",
+      "headline": "CAN'T FLY FAR. CRY DOES.",
+      "narration": "Spearow can't fly far. Its cry reaches a half-mile.",
+      "caption": "SHORT FLIGHTS. HUGE SOUND RANGE.",
       "facts": [
-        "SPEAROW",
-        "WARNING CRY"
+        "OVER HALF A MILE",
+        "SHORT WINGS"
       ],
-      "accent": "#f2d37c",
+      "accent": "#e7d27c",
       "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/21.png"
     },
     {
-      "id": "tiny-source",
+      "id": "tiny-body",
       "beat": "evidence",
-      "eyebrow": "THE SOURCE",
+      "eyebrow": "START WITH THE SCALE",
       "headline": "ONLY 0.3 METERS TALL",
-      "narration": "A 0.3-meter Spearow makes a high, keening cry.",
-      "caption": "0.3 METERS TALL",
+      "narration": "Spearow stands only zero point three meters tall in total.",
+      "caption": "A VERY SMALL BIRD ON A VERY BIG MAP",
       "facts": [
-        "HEIGHT: 0.3 M",
-        "HIGH, KEENING CRY"
+        "HEIGHT: 0.3 M"
       ],
-      "accent": "#c7773c",
+      "accent": "#c8834f",
       "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/21.png"
     },
     {
-      "id": "soundwave-expands",
+      "id": "short-flight",
+      "beat": "evidence",
+      "eyebrow": "ITS WINGS ARE THE CATCH",
+      "headline": "NOT BUILT TO GO FAR",
+      "narration": "Its short wings make flying high and far difficult.",
+      "caption": "INEPT AT FLYING HIGH OR LONG DISTANCES",
+      "facts": [
+        "SHORT WINGS",
+        "CAN'T FLY LONG DISTANCES"
+      ],
+      "accent": "#c8834f",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/21.png"
+    },
+    {
+      "id": "sound-radius",
       "beat": "escalation",
-      "eyebrow": "THE IMPOSSIBLE PART",
-      "headline": "HEARD OVER HALF A MILE",
-      "narration": "Its loud cry can be heard over half a mile away.",
-      "caption": "HEARD OVER HALF A MILE",
+      "eyebrow": "NOW WATCH THE SOUND",
+      "headline": "THE CRY KEEPS GOING",
+      "narration": "That cry can be heard over half a mile away.",
+      "caption": "THE RIPPLE OUTRANGES THE TINY BIRD",
       "facts": [
         "OVER HALF A MILE"
       ],
-      "accent": "#f2d37c",
+      "accent": "#e7d27c",
       "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/21.png"
     },
     {
-      "id": "danger-message",
-      "beat": "payoff",
-      "eyebrow": "THE CRUCIAL CLUE",
-      "headline": "THE ECHO CHANGES EVERYTHING",
-      "narration": "When the cry echoes all around, it becomes a warning sign.",
-      "caption": "ECHOING ALL AROUND",
+      "id": "echo-message",
+      "beat": "twist",
+      "eyebrow": "THE ECHO MEANS SOMETHING",
+      "headline": "THE SOUND IS THE WARNING",
+      "narration": "When its high cry echoes around, Spearow warn of danger.",
+      "caption": "NOT JUST A LOUD CRY. A SHARED ALERT.",
       "facts": [
         "HIGH, KEENING CRY",
-        "WARNING SIGN"
+        "WARNS OF DANGER"
       ],
-      "accent": "#ffb84d",
+      "accent": "#e7d27c",
       "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/21.png"
     },
     {
-      "id": "warning-network",
-      "beat": "payoff",
-      "eyebrow": "THE PAYOFF",
-      "headline": "THEY WARN EACH OTHER",
-      "narration": "That echo means Spearow are warning each other of danger.",
-      "caption": "WARNING EACH OTHER OF DANGER",
-      "facts": [
-        "WARNS EACH OTHER",
-        "DANGER"
-      ],
-      "accent": "#f2d37c",
-      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/21.png",
-      "primitive": {
-        "kind": "checklist",
-        "items": [
-          {
-            "label": "HIGH KEENING CRY",
-            "met": true
-          },
-          {
-            "label": "ECHOING ALL AROUND",
-            "met": true
-          },
-          {
-            "label": "DANGER WARNING",
-            "met": true
-          }
-        ]
-      }
-    },
-    {
-      "id": "verdict-question",
+      "id": "verdict-choice",
       "beat": "verdict",
-      "eyebrow": "YOUR CALL",
-      "headline": "REACH OR SIGNAL?",
-      "narration": "More impressive: half-mile reach or its danger signal?",
-      "caption": "REACH OR DANGER SIGNAL?",
-      "accent": "#c7773c",
+      "eyebrow": "SPEAROW'S TWO DEFENSES",
+      "headline": "PATROL OR WARNING?",
+      "narration": "Which helps Spearow more: fast patrols or warning cries?",
+      "caption": "SPEED AROUND THE TERRITORY OR SOUND THE ALERT?",
+      "accent": "#c8834f",
       "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/21.png"
     }
   ],
