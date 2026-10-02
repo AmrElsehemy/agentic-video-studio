@@ -93,7 +93,8 @@ try {
     const range = windows[0].frames;
 
     // 3. The same frames, rendered twice in opposite orders.
-    const checkFrames = determinismFrames(manifest, range[0]);
+    // Scene frames are rounded per scene, the composition's length once over the total, so keep within it.
+    const checkFrames = [...new Set(determinismFrames(manifest, range[0]).map((frame) => Math.min(frame, composition.durationInFrames - 1)))];
     const still = async (frame, pass) => {
       const output = path.join(work, 'determinism', `${pass}-${frame}.png`);
       await renderStill({composition, serveUrl, inputProps, frame, output, imageFormat: 'png', scale: STRIP_SCALE, puppeteerInstance: browser, overwrite: true});
