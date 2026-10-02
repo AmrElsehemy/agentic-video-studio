@@ -1,0 +1,188 @@
+{
+  "id": "squirtle-007",
+  "title": "Squirtle’s Shell Was Built for More Than Defense",
+  "storyPattern": "mystery",
+  "numberRelevant": false,
+  "premise": "Squirtle’s shell protects it, but its rounded shape and grooves also minimize water resistance for fast swimming.",
+  "audiencePromise": "Reveal why Squirtle’s protective shell is also shaped to move through water faster.",
+  "openLoop": "Why would a protective shell be shaped for speed?",
+  "payoff": "Squirtle’s rounded shell and surface grooves minimize resistance, enabling high-speed swimming.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "In danger, would you trust its shell or its speed?",
+  "subject": {
+    "name": "Squirtle",
+    "category": "Tiny Turtle Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png",
+    "identifier": "#007"
+  },
+  "related": [
+    {
+      "name": "Blastoise",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/9.png",
+      "identifier": "#009"
+    },
+    {
+      "name": "Wartortle",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/8.png",
+      "identifier": "#008"
+    }
+  ],
+  "palette": {
+    "background": "#071b2d",
+    "surface": "#103755",
+    "primary": "#79c9e8",
+    "secondary": "#f1d6a6",
+    "ink": "#f7fbff"
+  },
+  "voice": {
+    "instructions": "Begin with a quiet mystery, then build the contradiction with crisp, quick delivery. Make the resistance reveal sound like the answer snapping into place. End with an inviting, playful challenge."
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "assets": [
+      {
+        "kind": "Squirtle official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "unverified",
+        "publicReleaseApproved": false,
+        "notes": "Internal prototype only pending legal review or replacement."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "shell-more-than-defense",
+      "beat": "hook",
+      "eyebrow": "SQUIRTLE'S SECRET",
+      "headline": "MORE THAN DEFENSE",
+      "narration": "Squirtle's shell was built for more than defense.",
+      "caption": "THIS SHIELD HAS A HIDDEN PURPOSE",
+      "facts": [
+        "PROTECTIVE SHELL"
+      ],
+      "accent": "#79c9e8",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png"
+    },
+    {
+      "id": "shell-hardens",
+      "beat": "clue",
+      "eyebrow": "THE OBVIOUS ANSWER",
+      "headline": "IT BECOMES RESILIENT ARMOR",
+      "narration": "Its shell starts soft, then soon hardens into resilient armor.",
+      "caption": "SO ITS JOB SEEMS OBVIOUS",
+      "facts": [
+        "SOFT AT BIRTH",
+        "HARDENS SOON",
+        "RESILIENT"
+      ],
+      "accent": "#f1d6a6",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png",
+      "primitive": {
+        "kind": "timeline",
+        "steps": [
+          {
+            "label": "SOFT AT BIRTH"
+          },
+          {
+            "label": "HARDENS SOON"
+          },
+          {
+            "label": "RESILIENT ARMOR"
+          }
+        ],
+        "active": 2
+      }
+    },
+    {
+      "id": "pokedex-contradiction",
+      "beat": "escalation",
+      "eyebrow": "BUT WAIT",
+      "headline": "NOT MERELY PROTECTION",
+      "narration": "Yet the Pokédex says this shell is not merely protection.",
+      "caption": "ARMOR IS ONLY THE FIRST ANSWER",
+      "facts": [
+        "NOT MERELY PROTECTION"
+      ],
+      "accent": "#79c9e8",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png"
+    },
+    {
+      "id": "shape-and-grooves",
+      "beat": "reveal",
+      "eyebrow": "THE REAL CLUE",
+      "headline": "ROUND WITH SURFACE GROOVES",
+      "narration": "Its rounded shape and grooves minimize resistance in water.",
+      "caption": "WATER FLOW SLIDES AROUND THE SHELL",
+      "facts": [
+        "ROUNDED SHAPE",
+        "SURFACE GROOVES",
+        "MINIMIZES RESISTANCE"
+      ],
+      "accent": "#f1d6a6",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png",
+      "primitive": {
+        "kind": "checklist",
+        "items": [
+          {
+            "label": "ROUNDED SHAPE",
+            "met": true
+          },
+          {
+            "label": "SURFACE GROOVES",
+            "met": true
+          },
+          {
+            "label": "LESS WATER RESISTANCE",
+            "met": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "shells-second-purpose",
+      "beat": "reveal",
+      "eyebrow": "CASE SOLVED",
+      "headline": "A SHELL MADE TO MOVE",
+      "narration": "That lets Squirtle swim at high speeds, not just hide.",
+      "caption": "DEFENSE OUTSIDE. SPEED BUILT IN.",
+      "facts": [
+        "HIGH-SPEED SWIMMING"
+      ],
+      "accent": "#79c9e8",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png"
+    },
+    {
+      "id": "shell-or-speed",
+      "beat": "verdict",
+      "eyebrow": "YOUR CALL",
+      "headline": "HIDE OR SWIM FAST?",
+      "narration": "In danger, would you trust its shell or its speed?",
+      "caption": "PROTECTION OR HIGH-SPEED ESCAPE?",
+      "accent": "#f1d6a6",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Squirtle",
+      "url": "https://www.pokemon.com/us/pokedex/squirtle",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Squirtle",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Squirtle_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Squirtle",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/7",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

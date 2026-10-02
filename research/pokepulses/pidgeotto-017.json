@@ -1,0 +1,153 @@
+{
+  "schemaVersion": 1,
+  "id": "pidgeotto-017",
+  "number": 17,
+  "index": "#017",
+  "name": "Pidgeotto",
+  "slug": "pidgeotto",
+  "category": "Bird Pokémon",
+  "generation": "Generation I",
+  "isLegendary": false,
+  "isMythical": false,
+  "types": [
+    "Normal",
+    "Flying"
+  ],
+  "heightMeters": 1.1,
+  "weightKg": 30,
+  "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/17.png",
+  "pokedexEntries": [
+    {
+      "game": "Red",
+      "text": "Very protective of its sprawling territorial area, this POKéMON will fiercely peck at any intruder."
+    },
+    {
+      "game": "Yellow",
+      "text": "This POKéMON is full of vitality. It constantly flies around its large territory in search of prey."
+    },
+    {
+      "game": "Gold",
+      "text": "It has outstanding vision. However high it flies, it is able to distin guish the move ments of its prey."
+    },
+    {
+      "game": "Silver",
+      "text": "It immobilizes its prey using well- developed claws, then carries the prey more than 60 miles to its nest."
+    },
+    {
+      "game": "Crystal",
+      "text": "It slowly flies in a circular pat tern, all the while keeping a sharp lookout for prey."
+    },
+    {
+      "game": "Ruby",
+      "text": "PIDGEOTTO claims a large area as its own territory. This POKéMON flies around, patrolling its living space. If its territory is violated, it shows no mercy in thoroughly punishing the foe with its sharp claws."
+    },
+    {
+      "game": "Emerald",
+      "text": "This POKéMON flies around, patrolling its large territory. If its living space is violated, it shows no mercy in thoroughly punishing the foe with its sharp claws."
+    },
+    {
+      "game": "Firered",
+      "text": "The claws on its feet are well developed. It can carry prey such as an EXEGGCUTE to its nest over 60 miles away."
+    },
+    {
+      "game": "Diamond",
+      "text": "It flies over its wide territory in search of prey, downing it with its highly developed claws."
+    },
+    {
+      "game": "Heartgold",
+      "text": "It has outstanding vision. However high it flies, it is able to distinguish the movements of its prey."
+    },
+    {
+      "game": "Soulsilver",
+      "text": "It renders its prey immobile using well-developed claws, then carries the prey more than 60 miles to its nest."
+    }
+  ],
+  "evolutionChain": [
+    {
+      "name": "Pidgey",
+      "index": "#016",
+      "stage": 1,
+      "types": [
+        "Normal",
+        "Flying"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/16.png",
+      "isSubject": false
+    },
+    {
+      "name": "Pidgeotto",
+      "index": "#017",
+      "stage": 2,
+      "evolvesFrom": "Pidgey",
+      "method": "Level Up, level 18",
+      "types": [
+        "Normal",
+        "Flying"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/17.png",
+      "isSubject": true
+    },
+    {
+      "name": "Pidgeot",
+      "index": "#018",
+      "stage": 3,
+      "evolvesFrom": "Pidgeotto",
+      "method": "Level Up, level 36",
+      "types": [
+        "Normal",
+        "Flying"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/18.png",
+      "isSubject": false
+    }
+  ],
+  "varieties": [],
+  "lore": [],
+  "tiers": {
+    "official": [
+      "name",
+      "index",
+      "number",
+      "category",
+      "generation",
+      "isLegendary",
+      "isMythical",
+      "types",
+      "heightMeters",
+      "weightKg",
+      "pokedexEntries",
+      "evolutionChain[].name",
+      "evolutionChain[].index",
+      "evolutionChain[].types",
+      "evolutionChain[].stage",
+      "varieties[].types",
+      "varieties[].heightMeters",
+      "varieties[].weightKg"
+    ],
+    "trusted_secondary": [
+      "evolutionChain[].method",
+      "evolutionChain[].evolvesFrom",
+      "varieties[].name"
+    ],
+    "community": [
+      "lore"
+    ]
+  },
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Pidgeotto",
+      "url": "https://www.pokemon.com/us/pokedex/pidgeotto",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Pidgeotto",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Pidgeotto_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Pidgeotto",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/17",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

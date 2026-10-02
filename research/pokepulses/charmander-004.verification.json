@@ -1,0 +1,623 @@
+{
+  "episodeId": "charmander-004",
+  "checkedAt": "2026-09-30T04:58:56.395Z",
+  "claims": [
+    {
+      "id": "c1",
+      "where": "title",
+      "text": "Why Rain Makes Charmander’s Tail Steam Without Killing Its Flame",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[0].text",
+        "pokedexEntries[4].text"
+      ],
+      "note": "Rain-associated tail steam is supported, and a healthy flame can burn when wet, but the text broadly implies rain will not put out Charmander’s flame without the healthy qualifier.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c2",
+      "where": "premise",
+      "text": "Rain makes steam spout from Charmander’s tail, yet a healthy tail flame can keep burning when wet.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text",
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c3",
+      "where": "audiencePromise",
+      "text": "Follow Charmander’s rainy tail paradox from a hot-place preference to its life-force flame.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text",
+        "pokedexEntries[2].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c4",
+      "where": "openLoop",
+      "text": "If rain makes Charmander’s tail steam, how can its flame stay lit?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Question framing.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c5",
+      "where": "payoff",
+      "text": "The steam is only half the clue: Charmander’s tail reflects its life force, and a healthy flame burns vigorously even when wet.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text",
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c6",
+      "where": "scenes.rainy-tail-paradox.headline",
+      "text": "STEAM RISES. FLAME LIVES.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[0].text",
+        "pokedexEntries[4].text"
+      ],
+      "note": "Steam in rain and wet healthy flames are supported, but coexistence is stated generally rather than for a healthy Charmander.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c7",
+      "where": "scenes.rainy-tail-paradox.narration",
+      "text": "Rain hits Charmander’s tail: steam rises, flame stays lit.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[0].text",
+        "pokedexEntries[4].text"
+      ],
+      "note": "The sources support rain steam and a healthy flame continuing when wet, not that every Charmander’s flame stays lit when rain hits.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c8",
+      "where": "scenes.rainy-tail-paradox.caption",
+      "text": "RAIN CREATES STEAM, BUT THE FLAME REMAINS",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[0].text",
+        "pokedexEntries[4].text"
+      ],
+      "note": "The flame-remains claim omits the source’s healthy qualifier.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c9",
+      "where": "scenes.rainy-tail-paradox.eyebrow",
+      "text": "RAIN TEST",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Scene label.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c10",
+      "where": "scenes.rainy-tail-paradox.facts[0]",
+      "text": "RAIN",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Single-word label.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c11",
+      "where": "scenes.rainy-tail-paradox.facts[1]",
+      "text": "STEAM",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Single-word label.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c12",
+      "where": "scenes.rainy-tail-paradox.facts[2]",
+      "text": "FLAME",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Single-word label.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c13",
+      "where": "scenes.hot-place-clue.headline",
+      "text": "IT PREFERS HOT PLACES",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c14",
+      "where": "scenes.hot-place-clue.narration",
+      "text": "Charmander prefers hot places, so rain looks like trouble.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[0].text"
+      ],
+      "note": "Charmander’s preference for hot places is supported, but that rain therefore \"looks like trouble\" is an inference not stated in the research.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c15",
+      "where": "scenes.hot-place-clue.caption",
+      "text": "A FIRE POKÉMON IN THE RAIN?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Question framing.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c16",
+      "where": "scenes.hot-place-clue.eyebrow",
+      "text": "FIRST CLUE",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Scene label.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c17",
+      "where": "scenes.hot-place-clue.facts[0]",
+      "text": "PREFERS HOT PLACES",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c18",
+      "where": "scenes.hot-place-clue.facts[1]",
+      "text": "RAIN",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Single-word label.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c19",
+      "where": "scenes.life-force-stakes.headline",
+      "text": "THIS FLAME MEANS LIFE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text",
+        "pokedexEntries[7].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c20",
+      "where": "scenes.life-force-stakes.narration",
+      "text": "But that tail flame also indicates its life force.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text",
+        "pokedexEntries[3].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c21",
+      "where": "scenes.life-force-stakes.caption",
+      "text": "THIS IS NOT JUST A NORMAL FLAME",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text",
+        "pokedexEntries[5].text",
+        "pokedexEntries[7].text"
+      ],
+      "note": "Dramatic paraphrase of the flame indicating life force and emotions, with its going out ending Charmander’s life.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c22",
+      "where": "scenes.life-force-stakes.eyebrow",
+      "text": "THE STAKES CHANGE",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Scene label.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c23",
+      "where": "scenes.life-force-stakes.facts[0]",
+      "text": "TAIL FLAME",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Label fragment.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c24",
+      "where": "scenes.life-force-stakes.facts[1]",
+      "text": "LIFE FORCE",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Label fragment.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c25",
+      "where": "scenes.weak-flame-reveal.headline",
+      "text": "WEAK FLAME, WEAK LIFE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c26",
+      "where": "scenes.weak-flame-reveal.narration",
+      "text": "If Charmander is weak, its flame burns weakly too.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c27",
+      "where": "scenes.weak-flame-reveal.caption",
+      "text": "THE FLAME SHOWS ITS CONDITION",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text",
+        "pokedexEntries[3].text",
+        "pokedexEntries[9].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c28",
+      "where": "scenes.weak-flame-reveal.eyebrow",
+      "text": "FIRST REVEAL",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Scene label.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c29",
+      "where": "scenes.weak-flame-reveal.facts[0]",
+      "text": "WEAK",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Single-word label.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c30",
+      "where": "scenes.weak-flame-reveal.facts[1]",
+      "text": "WEAK FLAME",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Label fragment.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c31",
+      "where": "scenes.weak-flame-reveal.facts[2]",
+      "text": "LIFE FORCE",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Label fragment.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c32",
+      "where": "scenes.wet-flame-reveal.headline",
+      "text": "WET DOESN’T MEAN OUT",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[4].text"
+      ],
+      "note": "A healthy Charmander’s flame can burn vigorously when it gets a bit wet, but the wording broadly treats wetness as never meaning the flame goes out.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c33",
+      "where": "scenes.wet-flame-reveal.narration",
+      "text": "A healthy Charmander’s flame burns vigorously, even when it gets wet.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c34",
+      "where": "scenes.wet-flame-reveal.caption",
+      "text": "HEALTHY FLAMES KEEP BURNING THROUGH WATER",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[4].text"
+      ],
+      "note": "The research supports a healthy flame burning even when Charmander gets a bit wet; \"through water\" may suggest a stronger degree of water exposure.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c35",
+      "where": "scenes.wet-flame-reveal.eyebrow",
+      "text": "THE TWIST",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Scene label.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c36",
+      "where": "scenes.wet-flame-reveal.facts[0]",
+      "text": "HEALTHY",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Single-word label.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c37",
+      "where": "scenes.wet-flame-reveal.facts[1]",
+      "text": "BURNS VIGOROUSLY",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[4].text"
+      ],
+      "note": "The source says a healthy Charmander’s tail flame burns vigorously; this fragment omits that condition.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c38",
+      "where": "scenes.wet-flame-reveal.facts[2]",
+      "text": "EVEN WHEN WET",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[4].text"
+      ],
+      "note": "The source supports this for a healthy Charmander that gets a bit wet, rather than as an unqualified general statement.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c39",
+      "where": "scenes.flame-verdict.headline",
+      "text": "STEAM IS NOT THE END",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[0].text",
+        "pokedexEntries[4].text"
+      ],
+      "note": "It implies steam does not end the flame generally, while the wet-flame evidence is specifically about healthy Charmander.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c40",
+      "where": "scenes.flame-verdict.narration",
+      "text": "Life gauge or mood gauge: what defines Charmander’s flame?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Question framing.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c41",
+      "where": "scenes.flame-verdict.caption",
+      "text": "STEAM RISES, BUT A HEALTHY FLAME STILL BURNS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text",
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c42",
+      "where": "scenes.flame-verdict.eyebrow",
+      "text": "MYSTERY SOLVED",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Scene label.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c43",
+      "where": "scenes.flame-verdict.facts[0]",
+      "text": "LIFE FORCE",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Label fragment.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c44",
+      "where": "scenes.flame-verdict.facts[1]",
+      "text": "EMOTIONS",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Label fragment.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c45",
+      "where": "scenes.flame-verdict.facts[2]",
+      "text": "RAIN STEAM",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Label fragment.",
+      "checkedBy": "model"
+    }
+  ],
+  "unsupported": [],
+  "uncertain": [
+    {
+      "id": "c1",
+      "where": "title",
+      "text": "Why Rain Makes Charmander’s Tail Steam Without Killing Its Flame",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[0].text",
+        "pokedexEntries[4].text"
+      ],
+      "note": "Rain-associated tail steam is supported, and a healthy flame can burn when wet, but the text broadly implies rain will not put out Charmander’s flame without the healthy qualifier.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c6",
+      "where": "scenes.rainy-tail-paradox.headline",
+      "text": "STEAM RISES. FLAME LIVES.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[0].text",
+        "pokedexEntries[4].text"
+      ],
+      "note": "Steam in rain and wet healthy flames are supported, but coexistence is stated generally rather than for a healthy Charmander.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c7",
+      "where": "scenes.rainy-tail-paradox.narration",
+      "text": "Rain hits Charmander’s tail: steam rises, flame stays lit.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[0].text",
+        "pokedexEntries[4].text"
+      ],
+      "note": "The sources support rain steam and a healthy flame continuing when wet, not that every Charmander’s flame stays lit when rain hits.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c8",
+      "where": "scenes.rainy-tail-paradox.caption",
+      "text": "RAIN CREATES STEAM, BUT THE FLAME REMAINS",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[0].text",
+        "pokedexEntries[4].text"
+      ],
+      "note": "The flame-remains claim omits the source’s healthy qualifier.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c14",
+      "where": "scenes.hot-place-clue.narration",
+      "text": "Charmander prefers hot places, so rain looks like trouble.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[0].text"
+      ],
+      "note": "Charmander’s preference for hot places is supported, but that rain therefore \"looks like trouble\" is an inference not stated in the research.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c32",
+      "where": "scenes.wet-flame-reveal.headline",
+      "text": "WET DOESN’T MEAN OUT",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[4].text"
+      ],
+      "note": "A healthy Charmander’s flame can burn vigorously when it gets a bit wet, but the wording broadly treats wetness as never meaning the flame goes out.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c34",
+      "where": "scenes.wet-flame-reveal.caption",
+      "text": "HEALTHY FLAMES KEEP BURNING THROUGH WATER",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[4].text"
+      ],
+      "note": "The research supports a healthy flame burning even when Charmander gets a bit wet; \"through water\" may suggest a stronger degree of water exposure.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c37",
+      "where": "scenes.wet-flame-reveal.facts[1]",
+      "text": "BURNS VIGOROUSLY",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[4].text"
+      ],
+      "note": "The source says a healthy Charmander’s tail flame burns vigorously; this fragment omits that condition.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c38",
+      "where": "scenes.wet-flame-reveal.facts[2]",
+      "text": "EVEN WHEN WET",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[4].text"
+      ],
+      "note": "The source supports this for a healthy Charmander that gets a bit wet, rather than as an unqualified general statement.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c39",
+      "where": "scenes.flame-verdict.headline",
+      "text": "STEAM IS NOT THE END",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[0].text",
+        "pokedexEntries[4].text"
+      ],
+      "note": "It implies steam does not end the flame generally, while the wet-flame evidence is specifically about healthy Charmander.",
+      "tier": "official",
+      "checkedBy": "model"
+    }
+  ]
+}

@@ -1,0 +1,166 @@
+{
+  "schemaVersion": 1,
+  "id": "caterpie-010",
+  "number": 10,
+  "index": "#010",
+  "name": "Caterpie",
+  "slug": "caterpie",
+  "category": "Worm Pokémon",
+  "generation": "Generation I",
+  "isLegendary": false,
+  "isMythical": false,
+  "types": [
+    "Bug"
+  ],
+  "heightMeters": 0.3,
+  "weightKg": 2.9,
+  "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10.png",
+  "pokedexEntries": [
+    {
+      "game": "Red",
+      "text": "Its short feet are tipped with suction pads that enable it to tirelessly climb slopes and walls."
+    },
+    {
+      "game": "Yellow",
+      "text": "If you touch the feeler on top of its head, it will release a horrible stink to protect itself."
+    },
+    {
+      "game": "Gold",
+      "text": "For protection, it releases a horri ble stench from the antenna on its head to drive away enemies."
+    },
+    {
+      "game": "Silver",
+      "text": "Its feet have suction cups designed to stick to any surface. It tenaciously climbs trees to forage."
+    },
+    {
+      "game": "Crystal",
+      "text": "It crawls into foliage where it camouflages itself among leaves that are the same color as its body."
+    },
+    {
+      "game": "Ruby",
+      "text": "CATERPIE has a voracious appetite. It can devour leaves bigger than its body right before your eyes. From its antenna, this POKéMON releases a terrifically strong odor."
+    },
+    {
+      "game": "Emerald",
+      "text": "Its voracious appetite compels it to devour leaves bigger than itself without hesitation. It releases a terribly strong odor from its antennae."
+    },
+    {
+      "game": "Firered",
+      "text": "It is covered with a green skin. When it grows, it sheds the skin, covers itself with silk, and becomes a cocoon."
+    },
+    {
+      "game": "Diamond",
+      "text": "It releases a stench from its red antenna to repel enemies. It grows by molting repeatedly."
+    },
+    {
+      "game": "Heartgold",
+      "text": "For protection, it releases a horrible stench from the antennae on its head to drive away enemies."
+    },
+    {
+      "game": "Sun",
+      "text": "When attacked by bird Pokémon, it resists by releasing a terrifically strong odor from its antennae, but it often becomes their prey."
+    },
+    {
+      "game": "Moon",
+      "text": "It’s easy to catch, and it grows quickly, making it one of the top recommendations for novice Pokémon Trainers."
+    },
+    {
+      "game": "Ultra Sun",
+      "text": "Perhaps because it would like to grow up quickly, it has a voracious appetite, eating a hundred leaves a day."
+    },
+    {
+      "game": "Ultra Moon",
+      "text": "Its body is soft and weak. In nature, its perpetual fate is to be seen by others as food."
+    },
+    {
+      "game": "Sword",
+      "text": "For protection, it releases a horrible stench from the antenna on its head to drive away enemies."
+    }
+  ],
+  "evolutionChain": [
+    {
+      "name": "Caterpie",
+      "index": "#010",
+      "stage": 1,
+      "types": [
+        "Bug"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10.png",
+      "isSubject": true
+    },
+    {
+      "name": "Metapod",
+      "index": "#011",
+      "stage": 2,
+      "evolvesFrom": "Caterpie",
+      "method": "Level Up, level 7",
+      "types": [
+        "Bug"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/11.png",
+      "isSubject": false
+    },
+    {
+      "name": "Butterfree",
+      "index": "#012",
+      "stage": 3,
+      "evolvesFrom": "Metapod",
+      "method": "Level Up, level 10",
+      "types": [
+        "Bug",
+        "Flying"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/12.png",
+      "isSubject": false
+    }
+  ],
+  "varieties": [],
+  "lore": [],
+  "tiers": {
+    "official": [
+      "name",
+      "index",
+      "number",
+      "category",
+      "generation",
+      "isLegendary",
+      "isMythical",
+      "types",
+      "heightMeters",
+      "weightKg",
+      "pokedexEntries",
+      "evolutionChain[].name",
+      "evolutionChain[].index",
+      "evolutionChain[].types",
+      "evolutionChain[].stage",
+      "varieties[].types",
+      "varieties[].heightMeters",
+      "varieties[].weightKg"
+    ],
+    "trusted_secondary": [
+      "evolutionChain[].method",
+      "evolutionChain[].evolvesFrom",
+      "varieties[].name"
+    ],
+    "community": [
+      "lore"
+    ]
+  },
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Caterpie",
+      "url": "https://www.pokemon.com/us/pokedex/caterpie",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Caterpie",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Caterpie_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Caterpie",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/10",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

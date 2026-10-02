@@ -1,0 +1,235 @@
+{
+  "schemaVersion": 2,
+  "id": "pidgey-016",
+  "show": {
+    "id": "pokepulses",
+    "name": "PokePulses",
+    "handle": "@PokePulses",
+    "wordmark": {
+      "lead": "POKE",
+      "accent": "PULSES"
+    },
+    "fonts": {
+      "display": "Bebas Neue",
+      "body": "system"
+    }
+  },
+  "title": "Take Pidgey Far Away. It Still Finds Home.",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "mystery",
+    "numberRelevant": false,
+    "premise": "Pidgey can return unerringly to its nest, even after being taken far from familiar surroundings.",
+    "audiencePromise": "Watch the map zoom farther from Pidgey’s nest, then discover why it still knows the route home.",
+    "openLoop": "How can a tiny bird find its nest after leaving familiar ground behind?",
+    "payoff": "Pidgey’s extremely sharp sense of direction lets it unerringly return to its nest from unfamiliar surroundings.",
+    "targetEmotion": "curiosity",
+    "engagementQuestion": "Perfect navigator or surprising superpower, which sounds cooler?",
+    "targetSecondsBetweenVisualChanges": 0.68
+  },
+  "subject": {
+    "name": "Pidgey",
+    "category": "Tiny Bird Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/16.png",
+    "identifier": "#016"
+  },
+  "related": [
+    {
+      "name": "Pidgeot",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/18.png",
+      "identifier": "#018"
+    },
+    {
+      "name": "Pidgeotto",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/17.png",
+      "identifier": "#017"
+    }
+  ],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#10151c",
+    "surface": "#1c2730",
+    "primary": "#d7a768",
+    "secondary": "#73b9d2",
+    "ink": "#fff8e8"
+  },
+  "audio": {
+    "music": "generated/pidgey-016-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 126,
+      "notes": [
+        110,
+        130.81,
+        146.83,
+        164.81,
+        146.83,
+        130.81,
+        98,
+        130.81
+      ]
+    },
+    "voice": {
+      "provider": "openai",
+      "model": "gpt-4o-mini-tts",
+      "voice": "marin",
+      "instructions": "Warm, curious narrator. Start with urgency, then build wonder as the map expands. Slow slightly on the two reveals and end with a playful, inviting question.",
+      "speed": 1.12,
+      "output": "generated/pidgey-016-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "assets": [
+      {
+        "kind": "Pidgey official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/16.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "unverified",
+        "publicReleaseApproved": false,
+        "notes": "Internal prototype only pending legal review or replacement."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "take-pidgey-away",
+      "durationSeconds": 4,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "mystery",
+      "subjectFocus": "hidden",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "A TINY BIRD, LOST?",
+      "headline": "TAKE PIDGEY FAR AWAY.",
+      "narration": "Take Pidgey far away. It still flies home.",
+      "caption": "THE NEST DOT STAYS BEHIND",
+      "visual": "hook",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/16.png",
+      "accent": "#d7a768",
+      "facts": [
+        "FAR FROM HOME"
+      ]
+    },
+    {
+      "id": "familiar-ground-vanishes",
+      "durationSeconds": 4.7,
+      "beat": "clue",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "THE MAP KEEPS ZOOMING",
+      "headline": "FAMILIAR GROUND VANISHES",
+      "narration": "Even unfamiliar ground does not break Pidgey's sense of direction.",
+      "caption": "NEST → FIELDS → FORESTS → UNKNOWN",
+      "visual": "gauntlet",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/16.png",
+      "accent": "#73b9d2",
+      "facts": [
+        "UNFAMILIAR SURROUNDINGS"
+      ]
+    },
+    {
+      "id": "distance-keeps-growing",
+      "durationSeconds": 4.8,
+      "beat": "escalation",
+      "role": "escalation",
+      "shot": "tracking",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "FARTHER. FARTHER.",
+      "headline": "THE DISTANCE KEEPS GROWING",
+      "narration": "The distance keeps growing, but its route never loses home.",
+      "caption": "THE FLIGHT PATH KEEPS GLOWING",
+      "visual": "advantage",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/16.png",
+      "accent": "#d7a768",
+      "facts": [
+        "HOMEWARD ROUTE"
+      ]
+    },
+    {
+      "id": "sharp-sense-of-direction",
+      "durationSeconds": 4.2,
+      "beat": "reveal",
+      "role": "payoff",
+      "shot": "comparison",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "FIRST REVEAL",
+      "headline": "EXTREMELY SHARP DIRECTION",
+      "narration": "Its sense of direction is described as extremely sharp.",
+      "caption": "NOT LUCK. DIRECTION.",
+      "visual": "race",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/16.png",
+      "accent": "#73b9d2",
+      "facts": [
+        "EXTREMELY SHARP"
+      ]
+    },
+    {
+      "id": "unerringly-home",
+      "durationSeconds": 4.7,
+      "beat": "reveal",
+      "role": "payoff",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "THE ANSWER",
+      "headline": "IT RETURNS UNERRINGLY",
+      "narration": "Pidgey can unerringly return to its nest from unfamiliar surroundings.",
+      "caption": "THE PATH ENDS AT ITS NEST",
+      "visual": "tradeoff",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/16.png",
+      "accent": "#d7a768",
+      "facts": [
+        "UNERRINGLY RETURNS",
+        "ITS NEST"
+      ]
+    },
+    {
+      "id": "navigator-or-superpower",
+      "durationSeconds": 3.9,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "YOUR VERDICT",
+      "headline": "NAVIGATOR OR SUPERPOWER?",
+      "narration": "Perfect navigator or surprising superpower, which sounds cooler?",
+      "caption": "PICK A SIDE IN THE COMMENTS",
+      "visual": "cta",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/16.png",
+      "accent": "#73b9d2",
+      "facts": [
+        "NAVIGATOR",
+        "SUPERPOWER"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Pidgey",
+      "url": "https://www.pokemon.com/us/pokedex/pidgey"
+    },
+    {
+      "label": "Bulbapedia — Pidgey",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Pidgey_(Pok%C3%A9mon)"
+    },
+    {
+      "label": "PokéAPI — Pidgey",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/16"
+    }
+  ]
+}

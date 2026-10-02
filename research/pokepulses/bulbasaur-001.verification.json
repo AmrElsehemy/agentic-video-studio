@@ -1,0 +1,500 @@
+{
+  "episodeId": "bulbasaur-001",
+  "checkedAt": "2026-09-29T22:18:43.548Z",
+  "claims": [
+    {
+      "id": "c1",
+      "where": "title",
+      "text": "Why Bulbasaur Can Skip Meals",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text"
+      ],
+      "note": "Bulbasaur is stated to be able to go days without eating.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c2",
+      "where": "premise",
+      "text": "When Bulbasaur is young, nutrients stored in the seed on its back nourish its growth.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text",
+        "pokedexEntries[8].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c3",
+      "where": "audiencePromise",
+      "text": "Reveal why Bulbasaur can go without food, then show what its back seed is really doing.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[4].text",
+        "pokedexEntries[8].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c4",
+      "where": "openLoop",
+      "text": "How does Bulbasaur go days without eating?",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c5",
+      "where": "payoff",
+      "text": "Bulbasaur's bulb stores energy, its seed provides nutrients while it is young, and the plant grows with its body.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[4].text",
+        "pokedexEntries[0].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c6",
+      "where": "scenes.skip-meals.headline",
+      "text": "IT CAN SKIP MEALS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c7",
+      "where": "scenes.skip-meals.narration",
+      "text": "Bulbasaur can go days without eating. Why?",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c8",
+      "where": "scenes.skip-meals.caption",
+      "text": "DAYS WITHOUT A SINGLE MORSEL",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c9",
+      "where": "scenes.skip-meals.eyebrow",
+      "text": "A STRANGE HUNGER RULE",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[1].text"
+      ],
+      "note": "The entry supports that it can go days without food, but does not establish a literal hunger “rule.”",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c10",
+      "where": "scenes.skip-meals.facts[0]",
+      "text": "CAN GO DAYS WITHOUT EATING",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c11",
+      "where": "scenes.bulb-stores-energy.headline",
+      "text": "ITS BULB STORES ENERGY",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c12",
+      "where": "scenes.bulb-stores-energy.narration",
+      "text": "That back bulb stores energy, but where does it come from?",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text"
+      ],
+      "note": "Its back bulb storing energy is supported; the question does not assert where that energy comes from.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c13",
+      "where": "scenes.bulb-stores-energy.caption",
+      "text": "ENERGY STORED IN ITS BACK BULB",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c14",
+      "where": "scenes.bulb-stores-energy.eyebrow",
+      "text": "THE FIRST CLUE",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Framing phrase only.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c15",
+      "where": "scenes.bulb-stores-energy.facts[0]",
+      "text": "STORES ENERGY",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c16",
+      "where": "scenes.bulb-stores-energy.facts[1]",
+      "text": "BULB ON ITS BACK",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c17",
+      "where": "scenes.seed-from-birth.headline",
+      "text": "THE SEED ARRIVES AT BIRTH",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text",
+        "pokedexEntries[3].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c18",
+      "where": "scenes.seed-from-birth.narration",
+      "text": "From birth, a plant seed sits on Bulbasaur's back.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].text",
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c19",
+      "where": "scenes.seed-from-birth.caption",
+      "text": "A PLANT SEED FROM BIRTH",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c20",
+      "where": "scenes.seed-from-birth.eyebrow",
+      "text": "FROM THE START",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c21",
+      "where": "scenes.seed-from-birth.facts[0]",
+      "text": "SEED ON ITS BACK",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c22",
+      "where": "scenes.seed-from-birth.facts[1]",
+      "text": "FROM BIRTH",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c23",
+      "where": "scenes.sunlight-grows-seed.headline",
+      "text": "SUNLIGHT GROWS THE SEED",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c24",
+      "where": "scenes.sunlight-grows-seed.narration",
+      "text": "Soaking up sunlight makes the seed grow progressively larger.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c25",
+      "where": "scenes.sunlight-grows-seed.caption",
+      "text": "SUNLIGHT → A LARGER SEED",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c26",
+      "where": "scenes.sunlight-grows-seed.eyebrow",
+      "text": "THE SEED CHARGES UP",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[1].text"
+      ],
+      "note": "Sunlight is stated to make the seed grow larger, and the back bulb stores energy, but the research does not explicitly say sunlight “charges” the seed.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c27",
+      "where": "scenes.sunlight-grows-seed.facts[0]",
+      "text": "BRIGHT SUNLIGHT",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c28",
+      "where": "scenes.sunlight-grows-seed.facts[1]",
+      "text": "SEED GROWS LARGER",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c29",
+      "where": "scenes.nutrients-fuel-growth.headline",
+      "text": "THE SEED FUELS GROWTH",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text",
+        "pokedexEntries[8].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c30",
+      "where": "scenes.nutrients-fuel-growth.narration",
+      "text": "While young, Bulbasaur uses its seed's stored nutrients to grow.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text",
+        "pokedexEntries[8].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c31",
+      "where": "scenes.nutrients-fuel-growth.caption",
+      "text": "STORED NUTRIENTS → YOUNG GROWTH",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c32",
+      "where": "scenes.nutrients-fuel-growth.eyebrow",
+      "text": "THE REAL PAYOFF",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Framing phrase only.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c33",
+      "where": "scenes.nutrients-fuel-growth.facts[0]",
+      "text": "STORED NUTRIENTS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text",
+        "pokedexEntries[8].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c34",
+      "where": "scenes.nutrients-fuel-growth.facts[1]",
+      "text": "WHILE YOUNG",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text",
+        "pokedexEntries[8].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c35",
+      "where": "scenes.growing-partner.headline",
+      "text": "IT GROWS WITH BULBASAUR",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text",
+        "pokedexEntries[2].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c36",
+      "where": "scenes.growing-partner.narration",
+      "text": "Built-in pantry or growing partner: which is cooler?",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text",
+        "pokedexEntries[0].text"
+      ],
+      "note": "The pantry and partner wording is figurative: the seed supplies nutrients for growth and grows with Bulbasaur.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c37",
+      "where": "scenes.growing-partner.caption",
+      "text": "PANTRY OR GROWING PARTNER?",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text",
+        "pokedexEntries[0].text"
+      ],
+      "note": "This is a figurative question grounded in the seed's nutrient and growth roles.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c38",
+      "where": "scenes.growing-partner.eyebrow",
+      "text": "NOT JUST A SEED",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text",
+        "pokedexEntries[0].text"
+      ],
+      "note": "The seed has documented functions beyond merely being present: it provides nutrients and grows with Bulbasaur.",
+      "tier": "official",
+      "checkedBy": "model"
+    }
+  ],
+  "unsupported": [],
+  "uncertain": [
+    {
+      "id": "c9",
+      "where": "scenes.skip-meals.eyebrow",
+      "text": "A STRANGE HUNGER RULE",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[1].text"
+      ],
+      "note": "The entry supports that it can go days without food, but does not establish a literal hunger “rule.”",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c26",
+      "where": "scenes.sunlight-grows-seed.eyebrow",
+      "text": "THE SEED CHARGES UP",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[1].text"
+      ],
+      "note": "Sunlight is stated to make the seed grow larger, and the back bulb stores energy, but the research does not explicitly say sunlight “charges” the seed.",
+      "tier": "official",
+      "checkedBy": "model"
+    }
+  ]
+}

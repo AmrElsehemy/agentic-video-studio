@@ -1,0 +1,170 @@
+{
+  "episodeId": "pidgeotto-017",
+  "createdAt": "2026-09-30T09:02:10.846Z",
+  "chosen": {
+    "id": "sixty-mile-prey-delivery",
+    "premise": "Pidgeotto immobilizes prey with its claws, then carries it more than 60 miles back to its nest.",
+    "hook": "Pidgeotto can take immobilized prey on a 60-mile flight home.",
+    "archetype": "mechanic",
+    "evidence": [
+      "pokedexEntries[3].text",
+      "pokedexEntries[7].text",
+      "pokedexEntries[10].text"
+    ],
+    "visualIdea": "A map route stretches 60+ miles as Pidgeotto flies overhead carrying an Exeggcute-shaped silhouette.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 5,
+      "specificity": 5,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 25,
+    "note": "A highly specific, unsettling mechanic backed by three Pokédex entries; the 60-mile map and immobilized prey make the premise immediately visual."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "sixty-mile-prey-delivery",
+          "premise": "Pidgeotto immobilizes prey with its claws, then carries it more than 60 miles back to its nest.",
+          "hook": "Pidgeotto can take immobilized prey on a 60-mile flight home.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[3].text",
+            "pokedexEntries[7].text",
+            "pokedexEntries[10].text"
+          ],
+          "visualIdea": "A map route stretches 60+ miles as Pidgeotto flies overhead carrying an Exeggcute-shaped silhouette.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 25,
+          "note": "A highly specific, unsettling mechanic backed by three Pokédex entries; the 60-mile map and immobilized prey make the premise immediately visual."
+        },
+        {
+          "id": "bird-pokemon-thirty-kilos",
+          "premise": "Pidgeotto is a 1.1-meter, 30-kilogram Bird Pokémon that carries prey more than 60 miles.",
+          "hook": "This 30-kilo bird can fly prey more than 60 miles home.",
+          "archetype": "comparison",
+          "evidence": [
+            "category",
+            "heightMeters",
+            "weightKg",
+            "pokedexEntries[3].text",
+            "pokedexEntries[7].text"
+          ],
+          "visualIdea": "Stat cards show 1.1 m and 30 kg, then a distance counter races past 60 miles beneath a flying Pidgeotto.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 5,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 23,
+          "note": "The 30-kilogram bird-versus-60-mile contrast is compelling and fully supported, though it overlaps thematically with the stronger delivery mechanic."
+        },
+        {
+          "id": "eyes-from-any-height",
+          "premise": "No matter how high it flies, Pidgeotto can still distinguish the movements of its prey below.",
+          "hook": "Pidgeotto's vision works from any altitude.",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[2].text",
+            "pokedexEntries[9].text"
+          ],
+          "visualIdea": "The camera climbs above clouds, then hard-cuts to Pidgeotto's view tracking tiny movement on the ground.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 21,
+          "note": "Strong visual mystery and well supported, but “from any altitude” slightly overstates the source’s hyperbolic wording."
+        },
+        {
+          "id": "the-territory-patrol",
+          "premise": "Pidgeotto constantly circles and patrols a large territory—then shows no mercy to anything that enters it.",
+          "hook": "Pidgeotto doesn't just own territory—it patrols it relentlessly.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[0].text",
+            "pokedexEntries[1].text",
+            "pokedexEntries[4].text",
+            "pokedexEntries[5].text",
+            "pokedexEntries[6].text"
+          ],
+          "visualIdea": "A top-down territory circle is repeatedly traced by Pidgeotto before an intruder crosses the boundary.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 3,
+            "specificity": 3,
+            "visual": 4,
+            "support": 5
+          },
+          "total": 19,
+          "note": "The patrol-and-punish behavior is well documented, but “large territory” is undefined and the angle is less surprising than the prey-delivery fact."
+        },
+        {
+          "id": "pecks-or-claws",
+          "premise": "Pidgeotto's intruder defense shifts from fierce pecking in Red to sharp-claw punishment in later entries.",
+          "hook": "Pidgeotto has two very different ways to evict an intruder.",
+          "archetype": "comparison",
+          "evidence": [
+            "pokedexEntries[0].text",
+            "pokedexEntries[5].text",
+            "pokedexEntries[6].text"
+          ],
+          "visualIdea": "A split screen labels one attack 'beak' and the other 'claws' as an intruder crosses a territory line.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 3,
+            "surprise": 3,
+            "specificity": 4,
+            "visual": 4,
+            "support": 4
+          },
+          "total": 18,
+          "note": "The entries do differ, but this may reflect descriptive variation rather than a meaningful two-mode defense system."
+        },
+        {
+          "id": "level-18-to-36-middle-stage",
+          "premise": "Pidgeotto evolves from Pidgey at level 18, then remains the middle stage until evolving at level 36.",
+          "hook": "Pidgeotto's entire evolutionary chapter lasts 18 levels.",
+          "archetype": "transformation",
+          "evidence": [
+            "evolutionChain[1].name",
+            "evolutionChain[1].method",
+            "evolutionChain[2].name",
+            "evolutionChain[2].method"
+          ],
+          "visualIdea": "An evolution timeline ticks from Pidgey at 18 through Pidgeotto, ending with Pidgeot at 36.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 3,
+            "surprise": 3,
+            "specificity": 5,
+            "visual": 5,
+            "support": 2
+          },
+          "total": 18,
+          "note": "The 18-level span is concrete and visual, but the supplied research does not actually include Pidgeot’s evolution method at level 36."
+        }
+      ],
+      "rejected": []
+    }
+  ]
+}

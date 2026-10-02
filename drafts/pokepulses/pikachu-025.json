@@ -1,0 +1,165 @@
+{
+  "id": "pikachu-025",
+  "title": "Pikachu: The Culinary Electrician",
+  "storyPattern": "profile",
+  "numberRelevant": false,
+  "premise": "Explore how Pikachu uses its electric abilities to tenderize food, elevating its skill set beyond simple battles.",
+  "audiencePromise": "Discover Pikachu's clever use of electricity in cooking, supported by its natural traits and habits.",
+  "openLoop": "How does Pikachu use electricity to prepare food?",
+  "payoff": "Pikachu cleverly uses its stored electricity to roast tough berries, making them easier and more delicious to eat.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "Is Pikachu a survivalist or a chef?",
+  "subject": {
+    "name": "Pikachu",
+    "category": "Mouse Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png",
+    "identifier": "#025"
+  },
+  "related": [
+    {
+      "name": "Raichu",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/26.png",
+      "identifier": "#026"
+    },
+    {
+      "name": "Pichu",
+      "relation": "evolves-from",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/172.png",
+      "identifier": "#172"
+    },
+    {
+      "name": "Pikachu Rock Star",
+      "relation": "form",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10080.png",
+      "identifier": "#025"
+    }
+  ],
+  "palette": {
+    "background": "#2f2f2f",
+    "surface": "#4a4a4a",
+    "primary": "#f2c500",
+    "secondary": "#f7a704",
+    "ink": "#ffffff"
+  },
+  "voice": {
+    "instructions": "Engaging and playful with a hint of wonder."
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "assets": [
+      {
+        "kind": "Pikachu official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "unverified",
+        "publicReleaseApproved": false,
+        "notes": "Internal prototype only pending legal review or replacement."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "pikachu-hook",
+      "beat": "hook",
+      "headline": "Pikachu, the Electric Chef",
+      "narration": "Meet the Pokémon that cooks with shocks!",
+      "caption": "Culinary Pikachu at Work",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png"
+    },
+    {
+      "id": "pikachu-evidence-1",
+      "beat": "evidence",
+      "headline": "Electric Berry Roasting",
+      "narration": "Pikachu roasts hard berries with electricity.",
+      "caption": "Making tough berries tender—electric-style!",
+      "facts": [
+        "Intelligent Pokémon",
+        "Uses stored electricity"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png",
+      "primitive": {
+        "kind": "timeline",
+        "steps": [
+          {
+            "label": "Pichu",
+            "detail": "START"
+          },
+          {
+            "label": "Pikachu",
+            "detail": "BERRY ROAST"
+          },
+          {
+            "label": "Raichu",
+            "detail": "POWER UP"
+          }
+        ],
+        "active": 1
+      }
+    },
+    {
+      "id": "pikachu-evidence-2",
+      "beat": "evidence",
+      "headline": "Cheeky Power",
+      "narration": "Stores electricity in cheek sacs for cooking bursts.",
+      "caption": "Its cheeks: more than just cute.",
+      "facts": [
+        "Cheek sacs storage",
+        "Electric cooking bursts"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png"
+    },
+    {
+      "id": "pikachu-escalation",
+      "beat": "escalation",
+      "headline": "Berry Blackening Skills",
+      "narration": "Sometimes, Pikachu overcooks berries, charring them.",
+      "caption": "Oops! A bit too much zap.",
+      "facts": [
+        "Blackened berries",
+        "Intensity mistake"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png"
+    },
+    {
+      "id": "pikachu-twist",
+      "beat": "twist",
+      "headline": "Efficiency or Taste?",
+      "narration": "Does Pikachu cook for survival or flavor?",
+      "caption": "Electricity adds flavor or just practicality?",
+      "facts": [
+        "Survival skills",
+        "Flavor enhancement"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png"
+    },
+    {
+      "id": "pikachu-verdict",
+      "beat": "verdict",
+      "headline": "Survivalist or Chef?",
+      "narration": "Is Pikachu a survivalist or a chef? You decide.",
+      "caption": "Chef or survivalist? You be the judge.",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Pikachu",
+      "url": "https://www.pokemon.com/us/pokedex/pikachu",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Pikachu",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Pikachu_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Pikachu",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/25",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

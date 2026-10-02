@@ -1,0 +1,182 @@
+{
+  "id": "charmander-004",
+  "title": "Why Rain Makes Charmander’s Tail Steam Without Killing Its Flame",
+  "storyPattern": "mystery",
+  "numberRelevant": false,
+  "premise": "Rain makes steam spout from Charmander’s tail, yet a healthy tail flame can keep burning when wet.",
+  "audiencePromise": "Follow Charmander’s rainy tail paradox from a hot-place preference to its life-force flame.",
+  "openLoop": "If rain makes Charmander’s tail steam, how can its flame stay lit?",
+  "payoff": "The steam is only half the clue: Charmander’s tail reflects its life force, and a healthy flame burns vigorously even when wet.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "Life gauge or mood gauge: what defines Charmander’s flame?",
+  "subject": {
+    "name": "Charmander",
+    "category": "Lizard Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png",
+    "identifier": "#004"
+  },
+  "related": [
+    {
+      "name": "Charizard",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/6.png",
+      "identifier": "#006"
+    },
+    {
+      "name": "Charmeleon",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/5.png",
+      "identifier": "#005"
+    }
+  ],
+  "palette": {
+    "background": "#10151f",
+    "surface": "#1d2733",
+    "primary": "#f47b32",
+    "secondary": "#ffd05a",
+    "ink": "#fff4df"
+  },
+  "voice": {
+    "instructions": "Warm, urgent, and curious. Start with a sharp contradiction, then slow down for the life-force reveal. End with a thoughtful challenge."
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "assets": [
+      {
+        "kind": "Charmander official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "unverified",
+        "publicReleaseApproved": false,
+        "notes": "Internal prototype only pending legal review or replacement."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "rainy-tail-paradox",
+      "beat": "hook",
+      "eyebrow": "RAIN TEST",
+      "headline": "STEAM RISES. FLAME LIVES.",
+      "narration": "Rain hits Charmander’s tail: steam rises, flame stays lit.",
+      "caption": "RAIN CREATES STEAM, BUT THE FLAME REMAINS",
+      "facts": [
+        "RAIN",
+        "STEAM",
+        "FLAME"
+      ],
+      "accent": "#6bb9d6",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png"
+    },
+    {
+      "id": "hot-place-clue",
+      "beat": "clue",
+      "eyebrow": "FIRST CLUE",
+      "headline": "IT PREFERS HOT PLACES",
+      "narration": "Charmander prefers hot places, so rain looks like trouble.",
+      "caption": "A FIRE POKÉMON IN THE RAIN?",
+      "facts": [
+        "PREFERS HOT PLACES",
+        "RAIN"
+      ],
+      "accent": "#f47b32",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png"
+    },
+    {
+      "id": "life-force-stakes",
+      "beat": "escalation",
+      "eyebrow": "THE STAKES CHANGE",
+      "headline": "THIS FLAME MEANS LIFE",
+      "narration": "But that tail flame also indicates its life force.",
+      "caption": "THIS IS NOT JUST A NORMAL FLAME",
+      "facts": [
+        "TAIL FLAME",
+        "LIFE FORCE"
+      ],
+      "accent": "#ff5a36",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png"
+    },
+    {
+      "id": "weak-flame-reveal",
+      "beat": "reveal",
+      "eyebrow": "FIRST REVEAL",
+      "headline": "WEAK FLAME, WEAK LIFE",
+      "narration": "If Charmander is weak, its flame burns weakly too.",
+      "caption": "THE FLAME SHOWS ITS CONDITION",
+      "facts": [
+        "WEAK",
+        "WEAK FLAME",
+        "LIFE FORCE"
+      ],
+      "accent": "#d95a3b",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png"
+    },
+    {
+      "id": "wet-flame-reveal",
+      "beat": "reveal",
+      "eyebrow": "THE TWIST",
+      "headline": "WET DOESN’T MEAN OUT",
+      "narration": "A healthy Charmander’s flame burns vigorously, even when it gets wet.",
+      "caption": "HEALTHY FLAMES KEEP BURNING THROUGH WATER",
+      "facts": [
+        "HEALTHY",
+        "BURNS VIGOROUSLY",
+        "EVEN WHEN WET"
+      ],
+      "accent": "#ffd05a",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png",
+      "primitive": {
+        "kind": "checklist",
+        "items": [
+          {
+            "label": "HEALTHY",
+            "met": true
+          },
+          {
+            "label": "WET",
+            "met": true
+          },
+          {
+            "label": "FLAME STILL BURNS",
+            "met": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "flame-verdict",
+      "beat": "verdict",
+      "eyebrow": "MYSTERY SOLVED",
+      "headline": "STEAM IS NOT THE END",
+      "narration": "Life gauge or mood gauge: what defines Charmander’s flame?",
+      "caption": "STEAM RISES, BUT A HEALTHY FLAME STILL BURNS",
+      "facts": [
+        "LIFE FORCE",
+        "EMOTIONS",
+        "RAIN STEAM"
+      ],
+      "accent": "#fff4df",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Charmander",
+      "url": "https://www.pokemon.com/us/pokedex/charmander",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Charmander",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Charmander_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Charmander",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/4",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

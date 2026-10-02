@@ -1,0 +1,169 @@
+{
+  "id": "ekans-023",
+  "title": "Ekans's Favorite Snack Can Knock It Out",
+  "storyPattern": "mechanic",
+  "numberRelevant": false,
+  "premise": "Bird Pokémon eggs are Ekans's favorite food, but swallowing one whole can get it stuck and make Ekans faint.",
+  "audiencePromise": "See how Ekans's favorite food becomes the risky meal that can knock it out.",
+  "openLoop": "What happens when Ekans's favorite egg will not go down?",
+  "payoff": "Ekans can swallow prey whole, but a stuck bird egg can turn its favorite food into a fainting risk.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "Favorite food or worst snack, which label fits Ekans?",
+  "subject": {
+    "name": "Ekans",
+    "category": "Snake Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/23.png",
+    "identifier": "#023"
+  },
+  "related": [
+    {
+      "name": "Arbok",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/24.png",
+      "identifier": "#024"
+    }
+  ],
+  "palette": {
+    "background": "#10140f",
+    "surface": "#202b1c",
+    "primary": "#8c55a8",
+    "secondary": "#f4e6bd",
+    "ink": "#fff8e8"
+  },
+  "voice": {
+    "instructions": "Use a playful, suspenseful tone. Hit the hook with alarm, make the jaw reveal feel surprising, then slow down for the stuck-egg payoff."
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    },
+    "assets": [
+      {
+        "kind": "Ekans official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/23.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "favorite-snack-knocks-it-out",
+      "beat": "hook",
+      "eyebrow": "FAVORITE FOOD",
+      "headline": "EGGS CAN KNOCK EKANS OUT",
+      "narration": "Ekans's favorite snack can knock it out.",
+      "caption": "ITS FAVORITE FOOD HAS A CATCH",
+      "facts": [
+        "BIRD EGGS",
+        "FAVORITE FOOD"
+      ],
+      "accent": "#f4e6bd",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/23.png"
+    },
+    {
+      "id": "eggs-swallowed-whole",
+      "beat": "evidence",
+      "eyebrow": "THE TARGET",
+      "headline": "BIRD EGGS, SWALLOWED WHOLE",
+      "narration": "Bird Pokémon eggs are Ekans's favorite food, swallowed whole.",
+      "caption": "EGGS GO DOWN WHOLE",
+      "facts": [
+        "FAVORITE FOOD",
+        "SWALLOWS WHOLE"
+      ],
+      "accent": "#8c55a8",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/23.png"
+    },
+    {
+      "id": "jaw-detaches-for-prey",
+      "beat": "escalation",
+      "eyebrow": "HOW IT SWALLOWS",
+      "headline": "ITS JAW CAN DETACH",
+      "narration": "Ekans can detach its jaw to swallow prey larger than itself.",
+      "caption": "A JAW BUILT TO SWALLOW BIG",
+      "facts": [
+        "DETACHES ITS JAW",
+        "SWALLOWS LARGE PREY"
+      ],
+      "accent": "#d9a52d",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/23.png"
+    },
+    {
+      "id": "whole-egg-gets-stuck",
+      "beat": "payoff",
+      "eyebrow": "THE BACKFIRE",
+      "headline": "BUT THE EGG CAN GET STUCK",
+      "narration": "But that whole egg can get stuck inside Ekans.",
+      "caption": "WHOLE EGG → STUCK",
+      "facts": [
+        "EGG GETS STUCK"
+      ],
+      "accent": "#f4e6bd",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/23.png",
+      "primitive": {
+        "kind": "timeline",
+        "steps": [
+          {
+            "label": "SWALLOWS EGG"
+          },
+          {
+            "label": "EGG GETS STUCK"
+          },
+          {
+            "label": "EKANS FAINTS"
+          }
+        ],
+        "active": 1
+      }
+    },
+    {
+      "id": "favorite-food-ends-in-fainting",
+      "beat": "payoff",
+      "eyebrow": "THE COST",
+      "headline": "FAVORITE FOOD, FAINTING END",
+      "narration": "Its favorite food then ends with Ekans fainting.",
+      "caption": "FAVORITE FOOD → FAINTED",
+      "facts": [
+        "EKANS FAINTS"
+      ],
+      "accent": "#8c55a8",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/23.png"
+    },
+    {
+      "id": "favorite-or-worst-snack",
+      "beat": "verdict",
+      "eyebrow": "YOUR CALL",
+      "headline": "FAVORITE FOOD OR WORST SNACK?",
+      "narration": "Favorite food or worst snack, which label fits Ekans?",
+      "caption": "FAVORITE OR WORST?",
+      "accent": "#f4e6bd",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/23.png"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Ekans",
+      "url": "https://www.pokemon.com/us/pokedex/ekans",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Ekans",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Ekans_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Ekans",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/23",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

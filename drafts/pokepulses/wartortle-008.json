@@ -1,0 +1,162 @@
+{
+  "id": "wartortle-008",
+  "title": "Wartortle’s Shell Has One Obvious Hiding Flaw",
+  "storyPattern": "mechanic",
+  "numberRelevant": false,
+  "premise": "When tapped, Wartortle pulls its head into its shell, but its tail still sticks out a little.",
+  "audiencePromise": "See Wartortle pull its head into its shell, then reveal the tail that still sticks out.",
+  "openLoop": "After Wartortle retracts its head, what surprising feature stays exposed?",
+  "payoff": "The visible tail is large and thick-furred, and Wartortle controls it for swimming balance.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "Keep the tail for balance, or hide it too?",
+  "subject": {
+    "name": "Wartortle",
+    "category": "Turtle Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/8.png",
+    "identifier": "#008"
+  },
+  "related": [
+    {
+      "name": "Blastoise",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/9.png",
+      "identifier": "#009"
+    },
+    {
+      "name": "Squirtle",
+      "relation": "evolves-from",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png",
+      "identifier": "#007"
+    }
+  ],
+  "palette": {
+    "background": "#071b2b",
+    "surface": "#10314a",
+    "primary": "#75d5e8",
+    "secondary": "#f4e2b5",
+    "ink": "#f7fbff"
+  },
+  "voice": {
+    "instructions": "Playful and curious. Pause after the head retracts, then make the tail reveal feel dramatic. Keep the final question light and inviting."
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "assets": [
+      {
+        "kind": "Wartortle official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/8.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "unverified",
+        "publicReleaseApproved": false,
+        "notes": "Internal prototype only pending legal review or replacement."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "tap-and-retract",
+      "beat": "hook",
+      "eyebrow": "TAP ANIMATION",
+      "headline": "TAP. HEAD IN. WHAT'S LEFT?",
+      "narration": "Tap Wartortle: its head vanishes, but something stays out.",
+      "caption": "TAP → HEAD RETRACTS",
+      "facts": [
+        "TAPPED ON ITS HEAD"
+      ],
+      "accent": "#75d5e8",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/8.png"
+    },
+    {
+      "id": "head-in-shell",
+      "beat": "evidence",
+      "eyebrow": "THE FIRST PART",
+      "headline": "ITS HEAD PULLS INSIDE",
+      "narration": "Tap its head, and Wartortle pulls that head into its shell.",
+      "caption": "HEAD: INSIDE THE SHELL",
+      "facts": [
+        "HEAD PULLS INTO SHELL"
+      ],
+      "accent": "#f4e2b5",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/8.png"
+    },
+    {
+      "id": "one-feature-visible",
+      "beat": "escalation",
+      "eyebrow": "LOOK CLOSER",
+      "headline": "ONE FEATURE STAYS VISIBLE",
+      "narration": "Then its hidden head leaves one feature still visible.",
+      "caption": "ONE PART DIDN'T DISAPPEAR",
+      "accent": "#c7a4f5",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/8.png",
+      "primitive": {
+        "kind": "checklist",
+        "items": [
+          {
+            "label": "HEAD VISIBLE",
+            "met": false
+          },
+          {
+            "label": "TAIL STICKS OUT",
+            "met": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "tail-reveal",
+      "beat": "payoff",
+      "eyebrow": "SPOTLIGHT REVEAL",
+      "headline": "THE TAIL STILL STICKS OUT",
+      "narration": "It is Wartortle's large tail, covered in thick fur.",
+      "caption": "THE TAIL STICKS OUT A LITTLE",
+      "facts": [
+        "LARGE FUR-COVERED TAIL"
+      ],
+      "accent": "#ffcc66",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/8.png"
+    },
+    {
+      "id": "tail-balance",
+      "beat": "payoff",
+      "eyebrow": "SECOND REVEAL",
+      "headline": "THAT TAIL HELPS IT SWIM",
+      "narration": "That tail helps Wartortle maintain balance while swimming.",
+      "caption": "TAIL HELPS MAINTAIN BALANCE",
+      "facts": [
+        "SWIMMING BALANCE"
+      ],
+      "accent": "#75d5e8",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/8.png"
+    },
+    {
+      "id": "balance-or-hide",
+      "beat": "verdict",
+      "eyebrow": "YOUR CALL",
+      "headline": "BALANCE OR HIDING?",
+      "narration": "Keep the tail for balance, or hide it too?",
+      "caption": "BALANCE TAIL OR TOTAL HIDING?",
+      "accent": "#f4e2b5",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/8.png"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Wartortle",
+      "url": "https://www.pokemon.com/us/pokedex/wartortle",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Wartortle",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Wartortle_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Wartortle",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/8",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

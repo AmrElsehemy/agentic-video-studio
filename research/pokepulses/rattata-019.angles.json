@@ -1,0 +1,168 @@
+{
+  "episodeId": "rattata-019",
+  "createdAt": "2026-09-30T09:08:34.204Z",
+  "chosen": {
+    "id": "fangs-that-can-starve-it",
+    "premise": "Rattata's incisors grow until death—and if they get too long, it cannot eat and starves.",
+    "hook": "Rattata can starve because its teeth never stop growing.",
+    "archetype": "mystery",
+    "evidence": [
+      "pokedexEntries[12].text",
+      "pokedexEntries[14].text",
+      "pokedexEntries[10].text"
+    ],
+    "visualIdea": "A tooth-growth meter climbs as Rattata gnaws objects, ending with food blocked by overgrown incisors.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 5,
+      "specificity": 5,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 25,
+    "note": "A genuinely unsettling contradiction: the survival tool Rattata needs can ultimately prevent it from eating. Multiple entries directly support the full premise."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "fangs-that-can-starve-it",
+          "premise": "Rattata's incisors grow until death—and if they get too long, it cannot eat and starves.",
+          "hook": "Rattata can starve because its teeth never stop growing.",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[12].text",
+            "pokedexEntries[14].text",
+            "pokedexEntries[10].text"
+          ],
+          "visualIdea": "A tooth-growth meter climbs as Rattata gnaws objects, ending with food blocked by overgrown incisors.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 25,
+          "note": "A genuinely unsettling contradiction: the survival tool Rattata needs can ultimately prevent it from eating. Multiple entries directly support the full premise."
+        },
+        {
+          "id": "one-means-forty",
+          "premise": "Seeing one Rattata means 40 more are certain to be living nearby.",
+          "hook": "Spot one Rattata? There are 40 more nearby.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[1].text",
+            "pokedexEntries[16].text"
+          ],
+          "visualIdea": "One Rattata freezes on screen, then the frame rapidly fills with 40 numbered silhouettes.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 24,
+          "note": "A highly specific canonical population rule, directly stated in two Pokédex entries and easy to visualize."
+        },
+        {
+          "id": "tiny-rat-hardwood-cutter",
+          "premise": "Despite standing just 0.3 meters tall, Rattata's sharp incisors can cut right through hard wood.",
+          "hook": "This 0.3-meter Pokémon can cut through hard wood.",
+          "archetype": "comparison",
+          "evidence": [
+            "heightMeters",
+            "pokedexEntries[15].text",
+            "pokedexEntries[7].text"
+          ],
+          "visualIdea": "A size ruler shows 0.3 m beside Rattata, then its bite slices dramatically through a hard wooden beam.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 22,
+          "note": "The 0.3-meter-versus-hardwood contrast is concrete and cinematic, but the source says its incisors can cut through hard wood without specifying the mechanics of a dramatic beam-cutting bite."
+        },
+        {
+          "id": "gnaw-or-destroy-your-house",
+          "premise": "Without something to file its ever-growing incisors, Rattata may chew door frames and table legs.",
+          "hook": "A Rattata needs a file—or your furniture becomes the file.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[12].text",
+            "pokedexEntries[7].text",
+            "pokedexEntries[10].text"
+          ],
+          "visualIdea": "Split screen: a file saves the teeth; no file leads to animated bite marks racing across a door and table.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 21,
+          "note": "Strong practical consequence with excellent visuals, but the house-destruction framing is narrower than the source, which specifically names door frames and table legs."
+        },
+        {
+          "id": "asleep-but-listening",
+          "premise": "Even while asleep, extremely cautious Rattata moves its ears constantly to listen for danger.",
+          "hook": "Rattata is still on guard while it sleeps.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[5].text",
+            "pokedexEntries[6].text",
+            "pokedexEntries[11].text"
+          ],
+          "visualIdea": "A sleeping Rattata fills the screen while exaggerated ear movements catch tiny danger-sound waves.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 4,
+            "support": 5
+          },
+          "total": 21,
+          "note": "Well-supported and characterful, though the basic idea of a cautious animal staying alert during sleep is less startling than the tooth premise."
+        },
+        {
+          "id": "normal-to-dark-normal",
+          "premise": "Standard Rattata is Normal-type, but its Alolan variety becomes Dark/Normal and weighs 0.3 kg more.",
+          "hook": "Alola turns Rattata from Normal into Dark/Normal.",
+          "archetype": "transformation",
+          "evidence": [
+            "types",
+            "weightKg",
+            "varieties[0].name",
+            "varieties[0].types",
+            "varieties[0].heightMeters",
+            "varieties[0].weightKg"
+          ],
+          "visualIdea": "Rattata slides through an Alola transition: type badge changes to Dark/Normal while weight ticks from 3.5 to 3.8 kg.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 3,
+            "specificity": 5,
+            "visual": 4,
+            "support": 5
+          },
+          "total": 21,
+          "note": "Accurate and cleanly supported, but type changes and a 0.3-kilogram weight increase are familiar regional-variant material and less emotionally compelling."
+        }
+      ],
+      "rejected": []
+    }
+  ]
+}

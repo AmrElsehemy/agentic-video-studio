@@ -1,0 +1,169 @@
+{
+  "episodeId": "butterfree-012",
+  "createdAt": "2026-09-30T08:46:26.993Z",
+  "chosen": {
+    "id": "caterpie-bodyguard",
+    "premise": "When bird Pokémon target Caterpie, Butterfree drives them away by sprinkling toxic scales.",
+    "hook": "Butterfree has a terrifying answer for Caterpie hunters.",
+    "archetype": "profile",
+    "evidence": [
+      "pokedexEntries[13].text",
+      "pokedexEntries[12].text",
+      "pokedexEntries[0].text",
+      "evolutionChain[0].name"
+    ],
+    "visualIdea": "A bird silhouette swoops toward Caterpie before Butterfree blocks the path with a sparkling cloud of scales.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 5,
+      "specificity": 4,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 24,
+    "note": "The protective relationship is unusually specific, dramatic, and directly supported: Butterfree uses toxic scales to drive off birds attacking Caterpie."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "caterpie-bodyguard",
+          "premise": "When bird Pokémon target Caterpie, Butterfree drives them away by sprinkling toxic scales.",
+          "hook": "Butterfree has a terrifying answer for Caterpie hunters.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[13].text",
+            "pokedexEntries[12].text",
+            "pokedexEntries[0].text",
+            "evolutionChain[0].name"
+          ],
+          "visualIdea": "A bird silhouette swoops toward Caterpie before Butterfree blocks the path with a sparkling cloud of scales.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 24,
+          "note": "The protective relationship is unusually specific, dramatic, and directly supported: Butterfree uses toxic scales to drive off birds attacking Caterpie."
+        },
+        {
+          "id": "metapod-to-flight-in-three-levels",
+          "premise": "At level 7 Caterpie becomes Metapod, then just three levels later it becomes the flying Butterfree at level 10.",
+          "hook": "Metapod only waits three levels before it gets wings.",
+          "archetype": "transformation",
+          "evidence": [
+            "evolutionChain[0]",
+            "evolutionChain[1].method",
+            "evolutionChain[2].method",
+            "evolutionChain[2].types"
+          ],
+          "visualIdea": "A level meter climbs from 7 to 10 as Caterpie becomes Metapod, then cracks open into airborne Butterfree.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 23,
+          "note": "The three-level countdown is clear and easy to animate, but evolution timing is a familiar Pokémon fact and less surprising than the bodyguard behavior."
+        },
+        {
+          "id": "gmax-fifteen-times-taller",
+          "premise": "Gigantamax Butterfree reaches 17 meters—over 15 times the height of its normal 1.1-meter form.",
+          "hook": "Butterfree can grow from 1.1 meters to 17.",
+          "archetype": "comparison",
+          "evidence": [
+            "heightMeters",
+            "varieties[0].name",
+            "varieties[0].heightMeters",
+            "weightKg",
+            "varieties[0].weightKg"
+          ],
+          "visualIdea": "Normal Butterfree stands beside a height scale, then Gigantamax Butterfree towers past it at 17 meters.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 23,
+          "note": "The scale comparison is highly visual and numerically solid, though Gigantamax size comparisons are a broad Pokémon format rather than uniquely Butterfree."
+        },
+        {
+          "id": "rainproof-toxic-wings",
+          "premise": "Butterfree’s wings release toxic dust, yet their poisonous powder also repels rain so it can keep flying.",
+          "hook": "Butterfree’s toxic wings are also built for rain.",
+          "archetype": "comparison",
+          "evidence": [
+            "pokedexEntries[0].text",
+            "pokedexEntries[1].text",
+            "pokedexEntries[7].text"
+          ],
+          "visualIdea": "Toxic dust bursts from flapping wings, then rain beads and rolls harmlessly off in slow motion.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 22,
+          "note": "A strong contradiction between poisonous scales and rain resistance, though the core idea is slightly less distinctive than Butterfree’s other behaviors."
+        },
+        {
+          "id": "six-mile-honey-run",
+          "premise": "Butterfree can seek, extract, and carry honey from flowers blooming over six miles from its nest.",
+          "hook": "Butterfree will fly over six miles for honey.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[5].text",
+            "pokedexEntries[6].text",
+            "pokedexEntries[2].text"
+          ],
+          "visualIdea": "A map line stretches six miles from a nest to a tiny flower, ending with Butterfree hauling honey home.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 4,
+            "support": 5
+          },
+          "total": 22,
+          "note": "The six-mile distance is concrete and memorable; the map visualization works, but the research says it can seek and carry honey from that distance rather than explicitly describing a six-mile flight."
+        },
+        {
+          "id": "eyes-made-of-eyes",
+          "premise": "Butterfree’s large eyes look simple from afar, but each one is composed of a myriad of tiny eyes.",
+          "hook": "Zoom into Butterfree’s eye—and it becomes countless eyes.",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[11].text"
+          ],
+          "visualIdea": "An extreme camera zoom enters one large eye and reveals a dense mosaic of tiny individual eyes.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 3,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 22,
+          "note": "Extremely Butterfree-specific and visually striking, but 'myriad' is vague and the reveal is more of a visual fact than a fully developed episode premise."
+        }
+      ],
+      "rejected": []
+    }
+  ]
+}

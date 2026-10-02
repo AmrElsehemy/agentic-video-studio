@@ -1,0 +1,467 @@
+{
+  "episodeId": "spearow-021",
+  "checkedAt": "2026-10-02T09:58:24.867Z",
+  "claims": [
+    {
+      "id": "c1",
+      "where": "title",
+      "text": "Spearow Can't Fly Far, But Its Cry Reaches Half a Mile",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[12].text",
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c2",
+      "where": "premise",
+      "text": "A 0.3-meter Spearow cannot fly long distances, yet its cry can be heard over half a mile away.",
+      "verdict": "supported",
+      "evidence": [
+        "heightMeters",
+        "pokedexEntries[12].text",
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c3",
+      "where": "audiencePromise",
+      "text": "See how Spearow's short-range flight makes its half-mile danger cry far more surprising.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[12].text",
+        "pokedexEntries[5].text"
+      ],
+      "note": "“More surprising” is subjective framing based on the supported contrast.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c4",
+      "where": "openLoop",
+      "text": "Why would a bird that cannot fly far need a half-mile cry?",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[12].text",
+        "pokedexEntries[5].text"
+      ],
+      "note": "A question built from supported facts.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c5",
+      "where": "payoff",
+      "text": "The cry is not just loud. Its echoing high call is a shared warning that danger is nearby.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c6",
+      "where": "scenes.cry-versus-flight.headline",
+      "text": "CAN'T FLY FAR. CRY DOES.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[12].text",
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c7",
+      "where": "scenes.cry-versus-flight.narration",
+      "text": "Spearow can't fly far. Its cry reaches a half-mile.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[12].text",
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c8",
+      "where": "scenes.cry-versus-flight.caption",
+      "text": "SHORT FLIGHTS. HUGE SOUND RANGE.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[12].text",
+        "pokedexEntries[5].text"
+      ],
+      "note": "“Huge” is dramatic framing of the supported half-mile range.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c9",
+      "where": "scenes.cry-versus-flight.eyebrow",
+      "text": "A TINY BIRD CONTRADICTION",
+      "verdict": "supported",
+      "evidence": [
+        "category",
+        "heightMeters",
+        "pokedexEntries[5].text"
+      ],
+      "note": "A rhetorical framing of Spearow’s tiny size and far-reaching cry.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c10",
+      "where": "scenes.cry-versus-flight.facts[0]",
+      "text": "OVER HALF A MILE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c11",
+      "where": "scenes.cry-versus-flight.facts[1]",
+      "text": "SHORT WINGS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c12",
+      "where": "scenes.tiny-body.headline",
+      "text": "ONLY 0.3 METERS TALL",
+      "verdict": "supported",
+      "evidence": [
+        "heightMeters"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c13",
+      "where": "scenes.tiny-body.narration",
+      "text": "Spearow stands only zero point three meters tall in total.",
+      "verdict": "supported",
+      "evidence": [
+        "heightMeters"
+      ],
+      "note": "“Stands tall” faithfully expresses the listed height.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c14",
+      "where": "scenes.tiny-body.caption",
+      "text": "A VERY SMALL BIRD ON A VERY BIG MAP",
+      "verdict": "supported",
+      "evidence": [
+        "category",
+        "heightMeters"
+      ],
+      "note": "“Very small” and “very big map” are subjective visual framing; the factual size basis is supported.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c15",
+      "where": "scenes.tiny-body.eyebrow",
+      "text": "START WITH THE SCALE",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Framing instruction, not a factual claim.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c16",
+      "where": "scenes.tiny-body.facts[0]",
+      "text": "HEIGHT: 0.3 M",
+      "verdict": "supported",
+      "evidence": [
+        "heightMeters"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c17",
+      "where": "scenes.short-flight.headline",
+      "text": "NOT BUILT TO GO FAR",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[12].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c18",
+      "where": "scenes.short-flight.narration",
+      "text": "Its short wings make flying high and far difficult.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[12].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c19",
+      "where": "scenes.short-flight.caption",
+      "text": "INEPT AT FLYING HIGH OR LONG DISTANCES",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[12].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c20",
+      "where": "scenes.short-flight.eyebrow",
+      "text": "ITS WINGS ARE THE CATCH",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[12].text"
+      ],
+      "note": "“The catch” is rhetorical framing; the short wings are supported.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c21",
+      "where": "scenes.short-flight.facts[0]",
+      "text": "SHORT WINGS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c22",
+      "where": "scenes.short-flight.facts[1]",
+      "text": "CAN'T FLY LONG DISTANCES",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[12].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c23",
+      "where": "scenes.sound-radius.headline",
+      "text": "THE CRY KEEPS GOING",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "Dramatic phrasing of the cry being audible over half a mile away.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c24",
+      "where": "scenes.sound-radius.narration",
+      "text": "That cry can be heard over half a mile away.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c25",
+      "where": "scenes.sound-radius.caption",
+      "text": "THE RIPPLE OUTRANGES THE TINY BIRD",
+      "verdict": "supported",
+      "evidence": [
+        "heightMeters",
+        "pokedexEntries[5].text"
+      ],
+      "note": "The cry’s half-mile audible range plainly exceeds Spearow’s 0.3-meter height.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c26",
+      "where": "scenes.sound-radius.eyebrow",
+      "text": "NOW WATCH THE SOUND",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Framing instruction, not a factual claim.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c27",
+      "where": "scenes.sound-radius.facts[0]",
+      "text": "OVER HALF A MILE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c28",
+      "where": "scenes.echo-message.headline",
+      "text": "THE SOUND IS THE WARNING",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c29",
+      "where": "scenes.echo-message.narration",
+      "text": "When its high cry echoes around, Spearow warn of danger.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c30",
+      "where": "scenes.echo-message.caption",
+      "text": "NOT JUST A LOUD CRY. A SHARED ALERT.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c31",
+      "where": "scenes.echo-message.eyebrow",
+      "text": "THE ECHO MEANS SOMETHING",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c32",
+      "where": "scenes.echo-message.facts[0]",
+      "text": "HIGH, KEENING CRY",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c33",
+      "where": "scenes.echo-message.facts[1]",
+      "text": "WARNS OF DANGER",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c34",
+      "where": "scenes.verdict-choice.headline",
+      "text": "PATROL OR WARNING?",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[5].text"
+      ],
+      "note": "A question based on supported patrol and warning behaviors.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c35",
+      "where": "scenes.verdict-choice.narration",
+      "text": "Which helps Spearow more: fast patrols or warning cries?",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[3].text",
+        "pokedexEntries[5].text"
+      ],
+      "note": "A question comparing two supported behaviors.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c36",
+      "where": "scenes.verdict-choice.caption",
+      "text": "SPEED AROUND THE TERRITORY OR SOUND THE ALERT?",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[3].text",
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c37",
+      "where": "scenes.verdict-choice.eyebrow",
+      "text": "SPEAROW'S TWO DEFENSES",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[3].text",
+        "pokedexEntries[5].text"
+      ],
+      "note": "“Defenses” is a reasonable summary of territory-protecting patrols and danger warnings.",
+      "tier": "official",
+      "checkedBy": "model"
+    }
+  ],
+  "unsupported": [],
+  "uncertain": []
+}

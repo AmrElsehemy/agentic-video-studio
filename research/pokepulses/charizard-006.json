@@ -1,0 +1,194 @@
+{
+  "schemaVersion": 1,
+  "id": "charizard-006",
+  "number": 6,
+  "index": "#006",
+  "name": "Charizard",
+  "slug": "charizard",
+  "category": "Flame Pokémon",
+  "generation": "Generation I",
+  "isLegendary": false,
+  "isMythical": false,
+  "types": [
+    "Fire",
+    "Flying"
+  ],
+  "heightMeters": 1.7,
+  "weightKg": 90.5,
+  "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/6.png",
+  "pokedexEntries": [
+    {
+      "game": "Red",
+      "text": "Spits fire that is hot enough to melt boulders. Known to cause forest fires unintentionally."
+    },
+    {
+      "game": "Yellow",
+      "text": "When expelling a blast of super hot fire, the red flame at the tip of its tail burns more intensely."
+    },
+    {
+      "game": "Gold",
+      "text": "If CHARIZARD be comes furious, the flame at the tip of its tail flares up in a whitish- blue color."
+    },
+    {
+      "game": "Silver",
+      "text": "Breathing intense, hot flames, it can melt almost any thing. Its breath inflicts terrible pain on enemies."
+    },
+    {
+      "game": "Crystal",
+      "text": "It uses its wings to fly high. The temperature of its fire increases as it gains exper ience in battle."
+    },
+    {
+      "game": "Ruby",
+      "text": "CHARIZARD flies around the sky in search of powerful opponents. It breathes fire of such great heat that it melts anything. However, it never turns its fiery breath on any opponent weaker than itself."
+    },
+    {
+      "game": "Emerald",
+      "text": "A CHARIZARD flies about in search of strong opponents. It breathes intense flames that can melt any material. However, it will never torch a weaker foe."
+    },
+    {
+      "game": "Firered",
+      "text": "Its wings can carry this POKéMON close to an altitude of 4,600 feet. It blows out fire at very high temperatures."
+    },
+    {
+      "game": "Leafgreen",
+      "text": "It spits fire that is hot enough to melt boulders. It may cause forest fires by blowing flames."
+    },
+    {
+      "game": "Diamond",
+      "text": "It is said that CHARIZARD’s fire burns hotter if it has experienced harsh battles."
+    },
+    {
+      "game": "Heartgold",
+      "text": "If CHARIZARD becomes furious, the flame at the tip of its tail flares up in a light blue shade."
+    },
+    {
+      "game": "Soulsilver",
+      "text": "Breathing intense, hot flames, it can melt almost anything. Its breath inflicts terrible pain on enemies."
+    },
+    {
+      "game": "X",
+      "text": "When expelling a blast of superhot fire, the red flame at the tip of its tail burns more intensely."
+    },
+    {
+      "game": "Lets Go Pikachu",
+      "text": "When this Pokémon expels a blast of superhot fire, the red flame at the tip of its tail burns more intensely."
+    }
+  ],
+  "evolutionChain": [
+    {
+      "name": "Charmander",
+      "index": "#004",
+      "stage": 1,
+      "types": [
+        "Fire"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png",
+      "isSubject": false
+    },
+    {
+      "name": "Charmeleon",
+      "index": "#005",
+      "stage": 2,
+      "evolvesFrom": "Charmander",
+      "method": "Level Up, level 16",
+      "types": [
+        "Fire"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/5.png",
+      "isSubject": false
+    },
+    {
+      "name": "Charizard",
+      "index": "#006",
+      "stage": 3,
+      "evolvesFrom": "Charmeleon",
+      "method": "Level Up, level 36",
+      "types": [
+        "Fire",
+        "Flying"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/6.png",
+      "isSubject": true
+    }
+  ],
+  "varieties": [
+    {
+      "name": "Charizard Mega X",
+      "types": [
+        "Fire",
+        "Dragon"
+      ],
+      "heightMeters": 1.7,
+      "weightKg": 110.5,
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10034.png"
+    },
+    {
+      "name": "Charizard Mega Y",
+      "types": [
+        "Fire",
+        "Flying"
+      ],
+      "heightMeters": 1.7,
+      "weightKg": 100.5,
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10035.png"
+    },
+    {
+      "name": "Charizard Gmax",
+      "types": [
+        "Fire",
+        "Flying"
+      ],
+      "heightMeters": 28,
+      "weightKg": 1000,
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10196.png"
+    }
+  ],
+  "lore": [],
+  "tiers": {
+    "official": [
+      "name",
+      "index",
+      "number",
+      "category",
+      "generation",
+      "isLegendary",
+      "isMythical",
+      "types",
+      "heightMeters",
+      "weightKg",
+      "pokedexEntries",
+      "evolutionChain[].name",
+      "evolutionChain[].index",
+      "evolutionChain[].types",
+      "evolutionChain[].stage",
+      "varieties[].types",
+      "varieties[].heightMeters",
+      "varieties[].weightKg"
+    ],
+    "trusted_secondary": [
+      "evolutionChain[].method",
+      "evolutionChain[].evolvesFrom",
+      "varieties[].name"
+    ],
+    "community": [
+      "lore"
+    ]
+  },
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Charizard",
+      "url": "https://www.pokemon.com/us/pokedex/charizard",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Charizard",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Charizard",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/6",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

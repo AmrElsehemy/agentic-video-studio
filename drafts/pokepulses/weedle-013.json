@@ -1,0 +1,181 @@
+{
+  "id": "weedle-013",
+  "title": "Weedle Eats Its Own Weight in Leaves Every Day",
+  "storyPattern": "comparison",
+  "numberRelevant": true,
+  "premise": "At 3.2 kg, Weedle eats its own body weight in leaves every day.",
+  "audiencePromise": "Watch Weedle's daily leaf pile match its body weight, then discover how specifically it chooses those leaves.",
+  "openLoop": "How does a 3.2 kg Weedle choose an equal-weight leaf meal?",
+  "payoff": "The equal-weight meal is selective: Weedle sniffs out favorite leaves, while its head carries a venomous stinger.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "Would you trust Weedle's warning colors or fear its barb?",
+  "subject": {
+    "name": "Weedle",
+    "category": "Hairy Bug Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/13.png",
+    "identifier": "#013"
+  },
+  "related": [
+    {
+      "name": "Beedrill",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/15.png",
+      "identifier": "#015"
+    },
+    {
+      "name": "Kakuna",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/14.png",
+      "identifier": "#014"
+    }
+  ],
+  "palette": {
+    "background": "#10221b",
+    "surface": "#1d3828",
+    "primary": "#d9c63e",
+    "secondary": "#bd302e",
+    "ink": "#f8f2dc"
+  },
+  "voice": {
+    "instructions": "{\"tone\":\"quick, amazed, and playful\",\"pacing\":\"crisp lines with a short pause before the final question\",\"emphasis\":\"stress three point two kilos, whole Weedle, big red proboscis, and venomous stinger\"}"
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "assets": [
+      {
+        "kind": "Weedle official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/13.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "unverified",
+        "publicReleaseApproved": false,
+        "notes": "Internal prototype only pending legal review or replacement."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "weedle-eats-itself",
+      "beat": "hook",
+      "eyebrow": "DAILY APPETITE",
+      "headline": "WEEDLE EATS ITSELF?",
+      "narration": "Weedle eats its weight in leaves. Every day.",
+      "caption": "ONE WEEDLE'S WEIGHT, IN LEAVES",
+      "facts": [
+        "DAILY LEAF MEAL"
+      ],
+      "accent": "#d9c63e",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/13.png",
+      "primitive": {
+        "kind": "bars",
+        "unit": "KG",
+        "bars": [
+          {
+            "label": "WEEDLE",
+            "value": 3.2
+          },
+          {
+            "label": "LEAVES DAILY",
+            "value": 3.2
+          }
+        ]
+      }
+    },
+    {
+      "id": "weedle-weight",
+      "beat": "evidence",
+      "eyebrow": "THE BODY COUNT",
+      "headline": "JUST 3.2 KILOS",
+      "narration": "It weighs only three point two kilos, yet eats that much.",
+      "caption": "WEEDLE'S ENTIRE BODY: 3.2 KG",
+      "facts": [
+        "WEIGHT: 3.2 KG"
+      ],
+      "accent": "#bd302e",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/13.png",
+      "primitive": {
+        "kind": "counter",
+        "from": 0,
+        "to": 3.2,
+        "label": "WEIGHT KG"
+      }
+    },
+    {
+      "id": "leaf-pile-scale",
+      "beat": "evidence",
+      "eyebrow": "THE DAILY PILE",
+      "headline": "ONE WHOLE WEEDLE OF LEAVES",
+      "narration": "That means its leaf pile equals a whole Weedle.",
+      "caption": "BODY WEIGHT = DAILY LEAVES",
+      "facts": [
+        "EATS ITS WEIGHT",
+        "LEAVES DAILY"
+      ],
+      "accent": "#8ebd4b",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/13.png"
+    },
+    {
+      "id": "red-proboscis",
+      "beat": "escalation",
+      "eyebrow": "IT DOES NOT GUESS",
+      "headline": "THE BIG RED NOSE PICKS",
+      "narration": "Its big red proboscis sniffs out favorite leaves.",
+      "caption": "IT CAN TELL FAVORITES FROM DISLIKED LEAVES",
+      "facts": [
+        "ACUTE SMELL",
+        "BIG RED PROBOSCIS",
+        "FAVORITE LEAVES"
+      ],
+      "accent": "#d9c63e",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/13.png"
+    },
+    {
+      "id": "head-stinger",
+      "beat": "twist",
+      "eyebrow": "THE OTHER HEAD TOOL",
+      "headline": "BUT ITS HEAD IS ARMED",
+      "narration": "That leaf-picker's head also carries a sharp venomous stinger.",
+      "caption": "A FOOD-FINDER AND A POISON DEFENSE",
+      "facts": [
+        "SHARP STINGER",
+        "VENOMOUS",
+        "HEAD STINGER"
+      ],
+      "accent": "#bd302e",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/13.png"
+    },
+    {
+      "id": "warning-or-barb",
+      "beat": "verdict",
+      "eyebrow": "YOUR CALL",
+      "headline": "COLOR WARNING OR BARB?",
+      "narration": "Would you trust Weedle's warning colors or fear its barb?",
+      "caption": "SELECTIVE LEAF-EATER. VENOMOUS DEFENDER.",
+      "facts": [
+        "WARNING COLORS",
+        "VENOMOUS BARB"
+      ],
+      "accent": "#d9c63e",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/13.png"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Weedle",
+      "url": "https://www.pokemon.com/us/pokedex/weedle",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Weedle",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Weedle_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Weedle",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/13",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

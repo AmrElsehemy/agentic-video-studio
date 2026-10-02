@@ -1,0 +1,145 @@
+{
+  "schemaVersion": 1,
+  "id": "bulbasaur-001",
+  "number": 1,
+  "index": "#001",
+  "name": "Bulbasaur",
+  "slug": "bulbasaur",
+  "category": "Seed Pokémon",
+  "generation": "Generation I",
+  "isLegendary": false,
+  "isMythical": false,
+  "types": [
+    "Grass",
+    "Poison"
+  ],
+  "heightMeters": 0.7,
+  "weightKg": 6.9,
+  "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
+  "pokedexEntries": [
+    {
+      "game": "Red",
+      "text": "A strange seed was planted on its back at birth. The plant sprouts and grows with this POKéMON."
+    },
+    {
+      "game": "Yellow",
+      "text": "It can go for days without eating a single morsel. In the bulb on its back, it stores energy."
+    },
+    {
+      "game": "Gold",
+      "text": "The seed on its back is filled with nutrients. The seed grows steadily larger as its body grows."
+    },
+    {
+      "game": "Silver",
+      "text": "It carries a seed on its back right from birth. As it grows older, the seed also grows larger."
+    },
+    {
+      "game": "Crystal",
+      "text": "While it is young, it uses the nutrients that are stored in the seeds on its back in order to grow."
+    },
+    {
+      "game": "Ruby",
+      "text": "BULBASAUR can be seen napping in bright sunlight. There is a seed on its back. By soaking up the sun’s rays, the seed grows progressively larger."
+    },
+    {
+      "game": "Firered",
+      "text": "There is a plant seed on its back right from the day this POKéMON is born. The seed slowly grows larger."
+    },
+    {
+      "game": "Diamond",
+      "text": "For some time after its birth, it grows by gaining nourishment from the seed on its back."
+    },
+    {
+      "game": "Shield",
+      "text": "While it is young, it uses the nutrients that are stored in the seed on its back in order to grow."
+    }
+  ],
+  "evolutionChain": [
+    {
+      "name": "Bulbasaur",
+      "index": "#001",
+      "stage": 1,
+      "types": [
+        "Grass",
+        "Poison"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
+      "isSubject": true
+    },
+    {
+      "name": "Ivysaur",
+      "index": "#002",
+      "stage": 2,
+      "evolvesFrom": "Bulbasaur",
+      "method": "Level Up, level 16",
+      "types": [
+        "Grass",
+        "Poison"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/2.png",
+      "isSubject": false
+    },
+    {
+      "name": "Venusaur",
+      "index": "#003",
+      "stage": 3,
+      "evolvesFrom": "Ivysaur",
+      "method": "Level Up, level 32",
+      "types": [
+        "Grass",
+        "Poison"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/3.png",
+      "isSubject": false
+    }
+  ],
+  "varieties": [],
+  "lore": [],
+  "tiers": {
+    "official": [
+      "name",
+      "index",
+      "number",
+      "category",
+      "generation",
+      "isLegendary",
+      "isMythical",
+      "types",
+      "heightMeters",
+      "weightKg",
+      "pokedexEntries",
+      "evolutionChain[].name",
+      "evolutionChain[].index",
+      "evolutionChain[].types",
+      "evolutionChain[].stage",
+      "varieties[].types",
+      "varieties[].heightMeters",
+      "varieties[].weightKg"
+    ],
+    "trusted_secondary": [
+      "evolutionChain[].method",
+      "evolutionChain[].evolvesFrom",
+      "varieties[].name"
+    ],
+    "community": [
+      "lore"
+    ]
+  },
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Bulbasaur",
+      "url": "https://www.pokemon.com/us/pokedex/bulbasaur",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Bulbasaur",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Bulbasaur_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Bulbasaur",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/1",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

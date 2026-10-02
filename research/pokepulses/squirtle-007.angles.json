@@ -1,0 +1,167 @@
+{
+  "episodeId": "squirtle-007",
+  "createdAt": "2026-09-30T05:38:04.215Z",
+  "chosen": {
+    "id": "shell-built-for-speed",
+    "premise": "Squirtle’s shell is armor, but its rounded grooves also reduce water resistance so it can swim at high speed.",
+    "hook": "Squirtle’s shell isn’t just armor—it’s a speed upgrade.",
+    "archetype": "mystery",
+    "evidence": [
+      "pokedexEntries[5].text",
+      "pokedexEntries[6].text"
+    ],
+    "visualIdea": "A shell morphs from shield into a streamlined race hull, with water flow lines sliding cleanly around its grooves.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 5,
+      "specificity": 4,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 24,
+    "note": "The shell’s grooves serving as hydrodynamic features is highly specific to Squirtle and directly supported by multiple Pokédex entries. The contrast between armor and speed creates a strong visual reveal."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "shell-built-for-speed",
+          "premise": "Squirtle’s shell is armor, but its rounded grooves also reduce water resistance so it can swim at high speed.",
+          "hook": "Squirtle’s shell isn’t just armor—it’s a speed upgrade.",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[5].text",
+            "pokedexEntries[6].text"
+          ],
+          "visualIdea": "A shell morphs from shield into a streamlined race hull, with water flow lines sliding cleanly around its grooves.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 24,
+          "note": "The shell’s grooves serving as hydrodynamic features is highly specific to Squirtle and directly supported by multiple Pokédex entries. The contrast between armor and speed creates a strong visual reveal."
+        },
+        {
+          "id": "soft-shell-to-bouncy-armor",
+          "premise": "Squirtle is born with a soft shell, but it soon hardens enough that poking it makes fingers bounce back.",
+          "hook": "A newborn Squirtle’s shell is soft—until it becomes finger-bouncing armor.",
+          "archetype": "transformation",
+          "evidence": [
+            "pokedexEntries[2].text",
+            "pokedexEntries[3].text",
+            "pokedexEntries[10].text"
+          ],
+          "visualIdea": "A soft, squishy baby shell rapidly hardens; an oversized finger pokes it and gets comically bounced away.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 22,
+          "note": "A concrete birth-to-armor transformation with an excellent physical gag. It is well supported, though the general idea of a creature hardening as it grows is less uniquely Squirtle."
+        },
+        {
+          "id": "defense-becomes-counterattack",
+          "premise": "When threatened, Squirtle hides every limb in its shell—then turns that defensive retreat into a water attack.",
+          "hook": "Squirtle’s retreat is actually the setup for its counterattack.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[4].text",
+            "pokedexEntries[9].text",
+            "pokedexEntries[12].text"
+          ],
+          "visualIdea": "Squirtle retracts into a shell as danger closes in, then water blasts outward from the seemingly empty shell.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 22,
+          "note": "The defensive retreat becoming an attack is clearly supported and easy to animate, but the broader defensive-counterattack structure could fit several Pokémon."
+        },
+        {
+          "id": "two-levels-to-blastoise",
+          "premise": "Squirtle’s entire three-stage line stays Water-type, evolving at level 16 and then again 20 levels later at 36.",
+          "hook": "Squirtle evolves at 16—then waits 20 more levels for Blastoise.",
+          "archetype": "transformation",
+          "evidence": [
+            "evolutionChain[0]",
+            "evolutionChain[1].method",
+            "evolutionChain[2].method",
+            "evolutionChain[0].types",
+            "evolutionChain[1].types",
+            "evolutionChain[2].types"
+          ],
+          "visualIdea": "A level meter climbs from Squirtle to Wartortle at 16, then stretches another 20 levels before Blastoise appears at 36.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 22,
+          "note": "The 16-to-36 level gap is exceptionally concrete and easy to display, while the all-Water identity adds useful context. The evolution-level evidence comes from trusted secondary data rather than the Pokédex entries themselves."
+        },
+        {
+          "id": "neck-in-water-out",
+          "premise": "Squirtle retracts its long neck into its shell, and that motion is followed by a vigorous water squirt.",
+          "hook": "Squirtle pulls its neck in—and fires water out.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[7].text"
+          ],
+          "visualIdea": "A cutaway shell shows Squirtle’s neck retracting like a lever, immediately followed by a forceful water jet.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 3,
+            "specificity": 4,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 20,
+          "note": "The neck-retraction-to-water-squirt sequence is specific and visual, but the cited entry does not establish the proposed lever-like mechanism, making that part of the presentation speculative."
+        },
+        {
+          "id": "foam-before-water",
+          "premise": "Some Pokédex entries say Squirtle powerfully sprays foam from its mouth, while others describe water attacks.",
+          "hook": "Did Squirtle spray foam before it became known for water?",
+          "archetype": "comparison",
+          "evidence": [
+            "pokedexEntries[0].text",
+            "pokedexEntries[8].text",
+            "pokedexEntries[1].text",
+            "pokedexEntries[4].text"
+          ],
+          "visualIdea": "A split-screen Pokédex showdown: Red and LeafGreen show foamy spray, while Yellow and Crystal show water attacks.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 3,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 2
+          },
+          "total": 18,
+          "note": "The entries genuinely differ between foam and water, but the premise implies a historical progression that the evidence does not establish. It risks becoming a confusing version comparison rather than a Squirtle fact."
+        }
+      ],
+      "rejected": [],
+      "request": "The chosen angle is strong enough. Even stronger alternatives would need an equally specific Squirtle-only rule or contradiction, direct multi-entry support, and a visual transformation that reveals more than a generic shell, evolution, or water-attack fact."
+    }
+  ]
+}

@@ -1,0 +1,178 @@
+{
+  "id": "charmeleon-005",
+  "title": "Charmeleon Only Calms When Someone Loses",
+  "storyPattern": "profile",
+  "numberRelevant": false,
+  "premise": "Charmeleon constantly seeks opponents, and its Pokédex says winning is the only thing that calms it.",
+  "audiencePromise": "See how fights excite Charmeleon, strong foes make it aggressive, and only victory calms it.",
+  "openLoop": "What does its temper do before victory finally calms it?",
+  "payoff": "Victory is its off switch: tough fights excite it, strong foes make it aggressive, and agitation can incinerate its surroundings.",
+  "targetEmotion": "debate",
+  "engagementQuestion": "Is it chasing calm, or chasing the next fight?",
+  "subject": {
+    "name": "Charmeleon",
+    "category": "Flame Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/5.png",
+    "identifier": "#005"
+  },
+  "related": [
+    {
+      "name": "Charizard",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/6.png",
+      "identifier": "#006"
+    },
+    {
+      "name": "Charmander",
+      "relation": "evolves-from",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png",
+      "identifier": "#004"
+    }
+  ],
+  "palette": {
+    "background": "#120c12",
+    "surface": "#28151a",
+    "primary": "#f04d32",
+    "secondary": "#78d7ef",
+    "ink": "#fff4dd"
+  },
+  "voice": {
+    "instructions": "Start with a sharp, uneasy edge. Build pressure with controlled intensity, then make the final question thoughtful and debatable."
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "assets": [
+      {
+        "kind": "Charmeleon official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/5.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "unverified",
+        "publicReleaseApproved": false,
+        "notes": "Internal prototype only pending legal review or replacement."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "someone-has-to-lose",
+      "beat": "hook",
+      "eyebrow": "TEMPER CHECK",
+      "headline": "SOMEONE HAS TO LOSE",
+      "narration": "Charmeleon only calms when someone else loses.",
+      "caption": "CALM HAS ONE CONDITION",
+      "facts": [
+        "CALMS ONLY WHEN IT WINS"
+      ],
+      "accent": "#f04d32",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/5.png",
+      "primitive": {
+        "kind": "timeline",
+        "steps": [
+          {
+            "label": "SEEK OPPONENT"
+          },
+          {
+            "label": "FIGHT"
+          },
+          {
+            "label": "WIN"
+          },
+          {
+            "label": "CALM"
+          }
+        ],
+        "active": 3
+      }
+    },
+    {
+      "id": "seeks-opponents",
+      "beat": "evidence",
+      "eyebrow": "NO QUIET MOMENT",
+      "headline": "IT CONSTANTLY SEEKS FIGHTS",
+      "narration": "Its hotheaded nature keeps it constantly seeking opponents to fight.",
+      "caption": "HOTHEADED AND LOOKING FOR OPPONENTS",
+      "facts": [
+        "HOTHEADED NATURE",
+        "CONSTANTLY SEEKS OPPONENTS"
+      ],
+      "accent": "#f04d32",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/5.png"
+    },
+    {
+      "id": "tough-fights-excite",
+      "beat": "evidence",
+      "eyebrow": "HEAT RISING",
+      "headline": "TOUGH FIGHTS EXCITE IT",
+      "narration": "A tough fight can excite it into bluish-white flames.",
+      "caption": "EXCITEMENT CAN CHANGE THE FLAME",
+      "facts": [
+        "TOUGH FIGHTS EXCITE",
+        "BLUISH-WHITE FLAMES"
+      ],
+      "accent": "#78d7ef",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/5.png"
+    },
+    {
+      "id": "strong-foes-escalate",
+      "beat": "escalation",
+      "eyebrow": "NOT RELIEF",
+      "headline": "STRONG FOES MAKE IT WORSE",
+      "narration": "Strong foes do not soothe it. They turn it aggressive.",
+      "caption": "A BIGGER CHALLENGE RAISES THE HEAT",
+      "facts": [
+        "STRONG FOE",
+        "TURNS AGGRESSIVE"
+      ],
+      "accent": "#ff7a2d",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/5.png"
+    },
+    {
+      "id": "victory-after-danger",
+      "beat": "twist",
+      "eyebrow": "THE REAL CATCH",
+      "headline": "CALM COMES AFTER THE DAMAGE",
+      "narration": "Winning calms it, but agitation can incinerate its surroundings.",
+      "caption": "VICTORY IS THE OFF SWITCH",
+      "facts": [
+        "INTENSE FLAMES",
+        "INCINERATES SURROUNDINGS",
+        "CALMS ONLY WHEN IT WINS"
+      ],
+      "accent": "#fff4dd",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/5.png"
+    },
+    {
+      "id": "chasing-calm-or-fights",
+      "beat": "verdict",
+      "eyebrow": "YOUR VERDICT",
+      "headline": "CURE OR COMPULSION?",
+      "narration": "Is it chasing calm, or chasing the next fight?",
+      "caption": "ONLY A WIN BRINGS CALM",
+      "facts": [
+        "CALMS ONLY WHEN IT WINS"
+      ],
+      "accent": "#78d7ef",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/5.png"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Charmeleon",
+      "url": "https://www.pokemon.com/us/pokedex/charmeleon",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Charmeleon",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Charmeleon_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Charmeleon",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/5",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

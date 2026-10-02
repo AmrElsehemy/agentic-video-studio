@@ -1,0 +1,169 @@
+{
+  "episodeId": "pidgey-016",
+  "createdAt": "2026-09-30T08:59:21.610Z",
+  "chosen": {
+    "id": "lost-but-never-lost",
+    "premise": "Even removed from familiar surroundings, Pidgey can unerringly find its way back to its nest.",
+    "hook": "Take Pidgey anywhere—it still knows the way home.",
+    "archetype": "mystery",
+    "evidence": [
+      "pokedexEntries[5].text",
+      "pokedexEntries[6].text"
+    ],
+    "visualIdea": "A map zooms farther and farther from Pidgey’s nest before a glowing flight path leads straight back home.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 5,
+      "specificity": 4,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 24,
+    "note": "A genuinely surprising Pidgey trait, backed by two near-identical official entries. The only limitation is that “however far” gives no measurable distance, so the premise is specific in behavior but not in scale."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "lost-but-never-lost",
+          "premise": "Even removed from familiar surroundings, Pidgey can unerringly find its way back to its nest.",
+          "hook": "Take Pidgey anywhere—it still knows the way home.",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[5].text",
+            "pokedexEntries[6].text"
+          ],
+          "visualIdea": "A map zooms farther and farther from Pidgey’s nest before a glowing flight path leads straight back home.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 24,
+          "note": "A genuinely surprising Pidgey trait, backed by two near-identical official entries. The only limitation is that “however far” gives no measurable distance, so the premise is specific in behavior but not in scale."
+        },
+        {
+          "id": "dust-cloud-hunt",
+          "premise": "Pidgey turns grass into a trap: it flaps up dust to force hidden insect prey into the open.",
+          "hook": "Pidgey doesn’t chase bugs—it flushes them out.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[4].text",
+            "pokedexEntries[7].text"
+          ],
+          "visualIdea": "Pidgey vanishes into tall grass, wingbeats create a dust cloud, and tiny bugs burst out as it waits nearby.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 23,
+          "note": "The hunting mechanic is unusually concrete and highly visual. It is supported by one direct Pokédex entry and one general foraging entry, so the evidence is strong but narrower than the premise’s full trap framing."
+        },
+        {
+          "id": "eighteen-to-thirty-six",
+          "premise": "Pidgey’s three-stage line advances at level 18, then requires exactly 18 more levels to reach Pidgeot at 36.",
+          "hook": "Pidgey’s evolution ladder repeats the same number.",
+          "archetype": "transformation",
+          "evidence": [
+            "evolutionChain[0]",
+            "evolutionChain[1].method",
+            "evolutionChain[2].method"
+          ],
+          "visualIdea": "A level counter climbs from 1 to 18 for Pidgeotto, then another highlighted 18-level climb lands on Pidgeot at 36.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 22,
+          "note": "A clean numerical pattern with strong motion-graphic potential. It depends on evolution-method data from a trusted secondary source and is more trivia-like than character-defining."
+        },
+        {
+          "id": "sand-not-talons",
+          "premise": "Pidgey dislikes fighting, so its signature defense is flapping up blinding sand instead of attacking.",
+          "hook": "Pidgey’s best defense is making you unable to see.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[0].text",
+            "pokedexEntries[1].text",
+            "pokedexEntries[2].text",
+            "pokedexEntries[9].text"
+          ],
+          "visualIdea": "A tiny Pidgey faces a larger threat, rapidly flaps at ground level, and fills the screen with a blinding sand cloud.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 3,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 21,
+          "note": "A clearly Pidgey-specific defense mechanic with excellent visual potential, but the basic idea is fairly familiar and the hook slightly overstates “unable to see” from the blinding-sand wording."
+        },
+        {
+          "id": "docile-until-disturbed",
+          "premise": "Pidgey is repeatedly called docile and conflict-averse, yet one entry says it can strike back ferociously.",
+          "hook": "Pidgey avoids fights—until you push it too far.",
+          "archetype": "comparison",
+          "evidence": [
+            "pokedexEntries[1].text",
+            "pokedexEntries[3].text",
+            "pokedexEntries[8].text"
+          ],
+          "visualIdea": "Split screen: peaceful Pidgey hiding in grass on one side, then the same Pidgey snapping into a fierce strike on the other.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 4,
+            "support": 5
+          },
+          "total": 21,
+          "note": "The contradiction is directly supported and easy to stage, but “until you push it too far” invents a threshold that the entries do not define."
+        },
+        {
+          "id": "tiny-bird-big-upgrade",
+          "premise": "The 0.3-meter, 1.8-kilogram Tiny Bird begins a three-stage evolution line without ever changing its Normal/Flying types.",
+          "hook": "Pidgey evolves twice—but its typing never changes.",
+          "archetype": "comparison",
+          "evidence": [
+            "heightMeters",
+            "weightKg",
+            "category",
+            "types",
+            "evolutionChain[0].types",
+            "evolutionChain[1].types",
+            "evolutionChain[2].types"
+          ],
+          "visualIdea": "A 0.3-meter scale beside tiny Pidgey transitions through all three evolution artworks while Normal/Flying badges stay locked onscreen.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 3,
+            "surprise": 3,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 20,
+          "note": "The locked typing across two evolutions is well supported and easy to show, but the angle combines several ordinary facts and the “big upgrade” framing is not itself distinctive."
+        }
+      ],
+      "rejected": [],
+      "request": "Stronger alternatives would need a more measurable twist, such as a documented distance, a specific in-game mechanic, or a sharper contradiction that the cited Pokédex entries directly establish."
+    }
+  ]
+}

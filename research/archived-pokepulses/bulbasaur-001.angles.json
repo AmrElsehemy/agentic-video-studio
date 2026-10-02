@@ -1,0 +1,155 @@
+{
+  "episodeId": "bulbasaur-001",
+  "createdAt": "2026-09-29T21:03:33.972Z",
+  "chosen": {
+    "id": "bulb-nutrient-tank",
+    "premise": "Bulbasaur's bulb is a nutrient tank that grows with it.",
+    "hook": "The bigger Bulbasaur gets, the larger its nutrient tank grows!",
+    "archetype": "transformation",
+    "evidence": [
+      "pokedexEntries[2].text",
+      "pokedexEntries[3].text"
+    ],
+    "visualIdea": "Bulbasaur growing, seed expanding and pulsating.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 4,
+      "surprise": 3,
+      "specificity": 4,
+      "visual": 4,
+      "support": 5
+    },
+    "total": 20,
+    "note": "Visual and thematic overlap with solar-powered growth, solid premise."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "bulb-nutrient-tank",
+          "premise": "Bulbasaur's bulb is a nutrient tank that grows with it.",
+          "hook": "The bigger Bulbasaur gets, the larger its nutrient tank grows!",
+          "archetype": "transformation",
+          "evidence": [
+            "pokedexEntries[2].text",
+            "pokedexEntries[3].text"
+          ],
+          "visualIdea": "Bulbasaur growing, seed expanding and pulsating.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 3,
+            "specificity": 4,
+            "visual": 4,
+            "support": 5
+          },
+          "total": 20,
+          "note": "Visual and thematic overlap with solar-powered growth, solid premise."
+        },
+        {
+          "id": "solar-powered-growth",
+          "premise": "Bulbasaur's seed grows larger by soaking up the sun's rays.",
+          "hook": "Bulbasaur grows a garden on its back with solar power!",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[5].text"
+          ],
+          "visualIdea": "Bulbasaur napping in sunlight, seed on back throbbing and growing.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 3,
+            "specificity": 3,
+            "visual": 4,
+            "support": 5
+          },
+          "total": 19,
+          "note": "Strong visual of Bulbasaur using solar power, unique plant characteristic."
+        },
+        {
+          "id": "seed-to-ivysaur-evolution",
+          "premise": "Bulbasaur evolves into Ivysaur at level 16.",
+          "hook": "Watch the moment Bulbasaur erupts into Ivysaur!",
+          "archetype": "transformation",
+          "evidence": [
+            "evolutionChain[1].method"
+          ],
+          "visualIdea": "Bulbasaur evolving in a burst of energy at level 16.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 3,
+            "surprise": 2,
+            "specificity": 5,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 19,
+          "note": "Evolution is a common theme; visually exciting but predictable."
+        },
+        {
+          "id": "energy-storage-seed",
+          "premise": "Bulbasaur's seed stores energy allowing it to go days without eating.",
+          "hook": "Did you know Bulbasaur could go days without eating?",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[1].text"
+          ],
+          "visualIdea": "Bulbasaur avoiding food, seed glowing on its back.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 3,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 3,
+            "support": 4
+          },
+          "total": 18,
+          "note": "Interesting fact about energy storage, but less visually impactful."
+        },
+        {
+          "id": "birth-seed-nourishment",
+          "premise": "Bulbasaur relies on its seed for nourishment after birth.",
+          "hook": "Bulbasaur's secret to early growth? The seed on its back!",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[8].text"
+          ],
+          "visualIdea": "Bulbasaur as a baby, with seed absorbing and giving nutrients.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 3,
+            "surprise": 3,
+            "specificity": 3,
+            "visual": 3,
+            "support": 4
+          },
+          "total": 16,
+          "note": "Common trait in Pokémon world; good explanation but lacks visual distinction."
+        },
+        {
+          "id": "forest-napper",
+          "premise": "Bulbasaur loves napping in bright sunlight.",
+          "hook": "Why does Bulbasaur love sunbathing so much?",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[5].text"
+          ],
+          "visualIdea": "Bulbasaur peacefully napping in a forest sunbeam.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 2,
+            "surprise": 2,
+            "specificity": 2,
+            "visual": 4,
+            "support": 3
+          },
+          "total": 13,
+          "note": "Not particularly unique or surprising, but easy to visualize."
+        }
+      ],
+      "rejected": [],
+      "request": "Explore more aspects of Bulbasaur's unique plant characteristics or interactions with the environment that couldn't apply to other Grass type Pokémon."
+    }
+  ]
+}

@@ -1,0 +1,257 @@
+{
+  "schemaVersion": 2,
+  "id": "metapod-011",
+  "show": {
+    "id": "pokepulses",
+    "name": "PokePulses",
+    "handle": "@PokePulses",
+    "wordmark": {
+      "lead": "POKE",
+      "accent": "PULSES"
+    },
+    "fonts": {
+      "display": "Bebas Neue",
+      "body": "system"
+    }
+  },
+  "title": "Metapod’s Shell Stops Pecks, But Not a Tip",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "comparison",
+    "numberRelevant": false,
+    "premise": "Metapod’s hard shell withstands Pikipek’s pecks, yet tipping over can spill its soft insides.",
+    "audiencePromise": "See why Metapod’s hard shell resists pecking, while its soft innards create a different danger.",
+    "openLoop": "Why does Metapod stay still if its shell already stops Pikipek?",
+    "payoff": "Metapod’s shell is strong, but staying still protects the soft innards that could spill when it tips.",
+    "targetEmotion": "surprise",
+    "engagementQuestion": "Trust Metapod’s hard shell, or avoid intense battles with it?",
+    "targetSecondsBetweenVisualChanges": 0.7
+  },
+  "subject": {
+    "name": "Metapod",
+    "category": "Cocoon Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/11.png",
+    "identifier": "#011"
+  },
+  "related": [
+    {
+      "name": "Butterfree",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/12.png",
+      "identifier": "#012"
+    },
+    {
+      "name": "Caterpie",
+      "relation": "evolves-from",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10.png",
+      "identifier": "#010"
+    }
+  ],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#101817",
+    "surface": "#1d2b24",
+    "primary": "#85b84e",
+    "secondary": "#e7d15b",
+    "ink": "#f4f2df"
+  },
+  "audio": {
+    "music": "generated/metapod-011-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 126,
+      "notes": [
+        110,
+        130.81,
+        146.83,
+        164.81,
+        146.83,
+        130.81,
+        98,
+        130.81
+      ]
+    },
+    "voice": {
+      "provider": "openai",
+      "model": "gpt-4o-mini-tts",
+      "voice": "marin",
+      "instructions": "Tense and precise at first. Build unease as the soft insides are revealed. Slow down on the tipping reveal, then deliver the final choice with a playful challenge.",
+      "speed": 1.12,
+      "output": "generated/metapod-011-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "assets": [
+      {
+        "kind": "Metapod official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/11.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "unverified",
+        "publicReleaseApproved": false,
+        "notes": "Internal prototype only pending legal review or replacement."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "peck-fails-tip-spills",
+      "durationSeconds": 4,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "comparison",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "METAPOD'S PARADOX",
+      "headline": "A PECK FAILS. A TIP SPILLS.",
+      "narration": "A peck fails. A tip spills Metapod's insides.",
+      "caption": "ITS ARMOR IS NOT ITS WHOLE DEFENSE.",
+      "visual": "hook",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/11.png",
+      "accent": "#e7d15b",
+      "facts": [
+        "PIKIPEK PECKS",
+        "TIPPING DANGER"
+      ],
+      "primitive": {
+        "kind": "checklist",
+        "items": [
+          {
+            "label": "PECK CRACKS SHELL",
+            "met": false
+          },
+          {
+            "label": "TIPS METAPOD OVER",
+            "met": true
+          },
+          {
+            "label": "INSIDES SPILL",
+            "met": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "hard-shell-test",
+      "durationSeconds": 4.8,
+      "beat": "evidence",
+      "role": "evidence",
+      "shot": "wide",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "THE OUTER TEST",
+      "headline": "PIKIPEK CANNOT CRACK IT",
+      "narration": "Pikipek pecks its shell, but the shell does not crack.",
+      "caption": "THE HARD OUTER LAYER HOLDS FIRM.",
+      "visual": "gauntlet",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/11.png",
+      "accent": "#85b84e",
+      "facts": [
+        "HARD SHELL",
+        "NO CRACK"
+      ]
+    },
+    {
+      "id": "inside-the-shell",
+      "durationSeconds": 4.3,
+      "beat": "evidence",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "WHAT IT PROTECTS",
+      "headline": "THE INSIDE IS SOFT",
+      "narration": "Inside that shell, Metapod has soft and weak innards.",
+      "caption": "THE ARMOR HIDES A TENDER BODY.",
+      "visual": "advantage",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/11.png",
+      "accent": "#f4f2df",
+      "facts": [
+        "SOFT INNARDS",
+        "WEAK BODY"
+      ]
+    },
+    {
+      "id": "stillness-is-defense",
+      "durationSeconds": 4.8,
+      "beat": "escalation",
+      "role": "escalation",
+      "shot": "tracking",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "ITS REAL STRATEGY",
+      "headline": "IT BARELY MOVES",
+      "narration": "It barely moves, avoiding a careless spill of those innards.",
+      "caption": "STILLNESS HELPS KEEP EVERYTHING INSIDE.",
+      "visual": "race",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/11.png",
+      "accent": "#e7d15b",
+      "facts": [
+        "BARELY MOVES",
+        "SPILL RISK"
+      ]
+    },
+    {
+      "id": "tip-over-reveal",
+      "durationSeconds": 4.8,
+      "beat": "twist",
+      "role": "twist",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "THE SHELL'S LIMIT",
+      "headline": "TIPPING BEATS THE SHELL",
+      "narration": "The shell survives pecks, but tipping can spill Metapod out.",
+      "caption": "A HARD SHELL CANNOT PREVENT A BAD FALL.",
+      "visual": "tradeoff",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/11.png",
+      "accent": "#e96f4a",
+      "facts": [
+        "SHELL HOLDS",
+        "TIPS OVER",
+        "INSIDES SPILL"
+      ]
+    },
+    {
+      "id": "shell-or-caution",
+      "durationSeconds": 4.8,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "YOUR BATTLE PLAN",
+      "headline": "ARMOR OR CAUTION?",
+      "narration": "Trust Metapod's hard shell, or avoid intense battles with it?",
+      "caption": "HARD OUTSIDE. SOFT INSIDE. YOUR CALL.",
+      "visual": "cta",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/11.png",
+      "accent": "#85b84e",
+      "facts": [
+        "HARD SHELL",
+        "INTENSE BATTLES"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Metapod",
+      "url": "https://www.pokemon.com/us/pokedex/metapod"
+    },
+    {
+      "label": "Bulbapedia — Metapod",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Metapod_(Pok%C3%A9mon)"
+    },
+    {
+      "label": "PokéAPI — Metapod",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/11"
+    }
+  ]
+}

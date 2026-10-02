@@ -1,0 +1,153 @@
+{
+  "schemaVersion": 1,
+  "id": "ivysaur-002",
+  "number": 2,
+  "index": "#002",
+  "name": "Ivysaur",
+  "slug": "ivysaur",
+  "category": "Seed Pokémon",
+  "generation": "Generation I",
+  "isLegendary": false,
+  "isMythical": false,
+  "types": [
+    "Grass",
+    "Poison"
+  ],
+  "heightMeters": 1,
+  "weightKg": 13,
+  "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/2.png",
+  "pokedexEntries": [
+    {
+      "game": "Red",
+      "text": "When the bulb on its back grows large, it appears to lose the ability to stand on its hind legs."
+    },
+    {
+      "game": "Yellow",
+      "text": "The bulb on its back grows by drawing energy. It gives off an aroma when it is ready to bloom."
+    },
+    {
+      "game": "Gold",
+      "text": "Exposure to sun light adds to its strength. Sunlight also makes the bud on its back grow larger."
+    },
+    {
+      "game": "Silver",
+      "text": "If the bud on its back starts to smell sweet, it is evidence that the large flower will soon bloom."
+    },
+    {
+      "game": "Crystal",
+      "text": "The bulb on its back grows as it absorbs nutrients. The bulb gives off a pleasant aroma when it blooms."
+    },
+    {
+      "game": "Ruby",
+      "text": "There is a bud on this POKéMON’s back. To support its weight, IVYSAUR’s legs and trunk grow thick and strong. If it starts spending more time lying in the sunlight, it’s a sign that the bud will bloom into a large flower soon."
+    },
+    {
+      "game": "Emerald",
+      "text": "To support its bulb, IVYSAUR’s legs grow sturdy. If it spends more time lying in the sunlight, the bud will soon bloom into a large flower."
+    },
+    {
+      "game": "Firered",
+      "text": "There is a plant bulb on its back. When it absorbs nutrients, the bulb is said to blossom into a large flower."
+    },
+    {
+      "game": "Diamond",
+      "text": "When the bud on its back starts swelling, a sweet aroma wafts to indicate the flower’s coming bloom."
+    },
+    {
+      "game": "Heartgold",
+      "text": "Exposure to sunlight adds to its strength. Sunlight also makes the bud on its back grow larger."
+    },
+    {
+      "game": "Lets Go Pikachu",
+      "text": "The bud on its back grows by drawing energy. It gives off an aroma when it is ready to bloom."
+    }
+  ],
+  "evolutionChain": [
+    {
+      "name": "Bulbasaur",
+      "index": "#001",
+      "stage": 1,
+      "types": [
+        "Grass",
+        "Poison"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
+      "isSubject": false
+    },
+    {
+      "name": "Ivysaur",
+      "index": "#002",
+      "stage": 2,
+      "evolvesFrom": "Bulbasaur",
+      "method": "Level Up, level 16",
+      "types": [
+        "Grass",
+        "Poison"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/2.png",
+      "isSubject": true
+    },
+    {
+      "name": "Venusaur",
+      "index": "#003",
+      "stage": 3,
+      "evolvesFrom": "Ivysaur",
+      "method": "Level Up, level 32",
+      "types": [
+        "Grass",
+        "Poison"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/3.png",
+      "isSubject": false
+    }
+  ],
+  "varieties": [],
+  "lore": [],
+  "tiers": {
+    "official": [
+      "name",
+      "index",
+      "number",
+      "category",
+      "generation",
+      "isLegendary",
+      "isMythical",
+      "types",
+      "heightMeters",
+      "weightKg",
+      "pokedexEntries",
+      "evolutionChain[].name",
+      "evolutionChain[].index",
+      "evolutionChain[].types",
+      "evolutionChain[].stage",
+      "varieties[].types",
+      "varieties[].heightMeters",
+      "varieties[].weightKg"
+    ],
+    "trusted_secondary": [
+      "evolutionChain[].method",
+      "evolutionChain[].evolvesFrom",
+      "varieties[].name"
+    ],
+    "community": [
+      "lore"
+    ]
+  },
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Ivysaur",
+      "url": "https://www.pokemon.com/us/pokedex/ivysaur",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Ivysaur",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Ivysaur_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Ivysaur",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/2",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

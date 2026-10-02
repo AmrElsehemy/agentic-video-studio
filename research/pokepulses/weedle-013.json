@@ -1,0 +1,149 @@
+{
+  "schemaVersion": 1,
+  "id": "weedle-013",
+  "number": 13,
+  "index": "#013",
+  "name": "Weedle",
+  "slug": "weedle",
+  "category": "Hairy Bug Pokémon",
+  "generation": "Generation I",
+  "isLegendary": false,
+  "isMythical": false,
+  "types": [
+    "Bug",
+    "Poison"
+  ],
+  "heightMeters": 0.3,
+  "weightKg": 3.2,
+  "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/13.png",
+  "pokedexEntries": [
+    {
+      "game": "Red",
+      "text": "Often found in forests, eating leaves. It has a sharp venomous stinger on its head."
+    },
+    {
+      "game": "Yellow",
+      "text": "Beware of the sharp stinger on its head. It hides in grass and bushes where it eats leaves."
+    },
+    {
+      "game": "Gold",
+      "text": "Its poison stinger is very powerful. Its bright-colored body is intended to warn off its enemies."
+    },
+    {
+      "game": "Silver",
+      "text": "It attacks using a two-inch poison barb on its head. It can usually be found under the leaves it eats."
+    },
+    {
+      "game": "Crystal",
+      "text": "The barb on top of its head secretes a strong poison. It uses this toxic barb to protect itself."
+    },
+    {
+      "game": "Ruby",
+      "text": "WEEDLE has an extremely acute sense of smell. It is capable of distinguishing its favorite kinds of leaves from those it dislikes just by sniffing with its big red proboscis (nose)."
+    },
+    {
+      "game": "Emerald",
+      "text": "A WEEDLE has an extremely acute sense of smell. It distinguishes its favorite kinds of leaves from those it dislikes by sniffing with its big red proboscis (nose)."
+    },
+    {
+      "game": "Firered",
+      "text": "Often found in forests and grasslands. It has a sharp, toxic barb of around two inches on top of its head."
+    },
+    {
+      "game": "Leafgreen",
+      "text": "Often found in forests, eating leaves. It has a sharp stinger on its head that injects poison."
+    },
+    {
+      "game": "Diamond",
+      "text": "It eats its weight in leaves every day. It fends off attackers with the needle on its head."
+    }
+  ],
+  "evolutionChain": [
+    {
+      "name": "Weedle",
+      "index": "#013",
+      "stage": 1,
+      "types": [
+        "Bug",
+        "Poison"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/13.png",
+      "isSubject": true
+    },
+    {
+      "name": "Kakuna",
+      "index": "#014",
+      "stage": 2,
+      "evolvesFrom": "Weedle",
+      "method": "Level Up, level 7",
+      "types": [
+        "Bug",
+        "Poison"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/14.png",
+      "isSubject": false
+    },
+    {
+      "name": "Beedrill",
+      "index": "#015",
+      "stage": 3,
+      "evolvesFrom": "Kakuna",
+      "method": "Level Up, level 10",
+      "types": [
+        "Bug",
+        "Poison"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/15.png",
+      "isSubject": false
+    }
+  ],
+  "varieties": [],
+  "lore": [],
+  "tiers": {
+    "official": [
+      "name",
+      "index",
+      "number",
+      "category",
+      "generation",
+      "isLegendary",
+      "isMythical",
+      "types",
+      "heightMeters",
+      "weightKg",
+      "pokedexEntries",
+      "evolutionChain[].name",
+      "evolutionChain[].index",
+      "evolutionChain[].types",
+      "evolutionChain[].stage",
+      "varieties[].types",
+      "varieties[].heightMeters",
+      "varieties[].weightKg"
+    ],
+    "trusted_secondary": [
+      "evolutionChain[].method",
+      "evolutionChain[].evolvesFrom",
+      "varieties[].name"
+    ],
+    "community": [
+      "lore"
+    ]
+  },
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Weedle",
+      "url": "https://www.pokemon.com/us/pokedex/weedle",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Weedle",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Weedle_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Weedle",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/13",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

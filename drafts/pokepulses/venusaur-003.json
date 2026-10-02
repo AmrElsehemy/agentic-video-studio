@@ -1,0 +1,211 @@
+{
+  "id": "venusaur-003",
+  "title": "Rain Turns Venusaur Into a Pokémon Beacon",
+  "storyPattern": "mystery",
+  "numberRelevant": false,
+  "premise": "After rain, Venusaur’s flower smells stronger and draws other Pokémon toward it.",
+  "audiencePromise": "Follow Venusaur’s scent from sunlight fragrance to a rain-powered Pokémon beacon.",
+  "openLoop": "Why do other Pokémon follow Venusaur after a rainy day?",
+  "payoff": "Rain strengthens Venusaur’s flower scent, attracting other Pokémon, while its aroma can also soothe people.",
+  "targetEmotion": "curiosity",
+  "engagementQuestion": "Rain beacon or sunlight calm, which Venusaur flower wins?",
+  "subject": {
+    "name": "Venusaur",
+    "category": "Seed Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/3.png",
+    "identifier": "#003"
+  },
+  "related": [
+    {
+      "name": "Ivysaur",
+      "relation": "evolves-from",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/2.png",
+      "identifier": "#002"
+    },
+    {
+      "name": "Bulbasaur",
+      "relation": "evolves-from",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
+      "identifier": "#001"
+    },
+    {
+      "name": "Venusaur Mega",
+      "relation": "form",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10033.png",
+      "identifier": "#003"
+    }
+  ],
+  "palette": {
+    "background": "#10251d",
+    "surface": "#1d3b2a",
+    "primary": "#78b946",
+    "secondary": "#ef6f9a",
+    "ink": "#f7f4df"
+  },
+  "voice": {
+    "instructions": "Warm, cinematic curiosity. Start with urgent surprise, then slow slightly for each reveal. Stress “stronger” and “attracts.” End with an inviting, debatable lift."
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "assets": [
+      {
+        "kind": "Venusaur official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/3.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "unverified",
+        "publicReleaseApproved": false,
+        "notes": "Internal prototype only pending legal review or replacement."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "rain-beacon",
+      "beat": "hook",
+      "eyebrow": "AFTER THE STORM",
+      "headline": "RAIN MAKES A BEACON",
+      "narration": "Rain turns Venusaur into a Pokémon beacon.",
+      "caption": "ONE FLOWER. A STRONGER SIGNAL.",
+      "facts": [
+        "RAINY DAY",
+        "STRONGER SCENT"
+      ],
+      "accent": "#72c94c",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/3.png"
+    },
+    {
+      "id": "sunlight-fragrance",
+      "beat": "clue",
+      "eyebrow": "FIRST CLUE",
+      "headline": "SUNLIGHT RELEASES FRAGRANCE",
+      "narration": "Its back flower already releases fragrance in sunlight.",
+      "caption": "THE PETALS GIVE OFF A PLEASANT SCENT.",
+      "facts": [
+        "FLOWER PETALS",
+        "SUNLIGHT",
+        "FRAGRANCE"
+      ],
+      "accent": "#f08ab2",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/3.png",
+      "primitive": {
+        "kind": "checklist",
+        "items": [
+          {
+            "label": "SUNLIGHT",
+            "met": true
+          },
+          {
+            "label": "FLOWER PETALS",
+            "met": true
+          },
+          {
+            "label": "FRAGRANCE",
+            "met": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "rain-strengthens",
+      "beat": "escalation",
+      "eyebrow": "THE SCENT CHANGES",
+      "headline": "RAIN MAKES IT STRONGER",
+      "narration": "Then rain passes, and that flower smells even stronger.",
+      "caption": "THE SCENT CLOUD EXPANDS AFTER RAIN.",
+      "facts": [
+        "AFTER RAIN",
+        "STRONGER SMELL"
+      ],
+      "accent": "#67bfe5",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/3.png",
+      "primitive": {
+        "kind": "checklist",
+        "items": [
+          {
+            "label": "AFTER RAIN",
+            "met": true
+          },
+          {
+            "label": "STRONGER SCENT",
+            "met": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "pokemon-follow",
+      "beat": "reveal",
+      "eyebrow": "FIRST REVEAL",
+      "headline": "OTHER POKÉMON FOLLOW IT",
+      "narration": "That stronger scent attracts other Pokémon to Venusaur.",
+      "caption": "SILHOUETTES FOLLOW THE FLOWER’S TRAIL.",
+      "facts": [
+        "ATTRACTS POKÉMON",
+        "STRONGER SCENT"
+      ],
+      "accent": "#d95d91",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/3.png",
+      "primitive": {
+        "kind": "checklist",
+        "items": [
+          {
+            "label": "STRONGER SCENT",
+            "met": true
+          },
+          {
+            "label": "OTHER POKÉMON",
+            "met": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "people-soothed",
+      "beat": "reveal",
+      "eyebrow": "SECOND REVEAL",
+      "headline": "ITS AROMA SOOTHES PEOPLE",
+      "narration": "Its flower aroma can also soothe people's emotions.",
+      "caption": "ONE FLOWER CAN CALL POKÉMON AND CALM PEOPLE.",
+      "facts": [
+        "FLOWER AROMA",
+        "SOOTHES EMOTIONS"
+      ],
+      "accent": "#f3b85b",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/3.png"
+    },
+    {
+      "id": "flower-verdict",
+      "beat": "verdict",
+      "eyebrow": "YOUR VERDICT",
+      "headline": "BEACON OR CALM?",
+      "narration": "Rain beacon or sunlight calm, which Venusaur flower wins?",
+      "caption": "PICK VENUSAUR’S BEST FLOWER POWER.",
+      "facts": [
+        "RAIN BEACON",
+        "SUNLIGHT CALM"
+      ],
+      "accent": "#ffffff",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/3.png"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Venusaur",
+      "url": "https://www.pokemon.com/us/pokedex/venusaur",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Venusaur",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Venusaur_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Venusaur",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/3",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

@@ -1,0 +1,157 @@
+{
+  "schemaVersion": 1,
+  "id": "wartortle-008",
+  "number": 8,
+  "index": "#008",
+  "name": "Wartortle",
+  "slug": "wartortle",
+  "category": "Turtle Pokémon",
+  "generation": "Generation I",
+  "isLegendary": false,
+  "isMythical": false,
+  "types": [
+    "Water"
+  ],
+  "heightMeters": 1,
+  "weightKg": 22.5,
+  "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/8.png",
+  "pokedexEntries": [
+    {
+      "game": "Red",
+      "text": "Often hides in water to stalk unwary prey. For swimming fast, it moves its ears to maintain balance."
+    },
+    {
+      "game": "Yellow",
+      "text": "When tapped, this POKéMON will pull in its head, but its tail will still stick out a little bit."
+    },
+    {
+      "game": "Gold",
+      "text": "It is recognized as a symbol of longevity. If its shell has algae on it, that WARTORTLE is very old."
+    },
+    {
+      "game": "Silver",
+      "text": "It cleverly con trols its furry ears and tail to maintain its balance while swimming."
+    },
+    {
+      "game": "Crystal",
+      "text": "Its long, furry tail is a symbol of longevity, making it quite popular among older people."
+    },
+    {
+      "game": "Ruby",
+      "text": "Its tail is large and covered with a rich, thick fur. The tail becomes increasingly deeper in color as WARTORTLE ages. The scratches on its shell are evidence of this POKéMON’s toughness as a battler."
+    },
+    {
+      "game": "Emerald",
+      "text": "Its large tail is covered with rich, thick fur that deepens in color with age. The scratches on its shell are evidence of this POKéMON’s toughness in battle."
+    },
+    {
+      "game": "Firered",
+      "text": "This POKéMON is very popular as a pet. Its fur-covered tail is a symbol of its longevity."
+    },
+    {
+      "game": "Leafgreen",
+      "text": "It often hides in water to stalk unwary prey. For fast swimming, it moves its ears to maintain balance."
+    },
+    {
+      "game": "Diamond",
+      "text": "It is said to live 10,000 years. Its furry tail is popular as a symbol of longevity."
+    },
+    {
+      "game": "Heartgold",
+      "text": "It is a well-established symbol of longevity. If its shell has algae on it, that WARTORTLE is very old."
+    },
+    {
+      "game": "Soulsilver",
+      "text": "It cleverly controls its furry ears and tail to maintain its balance while swimming."
+    },
+    {
+      "game": "Lets Go Pikachu",
+      "text": "When tapped on its head, this Pokémon will pull it in, but its tail will still stick out a little bit."
+    }
+  ],
+  "evolutionChain": [
+    {
+      "name": "Squirtle",
+      "index": "#007",
+      "stage": 1,
+      "types": [
+        "Water"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png",
+      "isSubject": false
+    },
+    {
+      "name": "Wartortle",
+      "index": "#008",
+      "stage": 2,
+      "evolvesFrom": "Squirtle",
+      "method": "Level Up, level 16",
+      "types": [
+        "Water"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/8.png",
+      "isSubject": true
+    },
+    {
+      "name": "Blastoise",
+      "index": "#009",
+      "stage": 3,
+      "evolvesFrom": "Wartortle",
+      "method": "Level Up, level 36",
+      "types": [
+        "Water"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/9.png",
+      "isSubject": false
+    }
+  ],
+  "varieties": [],
+  "lore": [],
+  "tiers": {
+    "official": [
+      "name",
+      "index",
+      "number",
+      "category",
+      "generation",
+      "isLegendary",
+      "isMythical",
+      "types",
+      "heightMeters",
+      "weightKg",
+      "pokedexEntries",
+      "evolutionChain[].name",
+      "evolutionChain[].index",
+      "evolutionChain[].types",
+      "evolutionChain[].stage",
+      "varieties[].types",
+      "varieties[].heightMeters",
+      "varieties[].weightKg"
+    ],
+    "trusted_secondary": [
+      "evolutionChain[].method",
+      "evolutionChain[].evolvesFrom",
+      "varieties[].name"
+    ],
+    "community": [
+      "lore"
+    ]
+  },
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Wartortle",
+      "url": "https://www.pokemon.com/us/pokedex/wartortle",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Wartortle",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Wartortle_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Wartortle",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/8",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

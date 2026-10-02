@@ -1,0 +1,169 @@
+{
+  "episodeId": "charizard-006",
+  "createdAt": "2026-09-30T05:35:32.255Z",
+  "chosen": {
+    "id": "gmax-tower-charizard",
+    "premise": "Gigantamax Charizard jumps from 1.7 meters to 28 meters tall—over 16 times its normal height.",
+    "hook": "Charizard can become taller than a seven-story building.",
+    "archetype": "transformation",
+    "evidence": [
+      "heightMeters",
+      "varieties[2].name",
+      "varieties[2].heightMeters",
+      "varieties[2].weightKg"
+    ],
+    "visualIdea": "A 1.7 m Charizard stands beside its 28 m Gigantamax form, with stacked normal Charizards climbing to its head.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 4,
+      "specificity": 5,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 24,
+    "note": "A highly Charizard-specific transformation with a precise 1.7 m-to-28 m comparison. The seven-story comparison is an understandable visual inference, while the height data itself is directly supported."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "gmax-tower-charizard",
+          "premise": "Gigantamax Charizard jumps from 1.7 meters to 28 meters tall—over 16 times its normal height.",
+          "hook": "Charizard can become taller than a seven-story building.",
+          "archetype": "transformation",
+          "evidence": [
+            "heightMeters",
+            "varieties[2].name",
+            "varieties[2].heightMeters",
+            "varieties[2].weightKg"
+          ],
+          "visualIdea": "A 1.7 m Charizard stands beside its 28 m Gigantamax form, with stacked normal Charizards climbing to its head.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 24,
+          "note": "A highly Charizard-specific transformation with a precise 1.7 m-to-28 m comparison. The seven-story comparison is an understandable visual inference, while the height data itself is directly supported."
+        },
+        {
+          "id": "gmax-weighs-eleven-times-more",
+          "premise": "Gigantamax Charizard weighs 1,000 kg, more than 11 times the 90.5 kg of normal Charizard.",
+          "hook": "Charizard gains nearly a metric ton in one transformation.",
+          "archetype": "transformation",
+          "evidence": [
+            "weightKg",
+            "varieties[2].name",
+            "varieties[2].weightKg"
+          ],
+          "visualIdea": "A scale slams from 90.5 kg to 1,000 kg as normal Charizard inflates into Gigantamax Charizard.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 4,
+            "support": 5
+          },
+          "total": 22,
+          "note": "The 90.5 kg-to-1,000 kg jump is exact and well supported, but weight gain is less visually intuitive and less inherently dramatic than the height transformation."
+        },
+        {
+          "id": "charizard-refuses-weak-fights",
+          "premise": "Charizard seeks powerful opponents but is said to never use its fire breath on a weaker foe.",
+          "hook": "Charizard hunts strong opponents—and spares the weak.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[5].text",
+            "pokedexEntries[6].text"
+          ],
+          "visualIdea": "Charizard flies past smaller challengers, then lands before a powerful silhouette as its flames ignite.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 4,
+            "support": 5
+          },
+          "total": 22,
+          "note": "The noble battle rule is distinctive and directly stated in two Pokédex entries. It is slightly less concrete than a numerical or form-based angle and depends on wording such as 'is said to.'"
+        },
+        {
+          "id": "mega-x-loses-flying",
+          "premise": "Mega Charizard X is the one listed form that trades Flying for Dragon, becoming Fire/Dragon instead.",
+          "hook": "Charizard’s Dragon form actually loses Flying.",
+          "archetype": "comparison",
+          "evidence": [
+            "types",
+            "varieties[0].name",
+            "varieties[0].types",
+            "varieties[1].name",
+            "varieties[1].types",
+            "varieties[2].types"
+          ],
+          "visualIdea": "Type badges flip from Fire/Flying to Fire/Dragon for Mega X, while Mega Y and Gmax retain Flying.",
+          "generic": true,
+          "scores": {
+            "uniqueness": 2,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 21,
+          "note": "A concrete, unusual type contradiction supported by the listed forms. It is excellent for an on-screen badge comparison, though some fans may already know Mega Charizard X. (Uniqueness capped at 2: its evidence is only fields every Pokémon has.)"
+        },
+        {
+          "id": "tail-flame-turns-blue-when-furious",
+          "premise": "When Charizard becomes furious, its tail flame is said to flare from red into a whitish-blue shade.",
+          "hook": "Charizard’s anger has a color: blue.",
+          "archetype": "transformation",
+          "evidence": [
+            "pokedexEntries[2].text",
+            "pokedexEntries[10].text"
+          ],
+          "visualIdea": "A close-up red tail flame pulses with rage, then flashes into a pale blue blaze.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 3,
+            "specificity": 4,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 20,
+          "note": "The red-to-whitish-blue visual is strong and supported by multiple entries, but the core fact is familiar to many fans and 'blue' simplifies the source wording."
+        },
+        {
+          "id": "battle-makes-the-fire-hotter",
+          "premise": "Charizard’s fire is said to get hotter through battle experience—and harsh battles intensify it further.",
+          "hook": "For Charizard, battle experience is fuel.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[4].text",
+            "pokedexEntries[9].text"
+          ],
+          "visualIdea": "Each battle adds heat to a thermometer until Charizard’s flame melts a boulder.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 3,
+            "specificity": 4,
+            "visual": 4,
+            "support": 4
+          },
+          "total": 19,
+          "note": "The entries support fire intensifying with experience and harsh battles, but the premise is broad and the two claims are not presented as one tightly defined mechanic."
+        }
+      ],
+      "rejected": [],
+      "request": "Stronger alternatives would need an equally concrete transformation or contradiction, direct support in the supplied research, and a more distinctive visual payoff than Charizard growing from 1.7 to 28 meters."
+    }
+  ]
+}

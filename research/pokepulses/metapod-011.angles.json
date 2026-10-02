@@ -1,0 +1,166 @@
+{
+  "episodeId": "metapod-011",
+  "createdAt": "2026-09-30T08:42:22.585Z",
+  "chosen": {
+    "id": "hard-shell-can-still-tip",
+    "premise": "Pikipek cannot crack Metapod’s shell, but can tip it over and make its insides spill out.",
+    "hook": "Metapod’s shell survives pecking—then one shove defeats it.",
+    "archetype": "comparison",
+    "evidence": [
+      "pokedexEntries[14].text",
+      "pokedexEntries[11].text"
+    ],
+    "visualIdea": "Pikipek pecks without leaving a mark, then Metapod topples in slow motion as the danger inside is revealed.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 5,
+      "specificity": 5,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 25,
+    "note": "A precise, memorable contradiction directly stated in the Pokédex: Pikipek cannot crack the shell, yet tipping Metapod can spill its insides. Excellent action-reaction visual."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "hard-shell-can-still-tip",
+          "premise": "Pikipek cannot crack Metapod’s shell, but can tip it over and make its insides spill out.",
+          "hook": "Metapod’s shell survives pecking—then one shove defeats it.",
+          "archetype": "comparison",
+          "evidence": [
+            "pokedexEntries[14].text",
+            "pokedexEntries[11].text"
+          ],
+          "visualIdea": "Pikipek pecks without leaving a mark, then Metapod topples in slow motion as the danger inside is revealed.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 25,
+          "note": "A precise, memorable contradiction directly stated in the Pokédex: Pikipek cannot crack the shell, yet tipping Metapod can spill its insides. Excellent action-reaction visual."
+        },
+        {
+          "id": "iron-shell-liquid-inside",
+          "premise": "Metapod’s iron-slab shell hides thick liquid where every cell is being rebuilt for evolution.",
+          "hook": "Metapod is an iron shell full of rebuilding liquid.",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[5].text",
+            "pokedexEntries[13].text"
+          ],
+          "visualIdea": "An X-ray cuts through Metapod’s metallic shell to reveal thick liquid and glowing cells reconstructing inside.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 23,
+          "note": "Highly specific to Metapod’s contradictory biology, with official entries supporting both the iron-slab shell and cell-rebuilding liquid. The X-ray visualization is strong, though 'metallic' is a slight embellishment."
+        },
+        {
+          "id": "motionless-so-it-doesnt-spill",
+          "premise": "Metapod barely moves because one careless motion risks spilling its soft innards from its shell.",
+          "hook": "Metapod stays still because moving could spill its insides.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[11].text",
+            "pokedexEntries[4].text"
+          ],
+          "visualIdea": "Metapod is shown balancing perfectly still while a translucent cutaway shows soft innards sloshing toward an opening.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 4,
+            "support": 5
+          },
+          "total": 23,
+          "note": "A distinctive explanation for Metapod’s stillness, explicitly supported by the Sun entry. The 'opening' shown in the visual is not stated, so the cutaway should avoid implying a literal hole."
+        },
+        {
+          "id": "armor-that-cant-take-a-hit",
+          "premise": "Metapod’s shell is called steel-hard, yet its tender body still cannot withstand a harsh attack.",
+          "hook": "Metapod has steel-hard armor—and still can’t take a hard hit.",
+          "archetype": "comparison",
+          "evidence": [
+            "pokedexEntries[8].text",
+            "pokedexEntries[7].text",
+            "pokedexEntries[12].text"
+          ],
+          "visualIdea": "A steel-shell label stamps onto Metapod, then fractures into a warning screen over its vulnerable soft-body cutaway.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 4,
+            "support": 5
+          },
+          "total": 21,
+          "note": "The steel-hard shell versus tender body contradiction is well supported, but it is a broader armor-versus-vulnerability idea and overlaps with the sharper tipping premise."
+        },
+        {
+          "id": "only-harden-until-level-10",
+          "premise": "After evolving at level 7, Metapod can only harden and wait until it evolves into Butterfree at level 10.",
+          "hook": "Metapod’s entire job is to harden, wait, and reach level 10.",
+          "archetype": "mechanic",
+          "evidence": [
+            "evolutionChain[1].method",
+            "evolutionChain[2].method",
+            "pokedexEntries[4].text",
+            "pokedexEntries[15].text"
+          ],
+          "visualIdea": "A level meter climbs from Caterpie’s level-7 evolution through a frozen Metapod, ending in a level-10 Butterfree reveal.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 3,
+            "specificity": 5,
+            "visual": 4,
+            "support": 4
+          },
+          "total": 20,
+          "note": "The level-7-to-level-10 progression is concrete and easy to animate, but the premise combines game mechanics with lore and is less surprising than Metapod’s physical vulnerability."
+        },
+        {
+          "id": "a-cocoon-rebuilding-into-flight",
+          "premise": "Metapod turns Caterpie’s ground-bound middle stage into a rebuilt body that emerges as Bug/Flying Butterfree.",
+          "hook": "This still cocoon is secretly rebuilding itself for flight.",
+          "archetype": "transformation",
+          "evidence": [
+            "evolutionChain[0].types",
+            "evolutionChain[1].types",
+            "evolutionChain[2].types",
+            "evolutionChain[2].method",
+            "pokedexEntries[13].text"
+          ],
+          "visualIdea": "Caterpie crawls into Metapod; inside, cells rebuild, before the shell bursts into Butterfree taking flight.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 3,
+            "specificity": 3,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 19,
+          "note": "The evolution and cell-rebuilding facts support the transformation, but 'ground-bound' and the biological process leading specifically to flight are partly inferred rather than stated."
+        }
+      ],
+      "rejected": [],
+      "request": "The selected angle is strong enough. Even stronger alternatives would need an equally specific contradiction, a directly cited Pokédex fact, and a simple physical action that can be understood instantly on screen."
+    }
+  ]
+}

@@ -1,0 +1,172 @@
+{
+  "id": "beedrill-015",
+  "title": "Beedrill Has Three Stingers, But One Is Worse",
+  "storyPattern": "comparison",
+  "numberRelevant": false,
+  "premise": "Beedrill has three poison barbs, but its tail barb secretes the most powerful poison.",
+  "audiencePromise": "Follow Beedrill's three stingers to reveal why the tail barb is its most dangerous one.",
+  "openLoop": "If all three stingers are poisonous, why is the tail barb worse?",
+  "payoff": "Beedrill can jab repeatedly with all three stingers, but its tail barb carries the most powerful poison.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "Foreleg stingers or tail barb: which threat scares you most?",
+  "subject": {
+    "name": "Beedrill",
+    "category": "Poison Bee Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/15.png",
+    "identifier": "#015"
+  },
+  "related": [
+    {
+      "name": "Kakuna",
+      "relation": "evolves-from",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/14.png",
+      "identifier": "#014"
+    },
+    {
+      "name": "Weedle",
+      "relation": "evolves-from",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/13.png",
+      "identifier": "#013"
+    },
+    {
+      "name": "Beedrill Mega",
+      "relation": "form",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10090.png",
+      "identifier": "#015"
+    }
+  ],
+  "palette": {
+    "background": "#10151c",
+    "surface": "#1d2730",
+    "primary": "#f2c94c",
+    "secondary": "#d94b7a",
+    "ink": "#f7f3e8"
+  },
+  "voice": {
+    "instructions": "Tense and precise. Start with a sharp warning, build steadily, then land the tail reveal with a quiet, dangerous emphasis."
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "assets": [
+      {
+        "kind": "Beedrill official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/15.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "unverified",
+        "publicReleaseApproved": false,
+        "notes": "Internal prototype only pending legal review or replacement."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "three-stingers",
+      "beat": "hook",
+      "eyebrow": "POISON BEE WARNING",
+      "headline": "THREE STINGERS. ONE IS WORSE.",
+      "narration": "Beedrill has three stingers, but one is worst.",
+      "caption": "THREE BARBS ENTER. ONE OUTRANKS THEM.",
+      "facts": [
+        "3 POISON BARBS"
+      ],
+      "accent": "#d94b7a",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/15.png",
+      "primitive": {
+        "kind": "counter",
+        "from": 0,
+        "to": 3,
+        "label": "POISON BARBS"
+      }
+    },
+    {
+      "id": "foreleg-pair",
+      "beat": "evidence",
+      "eyebrow": "WHERE THEY SIT",
+      "headline": "TWO UP FRONT, ONE ON THE TAIL",
+      "narration": "Two stingers sit on its forelegs. The third is on its tail.",
+      "caption": "FIND THE THIRD",
+      "facts": [
+        "2 FORELEG STINGERS",
+        "1 TAIL STINGER"
+      ],
+      "accent": "#f2c94c",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/15.png"
+    },
+    {
+      "id": "all-three-jab",
+      "beat": "evidence",
+      "eyebrow": "THEY ARE ALL WEAPONS",
+      "headline": "ALL THREE CAN JAB",
+      "narration": "Those three poisonous stingers can jab an enemy repeatedly.",
+      "caption": "JAB • JAB • JAB",
+      "facts": [
+        "3 POISONOUS STINGERS",
+        "REPEATED JABS"
+      ],
+      "accent": "#f2c94c",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/15.png"
+    },
+    {
+      "id": "high-speed-strike",
+      "beat": "escalation",
+      "eyebrow": "THE ATTACK RUN",
+      "headline": "STRIKE, THEN FLY OFF",
+      "narration": "Then Beedrill flies at high speed, striking with its stingers.",
+      "caption": "BLINK AND IT'S GONE",
+      "facts": [
+        "HIGH SPEED",
+        "POISON NEEDLES"
+      ],
+      "accent": "#f2c94c",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/15.png"
+    },
+    {
+      "id": "tail-reveal",
+      "beat": "twist",
+      "eyebrow": "THE REAL DANGER",
+      "headline": "THE TAIL HAS STRONGER POISON",
+      "narration": "But its tail barb secretes the most powerful poison.",
+      "caption": "VENOM METER: MAXED OUT",
+      "facts": [
+        "TAIL BARB",
+        "MOST POWERFUL POISON"
+      ],
+      "accent": "#d94b7a",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/15.png"
+    },
+    {
+      "id": "choose-your-threat",
+      "beat": "verdict",
+      "eyebrow": "PICK YOUR THREAT",
+      "headline": "FORELEGS OR TAIL?",
+      "narration": "Foreleg stingers or tail barb: which threat scares you most?",
+      "caption": "TWO JABS OR ONE DEADLIER BARB?",
+      "facts": [
+        "FORELEG STINGERS",
+        "TAIL BARB"
+      ],
+      "accent": "#d94b7a",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/15.png"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Beedrill",
+      "url": "https://www.pokemon.com/us/pokedex/beedrill",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Beedrill",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Beedrill_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Beedrill",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/15",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

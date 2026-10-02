@@ -1,0 +1,265 @@
+{
+  "schemaVersion": 2,
+  "id": "charizard-006",
+  "show": {
+    "id": "pokepulses",
+    "name": "PokePulses",
+    "handle": "@PokePulses",
+    "wordmark": {
+      "lead": "POKE",
+      "accent": "PULSES"
+    },
+    "fonts": {
+      "display": "Bebas Neue",
+      "body": "system"
+    }
+  },
+  "title": "Why Charizard Looks Tiny Beside Itself",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "transformation",
+    "numberRelevant": false,
+    "premise": "Gigantamax Charizard grows from 1.7 meters to 28 meters, over sixteen times its normal height.",
+    "audiencePromise": "Watch normal Charizard become a giant so large it makes itself look tiny.",
+    "openLoop": "What makes Charizard look tiny beside its own form?",
+    "payoff": "At 28 meters, Gigantamax Charizard towers over a stack of sixteen normal Charizards.",
+    "targetEmotion": "surprise",
+    "engagementQuestion": "Which feels like Charizard: 1.7-meter flier or 28-meter giant?",
+    "targetSecondsBetweenVisualChanges": 0.62
+  },
+  "subject": {
+    "name": "Charizard",
+    "category": "Flame Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/6.png",
+    "identifier": "#006"
+  },
+  "related": [
+    {
+      "name": "Charmeleon",
+      "relation": "evolves-from",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/5.png",
+      "identifier": "#005"
+    },
+    {
+      "name": "Charmander",
+      "relation": "evolves-from",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png",
+      "identifier": "#004"
+    },
+    {
+      "name": "Charizard Mega X",
+      "relation": "form",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10034.png",
+      "identifier": "#006"
+    }
+  ],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#120c0b",
+    "surface": "#281514",
+    "primary": "#f06a2a",
+    "secondary": "#4cc9d8",
+    "ink": "#fff4df"
+  },
+  "audio": {
+    "music": "generated/charizard-006-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 126,
+      "notes": [
+        110,
+        130.81,
+        146.83,
+        164.81,
+        146.83,
+        130.81,
+        98,
+        130.81
+      ]
+    },
+    "voice": {
+      "provider": "openai",
+      "model": "gpt-4o-mini-tts",
+      "voice": "marin",
+      "instructions": "Use a hushed, incredulous tone at first. Build through the weight and height reveals, then land the final question with playful conviction.",
+      "speed": 1.12,
+      "output": "generated/charizard-006-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "assets": [
+      {
+        "kind": "Charizard Gmax official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10196.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "unverified",
+        "publicReleaseApproved": false,
+        "notes": "Internal prototype only pending legal review or replacement."
+      },
+      {
+        "kind": "Charizard official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/6.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "unverified",
+        "publicReleaseApproved": false,
+        "notes": "Internal prototype only pending legal review or replacement."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "tiny-beside-itself",
+      "durationSeconds": 3.8,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "SIZE PARADOX",
+      "headline": "CHARIZARD LOOKS TINY?",
+      "narration": "Charizard looks tiny beside its own form.",
+      "caption": "ONE CHARIZARD DWARFS ANOTHER",
+      "visual": "hook",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10196.png",
+      "accent": "#f06a2a"
+    },
+    {
+      "id": "normal-charizard-scale",
+      "durationSeconds": 4.7,
+      "beat": "before",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "NORMAL CHARIZARD",
+      "headline": "ONLY 1.7 METERS TALL",
+      "narration": "The Flame Pokémon is only one point seven meters tall.",
+      "caption": "CHARIZARD HEIGHT: 1.7 M",
+      "visual": "gauntlet",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/6.png",
+      "accent": "#f06a2a",
+      "facts": [
+        "FLAME POKÉMON",
+        "1.7 METERS",
+        "FIRE / FLYING"
+      ]
+    },
+    {
+      "id": "gigantamax-weight",
+      "durationSeconds": 4.2,
+      "beat": "change",
+      "role": "escalation",
+      "shot": "tracking",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "GIGANTAMAX CHANGE",
+      "headline": "A FULL 1,000 KILOGRAMS",
+      "narration": "Its Gigantamax form weighs a full one thousand kilograms.",
+      "caption": "GMAX WEIGHT: 1,000 KG",
+      "visual": "race",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10196.png",
+      "accent": "#4cc9d8",
+      "facts": [
+        "CHARIZARD GMAX",
+        "1,000 KILOGRAMS"
+      ],
+      "primitive": {
+        "kind": "counter",
+        "from": 0,
+        "to": 1000,
+        "label": "GIGANTAMAX WEIGHT (KG)"
+      }
+    },
+    {
+      "id": "height-reveal",
+      "durationSeconds": 4.9,
+      "beat": "reveal",
+      "role": "payoff",
+      "shot": "comparison",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "THEN THE SCALE HITS",
+      "headline": "28 METERS TALL",
+      "narration": "Gigantamax Charizard stands twenty-eight meters tall, not one point seven.",
+      "caption": "1.7 M → 28 M",
+      "visual": "advantage",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10196.png",
+      "accent": "#fff4df",
+      "facts": [
+        "28 METERS",
+        "OVER 16× TALLER"
+      ],
+      "primitive": {
+        "kind": "bars",
+        "unit": "M",
+        "bars": [
+          {
+            "label": "NORMAL",
+            "value": 1.7
+          },
+          {
+            "label": "GIGANTAMAX",
+            "value": 28
+          }
+        ]
+      }
+    },
+    {
+      "id": "stacked-charizards",
+      "durationSeconds": 5.1,
+      "beat": "aftermath",
+      "role": "payoff",
+      "shot": "wide",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "SEE THE DIFFERENCE",
+      "headline": "SIXTEEN CHARIZARDS HIGH",
+      "narration": "More than sixteen normal Charizards reach from ground to its head.",
+      "caption": "STACK NORMAL CHARIZARDS TO ITS HEAD",
+      "visual": "tradeoff",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10196.png",
+      "accent": "#f06a2a",
+      "facts": [
+        "OVER 16 NORMAL CHARIZARDS"
+      ]
+    },
+    {
+      "id": "charizard-verdict",
+      "durationSeconds": 5.3,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "YOUR PICK",
+      "headline": "WHICH FEELS REAL?",
+      "narration": "Which feels like Charizard: 1.7-meter flier or 28-meter giant?",
+      "caption": "NORMAL CHARIZARD OR GIGANTAMAX?",
+      "visual": "cta",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10196.png",
+      "accent": "#4cc9d8"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Charizard",
+      "url": "https://www.pokemon.com/us/pokedex/charizard"
+    },
+    {
+      "label": "Bulbapedia — Charizard",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(Pok%C3%A9mon)"
+    },
+    {
+      "label": "PokéAPI — Charizard",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/6"
+    }
+  ]
+}

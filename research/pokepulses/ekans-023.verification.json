@@ -1,0 +1,437 @@
+{
+  "episodeId": "ekans-023",
+  "checkedAt": "2026-10-02T08:58:16.324Z",
+  "claims": [
+    {
+      "id": "c1",
+      "where": "title",
+      "text": "Ekans's Favorite Snack Can Knock It Out",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[12].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c2",
+      "where": "premise",
+      "text": "Bird Pokémon eggs are Ekans's favorite food, but swallowing one whole can get it stuck and make Ekans faint.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[12].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c3",
+      "where": "audiencePromise",
+      "text": "See how Ekans's favorite food becomes the risky meal that can knock it out.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[12].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c4",
+      "where": "openLoop",
+      "text": "What happens when Ekans's favorite egg will not go down?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Framed as a question.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c5",
+      "where": "payoff",
+      "text": "Ekans can swallow prey whole, but a stuck bird egg can turn its favorite food into a fainting risk.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[11].text",
+        "pokedexEntries[12].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c6",
+      "where": "scenes.favorite-snack-knocks-it-out.headline",
+      "text": "EGGS CAN KNOCK EKANS OUT",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[12].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c7",
+      "where": "scenes.favorite-snack-knocks-it-out.narration",
+      "text": "Ekans's favorite snack can knock it out.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[12].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c8",
+      "where": "scenes.favorite-snack-knocks-it-out.caption",
+      "text": "ITS FAVORITE FOOD HAS A CATCH",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[12].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c9",
+      "where": "scenes.favorite-snack-knocks-it-out.eyebrow",
+      "text": "FAVORITE FOOD",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[12].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c10",
+      "where": "scenes.favorite-snack-knocks-it-out.facts[0]",
+      "text": "BIRD EGGS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[12].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c11",
+      "where": "scenes.favorite-snack-knocks-it-out.facts[1]",
+      "text": "FAVORITE FOOD",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[12].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c12",
+      "where": "scenes.eggs-swallowed-whole.headline",
+      "text": "BIRD EGGS, SWALLOWED WHOLE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[12].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c13",
+      "where": "scenes.eggs-swallowed-whole.narration",
+      "text": "Bird Pokémon eggs are Ekans's favorite food, swallowed whole.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[12].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c14",
+      "where": "scenes.eggs-swallowed-whole.caption",
+      "text": "EGGS GO DOWN WHOLE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[12].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c15",
+      "where": "scenes.eggs-swallowed-whole.eyebrow",
+      "text": "THE TARGET",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "A framing label, not a factual assertion.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c16",
+      "where": "scenes.eggs-swallowed-whole.facts[0]",
+      "text": "FAVORITE FOOD",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[12].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c17",
+      "where": "scenes.eggs-swallowed-whole.facts[1]",
+      "text": "SWALLOWS WHOLE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[12].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c18",
+      "where": "scenes.jaw-detaches-for-prey.headline",
+      "text": "ITS JAW CAN DETACH",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text",
+        "pokedexEntries[10].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c19",
+      "where": "scenes.jaw-detaches-for-prey.narration",
+      "text": "Ekans can detach its jaw to swallow prey larger than itself.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[10].text",
+        "pokedexEntries[11].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c20",
+      "where": "scenes.jaw-detaches-for-prey.caption",
+      "text": "A JAW BUILT TO SWALLOW BIG",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[10].text",
+        "pokedexEntries[11].text"
+      ],
+      "note": "Dramatic paraphrase of its jaw detaching/dislocating to swallow large prey.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c21",
+      "where": "scenes.jaw-detaches-for-prey.eyebrow",
+      "text": "HOW IT SWALLOWS",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "A framing label.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c22",
+      "where": "scenes.jaw-detaches-for-prey.facts[0]",
+      "text": "DETACHES ITS JAW",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text",
+        "pokedexEntries[10].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c23",
+      "where": "scenes.jaw-detaches-for-prey.facts[1]",
+      "text": "SWALLOWS LARGE PREY",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text",
+        "pokedexEntries[10].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c24",
+      "where": "scenes.whole-egg-gets-stuck.headline",
+      "text": "BUT THE EGG CAN GET STUCK",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[12].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c25",
+      "where": "scenes.whole-egg-gets-stuck.narration",
+      "text": "But that whole egg can get stuck inside Ekans.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[12].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c26",
+      "where": "scenes.whole-egg-gets-stuck.caption",
+      "text": "WHOLE EGG → STUCK",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[12].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c27",
+      "where": "scenes.whole-egg-gets-stuck.eyebrow",
+      "text": "THE BACKFIRE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[12].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c28",
+      "where": "scenes.whole-egg-gets-stuck.facts[0]",
+      "text": "EGG GETS STUCK",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[12].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c29",
+      "where": "scenes.favorite-food-ends-in-fainting.headline",
+      "text": "FAVORITE FOOD, FAINTING END",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[12].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c30",
+      "where": "scenes.favorite-food-ends-in-fainting.narration",
+      "text": "Its favorite food then ends with Ekans fainting.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[12].text"
+      ],
+      "note": "The Pokédex states that an egg sometimes gets stuck and Ekans faints.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c31",
+      "where": "scenes.favorite-food-ends-in-fainting.caption",
+      "text": "FAVORITE FOOD → FAINTED",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[12].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c32",
+      "where": "scenes.favorite-food-ends-in-fainting.eyebrow",
+      "text": "THE COST",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[12].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c33",
+      "where": "scenes.favorite-food-ends-in-fainting.facts[0]",
+      "text": "EKANS FAINTS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[12].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c34",
+      "where": "scenes.favorite-or-worst-snack.headline",
+      "text": "FAVORITE FOOD OR WORST SNACK?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Framed as a question.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c35",
+      "where": "scenes.favorite-or-worst-snack.narration",
+      "text": "Favorite food or worst snack, which label fits Ekans?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Framed as an audience-directed opinion question.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c36",
+      "where": "scenes.favorite-or-worst-snack.caption",
+      "text": "FAVORITE OR WORST?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "A question-like framing prompt.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c37",
+      "where": "scenes.favorite-or-worst-snack.eyebrow",
+      "text": "YOUR CALL",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Audience-call framing, not a factual claim.",
+      "checkedBy": "model"
+    }
+  ],
+  "unsupported": [],
+  "uncertain": []
+}

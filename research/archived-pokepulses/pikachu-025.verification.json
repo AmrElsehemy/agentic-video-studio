@@ -1,0 +1,351 @@
+{
+  "episodeId": "pikachu-025",
+  "checkedAt": "2026-09-29T13:16:38.165Z",
+  "claims": [
+    {
+      "id": "c1",
+      "where": "title",
+      "text": "Pikachu: The Culinary Electrician",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "The title is metaphorical and does not make a factual statement.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c2",
+      "where": "premise",
+      "text": "Explore how Pikachu uses its electric abilities to tenderize food, elevating its skill set beyond simple battles.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text",
+        "pokedexEntries[8].text"
+      ],
+      "note": "Pikachu uses electric abilities to tenderize food by roasting berries.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c3",
+      "where": "audiencePromise",
+      "text": "Discover Pikachu's clever use of electricity in cooking, supported by its natural traits and habits.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text",
+        "pokedexEntries[20].text"
+      ],
+      "note": "Pikachu roasts berries with electricity, a clever use of its natural traits.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c4",
+      "where": "openLoop",
+      "text": "How does Pikachu use electricity to prepare food?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "The text poses a question, not a factual statement.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c5",
+      "where": "payoff",
+      "text": "Pikachu cleverly uses its stored electricity to roast tough berries, making them easier and more delicious to eat.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text"
+      ],
+      "note": "Pikachu uses electricity to roast and tenderize berries.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c6",
+      "where": "scenes.pikachu-hook.headline",
+      "text": "Pikachu, the Electric Chef",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "The statement is more of a metaphorical title than a factual claim.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c7",
+      "where": "scenes.pikachu-hook.narration",
+      "text": "Meet the Pokémon that cooks with shocks!",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text"
+      ],
+      "note": "Pikachu using shock for roasting is a figurative expression.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c8",
+      "where": "scenes.pikachu-hook.caption",
+      "text": "Culinary Pikachu at Work",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "A creative caption does not state a fact.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c9",
+      "where": "scenes.pikachu-evidence-1.headline",
+      "text": "Electric Berry Roasting",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text"
+      ],
+      "note": "Pikachu roasts berries with electricity.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c10",
+      "where": "scenes.pikachu-evidence-1.narration",
+      "text": "Pikachu roasts hard berries with electricity.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text"
+      ],
+      "note": "Directly supported by the Pokédex entry.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c11",
+      "where": "scenes.pikachu-evidence-1.caption",
+      "text": "Making tough berries tender—electric-style!",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text"
+      ],
+      "note": "Pikachu uses electricity to make berries tender.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c12",
+      "where": "scenes.pikachu-evidence-1.facts[0]",
+      "text": "Intelligent Pokémon",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text"
+      ],
+      "note": "Refers to Pikachu as intelligent while roasting.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c13",
+      "where": "scenes.pikachu-evidence-1.facts[1]",
+      "text": "Uses stored electricity",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[8].text"
+      ],
+      "note": "Pikachu uses stored electricity in its cheeks.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c14",
+      "where": "scenes.pikachu-evidence-2.headline",
+      "text": "Cheeky Power",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "The phrase is metaphorical; it doesn't state a fact.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c15",
+      "where": "scenes.pikachu-evidence-2.narration",
+      "text": "Stores electricity in cheek sacs for cooking bursts.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text",
+        "pokedexEntries[8].text"
+      ],
+      "note": "Pikachu stores electricity in cheek sacs.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c16",
+      "where": "scenes.pikachu-evidence-2.caption",
+      "text": "Its cheeks: more than just cute.",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "The caption is metaphorical, not a factual statement.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c17",
+      "where": "scenes.pikachu-evidence-2.facts[0]",
+      "text": "Cheek sacs storage",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[8].text"
+      ],
+      "note": "Pikachu stores electricity in its cheek sacs.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c18",
+      "where": "scenes.pikachu-evidence-2.facts[1]",
+      "text": "Electric cooking bursts",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text"
+      ],
+      "note": "Cooking implied by electric use on berries.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c19",
+      "where": "scenes.pikachu-escalation.headline",
+      "text": "Berry Blackening Skills",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "A headline using metaphor or wordplay.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c20",
+      "where": "scenes.pikachu-escalation.narration",
+      "text": "Sometimes, Pikachu overcooks berries, charring them.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "Pikachu can mistakenly overcharge and blacken berries.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c21",
+      "where": "scenes.pikachu-escalation.caption",
+      "text": "Oops! A bit too much zap.",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "A colloquial caption not stating a fact.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c22",
+      "where": "scenes.pikachu-escalation.facts[0]",
+      "text": "Blackened berries",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "Blackened berries are evidence of overcharging.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c23",
+      "where": "scenes.pikachu-escalation.facts[1]",
+      "text": "Intensity mistake",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "Pikachu sometimes mistakes intensity of its charge.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c24",
+      "where": "scenes.pikachu-twist.headline",
+      "text": "Efficiency or Taste?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "A question posed for viewer consideration.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c25",
+      "where": "scenes.pikachu-twist.narration",
+      "text": "Does Pikachu cook for survival or flavor?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "A question posed for audience reflection.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c26",
+      "where": "scenes.pikachu-twist.caption",
+      "text": "Electricity adds flavor or just practicality?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "A question or rhetorical statement.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c27",
+      "where": "scenes.pikachu-twist.facts[0]",
+      "text": "Survival skills",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Survival skills not explicitly covered but hinted through context.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c28",
+      "where": "scenes.pikachu-twist.facts[1]",
+      "text": "Flavor enhancement",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[2].text"
+      ],
+      "note": "Flavor enhancement implied but not directly stated.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c29",
+      "where": "scenes.pikachu-verdict.headline",
+      "text": "Survivalist or Chef?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "A question posed as a theme of discussion.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c30",
+      "where": "scenes.pikachu-verdict.narration",
+      "text": "Is Pikachu a survivalist or a chef? You decide.",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "A question intended for viewer engagement.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c31",
+      "where": "scenes.pikachu-verdict.caption",
+      "text": "Chef or survivalist? You be the judge.",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "A question inviting audience participation.",
+      "checkedBy": "model"
+    }
+  ],
+  "unsupported": [],
+  "uncertain": [
+    {
+      "id": "c28",
+      "where": "scenes.pikachu-twist.facts[1]",
+      "text": "Flavor enhancement",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[2].text"
+      ],
+      "note": "Flavor enhancement implied but not directly stated.",
+      "tier": "official",
+      "checkedBy": "model"
+    }
+  ]
+}

@@ -1,0 +1,183 @@
+{
+  "id": "ivysaur-002",
+  "title": "Why Ivysaur’s Sweet Smell Is a Bloom Countdown",
+  "storyPattern": "mystery",
+  "numberRelevant": false,
+  "premise": "Ivysaur’s sweet scent is the final clue in a chain showing its large back flower will soon bloom.",
+  "audiencePromise": "Trace Ivysaur’s growing bud from sunlight and weight to the sweet scent that reveals what happens next.",
+  "openLoop": "Ivysaur smells sweet, but why is its back counting down?",
+  "payoff": "The scent is not a random trait: after the bud grows larger and heavier, it signals a large flower will bloom soon.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "Sweet scent or sunlight: which bloom clue would you trust?",
+  "subject": {
+    "name": "Ivysaur",
+    "category": "Seed Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/2.png",
+    "identifier": "#002"
+  },
+  "related": [
+    {
+      "name": "Venusaur",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/3.png",
+      "identifier": "#003"
+    },
+    {
+      "name": "Bulbasaur",
+      "relation": "evolves-from",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
+      "identifier": "#001"
+    }
+  ],
+  "palette": {
+    "background": "#10251b",
+    "surface": "#1d3b29",
+    "primary": "#76b947",
+    "secondary": "#e889aa",
+    "ink": "#f4f8df"
+  },
+  "voice": {
+    "instructions": "Start with a hushed mystery, then build with clear, deliberate pacing. Stress the physical weight of the bud, pause before the final reveal, and end with an inviting question."
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "assets": [
+      {
+        "kind": "Ivysaur official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/2.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "unverified",
+        "publicReleaseApproved": false,
+        "notes": "Internal prototype only pending legal review or replacement."
+      },
+      {
+        "kind": "Venusaur official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/3.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "unverified",
+        "publicReleaseApproved": false,
+        "notes": "Internal prototype only pending legal review or replacement."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "sweet-smell-countdown",
+      "beat": "hook",
+      "eyebrow": "A BACK-BUD MYSTERY",
+      "headline": "SWEET SMELL. BLOOM COUNTDOWN.",
+      "narration": "Ivysaur smells sweet. Why is its back counting down?",
+      "caption": "THE SCENT MEANS SOMETHING",
+      "facts": [
+        "SWEET AROMA",
+        "BACK BUD"
+      ],
+      "accent": "#e889aa",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/2.png"
+    },
+    {
+      "id": "sunlight-grows-the-bud",
+      "beat": "clue",
+      "eyebrow": "FIRST CLUE",
+      "headline": "SUNLIGHT FEEDS THE BUD",
+      "narration": "Sunlight makes the bud on its back grow larger.",
+      "caption": "THE BUD KEEPS GROWING",
+      "facts": [
+        "SUNLIGHT",
+        "LARGER BUD"
+      ],
+      "accent": "#76b947",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/2.png"
+    },
+    {
+      "id": "bulb-changes-its-stance",
+      "beat": "escalation",
+      "eyebrow": "THE WEIGHT BUILDS",
+      "headline": "ITS BACK CHANGES EVERYTHING",
+      "narration": "When large, the bulb seems to stop Ivysaur standing upright.",
+      "caption": "A BULB HEAVY ENOUGH TO MATTER",
+      "facts": [
+        "LARGE BULB",
+        "HIND-LEG STANCE"
+      ],
+      "accent": "#f4f8df",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/2.png"
+    },
+    {
+      "id": "swelling-bud-releases-aroma",
+      "beat": "reveal",
+      "eyebrow": "SECOND CLUE",
+      "headline": "THE SWELLING BUD WAFTS",
+      "narration": "Now the swelling bud sends a sweet aroma outward.",
+      "caption": "THE AIR FINALLY CHANGES",
+      "facts": [
+        "SWELLING BUD",
+        "SWEET AROMA"
+      ],
+      "accent": "#e889aa",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/2.png",
+      "primitive": {
+        "kind": "timeline",
+        "steps": [
+          {
+            "label": "SWELLING BUD",
+            "detail": "Bud starts swelling"
+          },
+          {
+            "label": "SWEET AROMA",
+            "detail": "Aroma wafts outward"
+          },
+          {
+            "label": "LARGE FLOWER",
+            "detail": "Bloom comes soon"
+          }
+        ],
+        "active": 1
+      }
+    },
+    {
+      "id": "aroma-reveals-the-flower",
+      "beat": "reveal",
+      "eyebrow": "MYSTERY SOLVED",
+      "headline": "THE SCENT REVEALS THE FLOWER",
+      "narration": "The twist: sweet aroma means a large flower blooms soon.",
+      "caption": "SCENT TRAIL → GIANT FLOWER",
+      "facts": [
+        "LARGE FLOWER",
+        "BLOOM SOON"
+      ],
+      "accent": "#e889aa",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/3.png"
+    },
+    {
+      "id": "choose-the-bloom-clue",
+      "beat": "verdict",
+      "eyebrow": "YOUR CALL",
+      "headline": "WHICH CLUE GIVES IT AWAY?",
+      "narration": "Sweet scent or sunlight: which bloom clue would you trust?",
+      "caption": "SMELL IT OR SEE IT?",
+      "accent": "#76b947",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/2.png"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Ivysaur",
+      "url": "https://www.pokemon.com/us/pokedex/ivysaur",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Ivysaur",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Ivysaur_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Ivysaur",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/2",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

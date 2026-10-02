@@ -1,0 +1,516 @@
+{
+  "episodeId": "ivysaur-002",
+  "checkedAt": "2026-09-30T04:48:55.133Z",
+  "claims": [
+    {
+      "id": "c1",
+      "where": "title",
+      "text": "Why Ivysaur’s Sweet Smell Is a Bloom Countdown",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].text"
+      ],
+      "note": "Sweet smell is evidence that the large flower will soon bloom; “countdown” is a faithful dramatic framing.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c2",
+      "where": "premise",
+      "text": "Ivysaur’s sweet scent is the final clue in a chain showing its large back flower will soon bloom.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].text",
+        "pokedexEntries[8].text"
+      ],
+      "note": "A sweet scent indicates that a large flower will bloom soon.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c3",
+      "where": "audiencePromise",
+      "text": "Trace Ivysaur’s growing bud from sunlight and weight to the sweet scent that reveals what happens next.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[2].text",
+        "pokedexEntries[5].text",
+        "pokedexEntries[8].text"
+      ],
+      "note": "Sunlight enlarges the bud, and Ivysaur's bulb has weight, but the research does not directly establish a single causal growth chain from sunlight and weight to scent.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c4",
+      "where": "openLoop",
+      "text": "Ivysaur smells sweet, but why is its back counting down?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Question/hook framing.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c5",
+      "where": "payoff",
+      "text": "The scent is not a random trait: after the bud grows larger and heavier, it signals a large flower will bloom soon.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[3].text",
+        "pokedexEntries[5].text",
+        "pokedexEntries[8].text"
+      ],
+      "note": "The scent signals an imminent large flower, and the bulb has weight, but the specific sequence that scent comes after the bud becomes heavier is inferred rather than directly stated.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c6",
+      "where": "scenes.sweet-smell-countdown.headline",
+      "text": "SWEET SMELL. BLOOM COUNTDOWN.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].text"
+      ],
+      "note": "The sweet smell signals a bloom soon.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c7",
+      "where": "scenes.sweet-smell-countdown.narration",
+      "text": "Ivysaur smells sweet. Why is its back counting down?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Question/hook framing.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c8",
+      "where": "scenes.sweet-smell-countdown.caption",
+      "text": "THE SCENT MEANS SOMETHING",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].text"
+      ],
+      "note": "The sweet scent indicates an approaching bloom.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c9",
+      "where": "scenes.sweet-smell-countdown.eyebrow",
+      "text": "A BACK-BUD MYSTERY",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text"
+      ],
+      "note": "Ivysaur has a bulb/bud on its back.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c10",
+      "where": "scenes.sweet-smell-countdown.facts[0]",
+      "text": "SWEET AROMA",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].text",
+        "pokedexEntries[8].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c11",
+      "where": "scenes.sweet-smell-countdown.facts[1]",
+      "text": "BACK BUD",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c12",
+      "where": "scenes.sunlight-grows-the-bud.headline",
+      "text": "SUNLIGHT FEEDS THE BUD",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text",
+        "pokedexEntries[9].text"
+      ],
+      "note": "Sunlight makes the bud grow larger.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c13",
+      "where": "scenes.sunlight-grows-the-bud.narration",
+      "text": "Sunlight makes the bud on its back grow larger.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text",
+        "pokedexEntries[9].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c14",
+      "where": "scenes.sunlight-grows-the-bud.caption",
+      "text": "THE BUD KEEPS GROWING",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[2].text"
+      ],
+      "note": "The back bud is stated to grow, including becoming larger in sunlight.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c15",
+      "where": "scenes.sunlight-grows-the-bud.eyebrow",
+      "text": "FIRST CLUE",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Editorial scene-label framing.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c16",
+      "where": "scenes.sunlight-grows-the-bud.facts[0]",
+      "text": "SUNLIGHT",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c17",
+      "where": "scenes.sunlight-grows-the-bud.facts[1]",
+      "text": "LARGER BUD",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c18",
+      "where": "scenes.bulb-changes-its-stance.headline",
+      "text": "ITS BACK CHANGES EVERYTHING",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Vague dramatic headline rather than a checkable factual claim.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c19",
+      "where": "scenes.bulb-changes-its-stance.narration",
+      "text": "When large, the bulb seems to stop Ivysaur standing upright.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text"
+      ],
+      "note": "A large back bulb appears to make Ivysaur lose the ability to stand on its hind legs.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c20",
+      "where": "scenes.bulb-changes-its-stance.caption",
+      "text": "A BULB HEAVY ENOUGH TO MATTER",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[6].text"
+      ],
+      "note": "Its legs and trunk grow strong/sturdy to support the bulb's weight.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c21",
+      "where": "scenes.bulb-changes-its-stance.eyebrow",
+      "text": "THE WEIGHT BUILDS",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[0].text",
+        "pokedexEntries[5].text"
+      ],
+      "note": "The research says the bulb grows large and has weight, but does not explicitly say its weight progressively builds.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c22",
+      "where": "scenes.bulb-changes-its-stance.facts[0]",
+      "text": "LARGE BULB",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c23",
+      "where": "scenes.bulb-changes-its-stance.facts[1]",
+      "text": "HIND-LEG STANCE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c24",
+      "where": "scenes.swelling-bud-releases-aroma.headline",
+      "text": "THE SWELLING BUD WAFTS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[8].text"
+      ],
+      "note": "When the bud starts swelling, a sweet aroma wafts.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c25",
+      "where": "scenes.swelling-bud-releases-aroma.narration",
+      "text": "Now the swelling bud sends a sweet aroma outward.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[8].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c26",
+      "where": "scenes.swelling-bud-releases-aroma.caption",
+      "text": "THE AIR FINALLY CHANGES",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[8].text"
+      ],
+      "note": "An aroma wafting outward supports the dramatic description of the air changing.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c27",
+      "where": "scenes.swelling-bud-releases-aroma.eyebrow",
+      "text": "SECOND CLUE",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Editorial scene-label framing.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c28",
+      "where": "scenes.swelling-bud-releases-aroma.facts[0]",
+      "text": "SWELLING BUD",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[8].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c29",
+      "where": "scenes.swelling-bud-releases-aroma.facts[1]",
+      "text": "SWEET AROMA",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].text",
+        "pokedexEntries[8].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c30",
+      "where": "scenes.aroma-reveals-the-flower.headline",
+      "text": "THE SCENT REVEALS THE FLOWER",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].text",
+        "pokedexEntries[8].text"
+      ],
+      "note": "The aroma indicates the coming bloom of a large flower.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c31",
+      "where": "scenes.aroma-reveals-the-flower.narration",
+      "text": "The twist: sweet aroma means a large flower blooms soon.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c32",
+      "where": "scenes.aroma-reveals-the-flower.caption",
+      "text": "SCENT TRAIL → GIANT FLOWER",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[3].text",
+        "pokedexEntries[7].text"
+      ],
+      "note": "The research says the flower is large, not giant.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c33",
+      "where": "scenes.aroma-reveals-the-flower.eyebrow",
+      "text": "MYSTERY SOLVED",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Editorial framing.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c34",
+      "where": "scenes.aroma-reveals-the-flower.facts[0]",
+      "text": "LARGE FLOWER",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].text",
+        "pokedexEntries[7].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c35",
+      "where": "scenes.aroma-reveals-the-flower.facts[1]",
+      "text": "BLOOM SOON",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c36",
+      "where": "scenes.choose-the-bloom-clue.headline",
+      "text": "WHICH CLUE GIVES IT AWAY?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Question framing.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c37",
+      "where": "scenes.choose-the-bloom-clue.narration",
+      "text": "Sweet scent or sunlight: which bloom clue would you trust?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Audience-directed question.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c38",
+      "where": "scenes.choose-the-bloom-clue.caption",
+      "text": "SMELL IT OR SEE IT?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Question framing.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c39",
+      "where": "scenes.choose-the-bloom-clue.eyebrow",
+      "text": "YOUR CALL",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Audience prompt.",
+      "checkedBy": "model"
+    }
+  ],
+  "unsupported": [],
+  "uncertain": [
+    {
+      "id": "c3",
+      "where": "audiencePromise",
+      "text": "Trace Ivysaur’s growing bud from sunlight and weight to the sweet scent that reveals what happens next.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[2].text",
+        "pokedexEntries[5].text",
+        "pokedexEntries[8].text"
+      ],
+      "note": "Sunlight enlarges the bud, and Ivysaur's bulb has weight, but the research does not directly establish a single causal growth chain from sunlight and weight to scent.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c5",
+      "where": "payoff",
+      "text": "The scent is not a random trait: after the bud grows larger and heavier, it signals a large flower will bloom soon.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[3].text",
+        "pokedexEntries[5].text",
+        "pokedexEntries[8].text"
+      ],
+      "note": "The scent signals an imminent large flower, and the bulb has weight, but the specific sequence that scent comes after the bud becomes heavier is inferred rather than directly stated.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c21",
+      "where": "scenes.bulb-changes-its-stance.eyebrow",
+      "text": "THE WEIGHT BUILDS",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[0].text",
+        "pokedexEntries[5].text"
+      ],
+      "note": "The research says the bulb grows large and has weight, but does not explicitly say its weight progressively builds.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c32",
+      "where": "scenes.aroma-reveals-the-flower.caption",
+      "text": "SCENT TRAIL → GIANT FLOWER",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[3].text",
+        "pokedexEntries[7].text"
+      ],
+      "note": "The research says the flower is large, not giant.",
+      "tier": "official",
+      "checkedBy": "model"
+    }
+  ]
+}

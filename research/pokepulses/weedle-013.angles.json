@@ -1,0 +1,166 @@
+{
+  "episodeId": "weedle-013",
+  "createdAt": "2026-09-30T08:49:56.969Z",
+  "chosen": {
+    "id": "eats-its-own-weight",
+    "premise": "At just 3.2 kg, Weedle eats its own body weight in leaves every single day.",
+    "hook": "This tiny Pokémon eats 3.2 kilos of leaves a day.",
+    "archetype": "comparison",
+    "evidence": [
+      "weightKg",
+      "pokedexEntries[9].text"
+    ],
+    "visualIdea": "A 3.2 kg Weedle stands beside a leaf pile that rises until it matches its entire body weight.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 5,
+      "specificity": 5,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 25,
+    "note": "A highly concrete daily-feeding claim uniquely tied to Weedle, with the 3.2 kg weight and Pokédex statement directly supporting the comparison."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "eats-its-own-weight",
+          "premise": "At just 3.2 kg, Weedle eats its own body weight in leaves every single day.",
+          "hook": "This tiny Pokémon eats 3.2 kilos of leaves a day.",
+          "archetype": "comparison",
+          "evidence": [
+            "weightKg",
+            "pokedexEntries[9].text"
+          ],
+          "visualIdea": "A 3.2 kg Weedle stands beside a leaf pile that rises until it matches its entire body weight.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 25,
+          "note": "A highly concrete daily-feeding claim uniquely tied to Weedle, with the 3.2 kg weight and Pokédex statement directly supporting the comparison."
+        },
+        {
+          "id": "nose-picks-leaves",
+          "premise": "Weedle chooses favorite leaves by smell, using its big red proboscis to reject the rest.",
+          "hook": "Weedle can smell which leaves it actually likes.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[5].text",
+            "pokedexEntries[6].text"
+          ],
+          "visualIdea": "Weedle sniffs a lineup of leaves; favorites light up green while disliked leaves get pushed aside.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 24,
+          "note": "Weedle’s ability to distinguish preferred leaves by smell is unusually specific and well supported; the proboscis-based visual makes the mechanism clear."
+        },
+        {
+          "id": "two-inch-head-barb",
+          "premise": "Weedle's defense is a roughly two-inch toxic barb growing from the top of its head.",
+          "hook": "Weedle has a poison barb sticking out of its head.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[3].text",
+            "pokedexEntries[7].text",
+            "pokedexEntries[8].text"
+          ],
+          "visualIdea": "A ruler snaps beside Weedle's head barb, then the barb glows as an attacker backs away.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 23,
+          "note": "The exact two-inch measurement and head location are strongly supported and easy to demonstrate, though poison stingers are broadly familiar to Pokémon fans."
+        },
+        {
+          "id": "leaf-meal-to-beedrill",
+          "premise": "The leaf-eating Weedle becomes Kakuna at level 7, then a Beedrill only three levels later.",
+          "hook": "Weedle's final evolution is only three levels after Kakuna.",
+          "archetype": "transformation",
+          "evidence": [
+            "pokedexEntries[0].text",
+            "evolutionChain[1].method",
+            "evolutionChain[2].method",
+            "evolutionChain[0].types",
+            "evolutionChain[1].types",
+            "evolutionChain[2].types"
+          ],
+          "visualIdea": "A level meter hits 7 for Weedle-to-Kakuna, then races just three more ticks to reveal Beedrill.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 22,
+          "note": "The level-7-to-level-10 progression is concrete and visually strong, but the cited Pokédex evidence is partly irrelevant and the three-level gap alone is not an especially rich premise."
+        },
+        {
+          "id": "hides-under-its-food",
+          "premise": "Weedle eats leaves, hides under those same leaves, and emerges with a toxic head barb.",
+          "hook": "Weedle hides underneath the food it eats.",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[1].text",
+            "pokedexEntries[3].text",
+            "pokedexEntries[4].text"
+          ],
+          "visualIdea": "A leaf pile rustles: first a red nose appears, then Weedle emerges and raises its toxic head barb.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 21,
+          "note": "The Pokédex supports Weedle hiding under leaves it eats and having a toxic barb, but “those same leaves” and the emergence sequence are slightly interpretive."
+        },
+        {
+          "id": "warning-color-or-weapon",
+          "premise": "Weedle's bright body warns enemies away—but it also carries a powerful poison stinger.",
+          "hook": "Weedle's colors are a warning label.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[2].text",
+            "pokedexEntries[4].text"
+          ],
+          "visualIdea": "Weedle's bright body becomes a flashing warning sign, followed by a close-up of its poison-tipped barb.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 3,
+            "surprise": 3,
+            "specificity": 3,
+            "visual": 4,
+            "support": 5
+          },
+          "total": 18,
+          "note": "The research supports both warning coloration and a powerful poison barb, but the premise is a fairly general profile rather than a sharply distinctive angle."
+        }
+      ],
+      "rejected": [],
+      "request": "A stronger angle would need a more surprising Weedle-specific rule or contradiction than the current candidates, ideally combining an exact measurable fact with a distinctive behavior and direct first-party support."
+    }
+  ]
+}

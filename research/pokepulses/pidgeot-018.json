@@ -1,0 +1,156 @@
+{
+  "schemaVersion": 1,
+  "id": "pidgeot-018",
+  "number": 18,
+  "index": "#018",
+  "name": "Pidgeot",
+  "slug": "pidgeot",
+  "category": "Bird Pokémon",
+  "generation": "Generation I",
+  "isLegendary": false,
+  "isMythical": false,
+  "types": [
+    "Normal",
+    "Flying"
+  ],
+  "heightMeters": 1.5,
+  "weightKg": 39.5,
+  "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/18.png",
+  "pokedexEntries": [
+    {
+      "game": "Red",
+      "text": "When hunting, it skims the surface of water at high speed to pick off unwary prey such as MAGIKARP."
+    },
+    {
+      "game": "Yellow",
+      "text": "This POKéMON flies at Mach 2 speed, seeking prey. Its large talons are feared as wicked weapons."
+    },
+    {
+      "game": "Gold",
+      "text": "Its well-developed chest muscles make it strong enough to whip up a gusty windstorm with just a few flaps."
+    },
+    {
+      "game": "Silver",
+      "text": "It spreads its beautiful wings wide to frighten its enemies. It can fly at Mach 2 speed."
+    },
+    {
+      "game": "Crystal",
+      "text": "Its outstanding vision allows it to spot splashing MAGIKARP, even while flying at 3300 feet."
+    },
+    {
+      "game": "Ruby",
+      "text": "This POKéMON has a dazzling plumage of beautifully glossy feathers. Many TRAINERS are captivated by the striking beauty of the feathers on its head, compelling them to choose PIDGEOT as their POKéMON."
+    },
+    {
+      "game": "Emerald",
+      "text": "This POKéMON has gorgeous, glossy feathers. Many TRAINERS are so captivated by the beautiful feathers on its head that they choose PIDGEOT as their POKéMON."
+    },
+    {
+      "game": "Firered",
+      "text": "It spreads its gorgeous wings widely to intimidate enemies. It races through the skies at Mach-2 speed."
+    },
+    {
+      "game": "Diamond",
+      "text": "By flapping its wings with all its might, PIDGEOT can make a gust of wind capable of bending tall trees."
+    }
+  ],
+  "evolutionChain": [
+    {
+      "name": "Pidgey",
+      "index": "#016",
+      "stage": 1,
+      "types": [
+        "Normal",
+        "Flying"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/16.png",
+      "isSubject": false
+    },
+    {
+      "name": "Pidgeotto",
+      "index": "#017",
+      "stage": 2,
+      "evolvesFrom": "Pidgey",
+      "method": "Level Up, level 18",
+      "types": [
+        "Normal",
+        "Flying"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/17.png",
+      "isSubject": false
+    },
+    {
+      "name": "Pidgeot",
+      "index": "#018",
+      "stage": 3,
+      "evolvesFrom": "Pidgeotto",
+      "method": "Level Up, level 36",
+      "types": [
+        "Normal",
+        "Flying"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/18.png",
+      "isSubject": true
+    }
+  ],
+  "varieties": [
+    {
+      "name": "Pidgeot Mega",
+      "types": [
+        "Normal",
+        "Flying"
+      ],
+      "heightMeters": 2.2,
+      "weightKg": 50.5,
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10073.png"
+    }
+  ],
+  "lore": [],
+  "tiers": {
+    "official": [
+      "name",
+      "index",
+      "number",
+      "category",
+      "generation",
+      "isLegendary",
+      "isMythical",
+      "types",
+      "heightMeters",
+      "weightKg",
+      "pokedexEntries",
+      "evolutionChain[].name",
+      "evolutionChain[].index",
+      "evolutionChain[].types",
+      "evolutionChain[].stage",
+      "varieties[].types",
+      "varieties[].heightMeters",
+      "varieties[].weightKg"
+    ],
+    "trusted_secondary": [
+      "evolutionChain[].method",
+      "evolutionChain[].evolvesFrom",
+      "varieties[].name"
+    ],
+    "community": [
+      "lore"
+    ]
+  },
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Pidgeot",
+      "url": "https://www.pokemon.com/us/pokedex/pidgeot",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Pidgeot",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Pidgeot_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Pidgeot",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/18",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

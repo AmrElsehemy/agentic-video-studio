@@ -1,0 +1,459 @@
+{
+  "episodeId": "charizard-006",
+  "checkedAt": "2026-09-30T05:35:40.424Z",
+  "claims": [
+    {
+      "id": "c1",
+      "where": "title",
+      "text": "Why Charizard Looks Tiny Beside Itself",
+      "verdict": "supported",
+      "evidence": [
+        "heightMeters",
+        "varieties[2].heightMeters"
+      ],
+      "note": "The large height difference supports the comparison.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c2",
+      "where": "premise",
+      "text": "Gigantamax Charizard grows from 1.7 meters to 28 meters, over sixteen times its normal height.",
+      "verdict": "supported",
+      "evidence": [
+        "heightMeters",
+        "varieties[2].heightMeters"
+      ],
+      "note": "Normal Charizard is 1.7 m and Charizard Gmax is 28 m; 28/1.7 is about 16.47.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c3",
+      "where": "audiencePromise",
+      "text": "Watch normal Charizard become a giant so large it makes itself look tiny.",
+      "verdict": "supported",
+      "evidence": [
+        "heightMeters",
+        "varieties[2].heightMeters"
+      ],
+      "note": "The normal and Gmax heights support the giant comparison.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c4",
+      "where": "openLoop",
+      "text": "What makes Charizard look tiny beside its own form?",
+      "verdict": "supported",
+      "evidence": [
+        "heightMeters",
+        "varieties[2].heightMeters"
+      ],
+      "note": "The question refers to the documented size difference between forms.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c5",
+      "where": "payoff",
+      "text": "At 28 meters, Gigantamax Charizard towers over a stack of sixteen normal Charizards.",
+      "verdict": "supported",
+      "evidence": [
+        "heightMeters",
+        "varieties[2].heightMeters"
+      ],
+      "note": "A stack of 16 normal Charizards is 27.2 m, just below 28 m.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c6",
+      "where": "scenes.tiny-beside-itself.headline",
+      "text": "CHARIZARD LOOKS TINY?",
+      "verdict": "supported",
+      "evidence": [
+        "heightMeters",
+        "varieties[2].heightMeters"
+      ],
+      "note": "The height difference supports this comparison.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c7",
+      "where": "scenes.tiny-beside-itself.narration",
+      "text": "Charizard looks tiny beside its own form.",
+      "verdict": "supported",
+      "evidence": [
+        "heightMeters",
+        "varieties[2].heightMeters"
+      ],
+      "note": "The height difference supports this comparison.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c8",
+      "where": "scenes.tiny-beside-itself.caption",
+      "text": "ONE CHARIZARD DWARFS ANOTHER",
+      "verdict": "supported",
+      "evidence": [
+        "heightMeters",
+        "varieties[2].heightMeters"
+      ],
+      "note": "Charizard Gmax is substantially taller than normal Charizard.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c9",
+      "where": "scenes.tiny-beside-itself.eyebrow",
+      "text": "SIZE PARADOX",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "This is framing rather than a factual statement.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c10",
+      "where": "scenes.normal-charizard-scale.headline",
+      "text": "ONLY 1.7 METERS TALL",
+      "verdict": "supported",
+      "evidence": [
+        "heightMeters"
+      ],
+      "note": "Charizard's listed height is 1.7 m.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c11",
+      "where": "scenes.normal-charizard-scale.narration",
+      "text": "The Flame Pokémon is only one point seven meters tall.",
+      "verdict": "supported",
+      "evidence": [
+        "category",
+        "heightMeters"
+      ],
+      "note": "Charizard is the Flame Pokémon and is listed at 1.7 m.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c12",
+      "where": "scenes.normal-charizard-scale.caption",
+      "text": "CHARIZARD HEIGHT: 1.7 M",
+      "verdict": "supported",
+      "evidence": [
+        "heightMeters"
+      ],
+      "note": "Charizard's listed height is 1.7 m.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c13",
+      "where": "scenes.normal-charizard-scale.eyebrow",
+      "text": "NORMAL CHARIZARD",
+      "verdict": "supported",
+      "evidence": [
+        "name",
+        "heightMeters"
+      ],
+      "note": "This identifies the standard Charizard entry, which is listed at 1.7 m.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c14",
+      "where": "scenes.normal-charizard-scale.facts[0]",
+      "text": "FLAME POKÉMON",
+      "verdict": "supported",
+      "evidence": [
+        "category"
+      ],
+      "note": "Charizard's category is Flame Pokémon.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c15",
+      "where": "scenes.normal-charizard-scale.facts[1]",
+      "text": "1.7 METERS",
+      "verdict": "supported",
+      "evidence": [
+        "heightMeters"
+      ],
+      "note": "Charizard's listed height is 1.7 m.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c16",
+      "where": "scenes.normal-charizard-scale.facts[2]",
+      "text": "FIRE / FLYING",
+      "verdict": "supported",
+      "evidence": [
+        "types[0]",
+        "types[1]"
+      ],
+      "note": "Charizard is Fire/Flying.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c17",
+      "where": "scenes.gigantamax-weight.headline",
+      "text": "A FULL 1,000 KILOGRAMS",
+      "verdict": "supported",
+      "evidence": [
+        "varieties[2].weightKg"
+      ],
+      "note": "Charizard Gmax is listed at 1,000 kg.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c18",
+      "where": "scenes.gigantamax-weight.narration",
+      "text": "Its Gigantamax form weighs a full one thousand kilograms.",
+      "verdict": "supported",
+      "evidence": [
+        "varieties[2].name",
+        "varieties[2].weightKg"
+      ],
+      "note": "Charizard Gmax is listed at 1,000 kg.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c19",
+      "where": "scenes.gigantamax-weight.caption",
+      "text": "GMAX WEIGHT: 1,000 KG",
+      "verdict": "supported",
+      "evidence": [
+        "varieties[2].weightKg"
+      ],
+      "note": "Charizard Gmax is listed at 1,000 kg.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c20",
+      "where": "scenes.gigantamax-weight.eyebrow",
+      "text": "GIGANTAMAX CHANGE",
+      "verdict": "supported",
+      "evidence": [
+        "varieties[2].name"
+      ],
+      "note": "The research includes the Charizard Gmax variety.",
+      "tier": "trusted_secondary",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c21",
+      "where": "scenes.gigantamax-weight.facts[0]",
+      "text": "CHARIZARD GMAX",
+      "verdict": "supported",
+      "evidence": [
+        "varieties[2].name"
+      ],
+      "note": "The listed variety is Charizard Gmax.",
+      "tier": "trusted_secondary",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c22",
+      "where": "scenes.gigantamax-weight.facts[1]",
+      "text": "1,000 KILOGRAMS",
+      "verdict": "supported",
+      "evidence": [
+        "varieties[2].weightKg"
+      ],
+      "note": "Charizard Gmax is listed at 1,000 kg.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c23",
+      "where": "scenes.height-reveal.headline",
+      "text": "28 METERS TALL",
+      "verdict": "supported",
+      "evidence": [
+        "varieties[2].heightMeters"
+      ],
+      "note": "Charizard Gmax is listed at 28 m.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c24",
+      "where": "scenes.height-reveal.narration",
+      "text": "Gigantamax Charizard stands twenty-eight meters tall, not one point seven.",
+      "verdict": "supported",
+      "evidence": [
+        "heightMeters",
+        "varieties[2].heightMeters"
+      ],
+      "note": "Normal Charizard is 1.7 m, while Charizard Gmax is 28 m.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c25",
+      "where": "scenes.height-reveal.caption",
+      "text": "1.7 M → 28 M",
+      "verdict": "supported",
+      "evidence": [
+        "heightMeters",
+        "varieties[2].heightMeters"
+      ],
+      "note": "The listed heights are 1.7 m and 28 m.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c26",
+      "where": "scenes.height-reveal.eyebrow",
+      "text": "THEN THE SCALE HITS",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "This is dramatic framing rather than a factual statement.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c27",
+      "where": "scenes.height-reveal.facts[0]",
+      "text": "28 METERS",
+      "verdict": "supported",
+      "evidence": [
+        "varieties[2].heightMeters"
+      ],
+      "note": "Charizard Gmax is listed at 28 m.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c28",
+      "where": "scenes.height-reveal.facts[1]",
+      "text": "OVER 16× TALLER",
+      "verdict": "supported",
+      "evidence": [
+        "heightMeters",
+        "varieties[2].heightMeters"
+      ],
+      "note": "28 m is about 16.47 times 1.7 m, so it is over 16 times taller.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c29",
+      "where": "scenes.stacked-charizards.headline",
+      "text": "SIXTEEN CHARIZARDS HIGH",
+      "verdict": "supported",
+      "evidence": [
+        "heightMeters",
+        "varieties[2].heightMeters"
+      ],
+      "note": "Charizard Gmax's 28 m height is about 16.47 normal Charizard heights.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c30",
+      "where": "scenes.stacked-charizards.narration",
+      "text": "More than sixteen normal Charizards reach from ground to its head.",
+      "verdict": "supported",
+      "evidence": [
+        "heightMeters",
+        "varieties[2].heightMeters"
+      ],
+      "note": "28 m is more than sixteen times the normal 1.7 m height.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c31",
+      "where": "scenes.stacked-charizards.caption",
+      "text": "STACK NORMAL CHARIZARDS TO ITS HEAD",
+      "verdict": "supported",
+      "evidence": [
+        "heightMeters",
+        "varieties[2].heightMeters"
+      ],
+      "note": "The two listed heights support the stacking comparison.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c32",
+      "where": "scenes.stacked-charizards.eyebrow",
+      "text": "SEE THE DIFFERENCE",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "This is framing.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c33",
+      "where": "scenes.stacked-charizards.facts[0]",
+      "text": "OVER 16 NORMAL CHARIZARDS",
+      "verdict": "supported",
+      "evidence": [
+        "heightMeters",
+        "varieties[2].heightMeters"
+      ],
+      "note": "The 28 m Gmax height is over 16 times the 1.7 m normal height.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c34",
+      "where": "scenes.charizard-verdict.headline",
+      "text": "WHICH FEELS REAL?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "This is a subjective question.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c35",
+      "where": "scenes.charizard-verdict.narration",
+      "text": "Which feels like Charizard: 1.7-meter flier or 28-meter giant?",
+      "verdict": "supported",
+      "evidence": [
+        "heightMeters",
+        "types[1]",
+        "varieties[2].heightMeters"
+      ],
+      "note": "Normal Charizard is 1.7 m and Flying-type; Charizard Gmax is 28 m.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c36",
+      "where": "scenes.charizard-verdict.caption",
+      "text": "NORMAL CHARIZARD OR GIGANTAMAX?",
+      "verdict": "supported",
+      "evidence": [
+        "name",
+        "varieties[2].name"
+      ],
+      "note": "The research includes normal Charizard and the Charizard Gmax variety.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c37",
+      "where": "scenes.charizard-verdict.eyebrow",
+      "text": "YOUR PICK",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "This is audience framing.",
+      "checkedBy": "model"
+    }
+  ],
+  "unsupported": [],
+  "uncertain": []
+}

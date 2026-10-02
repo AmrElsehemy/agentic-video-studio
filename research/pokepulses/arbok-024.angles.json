@@ -1,0 +1,167 @@
+{
+  "episodeId": "arbok-024",
+  "createdAt": "2026-10-02T09:01:01.659Z",
+  "chosen": {
+    "id": "arboks-20-plus-faces",
+    "premise": "Arbok’s belly markings went from six confirmed variations to over 20 possible arrangements.",
+    "hook": "Arbok may have more than 20 different warning faces.",
+    "archetype": "mystery",
+    "evidence": [
+      "pokedexEntries[0].text",
+      "pokedexEntries[1].text",
+      "pokedexEntries[10].text"
+    ],
+    "visualIdea": "Count six belly-pattern cards, then let the stack multiply past 20 around a front-facing Arbok.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 5,
+      "specificity": 5,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 25,
+    "note": "A highly Pokémon-specific, concrete lore contradiction/progression: six confirmed designs became over 20 possible stomach-pattern arrangements. The number reveal is instantly visual and strongly supported by the cited Pokédex entries."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "arboks-20-plus-faces",
+          "premise": "Arbok’s belly markings went from six confirmed variations to over 20 possible arrangements.",
+          "hook": "Arbok may have more than 20 different warning faces.",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[0].text",
+            "pokedexEntries[1].text",
+            "pokedexEntries[10].text"
+          ],
+          "visualIdea": "Count six belly-pattern cards, then let the stack multiply past 20 around a front-facing Arbok.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 25,
+          "note": "A highly Pokémon-specific, concrete lore contradiction/progression: six confirmed designs became over 20 possible stomach-pattern arrangements. The number reveal is instantly visual and strongly supported by the cited Pokédex entries."
+        },
+        {
+          "id": "steel-drum-squeeze",
+          "premise": "Arbok is said to flatten steel oil drums, and once it coils around a foe, escape is impossible.",
+          "hook": "This snake can flatten a steel oil drum.",
+          "archetype": "comparison",
+          "evidence": [
+            "pokedexEntries[5].text",
+            "pokedexEntries[6].text"
+          ],
+          "visualIdea": "A 3.5-meter Arbok coil tightens around a steel drum until it crumples flat like a can.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 3,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 22,
+          "note": "Flattening a steel oil drum is an excellent concrete feat with direct support and a strong visual. It is less uniquely Arbok than its changing belly faces, since extreme strength comparisons can fit many Pokémon."
+        },
+        {
+          "id": "fear-then-crush",
+          "premise": "Arbok’s belly face freezes prey in fear before its body wraps around them—and escape is impossible.",
+          "hook": "Arbok’s first weapon isn’t venom. It’s fear.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[2].text",
+            "pokedexEntries[8].text",
+            "pokedexEntries[11].text",
+            "pokedexEntries[5].text"
+          ],
+          "visualIdea": "A belly pattern becomes a giant staring face; a frozen silhouette is then trapped by rapidly coiling body rings.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 3,
+            "specificity": 4,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 20,
+          "note": "The intimidation-to-constriction sequence is clear and visual, and multiple entries support it. However, the hook overstates the case slightly: Arbok also uses venom, so fear is not unambiguously its 'first weapon' in every account."
+        },
+        {
+          "id": "belly-pattern-air-horn",
+          "premise": "Arbok pairs its frightening belly display with eerie sounds made by expelling air from its mouth.",
+          "hook": "Arbok’s threat display has its own sound effect.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[4].text",
+            "pokedexEntries[7].text",
+            "pokedexEntries[8].text"
+          ],
+          "visualIdea": "Arbok spreads its chest, its belly-face fills the screen, and visible air bursts create eerie sound-wave ripples.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 3,
+            "specificity": 4,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 20,
+          "note": "Combining the false-face display with expelled-air sounds makes for a vivid threat-display sequence. The cited entries support both pieces, though they do not explicitly establish them as one synchronized, named 'sound effect.'"
+        },
+        {
+          "id": "the-chase-never-ends",
+          "premise": "Once Arbok targets prey, its vengeful nature means it will not stop chasing, no matter how far.",
+          "hook": "If Arbok picks you, distance doesn’t matter.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[3].text",
+            "pokedexEntries[9].text"
+          ],
+          "visualIdea": "A fleeing target crosses an endlessly scrolling map while Arbok’s trail keeps closing the gap behind it.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 3,
+            "surprise": 3,
+            "specificity": 3,
+            "visual": 4,
+            "support": 5
+          },
+          "total": 18,
+          "note": "The no-matter-how-far pursuit claim is directly supported, but 'relentless predator' is a fairly broad character angle and the endless-map visual risks feeling generic."
+        },
+        {
+          "id": "ekans-level-22-metamorphosis",
+          "premise": "At level 22, Ekans evolves into a 3.5-meter Arbok with a terrifying face-like belly pattern.",
+          "hook": "At level 22, Ekans becomes this 3.5-meter intimidation machine.",
+          "archetype": "transformation",
+          "evidence": [
+            "evolutionChain[0].name",
+            "evolutionChain[1].name",
+            "evolutionChain[1].method",
+            "heightMeters",
+            "pokedexEntries[7].text"
+          ],
+          "visualIdea": "A level meter hits 22 as Ekans stretches upward into Arbok; a 3.5-meter height marker and belly-face snap on.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 2,
+            "surprise": 2,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 18,
+          "note": "The level-22 evolution and 3.5-meter size are well supported and easy to animate, but evolution-at-a-level is a common Pokémon format and does not surface Arbok's most distinctive lore."
+        }
+      ],
+      "rejected": []
+    }
+  ]
+}

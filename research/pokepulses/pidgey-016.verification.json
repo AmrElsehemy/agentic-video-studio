@@ -1,0 +1,432 @@
+{
+  "episodeId": "pidgey-016",
+  "checkedAt": "2026-09-30T08:59:25.486Z",
+  "claims": [
+    {
+      "id": "c1",
+      "where": "title",
+      "text": "Take Pidgey Far Away. It Still Finds Home.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c2",
+      "where": "premise",
+      "text": "Pidgey can return unerringly to its nest, even after being taken far from familiar surroundings.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c3",
+      "where": "audiencePromise",
+      "text": "Watch the map zoom farther from Pidgey’s nest, then discover why it still knows the route home.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c4",
+      "where": "openLoop",
+      "text": "How can a tiny bird find its nest after leaving familiar ground behind?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "This is phrased as a question.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c5",
+      "where": "payoff",
+      "text": "Pidgey’s extremely sharp sense of direction lets it unerringly return to its nest from unfamiliar surroundings.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c6",
+      "where": "scenes.take-pidgey-away.headline",
+      "text": "TAKE PIDGEY FAR AWAY.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c7",
+      "where": "scenes.take-pidgey-away.narration",
+      "text": "Take Pidgey far away. It still flies home.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "types[1]"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c8",
+      "where": "scenes.take-pidgey-away.caption",
+      "text": "THE NEST DOT STAYS BEHIND",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c9",
+      "where": "scenes.take-pidgey-away.eyebrow",
+      "text": "A TINY BIRD, LOST?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "This is a hypothetical question/hook.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c10",
+      "where": "scenes.take-pidgey-away.facts[0]",
+      "text": "FAR FROM HOME",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c11",
+      "where": "scenes.familiar-ground-vanishes.headline",
+      "text": "FAMILIAR GROUND VANISHES",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c12",
+      "where": "scenes.familiar-ground-vanishes.narration",
+      "text": "Even unfamiliar ground does not break Pidgey's sense of direction.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c13",
+      "where": "scenes.familiar-ground-vanishes.caption",
+      "text": "NEST → FIELDS → FORESTS → UNKNOWN",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[3].text",
+        "pokedexEntries[5].text"
+      ],
+      "note": "The research supports grassy areas, forests, and unfamiliar surroundings, but does not establish that Pidgey's particular homeward route passes through fields and forests in this sequence.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c14",
+      "where": "scenes.familiar-ground-vanishes.eyebrow",
+      "text": "THE MAP KEEPS ZOOMING",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "This describes a map/video presentation device.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c15",
+      "where": "scenes.familiar-ground-vanishes.facts[0]",
+      "text": "UNFAMILIAR SURROUNDINGS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c16",
+      "where": "scenes.distance-keeps-growing.headline",
+      "text": "THE DISTANCE KEEPS GROWING",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c17",
+      "where": "scenes.distance-keeps-growing.narration",
+      "text": "The distance keeps growing, but its route never loses home.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "Its route not losing home is a dramatic paraphrase of returning unerringly to its nest from however far away.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c18",
+      "where": "scenes.distance-keeps-growing.caption",
+      "text": "THE FLIGHT PATH KEEPS GLOWING",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "The glowing flight path is a visual presentation detail, not a Pokémon fact.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c19",
+      "where": "scenes.distance-keeps-growing.eyebrow",
+      "text": "FARTHER. FARTHER.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c20",
+      "where": "scenes.distance-keeps-growing.facts[0]",
+      "text": "HOMEWARD ROUTE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c21",
+      "where": "scenes.sharp-sense-of-direction.headline",
+      "text": "EXTREMELY SHARP DIRECTION",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c22",
+      "where": "scenes.sharp-sense-of-direction.narration",
+      "text": "Its sense of direction is described as extremely sharp.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c23",
+      "where": "scenes.sharp-sense-of-direction.caption",
+      "text": "NOT LUCK. DIRECTION.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "This compactly attributes its homeward navigation to its extremely sharp sense of direction.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c24",
+      "where": "scenes.sharp-sense-of-direction.eyebrow",
+      "text": "FIRST REVEAL",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "This is structural video framing.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c25",
+      "where": "scenes.sharp-sense-of-direction.facts[0]",
+      "text": "EXTREMELY SHARP",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c26",
+      "where": "scenes.unerringly-home.headline",
+      "text": "IT RETURNS UNERRINGLY",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c27",
+      "where": "scenes.unerringly-home.narration",
+      "text": "Pidgey can unerringly return to its nest from unfamiliar surroundings.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c28",
+      "where": "scenes.unerringly-home.caption",
+      "text": "THE PATH ENDS AT ITS NEST",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c29",
+      "where": "scenes.unerringly-home.eyebrow",
+      "text": "THE ANSWER",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "This is video framing.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c30",
+      "where": "scenes.unerringly-home.facts[0]",
+      "text": "UNERRINGLY RETURNS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c31",
+      "where": "scenes.unerringly-home.facts[1]",
+      "text": "ITS NEST",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c32",
+      "where": "scenes.navigator-or-superpower.headline",
+      "text": "NAVIGATOR OR SUPERPOWER?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "This is a rhetorical question.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c33",
+      "where": "scenes.navigator-or-superpower.narration",
+      "text": "Perfect navigator or surprising superpower, which sounds cooler?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "This asks for a subjective audience preference.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c34",
+      "where": "scenes.navigator-or-superpower.caption",
+      "text": "PICK A SIDE IN THE COMMENTS",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "This is a call to action.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c35",
+      "where": "scenes.navigator-or-superpower.eyebrow",
+      "text": "YOUR VERDICT",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "This is audience-framing text.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c36",
+      "where": "scenes.navigator-or-superpower.facts[0]",
+      "text": "NAVIGATOR",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "This is a subjective label in the viewer-choice framing.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c37",
+      "where": "scenes.navigator-or-superpower.facts[1]",
+      "text": "SUPERPOWER",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "This is a subjective label in the viewer-choice framing.",
+      "checkedBy": "model"
+    }
+  ],
+  "unsupported": [],
+  "uncertain": [
+    {
+      "id": "c13",
+      "where": "scenes.familiar-ground-vanishes.caption",
+      "text": "NEST → FIELDS → FORESTS → UNKNOWN",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[3].text",
+        "pokedexEntries[5].text"
+      ],
+      "note": "The research supports grassy areas, forests, and unfamiliar surroundings, but does not establish that Pidgey's particular homeward route passes through fields and forests in this sequence.",
+      "tier": "official",
+      "checkedBy": "model"
+    }
+  ]
+}

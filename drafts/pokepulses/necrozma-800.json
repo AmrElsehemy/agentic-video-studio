@@ -1,0 +1,194 @@
+{
+  "id": "necrozma-800",
+  "title": "What Happens When Necrozma Can't Absorb Light?",
+  "storyPattern": "mystery",
+  "numberRelevant": false,
+  "premise": "Necrozma's survival hinges on absorbing light, but what occurs if it's deprived of this vital energy source?",
+  "audiencePromise": "Explain the mysterious consequences when Necrozma is deprived of light.",
+  "openLoop": "What happens to Necrozma if it doesn't get any light?",
+  "payoff": "Deprived of light, Necrozma darkens, impurities build, and it stops moving altogether.",
+  "targetEmotion": "curiosity",
+  "engagementQuestion": "Do you think Necrozma should roam free or be contained?",
+  "subject": {
+    "name": "Necrozma",
+    "category": "Prism Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/800.png",
+    "identifier": "#800"
+  },
+  "related": [
+    {
+      "name": "Necrozma Dusk",
+      "relation": "form",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10155.png",
+      "identifier": "#800"
+    },
+    {
+      "name": "Necrozma Dawn",
+      "relation": "form",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10156.png",
+      "identifier": "#800"
+    },
+    {
+      "name": "Necrozma Ultra",
+      "relation": "form",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10157.png",
+      "identifier": "#800"
+    }
+  ],
+  "palette": {
+    "background": "#282828",
+    "surface": "#202020",
+    "primary": "#FFD700",
+    "secondary": "#4A4A4A",
+    "ink": "#FFFFFF"
+  },
+  "voice": {
+    "instructions": "Intriguing and mysterious, with a sense of building tension."
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "assets": [
+      {
+        "kind": "Necrozma official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/800.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "unverified",
+        "publicReleaseApproved": false,
+        "notes": "Internal prototype only pending legal review or replacement."
+      },
+      {
+        "kind": "Necrozma Dusk official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10155.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "unverified",
+        "publicReleaseApproved": false,
+        "notes": "Internal prototype only pending legal review or replacement."
+      },
+      {
+        "kind": "Necrozma Ultra official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10157.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "unverified",
+        "publicReleaseApproved": false,
+        "notes": "Internal prototype only pending legal review or replacement."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "dark-necrozma",
+      "eyebrow": "INTO THE DARKNESS",
+      "headline": "WHAT HAPPENS IN THE DARK?",
+      "narration": "What if Necrozma doesn’t get any light?",
+      "caption": "NECROZMA IN DARKNESS",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/800.png"
+    },
+    {
+      "id": "needs-light",
+      "beat": "clue",
+      "eyebrow": "LIGHT IS VITAL",
+      "headline": "NECROZMA HUNGERS FOR LIGHT",
+      "narration": "Light is not just energy—it's survival for Necrozma.",
+      "caption": "WITHOUT LIGHT, LIFE CEASES",
+      "facts": [
+        "Light is its energy",
+        "Absorbs to survive",
+        "Seeks light aggressively"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/800.png"
+    },
+    {
+      "id": "impurities",
+      "beat": "escalation",
+      "eyebrow": "THE BUILDUP BEGINS",
+      "headline": "IMPURITIES PILE UP",
+      "narration": "Without light, impurities build within and on Necrozma.",
+      "caption": "WITHOUT LIGHT, DARKNESS SPREADS",
+      "facts": [
+        "Impurities build",
+        "Necrozma darkens"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/800.png",
+      "primitive": {
+        "kind": "meter",
+        "label": "LIGHT LEVEL",
+        "from": 100,
+        "to": 0,
+        "threshold": 0,
+        "thresholdLabel": "DARKENS"
+      }
+    },
+    {
+      "id": "suspension",
+      "beat": "reveal",
+      "eyebrow": "A DEADLY STILLNESS",
+      "headline": "IT STOPS MOVING",
+      "narration": "Eventually, Necrozma darkens and becomes immobile.",
+      "caption": "MOTIONLESS IN DARK",
+      "facts": [
+        "Stops moving",
+        "Darkens entirely"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/800.png"
+    },
+    {
+      "id": "light-rampage",
+      "beat": "reveal",
+      "eyebrow": "SAVAGE PURSUIT",
+      "headline": "LIGHT-SEEKING RAMPAGE",
+      "narration": "In its desperation, Necrozma goes on a rampage, destroying for light.",
+      "caption": "SEEKING LIGHT AT ALL COSTS",
+      "facts": [
+        "Rampages for light",
+        "Uses laser beams"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10155.png",
+      "primitive": {
+        "kind": "checklist",
+        "items": [
+          {
+            "label": "SEEKS LIGHT",
+            "met": true
+          },
+          {
+            "label": "RAMPAGES",
+            "met": true
+          },
+          {
+            "label": "DESTROYS",
+            "met": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "free-or-not",
+      "beat": "verdict",
+      "eyebrow": "THE BIG QUESTION",
+      "headline": "FREE OR CONTAIN?",
+      "narration": "Do you think Necrozma should roam free or be contained?",
+      "caption": "NECROZMA'S FATE IN YOUR HANDS",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10157.png"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Necrozma",
+      "url": "https://www.pokemon.com/us/pokedex/necrozma",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Necrozma",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Necrozma_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Necrozma",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/800",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

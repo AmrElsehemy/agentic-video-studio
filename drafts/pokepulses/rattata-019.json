@@ -1,0 +1,204 @@
+{
+  "id": "rattata-019",
+  "title": "Rattata’s Teeth Can Turn Dinner Into a Death Sentence",
+  "storyPattern": "mystery",
+  "numberRelevant": false,
+  "premise": "Rattata’s ever-growing incisors force it to gnaw hard objects, or they can grow too long for it to eat.",
+  "audiencePromise": "See why Rattata chewing furniture is not mischief, but a fight against its own teeth.",
+  "openLoop": "Why can chewing a table leg be the difference between food and starvation?",
+  "payoff": "Rattata gnaws to wear down its lifelong tooth growth. If its incisors win, it cannot eat and starves.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "Would you offer a file or protect your furniture?",
+  "subject": {
+    "name": "Rattata",
+    "category": "Mouse Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/19.png",
+    "identifier": "#019"
+  },
+  "related": [
+    {
+      "name": "Raticate",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/20.png",
+      "identifier": "#020"
+    },
+    {
+      "name": "Rattata Alola",
+      "relation": "form",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10091.png",
+      "identifier": "#019"
+    }
+  ],
+  "palette": {
+    "background": "#12101a",
+    "surface": "#241d31",
+    "primary": "#9b6cc4",
+    "secondary": "#f3c4d9",
+    "ink": "#fff8ff"
+  },
+  "voice": {
+    "instructions": "Start with sharp danger and a brief pause after the hook. Build pressure as the tooth meter rises. Make the furniture reveal playful, then deliver the starvation reveal plainly and seriously."
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "assets": [
+      {
+        "kind": "Rattata official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/19.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "unverified",
+        "publicReleaseApproved": false,
+        "notes": "Internal prototype only pending legal review or replacement."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "dinner-death-sentence",
+      "beat": "hook",
+      "eyebrow": "A TINY SURVIVAL TRAP",
+      "headline": "DINNER BECOMES THE DANGER",
+      "narration": "Rattata’s teeth can turn dinner into a death sentence.",
+      "caption": "TOOTH GROWTH: RISING",
+      "facts": [
+        "INCISORS GROW FOR LIFE"
+      ],
+      "accent": "#f3c4d9",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/19.png"
+    },
+    {
+      "id": "hunger-clock",
+      "beat": "clue",
+      "eyebrow": "THE CLUE",
+      "headline": "A HUNGER CLOCK",
+      "narration": "Rattata searches for food all day while its teeth grow.",
+      "caption": "FOOD HUNT VS TOOTH GROWTH",
+      "facts": [
+        "SEARCHES FOR FOOD",
+        "TEETH KEEP GROWING"
+      ],
+      "accent": "#9b6cc4",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/19.png"
+    },
+    {
+      "id": "gnawing-is-needed",
+      "beat": "escalation",
+      "eyebrow": "THE DAILY FIX",
+      "headline": "GNAWING IS NOT OPTIONAL",
+      "narration": "So it gnaws hard objects just to wear its fangs down.",
+      "caption": "GNawING LOWERS THE METER",
+      "facts": [
+        "HARD OBJECTS",
+        "WEARS DOWN FANGS"
+      ],
+      "accent": "#f3c4d9",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/19.png",
+      "primitive": {
+        "kind": "checklist",
+        "items": [
+          {
+            "label": "HARD OBJECTS",
+            "met": true
+          },
+          {
+            "label": "WEAR DOWN FANGS",
+            "met": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "furniture-reveal",
+      "beat": "reveal",
+      "eyebrow": "REVEAL ONE",
+      "headline": "NO FILE? FURNITURE LOSES.",
+      "narration": "No file? It gnaws door frames and table legs instead.",
+      "caption": "DOOR FRAMES • TABLE LEGS",
+      "facts": [
+        "FILE TO GNAW",
+        "DOOR FRAMES",
+        "TABLE LEGS"
+      ],
+      "accent": "#9b6cc4",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/19.png",
+      "primitive": {
+        "kind": "checklist",
+        "items": [
+          {
+            "label": "FILE TO GNAW",
+            "met": true
+          },
+          {
+            "label": "DOOR FRAMES",
+            "met": true
+          },
+          {
+            "label": "TABLE LEGS",
+            "met": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "teeth-win",
+      "beat": "reveal",
+      "eyebrow": "REVEAL TWO",
+      "headline": "WHEN ITS TEETH WIN",
+      "narration": "Once they grow too long, Rattata cannot eat and starves.",
+      "caption": "OVERGROWN INCISORS BLOCK FOOD",
+      "facts": [
+        "UNABLE TO EAT",
+        "STARVES TO DEATH"
+      ],
+      "accent": "#f3c4d9",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/19.png",
+      "primitive": {
+        "kind": "checklist",
+        "items": [
+          {
+            "label": "TEETH TOO LONG",
+            "met": true
+          },
+          {
+            "label": "ABLE TO EAT",
+            "met": false
+          },
+          {
+            "label": "STARVES TO DEATH",
+            "met": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "survival-not-mischief",
+      "beat": "verdict",
+      "eyebrow": "YOUR CALL",
+      "headline": "SURVIVAL OR FURNITURE?",
+      "narration": "Would you offer a file or protect your furniture?",
+      "caption": "ITS CHEWING IS A SURVIVAL RULE",
+      "accent": "#9b6cc4",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/19.png"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Rattata",
+      "url": "https://www.pokemon.com/us/pokedex/rattata",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Rattata",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Rattata_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Rattata",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/19",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

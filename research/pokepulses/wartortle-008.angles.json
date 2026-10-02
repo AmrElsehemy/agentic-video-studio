@@ -1,0 +1,146 @@
+{
+  "episodeId": "wartortle-008",
+  "createdAt": "2026-09-30T05:40:55.668Z",
+  "chosen": {
+    "id": "tail-gives-away-shell",
+    "premise": "Wartortle can pull its head into its shell when tapped, but its oversized tail still sticks out.",
+    "hook": "Wartortle's shell has one hilariously obvious hiding flaw.",
+    "archetype": "mechanic",
+    "evidence": [
+      "pokedexEntries[1].text",
+      "pokedexEntries[12].text"
+    ],
+    "visualIdea": "Tap animation: head retracts into the shell, then a spotlight reveals the tail still protruding.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 4,
+      "specificity": 5,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 24,
+    "note": "A sharply specific Wartortle behavior with a built-in visual joke. The cited Yellow and Let's Go entries directly support both the retraction and the tail sticking out."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "tail-gives-away-shell",
+          "premise": "Wartortle can pull its head into its shell when tapped, but its oversized tail still sticks out.",
+          "hook": "Wartortle's shell has one hilariously obvious hiding flaw.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[1].text",
+            "pokedexEntries[12].text"
+          ],
+          "visualIdea": "Tap animation: head retracts into the shell, then a spotlight reveals the tail still protruding.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 24,
+          "note": "A sharply specific Wartortle behavior with a built-in visual joke. The cited Yellow and Let's Go entries directly support both the retraction and the tail sticking out."
+        },
+        {
+          "id": "algae-age-test",
+          "premise": "A Wartortle with algae on its shell is considered very old—its shell can function as an age clue.",
+          "hook": "Want to spot an ancient Wartortle? Check its shell.",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[2].text",
+            "pokedexEntries[10].text"
+          ],
+          "visualIdea": "Detective-style shell inspection: clean shell versus algae-covered shell, ending on a giant 'VERY OLD' stamp.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 23,
+          "note": "Concrete, unusual, and easy to dramatize as an inspection mystery. The entries support algae as a sign of great age, though not a precise age test."
+        },
+        {
+          "id": "ears-as-swim-stabilizers",
+          "premise": "Wartortle moves its furry ears and tail to stay balanced while swimming fast.",
+          "hook": "Wartortle doesn't just swim with its limbs—its ears steer.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[0].text",
+            "pokedexEntries[3].text",
+            "pokedexEntries[11].text"
+          ],
+          "visualIdea": "Underwater side view with balance lines: ears and tail pivot as Wartortle accelerates through a sharp turn.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 22,
+          "note": "Wartortle using furry ears and its tail for swimming balance is highly distinctive and animatable. The hook's word 'steer' slightly overstates the evidence, which says balance rather than directional control."
+        },
+        {
+          "id": "tail-darkens-with-age",
+          "premise": "Wartortle's thick furry tail becomes deeper in color as it ages, making its tail an aging meter.",
+          "hook": "Wartortle's tail gets darker the older it gets.",
+          "archetype": "transformation",
+          "evidence": [
+            "pokedexEntries[5].text",
+            "pokedexEntries[6].text"
+          ],
+          "visualIdea": "A color swatch wipes across the same fluffy tail, shifting gradually from lighter to deeper color over time.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 4,
+            "support": 5
+          },
+          "total": 22,
+          "note": "A clear visual transformation backed by multiple entries. It is compelling, but the aging-meter framing implies more precision than the source explicitly provides."
+        },
+        {
+          "id": "10k-year-tail",
+          "premise": "Wartortle is said to live 10,000 years, and its furry tail became its symbol of longevity.",
+          "hook": "This turtle is said to live for 10,000 years.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[9].text",
+            "pokedexEntries[4].text",
+            "pokedexEntries[7].text"
+          ],
+          "visualIdea": "A timeline races from 0 to 10,000 while Wartortle's tail becomes the centerpiece of a longevity emblem.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 3,
+            "surprise": 5,
+            "specificity": 4,
+            "visual": 4,
+            "support": 5
+          },
+          "total": 21,
+          "note": "The 10,000-year claim is highly surprising and directly sourced, but longevity symbolism is less exclusive to Wartortle and the premise risks feeling like a static fact profile."
+        }
+      ],
+      "rejected": [
+        {
+          "id": "shell-scratches-battle-record",
+          "reason": "unknown story shape \"evidence\""
+        }
+      ],
+      "request": "Stronger angles would need an equally specific contradiction or behavior, a clean visual reveal, and direct support without overstating what the Pokédex actually says."
+    }
+  ]
+}
