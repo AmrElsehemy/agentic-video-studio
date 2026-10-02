@@ -10,6 +10,9 @@
 //   --strict=<show,...>     shows that must stay pixel-identical (default: pokepulses)
 //   --allow-change          report changes in strict shows without failing
 //   --no-render             rebuild the page from the last run's frames
+//   --reuse-head            use the working tree's frames already in out/<id>-frames/ (CI: the
+//                           frame-check step just rendered them); only missing episodes are rendered
+//   --no-strips             skip the scene-change strips (CI: nothing map-related changed)
 // Writes out/visual-review/index.html (open it, or publish it for review) and
 // exits non-zero when a strict show changed.
 import {spawnSync} from 'node:child_process';
@@ -48,11 +51,19 @@ const run = (command, commandArgs, options = {}) => {
 };
 
 /** Render review frames + cover for `ids` in `dir`, and copy them to out/visual-review/<side>/<id>/. */
-const renderSide = (dir, side, ids) => {
+const renderSide = (dir, side, ids, {reuse = false} = {}) => {
+  const reused = reuse ? ids.filter((id) => fs.existsSync(path.join(dir, 'out', `${id}-frames`)) && fs.existsSync(path.join(dir, 'out', `${id}-cover.png`))) : [];
+  if (reused.length) console.log(`▶ reusing ${reused.length} episode(s) already rendered in the working tree`);
+  copyFrames(dir, side, reused);
+  ids = ids.filter((id) => !reused.includes(id));
   if (!ids.length) return;
   console.log(`▶ rendering ${ids.length} episode(s) at ${side === 'base' ? base : 'the working tree'}`);
   const result = spawnSync(process.execPath, ['scripts/frame-check.mjs', ...ids, '--voice=none'], {cwd: dir, encoding: 'utf8', maxBuffer: 256 * 1024 * 1024});
   if (result.status !== 0) console.warn(`⚠ some ${side} renders failed:\n${(result.stderr || '').split('\n').filter((line) => line.includes('✗')).join('\n')}`);
+  copyFrames(dir, side, ids);
+};
+
+const copyFrames = (dir, side, ids) => {
   for (const id of ids) {
     const target = path.join(outDir, side, id);
     fs.mkdirSync(target, {recursive: true});
@@ -141,7 +152,7 @@ const compareEpisode = (id) => {
       return {offset, before: has[0] ? thumb(a, 'scale=180:-2') : null, after: has[1] ? thumb(b, 'scale=180:-2') : null, same: has[0] && has[1] && pixels(a) === pixels(b)};
     });
     return {label: `Scene ${index} → ${index + 1} (${manifest.scenes[index - 1].id} → ${manifest.scenes[index].id})`, cells, changed: cells.some((cell) => !cell.same)};
-  });
+  }).filter((strip) => strip.cells.some((cell) => cell.before || cell.after)); // none rendered with --no-strips
   const status = !fs.existsSync(before) ? 'new' : frames.some((frame) => frame.status !== 'identical') || strips.some((strip) => strip.changed) ? 'changed' : 'identical';
   return {id, show, title: manifest.title, status, strict: strictShows.includes(show), frames, strips};
 };
@@ -231,9 +242,11 @@ if (!reuse) {
       run(process.platform === 'win32' ? 'npm.cmd' : 'npm', ['ci', '--no-audit', '--no-fund'], {cwd: worktree});
     }
     renderSide(worktree, 'base', ids.filter((id) => showOf(worktree, id)));
-    renderSide(root, 'head', ids);
-    await renderStrips(worktree, 'base', ids);
-    await renderStrips(root, 'head', ids);
+    renderSide(root, 'head', ids, {reuse: args.includes('--reuse-head')});
+    if (!args.includes('--no-strips')) {
+      await renderStrips(worktree, 'base', ids);
+      await renderStrips(root, 'head', ids);
+    }
   } finally {
     spawnSync('git', ['worktree', 'remove', '--force', worktree], {cwd: root});
   }

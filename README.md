@@ -201,6 +201,11 @@ It renders each scene's review frame and the cover from the base ref (in a tempo
 
 In CI, every pull request that touches shared code runs the same review on the golden set and uploads the page with the frame-check results. A PokePulses change fails the PR unless it carries the label `pokepulses-visual-change`, which records that the change was reviewed and intended.
 
+To keep CI short:
+- **No second render:** the review reuses the frames the frame-check step just rendered (`--reuse-head`), so only the base branch is rendered again.
+- **Strips only for map changes:** the scene-change strips are rendered only when map code changed (`--no-strips` otherwise).
+- **Stale runs cancelled:** a new push to a pull request cancels that PR's run still in progress.
+
 ## Video critic
 
 `npm run critic:video -- <id>` reviews a rendered episode (`npm run video`, plus `npm run still` for the cover) one mid-scene frame at a time, and exits non-zero on any blocking issue. CI runs it after every render, and `episode:new --render` runs it too.
