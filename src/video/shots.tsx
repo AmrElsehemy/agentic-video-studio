@@ -1,5 +1,6 @@
 import React from 'react';
 import {Img, interpolate, spring} from 'remotion';
+import {REVEAL_AT} from '../../scripts/lib/reveals.mjs';
 import type {VideoManifest, VideoScene} from '../schema';
 import {displayFont} from './typography';
 
@@ -58,7 +59,7 @@ export const artworkPair = (scene: VideoScene, manifest: VideoManifest): [string
 
 /** Hook shot: the subject stays a silhouette, then is revealed. */
 const MysteryShot: React.FC<ShotProps> = ({scene, manifest, frame, durationInFrames, accent}) => {
-  const revealAt = Math.round(durationInFrames * .45);
+  const revealAt = Math.round(durationInFrames * REVEAL_AT.mystery);
   const hidden = scene.subjectFocus === 'hidden' || scene.subjectFocus === 'absent';
   const reveal = interpolate(frame, [revealAt - 4, revealAt + 6], [0, 1], clamp);
   const questionPulse = 1 + Math.sin(frame / 5) * .05;
@@ -76,7 +77,7 @@ const MysteryShot: React.FC<ShotProps> = ({scene, manifest, frame, durationInFra
 const ImpactShot: React.FC<ShotProps> = ({scene, manifest, frame, durationInFrames, accent}) => {
   const facts = scene.facts ?? [];
   const hidden = scene.subjectFocus === 'hidden';
-  const revealAt = Math.round(durationInFrames * .34);
+  const revealAt = Math.round(durationInFrames * REVEAL_AT.impact);
   const punch = interpolate(frame, [0, 5, 12], [1.12, .97, 1], clamp);
   return <>
     <BigHeadline text={scene.headline} frame={frame} />

@@ -34,6 +34,7 @@
     "typecheck": "tsc --noEmit",
     "test": "node --import tsx --test \"test/**/*.test.ts\"",
     "frames": "node scripts/frame-check.mjs",
+    "check:render": "node scripts/render-check.mjs",
     "geo:prepare": "node scripts/geo-data.mjs",
     "geo:verify": "node scripts/geo-data.mjs --verify",
     "geo:golden": "node scripts/geo-golden.mjs",
