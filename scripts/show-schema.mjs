@@ -15,9 +15,9 @@ const voiceName = z.enum(['alloy', 'ash', 'ballad', 'coral', 'echo', 'fable', 'o
 /** The wordmark in the corner of every scene and on the cover: lead text, then an accent-coloured part. */
 export const wordmarkSchema = z.object({lead: z.string().min(1).max(24), accent: z.string().max(24).default('')}).strict();
 export const fontsSchema = z.object({display: z.enum(DISPLAY_FONTS), body: z.enum(BODY_FONTS).default('system')}).strict();
-/** The generated music bed: tempo and a repeating bass line (Hz). */
 /** How scenes caption their narration: one static line, or the words as they are spoken (#86). */
 export const captionsSchema = z.object({mode: z.enum(['static', 'words'])}).strict();
+/** The generated music bed: tempo and a repeating bass line (Hz). */
 export const musicBedSchema = z.object({bpm: z.number().min(60).max(180), notes: z.array(z.number().min(30).max(1000)).min(1).max(16)}).strict();
 
 export const showSchema = z.object({
