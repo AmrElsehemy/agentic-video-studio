@@ -2,12 +2,13 @@
 // cover) and checks what OCR and pixel statistics can't judge: legibility,
 // overlap, safe areas, visible artwork, and whether each frame shows its beat.
 import {parseJsonReply} from './fact-verifier.mjs';
+import {expectedCaptions} from './frame-audit.mjs';
 
 export const VISUAL_CHECKS = {
   legibility: 'All text is legible: enough contrast and size, nothing cut off at the frame edge.',
   overlap: 'No text overlaps other text or is hidden behind artwork (including large faint backdrop words).',
   headline: 'The scene headline is visible; on the hook (scene 1) it is large and immediate.',
-  caption: 'The caption appears exactly once, at the bottom.',
+  caption: 'The caption appears exactly once, at the bottom (with word-synced captions, the phrase being spoken).',
   artwork: 'Pokémon artwork is visible unless the scene deliberately hides the subject (a silhouette).',
   'safe-area': 'Nothing important sits where platform UI covers it: the right edge between 45% and 85% of the height (like/comment buttons) or the bottom 8% (the description).',
   beat: 'The frame visually expresses what the scene is about (its beat and visual), not just generic artwork.',
@@ -16,7 +17,9 @@ export const VISUAL_CHECKS = {
 const SEVERITIES = ['blocking', 'warning'];
 
 /** What each frame should show, from the manifest. */
-export const frameExpectations = (manifest) => manifest.scenes.map((scene, index) => ({
+export const frameExpectations = (manifest) => {
+  const captions = expectedCaptions(manifest);
+  return manifest.scenes.map((scene, index) => ({
   scene: index + 1,
   id: scene.id,
   role: scene.role,
@@ -25,11 +28,12 @@ export const frameExpectations = (manifest) => manifest.scenes.map((scene, index
   ...(scene.primitive ? {primitive: scene.primitive.kind} : {}),
   subjectFocus: scene.subjectFocus,
   headline: scene.headline,
-  caption: scene.caption,
+  caption: captions[index],
   ...(scene.eyebrow ? {eyebrow: scene.eyebrow} : {}),
   ...(scene.facts?.length ? {facts: scene.facts} : {}),
   narration: scene.narration,
-}));
+  }));
+};
 
 export const buildVideoCriticPrompt = ({manifest, frames, cover}) => ({
   system: `You are the visual QA lead of PokePulses, a vertical (9:16) short-form video series about Pokémon. You see one frame from the middle of each scene, and the episode's cover. Check every frame against:

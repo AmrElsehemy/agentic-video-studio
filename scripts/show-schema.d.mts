@@ -8,5 +8,7 @@ export declare const DISPLAY_FONTS: string[];
 export declare const BODY_FONTS: string[];
 export declare const wordmarkSchema: z.ZodType<Wordmark>;
 export declare const fontsSchema: z.ZodType<ShowFonts>;
+export type Captions = {mode: 'static' | 'words'};
+export declare const captionsSchema: z.ZodType<Captions>;
 export declare const musicBedSchema: z.ZodType<MusicBed>;
 export declare const showSchema: z.ZodType<import('./lib/shows.mjs').ShowProfile>;

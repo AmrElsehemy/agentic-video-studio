@@ -4,6 +4,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import {findManifest, resolveEpisodeId} from './catalog.mjs';
+import {speechBounds} from './lib/captions.mjs';
 import {buildVoiceInstructions} from './lib/voice-direction.mjs';
 import {voiceInputHash} from './lib/voice-lock.mjs';
 
@@ -32,6 +33,8 @@ const cacheRoot = path.join(generatedRoot, 'voice-cache', episodeId, provider);
 const tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), `${episodeId}-voice-`));
 const sceneTracks = [];
 const timing = {};
+// Where each scene's speech starts and ends: word-synced captions (#86) are timed within it.
+const speech = {};
 const endPaddingSeconds = 0.12;
 const maxAutoFitRatio = 1.12;
 
@@ -45,6 +48,11 @@ const probePeakVolume = (file) => {
   const probe = spawnSync('ffmpeg', ['-hide_banner', '-i', file, '-af', 'volumedetect', '-f', 'null', '-'], {encoding: 'utf8'});
   const match = probe.stderr.match(/max_volume:\s*(-?[\d.]+) dB/);
   return match ? Number(match[1]) : Number.NEGATIVE_INFINITY;
+};
+
+const measureSpeech = (file, duration) => {
+  const probe = spawnSync('ffmpeg', ['-hide_banner', '-i', file, '-af', 'silencedetect=noise=-35dB:d=0.08', '-f', 'null', '-'], {encoding: 'utf8'});
+  return probe.status === 0 ? speechBounds(probe.stderr, duration) : undefined;
 };
 
 const instructionsFor = (scene) => buildVoiceInstructions({baseInstructions: config.instructions, scene});
@@ -94,6 +102,8 @@ try {
     if (fit.status !== 0) throw new Error(fit.stderr || `Could not fit narration for ${scene.id}`);
     sceneTracks.push(fittedTrack);
     timing[scene.id] = effectiveDuration;
+    const span = measureSpeech(fittedTrack, effectiveDuration);
+    if (span) speech[scene.id] = span;
     const expanded = effectiveDuration > scene.durationSeconds + 0.001 ? `, scene expanded ${scene.durationSeconds.toFixed(2)}→${effectiveDuration.toFixed(2)}s` : '';
     const fitLabel = appliedTempo > 1 ? `, auto-fit ${appliedTempo.toFixed(2)}x` : '';
     console.log(`✓ ${scene.id} [${provider}]: ${spokenDuration.toFixed(2)}s / ${effectiveDuration.toFixed(2)}s${fitLabel}${expanded}`);
@@ -111,7 +121,7 @@ try {
   const normalize = spawnSync('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-y', '-i', assembledTrack, '-af', 'loudnorm=I=-16:TP=-1.5:LRA=11', '-ar', '44100', '-ac', '2', outputPath], {encoding: 'utf8'});
   if (normalize.status !== 0) throw new Error(normalize.stderr || 'Could not normalize narration track.');
   const timingPath = path.join(generatedRoot, `${episodeId}-${provider}-timing.json`);
-  fs.writeFileSync(timingPath, JSON.stringify({episodeId, provider, inputHash: voiceInputHash(manifest, provider), scenes: timing}, null, 2));
+  fs.writeFileSync(timingPath, JSON.stringify({episodeId, provider, inputHash: voiceInputHash(manifest, provider), scenes: timing, speech}, null, 2));
   const peakVolume = probePeakVolume(outputPath);
   if (!Number.isFinite(peakVolume) || peakVolume < -30) throw new Error(`Generated ${provider} narration is silent or inaudible (${peakVolume} dBFS).`);
   console.log(`\n✓ ${provider} narration ready: ${path.relative(root, outputPath)} (${probeDuration(outputPath).toFixed(2)}s, peak ${peakVolume.toFixed(1)} dBFS)`);

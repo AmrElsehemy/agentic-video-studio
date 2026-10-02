@@ -1,0 +1,12 @@
+export type TimedWord = {text: string; start: number; end: number};
+export type Phrase = {words: TimedWord[]; start: number; end: number};
+export declare const LEAD_IN: number;
+export declare const MAX_PHRASE_WORDS: number;
+export declare const MAX_PHRASE_CHARS: number;
+export declare const syllables: (token: string) => number;
+export declare const wordTimes: (narration: string, span: {start: number; end: number}) => TimedWord[];
+export declare const speechSpan: (scene: {narration: string; durationSeconds: number}, options?: {speed?: number; measured?: {start: number; end: number}}) => {start: number; end: number};
+export declare const phrases: (words: TimedWord[]) => Phrase[];
+export declare const captionAt: (words: TimedWord[], seconds: number) => {phrase: string; words: TimedWord[]; active: number} | undefined;
+export declare const speechBounds: (log: string, duration: number) => {start: number; end: number} | undefined;
+export declare const withWordCaptions: <T extends {show: {captions?: {mode: string}}; audio?: {voice?: {speed?: number}}; scenes: {id: string; narration: string; durationSeconds: number}[]}>(manifest: T, speech?: Record<string, {start: number; end: number}>) => T;

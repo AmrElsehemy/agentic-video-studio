@@ -2,7 +2,8 @@
 // critic and contact sheet read) plus the cover, for one or more episodes.
 // Bundles once and reuses one browser, so checking several episodes costs
 // seconds each instead of a full MP4 render each. CI uses it for the golden set.
-// Usage: npm run frames -- <episode-id> [<episode-id> ...] [--voice=none]
+// Usage: npm run frames -- <episode-id> [<episode-id> ...] [--voice=none] [--caption-preview]
+//   --caption-preview   word captions estimated from the text, for shows that caption word by word, when there is no narration
 // Then: npm run sheet -- <id> --frames; npm run critic:video -- <id> --frames
 import fs from 'node:fs';
 import path from 'node:path';
@@ -25,7 +26,7 @@ const failed = [];
 const prepared = [];
 for (const episodeId of episodeIds) {
   try {
-    prepared.push({episodeId, manifest: prepareRenderProps(episodeId, {voice}).manifest});
+    prepared.push({episodeId, manifest: prepareRenderProps(episodeId, {voice, captionPreview: args.includes('--caption-preview')}).manifest});
   } catch (error) {
     console.error(`✗ ${episodeId}: ${error.message}`);
     failed.push(episodeId);

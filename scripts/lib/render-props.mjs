@@ -5,6 +5,7 @@ import {spawnSync} from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 import {findManifest} from '../catalog.mjs';
+import {withWordCaptions} from './captions.mjs';
 import {voiceStaleReason} from './voice-lock.mjs';
 
 export const VOICES = ['auto', 'openai', 'local', 'none'];
@@ -39,9 +40,11 @@ export const enforceSubjectOnlyArtwork = (manifest) => {
  * Build out/<id>.props.json. Throws when the only narration is stale, so a
  * render can never pair a script with audio recorded for an older one.
  * @param {string} episodeId
- * @param {{voice?: string, log?: (line: string) => void, warn?: (line: string) => void}} [options]
+ * Shows that caption word by word get timed words from the narration track;
+ * `captionPreview` estimates them from the text when there is no track.
+ * @param {{voice?: string, captionPreview?: boolean, log?: (line: string) => void, warn?: (line: string) => void}} [options]
  */
-export const prepareRenderProps = (episodeId, {voice: requestedVoice = 'auto', log = console.log, warn = console.warn} = {}) => {
+export const prepareRenderProps = (episodeId, {voice: requestedVoice = 'auto', captionPreview = false, log = console.log, warn = console.warn} = {}) => {
   if (!VOICES.includes(requestedVoice)) throw new Error(`Unsupported voice selection: ${requestedVoice}`);
   const {root, manifestPath} = findManifest(episodeId);
   const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
@@ -87,6 +90,12 @@ export const prepareRenderProps = (episodeId, {voice: requestedVoice = 'auto', l
     throw new Error(`${requestedVoice} narration has not been generated for ${episodeId}.`);
   } else if (manifest.audio.voice) {
     log(`ℹ narration not generated; run: npm run voice:local -- ${episodeId} or npm run voice:openai -- ${episodeId}`);
+  }
+
+  // Word-synced captions (#86) follow the narration; a render without it keeps the static caption.
+  if (manifest.show?.captions?.mode === 'words' && (fresh || captionPreview)) {
+    Object.assign(manifest, withWordCaptions(manifest, fresh?.timing.speech));
+    log(`✓ word captions: ${fresh?.timing.speech ? 'measured speech timing' : 'estimated from the text (preview)'}`);
   }
 
   const assets = spawnSync(process.execPath, ['scripts/generate-audio.mjs', episodeId], {cwd: root, stdio: 'inherit'});

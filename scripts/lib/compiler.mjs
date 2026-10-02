@@ -99,6 +99,7 @@ export const compileEpisode = (rawDraft, {showId, show = loadShow(showId), geo})
       handle: draft.show?.handle ?? show.handle,
       wordmark: draft.show?.wordmark ?? show.wordmark,
       fonts: draft.show?.fonts ?? show.fonts,
+      ...(show.captions ? {captions: show.captions} : {}),
     },
     title: draft.title,
     direction: {
