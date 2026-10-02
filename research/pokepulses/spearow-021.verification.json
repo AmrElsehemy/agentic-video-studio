@@ -1,0 +1,441 @@
+{
+  "episodeId": "spearow-021",
+  "checkedAt": "2026-10-02T08:37:58.948Z",
+  "claims": [
+    {
+      "id": "c1",
+      "where": "title",
+      "text": "Spearow's Half-Mile Danger Signal",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c2",
+      "where": "premise",
+      "text": "Spearow’s cry can be heard over half a mile away, and its echoing call signals danger to other Spearow.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c3",
+      "where": "audiencePromise",
+      "text": "See why Spearow’s far-reaching cry is more than a loud noise.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c4",
+      "where": "openLoop",
+      "text": "Why is an echoing cry a Spearow danger signal?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Question framing.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c5",
+      "where": "payoff",
+      "text": "When Spearow’s high cry echoes all around, it is a sign they are warning each other of danger.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c6",
+      "where": "scenes.half-mile-hook.headline",
+      "text": "A HALF-MILE DANGER CRY",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c7",
+      "where": "scenes.half-mile-hook.narration",
+      "text": "Tiny Spearow's danger cry reaches over half a mile.",
+      "verdict": "supported",
+      "evidence": [
+        "category",
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c8",
+      "where": "scenes.half-mile-hook.caption",
+      "text": "OVER HALF A MILE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c9",
+      "where": "scenes.half-mile-hook.eyebrow",
+      "text": "TINY BIRD, DISTANT DANGER",
+      "verdict": "supported",
+      "evidence": [
+        "category",
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c10",
+      "where": "scenes.half-mile-hook.facts[0]",
+      "text": "SPEAROW",
+      "verdict": "supported",
+      "evidence": [
+        "name"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c11",
+      "where": "scenes.half-mile-hook.facts[1]",
+      "text": "WARNING CRY",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c12",
+      "where": "scenes.tiny-source.headline",
+      "text": "ONLY 0.3 METERS TALL",
+      "verdict": "supported",
+      "evidence": [
+        "heightMeters"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c13",
+      "where": "scenes.tiny-source.narration",
+      "text": "A 0.3-meter Spearow makes a high, keening cry.",
+      "verdict": "supported",
+      "evidence": [
+        "heightMeters",
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c14",
+      "where": "scenes.tiny-source.caption",
+      "text": "0.3 METERS TALL",
+      "verdict": "supported",
+      "evidence": [
+        "heightMeters"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c15",
+      "where": "scenes.tiny-source.eyebrow",
+      "text": "THE SOURCE",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Scene-label framing.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c16",
+      "where": "scenes.tiny-source.facts[0]",
+      "text": "HEIGHT: 0.3 M",
+      "verdict": "supported",
+      "evidence": [
+        "heightMeters"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c17",
+      "where": "scenes.tiny-source.facts[1]",
+      "text": "HIGH, KEENING CRY",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c18",
+      "where": "scenes.soundwave-expands.headline",
+      "text": "HEARD OVER HALF A MILE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c19",
+      "where": "scenes.soundwave-expands.narration",
+      "text": "Its loud cry can be heard over half a mile away.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c20",
+      "where": "scenes.soundwave-expands.caption",
+      "text": "HEARD OVER HALF A MILE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c21",
+      "where": "scenes.soundwave-expands.eyebrow",
+      "text": "THE IMPOSSIBLE PART",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Subjective scene framing.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c22",
+      "where": "scenes.soundwave-expands.facts[0]",
+      "text": "OVER HALF A MILE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c23",
+      "where": "scenes.danger-message.headline",
+      "text": "THE ECHO CHANGES EVERYTHING",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Dramatic framing rather than a specific factual claim.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c24",
+      "where": "scenes.danger-message.narration",
+      "text": "When the cry echoes all around, it becomes a warning sign.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c25",
+      "where": "scenes.danger-message.caption",
+      "text": "ECHOING ALL AROUND",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c26",
+      "where": "scenes.danger-message.eyebrow",
+      "text": "THE CRUCIAL CLUE",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Editorial framing.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c27",
+      "where": "scenes.danger-message.facts[0]",
+      "text": "HIGH, KEENING CRY",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c28",
+      "where": "scenes.danger-message.facts[1]",
+      "text": "WARNING SIGN",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c29",
+      "where": "scenes.warning-network.headline",
+      "text": "THEY WARN EACH OTHER",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c30",
+      "where": "scenes.warning-network.narration",
+      "text": "That echo means Spearow are warning each other of danger.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c31",
+      "where": "scenes.warning-network.caption",
+      "text": "WARNING EACH OTHER OF DANGER",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c32",
+      "where": "scenes.warning-network.eyebrow",
+      "text": "THE PAYOFF",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Scene-label framing.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c33",
+      "where": "scenes.warning-network.facts[0]",
+      "text": "WARNS EACH OTHER",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c34",
+      "where": "scenes.warning-network.facts[1]",
+      "text": "DANGER",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c35",
+      "where": "scenes.verdict-question.headline",
+      "text": "REACH OR SIGNAL?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Question framing.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c36",
+      "where": "scenes.verdict-question.narration",
+      "text": "More impressive: half-mile reach or its danger signal?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Question asking for an opinion.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c37",
+      "where": "scenes.verdict-question.caption",
+      "text": "REACH OR DANGER SIGNAL?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Question framing.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c38",
+      "where": "scenes.verdict-question.eyebrow",
+      "text": "YOUR CALL",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Audience prompt.",
+      "checkedBy": "model"
+    }
+  ],
+  "unsupported": [],
+  "uncertain": []
+}

@@ -1,0 +1,172 @@
+{
+  "id": "spearow-021",
+  "title": "Spearow's Half-Mile Danger Signal",
+  "storyPattern": "mechanic",
+  "numberRelevant": true,
+  "premise": "Spearow’s cry can be heard over half a mile away, and its echoing call signals danger to other Spearow.",
+  "audiencePromise": "See why Spearow’s far-reaching cry is more than a loud noise.",
+  "openLoop": "Why is an echoing cry a Spearow danger signal?",
+  "payoff": "When Spearow’s high cry echoes all around, it is a sign they are warning each other of danger.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "More impressive: half-mile reach or its danger signal?",
+  "subject": {
+    "name": "Spearow",
+    "category": "Tiny Bird Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/21.png",
+    "identifier": "#021"
+  },
+  "related": [
+    {
+      "name": "Fearow",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/22.png",
+      "identifier": "#022"
+    }
+  ],
+  "palette": {
+    "background": "#101417",
+    "surface": "#1d2528",
+    "primary": "#c7773c",
+    "secondary": "#f2d37c",
+    "ink": "#fff6df"
+  },
+  "voice": {
+    "instructions": "Urgent and amazed. Start tight and quiet, then build with each expanding soundwave. Land the final question with a playful challenge."
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    },
+    "assets": [
+      {
+        "kind": "Spearow official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/21.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "half-mile-hook",
+      "beat": "hook",
+      "eyebrow": "TINY BIRD, DISTANT DANGER",
+      "headline": "A HALF-MILE DANGER CRY",
+      "narration": "Tiny Spearow's danger cry reaches over half a mile.",
+      "caption": "OVER HALF A MILE",
+      "facts": [
+        "SPEAROW",
+        "WARNING CRY"
+      ],
+      "accent": "#f2d37c",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/21.png"
+    },
+    {
+      "id": "tiny-source",
+      "beat": "evidence",
+      "eyebrow": "THE SOURCE",
+      "headline": "ONLY 0.3 METERS TALL",
+      "narration": "A 0.3-meter Spearow makes a high, keening cry.",
+      "caption": "0.3 METERS TALL",
+      "facts": [
+        "HEIGHT: 0.3 M",
+        "HIGH, KEENING CRY"
+      ],
+      "accent": "#c7773c",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/21.png"
+    },
+    {
+      "id": "soundwave-expands",
+      "beat": "escalation",
+      "eyebrow": "THE IMPOSSIBLE PART",
+      "headline": "HEARD OVER HALF A MILE",
+      "narration": "Its loud cry can be heard over half a mile away.",
+      "caption": "HEARD OVER HALF A MILE",
+      "facts": [
+        "OVER HALF A MILE"
+      ],
+      "accent": "#f2d37c",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/21.png"
+    },
+    {
+      "id": "danger-message",
+      "beat": "payoff",
+      "eyebrow": "THE CRUCIAL CLUE",
+      "headline": "THE ECHO CHANGES EVERYTHING",
+      "narration": "When the cry echoes all around, it becomes a warning sign.",
+      "caption": "ECHOING ALL AROUND",
+      "facts": [
+        "HIGH, KEENING CRY",
+        "WARNING SIGN"
+      ],
+      "accent": "#ffb84d",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/21.png"
+    },
+    {
+      "id": "warning-network",
+      "beat": "payoff",
+      "eyebrow": "THE PAYOFF",
+      "headline": "THEY WARN EACH OTHER",
+      "narration": "That echo means Spearow are warning each other of danger.",
+      "caption": "WARNING EACH OTHER OF DANGER",
+      "facts": [
+        "WARNS EACH OTHER",
+        "DANGER"
+      ],
+      "accent": "#f2d37c",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/21.png",
+      "primitive": {
+        "kind": "checklist",
+        "items": [
+          {
+            "label": "HIGH KEENING CRY",
+            "met": true
+          },
+          {
+            "label": "ECHOING ALL AROUND",
+            "met": true
+          },
+          {
+            "label": "DANGER WARNING",
+            "met": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "verdict-question",
+      "beat": "verdict",
+      "eyebrow": "YOUR CALL",
+      "headline": "REACH OR SIGNAL?",
+      "narration": "More impressive: half-mile reach or its danger signal?",
+      "caption": "REACH OR DANGER SIGNAL?",
+      "accent": "#c7773c",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/21.png"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Spearow",
+      "url": "https://www.pokemon.com/us/pokedex/spearow",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Spearow",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Spearow_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Spearow",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/21",
+      "tier": "trusted_secondary"
+    }
+  ]
+}
