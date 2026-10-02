@@ -16,6 +16,11 @@ on:
         type: boolean
         default: true
 
+# A new push to a PR cancels that PR's run still in progress; master and nightly runs always finish.
+concurrency:
+  group: quality-${{ github.event.pull_request.number || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
 jobs:
   validate:
     runs-on: ubuntu-latest
@@ -100,12 +105,15 @@ jobs:
           if [ -n "$failed" ]; then echo "::error::Video critic found blocking issues in:$failed"; exit 1; fi
       # PokePulses must look exactly as before unless the PR is labelled as an intended change.
       # The before/after page (out/visual-review/index.html) is uploaded for approval either way.
+      # The working tree's frames come from the step above (CI has no generated narration, so they
+      # match a --voice=none render); scene-change strips only when map rendering may have changed.
       - name: Visual review against the base branch
         if: always() && github.event_name == 'pull_request'
         env:
           BASE_REF: ${{ github.base_ref }}
           ALLOW: ${{ contains(github.event.pull_request.labels.*.name, 'pokepulses-visual-change') && '--allow-change' || '' }}
-        run: npm run review:visual -- --base=origin/$BASE_REF $ALLOW
+          STRIPS: ${{ needs.validate.outputs.geo != 'true' && '--no-strips' || '' }}
+        run: npm run review:visual -- --base=origin/$BASE_REF --reuse-head $ALLOW $STRIPS
       - uses: actions/upload-artifact@v4
         if: always()
         with:
