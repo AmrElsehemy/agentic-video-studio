@@ -1,5 +1,6 @@
 import React from 'react';
 import {AbsoluteFill, interpolate, spring, useCurrentFrame, useVideoConfig} from 'remotion';
+import {captionAt} from '../../scripts/lib/captions.mjs';
 import type {VideoManifest, VideoScene} from '../schema';
 import {continuesMap} from './geo/camera';
 import {PrimitiveVisual} from './primitives';
@@ -58,7 +59,27 @@ export const CompiledEpisodeScene: React.FC<Props> = ({scene, manifest, sceneInd
 
     {/* Caption is content. The repeated @handle footer was decorative chrome and is intentionally gone. */}
     <div style={{position: 'absolute', left: 58, right: 58, bottom: 72, zIndex: 30, opacity: textFade}}>
-      <div style={{fontFamily: displayFont, fontSize: 54, lineHeight: .92, textTransform: 'uppercase', maxWidth: 900}}>{scene.caption}</div>
+      {scene.words?.length
+        ? <WordCaption words={scene.words} seconds={frame / fps} fps={fps} accent={accent} />
+        : <div style={{fontFamily: displayFont, fontSize: 54, lineHeight: .92, textTransform: 'uppercase', maxWidth: 900}}>{scene.caption}</div>}
     </div>
   </AbsoluteFill>;
+};
+
+/**
+ * Word-synced caption (#86): the narration a short phrase at a time, the word
+ * being spoken in the accent colour. Each new phrase rises in over a few frames.
+ */
+const WordCaption: React.FC<{words: NonNullable<VideoScene['words']>; seconds: number; fps: number; accent: string}> = ({words, seconds, fps, accent}) => {
+  const caption = captionAt(words, seconds);
+  if (!caption) return null;
+  const sinceStart = (seconds - caption.words[0].start) * fps;
+  const rise = caption.words[0] === words[0] ? 1 : interpolate(sinceStart, [0, 4], [0, 1], clamp);
+  return <div style={{fontFamily: displayFont, fontSize: 62, lineHeight: .95, textTransform: 'uppercase', maxWidth: 940, opacity: rise, transform: `translateY(${(1 - rise) * 14}px)`}}>
+    {caption.words.map((word, index) => {
+      const active = index === caption.active;
+      const pop = active ? interpolate((seconds - word.start) * fps, [0, 3], [1.08, 1], clamp) : 1;
+      return <span key={index} style={{display: 'inline-block', marginRight: '.26em', color: active ? accent : undefined, transform: `scale(${pop})`, transformOrigin: '50% 80%'}}>{word.text}</span>;
+    })}
+  </div>;
 };

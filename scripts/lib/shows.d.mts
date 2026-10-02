@@ -14,6 +14,7 @@ export type ShowProfile = {
   subjects?: {identifierLabel: string; identifierPattern: string};
   /** A recorded legal review allowing the show's subject artwork to be published without a licence. */
   artworkClearance?: Review;
+  captions?: {mode: 'static' | 'words'};
   archetypes: string[];
 };
 

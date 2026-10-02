@@ -1,6 +1,6 @@
 import {z} from 'zod';
 import {primitiveSchema} from '../scripts/primitive-schema.mjs';
-import {fontsSchema, musicBedSchema, wordmarkSchema} from '../scripts/show-schema.mjs';
+import {captionsSchema, fontsSchema, musicBedSchema, wordmarkSchema} from '../scripts/show-schema.mjs';
 import {relatedSchema, subjectSchema} from '../scripts/subject-schema.mjs';
 import {idSchema, paletteSchema, pitchLine, rightsSchema, sceneText, sourcesSchema, TARGET_EMOTIONS, voiceSettings} from '../scripts/episode-fields.mjs';
 
@@ -15,6 +15,8 @@ export const sceneSchema = z.object({
   beatEverySeconds: z.number().positive().max(1.5),
   visual: z.enum(['hook', 'gauntlet', 'advantage', 'race', 'tradeoff', 'cta']),
   primitive: primitiveSchema.optional(),
+  // Word-synced captions (#86): added at render time from the narration track, never stored in the manifest.
+  words: z.array(z.object({text: z.string(), start: z.number(), end: z.number()})).optional(),
 });
 
 // Compiled episodes use an archetype from archetypes/<name>.json (checked by
@@ -32,6 +34,7 @@ export const videoSchema = z.object({
     // Branding from the show profile (shows/<id>.json); without it the renderer shows the name in Bebas Neue.
     wordmark: wordmarkSchema.optional(),
     fonts: fontsSchema.optional(),
+    captions: captionsSchema.optional(),
   }),
   title: z.string().min(1),
   direction: z.object({

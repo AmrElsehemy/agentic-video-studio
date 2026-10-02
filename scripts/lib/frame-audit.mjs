@@ -2,6 +2,8 @@
 // tiny greyscale thumbnail of each frame. Catches the bugs that only showed
 // up when someone looked at a render: a missing hook headline, a caption
 // drawn twice, the wrong title on a cover, a blank or repeated frame.
+import {captionAt} from './captions.mjs';
+import {reviewFrames} from './render-props.mjs';
 
 /** Uppercase words with OCR look-alikes folded (0→O, 1→I, 5→S), punctuation dropped. */
 export const words = (text) => (text.toUpperCase()
@@ -50,6 +52,22 @@ export const frameStats = (gray) => {
 export const difference = (a, b) => [...a].reduce((sum, value, index) => sum + Math.abs(value - b[index]), 0) / a.length;
 
 /**
+ * The caption text each scene's review frame shows: the static caption, or,
+ * with word-synced captions (#86), the phrase on screen at that frame
+ * (computed from frames, as the renderer does).
+ */
+export const expectedCaptions = (manifest) => {
+  const fps = manifest.format.fps;
+  let startFrame = 0;
+  return reviewFrames(manifest).map(({index, frame}) => {
+    const scene = manifest.scenes[index];
+    const text = scene.words?.length ? captionAt(scene.words, (frame - startFrame) / fps)?.phrase ?? scene.caption : scene.caption;
+    startFrame += Math.round(scene.durationSeconds * fps);
+    return text;
+  });
+};
+
+/**
  * Audit one episode's frames. `frames` is one entry per scene, in order:
  * {text, headlineText?, gray}. `headlineText` is an extra read of the
  * headline block, used only to find the headline (it overlaps `text`, so it
@@ -58,6 +76,7 @@ export const difference = (a, b) => [...a].reduce((sum, value, index) => sum + M
  */
 export const auditFrames = ({manifest, frames, cover}) => {
   const issues = [];
+  const expected = expectedCaptions(manifest);
   const add = (where, check, severity, message) => issues.push({where, check, severity, message, source: 'audit'});
   manifest.scenes.forEach((scene, index) => {
     const frame = frames[index];
@@ -66,11 +85,12 @@ export const auditFrames = ({manifest, frames, cover}) => {
     if (frame.text !== undefined) {
       const headline = coverage(scene.headline, `${frame.text}\n${frame.headlineText ?? ''}`);
       if (headline < MIN_COVERAGE) add(where, 'headline', 'blocking', `Headline "${scene.headline}" is not readable on screen (${Math.round(headline * 100)}% of its words found).`);
-      const caption = coverage(scene.caption, frame.text);
-      if (caption < MIN_COVERAGE) add(where, 'caption', 'blocking', `Caption "${scene.caption}" is not readable on screen (${Math.round(caption * 100)}% of its words found).`);
+      const captionText = expected[index];
+      const caption = coverage(captionText, frame.text);
+      if (caption < MIN_COVERAGE) add(where, 'caption', 'blocking', `Caption "${captionText}" is not readable on screen (${Math.round(caption * 100)}% of its words found).`);
       // The caption is drawn once, at the bottom; a second copy means two layers both draw it.
-      const sameAsOtherText = [scene.headline, scene.eyebrow ?? '', ...(scene.facts ?? [])].some((text) => words(text).join(' ') === words(scene.caption).join(' '));
-      if (!sameAsOtherText && occurrences(scene.caption, frame.text) > 1) add(where, 'caption', 'blocking', `Caption "${scene.caption}" is drawn more than once.`);
+      const sameAsOtherText = [scene.headline, scene.eyebrow ?? '', ...(scene.facts ?? [])].some((text) => words(text).join(' ') === words(captionText).join(' '));
+      if (!sameAsOtherText && occurrences(captionText, frame.text) > 1) add(where, 'caption', 'blocking', `Caption "${captionText}" is drawn more than once.`);
     }
     if (frame.gray) {
       const {stddev} = frameStats(frame.gray);

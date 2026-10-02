@@ -13,6 +13,7 @@ Each file here defines one show. A new show is a new `shows/<id>.json` plus draf
 | `voice` | Default narration voice, speed, model and instructions. |
 | `notices` | Ownership and non-affiliation text written into every draft's rights. |
 | `subjects` | Optional rules for subjects: `identifierLabel` (e.g. "Pokédex number") and `identifierPattern`, a regular expression every `identifier` must match. |
+| `captions` | Optional. `{"mode": "words"}` shows the narration a few words at a time in the caption band, with the spoken word highlighted, whenever the episode is rendered with narration. Without it (or with `"static"`) each scene shows its one caption line. |
 | `archetypes` | Story shapes (`archetypes/<name>.json`) the show allows. |
 
 `shows/pokepulses.json` is the reference.
