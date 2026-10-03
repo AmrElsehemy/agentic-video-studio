@@ -9,6 +9,7 @@ import {cameraAt, cameraKeys, continuesMap, episodeCameraKeys, MAP_SIZE, type BB
 import {useGeoData, useReliefData, type GeoData} from './data';
 import {RELIEF_STRENGTH, reliefPlacements} from './relief';
 import {fitInside, labelBox, resolveLabels, type Box, type Placed} from './labels';
+import {labelScale, pop} from './motion';
 import {followView, followWeight, partialRoute, routeLine, routeProgress, type RouteLine} from './route';
 
 // A map drawn entirely from the pinned data and the primitive: the camera flies
@@ -93,11 +94,15 @@ const keepInside = ([x, y]: [number, number]): [number, number] => [Math.max(SAF
 const OFF_FRAME = 160;
 const farOffFrame = ([x, y]: [number, number]) => x < -OFF_FRAME || x > SIZE.width + OFF_FRAME || y < -OFF_FRAME || y > SIZE.height + OFF_FRAME;
 
-/** `rise` (0–1) lifts the label into place as it appears; fading for an overlap doesn't move it. */
-const Label: React.FC<{x: number; y: number; text: string; opacity: number; color: string; halo: string; size?: number; rise?: number}> = ({x, y, text, opacity, color, halo, size = LABEL_SIZE, rise = opacity}) => (
-  <text x={x} y={y + (1 - rise) * 14} textAnchor="middle" dominantBaseline="middle" opacity={opacity}
-    style={{fontFamily: displayFont, fontSize: size, letterSpacing: 3, fill: color, stroke: halo, strokeWidth: 10, paintOrder: 'stroke', strokeLinejoin: 'round'}}>{text}</text>
-);
+/**
+ * `rise` (0–1) lifts the label into place as it appears; fading for an overlap doesn't move it.
+ * `scale` grows it from its centre as it springs in (motion.ts).
+ */
+const Label: React.FC<{x: number; y: number; text: string; opacity: number; color: string; halo: string; size?: number; rise?: number; scale?: number}> = ({x, y, text, opacity, color, halo, size = LABEL_SIZE, rise = opacity, scale = 1}) => {
+  const label = <text x={x} y={y + (1 - rise) * 14} textAnchor="middle" dominantBaseline="middle" opacity={opacity}
+    style={{fontFamily: displayFont, fontSize: size, letterSpacing: 3, fill: color, stroke: halo, strokeWidth: 10, paintOrder: 'stroke', strokeLinejoin: 'round'}}>{text}</text>;
+  return scale === 1 ? label : <g transform={`translate(${x} ${y}) scale(${scale}) translate(${-x} ${-y})`}>{label}</g>;
+};
 
 export const GeoMapVisual: React.FC<ShotProps & {data: GeoMapPrimitive}> = ({data: primitive, scene, manifest, frame, durationInFrames, accent, seams}) => {
   const data = useGeoData();
@@ -129,6 +134,8 @@ export const GeoMapVisual: React.FC<ShotProps & {data: GeoMapPrimitive}> = ({dat
   const projection: GeoProjection = geoMercator().rotate([-view.lon, 0]).center([0, view.lat]).scale(view.scale).translate([SIZE.width / 2, SIZE.height / 2]);
   const path = geoPath(projection);
   const appear = (at: number, frames = APPEAR) => interpolate(frame, [at * durationInFrames, at * durationInFrames + frames], [0, 1], clamp);
+  /** Spring progress (motion.ts) of an entrance at `at`: 0 before, a small overshoot, then 1. */
+  const springIn = (at: number) => pop(frame, at * durationInFrames, manifest.format.fps);
   /** A marker or label with an `until` fades out, finishing then. */
   const vanish = (until?: number) => (until === undefined ? 1 : interpolate(frame, [until * durationInFrames - APPEAR, until * durationInFrames], [1, 0], clamp));
   const point = (lonLat: [number, number]) => projection(lonLat) as [number, number];
@@ -177,9 +184,9 @@ export const GeoMapVisual: React.FC<ShotProps & {data: GeoMapPrimitive}> = ({dat
   const resolved = resolveLabels(placed, BOUNDS);
   const boxes = new Map([...texts.keys()].map((index, order) => [index, resolved.boxes[order]]));
   const fades = new Map([...texts.keys()].map((index, order) => [index, resolved.fades[order]]));
-  const textOf = (index: number, text: string, opacity: number, rise = opacity) => {
+  const textOf = (index: number, text: string, opacity: number, rise = opacity, scale = 1) => {
     const [item, box] = [texts.get(index), boxes.get(index)];
-    return item && box ? <Label x={box.x} y={box.y} text={text} opacity={opacity * (fades.get(index) ?? 1)} rise={rise} color={palette.ink} halo={palette.background} size={item.size} /> : null;
+    return item && box ? <Label x={box.x} y={box.y} text={text} opacity={opacity * (fades.get(index) ?? 1)} rise={rise} scale={scale} color={palette.ink} halo={palette.background} size={item.size} /> : null;
   };
 
   const highlights = primitive.highlights.map((highlight, index) => {
@@ -197,8 +204,10 @@ export const GeoMapVisual: React.FC<ShotProps & {data: GeoMapPrimitive}> = ({dat
         </g>;
       }
       const shown = appear(highlight.at);
+      // The border springs to its width, a touch thicker for a moment, as the place lights up.
+      const border = springIn(highlight.at);
       return <path key={index} d={d} fill={highlight.style === 'fill' ? (disputed ? 'url(#geo-hatch)' : color) : 'none'} fillOpacity={.85 * shown}
-        stroke={color} strokeOpacity={shown} strokeWidth={highlight.style === 'outline' ? 6 : 3} strokeLinejoin="round" style={{filter: `drop-shadow(0 0 ${14 * shown}px ${color})`}} />;
+        stroke={color} strokeOpacity={shown} strokeWidth={(highlight.style === 'outline' ? 6 : 3) * border} strokeLinejoin="round" style={{filter: `drop-shadow(0 0 ${14 * shown}px ${color})`}} />;
     });
   // Routes go underneath, so labels and markers on their stops stay readable.
   const annotations = primitive.annotations.map((annotation, index) => [annotation, index] as const).sort(([a], [b]) => Number(b.type === 'route') - Number(a.type === 'route')).map(([annotation, index]) => {
@@ -269,9 +278,10 @@ export const GeoMapVisual: React.FC<ShotProps & {data: GeoMapPrimitive}> = ({dat
       const [x, y] = keepInside(projected);
       if (annotation.type === 'marker') {
         const pulse = 1 + .35 * Math.abs(Math.sin((frame - annotation.at * durationInFrames) / 8));
+        const grow = springIn(annotation.at);
         return <g key={index} opacity={shown}>
-          <circle cx={x} cy={y} r={22 * pulse} fill={accent} opacity={.25} />
-          <circle cx={x} cy={y} r={11} fill={accent} stroke={palette.ink} strokeWidth={4} />
+          <circle cx={x} cy={y} r={22 * pulse * grow} fill={accent} opacity={.25} />
+          <circle cx={x} cy={y} r={11 * grow} fill={accent} stroke={palette.ink} strokeWidth={4} />
         </g>;
       }
       return null;
@@ -281,7 +291,8 @@ export const GeoMapVisual: React.FC<ShotProps & {data: GeoMapPrimitive}> = ({dat
     if ((annotation.type !== 'label' && annotation.type !== 'marker') || !annotation.text) return null;
     const shown = appear(annotation.at) * vanish(annotation.until);
     // A marker's text sat inside its faded group, so it appears at shown².
-    return <React.Fragment key={`text-${index}`}>{textOf(index, annotation.text, annotation.type === 'marker' ? shown * shown : shown, shown)}</React.Fragment>;
+    const grow = springIn(annotation.at);
+    return <React.Fragment key={`text-${index}`}>{textOf(index, annotation.text, annotation.type === 'marker' ? shown * shown : shown, grow, labelScale(grow))}</React.Fragment>;
   });
   const frameStyle = {position: 'absolute' as const, inset: 0, borderRadius: 36, overflow: 'hidden' as const};
 
