@@ -18,7 +18,8 @@ export type GeoHighlight = {entity: GeoEntityId; style: 'fill' | 'outline' | 'tr
 export type GeoAnnotation =
   | {type: 'label'; anchor: GeoAnchor; text: string; at: number}
   | {type: 'marker'; anchor: GeoAnchor; text?: string; at: number}
-  | {type: 'arrow'; from: GeoAnchor; to: GeoAnchor; text?: string; at: number};
+  | {type: 'arrow'; from: GeoAnchor; to: GeoAnchor; text?: string; at: number}
+  | {type: 'route'; path: GeoAnchor[]; text?: string; at: number; until?: number; marker: boolean; follow: boolean};
 export type GeoMapPrimitive = {kind: 'geo-map'; camera: GeoCameraKey[]; highlights: GeoHighlight[]; annotations: GeoAnnotation[]; dataset: 'natural-earth'; cut?: boolean};
 export type PrimitiveKind = Primitive['kind'];
 
@@ -28,3 +29,5 @@ export declare const primitiveSchema: z.ZodType<Primitive>;
 export declare const PRIMITIVE_KINDS: PrimitiveKind[];
 export declare const primitiveNumbers: (primitive: Primitive) => number[];
 export declare const primitiveText: (primitive: Primitive) => string;
+export declare const routeUntil: (route: {at: number; until?: number}) => number;
+export declare const FOLLOW_LATEST: number;

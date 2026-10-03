@@ -30,7 +30,8 @@ The resolver maps names to registry ids. It checks Natural Earth names, ISO code
 |---|---|
 | Camera target | `"world"`, a place id, `{"around": [ids]}` (one box around several places), or `{"place": key}` (a named point, framed about 2°×1.5°) |
 | Highlight | A place id. Disputed areas of flagged countries may only be highlighted, never framed or labelled |
-| Anchor (labels, markers, arrow ends) | A place id or `{"place": key}` |
+| Anchor (labels, markers, arrow ends, route stops) | A place id or `{"place": key}` |
+| Route | 2-6 stops, for narration that describes movement (a journey, trade road, migration or voyage). The route's text must say it is approximate if any stop is an approximate point. `"follow": true` needs `until` ≤ 0.85 |
 | Text | At most 28 characters. Every number must appear in a claim. A label on an approximate point must say so (`APPROX.`, `AREA`, `NEAR`, `~`) |
 
 A shot that breaks any rule, fails the primitive schema, or names an unknown scene is rejected with a reason. Its scene gets the **default map**: the subject framed, filled and named. Scenes the model skips get the same, and so does every scene when there is no model or the model fails. A directed draft always compiles.

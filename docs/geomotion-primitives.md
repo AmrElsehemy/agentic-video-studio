@@ -19,11 +19,12 @@ The issue proposed `geo-map`, `geo-highlight` and `geo-annotation` as separate p
   ],
   // Up to 4 places that light up: "fill", "outline" or "trace" (the border draws itself).
   "highlights": [{"entity": "country:GEO", "style": "fill", "at": 0.7, "color": "#e4b363"}],
-  // Up to 4 labels, markers or arrows, anchored to a place id or a {lon, lat} point.
+  // Up to 4 labels, markers, arrows or routes, anchored to a place id or a {lon, lat} point.
   "annotations": [
     {"type": "label", "anchor": "water:black-sea", "text": "BLACK SEA", "at": 0.15},
     {"type": "marker", "anchor": {"lon": 44.79, "lat": 41.72}, "text": "TBILISI", "at": 0.3},
-    {"type": "arrow", "from": "water:caspian-sea", "to": "country:GEO", "at": 0.6}
+    {"type": "arrow", "from": "water:caspian-sea", "to": "country:GEO", "at": 0.6},
+    {"type": "route", "path": [{"lon": 44.79, "lat": 41.72}, "country:ARM"], "text": "TO YEREVAN", "at": 0.2, "until": 0.8, "marker": true, "follow": false}
   ],
   "dataset": "natural-earth",                                       // the pinned map data (default)
   "cut": true                                                       // optional: start this scene's camera fresh (see Continuity)
@@ -38,12 +39,14 @@ The issue proposed `geo-map`, `geo-highlight` and `geo-annotation` as separate p
 | Time | `at` is a fraction of the scene (0 = start, 1 = end), so the choreography follows the narration's timing. Camera keyframes must start at 0 and move forward. |
 | Camera | `padding` (0-0.4, default 0.15) is the margin around the target, as a share of each side (0.5 would leave no room for the place). `ease` is `in-out` (default) or `linear`. |
 | Text | Labels are at most 28 characters. They are the only on-screen words, so they are the only part the fact checks read. Place names come from the map data. |
-| Defaults | `highlights: []`, `annotations: []`, `dataset: "natural-earth"`, highlight `style: "fill"`, `at: 0`. |
+| Routes | `path` is 2-6 stops (place ids or points). The line between them follows great circles, the shortest way across the globe, computed by the renderer (`src/video/geo/route.ts`). It draws itself from `at` to `until` (default: half a scene after `at`), easing at both ends, with a marker at its head and a dot on each stop it has reached. It crosses the antimeridian the short way. Routes draw underneath labels and markers. |
+| Follow | `follow: true` moves the camera's centre onto the route's marker while the route draws. The camera keyframes still set the zoom. The camera eases on over 10% of the scene and back to the keyframes over 15% after the route ends. A followed route must end by 0.85, so the scene ends exactly on its keyframes and a continuing scene picks up without a jump. Only one route per shot can be followed. |
+| Defaults | `highlights: []`, `annotations: []`, `dataset: "natural-earth"`, highlight `style: "fill"`, `at: 0`, route `marker: true`, `follow: false`. |
 
 ## What is checked, and where
 
 - **Schema** (`scripts/primitive-schema.mjs`, shared by drafts, the compiler and the renderer): shapes, ranges, keyframe order, and unknown fields.
-- **Compiler** (`scripts/lib/geo-primitives.mjs`): every place id must exist in the pinned map data. Otherwise compilation fails, listing each unknown id with where it's used and the nearest real ids (*`camera[0].target: unknown geo entity "country:GEORGIA"; did you mean country:GEO (Georgia)?`*). A map never renders empty.
+- **Compiler** (`scripts/lib/geo-primitives.mjs`): every place id must exist in the pinned map data, route stops included. Otherwise compilation fails, listing each unknown id with where it's used and the nearest real ids (*`camera[0].target: unknown geo entity "country:GEORGIA"; did you mean country:GEO (Georgia)?`*). A map never renders empty.
 - **Camera** (`test/geo-episodes.test.ts`, part of `npm test`): every map scene in the catalog and the golden fixture is run through the renderer's own camera maths (`cameraKeys`/`cameraAt` in `src/video/geo/camera.ts`). A view that collapses (a blank map) or zooms far past the world framing fails. So does a target framed at under 20% of the frame. No render is needed.
 - **Rights:** an episode with a map scene gets one `map-data` rights entry crediting Natural Earth (`public-domain`, with the attribution line). `preflight:publish` accepts `public-domain` assets.
 - **Visual Director:** map shots are chosen by the Geo Visual Director from resolved places and researched points, never raw coordinates ([docs/geomotion-director.md](geomotion-director.md)). The PokePulses Visual Director doesn't offer `geo-map`.
@@ -83,4 +86,5 @@ The golden shots the renderer is built against (#72) live in [`test/fixtures/geo
 1. **`fly-to-georgia`**: world → Caucasus → Georgia, with Georgia filling in on arrival.
 2. **`georgia-border`**: Georgia's border traces itself, then the label `GEORGIA` appears.
 3. **`between-two-seas`**: a Caucasus framing with the Black Sea and Caspian Sea labelled, and arrows from each sea to Georgia.
-4. **`fiji-antimeridian`**: Fiji, which crosses the ±180° meridian, framed and filled whole.
+4. **`fiji-antimeridian`**: Fiji, which crosses the ±180° meridian, framed and filled whole, with a route to Samoa across the 180° line.
+5. **`silk-road`** (#90): Xi'an → Samarkand → Constantinople. The camera rides along with the marker, then pulls out to the whole road.

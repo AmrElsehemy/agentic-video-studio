@@ -98,6 +98,13 @@ export const shotToPrimitive = (shot, {places, research}) => {
       if (!numbers.has(number)) throw new Error(`${where}: "${annotation.text}" states ${number}, which is not in the research`);
     }
     if (annotation?.type === 'arrow') return {...annotation, from: anchor(annotation.from, `${where}.from`), to: anchor(annotation.to, `${where}.to`)};
+    if (annotation?.type === 'route') {
+      // A route runs only between places the map knows and the research's named points.
+      if (!Array.isArray(annotation.path)) throw new Error(`${where}.path: a route needs a list of 2-6 stops`);
+      const approximate = annotation.path.find((ref) => ref && typeof ref === 'object' && research.places[ref.place]?.approximate);
+      if (approximate && annotation.text && !APPROXIMATE.test(annotation.text)) throw new Error(`${where}: the route passes the approximate point "${approximate.place}", so its text must say so`);
+      return {...annotation, path: annotation.path.map((ref, at) => anchor(ref, `${where}.path[${at}]`))};
+    }
     const ref = annotation?.anchor;
     if (ref && typeof ref === 'object' && research.places[ref.place]?.approximate && !APPROXIMATE.test(annotation.text ?? '')) {
       throw new Error(`${where}: "${ref.place}" is an approximate point, so its text must say so (e.g. "${String(annotation.text ?? '').slice(0, 18)} (APPROX.)")`);
@@ -125,7 +132,8 @@ A shot is JSON:
  "camera": [{"target": T, "at": 0, "padding": 0.15}, ...],   // 1-4 keyframes; at = fraction of the scene, first at 0, then increasing
  "highlights": [{"entity": "<place id>", "style": "fill" | "outline" | "trace", "at": 0.3}],   // up to 4
  "annotations": [{"type": "label" | "marker", "anchor": A, "text": "SHORT CAPS", "at": 0.5},
-                 {"type": "arrow", "from": A, "to": A, "at": 0.7}],   // up to 4
+                 {"type": "arrow", "from": A, "to": A, "at": 0.7},
+                 {"type": "route", "path": [A, A, ...], "text": "SHORT CAPS", "at": 0.2, "until": 0.8, "follow": false}],   // up to 4 in all
  "why": "one sentence"}
 
 T (camera target) is "world", a place id, {"around": ["<place id>", ...]} to frame several places together, or {"place": "<point key>"} to frame a named point closely.
@@ -137,6 +145,7 @@ Rules:
 - Text is at most 28 characters. Every number in a text must appear in the research claims.
 - A good sequence moves: open wide (the world or a region), then push in; vary framings between scenes; reveal with a trace or fill; keep labels to what the narration names.
 - Disputed areas can be highlighted (outline) when the narration is about them; never frame them alone.
+- A route (2-6 stops) draws a journey, trade road, migration or voyage along the shortest path across the globe, with a marker moving along it from "at" to "until". Use it only when the narration describes movement. Frame the whole route in the camera, or set "follow": true to have the camera ride along with the marker (then "until" must be at most 0.85).
 - Consecutive scenes are one continuous flight: each scene's camera starts where the previous one ended and flies to its first target. Plan the episode as one journey. Add "cut": true only when the story jumps somewhere unrelated.
 
 Reply with a JSON object only: {"scenes": [<shot>, ...]}`,
