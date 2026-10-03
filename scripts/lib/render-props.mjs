@@ -1,10 +1,10 @@
 // The props a render actually uses: the compiled manifest plus narration
 // timing, the related subjects a scene shows, and the runtime audio mix.
 // Shared by the full render and the CI frame check so both see the same frames.
-import {spawnSync} from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 import {findManifest} from '../catalog.mjs';
+import {writeAudioBed} from './audio-bed.mjs';
 import {snapToBeats} from './beats.mjs';
 import {withWordCaptions} from './captions.mjs';
 import {voiceStaleReason} from './voice-lock.mjs';
@@ -102,8 +102,9 @@ export const prepareRenderProps = (episodeId, {voice: requestedVoice = 'auto', c
     log(`✓ word captions: ${fresh?.timing.speech ? 'measured speech timing' : 'estimated from the text (preview)'}`);
   }
 
-  const assets = spawnSync(process.execPath, ['scripts/generate-audio.mjs', episodeId], {cwd: root, stdio: 'inherit'});
-  if (assets.status !== 0) throw new Error(`Generating the audio bed and sound effects for ${episodeId} failed.`);
+  // Music and sound effects follow this manifest's scene lengths, which narration timing may have
+  // stretched, so the cues land on the scene changes the render actually has.
+  writeAudioBed({root, episodeId, manifest, log});
 
   // Runtime-only mix overrides: keep compiled manifests stable while making the
   // rendered short clearly audible on phone speakers.
