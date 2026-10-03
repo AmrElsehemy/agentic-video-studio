@@ -36,6 +36,8 @@ export const showSchema = z.object({
   publishing: z.object({
     hashtags: z.array(z.string().regex(/^#[\p{L}\p{N}_]+$/u, 'A hashtag is # and one word, e.g. "#Geography"')).min(1).max(5),
     tags: z.array(z.string().min(1).max(40)).min(1).max(20),
+    /** The show's YouTube channel; uploads and links refuse a login for any other channel. */
+    channelId: z.string().regex(/^UC[\w-]{22}$/, 'A YouTube channel id, e.g. "UCAdCQV1ieA3NjmNiutIRwHQ"').optional(),
   }).strict().optional(),
   /** Rules for the show's subjects, e.g. PokePulses identifiers are Pokédex numbers like "#001". */
   subjects: z.object({

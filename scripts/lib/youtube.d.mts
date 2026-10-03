@@ -1,10 +1,20 @@
 export declare const YOUTUBE_UPLOAD_SCOPE: string;
 export declare const YOUTUBE_ANALYTICS_SCOPE: string;
+export declare const YOUTUBE_READONLY_SCOPE: string;
+export declare const tokenPath: (root: string, show?: string) => string;
+export declare const envRefreshToken: (show?: string, env?: Record<string, string | undefined>) => string | undefined;
+export type Channel = {id: string; title?: string; uploads?: string};
+export type Upload = {videoId: string; title: string; publishedAt?: string};
+export declare const channelOf: (accessToken: string, options?: {fetchImpl?: typeof fetch}) => Promise<Channel>;
+export declare const assertShowChannel: (show: import('./shows.mjs').ShowProfile, channel: Channel) => void;
+export declare const listUploads: (accessToken: string, playlistId: string, options?: {fetchImpl?: typeof fetch}) => Promise<Upload[]>;
+export declare const titleKey: (title: string) => string;
+export declare const matchUploads: (videos: Upload[], episodes: {episodeId: string; title: string}[]) => {matched: {episodeId: string; video: Upload}[]; unmatched: Upload[]};
 export declare const loadClient: (root: string) => {client_id: string; client_secret: string};
-export declare const saveToken: (root: string, token: Record<string, unknown>) => void;
-export declare const refreshAccessToken: (root: string, existing?: Record<string, any>) => Promise<Record<string, any>>;
-export declare const getAccessToken: (root: string) => Promise<string>;
-export declare const authorizeInteractively: (root: string, options?: {port?: number}) => Promise<Record<string, any>>;
+export declare const saveToken: (root: string, token: Record<string, unknown>, options?: {show?: string}) => void;
+export declare const refreshAccessToken: (root: string, existing?: Record<string, any>, options?: {show?: string}) => Promise<Record<string, any>>;
+export declare const getAccessToken: (root: string, options?: {show?: string}) => Promise<string>;
+export declare const authorizeInteractively: (root: string, options?: {port?: number; show?: string}) => Promise<Record<string, any>>;
 export declare const youtubeMetadata: (manifest: any, options?: {privacy?: 'private' | 'unlisted' | 'public'; publishAt?: string; madeForKids?: boolean; show?: import('./shows.mjs').ShowProfile}) => {
   snippet: {title: string; description: string; tags: string[]; categoryId: string; defaultLanguage: string};
   status: {privacyStatus: string; publishAt?: string; selfDeclaredMadeForKids?: boolean};
