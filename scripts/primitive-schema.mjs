@@ -38,6 +38,9 @@ const geoAnnotation = z.discriminatedUnion('type', [
   z.object({type: z.literal('route'), path: z.array(anchor).min(2).max(6), text: label.optional(), at: moment.default(0), until: moment.optional(), marker: z.boolean().default(true), follow: z.boolean().default(false)}).strict(),
 ]);
 
+/** Places a data map (#91) can shade: enough for every country, so a world dataset fits. */
+export const MAX_DATA_PLACES = 250;
+
 /** When a route finishes drawing: its `until`, or half a scene after it starts. */
 export const routeUntil = (route) => route.until ?? Math.min(1, route.at + .5);
 /** A followed route must finish by this point, so the camera is back on its keyframes when the scene ends. */
@@ -69,6 +72,15 @@ export const primitiveSchema = z.discriminatedUnion('kind', [
     cut: z.boolean().optional(),
     // Shaded relief (#91) under the map: mountains and valleys from the pinned Natural Earth raster.
     relief: z.boolean().optional(),
+    // A data map (#91): places shaded by a sourced value, with a legend. The Geo Visual Director copies
+    // the values from a research dataset; the model never types them.
+    data: z.object({
+      label,
+      unit: z.string().min(1).max(8).optional(),
+      values: z.array(z.object({entity: geoEntity, value: z.number()}).strict()).min(2).max(MAX_DATA_PLACES),
+      at: moment.default(0),
+      legend: z.boolean().default(true),
+    }).strict().optional(),
   }).strict(),
 ]).superRefine((primitive, context) => {
   if (primitive.kind === 'geo-map') {
@@ -103,6 +115,8 @@ export const primitiveNumbers = (primitive) => {
     case 'counter': return [primitive.from, primitive.to];
     case 'meter': return [primitive.from, primitive.to, ...(primitive.threshold === undefined ? [] : [primitive.threshold])];
     case 'bars': return primitive.bars.flatMap((bar) => [bar.value, ...(bar.from === undefined ? [] : [bar.from])]);
+    // A data map shows its values (the legend's ends, and every shade).
+    case 'geo-map': return primitive.data ? primitive.data.values.map(({value}) => value) : [];
     default: return [];
   }
 };
@@ -117,7 +131,7 @@ export const primitiveText = (primitive) => {
     case 'timeline': return primitive.steps.map((step) => `${step.label}${step.detail ? ` (${step.detail})` : ''}`).join(' → ');
     case 'checklist': return primitive.items.map((item) => `${item.met ? 'yes' : 'no'}: ${item.label}`).join(', ');
     // Only the words on screen are claims; the places come from the map data.
-    case 'geo-map': return primitive.annotations.map((annotation) => annotation.text).filter(Boolean).join(', ');
+    case 'geo-map': return [...primitive.annotations.map((annotation) => annotation.text).filter(Boolean), ...(primitive.data ? [`${primitive.data.label}: ${primitive.data.values.map(({entity, value}) => `${entity} ${value}${primitive.data.unit ? ` ${primitive.data.unit}` : ''}`).join(', ')}`] : [])].join(', ');
     default: return '';
   }
 };

@@ -28,7 +28,9 @@ The issue proposed `geo-map`, `geo-highlight` and `geo-annotation` as separate p
   ],
   "dataset": "natural-earth",                                       // the pinned map data (default)
   "cut": true,                                                      // optional: start this scene's camera fresh (see Continuity)
-  "relief": true                                                    // optional: shaded relief under the map (#91)
+  "relief": true,                                                   // optional: shaded relief under the map (#91)
+  "data": {"label": "LOWEST POINT", "unit": "m", "at": 0.3,          // optional: a data map (#91)
+           "values": [{"entity": "country:LSO", "value": 1400}, {"entity": "country:BWA", "value": 513}]}
 }
 ```
 
@@ -42,6 +44,7 @@ The issue proposed `geo-map`, `geo-highlight` and `geo-annotation` as separate p
 | Text | Labels are at most 28 characters. They are the only on-screen words, so they are the only part the fact checks read. Place names come from the map data. |
 | Routes | `path` is 2-6 stops (place ids or points). The line between them follows great circles, the shortest way across the globe, computed by the renderer (`src/video/geo/route.ts`). It draws itself from `at` to `until` (default: half a scene after `at`), easing at both ends, with a marker at its head and a dot on each stop it has reached. It crosses the antimeridian the short way. Routes draw underneath labels and markers. |
 | Follow | `follow: true` moves the camera's centre onto the route's marker while the route draws. The camera keyframes still set the zoom. The camera eases on over 10% of the scene and back to the keyframes over 15% after the route ends. A followed route must end by 0.85, so the scene ends exactly on its keyframes and a continuing scene picks up without a jump. Only one route per shot can be followed. |
+| Data | `data` shades each listed place in the accent colour, faint at the lowest value and strong at the highest, under the highlights, from `at` on. A legend (`legend: false` hides it) shows the label, the ramp, and the lowest and highest values (`0 M`, `1,400 M`). 2-250 places (every country fits), each a map id; research datasets have the same bounds. The values come from a research dataset through the director, never from the model, and count as the primitive's numbers for the fact checks. |
 | Relief | `relief: true` blends shaded relief (mountains and valleys) over the land and highlights. Labels, markers and routes stay on top, crisp. Between continuing map scenes it fades in or out over 18 frames when only one of them has it. Images and their source are described in [geomotion-data.md](geomotion-data.md#shaded-relief-91). |
 | Defaults | `highlights: []`, `annotations: []`, `dataset: "natural-earth"`, highlight `style: "fill"`, `at: 0`, route `marker: true`, `follow: false`. |
 
@@ -91,3 +94,4 @@ The golden shots the renderer is built against (#72) live in [`test/fixtures/geo
 4. **`fiji-antimeridian`**: Fiji, which crosses the ±180° meridian, framed and filled whole, with a route to Samoa across the 180° line.
 5. **`silk-road`** (#90): Xi'an → Samarkand → Constantinople. The camera rides along with the marker, then pulls out to the whole road.
 6. **`lesotho-relief`** (#91): southern Africa with relief, pushing in to Lesotho's outlined highlands. It fills the stand-in episode's hook scene, so `fly-to-georgia` carries `cut: true` to keep its own start.
+7. **`lowest-points-data`** (#91): southern Africa shaded by each country's lowest point (Lesotho 1,400 m, Botswana 513 m … sea level), with the legend. It is the first shot in the second stand-in episode (`scripts/geo-golden.mjs` fills one stand-in after another, so new shots never move old ones).
