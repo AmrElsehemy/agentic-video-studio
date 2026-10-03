@@ -2,6 +2,8 @@ import fs from 'node:fs';
 import http from 'node:http';
 import path from 'node:path';
 import {spawn} from 'node:child_process';
+import {episodeDescription, episodeTags} from './description.mjs';
+import {loadShow} from './shows.mjs';
 
 export const YOUTUBE_UPLOAD_SCOPE = 'https://www.googleapis.com/auth/youtube.upload';
 /** Read-only analytics, for npm run analytics -- fetch (#25). */
@@ -130,28 +132,11 @@ export const authorizeInteractively = async (root, {port = 53682} = {}) => {
   return stored;
 };
 
-const unique = (items) => [...new Set(items.filter(Boolean))];
-const cleanTag = (value) => String(value).replace(/^#/, '').trim();
-
-export const youtubeMetadata = (manifest, {privacy = 'private', publishAt, madeForKids} = {}) => {
-  const subject = manifest.subject?.name ?? manifest.title;
+export const youtubeMetadata = (manifest, {privacy = 'private', publishAt, madeForKids, show = loadShow(manifest.show?.id ?? 'pokepulses')} = {}) => {
   const titleBase = manifest.title.length > 91 ? `${manifest.title.slice(0, 88).trim()}…` : manifest.title;
   const title = /#shorts/i.test(titleBase) ? titleBase : `${titleBase} #Shorts`;
-  const sourceLines = (manifest.sources ?? []).map((source) => `- ${source.label}: ${source.url}`).join('\n');
-  const disclosure = manifest.audio?.voice ? '\nNarration: AI-generated voice.' : '';
-  const description = [
-    `${manifest.title}`,
-    '',
-    manifest.rights?.nonAffiliationNotice,
-    manifest.rights?.ownershipNotice,
-    disclosure.trim(),
-    '',
-    'Sources:',
-    sourceLines,
-    '',
-    '#Pokemon #PokePulses #Shorts',
-  ].filter((line) => line !== undefined && line !== null).join('\n').slice(0, 5000);
-  const tags = unique(['Pokemon', 'Pokémon', 'PokePulses', 'Shorts', 'Pokemon facts', subject, cleanTag(manifest.subject?.identifier)]).slice(0, 30);
+  const description = episodeDescription(manifest, show);
+  const tags = episodeTags(manifest, show);
   const status = {privacyStatus: publishAt ? 'private' : privacy};
   if (publishAt) status.publishAt = new Date(publishAt).toISOString();
   if (madeForKids !== undefined) status.selfDeclaredMadeForKids = madeForKids;
