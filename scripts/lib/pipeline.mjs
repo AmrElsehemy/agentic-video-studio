@@ -128,7 +128,7 @@ export const execStep = (root, env = {}) => (label, command, args) => {
 
 const npx = process.platform === 'win32' ? 'npx.cmd' : 'npx';
 /** Code the render reads: the composition, schemas and the map data. */
-const RENDER_CODE = ['src', 'public/geo', 'remotion.config.ts', 'scripts/lib/render-props.mjs', 'scripts/generate-audio.mjs', 'scripts/lib/sound-design.mjs'];
+const RENDER_CODE = ['src', 'public/geo', 'remotion.config.ts', 'scripts/lib/render-props.mjs', 'scripts/generate-audio.mjs', 'scripts/lib/audio-bed.mjs', 'scripts/lib/sound-design.mjs'];
 
 /**
  * The episode stages. `exec(label, command, args)` runs a step and throws on

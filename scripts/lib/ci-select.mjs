@@ -20,7 +20,7 @@ const GEO_SHARED = [/^scripts\/primitive-schema\./, /^src\/video\/(primitives|Co
  */
 const MP4_ONLY = [
   /^scripts\/(render|qa|generate-audio|generate-voice)\.mjs$/,
-  /^scripts\/lib\/(render-props|sound-design|voice-lock)\.mjs$/,
+  /^scripts\/lib\/(render-props|audio-bed|sound-design|voice-lock)\.mjs$/,
   /^src\/video\/VerticalEpisode\.tsx$/,
   /^public\//,
   /^shows\//,
