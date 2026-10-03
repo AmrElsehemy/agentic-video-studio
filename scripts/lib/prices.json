@@ -2,10 +2,26 @@
   "note": "List prices in US dollars, used only to estimate what an episode cost. Update them when a provider changes its rates. A model that isn't listed is logged with its token counts and no cost.",
   "checked": "2026-10-03",
   "models": {
-    "claude-opus-5-5": {"inputPerMillion": 4, "outputPerMillion": 20, "source": "https://bazaarlink.ai/en/blog/claude-opus-5-5-api-pricing-en"},
-    "gpt-5.6-terra": {"inputPerMillion": 2, "outputPerMillion": 12, "source": "https://www.layer3labs.io/guides/gpt-5-6-pricing"}
+    "claude-opus-5-5": {
+      "inputPerMillion": 4,
+      "outputPerMillion": 20,
+      "source": "https://bazaarlink.ai/en/blog/claude-opus-5-5-api-pricing-en"
+    },
+    "gpt-5.6-terra": {
+      "inputPerMillion": 2,
+      "outputPerMillion": 12,
+      "source": "https://www.layer3labs.io/guides/gpt-5-6-pricing"
+    },
+    "gpt-5.6-luna": {
+      "inputPerMillion": 0.2,
+      "outputPerMillion": 1.2,
+      "source": "https://anotherwrapper.com/llm-pricing/gpt-5.6-luna"
+    }
   },
   "speech": {
-    "gpt-4o-mini-tts": {"perMinute": 0.015, "source": "https://blog.promptlayer.com/gpt-4o-mini-tts-steerable-low-cost-speech-via-simple-apis/"}
+    "gpt-4o-mini-tts": {
+      "perMinute": 0.015,
+      "source": "https://blog.promptlayer.com/gpt-4o-mini-tts-steerable-low-cost-speech-via-simple-apis/"
+    }
   }
 }

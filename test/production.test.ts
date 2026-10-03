@@ -16,7 +16,7 @@ describe('production log', () => {
   it('hears the token usage of every model call, from either provider', async () => {
     const calls: ProductionEntry[] = [];
     const writer = createCompletion({role: 'writer', provider: 'anthropic', apiKey: 'k', env: {}, fetchImpl: claude('draft', 12000, 3000) as typeof fetch, onUsage: (usage) => calls.push(modelEntry(usage))});
-    const critic = createCompletion({role: 'critic', provider: 'openai', apiKey: 'k', env: {}, fetchImpl: openai('ok', 5000, 400) as typeof fetch, onUsage: (usage) => calls.push(modelEntry(usage))});
+    const critic = createCompletion({role: 'critic', provider: 'openai', model: 'gpt-5.6-terra', apiKey: 'k', env: {}, fetchImpl: openai('ok', 5000, 400) as typeof fetch, onUsage: (usage) => calls.push(modelEntry(usage))});
     assert.equal(await writer({system: 's', messages: [{role: 'user', content: 'go'}]}), 'draft');
     assert.equal(await critic({system: 's', messages: [{role: 'user', content: 'go'}]}), 'ok');
     assert.deepEqual(calls, [
