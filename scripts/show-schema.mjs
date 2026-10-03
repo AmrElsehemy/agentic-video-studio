@@ -32,6 +32,11 @@ export const showSchema = z.object({
   music: musicBedSchema.extend({volume: z.number().min(0).max(1).default(0.09)}).strict(),
   voice: z.object({voice: voiceName, speed: z.number().min(0.25).max(4), model: z.string().min(1).default('gpt-4o-mini-tts'), instructions: z.string().min(1).max(1000)}).strict(),
   notices: z.object({ownership: z.string().min(1), nonAffiliation: z.string().min(1)}).strict(),
+  /** What an upload carries: hashtags at the end of the description, and the video's tags. */
+  publishing: z.object({
+    hashtags: z.array(z.string().regex(/^#[\p{L}\p{N}_]+$/u, 'A hashtag is # and one word, e.g. "#Geography"')).min(1).max(5),
+    tags: z.array(z.string().min(1).max(40)).min(1).max(20),
+  }).strict().optional(),
   /** Rules for the show's subjects, e.g. PokePulses identifiers are Pokédex numbers like "#001". */
   subjects: z.object({
     identifierLabel: z.string().min(1).max(40),

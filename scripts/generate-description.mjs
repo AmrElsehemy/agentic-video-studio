@@ -1,16 +1,15 @@
+// The YouTube description for an episode, as the upload will publish it:
+//   npm run description -- <episode-id>   writes out/<id>-description.txt
 import fs from 'node:fs';
 import path from 'node:path';
 import {findManifest, resolveEpisodeId} from './catalog.mjs';
+import {episodeDescription} from './lib/description.mjs';
+import {loadShow} from './lib/shows.mjs';
 
 const episodeId = resolveEpisodeId(process.argv[2] ?? 'bulbasaur-001');
 const {root, manifestPath} = findManifest(episodeId);
 const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
 const outputPath = path.join(root, 'out', `${episodeId}-description.txt`);
-const sources = manifest.sources.map((source) => `- ${source.label}: ${source.url}`).join('\n');
-const aiDisclosure = manifest.audio.voice ? '\nNarration: AI-generated voice.' : '';
-// Credits that assets ask for (e.g. map data), from the rights entries.
-const credits = manifest.rights.assets.filter((asset) => asset.kind === 'map-data' && asset.notes).map((asset) => `\n${asset.notes}`).join('');
-const body = `${manifest.title}\n\n${manifest.rights.nonAffiliationNotice}\n${manifest.rights.ownershipNotice}${aiDisclosure}${credits}\n\nSources:\n${sources}\n`;
 fs.mkdirSync(path.dirname(outputPath), {recursive: true});
-fs.writeFileSync(outputPath, body);
+fs.writeFileSync(outputPath, `${episodeDescription(manifest, loadShow(manifest.show.id))}\n`);
 console.log(`✓ description: ${path.relative(root, outputPath)}`);
