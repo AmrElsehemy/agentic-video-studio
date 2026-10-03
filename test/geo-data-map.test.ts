@@ -4,7 +4,7 @@ import path from 'node:path';
 import {describe, it} from 'node:test';
 import {fileURLToPath} from 'node:url';
 import {geoResearchSchema} from '../scripts/geo-research-schema.mjs';
-import {primitiveNumbers, primitiveSchema, primitiveText, type GeoMapPrimitive} from '../scripts/primitive-schema.mjs';
+import {MAX_DATA_PLACES, primitiveNumbers, primitiveSchema, primitiveText, type GeoMapPrimitive} from '../scripts/primitive-schema.mjs';
 import {geoResearchNumbers, resolveResearchPlaces, shotToPrimitive, textNumbers} from '../scripts/lib/geo-director.mjs';
 import {geoProblems, loadGeoData} from '../scripts/lib/geo-primitives.mjs';
 import {formatValue} from '../src/video/geo/GeoMap';
@@ -20,6 +20,13 @@ describe('data maps (#91): sourced datasets', () => {
   it('requires every dataset to cite a listed source', () => {
     const broken = {...research, datasets: {x: {label: 'X', source: 'nowhere', values: {Lesotho: 1, Botswana: 2}}}};
     assert.match(JSON.stringify(geoResearchSchema.safeParse(broken).error?.issues), /cites \\"nowhere\\"/);
+  });
+
+  it('bounds datasets the same way as the data maps that draw them', () => {
+    const many = Object.fromEntries(Array.from({length: MAX_DATA_PLACES + 1}, (_, index) => [`Place ${index}`, index]));
+    assert.match(JSON.stringify(geoResearchSchema.safeParse({...research, datasets: {x: {label: 'X', source: 'wikipedia-lesotho', values: many}}}).error?.issues), /at most 250 places/);
+    const world = Array.from({length: 200}, (_, index) => ({entity: 'country:LSO', value: index}));
+    assert.ok(primitiveSchema.safeParse({kind: 'geo-map', camera: [{target: 'world', at: 0}], data: {label: 'X', values: world}}).success, 'a world-sized data map fits');
   });
 
   it('resolves each dataset place to a map id, and refuses places the map can\'t show', () => {

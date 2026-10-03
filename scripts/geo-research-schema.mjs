@@ -3,6 +3,7 @@
 // named points (cities, peaks, dig sites) with their source. A point that
 // isn't surveyed is marked approximate, and must be labelled so on screen.
 import {z} from 'zod';
+import {MAX_DATA_PLACES} from './primitive-schema.mjs';
 import {TIERS} from './lib/source-tiers.mjs';
 
 const key = z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, 'use lowercase words joined by hyphens');
@@ -32,7 +33,9 @@ export const geoDatasetSchema = z.object({
   unit: z.string().min(1).max(8).optional(),
   source: key,
   note: z.string().optional(),
-  values: z.record(z.string().min(1), z.number()).refine((values) => Object.keys(values).length >= 2, 'a dataset needs at least two places'),
+  // The same bounds as a data map's places, so a dataset that can't be drawn fails here, not in the director.
+  values: z.record(z.string().min(1), z.number()).refine((values) => Object.keys(values).length >= 2, 'a dataset needs at least two places')
+    .refine((values) => Object.keys(values).length <= MAX_DATA_PLACES, `a dataset can have at most ${MAX_DATA_PLACES} places (a data map shades at most that many)`),
 }).strict();
 
 export const geoResearchSchema = z.object({

@@ -38,6 +38,9 @@ const geoAnnotation = z.discriminatedUnion('type', [
   z.object({type: z.literal('route'), path: z.array(anchor).min(2).max(6), text: label.optional(), at: moment.default(0), until: moment.optional(), marker: z.boolean().default(true), follow: z.boolean().default(false)}).strict(),
 ]);
 
+/** Places a data map (#91) can shade: enough for every country, so a world dataset fits. */
+export const MAX_DATA_PLACES = 250;
+
 /** When a route finishes drawing: its `until`, or half a scene after it starts. */
 export const routeUntil = (route) => route.until ?? Math.min(1, route.at + .5);
 /** A followed route must finish by this point, so the camera is back on its keyframes when the scene ends. */
@@ -74,7 +77,7 @@ export const primitiveSchema = z.discriminatedUnion('kind', [
     data: z.object({
       label,
       unit: z.string().min(1).max(8).optional(),
-      values: z.array(z.object({entity: geoEntity, value: z.number()}).strict()).min(2).max(60),
+      values: z.array(z.object({entity: geoEntity, value: z.number()}).strict()).min(2).max(MAX_DATA_PLACES),
       at: moment.default(0),
       legend: z.boolean().default(true),
     }).strict().optional(),

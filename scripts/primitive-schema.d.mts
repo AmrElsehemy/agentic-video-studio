@@ -32,3 +32,4 @@ export declare const primitiveNumbers: (primitive: Primitive) => number[];
 export declare const primitiveText: (primitive: Primitive) => string;
 export declare const routeUntil: (route: {at: number; until?: number}) => number;
 export declare const FOLLOW_LATEST: number;
+export declare const MAX_DATA_PLACES: number;
