@@ -14,7 +14,11 @@ const approved = (manifest: VideoManifest): VideoManifest => ({...manifest, righ
 
 describe('publish checks', () => {
   it('blocks the Georgia episode until the release is approved and its borders reviewed', () => {
-    const georgia = manifestOf('geographica', 'georgia-wine');
+    // The committed episode has its borders review recorded; take it out to check the rule.
+    const recorded = manifestOf('geographica', 'georgia-wine');
+    const {bordersReview, ...rights} = recorded.rights;
+    assert.equal(bordersReview?.reviewer, 'Amr Elsehemy');
+    const georgia = {...recorded, rights};
     const blockers = publishBlockers(georgia, geo);
     assert.match(blockers.join('\n'), /release-status: Status is internal-prototype/);
     assert.match(blockers.join('\n'), /borders-review: .*Georgia \(Abkhazia, South Ossetia\)/);
@@ -22,6 +26,14 @@ describe('publish checks', () => {
     const reviewed = approved(georgia);
     reviewed.rights = {...reviewed.rights, bordersReview: {reviewer: 'editor', date: '2026-09-30', decision: "Georgia shown within its internationally recognised borders, including Abkhazia and South Ossetia; narration doesn't mention them."}};
     assert.deepEqual(publishBlockers(reviewed, geo), []);
+    // With its recorded review, only the release approval stands between the committed episode and publishing.
+    assert.deepEqual(publishBlockers(recorded, geo).map((blocker) => blocker.split(':')[0]), ['release-status', 'episode']);
+  });
+
+  it('has the Silk Road borders review recorded for China', () => {
+    const silkRoad = manifestOf('geographica', 'silk-road');
+    assert.match(silkRoad.rights.bordersReview?.decision ?? '', /China/);
+    assert.deepEqual(publishBlockers(approved(silkRoad), geo), []);
   });
 
   it('requires the map data credit on map episodes', () => {
