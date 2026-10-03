@@ -1,0 +1,20 @@
+export type ProductionEntry = {at?: string; kind: 'model' | 'narration' | 'render' | 'approval'; [key: string]: unknown};
+export type ProductionLog = {episodeId: string; show: string; entries: ProductionEntry[]};
+export type Prices = {checked: string; models: Record<string, {inputPerMillion: number; outputPerMillion: number}>; speech: Record<string, {perMinute: number}>};
+export declare const PRICES: Prices;
+export declare const productionPath: (root: string, show: string, episodeId: string) => string;
+export declare const readProduction: (root: string, show: string, episodeId: string) => ProductionLog;
+export declare const appendProduction: (root: string, show: string, episodeId: string, entries: ProductionEntry[], options?: {now?: () => string}) => void;
+export declare const modelEntry: (usage: {role: string; provider: string; model: string; inputTokens?: number | null; outputTokens?: number | null}) => ProductionEntry;
+export declare const modelCost: (call: {model: string; inputTokens: number | null; outputTokens: number | null}, prices?: Prices) => number | null;
+export declare const speechCost: (narration: {model: string; seconds: number}, prices?: Prices) => number | null;
+export declare const summarizeProduction: (log: ProductionLog, options?: {manifest?: {rights?: {bordersReview?: {reviewer: string; date: string}}}; prices?: Prices}) => {
+  episodeId: string;
+  models: Record<string, {calls: number; inputTokens: number; outputTokens: number; cost: number | null; models: string[]}>;
+  narration: {characters: number; seconds: number | null; cost: number | null; providers: string[]};
+  renders: {count: number; lastSeconds: number | null};
+  approvals: {what: string; date: string; by?: string}[];
+  cost: number | null;
+  unpriced: string[];
+  pricesChecked: string;
+};

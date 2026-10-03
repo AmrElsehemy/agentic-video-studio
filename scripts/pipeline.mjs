@@ -9,7 +9,8 @@
 // Research and drafting are npm run episode:new; publishing is npm run youtube:upload.
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
-import {resolveEpisodeId} from './catalog.mjs';
+import {findManifest, resolveEpisodeId} from './catalog.mjs';
+import {appendProduction} from './lib/production.mjs';
 import {approvalHash, episodeStages, PIPELINE_VOICES, readLock, runPipeline, STAGES, writeLock} from './lib/pipeline.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -21,6 +22,7 @@ if (!target) {
   process.exit(1);
 }
 const episodeId = resolveEpisodeId(target);
+const showOf = (id) => path.basename(path.dirname(path.dirname(findManifest(id).manifestPath)));
 const voice = option('voice') ?? 'none';
 const until = option('until') ?? 'render';
 const force = option('force')?.split(',').filter(Boolean) ?? [];
@@ -41,7 +43,10 @@ if (args.includes('--approve')) {
   if (!result.stoppedAt) {
     lock.approvals ??= {};
     lock.approvals[approvalHash(stages)] = {at: new Date().toISOString()};
-    if (!common.dryRun) writeLock(lockFile, lock);
+    if (!common.dryRun) {
+      writeLock(lockFile, lock);
+      appendProduction(root, showOf(episodeId), episodeId, [{kind: 'approval', what: 'paid narration'}]);
+    }
     console.log('✓ approved this version for paid narration');
     if (STAGES.indexOf(until) > STAGES.indexOf('preview')) result = await runPipeline({...common, until});
   }

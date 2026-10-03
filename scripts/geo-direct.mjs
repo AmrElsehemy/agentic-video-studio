@@ -11,6 +11,7 @@ import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {directGeoVisuals} from './lib/geo-director.mjs';
 import {createCompletion} from './lib/llm.mjs';
+import {appendProduction, modelEntry} from './lib/production.mjs';
 import {findDraft} from './catalog.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -31,7 +32,7 @@ for (const file of [draftPath, researchPath]) if (!fs.existsSync(file)) { consol
 const reply = option('reply');
 const complete = reply
   ? async () => fs.readFileSync(path.resolve(reply), 'utf8')
-  : createCompletion({role: 'director', provider: option('provider')});
+  : createCompletion({role: 'director', provider: option('provider'), onUsage: (usage) => appendProduction(root, showId, episodeId, [modelEntry(usage)])});
 const result = await directGeoVisuals({
   draft: JSON.parse(fs.readFileSync(draftPath, 'utf8')),
   research: JSON.parse(fs.readFileSync(researchPath, 'utf8')),

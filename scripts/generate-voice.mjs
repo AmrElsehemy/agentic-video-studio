@@ -6,6 +6,7 @@ import path from 'node:path';
 import {findManifest, resolveEpisodeId} from './catalog.mjs';
 import {speechBounds} from './lib/captions.mjs';
 import {buildVoiceInstructions} from './lib/voice-direction.mjs';
+import {appendProduction} from './lib/production.mjs';
 import {voiceInputHash} from './lib/voice-lock.mjs';
 
 const args = process.argv.slice(2);
@@ -58,6 +59,8 @@ const measureSpeech = (file, duration) => {
 const instructionsFor = (scene) => buildVoiceInstructions({baseInstructions: config.instructions, scene});
 const cacheKey = (scene) => crypto.createHash('sha256').update(JSON.stringify({provider, model: config.model, voice: config.voice, speed: config.speed, instructions: instructionsFor(scene), narration: scene.narration})).digest('hex').slice(0, 20);
 
+// What was synthesised this run, for the production log (#89); cached scenes cost nothing.
+const synthesised = {characters: 0, seconds: 0, scenes: 0};
 try {
   fs.mkdirSync(cacheRoot, {recursive: true});
 
@@ -66,7 +69,8 @@ try {
     const cachedRaw = path.join(cacheRoot, `${String(index).padStart(2, '0')}-${scene.id}-${cacheKey(scene)}.${extension}`);
     const rawTrack = path.join(tempRoot, `${String(index).padStart(2, '0')}-${scene.id}-raw.${extension}`);
 
-    if (fs.existsSync(cachedRaw)) {
+    const fromCache = fs.existsSync(cachedRaw);
+    if (fromCache) {
       fs.copyFileSync(cachedRaw, rawTrack);
       console.log(`↻ ${scene.id} [${provider}]: reused cached paid/raw narration`);
     } else if (provider === 'openai') {
@@ -88,6 +92,7 @@ try {
     }
 
     const spokenDuration = probeDuration(rawTrack);
+    if (!fromCache) Object.assign(synthesised, {characters: synthesised.characters + scene.narration.length, seconds: synthesised.seconds + spokenDuration, scenes: synthesised.scenes + 1});
     const originalAvailable = scene.durationSeconds - endPaddingSeconds;
     const requiredTempo = spokenDuration / originalAvailable;
     const effectiveDuration = requiredTempo > maxAutoFitRatio ? Math.ceil((spokenDuration + endPaddingSeconds + 0.18) * 10) / 10 : scene.durationSeconds;
@@ -126,6 +131,7 @@ try {
   if (!Number.isFinite(peakVolume) || peakVolume < -30) throw new Error(`Generated ${provider} narration is silent or inaudible (${peakVolume} dBFS).`);
   console.log(`\n✓ ${provider} narration ready: ${path.relative(root, outputPath)} (${probeDuration(outputPath).toFixed(2)}s, peak ${peakVolume.toFixed(1)} dBFS)`);
   console.log(`✓ render timing ready: ${path.relative(root, timingPath)}`);
+  if (synthesised.scenes) appendProduction(root, manifest.show.id, episodeId, [{kind: 'narration', provider, ...(provider === 'local' ? {} : {model: config.model, voice: config.voice}), characters: synthesised.characters, seconds: Math.round(synthesised.seconds * 100) / 100, scenes: synthesised.scenes}]);
 } finally {
   fs.rmSync(tempRoot, {recursive: true, force: true});
 }

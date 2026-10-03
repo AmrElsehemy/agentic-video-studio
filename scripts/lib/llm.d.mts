@@ -12,4 +12,5 @@ export declare const createCompletion: (options?: {
   maxTokens?: number;
   env?: Record<string, string | undefined>;
   fetchImpl?: typeof fetch;
+  onUsage?: (usage: {role: string; provider: string; model: string; inputTokens: number | null; outputTokens: number | null}) => void;
 }) => Complete & import('./video-critic.mjs').VisionComplete & {provider: string; model: string; role: string};
