@@ -150,7 +150,7 @@ A shot is JSON:
 {"id": "<scene id>",
  "camera": [{"target": T, "at": 0, "padding": 0.15}, ...],   // 1-4 keyframes; at = fraction of the scene, first at 0, then increasing
  "highlights": [{"entity": "<place id>", "style": "fill" | "outline" | "trace", "at": 0.3}],   // up to 4
- "annotations": [{"type": "label" | "marker", "anchor": A, "text": "SHORT CAPS", "at": 0.5},
+ "annotations": [{"type": "label" | "marker", "anchor": A, "text": "SHORT CAPS", "at": 0.5, "until": 0.9},   // until is optional: when it fades out
                  {"type": "arrow", "from": A, "to": A, "at": 0.7},
                  {"type": "route", "path": [A, A, ...], "text": "SHORT CAPS", "at": 0.2, "until": 0.8, "follow": false}],   // up to 4 in all
  "relief": false,   // optional: shaded relief for terrain and altitude
@@ -169,6 +169,7 @@ Rules:
 - "relief": true adds shaded relief (mountains and valleys) under the map. Use it when the narration is about terrain or altitude: mountains, highlands, plateaus, valleys.
 - "data" shades places by one of the research datasets listed below, with a legend. Use it when the narration compares places by a number (heights, sizes, populations). Name the dataset only; its values come from the research. Frame the places it covers.
 - A route (2-6 stops) draws a journey, trade road, migration or voyage along the shortest path across the globe, with a marker moving along it from "at" to "until". Use it only when the narration describes movement. Frame the whole route in the camera, or set "follow": true to have the camera ride along with the marker (then "until" must be at most 0.85).
+- Labels stay inside the frame, and where two overlap the older one fades. Give a label or marker an "until" when the camera will pull out and crowd it.
 - Consecutive scenes are one continuous flight: each scene's camera starts where the previous one ended and flies to its first target. Plan the episode as one journey. Add "cut": true only when the story jumps somewhere unrelated.
 
 Reply with a JSON object only: {"scenes": [<shot>, ...]}`,

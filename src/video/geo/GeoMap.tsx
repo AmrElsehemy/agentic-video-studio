@@ -8,6 +8,7 @@ import {displayFont} from '../typography';
 import {cameraAt, cameraKeys, continuesMap, episodeCameraKeys, MAP_SIZE, type BBox, type CameraKey, type Size} from './camera';
 import {useGeoData, useReliefData, type GeoData} from './data';
 import {RELIEF_STRENGTH, reliefPlacements} from './relief';
+import {fitInside, labelBox, resolveLabels, type Box, type Placed} from './labels';
 import {followView, followWeight, partialRoute, routeLine, routeProgress, type RouteLine} from './route';
 
 // A map drawn entirely from the pinned data and the primitive: the camera flies
@@ -24,6 +25,11 @@ const TRACE_SHARE = .35;
 /** Space an arrow leaves around an anchor without a label (at its start; 60% of it before its target). */
 const ARROW_GAP = 60;
 const LABEL_SIZE = 46;
+/** Marker and route labels are a little smaller, and sit this far above their point. */
+const POINT_LABEL_SIZE = 38;
+const MARKER_LIFT = 58;
+const ROUTE_LIFT = 60;
+const BOUNDS = {width: MAP_SIZE.width, height: MAP_SIZE.height, safe: SAFE};
 /** Frames relief takes to fade in or out where a continuing map turns it on or off. */
 const RELIEF_FADE = 18;
 
@@ -87,8 +93,9 @@ const keepInside = ([x, y]: [number, number]): [number, number] => [Math.max(SAF
 const OFF_FRAME = 160;
 const farOffFrame = ([x, y]: [number, number]) => x < -OFF_FRAME || x > SIZE.width + OFF_FRAME || y < -OFF_FRAME || y > SIZE.height + OFF_FRAME;
 
-const Label: React.FC<{x: number; y: number; text: string; opacity: number; color: string; halo: string; size?: number}> = ({x, y, text, opacity, color, halo, size = LABEL_SIZE}) => (
-  <text x={x} y={y + (1 - opacity) * 14} textAnchor="middle" dominantBaseline="middle" opacity={opacity}
+/** `rise` (0–1) lifts the label into place as it appears; fading for an overlap doesn't move it. */
+const Label: React.FC<{x: number; y: number; text: string; opacity: number; color: string; halo: string; size?: number; rise?: number}> = ({x, y, text, opacity, color, halo, size = LABEL_SIZE, rise = opacity}) => (
+  <text x={x} y={y + (1 - rise) * 14} textAnchor="middle" dominantBaseline="middle" opacity={opacity}
     style={{fontFamily: displayFont, fontSize: size, letterSpacing: 3, fill: color, stroke: halo, strokeWidth: 10, paintOrder: 'stroke', strokeLinejoin: 'round'}}>{text}</text>
 );
 
@@ -122,6 +129,8 @@ export const GeoMapVisual: React.FC<ShotProps & {data: GeoMapPrimitive}> = ({dat
   const projection: GeoProjection = geoMercator().rotate([-view.lon, 0]).center([0, view.lat]).scale(view.scale).translate([SIZE.width / 2, SIZE.height / 2]);
   const path = geoPath(projection);
   const appear = (at: number, frames = APPEAR) => interpolate(frame, [at * durationInFrames, at * durationInFrames + frames], [0, 1], clamp);
+  /** A marker or label with an `until` fades out, finishing then. */
+  const vanish = (until?: number) => (until === undefined ? 1 : interpolate(frame, [until * durationInFrames - APPEAR, until * durationInFrames], [1, 0], clamp));
   const point = (lonLat: [number, number]) => projection(lonLat) as [number, number];
   const {palette} = manifest;
   // Projecting every country each frame is the render's main cost; skip those whose box is off screen.
@@ -138,6 +147,40 @@ export const GeoMapVisual: React.FC<ShotProps & {data: GeoMapPrimitive}> = ({dat
     seams?.in && !hasRelief(sceneIndex - 1) ? interpolate(frame, [0, RELIEF_FADE], [0, 1], clamp) : 1,
     seams?.out && continuesMap(manifest.scenes, sceneIndex + 1) && !hasRelief(sceneIndex + 1) ? interpolate(frame, [durationInFrames - RELIEF_FADE, durationInFrames], [1, 0], clamp) : 1,
   );
+
+  // Where each route has got to this frame.
+  const routeStates = new Map([...routes.entries()].map(([index, line]) => {
+    const annotation = primitive.annotations[index] as Route;
+    const progress = routeProgress(t, annotation.at, routeUntil(annotation));
+    return [index, {line, progress, ...partialRoute(line, progress)}];
+  }));
+  // Every label's place, kept inside the frame; where two overlap the weaker moves aside, or fades (labels.ts).
+  // Newer labels win (they are what the narration is on now), the legend always does, and a
+  // route's moving label gives way to everything.
+  const texts = new Map<number, Placed & {size: number}>();
+  primitive.annotations.forEach((annotation, index) => {
+    if (annotation.type === 'arrow' || !annotation.text) return;
+    if (annotation.type === 'route') {
+      if (t < annotation.at) return;
+      const [hx, hy] = point(routeStates.get(index)!.head);
+      texts.set(index, {box: fitInside(labelBox(hx, hy - ROUTE_LIFT, annotation.text, POINT_LABEL_SIZE), BOUNDS), anchorY: hy, priority: -1, opacity: appear(annotation.at), size: POINT_LABEL_SIZE});
+      return;
+    }
+    const projected = point(anchorLonLat(annotation.anchor, data));
+    if (farOffFrame(projected)) return;
+    const [x, y] = keepInside(projected);
+    const size = annotation.type === 'marker' ? POINT_LABEL_SIZE : LABEL_SIZE;
+    texts.set(index, {box: fitInside(labelBox(x, annotation.type === 'marker' ? y - MARKER_LIFT : y, annotation.text, size), BOUNDS), anchorY: projected[1], priority: annotation.at, opacity: appear(annotation.at) * vanish(annotation.until), size});
+  });
+  const legendBox: Box | undefined = primitive.data?.legend ? {x: LEGEND.x + LEGEND.width / 2, y: SIZE.height - SAFE - 112 + 47, halfWidth: LEGEND.width / 2 + 18, halfHeight: 65} : undefined;
+  const placed = [...texts.values(), ...(legendBox ? [{box: legendBox, priority: Infinity, opacity: primitive.data ? appear(primitive.data.at) : 0}] : [])];
+  const resolved = resolveLabels(placed, BOUNDS);
+  const boxes = new Map([...texts.keys()].map((index, order) => [index, resolved.boxes[order]]));
+  const fades = new Map([...texts.keys()].map((index, order) => [index, resolved.fades[order]]));
+  const textOf = (index: number, text: string, opacity: number, rise = opacity) => {
+    const [item, box] = [texts.get(index), boxes.get(index)];
+    return item && box ? <Label x={box.x} y={box.y} text={text} opacity={opacity * (fades.get(index) ?? 1)} rise={rise} color={palette.ink} halo={palette.background} size={item.size} /> : null;
+  };
 
   const highlights = primitive.highlights.map((highlight, index) => {
       const feature = data.features.get(highlight.entity);
@@ -159,12 +202,10 @@ export const GeoMapVisual: React.FC<ShotProps & {data: GeoMapPrimitive}> = ({dat
     });
   // Routes go underneath, so labels and markers on their stops stay readable.
   const annotations = primitive.annotations.map((annotation, index) => [annotation, index] as const).sort(([a], [b]) => Number(b.type === 'route') - Number(a.type === 'route')).map(([annotation, index]) => {
-      const shown = appear(annotation.at);
+      const shown = appear(annotation.at) * (annotation.type === 'marker' || annotation.type === 'label' ? vanish(annotation.until) : 1);
       if (annotation.type === 'route') {
         if (t < annotation.at) return null;
-        const line = routes.get(index)!;
-        const progress = routeProgress(t, annotation.at, routeUntil(annotation));
-        const {points, head} = partialRoute(line, progress);
+        const {line, progress, points, head} = routeStates.get(index)!;
         const travelled = progress * line.distances[line.distances.length - 1];
         const d = points.length > 1 ? path({type: 'LineString', coordinates: points}) ?? '' : '';
         const [hx, hy] = point(head);
@@ -183,10 +224,7 @@ export const GeoMapVisual: React.FC<ShotProps & {data: GeoMapPrimitive}> = ({dat
             <circle cx={hx} cy={hy} r={24 * pulse} fill={accent} opacity={.25} />
             <circle cx={hx} cy={hy} r={13} fill={accent} stroke={palette.ink} strokeWidth={4} />
           </> : null}
-          {annotation.text ? (() => {
-            const [lx, ly] = keepInside([hx, hy - 60]);
-            return <Label x={lx} y={ly} text={annotation.text} opacity={shown} color={palette.ink} halo={palette.background} size={38} />;
-          })() : null}
+          {annotation.text ? textOf(index, annotation.text, shown) : null}
         </g>;
       }
       if (annotation.type === 'arrow') {
@@ -234,11 +272,17 @@ export const GeoMapVisual: React.FC<ShotProps & {data: GeoMapPrimitive}> = ({dat
         return <g key={index} opacity={shown}>
           <circle cx={x} cy={y} r={22 * pulse} fill={accent} opacity={.25} />
           <circle cx={x} cy={y} r={11} fill={accent} stroke={palette.ink} strokeWidth={4} />
-          {annotation.text ? <Label x={x} y={Math.max(SAFE, y - 58)} text={annotation.text} opacity={shown} color={palette.ink} halo={palette.background} size={38} /> : null}
         </g>;
       }
-      return <Label key={index} x={x} y={y} text={annotation.text} opacity={shown} color={palette.ink} halo={palette.background} />;
+      return null;
     });
+  // Label and marker text on top of every route and marker, so none is drawn over.
+  const pointTexts = primitive.annotations.map((annotation, index) => {
+    if ((annotation.type !== 'label' && annotation.type !== 'marker') || !annotation.text) return null;
+    const shown = appear(annotation.at) * vanish(annotation.until);
+    // A marker's text sat inside its faded group, so it appears at shown².
+    return <React.Fragment key={`text-${index}`}>{textOf(index, annotation.text, annotation.type === 'marker' ? shown * shown : shown, shown)}</React.Fragment>;
+  });
   const frameStyle = {position: 'absolute' as const, inset: 0, borderRadius: 36, overflow: 'hidden' as const};
 
   // A data map (#91): each place shaded by its sourced value, from faint (lowest) to strong (highest),
@@ -276,6 +320,7 @@ export const GeoMapVisual: React.FC<ShotProps & {data: GeoMapPrimitive}> = ({dat
     {dataFills}
     {highlights}
     {annotations}
+    {pointTexts}
     {legend}
     </g>
   </svg>;
@@ -292,7 +337,7 @@ export const GeoMapVisual: React.FC<ShotProps & {data: GeoMapPrimitive}> = ({dat
       {reliefPlacements(relief, view).map((placement) => <Img key={placement.key} src={staticFile(`geo/relief/${placement.file}`)} style={{position: 'absolute', left: placement.left, top: placement.top, width: placement.width, height: placement.height, maxWidth: 'none'}} />)}
     </div>
     <svg width={SIZE.width} height={SIZE.height} viewBox={`0 0 ${SIZE.width} ${SIZE.height}`} style={{position: 'absolute', inset: 0}}>
-      <g opacity={outro}>{annotations}{legend}</g>
+      <g opacity={outro}>{annotations}{pointTexts}{legend}</g>
     </svg>
   </div>;
 };

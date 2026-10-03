@@ -16,8 +16,8 @@ export type GeoAnchor = GeoEntityId | GeoPoint;
 export type GeoCameraKey = {target: 'world' | GeoEntityId | {bbox: [number, number, number, number]}; at: number; padding: number; ease: 'linear' | 'in-out'};
 export type GeoHighlight = {entity: GeoEntityId; style: 'fill' | 'outline' | 'trace'; at: number; color?: string};
 export type GeoAnnotation =
-  | {type: 'label'; anchor: GeoAnchor; text: string; at: number}
-  | {type: 'marker'; anchor: GeoAnchor; text?: string; at: number}
+  | {type: 'label'; anchor: GeoAnchor; text: string; at: number; until?: number}
+  | {type: 'marker'; anchor: GeoAnchor; text?: string; at: number; until?: number}
   | {type: 'arrow'; from: GeoAnchor; to: GeoAnchor; text?: string; at: number}
   | {type: 'route'; path: GeoAnchor[]; text?: string; at: number; until?: number; marker: boolean; follow: boolean};
 export type GeoMapPrimitive = {kind: 'geo-map'; camera: GeoCameraKey[]; highlights: GeoHighlight[]; annotations: GeoAnnotation[]; dataset: 'natural-earth'; cut?: boolean; relief?: boolean; data?: GeoData};

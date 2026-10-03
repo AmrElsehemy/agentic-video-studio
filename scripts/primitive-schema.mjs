@@ -29,8 +29,9 @@ const cameraKey = z.object({
   ease: z.enum(['linear', 'in-out']).default('in-out'),
 }).strict();
 const geoAnnotation = z.discriminatedUnion('type', [
-  z.object({type: z.literal('label'), anchor, text: label, at: moment.default(0)}).strict(),
-  z.object({type: z.literal('marker'), anchor, text: label.optional(), at: moment.default(0)}).strict(),
+  // until: fade out, finishing then (e.g. before a pull-out where labels would crowd).
+  z.object({type: z.literal('label'), anchor, text: label, at: moment.default(0), until: moment.optional()}).strict(),
+  z.object({type: z.literal('marker'), anchor, text: label.optional(), at: moment.default(0), until: moment.optional()}).strict(),
   z.object({type: z.literal('arrow'), from: anchor, to: anchor, text: label.optional(), at: moment.default(0)}).strict(),
   // A route (#90): a path through 2–6 places that draws itself from `at` to `until` along
   // great circles (computed, never hand-drawn), with a marker at its head. follow: the
@@ -91,6 +92,9 @@ export const primitiveSchema = z.discriminatedUnion('kind', [
       if (typeof key.target === 'object' && key.target.bbox[1] >= key.target.bbox[3]) context.addIssue({code: 'custom', path: ['camera', index, 'target', 'bbox'], message: 'A box must have south below north'});
     });
     primitive.annotations.forEach((annotation, index) => {
+      if ((annotation.type === 'label' || annotation.type === 'marker') && annotation.until !== undefined && annotation.until <= annotation.at) {
+        context.addIssue({code: 'custom', path: ['annotations', index, 'until'], message: `A ${annotation.type} must leave after it appears: until ${annotation.until} is not after at ${annotation.at}`});
+      }
       if (annotation.type !== 'route') return;
       if (routeUntil(annotation) <= annotation.at) context.addIssue({code: 'custom', path: ['annotations', index, 'until'], message: `A route must finish after it starts: until ${routeUntil(annotation)} is not after at ${annotation.at}`});
       if (annotation.follow && routeUntil(annotation) > FOLLOW_LATEST) context.addIssue({code: 'custom', path: ['annotations', index, 'until'], message: `A followed route must finish by ${FOLLOW_LATEST}, so the camera can ease back before the scene ends`});
