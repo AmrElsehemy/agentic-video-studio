@@ -92,7 +92,7 @@ Every other command takes an episode by its id (`charmander-004`) or just its Po
 
 Options: `--pattern=<archetype>` forces a story shape, `--overwrite` replaces an existing draft.
 
-**Models.** The agents use whichever key is set (`ANTHROPIC_API_KEY` first); `WRITER_PROVIDER=anthropic|openai` chooses explicitly and `WRITER_MODEL` sets the model for every agent (defaults: `claude-opus-5-5`, `gpt-5.6-terra`). Each agent can also run on its own model, so the judging work can use a cheaper one:
+**Models.** The agents use whichever key is set (`ANTHROPIC_API_KEY` first); `WRITER_PROVIDER=anthropic|openai` chooses explicitly and `WRITER_MODEL` sets the model for every agent (defaults: `claude-opus-5-5`, `gpt-5.6-luna`). Each agent can also run on its own model, so the judging work can use a cheaper one:
 
 | Agent | Setting | Falls back to |
 |---|---|---|

@@ -5,7 +5,7 @@ import {fetchWithReason} from './net.mjs';
 
 export const PROVIDERS = {
   anthropic: {keyEnv: 'ANTHROPIC_API_KEY', defaultModel: 'claude-opus-5-5'},
-  openai: {keyEnv: 'OPENAI_API_KEY', defaultModel: 'gpt-5.6-terra'},
+  openai: {keyEnv: 'OPENAI_API_KEY', defaultModel: 'gpt-5.6-luna'},
 };
 
 // A message's content is a string, or a list of parts:
