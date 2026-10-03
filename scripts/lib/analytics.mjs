@@ -124,13 +124,17 @@ export const correlation = (xs, ys) => {
 /** Episodes needed before the report reads anything into the numbers. */
 export const MIN_EPISODES_FOR_TRENDS = 5;
 
+/** Dollars per 1,000 views, or undefined before an episode has views or a known cost (#89). */
+export const costPerThousandViews = (cost, views) => (cost == null || !views ? undefined : (cost / views) * 1000);
+
 /**
  * One row per published episode (its latest snapshot joined with how it was
- * built), plus correlations between the levers and completion once enough
- * episodes have data. `entries` is [{manifest, analytics}].
+ * built and what it cost to make), plus correlations between the levers and
+ * completion once enough episodes have data. `entries` is
+ * [{manifest, analytics, cost?}], cost being the production log's estimate in dollars.
  */
 export const buildReport = (entries) => {
-  const rows = entries.map(({manifest, analytics}) => {
+  const rows = entries.map(({manifest, analytics, cost}) => {
     const latest = analytics.snapshots.at(-1);
     const features = episodeFeatures(manifest);
     return {
@@ -138,6 +142,7 @@ export const buildReport = (entries) => {
       show: manifest.show.id,
       url: analytics.url,
       ...features,
+      ...(cost == null ? {} : {cost}),
       snapshot: latest ? {
         capturedAt: latest.capturedAt,
         views: latest.views,
@@ -146,6 +151,7 @@ export const buildReport = (entries) => {
         // Viewers still there when the hook ends: how well the opening holds.
         hookHold: watchingAt(latest.retention, features.hookSeconds / features.totalSeconds),
         engagementRate: latest.views ? ((latest.likes ?? 0) + (latest.comments ?? 0) + (latest.shares ?? 0)) / latest.views : undefined,
+        costPerThousandViews: costPerThousandViews(cost, latest.views),
       } : undefined,
     };
   });

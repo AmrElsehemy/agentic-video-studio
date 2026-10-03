@@ -9,6 +9,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {findManifest, repoRoot as root, resolveEpisodeId} from './catalog.mjs';
 import {addSnapshot, analyticsPath, buildReport, fetchYouTubeSnapshot, linkVideo, MIN_EPISODES_FOR_TRENDS, readAnalytics, writeAnalytics} from './lib/analytics.mjs';
+import {readProduction, summarizeProduction} from './lib/production.mjs';
 import {getAccessToken} from './lib/youtube.mjs';
 
 const [command, target, ...rest] = process.argv.slice(2);
@@ -71,20 +72,24 @@ if (command === 'link') {
   console.log(`✓ ${episodeId}: ${snapshot.views} views, ${snapshot.averageViewPercent?.toFixed(1)}% average viewed${snapshot.retention ? `, retention curve (${snapshot.retention.length} points)` : ''}`);
 } else if (command === 'report') {
   const base = path.join(root, 'analytics');
-  const files = fs.existsSync(base) ? fs.readdirSync(base).flatMap((show) => fs.readdirSync(path.join(base, show)).filter((name) => name.endsWith('.json')).map((name) => path.join(base, show, name))) : [];
+  // Performance files only; each episode's production log (#89) sits beside its own.
+  const files = fs.existsSync(base) ? fs.readdirSync(base).flatMap((show) => fs.readdirSync(path.join(base, show)).filter((name) => name.endsWith('.json') && !name.endsWith('.production.json')).map((name) => path.join(base, show, name))) : [];
   const entries = files.map((file) => {
     const analytics = readAnalytics(file);
-    return {analytics, manifest: JSON.parse(fs.readFileSync(findManifest(analytics.episodeId).manifestPath, 'utf8'))};
+    const manifest = JSON.parse(fs.readFileSync(findManifest(analytics.episodeId).manifestPath, 'utf8'));
+    const production = summarizeProduction(readProduction(root, manifest.show.id, analytics.episodeId), {manifest});
+    return {analytics, manifest, cost: production.cost};
   });
   const report = buildReport(entries);
   // Hook hold and engagement are fractions; YouTube reports average % viewed as a percentage already.
   const percent = (value) => (value === undefined ? '–' : `${(value * 100).toFixed(0)}%`);
   console.log(`${report.rows.length} published episode${report.rows.length === 1 ? '' : 's'}, ${report.measured} with numbers\n`);
-  console.log('| episode | shape | hook | length | audit | views | avg viewed | hook hold | engagement |');
-  console.log('|---|---|---|---|---|---|---|---|---|');
+  const dollars = (value) => (value === undefined ? '–' : `$${value.toFixed(value < 1 ? 3 : 2)}`);
+  console.log('| episode | shape | hook | length | audit | views | avg viewed | hook hold | engagement | cost | per 1k views |');
+  console.log('|---|---|---|---|---|---|---|---|---|---|---|');
   for (const row of report.rows) {
     const s = row.snapshot;
-    console.log(`| ${row.episodeId} | ${row.storyPattern} | ${row.hookSeconds}s | ${row.totalSeconds}s | ${row.auditScore} | ${s?.views ?? '–'} | ${s?.averageViewPercent === undefined ? '–' : `${s.averageViewPercent.toFixed(0)}%`} | ${percent(s?.hookHold)} | ${percent(s?.engagementRate)} |`);
+    console.log(`| ${row.episodeId} | ${row.storyPattern} | ${row.hookSeconds}s | ${row.totalSeconds}s | ${row.auditScore} | ${s?.views ?? '–'} | ${s?.averageViewPercent === undefined ? '–' : `${s.averageViewPercent.toFixed(0)}%`} | ${percent(s?.hookHold)} | ${percent(s?.engagementRate)} | ${dollars(row.cost)} | ${dollars(s?.costPerThousandViews)} |`);
   }
   if (report.trends) {
     console.log('\nCorrelation with average % viewed (−1…1):');

@@ -1,9 +1,10 @@
 import assert from 'node:assert/strict';
+import {spawnSync} from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 import {describe, it} from 'node:test';
 import {fileURLToPath} from 'node:url';
-import {addSnapshot, buildReport, correlation, episodeFeatures, fetchYouTubeSnapshot, linkVideo, MIN_EPISODES_FOR_TRENDS, watchingAt, youtubeVideoId} from '../scripts/lib/analytics.mjs';
+import {addSnapshot, buildReport, correlation, costPerThousandViews, episodeFeatures, fetchYouTubeSnapshot, linkVideo, MIN_EPISODES_FOR_TRENDS, watchingAt, youtubeVideoId} from '../scripts/lib/analytics.mjs';
 import {episodeAnalyticsSchema} from '../scripts/analytics-schema.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -75,6 +76,27 @@ describe('episode analytics', () => {
     const enough = buildReport(entries);
     assert.equal(enough.measured, MIN_EPISODES_FOR_TRENDS);
     assert.ok(enough.trends && 'hookSeconds' in enough.trends);
+  });
+
+  it('puts what an episode cost to make next to its views', () => {
+    const analytics = addSnapshot(linkVideo(undefined, {episodeId: 'silk-road', video: 'vidSILKROAD'}), {capturedAt: '2026-10-01T00:00:00Z', source: 'manual', views: 2000});
+    const [row] = buildReport([{manifest: manifestOf('geographica', 'silk-road'), analytics, cost: .5}]).rows;
+    assert.equal(row.cost, .5);
+    // $0.50 over 2,000 views is $0.25 per thousand.
+    assert.equal(row.snapshot?.costPerThousandViews, .25);
+    assert.equal(costPerThousandViews(.5, 0), undefined);
+    assert.equal(costPerThousandViews(null, 100), undefined);
+    const [unknown] = buildReport([{manifest: manifestOf('geographica', 'silk-road'), analytics}]).rows;
+    assert.equal(unknown.cost, undefined);
+    assert.equal(unknown.snapshot?.costPerThousandViews, undefined);
+  });
+
+  it('reads performance files only, not the production logs beside them', () => {
+    // analytics/geographica/silk-road.production.json is committed (#89); the report must not parse it as performance.
+    assert.ok(fs.existsSync(path.join(root, 'analytics', 'geographica', 'silk-road.production.json')));
+    const run = spawnSync(process.execPath, ['scripts/analytics.mjs', 'report'], {cwd: root, encoding: 'utf8'});
+    assert.equal(run.status, 0, run.stderr);
+    assert.match(run.stdout, /per 1k views/);
   });
 
   it('computes correlation only when it means something', () => {
