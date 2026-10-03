@@ -120,7 +120,7 @@ export const EpisodeCover: React.FC<Props> = ({manifest}) => {
         // Episodes told with maps show their first map, finished (the hook's answer, before any labels), where the artwork would be.
         <div style={{position: 'absolute', top: 190, left: 65, width: 950, height: 950, borderRadius: 40, overflow: 'hidden', boxShadow: `0 0 0 5px ${accent}55, 0 40px 80px #000a`}}>
           <div style={{position: 'absolute', left: -30, top: -212, transform: 'scale(1)'}}>
-            <GeoMapVisual data={mapScene.primitive} scene={mapScene} manifest={manifest} frame={COVER_MAP_FRAMES} durationInFrames={COVER_MAP_FRAMES + 1} accent={accent} />
+            <GeoMapVisual blur={false} data={mapScene.primitive} scene={mapScene} manifest={manifest} frame={COVER_MAP_FRAMES} durationInFrames={COVER_MAP_FRAMES + 1} accent={accent} />
           </div>
         </div>
       ) : null}

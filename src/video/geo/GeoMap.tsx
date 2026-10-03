@@ -5,11 +5,12 @@ import {Img, interpolate, staticFile} from 'remotion';
 import {routeUntil, type GeoAnchor, type GeoMapPrimitive} from '../../../scripts/primitive-schema.mjs';
 import type {ShotProps} from '../shots';
 import {displayFont} from '../typography';
-import {cameraAt, cameraKeys, continuesMap, episodeCameraKeys, MAP_SIZE, type BBox, type CameraKey, type Size} from './camera';
+import {cameraAt, cameraKeys, continuesMap, episodeCameraKeys, MAP_SIZE, type BBox, type CameraKey, type Size, type View} from './camera';
 import {useGeoData, useReliefData, type GeoData} from './data';
 import {RELIEF_STRENGTH, reliefPlacements} from './relief';
 import {fitInside, labelBox, resolveLabels, type Box, type Placed} from './labels';
 import {labelScale, pop} from './motion';
+import {blurSamples, shutterFor, viewShift} from './blur';
 import {followView, followWeight, partialRoute, routeLine, routeProgress, type RouteLine} from './route';
 
 // A map drawn entirely from the pinned data and the primitive: the camera flies
@@ -104,9 +105,11 @@ const Label: React.FC<{x: number; y: number; text: string; opacity: number; colo
   return scale === 1 ? label : <g transform={`translate(${x} ${y}) scale(${scale}) translate(${-x} ${-y})`}>{label}</g>;
 };
 
-export const GeoMapVisual: React.FC<ShotProps & {data: GeoMapPrimitive}> = ({data: primitive, scene, manifest, frame, durationInFrames, accent, seams}) => {
+type GeoMapProps = ShotProps & {data: GeoMapPrimitive};
+
+/** The camera's path through a shot: its keyframes, its routes, and where it looks at scene time t (0–1). */
+const useCameraPath = ({data: primitive, scene, manifest, seams}: GeoMapProps) => {
   const data = useGeoData();
-  const relief = useReliefData(Boolean(primitive.relief));
   const keys = useMemo<CameraKey[] | undefined>(() => {
     if (!data) return undefined;
     const boxOf = (target: Exclude<GeoMapPrimitive['camera'][number]['target'], 'world'>) => targetBox(target, data);
@@ -122,15 +125,43 @@ export const GeoMapVisual: React.FC<ShotProps & {data: GeoMapPrimitive}> = ({dat
     });
     return lines;
   }, [data, primitive]);
-  if (!data || !keys || (primitive.relief && !relief)) return null;
-
-  const t = durationInFrames > 1 ? frame / (durationInFrames - 1) : 0;
   // A followed route pulls the camera's centre onto its marker while it draws.
   const followedIndex = primitive.annotations.findIndex((annotation) => annotation.type === 'route' && annotation.follow);
   const followed = followedIndex >= 0 ? primitive.annotations[followedIndex] as Route : undefined;
-  const view = followed
-    ? followView(cameraAt(keys, t), partialRoute(routes.get(followedIndex)!, routeProgress(t, followed.at, routeUntil(followed))).head, followWeight(t, followed.at, routeUntil(followed)))
-    : cameraAt(keys, t);
+  const viewAt = (t: number): View => (followed
+    ? followView(cameraAt(keys!, t), partialRoute(routes.get(followedIndex)!, routeProgress(t, followed.at, routeUntil(followed))).head, followWeight(t, followed.at, routeUntil(followed)))
+    : cameraAt(keys!, t));
+  return {data, keys, routes, viewAt};
+};
+
+/**
+ * A map shot. A fast camera move is motion-blurred (blur.ts): the frame is drawn
+ * at a few times across part of a frame and averaged, each layer at opacity
+ * 1/(n+1) over those below, which weighs every render equally. `blur: false`
+ * draws the single frame (a still such as the cover).
+ */
+export const GeoMapVisual: React.FC<GeoMapProps & {blur?: boolean}> = ({blur = true, ...props}) => {
+  const {data, keys, viewAt} = useCameraPath(props);
+  if (!blur || !data || !keys) return <GeoMapFrame {...props} />;
+  const {frame, durationInFrames} = props;
+  const timeOf = (at: number) => (durationInFrames > 1 ? Math.max(0, Math.min(1, at / (durationInFrames - 1))) : 0);
+  // Speed in px per frame, measured across the frame itself.
+  const speed = viewShift(viewAt(timeOf(frame - .5)), viewAt(timeOf(frame + .5)), SIZE);
+  const samples = blurSamples(frame, shutterFor(speed), durationInFrames - 1);
+  if (samples.length === 1) return <GeoMapFrame {...props} />;
+  return <div style={{position: 'absolute', inset: 0}}>
+    {samples.map((sample, index) => <div key={index} style={{position: 'absolute', inset: 0, opacity: 1 / (index + 1)}}><GeoMapFrame {...props} frame={sample} /></div>)}
+  </div>;
+};
+
+const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
+  const {data: primitive, scene, manifest, frame, durationInFrames, accent, seams} = props;
+  const {data, keys, routes, viewAt} = useCameraPath(props);
+  const relief = useReliefData(Boolean(primitive.relief));
+  if (!data || !keys || (primitive.relief && !relief)) return null;
+
+  const t = durationInFrames > 1 ? frame / (durationInFrames - 1) : 0;
+  const view = viewAt(t);
   const projection: GeoProjection = geoMercator().rotate([-view.lon, 0]).center([0, view.lat]).scale(view.scale).translate([SIZE.width / 2, SIZE.height / 2]);
   const path = geoPath(projection);
   const appear = (at: number, frames = APPEAR) => interpolate(frame, [at * durationInFrames, at * durationInFrames + frames], [0, 1], clamp);
