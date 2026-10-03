@@ -5,7 +5,9 @@ export type ReportRow = EpisodeFeatures & {
   episodeId: string;
   show: string;
   url: string;
-  snapshot?: {capturedAt: string; views: number; averageViewPercent?: number; averageViewSeconds?: number; hookHold?: number; engagementRate?: number};
+  /** Estimated dollars to make the episode, from its production log (#89). */
+  cost?: number;
+  snapshot?: {capturedAt: string; views: number; averageViewPercent?: number; averageViewSeconds?: number; hookHold?: number; engagementRate?: number; costPerThousandViews?: number};
 };
 export declare const analyticsPath: (root: string, showId: string, episodeId: string) => string;
 export declare const youtubeVideoId: (value: string) => string;
@@ -18,4 +20,5 @@ export declare const watchingAt: (retention: RetentionPoint[] | undefined, at: n
 export declare const episodeFeatures: (manifest: any) => EpisodeFeatures;
 export declare const correlation: (xs: number[], ys: number[]) => number | undefined;
 export declare const MIN_EPISODES_FOR_TRENDS: number;
-export declare const buildReport: (entries: {manifest: any; analytics: EpisodeAnalytics}[]) => {rows: ReportRow[]; measured: number; trends?: Record<string, number | undefined>};
+export declare const costPerThousandViews: (cost: number | null | undefined, views: number | undefined) => number | undefined;
+export declare const buildReport: (entries: {manifest: any; analytics: EpisodeAnalytics; cost?: number | null}[]) => {rows: ReportRow[]; measured: number; trends?: Record<string, number | undefined>};
