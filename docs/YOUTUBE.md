@@ -16,15 +16,18 @@ Agentic Video Studio can upload rendered episodes directly to YouTube using the 
 
 The `.secrets/` directory is gitignored.
 
-Then authorize the PokePulses channel once:
+Then sign in once per show, each to its own channel:
 
 ```bash
-npm run youtube:auth
+npm run youtube:auth -- --show=pokepulses
+npm run youtube:auth -- --show=geographica
 ```
 
-The browser opens Google OAuth with the minimal `youtube.upload` scope. The refresh token is stored locally at `.secrets/youtube-token.json`.
+The browser opens Google OAuth for uploads, read-only analytics and read-only channel data (to check which channel a login belongs to). Each show's refresh token is stored locally at `.secrets/youtube-token-<show>.json`. PokePulses also keeps using an existing `.secrets/youtube-token.json`. A login made before channel checks existed lacks the read-only channel permission, so sign in again.
 
-For CI/unattended use, credentials can instead be supplied via `YOUTUBE_CLIENT_ID`, `YOUTUBE_CLIENT_SECRET`, and `YOUTUBE_REFRESH_TOKEN`.
+A show whose profile sets `publishing.channelId` (Geographica: `UCAdCQV1ieA3NjmNiutIRwHQ`) only uploads to, and links videos from, that channel. Signing in to another channel, or uploading with that login, stops with an error naming both channels. After signing in to a show without one, the command prints the line to add.
+
+For CI/unattended use, credentials can instead be supplied via `YOUTUBE_CLIENT_ID`, `YOUTUBE_CLIENT_SECRET` and one refresh token per show: `YOUTUBE_REFRESH_TOKEN_GEOGRAPHICA`, `YOUTUBE_REFRESH_TOKEN_POKEPULSES` (PokePulses also accepts `YOUTUBE_REFRESH_TOKEN`).
 
 ## Dry run
 
@@ -80,6 +83,7 @@ The upload also links the episode to its video in `analytics/<show>/<episode-id>
 ## Performance (analytics)
 
 ```bash
+npm run analytics -- link-channel <show> [--dry-run]                          # link every upload on the show's channel to its episode, by title
 npm run analytics -- link <id> <video id or Shorts URL> [--published-at=<ISO>]   # for videos uploaded by hand
 npm run analytics -- record <id> --views=1520 --avg-seconds=23.4 --avg-percent=75 --likes=90 --comments=12 --shares=7 --subs=3
 npm run analytics -- fetch <id>     # the same numbers plus the retention curve, from the YouTube Analytics API

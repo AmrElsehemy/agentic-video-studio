@@ -2,7 +2,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {spawnSync} from 'node:child_process';
 import {findManifest, resolveEpisodeId} from './catalog.mjs';
-import {getAccessToken, youtubeMetadata} from './lib/youtube.mjs';
+import {loadShow} from './lib/shows.mjs';
+import {assertShowChannel, channelOf, getAccessToken, youtubeMetadata} from './lib/youtube.mjs';
 import {analyticsPath, linkVideo, readAnalytics, writeAnalytics} from './lib/analytics.mjs';
 
 const args = process.argv.slice(2);
@@ -36,7 +37,8 @@ if (requiresPublicReleaseClearance) {
   if (preflight.status !== 0) process.exit(preflight.status ?? 1);
 }
 
-const metadata = youtubeMetadata(manifest, {privacy, publishAt, madeForKids});
+const show = loadShow(manifest.show.id);
+const metadata = youtubeMetadata(manifest, {privacy, publishAt, madeForKids, show});
 const preview = {
   episodeId,
   file: path.relative(root, videoPath),
@@ -49,7 +51,11 @@ if (dryRun) {
   process.exit(0);
 }
 
-const accessToken = await getAccessToken(root);
+// The show's own login, and only onto the show's own channel.
+const accessToken = await getAccessToken(root, {show: show.id});
+const channel = await channelOf(accessToken);
+assertShowChannel(show, channel);
+console.log(`▶ uploading to ${channel.title} (${channel.id})`);
 const stat = fs.statSync(videoPath);
 const initUrl = new URL('https://www.googleapis.com/upload/youtube/v3/videos');
 initUrl.searchParams.set('uploadType', 'resumable');

@@ -4,18 +4,20 @@
 //                                                                                add numbers from YouTube Studio by hand
 //   npm run analytics -- fetch <id>        pull the numbers and retention curve from the YouTube Analytics API
 //   npm run analytics -- report            every published episode, its numbers and how it was built
+//   npm run analytics -- link-channel <show> [--dry-run]   link every upload on the show's channel to its episode, by title
 // Files live in analytics/<show>/<id>.json and are committed, so the history is kept.
 import fs from 'node:fs';
 import path from 'node:path';
-import {findManifest, repoRoot as root, resolveEpisodeId} from './catalog.mjs';
+import {findManifest, listManifests, repoRoot as root, resolveEpisodeId} from './catalog.mjs';
 import {addSnapshot, analyticsPath, buildReport, fetchYouTubeSnapshot, linkVideo, MIN_EPISODES_FOR_TRENDS, readAnalytics, writeAnalytics} from './lib/analytics.mjs';
 import {readProduction, summarizeProduction} from './lib/production.mjs';
-import {getAccessToken} from './lib/youtube.mjs';
+import {loadShow} from './lib/shows.mjs';
+import {assertShowChannel, channelOf, getAccessToken, listUploads, matchUploads} from './lib/youtube.mjs';
 
 const [command, target, ...rest] = process.argv.slice(2);
 const option = (name) => rest.find((arg) => arg.startsWith(`--${name}=`))?.slice(name.length + 3);
 const usage = () => {
-  console.error('Usage: npm run analytics -- link <id> <video> [--published-at=<ISO>] | record <id> --views=N [...] | fetch <id> | report');
+  console.error('Usage: npm run analytics -- link <id> <video> [--published-at=<ISO>] | record <id> --views=N [...] | fetch <id> | report | link-channel <show> [--dry-run]');
   process.exit(1);
 };
 
@@ -64,10 +66,10 @@ if (command === 'link') {
   console.log(`✓ recorded ${views} views for ${episodeId}`);
 } else if (command === 'fetch') {
   if (!target) usage();
-  const {episodeId, file} = episode(target);
+  const {episodeId, file, manifest} = episode(target);
   const record = linked(file, episodeId);
   const startDate = (record.publishedAt ?? '2020-01-01').slice(0, 10);
-  const snapshot = await fetchYouTubeSnapshot({videoId: record.videoId, accessToken: await getAccessToken(root), startDate});
+  const snapshot = await fetchYouTubeSnapshot({videoId: record.videoId, accessToken: await getAccessToken(root, {show: manifest.show.id}), startDate});
   writeAnalytics(file, addSnapshot(record, snapshot));
   console.log(`✓ ${episodeId}: ${snapshot.views} views, ${snapshot.averageViewPercent?.toFixed(1)}% average viewed${snapshot.retention ? `, retention curve (${snapshot.retention.length} points)` : ''}`);
 } else if (command === 'report') {
@@ -100,6 +102,26 @@ if (command === 'link') {
   fs.mkdirSync(path.join(root, 'out'), {recursive: true});
   fs.writeFileSync(path.join(root, 'out', 'analytics-report.json'), `${JSON.stringify(report, null, 2)}\n`);
   console.log('\n✓ out/analytics-report.json');
+} else if (command === 'link-channel') {
+  // Videos uploaded by hand: find each on the show's channel and link it to its episode by title.
+  if (!target) usage();
+  const show = loadShow(target);
+  const accessToken = await getAccessToken(root, {show: show.id});
+  const channel = await channelOf(accessToken);
+  assertShowChannel(show, channel);
+  const episodes = listManifests().map((file) => JSON.parse(fs.readFileSync(file, 'utf8'))).filter((manifest) => manifest.show.id === show.id).map((manifest) => ({episodeId: manifest.id, title: manifest.title}));
+  const {matched, unmatched} = matchUploads(await listUploads(accessToken, channel.uploads), episodes);
+  console.log(`${channel.title} (${channel.id}): ${matched.length} upload(s) match an episode, ${unmatched.length} don't`);
+  for (const {episodeId, video} of matched) {
+    const file = analyticsPath(root, show.id, episodeId);
+    const existing = readAnalytics(file);
+    if (existing?.videoId === video.videoId) { console.log(`  = ${episodeId} already linked to ${existing.url}`); continue; }
+    if (existing && existing.videoId !== video.videoId) { console.warn(`  ! ${episodeId} is linked to ${existing.url}, not ${video.videoId}; left as it is (use link to change it)`); continue; }
+    const record = linkVideo(undefined, {episodeId, video: video.videoId, publishedAt: video.publishedAt});
+    if (!rest.includes('--dry-run')) writeAnalytics(file, record);
+    console.log(`  ✓ ${episodeId} → ${record.url}${rest.includes('--dry-run') ? ' (dry run)' : ''}`);
+  }
+  for (const video of unmatched) console.log(`  ? "${video.title}" (${video.videoId}) matches no episode title; link it by hand if it's one: npm run analytics -- link <id> ${video.videoId}`);
 } else {
   usage();
 }
