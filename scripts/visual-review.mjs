@@ -21,6 +21,7 @@ import path from 'node:path';
 import {bundle} from '@remotion/bundler';
 import {openBrowser, renderStill, selectComposition} from '@remotion/renderer';
 import {episodeIds, findManifest, repoRoot as root, resolveEpisodeId} from './catalog.mjs';
+import {renderDifference} from './lib/render-check.mjs';
 
 const args = process.argv.slice(2);
 const option = (name) => args.find((arg) => arg.startsWith(`--${name}=`))?.slice(name.length + 3);
@@ -115,6 +116,14 @@ const renderStrips = async (dir, side, ids) => {
   }
 };
 
+/**
+ * Strip frames are rendered one after another, and Chrome's anti-aliasing can
+ * shift a few pixels by a few levels depending on what it drew before
+ * (measured: at most 4 of 255). They count as the same within that noise.
+ * Scene frames and covers still have to match exactly.
+ */
+const gray = (file) => spawnSync('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-i', file, '-vf', 'format=gray', '-f', 'rawvideo', '-'], {maxBuffer: 256 * 1024 * 1024}).stdout;
+const alike = (a, b) => pixels(a) === pixels(b) || renderDifference(gray(a), gray(b)).alike;
 const pixels = (file) => run('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-i', file, '-f', 'md5', '-'], {}).trim();
 const ssim = (a, b) => Number(spawnSync('ffmpeg', ['-hide_banner', '-i', a, '-i', b, '-lavfi', 'ssim', '-f', 'null', '-'], {encoding: 'utf8'}).stderr.match(/All:([\d.]+)/)?.[1] ?? 0);
 const thumb = (file, filters = 'scale=360:-2') => {
@@ -149,7 +158,7 @@ const compareEpisode = (id) => {
     const cells = STRIP_OFFSETS.map((offset) => {
       const [a, b] = [path.join(before, 'strips', name(offset)), path.join(after, 'strips', name(offset))];
       const has = [fs.existsSync(a), fs.existsSync(b)];
-      return {offset, before: has[0] ? thumb(a, 'scale=180:-2') : null, after: has[1] ? thumb(b, 'scale=180:-2') : null, same: has[0] && has[1] && pixels(a) === pixels(b)};
+      return {offset, before: has[0] ? thumb(a, 'scale=180:-2') : null, after: has[1] ? thumb(b, 'scale=180:-2') : null, same: has[0] && has[1] && alike(a, b)};
     });
     return {label: `Scene ${index} → ${index + 1} (${manifest.scenes[index - 1].id} → ${manifest.scenes[index].id})`, cells, changed: cells.some((cell) => !cell.same)};
   }).filter((strip) => strip.cells.some((cell) => cell.before || cell.after)); // none rendered with --no-strips

@@ -28,6 +28,8 @@ export const geoReferences = (primitive) => [
   ...primitive.annotations.flatMap((annotation, index) => ['anchor', 'from', 'to']
     .filter((key) => typeof annotation[key] === 'string')
     .map((key) => [`annotations[${index}].${key}`, annotation[key]])),
+  ...primitive.annotations.flatMap((annotation, index) => (annotation.type === 'route' ? annotation.path : [])
+    .flatMap((stop, at) => (typeof stop === 'string' ? [[`annotations[${index}].path[${at}]`, stop]] : []))),
 ];
 
 const suggest = (id, entities) => {

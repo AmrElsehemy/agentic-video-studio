@@ -1,5 +1,5 @@
 {
-  "_note": "GeoMotion golden shots (#71/#72): primitives only, no episode-specific code. The three Georgia shots, plus Fiji to prove shapes crossing the antimeridian render whole. Used by the schema tests and the renderer's golden frames.",
+  "_note": "GeoMotion golden shots (#71/#72/#90): primitives only, no episode-specific code. The three Georgia shots; Fiji, to prove shapes and a route crossing the antimeridian render whole; and the Silk Road, a route the camera follows. Used by the schema tests and the renderer's golden frames.",
   "shots": {
     "fly-to-georgia": {
       "kind": "geo-map",
@@ -116,10 +116,10 @@
         {
           "target": {
             "bbox": [
-              174.587,
-              -21.706,
-              -178.251,
-              -12.477
+              174.5,
+              -22,
+              -171,
+              -12
             ]
           },
           "at": 0,
@@ -139,6 +139,109 @@
           "anchor": "country:FJI",
           "text": "FIJI",
           "at": 0
+        },
+        {
+          "type": "route",
+          "path": [
+            "country:FJI",
+            "country:WSM"
+          ],
+          "text": "TO SAMOA",
+          "at": 0.15,
+          "until": 0.75
+        }
+      ],
+      "cut": true
+    },
+    "silk-road": {
+      "kind": "geo-map",
+      "camera": [
+        {
+          "target": {
+            "bbox": [
+              20,
+              22,
+              118,
+              52
+            ]
+          },
+          "at": 0,
+          "padding": 0.08
+        },
+        {
+          "target": {
+            "bbox": [
+              96,
+              26,
+              122,
+              42
+            ]
+          },
+          "at": 0.15
+        },
+        {
+          "target": {
+            "bbox": [
+              96,
+              26,
+              122,
+              42
+            ]
+          },
+          "at": 0.7
+        },
+        {
+          "target": {
+            "bbox": [
+              20,
+              22,
+              118,
+              52
+            ]
+          },
+          "at": 0.92,
+          "padding": 0.08
+        }
+      ],
+      "annotations": [
+        {
+          "type": "marker",
+          "anchor": {
+            "lon": 108.94,
+            "lat": 34.34
+          },
+          "text": "XI'AN",
+          "at": 0.1
+        },
+        {
+          "type": "route",
+          "path": [
+            {
+              "lon": 108.94,
+              "lat": 34.34
+            },
+            {
+              "lon": 66.96,
+              "lat": 39.65
+            },
+            {
+              "lon": 28.98,
+              "lat": 41.01
+            }
+          ],
+          "text": "SILK ROAD",
+          "at": 0.2,
+          "until": 0.8,
+          "follow": true
+        },
+        {
+          "type": "marker",
+          "anchor": {
+            "lon": 28.98,
+            "lat": 41.01
+          },
+          "text": "CONSTANTINOPLE",
+          "at": 0.78
         }
       ],
       "cut": true

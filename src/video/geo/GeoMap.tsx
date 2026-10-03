@@ -2,14 +2,15 @@ import React, {useMemo} from 'react';
 import {geoCentroid, geoMercator, geoPath, type GeoProjection} from 'd3-geo';
 import {evolvePath} from '@remotion/paths';
 import {interpolate} from 'remotion';
-import type {GeoAnchor, GeoMapPrimitive} from '../../../scripts/primitive-schema.mjs';
+import {routeUntil, type GeoAnchor, type GeoMapPrimitive} from '../../../scripts/primitive-schema.mjs';
 import type {ShotProps} from '../shots';
 import {displayFont} from '../typography';
 import {cameraAt, cameraKeys, episodeCameraKeys, MAP_SIZE, type BBox, type CameraKey, type Size} from './camera';
 import {useGeoData, type GeoData} from './data';
+import {followView, followWeight, partialRoute, routeLine, routeProgress, type RouteLine} from './route';
 
 // A map drawn entirely from the pinned data and the primitive: the camera flies
-// between framings, places light up, labels, markers and arrows appear. Nothing
+// between framings, places light up, labels, markers, arrows and routes appear. Nothing
 // here knows which episode or country it is drawing.
 
 const clamp = {extrapolateLeft: 'clamp' as const, extrapolateRight: 'clamp' as const};
@@ -22,6 +23,8 @@ const TRACE_SHARE = .35;
 /** Space an arrow leaves around an anchor without a label (at its start; 60% of it before its target). */
 const ARROW_GAP = 60;
 const LABEL_SIZE = 46;
+
+type Route = Extract<GeoMapPrimitive['annotations'][number], {type: 'route'}>;
 
 const sameAnchor = (a: GeoAnchor, b: GeoAnchor) => (typeof a === 'string' || typeof b === 'string' ? a === b : a.lon === b.lon && a.lat === b.lat);
 
@@ -74,6 +77,12 @@ const visibleFilter = (projection: GeoProjection) => {
 };
 
 const keepInside = ([x, y]: [number, number]): [number, number] => [Math.max(SAFE, Math.min(SIZE.width - SAFE, x)), Math.max(SAFE, Math.min(SIZE.height - SAFE, y))];
+/**
+ * A label or marker whose place has left the frame by more than this is hidden rather
+ * than pinned to the edge, where it would point at the wrong place (a camera following a route).
+ */
+const OFF_FRAME = 160;
+const farOffFrame = ([x, y]: [number, number]) => x < -OFF_FRAME || x > SIZE.width + OFF_FRAME || y < -OFF_FRAME || y > SIZE.height + OFF_FRAME;
 
 const Label: React.FC<{x: number; y: number; text: string; opacity: number; color: string; halo: string; size?: number}> = ({x, y, text, opacity, color, halo, size = LABEL_SIZE}) => (
   <text x={x} y={y + (1 - opacity) * 14} textAnchor="middle" dominantBaseline="middle" opacity={opacity}
@@ -89,10 +98,23 @@ export const GeoMapVisual: React.FC<ShotProps & {data: GeoMapPrimitive}> = ({dat
     if (seams?.in) return episodeCameraKeys(manifest.scenes, manifest.scenes.findIndex((item) => item.id === scene.id), boxOf, SIZE);
     return cameraKeys(primitive.camera, boxOf, SIZE);
   }, [data, primitive, seams?.in, manifest, scene.id]);
+  // Routes are computed once per shot: great circles through their stops.
+  const routes = useMemo(() => {
+    const lines = new Map<number, RouteLine>();
+    if (data) primitive.annotations.forEach((annotation, index) => {
+      if (annotation.type === 'route') lines.set(index, routeLine(annotation.path.map((stop) => anchorLonLat(stop, data))));
+    });
+    return lines;
+  }, [data, primitive]);
   if (!data || !keys) return null;
 
   const t = durationInFrames > 1 ? frame / (durationInFrames - 1) : 0;
-  const view = cameraAt(keys, t);
+  // A followed route pulls the camera's centre onto its marker while it draws.
+  const followedIndex = primitive.annotations.findIndex((annotation) => annotation.type === 'route' && annotation.follow);
+  const followed = followedIndex >= 0 ? primitive.annotations[followedIndex] as Route : undefined;
+  const view = followed
+    ? followView(cameraAt(keys, t), partialRoute(routes.get(followedIndex)!, routeProgress(t, followed.at, routeUntil(followed))).head, followWeight(t, followed.at, routeUntil(followed)))
+    : cameraAt(keys, t);
   const projection: GeoProjection = geoMercator().rotate([-view.lon, 0]).center([0, view.lat]).scale(view.scale).translate([SIZE.width / 2, SIZE.height / 2]);
   const path = geoPath(projection);
   const appear = (at: number, frames = APPEAR) => interpolate(frame, [at * durationInFrames, at * durationInFrames + frames], [0, 1], clamp);
@@ -138,8 +160,38 @@ export const GeoMapVisual: React.FC<ShotProps & {data: GeoMapPrimitive}> = ({dat
         stroke={color} strokeOpacity={shown} strokeWidth={highlight.style === 'outline' ? 6 : 3} strokeLinejoin="round" style={{filter: `drop-shadow(0 0 ${14 * shown}px ${color})`}} />;
     })}
 
-    {primitive.annotations.map((annotation, index) => {
+    {/* Routes go underneath, so labels and markers on their stops stay readable. */}
+    {primitive.annotations.map((annotation, index) => [annotation, index] as const).sort(([a], [b]) => Number(b.type === 'route') - Number(a.type === 'route')).map(([annotation, index]) => {
       const shown = appear(annotation.at);
+      if (annotation.type === 'route') {
+        if (t < annotation.at) return null;
+        const line = routes.get(index)!;
+        const progress = routeProgress(t, annotation.at, routeUntil(annotation));
+        const {points, head} = partialRoute(line, progress);
+        const travelled = progress * line.distances[line.distances.length - 1];
+        const d = points.length > 1 ? path({type: 'LineString', coordinates: points}) ?? '' : '';
+        const [hx, hy] = point(head);
+        const onFrame = hx >= 0 && hx <= SIZE.width && hy >= 0 && hy <= SIZE.height;
+        const pulse = 1 + .3 * Math.abs(Math.sin((frame - annotation.at * durationInFrames) / 7));
+        return <g key={index} opacity={shown}>
+          <path d={d} fill="none" stroke={accent} strokeOpacity={.3} strokeWidth={18} strokeLinecap="round" strokeLinejoin="round" />
+          <path d={d} fill="none" stroke={accent} strokeWidth={7} strokeLinecap="round" strokeLinejoin="round" />
+          {/* Each stop gets a dot once the route reaches it. */}
+          {line.stops.map((at, stop) => {
+            if (travelled + 1e-9 < line.distances[at]) return null;
+            const [sx, sy] = point(line.points[at]);
+            return <circle key={stop} cx={sx} cy={sy} r={10} fill={palette.ink} stroke={accent} strokeWidth={5} />;
+          })}
+          {annotation.marker && onFrame ? <>
+            <circle cx={hx} cy={hy} r={24 * pulse} fill={accent} opacity={.25} />
+            <circle cx={hx} cy={hy} r={13} fill={accent} stroke={palette.ink} strokeWidth={4} />
+          </> : null}
+          {annotation.text ? (() => {
+            const [lx, ly] = keepInside([hx, hy - 60]);
+            return <Label x={lx} y={ly} text={annotation.text} opacity={shown} color={palette.ink} halo={palette.background} size={38} />;
+          })() : null}
+        </g>;
+      }
       if (annotation.type === 'arrow') {
         // Measured from where the anchors are drawn (labels are kept inside the frame).
         const from = keepInside(point(anchorLonLat(annotation.from, data)));
@@ -177,7 +229,9 @@ export const GeoMapVisual: React.FC<ShotProps & {data: GeoMapPrimitive}> = ({dat
           {annotation.text ? <Label x={lx} y={ly} text={annotation.text} opacity={progress} color={palette.ink} halo={palette.background} size={36} /> : null}
         </g>;
       }
-      const [x, y] = keepInside(point(anchorLonLat(annotation.anchor, data)));
+      const projected = point(anchorLonLat(annotation.anchor, data));
+      if (farOffFrame(projected)) return null;
+      const [x, y] = keepInside(projected);
       if (annotation.type === 'marker') {
         const pulse = 1 + .35 * Math.abs(Math.sin((frame - annotation.at * durationInFrames) / 8));
         return <g key={index} opacity={shown}>
