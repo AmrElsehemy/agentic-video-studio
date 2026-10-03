@@ -20,6 +20,7 @@ export const RELIEF = {
     // Full detail where episodes zoom in.
     {id: 'southern-africa', bbox: [14, -36, 36, -20], downsample: 1},
     {id: 'caucasus', bbox: [34, 36, 54, 48], downsample: 1},
+    {id: 'pamirs', bbox: [64, 33, 82, 44], downsample: 1},
   ],
 };
 

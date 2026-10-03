@@ -13,6 +13,7 @@ const read = (file: string) => JSON.parse(fs.readFileSync(path.join(root, file),
 const geo = loadGeoData(root);
 const georgia = {draft: read('drafts/geographica/georgia-wine.json'), research: read('research/geographica/georgia-wine.json')};
 const lesotho = {draft: read('drafts/geographica/lesotho-enclave.json'), research: read('research/geographica/lesotho-enclave.json')};
+const silkRoad = {draft: read('drafts/geographica/silk-road.json'), research: read('research/geographica/silk-road.json')};
 const reply = (value: unknown) => async () => JSON.stringify(value);
 const undirected = (draft: {scenes: object[]}) => ({...draft, scenes: draft.scenes.map(({primitive, ...scene}: any) => scene)});
 
@@ -47,8 +48,8 @@ describe('geo entity resolver', () => {
 });
 
 describe('geography research', () => {
-  it('validates both Geographica research files', () => {
-    for (const {research} of [georgia, lesotho]) assert.equal(geoResearchSchema.safeParse(research).success, true);
+  it('validates every Geographica research file', () => {
+    for (const {research} of [georgia, lesotho, silkRoad]) assert.equal(geoResearchSchema.safeParse(research).success, true);
   });
 
   it('rejects a claim or point citing a missing source', () => {
@@ -136,6 +137,16 @@ describe('geo visual director', () => {
     assert.equal(result.assigned.length, 7);
     assert.deepEqual(result.review, []);
     assert.deepEqual(result.draft, lesotho.draft);
+  });
+
+  it('rebuilds the committed Silk Road draft (routes, relief and a data map) from its saved reply', async () => {
+    const saved = fs.readFileSync(path.join(root, 'test/fixtures/geo-director/silk-road.reply.json'), 'utf8');
+    const result = await directGeoVisuals({draft: undirected(silkRoad.draft), research: silkRoad.research, geo, complete: async () => saved});
+    assert.deepEqual(result.fallbacks, []);
+    assert.equal(result.assigned.length, 7);
+    // China's disputed borders need a human review before publishing.
+    assert.deepEqual(result.review.map((item) => item.id), ['country:CHN']);
+    assert.deepEqual(result.draft, silkRoad.draft);
   });
 
   it('gives every scene the subject map without a model, or when the model fails', async () => {

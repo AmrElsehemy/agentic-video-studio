@@ -1,0 +1,182 @@
+{
+  "schemaVersion": 1,
+  "id": "silk-road",
+  "subject": "China",
+  "kind": "curated",
+  "note": "Hand-curated research for the third Geographica episode (journey). Claims are cited to pinned Wikipedia revisions (trusted_secondary). Map geometry and relief come from Natural Earth and are not evidence for any claim.",
+  "regions": [
+    "Kazakhstan",
+    "Kyrgyzstan",
+    "Tajikistan",
+    "Uzbekistan",
+    "Turkmenistan",
+    "Iran",
+    "Turkey",
+    "Afghanistan"
+  ],
+  "claims": [
+    {
+      "id": "network",
+      "text": "The Silk Road was a network of Eurasian trade routes spanning over 6,400 km on land.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-silk-road"
+      ]
+    },
+    {
+      "id": "started-changan",
+      "text": "The northern route started at Chang'an, now called Xi'an.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-silk-road"
+      ]
+    },
+    {
+      "id": "han-130-bce",
+      "text": "Around 130 BCE, embassies of the Han dynasty extended the routes into China.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-silk-road"
+      ]
+    },
+    {
+      "id": "kashgar",
+      "text": "Routes around the Taklamakan Desert rejoined at Kashgar.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-silk-road"
+      ]
+    },
+    {
+      "id": "samarkand",
+      "text": "Samarkand played a major role in the commercial networks of the Silk Road.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-samarkand"
+      ]
+    },
+    {
+      "id": "constantinople",
+      "text": "The Silk Road linked Constantinople with China.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-silk-road"
+      ]
+    },
+    {
+      "id": "pamirs",
+      "text": "The Northern Silk Road, about 2,600 km long, connected Chang'an with Kashgar and crossed the Pamir Mountains towards the west.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-pamir-mountains"
+      ]
+    },
+    {
+      "id": "roof-of-the-world",
+      "text": "Since the Victorian era, the Pamirs have been known as the Roof of the World.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-pamir-mountains"
+      ]
+    },
+    {
+      "id": "peaks",
+      "text": "The highest points of the countries along the route range from 3,138 metres in Turkmenistan to 8,849 metres, Mount Everest, in China.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-elevation-extremes"
+      ]
+    },
+    {
+      "id": "name-1877",
+      "text": "The name Silk Road, from the German Seidenstrasse, was popularised in 1877 by Ferdinand von Richthofen.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-silk-road"
+      ]
+    },
+    {
+      "id": "ottoman-1453",
+      "text": "From 1453, the Ottoman Empire competed for control of the overland routes, prompting European powers to seek alternatives.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-silk-road"
+      ]
+    }
+  ],
+  "places": {
+    "changan": {
+      "lon": 108.942,
+      "lat": 34.261,
+      "source": "wikipedia-xian",
+      "note": "Chang'an, today's Xi'an: where the northern route started."
+    },
+    "kashgar": {
+      "lon": 75.994,
+      "lat": 39.468,
+      "source": "wikipedia-kashgar"
+    },
+    "samarkand": {
+      "lon": 66.965,
+      "lat": 39.651,
+      "source": "wikipedia-samarkand"
+    },
+    "constantinople": {
+      "lon": 28.98,
+      "lat": 41.013,
+      "source": "wikipedia-constantinople",
+      "note": "Today's Istanbul."
+    }
+  },
+  "datasets": {
+    "highest-points": {
+      "label": "HIGHEST POINT",
+      "unit": "m",
+      "source": "wikipedia-elevation-extremes",
+      "note": "Highest point of each country the routes crossed between China and Turkey.",
+      "values": {
+        "China": 8849,
+        "Tajikistan": 7495,
+        "Kyrgyzstan": 7439,
+        "Iran": 5609,
+        "Turkey": 5137,
+        "Uzbekistan": 4643,
+        "Turkmenistan": 3138
+      }
+    }
+  },
+  "sources": {
+    "wikipedia-silk-road": {
+      "label": "Wikipedia: Silk Road (revision 1376821937)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Silk_Road&oldid=1376821937"
+    },
+    "wikipedia-pamir-mountains": {
+      "label": "Wikipedia: Pamir Mountains (revision 1376665175)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Pamir_Mountains&oldid=1376665175"
+    },
+    "wikipedia-samarkand": {
+      "label": "Wikipedia: Samarkand (revision 1378122888)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Samarkand&oldid=1378122888"
+    },
+    "wikipedia-kashgar": {
+      "label": "Wikipedia: Kashgar (revision 1377839117)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Kashgar&oldid=1377839117"
+    },
+    "wikipedia-xian": {
+      "label": "Wikipedia: Xi'an (revision 1376793036)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Xi'an&oldid=1376793036"
+    },
+    "wikipedia-constantinople": {
+      "label": "Wikipedia: Constantinople (revision 1375041443)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Constantinople&oldid=1375041443"
+    },
+    "wikipedia-elevation-extremes": {
+      "label": "Wikipedia: List of elevation extremes by country (revision 1370817849)",
+      "url": "https://en.wikipedia.org/w/index.php?title=List_of_elevation_extremes_by_country&oldid=1370817849"
+    },
+    "natural-earth": {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  }
+}

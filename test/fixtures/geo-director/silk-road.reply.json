@@ -1,0 +1,296 @@
+{
+  "scenes": [
+    {
+      "id": "hook",
+      "why": "Fly from the whole world into Eurasia; the span from China to Turkey is the 6,400 km the narration promises.",
+      "camera": [
+        {
+          "target": "world",
+          "at": 0
+        },
+        {
+          "target": {
+            "around": [
+              "country:CHN",
+              "country:TUR"
+            ]
+          },
+          "at": 0.55,
+          "padding": 0.16
+        }
+      ],
+      "highlights": [
+        {
+          "entity": "country:CHN",
+          "style": "outline",
+          "at": 0.6
+        },
+        {
+          "entity": "country:TUR",
+          "style": "outline",
+          "at": 0.7
+        }
+      ],
+      "annotations": [
+        {
+          "type": "label",
+          "anchor": "country:KAZ",
+          "text": "OVER 6,400 KM",
+          "at": 0.75
+        }
+      ]
+    },
+    {
+      "id": "start",
+      "why": "Push into China and pin Chang'an, where the northern route began.",
+      "camera": [
+        {
+          "target": "country:CHN",
+          "at": 0,
+          "padding": 0.1
+        }
+      ],
+      "highlights": [
+        {
+          "entity": "country:CHN",
+          "style": "fill",
+          "at": 0.1
+        }
+      ],
+      "annotations": [
+        {
+          "type": "marker",
+          "anchor": {
+            "place": "changan"
+          },
+          "text": "CHANG'AN (XI'AN)",
+          "at": 0.35
+        }
+      ]
+    },
+    {
+      "id": "route",
+      "why": "Ride along with the caravans from Chang'an past Kashgar and Samarkand over a Central Asia framing, and arrive at Constantinople.",
+      "camera": [
+        {
+          "target": {
+            "around": [
+              "country:UZB",
+              "country:KGZ",
+              "country:TKM"
+            ]
+          },
+          "at": 0,
+          "padding": 0.15
+        },
+        {
+          "target": {
+            "around": [
+              "country:UZB",
+              "country:KGZ",
+              "country:TKM"
+            ]
+          },
+          "at": 0.7,
+          "padding": 0.15
+        },
+        {
+          "target": {
+            "around": [
+              "country:TUR",
+              "country:UZB"
+            ]
+          },
+          "at": 0.92,
+          "padding": 0.1
+        }
+      ],
+      "annotations": [
+        {
+          "type": "route",
+          "path": [
+            {
+              "place": "changan"
+            },
+            {
+              "place": "kashgar"
+            },
+            {
+              "place": "samarkand"
+            },
+            {
+              "place": "constantinople"
+            }
+          ],
+          "text": "CARAVAN ROUTE",
+          "at": 0.08,
+          "until": 0.8,
+          "follow": true
+        },
+        {
+          "type": "marker",
+          "anchor": {
+            "place": "samarkand"
+          },
+          "text": "SAMARKAND",
+          "at": 0.86
+        },
+        {
+          "type": "marker",
+          "anchor": {
+            "place": "constantinople"
+          },
+          "text": "CONSTANTINOPLE",
+          "at": 0.82
+        }
+      ]
+    },
+    {
+      "id": "roof",
+      "relief": true,
+      "why": "Drop onto the Pamirs with relief so the mountains are visible west of Kashgar.",
+      "camera": [
+        {
+          "target": {
+            "around": [
+              "country:TJK",
+              "country:KGZ"
+            ]
+          },
+          "at": 0,
+          "padding": 0.2
+        },
+        {
+          "target": {
+            "around": [
+              "country:TJK",
+              "country:KGZ"
+            ]
+          },
+          "at": 0.6,
+          "padding": 0.1
+        }
+      ],
+      "highlights": [
+        {
+          "entity": "country:TJK",
+          "style": "outline",
+          "at": 0.2
+        }
+      ],
+      "annotations": [
+        {
+          "type": "marker",
+          "anchor": {
+            "place": "kashgar"
+          },
+          "text": "KASHGAR",
+          "at": 0.15
+        },
+        {
+          "type": "label",
+          "anchor": "country:TJK",
+          "text": "ROOF OF THE WORLD",
+          "at": 0.55
+        }
+      ]
+    },
+    {
+      "id": "peaks",
+      "relief": true,
+      "why": "Shade every country on the route by its highest point; the legend runs from 3,138 to 8,849 m.",
+      "camera": [
+        {
+          "target": {
+            "around": [
+              "country:CHN",
+              "country:TJK",
+              "country:KGZ",
+              "country:UZB",
+              "country:TKM",
+              "country:IRN",
+              "country:TUR"
+            ]
+          },
+          "at": 0,
+          "padding": 0.05
+        }
+      ],
+      "data": {
+        "dataset": "highest-points",
+        "at": 0.15
+      }
+    },
+    {
+      "id": "name",
+      "why": "Show the whole network at once, drawn quickly, under the German name.",
+      "camera": [
+        {
+          "target": {
+            "around": [
+              "country:CHN",
+              "country:TUR"
+            ]
+          },
+          "at": 0,
+          "padding": 0.16
+        }
+      ],
+      "annotations": [
+        {
+          "type": "route",
+          "path": [
+            {
+              "place": "changan"
+            },
+            {
+              "place": "kashgar"
+            },
+            {
+              "place": "samarkand"
+            },
+            {
+              "place": "constantinople"
+            }
+          ],
+          "text": "SEIDENSTRASSE",
+          "at": 0.05,
+          "until": 0.45,
+          "marker": false
+        }
+      ]
+    },
+    {
+      "id": "verdict",
+      "why": "End at Constantinople, then pull back out to the world.",
+      "camera": [
+        {
+          "target": "country:TUR",
+          "at": 0,
+          "padding": 0.15
+        },
+        {
+          "target": "world",
+          "at": 0.75
+        }
+      ],
+      "highlights": [
+        {
+          "entity": "country:TUR",
+          "style": "fill",
+          "at": 0.1
+        }
+      ],
+      "annotations": [
+        {
+          "type": "marker",
+          "anchor": {
+            "place": "constantinople"
+          },
+          "text": "CONSTANTINOPLE",
+          "at": 0.2
+        }
+      ]
+    }
+  ]
+}
