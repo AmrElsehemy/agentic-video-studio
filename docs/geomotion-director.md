@@ -16,6 +16,7 @@ Schema: `scripts/geo-research-schema.mjs`.
 | `regions` | Other places the map may show, by name (`"South Africa"`, `"Black Sea"`) |
 | `claims` | Sourced statements (`tier`, `sources`). Every number shown on screen must appear in one |
 | `places` | Named points (`{lon, lat, source}`) for things the map data doesn't have: cities, summits, dig sites. A point that isn't surveyed is marked `"approximate": true` |
+| `datasets` | Sourced values per place for data maps (#91): `{label, unit?, source, values: {"Botswana": 513, …}}`. Place names go through the resolver like `regions`, and every value must come from the cited source |
 | `sources` | Every source a claim or point cites. A missing one fails validation |
 
 ## Resolver (`scripts/lib/geo-resolver.mjs`)
@@ -31,6 +32,7 @@ The resolver maps names to registry ids. It checks Natural Earth names, ISO code
 | Camera target | `"world"`, a place id, `{"around": [ids]}` (one box around several places), or `{"place": key}` (a named point, framed about 2°×1.5°) |
 | Highlight | A place id. Disputed areas of flagged countries may only be highlighted, never framed or labelled |
 | Anchor (labels, markers, arrow ends, route stops) | A place id or `{"place": key}` |
+| Data | `"data": {"dataset": key, "at": 0.3}` names one of the research datasets. The director copies its values; anything else the model writes there is ignored. Values count as research numbers for on-screen text |
 | Relief | `"relief": true` when the narration is about terrain or altitude (mountains, highlands, plateaus, valleys) |
 | Route | 2-6 stops, for narration that describes movement (a journey, trade road, migration or voyage). The route's text must say it is approximate if any stop is an approximate point. `"follow": true` needs `until` ≤ 0.85 |
 | Text | At most 28 characters. Every number must appear in a claim. A label on an approximate point must say so (`APPROX.`, `AREA`, `NEAR`, `~`) |

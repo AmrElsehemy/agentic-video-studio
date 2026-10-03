@@ -20,8 +20,11 @@ const APPROXIMATE = /\b(APPROX\.?|APPROXIMATE|AREA|NEAR|AROUND|ABOUT)\b|~/i;
 /** Numbers in on-screen text ("8,000", "6000–5800 BC" → 8000, 6000, 5800). */
 export const textNumbers = (text) => [...String(text).matchAll(/\d[\d,]*(?:\.\d+)?/g)].map((match) => Number(match[0].replace(/,/g, '')));
 
-/** Every number the research's claims state. */
-export const geoResearchNumbers = (research) => new Set(research.claims.flatMap((claim) => textNumbers(claim.text)));
+/** Every number the research states: in its claims, and its datasets' values (#91). */
+export const geoResearchNumbers = (research) => new Set([
+  ...research.claims.flatMap((claim) => textNumbers(claim.text)),
+  ...Object.values(research.datasets ?? {}).flatMap((dataset) => Object.values(dataset.values)),
+]);
 
 /**
  * Resolve the research's subject and regions to map ids. Returns the places
@@ -41,7 +44,15 @@ export const resolveResearchPlaces = (research, geo) => {
     if (flags) review.push({id: entity.id, name: entity.name, areas: flags});
   }
   for (const {areas} of review) for (const area of areas) if (geo.disputed.has(area.disputed)) places.set(area.disputed, {id: area.disputed, kind: 'disputed', name: area.name});
-  return {subjectId: resolved.get(research.subject).id, places, review};
+  // Datasets (#91) name their places too; each value is keyed to a map id.
+  const datasets = new Map();
+  for (const [key, dataset] of Object.entries(research.datasets ?? {})) {
+    const names = Object.keys(dataset.values);
+    const {resolved: found, problems: unresolved} = resolvePlaces(names, geo);
+    if (unresolved.length) throw new Error(`${research.id}'s dataset "${key}" names places the map can't show:\n${unresolved.map((problem) => `- ${problem}`).join('\n')}`);
+    datasets.set(key, {label: dataset.label, ...(dataset.unit ? {unit: dataset.unit} : {}), values: names.map((name) => ({entity: found.get(name).id, value: dataset.values[name]}))});
+  }
+  return {subjectId: resolved.get(research.subject).id, places, review, datasets};
 };
 
 const boxOf = (entity) => entity.frame ?? entity.bbox;
@@ -57,7 +68,7 @@ const aroundBox = (ids, places) => {
  * Turn the model's shot (ids, {place}, {around}) into a geo-map primitive, or
  * throw with the reason. Checks places, approximate points and numbers.
  */
-export const shotToPrimitive = (shot, {places, research}) => {
+export const shotToPrimitive = (shot, {places, research, datasets = new Map()}) => {
   if (!shot || typeof shot !== 'object') throw new Error('no shot');
   const allowed = [...places.keys()];
   const placeId = (id, where) => {
@@ -111,7 +122,15 @@ export const shotToPrimitive = (shot, {places, research}) => {
     }
     return {...annotation, anchor: anchor(ref, where)};
   });
-  const parsed = primitiveSchema.safeParse({kind: 'geo-map', camera, highlights, annotations, ...(shot.cut === true ? {cut: true} : {}), ...(shot.relief === true ? {relief: true} : {})});
+  // A data map takes its values from a research dataset, by key: the model never writes the numbers.
+  let data;
+  if (shot.data !== undefined && shot.data !== null) {
+    const key = typeof shot.data === 'string' ? shot.data : shot.data?.dataset;
+    const dataset = datasets.get(key);
+    if (!dataset) throw new Error(`data: "${key}" isn't one of the research datasets (${[...datasets.keys()].join(', ') || 'none'})`);
+    data = {...dataset, at: typeof shot.data === 'object' && typeof shot.data.at === 'number' ? shot.data.at : 0};
+  }
+  const parsed = primitiveSchema.safeParse({kind: 'geo-map', camera, highlights, annotations, ...(shot.cut === true ? {cut: true} : {}), ...(shot.relief === true ? {relief: true} : {}), ...(data ? {data} : {})});
   if (!parsed.success) throw new Error(parsed.error.issues.map((issue) => `${issue.path.join('.') || 'shot'}: ${issue.message}`).join('; '));
   return parsed.data;
 };
@@ -124,7 +143,7 @@ export const defaultShot = (subject) => primitiveSchema.parse({
   annotations: [{type: 'label', anchor: subject.id, text: subject.name.toUpperCase().slice(0, 28), at: .4}],
 });
 
-export const buildGeoDirectorPrompt = ({draft, research, places}) => ({
+export const buildGeoDirectorPrompt = ({draft, research, places, datasets}) => ({
   system: `You are the map director of ${draft.show?.name ?? 'a geography series'}, vertical short videos told with animated maps. Give EVERY scene one map shot that shows what its narration says.
 
 A shot is JSON:
@@ -135,6 +154,7 @@ A shot is JSON:
                  {"type": "arrow", "from": A, "to": A, "at": 0.7},
                  {"type": "route", "path": [A, A, ...], "text": "SHORT CAPS", "at": 0.2, "until": 0.8, "follow": false}],   // up to 4 in all
  "relief": false,   // optional: shaded relief for terrain and altitude
+ "data": {"dataset": "<dataset key>", "at": 0.3},   // optional: shade places by a research dataset, with a legend
  "why": "one sentence"}
 
 T (camera target) is "world", a place id, {"around": ["<place id>", ...]} to frame several places together, or {"place": "<point key>"} to frame a named point closely.
@@ -147,11 +167,12 @@ Rules:
 - A good sequence moves: open wide (the world or a region), then push in; vary framings between scenes; reveal with a trace or fill; keep labels to what the narration names.
 - Disputed areas can be highlighted (outline) when the narration is about them; never frame them alone.
 - "relief": true adds shaded relief (mountains and valleys) under the map. Use it when the narration is about terrain or altitude: mountains, highlands, plateaus, valleys.
+- "data" shades places by one of the research datasets listed below, with a legend. Use it when the narration compares places by a number (heights, sizes, populations). Name the dataset only; its values come from the research. Frame the places it covers.
 - A route (2-6 stops) draws a journey, trade road, migration or voyage along the shortest path across the globe, with a marker moving along it from "at" to "until". Use it only when the narration describes movement. Frame the whole route in the camera, or set "follow": true to have the camera ride along with the marker (then "until" must be at most 0.85).
 - Consecutive scenes are one continuous flight: each scene's camera starts where the previous one ended and flies to its first target. Plan the episode as one journey. Add "cut": true only when the story jumps somewhere unrelated.
 
 Reply with a JSON object only: {"scenes": [<shot>, ...]}`,
-  messages: [{role: 'user', content: `Places (id: name, kind):\n${[...places.values()].map((place) => `- ${place.id}: ${place.name}, ${place.kind}`).join('\n')}\n\nNamed points:\n${Object.entries(research.places).map(([key, place]) => `- ${key}${place.approximate ? ' (APPROXIMATE)' : ''}${place.note ? `: ${place.note}` : ''}`).join('\n') || '- none'}\n\nResearch claims:\n${research.claims.map((claim) => `- ${claim.text}`).join('\n')}\n\nScenes:\n${JSON.stringify(draft.scenes.map((scene) => ({id: scene.id, headline: scene.headline, narration: scene.narration, caption: scene.caption})), null, 2)}`}],
+  messages: [{role: 'user', content: `${datasets?.size ? `Datasets (key: label, places):\n${[...datasets.entries()].map(([key, dataset]) => `- ${key}: ${dataset.label}${dataset.unit ? ` (${dataset.unit})` : ''}, ${dataset.values.map(({entity}) => entity).join(', ')}`).join('\n')}\n\n` : ''}Places (id: name, kind):\n${[...places.values()].map((place) => `- ${place.id}: ${place.name}, ${place.kind}`).join('\n')}\n\nNamed points:\n${Object.entries(research.places).map(([key, place]) => `- ${key}${place.approximate ? ' (APPROXIMATE)' : ''}${place.note ? `: ${place.note}` : ''}`).join('\n') || '- none'}\n\nResearch claims:\n${research.claims.map((claim) => `- ${claim.text}`).join('\n')}\n\nScenes:\n${JSON.stringify(draft.scenes.map((scene) => ({id: scene.id, headline: scene.headline, narration: scene.narration, caption: scene.caption})), null, 2)}`}],
 });
 
 /**
@@ -163,7 +184,7 @@ Reply with a JSON object only: {"scenes": [<shot>, ...]}`,
  */
 export const directGeoVisuals = async ({draft, research: rawResearch, complete, showId = draft.show?.id ?? 'geographica', geo = loadGeoData()}) => {
   const research = geoResearchSchema.parse(rawResearch);
-  const {subjectId, places, review} = resolveResearchPlaces(research, geo);
+  const {subjectId, places, review, datasets} = resolveResearchPlaces(research, geo);
   const subject = places.get(subjectId);
   const shots = new Map();
   const assigned = [];
@@ -171,14 +192,14 @@ export const directGeoVisuals = async ({draft, research: rawResearch, complete, 
   let modelError;
   if (complete) {
     try {
-      const reply = parseJsonReply(await complete(buildGeoDirectorPrompt({draft, research, places})));
+      const reply = parseJsonReply(await complete(buildGeoDirectorPrompt({draft, research, places, datasets})));
       const items = Array.isArray(reply) ? reply : Array.isArray(reply?.scenes) ? reply.scenes : [];
       for (const item of items) {
         const id = typeof item?.id === 'string' ? item.id : '?';
         if (!draft.scenes.some((scene) => scene.id === id)) { fallbacks.push({id, reason: 'no such scene'}); continue; }
         if (shots.has(id)) continue;
         try {
-          const primitive = shotToPrimitive(item, {places, research});
+          const primitive = shotToPrimitive(item, {places, research, datasets});
           const problems = geoProblems(primitive, geo);
           if (problems.length) throw new Error(problems.join('; '));
           shots.set(id, primitive);

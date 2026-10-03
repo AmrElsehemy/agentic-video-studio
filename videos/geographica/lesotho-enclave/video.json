@@ -307,16 +307,16 @@
             "ease": "in-out"
           },
           {
-            "target": "country:LSO",
-            "at": 0.6,
-            "padding": 0.1,
+            "target": "country:ZAF",
+            "at": 0.5,
+            "padding": 0.06,
             "ease": "in-out"
           }
         ],
         "highlights": [
           {
             "entity": "country:LSO",
-            "style": "fill",
+            "style": "outline",
             "at": 0.1
           }
         ],
@@ -325,11 +325,47 @@
             "type": "label",
             "anchor": "country:LSO",
             "text": "LOWEST POINT 1,400 M",
-            "at": 0.45
+            "at": 0.65
           }
         ],
         "dataset": "natural-earth",
-        "relief": true
+        "relief": true,
+        "data": {
+          "label": "LOWEST POINT",
+          "unit": "m",
+          "values": [
+            {
+              "entity": "country:LSO",
+              "value": 1400
+            },
+            {
+              "entity": "country:BWA",
+              "value": 513
+            },
+            {
+              "entity": "country:ZWE",
+              "value": 162
+            },
+            {
+              "entity": "country:SWZ",
+              "value": 21
+            },
+            {
+              "entity": "country:ZAF",
+              "value": 0
+            },
+            {
+              "entity": "country:NAM",
+              "value": 0
+            },
+            {
+              "entity": "country:MOZ",
+              "value": 0
+            }
+          ],
+          "at": 0.3,
+          "legend": true
+        }
       }
     },
     {

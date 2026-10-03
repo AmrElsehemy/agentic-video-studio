@@ -29,39 +29,47 @@ const MOMENTS = [['start', 0], ['middle', .5], ['end', 1]];
 const ENTER = 14;
 
 const {shots} = JSON.parse(fs.readFileSync(path.join(root, 'test', 'fixtures', 'geo-georgia-shots.json'), 'utf8'));
-// A real episode draft carries the shots, so they go through the compiler and the scene layout like any episode.
-const draft = JSON.parse(fs.readFileSync(path.join(root, 'drafts', 'pokepulses', 'bulbasaur-001.json'), 'utf8'));
+// Real episode drafts carry the shots, so they go through the compiler and the scene layout like any episode.
+// Shots fill each stand-in's scenes 1-5 in order, then its hook (scene 0), then the next stand-in, so adding
+// a shot never moves the existing ones.
+const STAND_INS = ['bulbasaur-001', 'mew-151'];
 const names = Object.keys(shots);
-// Shots fill scenes 1-5 in order, then the hook (scene 0), so adding a shot never moves the existing ones.
-const sceneFor = (index) => (index + 1) % draft.scenes.length;
-if (names.length > draft.scenes.length) throw new Error(`The fixture has ${names.length} shots but the stand-in episode only ${draft.scenes.length} scenes`);
-names.forEach((name, index) => { draft.scenes[sceneFor(index)].primitive = shots[name]; });
-const {manifest} = compileEpisode(draft, {showId: 'pokepulses'});
-delete manifest.audio.music;
-
-const starts = [];
-manifest.scenes.reduce((frame, scene) => {
-  starts.push(frame);
-  return frame + Math.round(scene.durationSeconds * manifest.format.fps);
-}, 0);
+const batches = STAND_INS.map((id) => JSON.parse(fs.readFileSync(path.join(root, 'drafts', 'pokepulses', `${id}.json`), 'utf8')))
+  .reduce((list, draft) => {
+    const taken = list.reduce((sum, batch) => sum + batch.names.length, 0);
+    const mine = names.slice(taken, taken + draft.scenes.length);
+    return mine.length ? [...list, {draft, names: mine}] : list;
+  }, []);
+if (batches.reduce((sum, batch) => sum + batch.names.length, 0) < names.length) throw new Error(`The fixture has ${names.length} shots, more than the stand-in episodes' scenes; add a draft to STAND_INS`);
 
 fs.rmSync(outDir, {recursive: true, force: true});
 fs.mkdirSync(outDir, {recursive: true});
 const serveUrl = await bundle({entryPoint: path.join(root, 'src', 'index.ts')});
 const browser = await openBrowser('chrome', {browserExecutable: process.env.REMOTION_BROWSER_EXECUTABLE || null});
-const inputProps = {manifest};
 const rendered = [];
 try {
-  const composition = await selectComposition({serveUrl, id: 'VerticalEpisode', inputProps, puppeteerInstance: browser});
-  for (const [index, name] of names.entries()) {
-    const scene = manifest.scenes[sceneFor(index)];
-    const length = Math.round(scene.durationSeconds * manifest.format.fps);
-    for (const [moment, t] of MOMENTS) {
-      const file = `${name}-${moment}.png`;
-      // Skip the scene's fade-in and stop short of its fade-out, so every frame shows the map.
-      const frame = starts[sceneFor(index)] + ENTER + Math.round(t * (length - ENTER - 10));
-      await renderStill({composition, serveUrl, inputProps, frame, output: path.join(outDir, file), imageFormat: 'png', scale: .5, puppeteerInstance: browser, overwrite: true});
-      rendered.push(file);
+  for (const {draft, names: batch} of batches) {
+    const sceneFor = (index) => (index + 1) % draft.scenes.length;
+    batch.forEach((name, index) => { draft.scenes[sceneFor(index)].primitive = shots[name]; });
+    const {manifest} = compileEpisode(draft, {showId: 'pokepulses'});
+    delete manifest.audio.music;
+    const starts = [];
+    manifest.scenes.reduce((frame, scene) => {
+      starts.push(frame);
+      return frame + Math.round(scene.durationSeconds * manifest.format.fps);
+    }, 0);
+    const inputProps = {manifest};
+    const composition = await selectComposition({serveUrl, id: 'VerticalEpisode', inputProps, puppeteerInstance: browser});
+    for (const [index, name] of batch.entries()) {
+      const scene = manifest.scenes[sceneFor(index)];
+      const length = Math.round(scene.durationSeconds * manifest.format.fps);
+      for (const [moment, t] of MOMENTS) {
+        const file = `${name}-${moment}.png`;
+        // Skip the scene's fade-in and stop short of its fade-out, so every frame shows the map.
+        const frame = starts[sceneFor(index)] + ENTER + Math.round(t * (length - ENTER - 10));
+        await renderStill({composition, serveUrl, inputProps, frame, output: path.join(outDir, file), imageFormat: 'png', scale: .5, puppeteerInstance: browser, overwrite: true});
+        rendered.push(file);
+      }
     }
   }
 } finally {

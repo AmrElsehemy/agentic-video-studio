@@ -1,5 +1,5 @@
 {
-  "_note": "GeoMotion golden shots (#71/#72/#90): primitives only, no episode-specific code. The three Georgia shots; Fiji, to prove shapes and a route crossing the antimeridian render whole; the Silk Road, a route the camera follows; and Lesotho with shaded relief (#91). Used by the schema tests and the renderer's golden frames.",
+  "_note": "GeoMotion golden shots (#71/#72/#90): primitives only, no episode-specific code. The three Georgia shots; Fiji, to prove shapes and a route crossing the antimeridian render whole; the Silk Road, a route the camera follows; Lesotho with shaded relief; and southern Africa shaded by each country's lowest point, with a legend (#91). Used by the schema tests and the renderer's golden frames.",
   "shots": {
     "fly-to-georgia": {
       "kind": "geo-map",
@@ -284,6 +284,67 @@
         }
       ],
       "relief": true,
+      "cut": true
+    },
+    "lowest-points-data": {
+      "kind": "geo-map",
+      "camera": [
+        {
+          "target": "country:ZAF",
+          "at": 0,
+          "padding": 0.06
+        }
+      ],
+      "highlights": [
+        {
+          "entity": "country:LSO",
+          "style": "outline",
+          "at": 0.2
+        }
+      ],
+      "data": {
+        "label": "LOWEST POINT",
+        "unit": "m",
+        "at": 0.1,
+        "values": [
+          {
+            "entity": "country:LSO",
+            "value": 1400
+          },
+          {
+            "entity": "country:BWA",
+            "value": 513
+          },
+          {
+            "entity": "country:ZWE",
+            "value": 162
+          },
+          {
+            "entity": "country:SWZ",
+            "value": 21
+          },
+          {
+            "entity": "country:ZAF",
+            "value": 0
+          },
+          {
+            "entity": "country:NAM",
+            "value": 0
+          },
+          {
+            "entity": "country:MOZ",
+            "value": 0
+          }
+        ]
+      },
+      "annotations": [
+        {
+          "type": "label",
+          "anchor": "country:LSO",
+          "text": "1,400 M",
+          "at": 0.4
+        }
+      ],
       "cut": true
     }
   }

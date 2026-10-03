@@ -241,8 +241,20 @@ export const GeoMapVisual: React.FC<ShotProps & {data: GeoMapPrimitive}> = ({dat
     });
   const frameStyle = {position: 'absolute' as const, inset: 0, borderRadius: 36, overflow: 'hidden' as const};
 
-  if (!relief) {
-    return <svg width={SIZE.width} height={SIZE.height} viewBox={`0 0 ${SIZE.width} ${SIZE.height}`} style={frameStyle}>
+  // A data map (#91): each place shaded by its sourced value, from faint (lowest) to strong (highest),
+  // under the highlights; the legend sits with the labels.
+  const dataShown = primitive.data ? appear(primitive.data.at) : 0;
+  const dataRange = primitive.data ? valueRange(primitive.data.values.map(({value}) => value)) : undefined;
+  const dataFills = primitive.data && dataRange ? primitive.data.values.map(({entity, value}) => {
+    const feature = data.features.get(entity);
+    if (!feature) throw new Error(`Unknown geo entity ${entity}`);
+    return <path key={`data-${entity}`} d={path(feature) ?? ''} fill={accent} fillOpacity={dataShown * shade(value, dataRange)} />;
+  }) : null;
+  const legend = primitive.data?.legend && dataRange
+    ? <DataLegend label={primitive.data.label} unit={primitive.data.unit} range={dataRange} accent={accent} ink={palette.ink} backdrop={palette.background} opacity={dataShown} />
+    : null;
+
+  const baseLayers = <>
     <defs>
       <pattern id="geo-hatch" width="14" height="14" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
         <rect width="14" height="14" fill={accent} opacity=".25" />
@@ -255,11 +267,16 @@ export const GeoMapVisual: React.FC<ShotProps & {data: GeoMapPrimitive}> = ({dat
     <g>
       {data.countries.filter((feature) => onScreen(data.entities.get(String(feature.id))?.bbox)).map((feature) => <path key={String(feature.id)} d={path(feature) ?? ''} fill={palette.surface} stroke={palette.ink} strokeOpacity=".28" strokeWidth={1.2} />)}
     </g>
+  </>;
 
-
+  if (!relief) {
+    return <svg width={SIZE.width} height={SIZE.height} viewBox={`0 0 ${SIZE.width} ${SIZE.height}`} style={frameStyle}>
+    {baseLayers}
     <g opacity={outro}>
+    {dataFills}
     {highlights}
     {annotations}
+    {legend}
     </g>
   </svg>;
   }
@@ -268,27 +285,41 @@ export const GeoMapVisual: React.FC<ShotProps & {data: GeoMapPrimitive}> = ({dat
   // labels, markers and routes on top so their text stays crisp.
   return <div style={{...frameStyle, isolation: 'isolate'}}>
     <svg width={SIZE.width} height={SIZE.height} viewBox={`0 0 ${SIZE.width} ${SIZE.height}`} style={{position: 'absolute', inset: 0}}>
-    <defs>
-      <pattern id="geo-hatch" width="14" height="14" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
-        <rect width="14" height="14" fill={accent} opacity=".25" />
-        <line x1="0" y1="0" x2="0" y2="14" stroke={accent} strokeWidth="5" />
-      </pattern>
-    </defs>
-    {/* Water is the background; land is every country, drawn from the pinned data. */}
-    <rect width={SIZE.width} height={SIZE.height} fill={palette.background} />
-    <rect width={SIZE.width} height={SIZE.height} fill={palette.secondary} opacity=".12" />
-    <g>
-      {data.countries.filter((feature) => onScreen(data.entities.get(String(feature.id))?.bbox)).map((feature) => <path key={String(feature.id)} d={path(feature) ?? ''} fill={palette.surface} stroke={palette.ink} strokeOpacity=".28" strokeWidth={1.2} />)}
-    </g>
-
-
-    <g opacity={outro}>{highlights}</g>
+    {baseLayers}
+    <g opacity={outro}>{dataFills}{highlights}</g>
     </svg>
     <div style={{position: 'absolute', inset: 0, mixBlendMode: 'soft-light', opacity: RELIEF_STRENGTH * reliefFade}}>
       {reliefPlacements(relief, view).map((placement) => <Img key={placement.key} src={staticFile(`geo/relief/${placement.file}`)} style={{position: 'absolute', left: placement.left, top: placement.top, width: placement.width, height: placement.height, maxWidth: 'none'}} />)}
     </div>
     <svg width={SIZE.width} height={SIZE.height} viewBox={`0 0 ${SIZE.width} ${SIZE.height}`} style={{position: 'absolute', inset: 0}}>
-      <g opacity={outro}>{annotations}</g>
+      <g opacity={outro}>{annotations}{legend}</g>
     </svg>
   </div>;
+};
+
+/** The lowest and highest value of a data map. */
+const valueRange = (values: number[]): [number, number] => [Math.min(...values), Math.max(...values)];
+/** Fill opacity for a value: faint at the lowest, strong at the highest. */
+const shade = (value: number, [low, high]: [number, number]) => .12 + .78 * (high > low ? (value - low) / (high - low) : .5);
+/** "1,400 M": a value as the legend shows it. */
+export const formatValue = (value: number, unit?: string) => `${value.toLocaleString('en-US')}${unit ? ` ${unit.toUpperCase()}` : ''}`;
+
+const LEGEND = {x: SAFE, width: 340, bar: 20};
+/** The data map's key: its label, a bar from faint to strong, and the lowest and highest values. */
+const DataLegend: React.FC<{label: string; unit?: string; range: [number, number]; accent: string; ink: string; backdrop: string; opacity: number}> = ({label, unit, range, accent, ink, backdrop, opacity}) => {
+  const top = SIZE.height - SAFE - 112;
+  const text = {fontFamily: displayFont, letterSpacing: 2, fill: ink};
+  return <g opacity={opacity}>
+    <defs>
+      <linearGradient id="geo-data-ramp" x1="0" x2="1" y1="0" y2="0">
+        <stop offset="0" stopColor={accent} stopOpacity={shade(range[0], range)} />
+        <stop offset="1" stopColor={accent} stopOpacity={shade(range[1], range)} />
+      </linearGradient>
+    </defs>
+    <rect x={LEGEND.x - 18} y={top - 18} width={LEGEND.width + 36} height={130} rx={18} fill={backdrop} opacity={.78} />
+    <text x={LEGEND.x} y={top + 22} style={{...text, fontSize: 30}}>{label}</text>
+    <rect x={LEGEND.x} y={top + 42} width={LEGEND.width} height={LEGEND.bar} rx={LEGEND.bar / 2} fill="url(#geo-data-ramp)" stroke={ink} strokeOpacity={.35} />
+    <text x={LEGEND.x} y={top + 92} style={{...text, fontSize: 26}}>{formatValue(range[0], unit)}</text>
+    <text x={LEGEND.x + LEGEND.width} y={top + 92} textAnchor="end" style={{...text, fontSize: 26}}>{formatValue(range[1], unit)}</text>
+  </g>;
 };
