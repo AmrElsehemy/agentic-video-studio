@@ -1,7 +1,7 @@
 // GeoMotion map data (#70).
 //   npm run geo:prepare   download the pinned Natural Earth layers, check their
 //                         checksums and write public/geo/ (commit the result)
-//   npm run geo:verify    check public/geo/ against its manifest (no network)
+//   npm run geo:verify    check public/geo/ (and its relief images) against the manifests (no network)
 // Options for prepare: --from=<dir> reads the source .geojson files from a
 // local folder instead of downloading them.
 import fs from 'node:fs';
@@ -26,11 +26,22 @@ const verify = () => {
     if (!fs.existsSync(target)) problems.push(`${file} is missing`);
     else if (sha256(fs.readFileSync(target)) !== expected.sha256) problems.push(`${file} doesn't match its manifest checksum (edited by hand?)`);
   }
+  // Shaded relief (#91) has its own manifest: npm run geo:relief.
+  const reliefManifest = path.join(outDir, 'relief', 'manifest.json');
+  let reliefFiles = 0;
+  if (fs.existsSync(reliefManifest)) {
+    for (const [file, expected] of Object.entries(JSON.parse(fs.readFileSync(reliefManifest, 'utf8')).files)) {
+      reliefFiles++;
+      const target = path.join(outDir, 'relief', file);
+      if (!fs.existsSync(target)) problems.push(`relief/${file} is missing (npm run geo:relief)`);
+      else if (sha256(fs.readFileSync(target)) !== expected.sha256) problems.push(`relief/${file} doesn't match its manifest checksum (regenerate with npm run geo:relief)`);
+    }
+  }
   if (problems.length) {
     console.error(`✗ geo assets:\n${problems.map((problem) => `  - ${problem}`).join('\n')}\nRegenerate them with: npm run geo:prepare`);
     process.exit(1);
   }
-  console.log(`✓ geo assets match their manifest (${manifest.source.name} ${manifest.source.version}, ${Object.keys(manifest.files).length} files)`);
+  console.log(`✓ geo assets match their manifest (${manifest.source.name} ${manifest.source.version}, ${Object.keys(manifest.files).length} files${reliefFiles ? `, ${reliefFiles} relief images` : ''})`);
 };
 
 const readSource = async (layer) => {

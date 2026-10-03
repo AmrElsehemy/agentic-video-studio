@@ -32,7 +32,10 @@ const {shots} = JSON.parse(fs.readFileSync(path.join(root, 'test', 'fixtures', '
 // A real episode draft carries the shots, so they go through the compiler and the scene layout like any episode.
 const draft = JSON.parse(fs.readFileSync(path.join(root, 'drafts', 'pokepulses', 'bulbasaur-001.json'), 'utf8'));
 const names = Object.keys(shots);
-names.forEach((name, index) => { draft.scenes[index + 1].primitive = shots[name]; });
+// Shots fill scenes 1-5 in order, then the hook (scene 0), so adding a shot never moves the existing ones.
+const sceneFor = (index) => (index + 1) % draft.scenes.length;
+if (names.length > draft.scenes.length) throw new Error(`The fixture has ${names.length} shots but the stand-in episode only ${draft.scenes.length} scenes`);
+names.forEach((name, index) => { draft.scenes[sceneFor(index)].primitive = shots[name]; });
 const {manifest} = compileEpisode(draft, {showId: 'pokepulses'});
 delete manifest.audio.music;
 
@@ -51,12 +54,12 @@ const rendered = [];
 try {
   const composition = await selectComposition({serveUrl, id: 'VerticalEpisode', inputProps, puppeteerInstance: browser});
   for (const [index, name] of names.entries()) {
-    const scene = manifest.scenes[index + 1];
+    const scene = manifest.scenes[sceneFor(index)];
     const length = Math.round(scene.durationSeconds * manifest.format.fps);
     for (const [moment, t] of MOMENTS) {
       const file = `${name}-${moment}.png`;
       // Skip the scene's fade-in and stop short of its fade-out, so every frame shows the map.
-      const frame = starts[index + 1] + ENTER + Math.round(t * (length - ENTER - 10));
+      const frame = starts[sceneFor(index)] + ENTER + Math.round(t * (length - ENTER - 10));
       await renderStill({composition, serveUrl, inputProps, frame, output: path.join(outDir, file), imageFormat: 'png', scale: .5, puppeteerInstance: browser, overwrite: true});
       rendered.push(file);
     }

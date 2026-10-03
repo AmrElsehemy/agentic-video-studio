@@ -1,12 +1,13 @@
 import React, {useMemo} from 'react';
 import {geoCentroid, geoMercator, geoPath, type GeoProjection} from 'd3-geo';
 import {evolvePath} from '@remotion/paths';
-import {interpolate} from 'remotion';
+import {Img, interpolate, staticFile} from 'remotion';
 import {routeUntil, type GeoAnchor, type GeoMapPrimitive} from '../../../scripts/primitive-schema.mjs';
 import type {ShotProps} from '../shots';
 import {displayFont} from '../typography';
-import {cameraAt, cameraKeys, episodeCameraKeys, MAP_SIZE, type BBox, type CameraKey, type Size} from './camera';
-import {useGeoData, type GeoData} from './data';
+import {cameraAt, cameraKeys, continuesMap, episodeCameraKeys, MAP_SIZE, type BBox, type CameraKey, type Size} from './camera';
+import {useGeoData, useReliefData, type GeoData} from './data';
+import {RELIEF_STRENGTH, reliefPlacements} from './relief';
 import {followView, followWeight, partialRoute, routeLine, routeProgress, type RouteLine} from './route';
 
 // A map drawn entirely from the pinned data and the primitive: the camera flies
@@ -23,6 +24,8 @@ const TRACE_SHARE = .35;
 /** Space an arrow leaves around an anchor without a label (at its start; 60% of it before its target). */
 const ARROW_GAP = 60;
 const LABEL_SIZE = 46;
+/** Frames relief takes to fade in or out where a continuing map turns it on or off. */
+const RELIEF_FADE = 18;
 
 type Route = Extract<GeoMapPrimitive['annotations'][number], {type: 'route'}>;
 
@@ -91,6 +94,7 @@ const Label: React.FC<{x: number; y: number; text: string; opacity: number; colo
 
 export const GeoMapVisual: React.FC<ShotProps & {data: GeoMapPrimitive}> = ({data: primitive, scene, manifest, frame, durationInFrames, accent, seams}) => {
   const data = useGeoData();
+  const relief = useReliefData(Boolean(primitive.relief));
   const keys = useMemo<CameraKey[] | undefined>(() => {
     if (!data) return undefined;
     const boxOf = (target: Exclude<GeoMapPrimitive['camera'][number]['target'], 'world'>) => targetBox(target, data);
@@ -106,7 +110,7 @@ export const GeoMapVisual: React.FC<ShotProps & {data: GeoMapPrimitive}> = ({dat
     });
     return lines;
   }, [data, primitive]);
-  if (!data || !keys) return null;
+  if (!data || !keys || (primitive.relief && !relief)) return null;
 
   const t = durationInFrames > 1 ? frame / (durationInFrames - 1) : 0;
   // A followed route pulls the camera's centre onto its marker while it draws.
@@ -126,22 +130,16 @@ export const GeoMapVisual: React.FC<ShotProps & {data: GeoMapPrimitive}> = ({dat
   const outro = seams?.out ? interpolate(frame, [Math.max(0, durationInFrames - 8), durationInFrames], [1, 0], clamp) : 1;
   const labels = primitive.annotations.filter((annotation): annotation is Extract<GeoMapPrimitive['annotations'][number], {type: 'label'}> => annotation.type === 'label');
 
-  return <svg width={SIZE.width} height={SIZE.height} viewBox={`0 0 ${SIZE.width} ${SIZE.height}`} style={{position: 'absolute', inset: 0, borderRadius: 36, overflow: 'hidden'}}>
-    <defs>
-      <pattern id="geo-hatch" width="14" height="14" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
-        <rect width="14" height="14" fill={accent} opacity=".25" />
-        <line x1="0" y1="0" x2="0" y2="14" stroke={accent} strokeWidth="5" />
-      </pattern>
-    </defs>
-    {/* Water is the background; land is every country, drawn from the pinned data. */}
-    <rect width={SIZE.width} height={SIZE.height} fill={palette.background} />
-    <rect width={SIZE.width} height={SIZE.height} fill={palette.secondary} opacity=".12" />
-    <g>
-      {data.countries.filter((feature) => onScreen(data.entities.get(String(feature.id))?.bbox)).map((feature) => <path key={String(feature.id)} d={path(feature) ?? ''} fill={palette.surface} stroke={palette.ink} strokeOpacity=".28" strokeWidth={1.2} />)}
-    </g>
+  // Relief fades in when the map it continues had none, and out when the map continuing it drops it,
+  // so it never pops on or off mid-flight.
+  const sceneIndex = manifest.scenes.findIndex((item) => item.id === scene.id);
+  const hasRelief = (index: number) => Boolean((manifest.scenes[index]?.primitive as GeoMapPrimitive | undefined)?.relief);
+  const reliefFade = Math.min(
+    seams?.in && !hasRelief(sceneIndex - 1) ? interpolate(frame, [0, RELIEF_FADE], [0, 1], clamp) : 1,
+    seams?.out && continuesMap(manifest.scenes, sceneIndex + 1) && !hasRelief(sceneIndex + 1) ? interpolate(frame, [durationInFrames - RELIEF_FADE, durationInFrames], [1, 0], clamp) : 1,
+  );
 
-    <g opacity={outro}>
-    {primitive.highlights.map((highlight, index) => {
+  const highlights = primitive.highlights.map((highlight, index) => {
       const feature = data.features.get(highlight.entity);
       if (!feature) throw new Error(`Unknown geo entity ${highlight.entity}`);
       const d = path(feature) ?? '';
@@ -158,10 +156,9 @@ export const GeoMapVisual: React.FC<ShotProps & {data: GeoMapPrimitive}> = ({dat
       const shown = appear(highlight.at);
       return <path key={index} d={d} fill={highlight.style === 'fill' ? (disputed ? 'url(#geo-hatch)' : color) : 'none'} fillOpacity={.85 * shown}
         stroke={color} strokeOpacity={shown} strokeWidth={highlight.style === 'outline' ? 6 : 3} strokeLinejoin="round" style={{filter: `drop-shadow(0 0 ${14 * shown}px ${color})`}} />;
-    })}
-
-    {/* Routes go underneath, so labels and markers on their stops stay readable. */}
-    {primitive.annotations.map((annotation, index) => [annotation, index] as const).sort(([a], [b]) => Number(b.type === 'route') - Number(a.type === 'route')).map(([annotation, index]) => {
+    });
+  // Routes go underneath, so labels and markers on their stops stay readable.
+  const annotations = primitive.annotations.map((annotation, index) => [annotation, index] as const).sort(([a], [b]) => Number(b.type === 'route') - Number(a.type === 'route')).map(([annotation, index]) => {
       const shown = appear(annotation.at);
       if (annotation.type === 'route') {
         if (t < annotation.at) return null;
@@ -241,7 +238,57 @@ export const GeoMapVisual: React.FC<ShotProps & {data: GeoMapPrimitive}> = ({dat
         </g>;
       }
       return <Label key={index} x={x} y={y} text={annotation.text} opacity={shown} color={palette.ink} halo={palette.background} />;
-    })}
+    });
+  const frameStyle = {position: 'absolute' as const, inset: 0, borderRadius: 36, overflow: 'hidden' as const};
+
+  if (!relief) {
+    return <svg width={SIZE.width} height={SIZE.height} viewBox={`0 0 ${SIZE.width} ${SIZE.height}`} style={frameStyle}>
+    <defs>
+      <pattern id="geo-hatch" width="14" height="14" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+        <rect width="14" height="14" fill={accent} opacity=".25" />
+        <line x1="0" y1="0" x2="0" y2="14" stroke={accent} strokeWidth="5" />
+      </pattern>
+    </defs>
+    {/* Water is the background; land is every country, drawn from the pinned data. */}
+    <rect width={SIZE.width} height={SIZE.height} fill={palette.background} />
+    <rect width={SIZE.width} height={SIZE.height} fill={palette.secondary} opacity=".12" />
+    <g>
+      {data.countries.filter((feature) => onScreen(data.entities.get(String(feature.id))?.bbox)).map((feature) => <path key={String(feature.id)} d={path(feature) ?? ''} fill={palette.surface} stroke={palette.ink} strokeOpacity=".28" strokeWidth={1.2} />)}
+    </g>
+
+
+    <g opacity={outro}>
+    {highlights}
+    {annotations}
     </g>
   </svg>;
+  }
+
+  // Relief (#91): the base map, then the shaded relief blended over land and highlights, then
+  // labels, markers and routes on top so their text stays crisp.
+  return <div style={{...frameStyle, isolation: 'isolate'}}>
+    <svg width={SIZE.width} height={SIZE.height} viewBox={`0 0 ${SIZE.width} ${SIZE.height}`} style={{position: 'absolute', inset: 0}}>
+    <defs>
+      <pattern id="geo-hatch" width="14" height="14" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+        <rect width="14" height="14" fill={accent} opacity=".25" />
+        <line x1="0" y1="0" x2="0" y2="14" stroke={accent} strokeWidth="5" />
+      </pattern>
+    </defs>
+    {/* Water is the background; land is every country, drawn from the pinned data. */}
+    <rect width={SIZE.width} height={SIZE.height} fill={palette.background} />
+    <rect width={SIZE.width} height={SIZE.height} fill={palette.secondary} opacity=".12" />
+    <g>
+      {data.countries.filter((feature) => onScreen(data.entities.get(String(feature.id))?.bbox)).map((feature) => <path key={String(feature.id)} d={path(feature) ?? ''} fill={palette.surface} stroke={palette.ink} strokeOpacity=".28" strokeWidth={1.2} />)}
+    </g>
+
+
+    <g opacity={outro}>{highlights}</g>
+    </svg>
+    <div style={{position: 'absolute', inset: 0, mixBlendMode: 'soft-light', opacity: RELIEF_STRENGTH * reliefFade}}>
+      {reliefPlacements(relief, view).map((placement) => <Img key={placement.key} src={staticFile(`geo/relief/${placement.file}`)} style={{position: 'absolute', left: placement.left, top: placement.top, width: placement.width, height: placement.height, maxWidth: 'none'}} />)}
+    </div>
+    <svg width={SIZE.width} height={SIZE.height} viewBox={`0 0 ${SIZE.width} ${SIZE.height}`} style={{position: 'absolute', inset: 0}}>
+      <g opacity={outro}>{annotations}</g>
+    </svg>
+  </div>;
 };

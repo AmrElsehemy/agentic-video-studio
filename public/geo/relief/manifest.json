@@ -1,0 +1,65 @@
+{
+  "source": {
+    "name": "Natural Earth",
+    "dataset": "SR_HR (1:10m shaded relief)",
+    "version": "2.0.0",
+    "license": "Public domain",
+    "url": "https://naciscdn.org/naturalearth/10m/raster/SR_HR.zip",
+    "sha256": "b2619fff2fc73c17152983c066adfaa25c4b626916b822bad2fae8bcd9be41a5",
+    "attribution": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+  },
+  "projection": "Web Mercator rows; each image spans its bbox [west, south, east, north]",
+  "neutral": 128,
+  "images": {
+    "world": {
+      "file": "world.jpg",
+      "bbox": [
+        -180,
+        -60,
+        180,
+        80
+      ],
+      "width": 5400,
+      "height": 3226,
+      "arcMinutes": 4
+    },
+    "southern-africa": {
+      "file": "southern-africa.jpg",
+      "bbox": [
+        14,
+        -36,
+        36,
+        -20
+      ],
+      "width": 1320,
+      "height": 1093,
+      "arcMinutes": 1
+    },
+    "caucasus": {
+      "file": "caucasus.jpg",
+      "bbox": [
+        34,
+        36,
+        54,
+        48
+      ],
+      "width": 1200,
+      "height": 974,
+      "arcMinutes": 1
+    }
+  },
+  "files": {
+    "world.jpg": {
+      "sha256": "f321b5d49f2905aec235aef6a93e186f6328bbfbc777f99c8e6ddccc493086cf",
+      "bytes": 1339700
+    },
+    "southern-africa.jpg": {
+      "sha256": "8546e1025c0c0ae14c99c9734aaa73fc267a221a14a6f7b998fd4c4c3f433ef6",
+      "bytes": 188917
+    },
+    "caucasus.jpg": {
+      "sha256": "4136ffbd6cdf7e7b7e4672e84a3aa8e4f604e3143252c0e485ecc6643c20fa56",
+      "bytes": 214801
+    }
+  }
+}
