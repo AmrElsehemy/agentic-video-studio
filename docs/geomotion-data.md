@@ -12,7 +12,8 @@ GeoMotion renders geography shorts (first show: Geographica; first episode: Geor
 | Water | Natural Earth 1:50m marine polygons (seas, oceans, gulfs…), with names and label data |
 | Disputed areas | Natural Earth 1:50m breakaway/disputed areas, kept as a **separate layer** |
 | License | Public domain. No permission needed; we credit it anyway |
-| Base map | Styled vector land and water drawn from these layers. No raster tiles or satellite imagery in v1 |
+| Base map | Styled vector land and water drawn from these layers. No raster tiles or satellite imagery |
+| Relief (#91) | Optional shaded relief from Natural Earth's 1:10m **SR_HR** raster (public domain), reprojected to Web Mercator and pinned in `public/geo/relief/` |
 | Projection | **Web Mercator** (`d3-geo` `geoMercator`), rotated so the framed region is centred |
 | Precision | Countries rounded to 3 decimals (about 110 m); water to 2 decimals (about 1.1 km) |
 | Storage | Slim, pinned copies committed in `public/geo/`, with SHA-256 checksums in `public/geo/manifest.json` |
@@ -35,6 +36,7 @@ GeoMotion renders geography shorts (first show: Geographica; first episode: Geor
 | `public/geo/countries.geojson` | Natural Earth v5.1.2, `ne_50m_admin_0_countries` | Public domain | None | Credit in the episode description |
 | `public/geo/water.geojson` | Natural Earth v5.1.2, `ne_50m_geography_marine_polys` | Public domain | None | Credit in the episode description |
 | `public/geo/disputed.geojson` | Natural Earth v5.1.2, `ne_50m_admin_0_breakaway_disputed_areas` | Public domain | None | Credit in the episode description; editorial review (below) |
+| `public/geo/relief/*.jpg` | Natural Earth `SR_HR` 2.0.0 (1:10m shaded relief, 1 arc-minute), zip SHA-256 `b2619fff…41a5` | Public domain | None | Same Natural Earth credit line |
 
 Credit line: *Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com.* It is stored in `manifest.json` (`source.attribution`) so the description generator can include it (#73/#75).
 
@@ -100,3 +102,13 @@ npm run geo:verify                  # check public/geo/ against manifest.json (r
 ## Out of scope for v1
 
 3D globe, satellite or raster tiles, animated routes, heatmaps, sub-national (Admin 1) boundaries, and point-of-view border variants. Each can be added later as a pinned layer with its own row in the license table.
+
+## Shaded relief (#91)
+
+`npm run geo:relief` builds the relief images from Natural Earth's `SR_HR` raster:
+- **Source:** the raster (21600 × 10800, one pixel per arc-minute, plate carrée) is downloaded once into `.cache/geo/` (git-ignored). The build refuses to run unless the zip matches the pinned SHA-256 in `scripts/lib/geo-relief.mjs`.
+- **Reprojection:** each image is cropped (the global one is also averaged down to 4 arc-minutes) and its rows are reprojected to Web Mercator. Only latitudes stretch; longitude is already linear. Each image is stored with its box, so the renderer places it exactly where the map's projection puts that box.
+- **Neutral flat ground:** flat ground and sea (grey 206 in the source) become neutral grey 128, with slopes scaled ×1.6 around it. Blended with `soft-light`, flat areas are unchanged and only terrain shows.
+- **Images:** `world` (−180…180°, −60…80°, 4′), plus full-detail `southern-africa` (14…36°E, 36…20°S) and `caucasus` (34…54°E, 36…48°N), 1.7 MB in all. Add a region to `RELIEF.images` when an episode zooms somewhere new.
+- **Rendering:** coarser images are drawn first and finer ones on top. An image enlarged past 32,768 px wide is skipped.
+- **Checking:** `public/geo/relief/manifest.json` records each file's checksum, and `npm run geo:verify` checks them along with the vector data.

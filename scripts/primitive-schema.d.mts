@@ -20,7 +20,7 @@ export type GeoAnnotation =
   | {type: 'marker'; anchor: GeoAnchor; text?: string; at: number}
   | {type: 'arrow'; from: GeoAnchor; to: GeoAnchor; text?: string; at: number}
   | {type: 'route'; path: GeoAnchor[]; text?: string; at: number; until?: number; marker: boolean; follow: boolean};
-export type GeoMapPrimitive = {kind: 'geo-map'; camera: GeoCameraKey[]; highlights: GeoHighlight[]; annotations: GeoAnnotation[]; dataset: 'natural-earth'; cut?: boolean};
+export type GeoMapPrimitive = {kind: 'geo-map'; camera: GeoCameraKey[]; highlights: GeoHighlight[]; annotations: GeoAnnotation[]; dataset: 'natural-earth'; cut?: boolean; relief?: boolean};
 export type PrimitiveKind = Primitive['kind'];
 
 export declare const GEO_ENTITY_ID: RegExp;

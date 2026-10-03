@@ -67,6 +67,8 @@ export const primitiveSchema = z.discriminatedUnion('kind', [
     // A map scene that follows another continues its camera (one unbroken flight);
     // cut: true starts this scene's camera fresh instead.
     cut: z.boolean().optional(),
+    // Shaded relief (#91) under the map: mountains and valleys from the pinned Natural Earth raster.
+    relief: z.boolean().optional(),
   }).strict(),
 ]).superRefine((primitive, context) => {
   if (primitive.kind === 'geo-map') {

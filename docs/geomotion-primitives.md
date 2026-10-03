@@ -27,7 +27,8 @@ The issue proposed `geo-map`, `geo-highlight` and `geo-annotation` as separate p
     {"type": "route", "path": [{"lon": 44.79, "lat": 41.72}, "country:ARM"], "text": "TO YEREVAN", "at": 0.2, "until": 0.8, "marker": true, "follow": false}
   ],
   "dataset": "natural-earth",                                       // the pinned map data (default)
-  "cut": true                                                       // optional: start this scene's camera fresh (see Continuity)
+  "cut": true,                                                      // optional: start this scene's camera fresh (see Continuity)
+  "relief": true                                                    // optional: shaded relief under the map (#91)
 }
 ```
 
@@ -41,6 +42,7 @@ The issue proposed `geo-map`, `geo-highlight` and `geo-annotation` as separate p
 | Text | Labels are at most 28 characters. They are the only on-screen words, so they are the only part the fact checks read. Place names come from the map data. |
 | Routes | `path` is 2-6 stops (place ids or points). The line between them follows great circles, the shortest way across the globe, computed by the renderer (`src/video/geo/route.ts`). It draws itself from `at` to `until` (default: half a scene after `at`), easing at both ends, with a marker at its head and a dot on each stop it has reached. It crosses the antimeridian the short way. Routes draw underneath labels and markers. |
 | Follow | `follow: true` moves the camera's centre onto the route's marker while the route draws. The camera keyframes still set the zoom. The camera eases on over 10% of the scene and back to the keyframes over 15% after the route ends. A followed route must end by 0.85, so the scene ends exactly on its keyframes and a continuing scene picks up without a jump. Only one route per shot can be followed. |
+| Relief | `relief: true` blends shaded relief (mountains and valleys) over the land and highlights. Labels, markers and routes stay on top, crisp. Between continuing map scenes it fades in or out over 18 frames when only one of them has it. Images and their source are described in [geomotion-data.md](geomotion-data.md#shaded-relief-91). |
 | Defaults | `highlights: []`, `annotations: []`, `dataset: "natural-earth"`, highlight `style: "fill"`, `at: 0`, route `marker: true`, `follow: false`. |
 
 ## What is checked, and where
@@ -88,3 +90,4 @@ The golden shots the renderer is built against (#72) live in [`test/fixtures/geo
 3. **`between-two-seas`**: a Caucasus framing with the Black Sea and Caspian Sea labelled, and arrows from each sea to Georgia.
 4. **`fiji-antimeridian`**: Fiji, which crosses the ±180° meridian, framed and filled whole, with a route to Samoa across the 180° line.
 5. **`silk-road`** (#90): Xi'an → Samarkand → Constantinople. The camera rides along with the marker, then pulls out to the whole road.
+6. **`lesotho-relief`** (#91): southern Africa with relief, pushing in to Lesotho's outlined highlands. It fills the stand-in episode's hook scene, so `fly-to-georgia` carries `cut: true` to keep its own start.

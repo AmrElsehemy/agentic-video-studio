@@ -1,5 +1,5 @@
 {
-  "_note": "GeoMotion golden shots (#71/#72/#90): primitives only, no episode-specific code. The three Georgia shots; Fiji, to prove shapes and a route crossing the antimeridian render whole; and the Silk Road, a route the camera follows. Used by the schema tests and the renderer's golden frames.",
+  "_note": "GeoMotion golden shots (#71/#72/#90): primitives only, no episode-specific code. The three Georgia shots; Fiji, to prove shapes and a route crossing the antimeridian render whole; the Silk Road, a route the camera follows; and Lesotho with shaded relief (#91). Used by the schema tests and the renderer's golden frames.",
   "shots": {
     "fly-to-georgia": {
       "kind": "geo-map",
@@ -31,7 +31,8 @@
           "style": "fill",
           "at": 0.7
         }
-      ]
+      ],
+      "cut": true
     },
     "georgia-border": {
       "kind": "geo-map",
@@ -244,6 +245,45 @@
           "at": 0.78
         }
       ],
+      "cut": true
+    },
+    "lesotho-relief": {
+      "kind": "geo-map",
+      "camera": [
+        {
+          "target": {
+            "bbox": [
+              16,
+              -35,
+              34,
+              -22
+            ]
+          },
+          "at": 0,
+          "padding": 0.05
+        },
+        {
+          "target": "country:LSO",
+          "at": 0.6,
+          "padding": 0.25
+        }
+      ],
+      "highlights": [
+        {
+          "entity": "country:LSO",
+          "style": "outline",
+          "at": 0.3
+        }
+      ],
+      "annotations": [
+        {
+          "type": "label",
+          "anchor": "country:LSO",
+          "text": "LESOTHO",
+          "at": 0.7
+        }
+      ],
+      "relief": true,
       "cut": true
     }
   }

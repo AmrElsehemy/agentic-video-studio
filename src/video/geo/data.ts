@@ -1,6 +1,7 @@
 import {useEffect, useState} from 'react';
 import {cancelRender, continueRender, delayRender, staticFile} from 'remotion';
 import type {Feature, FeatureCollection, Geometry} from 'geojson';
+import type {ReliefManifest} from './relief';
 
 // The pinned map data (public/geo/, see docs/geomotion-data.md), loaded once per
 // render tab from the bundle's own static files: no network, no tiles.
@@ -42,6 +43,24 @@ export const useGeoData = (): GeoData | undefined => {
   useEffect(() => {
     if (!handle) return;
     loadGeoData().then((result) => {
+      setData(result);
+      continueRender(handle);
+    }).catch((error) => cancelRender(error));
+  }, [handle]);
+  return data;
+};
+
+let relief: ReliefManifest | undefined;
+let reliefLoading: Promise<ReliefManifest> | undefined;
+const loadRelief = () => reliefLoading ??= fetchJson<ReliefManifest>('relief/manifest.json').then((manifest) => (relief = manifest));
+
+/** The shaded relief manifest (#91), loaded only for shots that use relief; holds the render until it has. */
+export const useReliefData = (enabled: boolean): ReliefManifest | undefined => {
+  const [data, setData] = useState(enabled ? relief : undefined);
+  const [handle] = useState(() => (enabled && !relief ? delayRender('Loading relief') : undefined));
+  useEffect(() => {
+    if (!handle) return;
+    loadRelief().then((result) => {
       setData(result);
       continueRender(handle);
     }).catch((error) => cancelRender(error));
