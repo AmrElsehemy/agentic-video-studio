@@ -1,5 +1,5 @@
-// Label placement (#102): map text stays whole inside the frame, and when two
-// labels overlap the less important one fades out. Everything here is a
+// Label placement (#101): map text stays whole inside the frame, and when two
+// labels overlap the less important one moves aside, or fades. Everything here is a
 // continuous function of where the anchors are drawn, so a moving camera
 // slides and fades labels smoothly; nothing pops on or off between frames.
 

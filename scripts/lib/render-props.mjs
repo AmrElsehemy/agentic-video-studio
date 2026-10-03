@@ -5,6 +5,7 @@ import {spawnSync} from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 import {findManifest} from '../catalog.mjs';
+import {snapToBeats} from './beats.mjs';
 import {withWordCaptions} from './captions.mjs';
 import {voiceStaleReason} from './voice-lock.mjs';
 
@@ -91,6 +92,9 @@ export const prepareRenderProps = (episodeId, {voice: requestedVoice = 'auto', c
   } else if (manifest.audio.voice) {
     log(`ℹ narration not generated; run: npm run voice:local -- ${episodeId} or npm run voice:openai -- ${episodeId}`);
   }
+
+  // Map reveals land on the music's beats (#87), now that every scene has its final length.
+  Object.assign(manifest, snapToBeats(manifest));
 
   // Word-synced captions (#86) follow the narration; a render without it keeps the static caption.
   if (manifest.show?.captions?.mode === 'words' && (fresh || captionPreview)) {
