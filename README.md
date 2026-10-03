@@ -206,6 +206,19 @@ To keep CI short:
 - **Strips only for map changes:** the scene-change strips are rendered only when map code changed (`--no-strips` otherwise).
 - **Stale runs cancelled:** a new push to a pull request cancels that PR's run still in progress.
 
+## Render checks (motion and determinism)
+
+```bash
+npm run check:render -- lesotho-enclave bulbasaur-001
+```
+
+One frame per scene can't show a camera snap, a label that flickers for a single frame, or a scene that renders differently depending on what was rendered before it. For each episode, the render check:
+- **Finds where to look.** It scans every 8th frame at low resolution for the busiest 24 frames inside one scene, plus up to 4 places where the picture changes suddenly.
+- **Checks motion frame by frame.** It renders those frames at half size and fails on a single-frame jump: a step far larger than the steps either side of it. Smooth motion passes, however fast. Intended reveals (a silhouette snapping to artwork, timed in `scripts/lib/reveals.mjs`) and scene exit fades are expected.
+- **Checks determinism.** It renders a few frames twice, in opposite orders, and fails if they differ by more than anti-aliasing noise. Randomness, wall-clock time and leftover state all show up here.
+
+It writes `out/<id>-strip.png`, one block of 24 frames per window, and `out/<id>-render-check.json`. CI runs it on the golden set beside the frame check, and on every changed episode after its full render.
+
 ## Video critic
 
 `npm run critic:video -- <id>` reviews a rendered episode (`npm run video`, plus `npm run still` for the cover) one mid-scene frame at a time, and exits non-zero on any blocking issue. CI runs it after every render, and `episode:new --render` runs it too.
