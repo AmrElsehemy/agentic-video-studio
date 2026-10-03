@@ -109,6 +109,6 @@ npm run geo:verify                  # check public/geo/ against manifest.json (r
 - **Source:** the raster (21600 × 10800, one pixel per arc-minute, plate carrée) is downloaded once into `.cache/geo/` (git-ignored). The build refuses to run unless the zip matches the pinned SHA-256 in `scripts/lib/geo-relief.mjs`.
 - **Reprojection:** each image is cropped (the global one is also averaged down to 4 arc-minutes) and its rows are reprojected to Web Mercator. Only latitudes stretch; longitude is already linear. Each image is stored with its box, so the renderer places it exactly where the map's projection puts that box.
 - **Neutral flat ground:** flat ground and sea (grey 206 in the source) become neutral grey 128, with slopes scaled ×1.6 around it. Blended with `soft-light`, flat areas are unchanged and only terrain shows.
-- **Images:** `world` (−180…180°, −60…80°, 4′), plus full-detail `southern-africa` (14…36°E, 36…20°S) and `caucasus` (34…54°E, 36…48°N), 1.7 MB in all. Add a region to `RELIEF.images` when an episode zooms somewhere new.
+- **Images:** `world` (−180…180°, −60…80°, 4′), plus full-detail `southern-africa` (14…36°E, 36…20°S), `caucasus` (34…54°E, 36…48°N) and `pamirs` (64…82°E, 33…44°N), about 2 MB in all. Add a region to `RELIEF.images` when an episode zooms somewhere new.
 - **Rendering:** coarser images are drawn first and finer ones on top. An image enlarged past 32,768 px wide is skipped.
 - **Checking:** `public/geo/relief/manifest.json` records each file's checksum, and `npm run geo:verify` checks them along with the vector data.

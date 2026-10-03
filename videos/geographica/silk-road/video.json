@@ -1,0 +1,580 @@
+{
+  "schemaVersion": 2,
+  "id": "silk-road",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica",
+    "wordmark": {
+      "lead": "GEO",
+      "accent": "GRAPHICA"
+    },
+    "fonts": {
+      "display": "Oswald",
+      "body": "Inter"
+    },
+    "captions": {
+      "mode": "words"
+    }
+  },
+  "title": "The Silk Road Was Never One Road",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "mystery",
+    "numberRelevant": false,
+    "premise": "Follow the caravans from Chang'an to Constantinople, over the Roof of the World, to see why the Silk Road was never one road.",
+    "audiencePromise": "Trace the Silk Road across a continent and see the mountains every caravan had to cross.",
+    "openLoop": "How can a 6,400 km road not be one road?",
+    "payoff": "The Silk Road was a web of routes from Chang'an to Constantinople, over some of the highest mountains on Earth.",
+    "targetEmotion": "awe",
+    "engagementQuestion": "Would you have made the trip, or stayed home?",
+    "targetSecondsBetweenVisualChanges": 0.68
+  },
+  "subject": {
+    "name": "Silk Road",
+    "category": "Trade route",
+    "attributes": {
+      "geoEntity": "country:CHN"
+    }
+  },
+  "related": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#0b1a2a",
+    "surface": "#23473d",
+    "primary": "#e4b363",
+    "secondary": "#8c2f39",
+    "ink": "#f6f1e7"
+  },
+  "audio": {
+    "music": "generated/silk-road-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 96,
+      "notes": [
+        98,
+        116.54,
+        130.81,
+        146.83,
+        130.81,
+        116.54,
+        87.31,
+        98
+      ]
+    },
+    "voice": {
+      "provider": "openai",
+      "model": "gpt-4o-mini-tts",
+      "voice": "cedar",
+      "instructions": "Warm, curious storyteller walking a friend across a map. Clear and confident, with a sense of discovery on each reveal; slow slightly on dates and place names so they land. Conversational and human, never a documentary announcer, lecture, or neutral TTS. Never imitate a known person or character.",
+      "speed": 1.06,
+      "output": "generated/silk-road-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "durationSeconds": 4.5,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "mystery",
+      "subjectFocus": "hidden",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "A MAP MYSTERY",
+      "headline": "THE ROAD THAT WASN'T",
+      "narration": "6,400 kilometres of Silk Road. Never one road.",
+      "caption": "OVER 6,400 KM",
+      "visual": "hook",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "world",
+            "at": 0,
+            "padding": 0.15,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                26.096,
+                20.264,
+                134.752,
+                53.556
+              ]
+            },
+            "at": 0.55,
+            "padding": 0.05,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:CHN",
+            "style": "outline",
+            "at": 0.6
+          },
+          {
+            "entity": "country:TUR",
+            "style": "outline",
+            "at": 0.7
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:KAZ",
+            "text": "OVER 6,400 KM",
+            "at": 0.75
+          }
+        ],
+        "dataset": "natural-earth"
+      }
+    },
+    {
+      "id": "start",
+      "durationSeconds": 5.8,
+      "beat": "clue",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "THE START",
+      "headline": "IT BEGAN IN CHANG'AN",
+      "narration": "It began around 130 BCE, in Han China's Chang'an, today's Xi'an.",
+      "caption": "AROUND 130 BCE",
+      "visual": "gauntlet",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "country:CHN",
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:CHN",
+            "style": "fill",
+            "at": 0.1
+          }
+        ],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 108.942,
+              "lat": 34.261
+            },
+            "text": "CHANG'AN (XI'AN)",
+            "at": 0.35
+          }
+        ],
+        "dataset": "natural-earth"
+      }
+    },
+    {
+      "id": "route",
+      "durationSeconds": 4.4,
+      "beat": "clue",
+      "role": "evidence",
+      "shot": "wide",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "THE ROUTE",
+      "headline": "WEST, CITY BY CITY",
+      "narration": "Caravans went west via Kashgar and Samarkand to Constantinople.",
+      "caption": "XI'AN TO CONSTANTINOPLE",
+      "visual": "gauntlet",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "country:KGZ",
+            "at": 0,
+            "padding": 0.05,
+            "ease": "in-out"
+          },
+          {
+            "target": "country:KGZ",
+            "at": 0.7,
+            "padding": 0.05,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                26.096,
+                20.264,
+                134.752,
+                53.556
+              ]
+            },
+            "at": 0.92,
+            "padding": 0.05,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "route",
+            "path": [
+              {
+                "lon": 108.942,
+                "lat": 34.261
+              },
+              {
+                "lon": 75.994,
+                "lat": 39.468
+              },
+              {
+                "lon": 66.965,
+                "lat": 39.651
+              },
+              {
+                "lon": 28.98,
+                "lat": 41.013
+              }
+            ],
+            "text": "CARAVAN ROUTE",
+            "at": 0.08,
+            "until": 0.8,
+            "marker": true,
+            "follow": true
+          },
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 66.965,
+              "lat": 39.651
+            },
+            "text": "SAMARKAND",
+            "at": 0.45
+          },
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 28.98,
+              "lat": 41.013
+            },
+            "text": "CONSTANTINOPLE",
+            "at": 0.82
+          }
+        ],
+        "dataset": "natural-earth"
+      }
+    },
+    {
+      "id": "roof",
+      "durationSeconds": 5.6,
+      "beat": "escalation",
+      "role": "escalation",
+      "shot": "tracking",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "THE HARD PART",
+      "headline": "THE ROOF OF THE WORLD",
+      "narration": "Past Kashgar, they crossed the Pamirs: the Roof of the World.",
+      "caption": "OVER THE PAMIRS",
+      "visual": "advantage",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                67.35,
+                36.684,
+                80.246,
+                43.24
+              ]
+            },
+            "at": 0,
+            "padding": 0.2,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                67.35,
+                36.684,
+                80.246,
+                43.24
+              ]
+            },
+            "at": 0.6,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:TJK",
+            "style": "outline",
+            "at": 0.2
+          }
+        ],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 75.994,
+              "lat": 39.468
+            },
+            "text": "KASHGAR",
+            "at": 0.15
+          },
+          {
+            "type": "label",
+            "anchor": "country:TJK",
+            "text": "ROOF OF THE WORLD",
+            "at": 0.55
+          }
+        ],
+        "dataset": "natural-earth",
+        "relief": true
+      }
+    },
+    {
+      "id": "peaks",
+      "durationSeconds": 6.2,
+      "beat": "reveal",
+      "role": "payoff",
+      "shot": "comparison",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "THE NUMBERS",
+      "headline": "MOUNTAINS ALL THE WAY",
+      "narration": "Each country's peak is 3,138 metres or more. China's is 8,849.",
+      "caption": "UP TO 8,849 M",
+      "visual": "race",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                26.096,
+                20.264,
+                134.752,
+                53.556
+              ]
+            },
+            "at": 0,
+            "padding": 0.05,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "relief": true,
+        "data": {
+          "label": "HIGHEST POINT",
+          "unit": "m",
+          "values": [
+            {
+              "entity": "country:CHN",
+              "value": 8849
+            },
+            {
+              "entity": "country:TJK",
+              "value": 7495
+            },
+            {
+              "entity": "country:KGZ",
+              "value": 7439
+            },
+            {
+              "entity": "country:IRN",
+              "value": 5609
+            },
+            {
+              "entity": "country:TUR",
+              "value": 5137
+            },
+            {
+              "entity": "country:UZB",
+              "value": 4643
+            },
+            {
+              "entity": "country:TKM",
+              "value": 3138
+            }
+          ],
+          "at": 0.15,
+          "legend": true
+        }
+      }
+    },
+    {
+      "id": "name",
+      "durationSeconds": 4.8,
+      "beat": "reveal",
+      "role": "payoff",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "THE NAME",
+      "headline": "NAMED ONLY IN 1877",
+      "narration": "The name came late: Richthofen popularised it in 1877.",
+      "caption": "SEIDENSTRASSE, 1877",
+      "visual": "tradeoff",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                26.096,
+                20.264,
+                134.752,
+                53.556
+              ]
+            },
+            "at": 0,
+            "padding": 0.16,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "route",
+            "path": [
+              {
+                "lon": 108.942,
+                "lat": 34.261
+              },
+              {
+                "lon": 75.994,
+                "lat": 39.468
+              },
+              {
+                "lon": 66.965,
+                "lat": 39.651
+              },
+              {
+                "lon": 28.98,
+                "lat": 41.013
+              }
+            ],
+            "text": "SEIDENSTRASSE",
+            "at": 0.05,
+            "until": 0.45,
+            "marker": false,
+            "follow": false
+          }
+        ],
+        "dataset": "natural-earth"
+      }
+    },
+    {
+      "id": "verdict",
+      "durationSeconds": 5.4,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "THE END",
+      "headline": "1453 CHANGED IT",
+      "narration": "After 1453, Europe sought other routes. Would you have gone?",
+      "caption": "WOULD YOU GO?",
+      "visual": "cta",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "country:TUR",
+            "at": 0,
+            "padding": 0.15,
+            "ease": "in-out"
+          },
+          {
+            "target": "world",
+            "at": 0.75,
+            "padding": 0.15,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:TUR",
+            "style": "fill",
+            "at": 0.1
+          }
+        ],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 28.98,
+              "lat": 41.013
+            },
+            "text": "CONSTANTINOPLE",
+            "at": 0.2
+          }
+        ],
+        "dataset": "natural-earth"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia: Silk Road (revision 1376821937)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Silk_Road&oldid=1376821937"
+    },
+    {
+      "label": "Wikipedia: Pamir Mountains (revision 1376665175)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Pamir_Mountains&oldid=1376665175"
+    },
+    {
+      "label": "Wikipedia: Samarkand (revision 1378122888)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Samarkand&oldid=1378122888"
+    },
+    {
+      "label": "Wikipedia: Kashgar (revision 1377839117)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Kashgar&oldid=1377839117"
+    },
+    {
+      "label": "Wikipedia: Xi'an (revision 1376793036)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Xi'an&oldid=1376793036"
+    },
+    {
+      "label": "Wikipedia: Constantinople (revision 1375041443)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Constantinople&oldid=1375041443"
+    },
+    {
+      "label": "Wikipedia: List of elevation extremes by country (revision 1370817849)",
+      "url": "https://en.wikipedia.org/w/index.php?title=List_of_elevation_extremes_by_country&oldid=1370817849"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ]
+}
