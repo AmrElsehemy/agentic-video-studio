@@ -18,6 +18,7 @@
     "drafts:check": "node scripts/check-compiled-drafts.mjs",
     "description": "node scripts/generate-description.mjs",
     "preflight:publish": "node --import tsx scripts/preflight-publish.ts",
+    "production": "node scripts/production.mjs",
     "youtube:auth": "node scripts/youtube-auth.mjs",
     "youtube:upload": "node scripts/youtube-upload.mjs",
     "youtube:schedule": "node scripts/youtube-upload.mjs",

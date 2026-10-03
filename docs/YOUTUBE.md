@@ -94,6 +94,22 @@ The report lines each episode's average % viewed, hook hold and engagement up ag
 - **Hook hold** is the share of viewers still watching when the hook scene ends.
 - **Trends:** once five episodes have numbers, the report also shows how each lever correlates with completion. That is the evidence for retuning the director's defaults (#25).
 
+## Production log
+
+Every episode also keeps a record of how it was made: `analytics/<show>/<id>.production.json` (#89). It is committed with the performance history. Entries come from:
+
+- each model call by `episode:new`, `geo:direct` and the video critic: the agent's role, provider, model and token counts;
+- paid or local narration: the characters and seconds synthesised (cached scenes cost nothing);
+- local renders, with the time they took (CI renders aren't logged);
+- `npm run pipeline -- <id> --approve`, the approval for paid narration.
+
+```bash
+npm run production -- <id>          # calls by role, narration, renders, approvals and the estimated cost
+npm run production -- <id> --json
+```
+
+Costs are estimates from the list prices in `scripts/lib/prices.json`, which name their source and the date they were checked. A model without a price is still logged with its tokens, and the summary names it as not priced. Borders reviews are read from the episode's `rights`.
+
 ## Shorts
 
 There is no separate Shorts upload API. Upload the existing 9:16 MP4 normally; YouTube determines Shorts presentation from the uploaded video. Do not add black bars.

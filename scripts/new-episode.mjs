@@ -3,6 +3,7 @@ import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {createCompletion} from './lib/llm.mjs';
 import {fetchWithReason} from './lib/net.mjs';
+import {appendProduction, modelEntry} from './lib/production.mjs';
 import {runNewEpisode} from './lib/new-episode.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -53,7 +54,9 @@ const run = (label, script, scriptArgs) => {
 };
 
 // Each agent can run on its own model (see "Models" in the README).
-const models = Object.fromEntries(['writer', 'angles', 'angle-critic', 'verifier', 'critic', 'director'].map((role) => [role, createCompletion({role})]));
+// Every call is logged once the episode has an id (production log, #89).
+const calls = [];
+const models = Object.fromEntries(['writer', 'angles', 'angle-critic', 'verifier', 'critic', 'director'].map((role) => [role, createCompletion({role, onUsage: (usage) => calls.push(modelEntry(usage))})]));
 const byModel = new Map();
 for (const [role, {provider, model}] of Object.entries(models)) {
   const label = `${provider} (${model})`;
@@ -87,8 +90,10 @@ const createEpisode = async (number) => {
     }));
   } catch (error) {
     console.error(`\n✗ ${error.message}`);
+    calls.length = 0;
     return {failed: 'writing'};
   }
+  appendProduction(root, 'pokepulses', id, calls.splice(0));
 
   const stages = [
     ['Certify', 'scripts/certify-episode.mjs', [id, '--fast']],

@@ -1,6 +1,7 @@
 import {spawnSync} from 'node:child_process';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
+import {appendProduction} from './lib/production.mjs';
 import {prepareRenderProps} from './lib/render-props.mjs';
 import {resolveEpisodeId} from './catalog.mjs';
 
@@ -16,8 +17,9 @@ if (process.env.STUDIO_CHECKED !== episodeId) {
 }
 
 let propsPath;
+let manifest;
 try {
-  ({propsPath} = prepareRenderProps(episodeId, {voice}));
+  ({propsPath, manifest} = prepareRenderProps(episodeId, {voice}));
 } catch (error) {
   console.error(error.message);
   process.exit(1);
@@ -27,7 +29,10 @@ const outputPath = path.join(root, 'out', `${episodeId}.mp4`);
 const renderArgs = ['remotion', 'render', 'src/index.ts', 'VerticalEpisode', outputPath, `--props=${propsPath}`, '--codec=h264', '--crf=18', '--pixel-format=yuv420p'];
 if (process.env.REMOTION_BROWSER_EXECUTABLE) renderArgs.push(`--browser-executable=${process.env.REMOTION_BROWSER_EXECUTABLE}`);
 
+const started = Date.now();
 const result = spawnSync(process.platform === 'win32' ? 'npx.cmd' : 'npx', renderArgs, {cwd: root, stdio: 'inherit'});
 if (result.status !== 0) process.exit(result.status ?? 1);
+// The production log (#89) keeps local renders; CI renders every changed episode on every push.
+if (!process.env.CI) appendProduction(root, manifest.show.id, episodeId, [{kind: 'render', seconds: Math.round((Date.now() - started) / 100) / 10, narration: manifest.audio.voiceover ? 'yes' : 'none'}]);
 const qa = spawnSync(process.execPath, ['scripts/qa.mjs', outputPath, propsPath], {cwd: root, stdio: 'inherit'});
 process.exit(qa.status ?? 1);

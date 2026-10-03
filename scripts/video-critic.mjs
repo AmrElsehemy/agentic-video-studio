@@ -13,6 +13,7 @@ import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {auditFrames} from './lib/frame-audit.mjs';
 import {createCompletion} from './lib/llm.mjs';
+import {appendProduction, modelEntry} from './lib/production.mjs';
 import {framePath, reviewFrames} from './lib/render-props.mjs';
 import {critiqueFrames} from './lib/video-critic.mjs';
 import {resolveEpisodeId} from './catalog.mjs';
@@ -85,7 +86,7 @@ try {
       run('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-y', '-i', file, '-vf', 'scale=540:-2', out]);
       return fs.readFileSync(out).toString('base64');
     };
-    const complete = createCompletion({role: 'vision', maxTokens: 4000});
+    const complete = createCompletion({role: 'vision', maxTokens: 4000, onUsage: (usage) => appendProduction(root, manifest.show.id, episodeId, [modelEntry(usage)])});
     console.log(`  vision critic: ${complete.provider} (${complete.model})`);
     visionReport = await critiqueFrames({manifest, frames: frames.map((frame) => ({png: small(frame.file)})), cover: cover ? {png: small(cover.file)} : undefined, complete});
     if (visionReport.modelError) console.warn(`⚠ vision critic failed: ${visionReport.modelError}`);

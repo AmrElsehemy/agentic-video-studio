@@ -29,7 +29,7 @@ const anthropicAdapter = ({apiKey, model, maxTokens, fetchImpl}) => async ({syst
   if (!response.ok) throw await failure('Claude', response);
   const data = await response.json();
   if (data.stop_reason === 'max_tokens') throw new Error('Claude reply was cut off (max_tokens). Increase maxTokens.');
-  return data.content.filter((block) => block.type === 'text').map((block) => block.text).join('');
+  return {text: data.content.filter((block) => block.type === 'text').map((block) => block.text).join(''), usage: {inputTokens: data.usage?.input_tokens ?? null, outputTokens: data.usage?.output_tokens ?? null}};
 };
 
 const openaiAdapter = ({apiKey, model, maxTokens, fetchImpl}) => async ({system, messages}) => {
@@ -42,7 +42,7 @@ const openaiAdapter = ({apiKey, model, maxTokens, fetchImpl}) => async ({system,
   const data = await response.json();
   const choice = data.choices?.[0];
   if (choice?.finish_reason === 'length') throw new Error('OpenAI reply was cut off (length). Increase maxTokens.');
-  return choice?.message?.content ?? '';
+  return {text: choice?.message?.content ?? '', usage: {inputTokens: data.usage?.prompt_tokens ?? null, outputTokens: data.usage?.completion_tokens ?? null}};
 };
 
 const adapters = {anthropic: anthropicAdapter, openai: openaiAdapter};
@@ -94,13 +94,22 @@ export const resolveRole = (role = 'writer', env = process.env, {provider: expli
   return {provider, model: modelLevel ? env[`${modelLevel}_MODEL`] : PROVIDERS[provider].defaultModel, source: modelLevel ? `${modelLevel}_MODEL` : 'default'};
 };
 
-/** complete({system, messages}) for an agent role (default: the writer), or an explicit provider and model. */
-export const createCompletion = ({role = 'writer', provider, model, apiKey, maxTokens = 16000, env = process.env, fetchImpl = fetch} = {}) => {
+/**
+ * complete({system, messages}) for an agent role (default: the writer), or an
+ * explicit provider and model. `onUsage` hears about every finished call:
+ * {role, provider, model, inputTokens, outputTokens} (for the production log, #89).
+ */
+export const createCompletion = ({role = 'writer', provider, model, apiKey, maxTokens = 16000, env = process.env, fetchImpl = fetch, onUsage} = {}) => {
   const resolved = resolveRole(role, env, {provider});
   const chosen = model ?? resolved.model;
   const {keyEnv} = PROVIDERS[resolved.provider];
   const key = apiKey ?? env[keyEnv];
   if (!key) throw new Error(`${keyEnv} is required for the ${resolved.provider} provider.`);
-  const complete = adapters[resolved.provider]({apiKey: key, model: chosen, maxTokens, fetchImpl});
+  const call = adapters[resolved.provider]({apiKey: key, model: chosen, maxTokens, fetchImpl});
+  const complete = async (request) => {
+    const {text, usage} = await call(request);
+    onUsage?.({role, provider: resolved.provider, model: chosen, ...usage});
+    return text;
+  };
   return Object.assign(complete, {provider: resolved.provider, model: chosen, role});
 };
