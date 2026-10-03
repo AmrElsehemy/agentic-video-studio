@@ -16,7 +16,7 @@
             ]
           },
           "at": 0.55,
-          "padding": 0.05
+          "padding": 0.16
         }
       ],
       "highlights": [
@@ -70,27 +70,39 @@
     },
     {
       "id": "route",
-      "why": "Ride along with the caravans from Chang'an through Kashgar and Samarkand to Constantinople, then pull out to the whole road.",
+      "why": "Ride along with the caravans from Chang'an past Kashgar and Samarkand over a Central Asia framing, and arrive at Constantinople.",
       "camera": [
         {
-          "target": "country:KGZ",
+          "target": {
+            "around": [
+              "country:UZB",
+              "country:KGZ",
+              "country:TKM"
+            ]
+          },
           "at": 0,
-          "padding": 0.05
-        },
-        {
-          "target": "country:KGZ",
-          "at": 0.7,
-          "padding": 0.05
+          "padding": 0.15
         },
         {
           "target": {
             "around": [
-              "country:CHN",
-              "country:TUR"
+              "country:UZB",
+              "country:KGZ",
+              "country:TKM"
+            ]
+          },
+          "at": 0.7,
+          "padding": 0.15
+        },
+        {
+          "target": {
+            "around": [
+              "country:TUR",
+              "country:UZB"
             ]
           },
           "at": 0.92,
-          "padding": 0.05
+          "padding": 0.1
         }
       ],
       "annotations": [
@@ -121,7 +133,7 @@
             "place": "samarkand"
           },
           "text": "SAMARKAND",
-          "at": 0.45
+          "at": 0.86
         },
         {
           "type": "marker",

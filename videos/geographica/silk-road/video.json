@@ -124,7 +124,7 @@
               ]
             },
             "at": 0.55,
-            "padding": 0.05,
+            "padding": 0.16,
             "ease": "in-out"
           }
         ],
@@ -212,28 +212,42 @@
         "kind": "geo-map",
         "camera": [
           {
-            "target": "country:KGZ",
+            "target": {
+              "bbox": [
+                52.494,
+                35.171,
+                80.246,
+                45.555
+              ]
+            },
             "at": 0,
-            "padding": 0.05,
+            "padding": 0.15,
             "ease": "in-out"
           },
           {
-            "target": "country:KGZ",
+            "target": {
+              "bbox": [
+                52.494,
+                35.171,
+                80.246,
+                45.555
+              ]
+            },
             "at": 0.7,
-            "padding": 0.05,
+            "padding": 0.15,
             "ease": "in-out"
           },
           {
             "target": {
               "bbox": [
                 26.096,
-                20.264,
-                134.752,
-                53.556
+                35.831,
+                73.137,
+                45.555
               ]
             },
             "at": 0.92,
-            "padding": 0.05,
+            "padding": 0.1,
             "ease": "in-out"
           }
         ],
@@ -272,7 +286,7 @@
               "lat": 39.651
             },
             "text": "SAMARKAND",
-            "at": 0.45
+            "at": 0.86
           },
           {
             "type": "marker",
