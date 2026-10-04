@@ -1,5 +1,6 @@
 import React from 'react';
 import {AbsoluteFill, Img} from 'remotion';
+import {paletteMode} from '../../scripts/lib/palette.mjs';
 import type {VideoManifest} from '../schema';
 import {GeoMapVisual} from './geo/GeoMap';
 import {bodyFont, displayFont, fontVariables} from './typography';
@@ -8,6 +9,16 @@ import {Wordmark} from './wordmark';
 type Props = {
   manifest: VideoManifest;
 };
+
+/**
+ * The cover's shading. A dark palette fades to black under white lines and
+ * shadows; a light one (#92) fades into its own background, with ink-coloured
+ * lines and a soft light glow, so the dark title stays crisp.
+ */
+const coverTone = (palette: VideoManifest['palette']) =>
+  paletteMode(palette) === 'light'
+    ? {fadeTo: palette.background, grid: palette.ink, gridOpacity: 0.07, shadow: '#0004', titleShadow: `0 6px 24px ${palette.background}`, rule: `${palette.ink}25`, footer: `${palette.ink}aa`}
+    : {fadeTo: '#000000', grid: '#fff', gridOpacity: 0.11, shadow: '#000a', titleShadow: '0 12px 32px #000c', rule: '#ffffff25', footer: '#ffffffaa'};
 
 /** The cover shows a map scene's final state: its camera settled and every layer drawn in. */
 const COVER_MAP_FRAMES = 300;
@@ -27,6 +38,7 @@ const CoverTitle: React.FC<{headline: string; subject: string; accent: string}> 
 
 export const EpisodeCover: React.FC<Props> = ({manifest}) => {
   const accent = manifest.palette.primary;
+  const tone = coverTone(manifest.palette);
   const hook = manifest.scenes[0];
   const mapScene = manifest.scenes.find((scene) => scene.primitive?.kind === 'geo-map');
   const identifier = manifest.subject.identifier;
@@ -43,15 +55,15 @@ export const EpisodeCover: React.FC<Props> = ({manifest}) => {
         ...fontVariables(manifest),
         overflow: 'hidden',
         color: manifest.palette.ink,
-        background: `radial-gradient(circle at 72% 36%, ${accent}45, transparent 34%), linear-gradient(155deg, ${manifest.palette.surface} 0%, ${manifest.palette.background} 55%, #000000 100%)`,
+        background: `radial-gradient(circle at 72% 36%, ${accent}45, transparent 34%), linear-gradient(155deg, ${manifest.palette.surface} 0%, ${manifest.palette.background} 55%, ${tone.fadeTo} 100%)`,
       }}
     >
       <div
         style={{
           position: 'absolute',
           inset: 0,
-          opacity: 0.11,
-          backgroundImage: 'linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)',
+          opacity: tone.gridOpacity,
+          backgroundImage: `linear-gradient(${tone.grid} 1px, transparent 1px), linear-gradient(90deg, ${tone.grid} 1px, transparent 1px)`,
           backgroundSize: '72px 72px',
         }}
       />
@@ -113,12 +125,12 @@ export const EpisodeCover: React.FC<Props> = ({manifest}) => {
             width: 900,
             height: 900,
             objectFit: 'contain',
-            filter: 'drop-shadow(0 48px 42px #000a)',
+            filter: `drop-shadow(0 48px 42px ${tone.shadow})`,
           }}
         />
       </> : mapScene?.primitive?.kind === 'geo-map' ? (
         // Episodes told with maps show their first map, finished (the hook's answer, before any labels), where the artwork would be.
-        <div style={{position: 'absolute', top: 190, left: 65, width: 950, height: 950, borderRadius: 40, overflow: 'hidden', boxShadow: `0 0 0 5px ${accent}55, 0 40px 80px #000a`}}>
+        <div style={{position: 'absolute', top: 190, left: 65, width: 950, height: 950, borderRadius: 40, overflow: 'hidden', boxShadow: `0 0 0 5px ${accent}55, 0 40px 80px ${tone.shadow}`}}>
           <div style={{position: 'absolute', left: -30, top: -212, transform: 'scale(1)'}}>
             <GeoMapVisual blur={false} data={mapScene.primitive} scene={mapScene} manifest={manifest} frame={COVER_MAP_FRAMES} durationInFrames={COVER_MAP_FRAMES + 1} accent={accent} />
           </div>
@@ -153,7 +165,7 @@ export const EpisodeCover: React.FC<Props> = ({manifest}) => {
           lineHeight: 0.86,
           letterSpacing: 1,
           textTransform: 'uppercase',
-          textShadow: '0 12px 32px #000c',
+          textShadow: tone.titleShadow,
         }}
       >
         <CoverTitle headline={hook.headline} subject={manifest.subject.name} accent={accent} />
@@ -166,13 +178,13 @@ export const EpisodeCover: React.FC<Props> = ({manifest}) => {
           bottom: 82,
           display: 'flex',
           justifyContent: 'space-between',
-          borderTop: '2px solid #ffffff25',
+          borderTop: `2px solid ${tone.rule}`,
           paddingTop: 24,
           fontFamily: bodyFont,
           fontWeight: 900,
           fontSize: 22,
           letterSpacing: 2.5,
-          color: '#ffffffaa',
+          color: tone.footer,
         }}
       >
         <span>{manifest.subject.category.toUpperCase()}</span>
