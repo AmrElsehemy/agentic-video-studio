@@ -269,6 +269,8 @@ npm run voice:audition -- silk-road --voices=<owner/voice>,<owner/voice>,<owner/
 
 The reads land in `out/voice-audition/<id>/` as `A.mp3`, `B.mp3` and so on, in a fresh random order; `key.json` says which is which, so listen before opening it. Each ElevenLabs read costs about as many credits as the narration has characters (around 450 per episode). Candidates come from the Voice Library: ElevenLabs' default voices expire on 2026-12-31, and library voices with an extra per-character fee or a short withdrawal notice are left out. Check a voice's terms before publishing with it.
 
+A show switches narrator in its profile: `"voice": {"provider": "elevenlabs", "voice": "<voice id>", "speed": 1, "instructions": "..."}` (the model defaults to `eleven_v4`; leave out an OpenAI `model`). Then `npm run voice -- <id>` reads each scene with ElevenLabs, passing the lines either side so the delivery flows on, and keeps ElevenLabs' own word timings for word captions. `npm run voice -- <id>` always uses the show's provider; `voice:openai` and `voice:elevenlabs` refuse an episode whose show uses the other one.
+
 ## GeoMotion map data
 
 Geography episodes (the GeoMotion epic, #69) draw countries, seas and disputed areas from pinned, public-domain Natural Earth data in `public/geo/`, with an entity registry (`country:GEO`, `water:black-sea`, …) and checksums. `npm run geo:prepare` rebuilds it from the pinned source; `npm run geo:verify` (in CI) checks it. Decisions (data, license, projection, disputed borders) are in [docs/geomotion-data.md](docs/geomotion-data.md).

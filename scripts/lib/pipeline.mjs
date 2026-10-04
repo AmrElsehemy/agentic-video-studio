@@ -14,7 +14,9 @@ import {compileEpisode, serializeManifest} from './compiler.mjs';
 import {voiceInputHash} from './voice-lock.mjs';
 
 export const STAGES = ['compile', 'lint', 'preview', 'approve', 'voice', 'render'];
-export const PIPELINE_VOICES = ['none', 'local', 'openai'];
+export const PIPELINE_VOICES = ['none', 'local', 'openai', 'elevenlabs'];
+/** Narration a person approves before it is paid for (#102: ElevenLabs as well as OpenAI). */
+export const PAID_VOICES = ['openai', 'elevenlabs'];
 /** Bump to invalidate every lock when stage behaviour changes. */
 export const PIPELINE_VERSION = 1;
 
@@ -183,10 +185,10 @@ export const episodeStages = ({root, episodeId, voice = 'none', exec = execStep(
     },
     {
       name: 'approve',
-      inputs: () => (voice === 'openai' ? {manifest: manifestHash()} : {skip: `not needed for ${voice === 'none' ? 'a render without narration' : 'local voice'}`}),
+      inputs: () => (PAID_VOICES.includes(voice) ? {manifest: manifestHash()} : {skip: `not needed for ${voice === 'none' ? 'a render without narration' : 'local voice'}`}),
       gate: (hash, lock) => (lock.approvals?.[hash]
         ? null
-        : `paid voice needs a person to approve this version. Review out/${episodeId}-frames/ (npm run sheet -- ${episodeId} --frames), then run: npm run pipeline -- ${episodeId} --voice=openai --approve`),
+        : `paid voice needs a person to approve this version. Review out/${episodeId}-frames/ (npm run sheet -- ${episodeId} --frames), then run: npm run pipeline -- ${episodeId} --voice=${voice} --approve`),
     },
     {
       name: 'voice',

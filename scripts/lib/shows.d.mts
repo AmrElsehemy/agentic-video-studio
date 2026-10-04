@@ -10,7 +10,7 @@ export type ShowProfile = {
   palette: {background: string; surface: string; primary: string; secondary: string; ink: string};
   paletteVariants?: Record<string, {background: string; surface: string; primary: string; secondary: string; ink: string}>;
   music: {bpm: number; notes: number[]; volume: number};
-  voice: {voice: string; speed: number; model: string; instructions: string};
+  voice: {provider: 'openai' | 'elevenlabs'; voice: string; speed: number; model: string; instructions: string};
   notices: {ownership: string; nonAffiliation: string};
   publishing?: {hashtags: string[]; tags: string[]; channelId?: string; playlistId?: string; madeForKids?: boolean};
   subjects?: {identifierLabel: string; identifierPattern: string};

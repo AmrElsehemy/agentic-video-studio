@@ -133,7 +133,7 @@ export const compileEpisode = (rawDraft, {showId, show = loadShow(showId), geo})
       musicVolume: draft.musicVolume ?? show.music.volume,
       bed: {bpm: show.music.bpm, notes: show.music.notes},
       voice: {
-        provider: 'openai',
+        provider: show.voice.provider ?? 'openai',
         model: draft.voice?.model ?? show.voice.model,
         voice: draft.voice?.voice ?? show.voice.voice,
         instructions: draft.voice?.instructions ?? show.voice.instructions,

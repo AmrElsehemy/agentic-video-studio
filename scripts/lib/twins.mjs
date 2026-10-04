@@ -3,7 +3,7 @@
 // must be the same, the palette mode must differ, and the titles must differ
 // so the channel can tell the uploads apart.
 import {paletteMode} from './palette.mjs';
-import {voiceInputHash} from './voice-lock.mjs';
+import {narrationProvider, voiceInputHash} from './voice-lock.mjs';
 
 const narration = (manifest) => manifest.scenes.map((scene) => scene.narration).join('\n');
 
@@ -19,7 +19,7 @@ export const twinProblems = (manifest, twin) => {
   if (twin.title.trim().toLowerCase() === manifest.title.trim().toLowerCase()) problems.push(`it has the same title as its twin ${twin.id}, so their uploads can't be told apart`);
   if (narration(twin) !== narration(manifest)) problems.push(`its narration differs from its twin ${twin.id}'s; twins tell the same story`);
   // It plays the original's narration track, which only fits when the voice and scene timing match too.
-  else if (voiceInputHash(twin, 'openai') !== voiceInputHash(manifest, 'openai')) problems.push(`its voice settings or scene timing differ from its twin ${twin.id}'s, so it can't share their narration`);
+  else if (voiceInputHash(twin, narrationProvider(twin)) !== voiceInputHash(manifest, narrationProvider(manifest))) problems.push(`its voice settings or scene timing differ from its twin ${twin.id}'s, so it can't share their narration`);
   if (manifest.audio?.voice && twin.audio?.voice && manifest.audio.voice.output !== twin.audio.voice.output) problems.push(`it doesn't play its twin ${twin.id}'s narration track`);
   return problems;
 };

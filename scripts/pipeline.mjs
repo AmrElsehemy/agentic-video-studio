@@ -11,7 +11,7 @@ import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {findManifest, resolveEpisodeId} from './catalog.mjs';
 import {appendProduction} from './lib/production.mjs';
-import {approvalHash, episodeStages, PIPELINE_VOICES, readLock, runPipeline, STAGES, writeLock} from './lib/pipeline.mjs';
+import {approvalHash, episodeStages, PAID_VOICES, PIPELINE_VOICES, readLock, runPipeline, STAGES, writeLock} from './lib/pipeline.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const args = process.argv.slice(2);
@@ -37,7 +37,7 @@ console.log(`${episodeId}: ${STAGES.slice(0, STAGES.indexOf(until) + 1).join(' �
 
 let result;
 if (args.includes('--approve')) {
-  if (voice !== 'openai') { console.error('✗ --approve is for paid narration; add --voice=openai.'); process.exit(1); }
+  if (!PAID_VOICES.includes(voice)) { console.error(`✗ --approve is for paid narration; add --voice=${PAID_VOICES.join(' or --voice=')}.`); process.exit(1); }
   // The approval covers the version the preview showed, so bring everything up to the preview first.
   result = await runPipeline({...common, until: 'preview'});
   if (!result.stoppedAt) {

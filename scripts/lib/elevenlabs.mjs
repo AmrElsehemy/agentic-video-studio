@@ -16,9 +16,9 @@ const request = async (fetchImpl, apiKey, url, init = {}) => {
  * Speech for `text`, with when each character is spoken when the model gives
  * timings. Returns {audio: Buffer, alignment?: {characters, character_start_times_seconds, character_end_times_seconds}}.
  */
-export const synthesize = async ({apiKey, voiceId, text, model = DEFAULT_MODEL, outputFormat = 'mp3_44100_128', voiceSettings, fetchImpl = fetch}) => {
+export const synthesize = async ({apiKey, voiceId, text, model = DEFAULT_MODEL, outputFormat = 'mp3_44100_128', voiceSettings, previousText, nextText, fetchImpl = fetch}) => {
   const url = `${API}/text-to-speech/${encodeURIComponent(voiceId)}/with-timestamps?output_format=${outputFormat}`;
-  const body = await request(fetchImpl, apiKey, url, {method: 'POST', body: JSON.stringify({text, model_id: model, ...(voiceSettings ? {voice_settings: voiceSettings} : {})})});
+  const body = await request(fetchImpl, apiKey, url, {method: 'POST', body: JSON.stringify({text, model_id: model, ...(voiceSettings ? {voice_settings: voiceSettings} : {}), ...(previousText ? {previous_text: previousText} : {}), ...(nextText ? {next_text: nextText} : {})})});
   if (!body.audio_base64) throw new Error('ElevenLabs returned no audio.');
   return {audio: Buffer.from(body.audio_base64, 'base64'), ...(body.alignment?.characters?.length ? {alignment: body.alignment} : {})};
 };

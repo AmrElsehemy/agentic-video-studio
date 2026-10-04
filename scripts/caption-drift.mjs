@@ -11,16 +11,17 @@ import {alignNarration} from './lib/align.mjs';
 import {captionDrift, MAX_DRIFT, timelineWords} from './lib/caption-drift.mjs';
 import {withWordCaptions} from './lib/captions.mjs';
 import {prepareRenderProps} from './lib/render-props.mjs';
+import {narrationProvider} from './lib/voice-lock.mjs';
 
 const args = process.argv.slice(2);
 const episodeId = resolveEpisodeId(args.find((arg) => !arg.startsWith('--')));
 if (!episodeId) throw new Error('Usage: npm run captions:drift -- <episode-id> [--estimated] [--words=<reference.json>]');
 const {root} = findManifest(episodeId);
 
-let {manifest} = prepareRenderProps(episodeId, {voice: 'openai', log: () => {}});
+let {manifest} = prepareRenderProps(episodeId, {voice: 'paid', log: () => {}});
 if (!manifest.scenes.some((scene) => scene.words)) throw new Error(`${episodeId}'s show doesn't caption word by word.`);
 const owner = manifest.twinOf ?? episodeId;
-const speech = JSON.parse(fs.readFileSync(path.join(root, 'public', 'generated', `${owner}-openai-timing.json`), 'utf8')).speech ?? {};
+const speech = JSON.parse(fs.readFileSync(path.join(root, 'public', 'generated', `${owner}-${narrationProvider(manifest)}-timing.json`), 'utf8')).speech ?? {};
 const aligned = Object.values(speech).some((span) => span.words);
 if (args.includes('--estimated')) {
   manifest = withWordCaptions(manifest, Object.fromEntries(Object.entries(speech).map(([id, {words, ...span}]) => [id, span])));

@@ -39,9 +39,12 @@ export const modelCost = ({model, inputTokens, outputTokens}, prices = PRICES) =
 };
 
 /** Estimated cost in dollars of paid narration, or null when its model has no listed price. */
-export const speechCost = ({model, seconds}, prices = PRICES) => {
+export const speechCost = ({model, seconds, characters}, prices = PRICES) => {
   const price = prices.speech[model];
-  return price ? (seconds / 60) * price.perMinute : null;
+  if (price?.perMinute != null) return (seconds / 60) * price.perMinute;
+  // ElevenLabs bills by characters (#102).
+  if (price?.perThousandCharacters != null && characters != null) return (characters / 1000) * price.perThousandCharacters;
+  return null;
 };
 
 const round = (value) => (value == null ? null : Math.round(value * 10000) / 10000);

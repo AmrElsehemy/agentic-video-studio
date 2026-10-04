@@ -6,6 +6,10 @@ export declare const paletteSchema: z.ZodObject<{background: z.ZodString; surfac
 export declare const TARGET_EMOTIONS: readonly ['curiosity', 'surprise', 'debate', 'awe'];
 export declare const pitchLine: z.ZodString;
 export declare const VOICE_NAMES: readonly ['alloy', 'ash', 'ballad', 'coral', 'echo', 'fable', 'onyx', 'nova', 'sage', 'shimmer', 'verse', 'marin', 'cedar'];
+export declare const VOICE_PROVIDERS: readonly ['openai', 'elevenlabs'];
+export declare const VOICE_MODELS: {openai: string; elevenlabs: string};
+export declare const ELEVENLABS_SPEED: [number, number];
+export declare const voiceProblems: (voice: {provider?: string; voice: string; speed?: number; model?: string}) => string[];
 export declare const voiceSettings: {
   model: z.ZodString;
   voice: z.ZodEnum<{[K in (typeof VOICE_NAMES)[number]]: K}>;
