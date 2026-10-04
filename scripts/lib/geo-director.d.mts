@@ -12,9 +12,9 @@ export declare const textNumbers: (text: string) => number[];
 export declare const geoResearchNumbers: (research: GeoResearch) => Set<number>;
 export type ResolvedDataset = {label: string; unit?: string; values: {entity: string; value: number}[]};
 export declare const resolveResearchPlaces: (research: GeoResearch, geo: Geo) => {subjectId: string; places: Map<string, Place>; review: BordersReview[]; datasets: Map<string, ResolvedDataset>};
-export declare const shotToPrimitive: (shot: unknown, context: {places: Map<string, Place>; research: GeoResearch; datasets?: Map<string, ResolvedDataset>}) => GeoMapPrimitive;
+export declare const shotToPrimitive: (shot: unknown, context: {places: Map<string, Place>; research: GeoResearch; datasets?: Map<string, ResolvedDataset>; showId?: string}) => GeoMapPrimitive;
 export declare const defaultShot: (subject: {id: string; name: string}) => GeoMapPrimitive;
-export declare const buildGeoDirectorPrompt: (input: {draft: any; research: GeoResearch; places: Map<string, Place>; datasets?: Map<string, ResolvedDataset>}) => {system: string; messages: {role: 'user'; content: string}[]};
+export declare const buildGeoDirectorPrompt: (input: {draft: any; research: GeoResearch; places: Map<string, Place>; datasets?: Map<string, ResolvedDataset>; showId?: string}) => {system: string; messages: {role: 'user'; content: string}[]};
 export declare const directGeoVisuals: (input: {draft: any; research: unknown; complete?: Complete; showId?: string; geo?: Geo}) => Promise<{
   draft: any;
   manifest: any;

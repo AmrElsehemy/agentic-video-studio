@@ -11,6 +11,7 @@ import {compileEpisode} from './compiler.mjs';
 import {parseJsonReply} from './fact-verifier.mjs';
 import {geoProblems, loadGeoData} from './geo-primitives.mjs';
 import {resolvePlaces} from './geo-resolver.mjs';
+import {styleGuideSection} from './shows.mjs';
 
 /** Degrees framed around a named point when the camera targets it. */
 export const POINT_SPAN = [2, 1.5];
@@ -143,7 +144,7 @@ export const defaultShot = (subject) => primitiveSchema.parse({
   annotations: [{type: 'label', anchor: subject.id, text: subject.name.toUpperCase().slice(0, 28), at: .4}],
 });
 
-export const buildGeoDirectorPrompt = ({draft, research, places, datasets}) => ({
+export const buildGeoDirectorPrompt = ({draft, research, places, datasets, showId = draft.show?.id ?? 'geographica'}) => ({
   system: `You are the map director of ${draft.show?.name ?? 'a geography series'}, vertical short videos told with animated maps. Give EVERY scene one map shot that shows what its narration says.
 
 A shot is JSON:
@@ -172,7 +173,7 @@ Rules:
 - Labels stay inside the frame, and where two overlap the older one fades. Give a label or marker an "until" when the camera will pull out and crowd it.
 - Consecutive scenes are one continuous flight: each scene's camera starts where the previous one ended and flies to its first target. Plan the episode as one journey. Add "cut": true only when the story jumps somewhere unrelated.
 
-Reply with a JSON object only: {"scenes": [<shot>, ...]}`,
+Reply with a JSON object only: {"scenes": [<shot>, ...]}${styleGuideSection(showId)}`,
   messages: [{role: 'user', content: `${datasets?.size ? `Datasets (key: label, places):\n${[...datasets.entries()].map(([key, dataset]) => `- ${key}: ${dataset.label}${dataset.unit ? ` (${dataset.unit})` : ''}, ${dataset.values.map(({entity}) => entity).join(', ')}`).join('\n')}\n\n` : ''}Places (id: name, kind):\n${[...places.values()].map((place) => `- ${place.id}: ${place.name}, ${place.kind}`).join('\n')}\n\nNamed points:\n${Object.entries(research.places).map(([key, place]) => `- ${key}${place.approximate ? ' (APPROXIMATE)' : ''}${place.note ? `: ${place.note}` : ''}`).join('\n') || '- none'}\n\nResearch claims:\n${research.claims.map((claim) => `- ${claim.text}`).join('\n')}\n\nScenes:\n${JSON.stringify(draft.scenes.map((scene) => ({id: scene.id, headline: scene.headline, narration: scene.narration, caption: scene.caption})), null, 2)}`}],
 });
 
@@ -193,7 +194,7 @@ export const directGeoVisuals = async ({draft, research: rawResearch, complete, 
   let modelError;
   if (complete) {
     try {
-      const reply = parseJsonReply(await complete(buildGeoDirectorPrompt({draft, research, places, datasets})));
+      const reply = parseJsonReply(await complete(buildGeoDirectorPrompt({draft, research, places, datasets, showId})));
       const items = Array.isArray(reply) ? reply : Array.isArray(reply?.scenes) ? reply.scenes : [];
       for (const item of items) {
         const id = typeof item?.id === 'string' ? item.id : '?';

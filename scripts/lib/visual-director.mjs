@@ -3,6 +3,7 @@
 // visual primitive with its data. Scenes it leaves alone keep the archetype's
 // shot. Every number and type a primitive states must be in the research.
 import {POKEMON_TYPE_NAMES, primitiveNumbers, primitiveSchema} from '../primitive-schema.mjs';
+import {styleGuideSection} from './shows.mjs';
 import {compileEpisode} from './compiler.mjs';
 import {parseJsonReply} from './fact-verifier.mjs';
 import {researchNumbers} from './writer.mjs';
@@ -44,7 +45,7 @@ export const checkPrimitive = (primitive, research) => {
   return problems;
 };
 
-export const buildDirectorPrompt = ({draft, manifest, research, angle}) => ({
+export const buildDirectorPrompt = ({draft, manifest, research, angle, showId = 'pokepulses'}) => ({
   system: `You are the visual director of PokePulses, a vertical short-form video series about Pokémon. Each scene already has a default shot (artwork, headline and fact cards). Your job: find the scenes whose idea can be SHOWN, not just said, and give each one a visual primitive with its data.
 
 Primitives:
@@ -56,7 +57,7 @@ Rules:
 - Every number and type in a primitive must come from the research. Types are one of: ${POKEMON_TYPE_NAMES.join(', ')}.
 - Labels are short and uppercase-friendly (max 28 characters; timeline labels 20, bar labels 16, checklist items 22).
 
-Reply with a JSON object only: {"scenes": [{"id": "<scene id>", "primitive": {...}, "why": "one sentence"}]}`,
+Reply with a JSON object only: {"scenes": [{"id": "<scene id>", "primitive": {...}, "why": "one sentence"}]}${styleGuideSection(showId)}`,
   messages: [{role: 'user', content: `${angle ? `The episode's angle: ${angle.premise}\n\n` : ''}Research:\n${JSON.stringify(research, (key, value) => (key === 'artworkUrl' || key === 'sources' ? undefined : value), 2)}\n\nScenes:\n${JSON.stringify(manifest.scenes.map((scene) => ({id: scene.id, role: scene.role, defaultShot: scene.shot, headline: scene.headline, narration: scene.narration, facts: scene.facts ?? []})), null, 2)}\n\nSubjects in this episode (for timeline labels): ${[draft.subject.name, ...(draft.related ?? []).map((item) => `${item.name} (${item.relation})`)].join(', ')}`}],
 });
 
@@ -71,7 +72,7 @@ export const directVisuals = async ({draft, research, angle, complete, showId = 
   if (!complete) return {draft, manifest, assigned: [], rejected: []};
   let reply;
   try {
-    reply = parseJsonReply(await complete(buildDirectorPrompt({draft, manifest, research, angle})));
+    reply = parseJsonReply(await complete(buildDirectorPrompt({draft, manifest, research, angle, showId})));
   } catch (error) {
     return {draft, manifest, assigned: [], rejected: [], modelError: error instanceof Error ? error.message : String(error)};
   }

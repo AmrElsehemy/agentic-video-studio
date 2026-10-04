@@ -10,7 +10,7 @@ import {scoreEpisode} from './engagement.mjs';
 import {describeAngle} from './angles.mjs';
 import {creativeProblems, critiqueDraft} from './creative-critic.mjs';
 import {verificationProblems, verifyDraft} from './fact-verifier.mjs';
-import {loadShow} from './shows.mjs';
+import {loadShow, styleGuideSection} from './shows.mjs';
 import {TIER_GUIDANCE, TIERS, tierRules} from './source-tiers.mjs';
 
 const color = z.string().regex(/^#[0-9a-f]{6}$/i);
@@ -177,7 +177,7 @@ const describeArchetypes = () => Object.entries(archetypes).map(([name, archetyp
 }).join('\n');
 
 /** The writer's instructions: the directing contract, the format and hard limits. */
-export const buildWriterPrompt = ({research, directing, references = [], storyPattern, angle}) => {
+export const buildWriterPrompt = ({research, directing, references = [], storyPattern, angle, showId = 'pokepulses'}) => {
   const shape = storyPattern || angle?.archetype;
   const artworkNames = [...artworkChoices(research).values()].map((item) => item.name).join(', ');
   const system = `You are the head writer of PokePulses, a vertical short-form video series about Pokémon. You turn researched facts into one tight, surprising story.
@@ -209,7 +209,7 @@ ${TIERS.map((tier) => `- ${tier} (${tierRules(research)[tier].join(', ')}): ${TI
 - Last scene: a genuine either/or question to the viewer (use "?" and "or"/"which").
 - Pokédex numbers only appear if numberRelevant is true, and only when the number is part of the story.
 - Palette: dark background and surface, high-contrast ink, accents that fit the Pokémon's colors.
-- voiceInstructions: tone and pacing for the narrator. Never ask it to imitate a known person or character.`;
+- voiceInstructions: tone and pacing for the narrator. Never ask it to imitate a known person or character.${styleGuideSection(showId)}`;
 
   const referenceText = references.map((reference) => `## ${reference.subject} (${reference.archetypes.join(', ')})
 Why it works:
@@ -300,7 +300,7 @@ const better = (a, b) => {
  * the error carries the best attempt (`error.best`).
  */
 export const writeEpisode = async ({research, complete, verify, critique, directing, references = [], storyPattern, angle, showId = 'pokepulses', maxAttempts = 3, storyRevisions = 1, strictStory = false, onAttempt = () => {}}) => {
-  const {system, user} = buildWriterPrompt({research, directing, references, storyPattern, angle});
+  const {system, user} = buildWriterPrompt({research, directing, references, storyPattern, angle, showId});
   const shape = storyPattern || angle?.archetype;
   const brief = {role: 'user', content: user};
   // Each revision sends only the brief, the latest draft and its problems, not

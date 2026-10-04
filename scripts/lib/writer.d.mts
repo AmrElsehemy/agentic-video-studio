@@ -36,7 +36,7 @@ export declare const researchNumbers: (research: Research) => Set<number>;
 export declare const factCheck: (draft: Draft, research: Research) => string[];
 export declare const assembleDraft: (creative: unknown, research: Research, options?: {showId?: string}) => {draft: Draft; problems: string[]; showId: string};
 export declare const evaluateDraft: (draft: Draft, research: Research, options?: {showId?: string}) => {problems: string[]; manifest?: VideoManifest; audit?: EngagementAudit};
-export declare const buildWriterPrompt: (options: {research: Research; directing: string; references?: CreativeReference[]; storyPattern?: string; angle?: Angle}) => {system: string; user: string};
+export declare const buildWriterPrompt: (options: {research: Research; directing: string; references?: CreativeReference[]; storyPattern?: string; angle?: Angle; showId?: string}) => {system: string; user: string};
 export declare const REPAIRABLE_LINES: number;
 export declare const patchLines: <T extends {scenes: {id: string; facts?: string[]}[]}>(creative: T, patches: Record<string, string>) => {creative: T; unknown: string[]};
 export declare const parseReply: (text: string) => unknown;
