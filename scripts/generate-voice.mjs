@@ -4,7 +4,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import {findManifest, resolveEpisodeId} from './catalog.mjs';
-import {speechBounds} from './lib/captions.mjs';
+import {speechBounds, speechPauses} from './lib/captions.mjs';
 import {buildVoiceInstructions} from './lib/voice-direction.mjs';
 import {appendProduction} from './lib/production.mjs';
 import {voiceInputHash} from './lib/voice-lock.mjs';
@@ -55,7 +55,10 @@ const probePeakVolume = (file) => {
 
 const measureSpeech = (file, duration) => {
   const probe = spawnSync('ffmpeg', ['-hide_banner', '-i', file, '-af', 'silencedetect=noise=-35dB:d=0.08', '-f', 'null', '-'], {encoding: 'utf8'});
-  return probe.status === 0 ? speechBounds(probe.stderr, duration) : undefined;
+  if (probe.status !== 0) return undefined;
+  const span = speechBounds(probe.stderr, duration);
+  // The pauses inside it pin caption words to where sentences and clauses really break (#86).
+  return span && {...span, pauses: speechPauses(probe.stderr, span)};
 };
 
 const instructionsFor = (scene) => buildVoiceInstructions({baseInstructions: config.instructions, scene});
