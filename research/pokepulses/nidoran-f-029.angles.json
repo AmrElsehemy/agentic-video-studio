@@ -1,0 +1,165 @@
+{
+  "episodeId": "nidoran-f-029",
+  "createdAt": "2026-10-03T19:10:56.037Z",
+  "chosen": {
+    "id": "downwind-forager",
+    "premise": "While foraging, female Nidoran use whiskers to read the wind and stay downwind of predators.",
+    "hook": "Nidoran♀ can use its whiskers to hide from predators.",
+    "archetype": "mechanic",
+    "evidence": [
+      "pokedexEntries[14].text"
+    ],
+    "visualIdea": "Animate whiskers sampling wind arrows as Nidoran♀ moves to the downwind side.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 5,
+      "specificity": 5,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 25,
+    "note": "A highly specific, unusual survival mechanic exclusive to the female entry, with a clear wind-direction animation. The hook should say it detects wind and stays downwind, not simply that it hides."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "downwind-forager",
+          "premise": "While foraging, female Nidoran use whiskers to read the wind and stay downwind of predators.",
+          "hook": "Nidoran♀ can use its whiskers to hide from predators.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[14].text"
+          ],
+          "visualIdea": "Animate whiskers sampling wind arrows as Nidoran♀ moves to the downwind side.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 25,
+          "note": "A highly specific, unusual survival mechanic exclusive to the female entry, with a clear wind-direction animation. The hook should say it detects wind and stays downwind, not simply that it hides."
+        },
+        {
+          "id": "small-horn-specifics",
+          "premise": "Female Nidoran has a smaller, more rounded horn tip than the male, but it still secretes venom.",
+          "hook": "Her horn is smaller and rounder—but still poisonous.",
+          "archetype": "comparison",
+          "evidence": [
+            "pokedexEntries[0].text",
+            "pokedexEntries[13].text",
+            "pokedexEntries[15].text"
+          ],
+          "visualIdea": "Split-screen the female and male horn descriptions, then overlay a venom warning.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 4,
+            "support": 5
+          },
+          "total": 22,
+          "note": "A precise female-versus-male distinction with a useful contradiction, though the comparison requires showing another Pokémon and is less behaviorally distinctive."
+        },
+        {
+          "id": "docile-but-deadly",
+          "premise": "Nidoran♀ avoids fighting, yet its venom can kill from a single drop or tiny scratch.",
+          "hook": "This Pokémon hates fighting—but its poison can still kill you.",
+          "archetype": "comparison",
+          "evidence": [
+            "pokedexEntries[1].text",
+            "pokedexEntries[2].text",
+            "pokedexEntries[8].text"
+          ],
+          "visualIdea": "Show a calm Nidoran♀ beside escalating text: tiny scratch, one drop, fatal.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 4,
+            "support": 5
+          },
+          "total": 21,
+          "note": "Strong contradiction backed by multiple Pokédex entries, though the general docile-versus-dangerous setup could fit several Poison Pokémon."
+        },
+        {
+          "id": "two-step-evolution",
+          "premise": "Nidoran♀ reaches Nidorina at level 16, then needs a Moon Stone to become Nidoqueen.",
+          "hook": "Nidoran♀ evolves twice—but the second evolution needs a Moon Stone.",
+          "archetype": "mechanic",
+          "evidence": [
+            "evolutionChain[1].method",
+            "evolutionChain[2].method",
+            "evolutionChain[1].name",
+            "evolutionChain[2].name"
+          ],
+          "visualIdea": "Show a level-16 progress bar becoming Nidorina, then a Moon Stone unlocking Nidoqueen.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 3,
+            "surprise": 3,
+            "specificity": 5,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 20,
+          "note": "Concrete and highly visual, but evolution requirements are familiar Pokémon information and the cited methods rely on trusted secondary data."
+        },
+        {
+          "id": "horn-defense-system",
+          "premise": "Nidoran♀'s small body is protected by venomous barbs and a poison-secreting horn.",
+          "hook": "Its entire defense system is built into tiny spikes.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[0].text",
+            "pokedexEntries[5].text",
+            "pokedexEntries[6].text",
+            "pokedexEntries[7].text"
+          ],
+          "visualIdea": "Highlight the horn and barbs on Nidoran♀, then label them as its protection.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 3,
+            "specificity": 3,
+            "visual": 4,
+            "support": 5
+          },
+          "total": 19,
+          "note": "Well supported and easy to illustrate, but it is a broad anatomy profile rather than one sharply surprising claim."
+        },
+        {
+          "id": "threat-response",
+          "premise": "Nidoran♀ is docile until threatened, when it answers with poison spikes and a horrible toxin.",
+          "hook": "Threaten this gentle Pokémon, and its defense gets terrifying.",
+          "archetype": "transformation",
+          "evidence": [
+            "pokedexEntries[3].text",
+            "pokedexEntries[4].text",
+            "pokedexEntries[5].text"
+          ],
+          "visualIdea": "Switch from a peaceful Nidoran♀ to animated spikes and toxin warning graphics.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 3,
+            "surprise": 4,
+            "specificity": 3,
+            "visual": 4,
+            "support": 4
+          },
+          "total": 18,
+          "note": "The behavioral switch is compelling, but it overlaps heavily with the docile-but-deadly angle and uses dramatic wording not fully established by the evidence."
+        }
+      ],
+      "rejected": [],
+      "request": "No stronger angle is required. Keep the episode focused on the unusual mechanic that female Nidoran reads wind direction with its whiskers and stays downwind of predators; avoid expanding it into a generic poison or evolution profile."
+    }
+  ]
+}

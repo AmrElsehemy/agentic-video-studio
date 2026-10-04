@@ -1,0 +1,207 @@
+{
+  "id": "clefable-036",
+  "title": "Clefable Can Cross a Lake Without Flying",
+  "storyPattern": "mechanic",
+  "numberRelevant": false,
+  "premise": "Clefable uses a bouncy skipping step to walk across water on quiet, moonlit nights.",
+  "audiencePromise": "Reveal the strange condition that lets Clefable stroll across lakes without truly flying.",
+  "openLoop": "What actually carries Clefable across the water?",
+  "payoff": "Its wings only mimic flight. The real trick is Clefable's bouncy step on quiet, moonlit nights.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "Magic trick or the strangest way to cross water?",
+  "subject": {
+    "name": "Clefable",
+    "category": "Fairy Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/36.png",
+    "identifier": "#036"
+  },
+  "related": [
+    {
+      "name": "Clefairy",
+      "relation": "evolves-from",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/35.png",
+      "identifier": "#035"
+    },
+    {
+      "name": "Cleffa",
+      "relation": "evolves-from",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/173.png",
+      "identifier": "#173"
+    },
+    {
+      "name": "Clefable Mega",
+      "relation": "form",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10278.png",
+      "identifier": "#036"
+    }
+  ],
+  "palette": {
+    "background": "#101426",
+    "surface": "#202744",
+    "primary": "#F3C6FF",
+    "secondary": "#8BE9FD",
+    "ink": "#FFFFFF"
+  },
+  "voice": {
+    "instructions": "Use a hushed, curious tone with quick pacing. Emphasize water, bounce, and moonlit nights. Pause briefly before the final question."
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    },
+    "assets": [
+      {
+        "kind": "Clefable official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/36.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "crosses-without-flying",
+      "beat": "hook",
+      "eyebrow": "IMPOSSIBLE CROSSING",
+      "headline": "IT CROSSES WITHOUT FLYING",
+      "narration": "Clefable can cross a lake without flying.",
+      "caption": "WITHOUT FLYING",
+      "facts": [
+        "LAKE CROSSING",
+        "NO FLIGHT"
+      ],
+      "accent": "#8BE9FD",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/36.png"
+    },
+    {
+      "id": "wings-mimic-flight",
+      "beat": "evidence",
+      "eyebrow": "THE WINGS HELP IT SKIP",
+      "headline": "IT ONLY LOOKS LIKE FLIGHT",
+      "narration": "Its wings help it skip lightly, as if it were flying.",
+      "caption": "SKIPPING LIKE FLIGHT",
+      "facts": [
+        "WINGS",
+        "LIGHT SKIPS"
+      ],
+      "accent": "#F3C6FF",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/36.png"
+    },
+    {
+      "id": "the-bouncy-step",
+      "beat": "escalation",
+      "eyebrow": "THE REAL MECHANIC",
+      "headline": "THE BOUNCE DOES THE WORK",
+      "narration": "That bouncy step lets Clefable walk right across the water.",
+      "caption": "BOUNCE → WATER WALK",
+      "facts": [
+        "BOUNCY STEP",
+        "WALK ON WATER"
+      ],
+      "accent": "#72E6C1",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/36.png",
+      "primitive": {
+        "kind": "checklist",
+        "items": [
+          {
+            "label": "BOUNCY STEP",
+            "met": true
+          },
+          {
+            "label": "WALK ON WATER",
+            "met": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "moonlit-condition",
+      "beat": "payoff",
+      "eyebrow": "THE CONDITION",
+      "headline": "MOONLIGHT SETS THE SCENE",
+      "narration": "On quiet, moonlit nights, it takes strolls across lakes.",
+      "caption": "QUIET. MOONLIT. LAKES.",
+      "facts": [
+        "QUIET NIGHTS",
+        "MOONLIT LAKES"
+      ],
+      "accent": "#C9B6FF",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/36.png",
+      "primitive": {
+        "kind": "checklist",
+        "items": [
+          {
+            "label": "QUIET NIGHT",
+            "met": true
+          },
+          {
+            "label": "MOONLIT LAKE",
+            "met": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "not-actual-flight",
+      "beat": "payoff",
+      "eyebrow": "THE PAYOFF",
+      "headline": "FLIGHT ISN'T THE TRICK",
+      "narration": "The lake crossing comes from bounce, not flight.",
+      "caption": "BOUNCE, NOT FLIGHT",
+      "facts": [
+        "BOUNCE",
+        "NOT FLIGHT"
+      ],
+      "accent": "#FFD166",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/36.png",
+      "primitive": {
+        "kind": "checklist",
+        "items": [
+          {
+            "label": "BOUNCE",
+            "met": true
+          },
+          {
+            "label": "ACTUAL FLIGHT",
+            "met": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "magic-or-strange",
+      "beat": "verdict",
+      "eyebrow": "YOUR VERDICT",
+      "headline": "MAGIC OR STRANGE?",
+      "narration": "Magic trick or the strangest way to cross water?",
+      "caption": "MAGIC OR STRANGE?",
+      "accent": "#FF8CC6",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/36.png"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Clefable",
+      "url": "https://www.pokemon.com/us/pokedex/clefable",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Clefable",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Clefable_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Clefable",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/36",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

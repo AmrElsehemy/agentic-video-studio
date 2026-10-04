@@ -1,0 +1,260 @@
+{
+  "schemaVersion": 2,
+  "id": "nidorina-030",
+  "show": {
+    "id": "pokepulses",
+    "name": "PokePulses",
+    "handle": "@PokePulses",
+    "wordmark": {
+      "lead": "POKE",
+      "accent": "PULSES"
+    },
+    "fonts": {
+      "display": "Bebas Neue",
+      "body": "system"
+    }
+  },
+  "title": "Nidorina’s Horn May Have Atrophied for Her Babies",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "transformation",
+    "numberRelevant": false,
+    "premise": "Nidorina’s head horn has atrophied, and the Pokédex thinks this may protect her babies while feeding.",
+    "audiencePromise": "Watch Nidorina’s horn change, then see how feeding reveals its possible purpose.",
+    "openLoop": "Why would a mother Pokémon need her horn to atrophy?",
+    "payoff": "Her horn’s atrophy may turn feeding into a safer mouth-first meal for her offspring.",
+    "targetEmotion": "surprise",
+    "engagementQuestion": "Would you protect babies while feeding, or keep the horn?",
+    "targetSecondsBetweenVisualChanges": 0.62
+  },
+  "subject": {
+    "name": "Nidorina",
+    "category": "Poison Pin Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/30.png",
+    "identifier": "#030"
+  },
+  "related": [
+    {
+      "name": "Nidoqueen",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/31.png",
+      "identifier": "#031"
+    },
+    {
+      "name": "Nidoran♀",
+      "relation": "evolves-from",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/29.png",
+      "identifier": "#029"
+    }
+  ],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#14151c",
+    "surface": "#292632",
+    "primary": "#8f82b8",
+    "secondary": "#d8a6c8",
+    "ink": "#f7f1f5"
+  },
+  "audio": {
+    "music": "generated/nidorina-030-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 126,
+      "notes": [
+        110,
+        130.81,
+        146.83,
+        164.81,
+        146.83,
+        130.81,
+        98,
+        130.81
+      ]
+    },
+    "voice": {
+      "provider": "openai",
+      "model": "gpt-4o-mini-tts",
+      "voice": "marin",
+      "instructions": "Use a warm, curious tone with quick pacing. Stress atrophied, babies, feeding, and horn. Pause before the reveal, then make the final question sound genuinely undecided.",
+      "speed": 1.12,
+      "output": "generated/nidorina-030-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "assets": [
+      {
+        "kind": "Nidorina official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/30.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      },
+      {
+        "kind": "Nidoran♀ official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/29.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ],
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    }
+  },
+  "scenes": [
+    {
+      "id": "her-horn-may-be-the-clue",
+      "durationSeconds": 4,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "A STRANGE CHANGE",
+      "headline": "HER HORN MAY PROTECT BABIES",
+      "narration": "Her horn atrophied. Her babies may be why.",
+      "caption": "HER HORN MAY BE THE CLUE",
+      "visual": "hook",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/30.png",
+      "accent": "#d8a6c8"
+    },
+    {
+      "id": "the-slow-horn",
+      "durationSeconds": 4.8,
+      "beat": "before",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "BEFORE NIDORINA",
+      "headline": "THE HORN STARTS SLOWLY",
+      "narration": "Her horn develops slowly, and she favors claws and biting.",
+      "caption": "THE HORN ISN’T HER MAIN ATTACK",
+      "visual": "gauntlet",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/29.png",
+      "accent": "#8f82b8",
+      "facts": [
+        "Horn develops slowly",
+        "Claws and biting"
+      ]
+    },
+    {
+      "id": "the-horn-atrophies",
+      "durationSeconds": 4.7,
+      "beat": "change",
+      "role": "escalation",
+      "shot": "tracking",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "THEN SHE CHANGES",
+      "headline": "THE HORN ATROPHIES",
+      "narration": "Then the horn on Nidorina's head is described as atrophied.",
+      "caption": "NIDORINA’S HEAD HORN ATROPHIES",
+      "visual": "race",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/30.png",
+      "accent": "#b59cc9",
+      "facts": [
+        "Nidorina",
+        "Head horn atrophied"
+      ]
+    },
+    {
+      "id": "the-baby-protection-clue",
+      "durationSeconds": 4.2,
+      "beat": "reveal",
+      "role": "payoff",
+      "shot": "comparison",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "THE POKÉDEX CLUE",
+      "headline": "SO BABIES WON’T GET POKED",
+      "narration": "The Pokédex says this may stop babies getting poked.",
+      "caption": "THE HORN MAY PROTECT HER YOUNG",
+      "visual": "advantage",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/30.png",
+      "accent": "#e3b3c9",
+      "facts": [
+        "May prevent poking",
+        "Protects offspring"
+      ]
+    },
+    {
+      "id": "the-mouth-first-meal",
+      "durationSeconds": 5.6,
+      "beat": "aftermath",
+      "role": "payoff",
+      "shot": "wide",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "THE FEEDING ROUTINE",
+      "headline": "SHE FEEDS MOUTH-FIRST",
+      "narration": "She chews food into paste, then spits it out for her offspring.",
+      "caption": "CHEWED FOOD → OFFSPRING",
+      "visual": "tradeoff",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/30.png",
+      "accent": "#c796b8",
+      "facts": [
+        "Chews food",
+        "Makes paste",
+        "Feeds offspring"
+      ],
+      "primitive": {
+        "kind": "timeline",
+        "steps": [
+          {
+            "label": "CHEWS FOOD"
+          },
+          {
+            "label": "MAKES PASTE"
+          },
+          {
+            "label": "SPITS TO YOUNG"
+          }
+        ],
+        "active": 2
+      }
+    },
+    {
+      "id": "the-choice",
+      "durationSeconds": 4.8,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "YOUR VERDICT",
+      "headline": "PROTECTION OR A TRADEOFF?",
+      "narration": "Would you protect babies while feeding, or keep the horn?",
+      "caption": "WHICH WOULD YOU CHOOSE?",
+      "visual": "cta",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/30.png",
+      "accent": "#f0c3d7"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Nidorina",
+      "url": "https://www.pokemon.com/us/pokedex/nidorina"
+    },
+    {
+      "label": "Bulbapedia — Nidorina",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Nidorina_(Pok%C3%A9mon)"
+    },
+    {
+      "label": "PokéAPI — Nidorina",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/30"
+    }
+  ]
+}

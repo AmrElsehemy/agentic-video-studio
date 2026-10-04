@@ -1,0 +1,169 @@
+{
+  "episodeId": "diglett-050",
+  "createdAt": "2026-10-03T20:25:08.107Z",
+  "chosen": {
+    "id": "trees-as-bait",
+    "premise": "Farmers plant trees Diglett likes to eat, luring it into plowing the fields around their crops.",
+    "hook": "Farmers bait Diglett with the trees it likes to eat.",
+    "archetype": "mechanic",
+    "evidence": [
+      "pokedexEntries[14].text",
+      "pokedexEntries[4].text"
+    ],
+    "visualIdea": "Show farmers planting a preferred tree, then Diglett following its roots and leaving a freshly plowed field.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 5,
+      "specificity": 5,
+      "visual": 5,
+      "support": 4
+    },
+    "total": 24,
+    "note": "The strangest and most Diglett-specific premise: farmers deliberately plant trees it eats to make it plow fields. It is directly supported by one entry, with related root-eating evidence elsewhere."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "trees-as-bait",
+          "premise": "Farmers plant trees Diglett likes to eat, luring it into plowing the fields around their crops.",
+          "hook": "Farmers bait Diglett with the trees it likes to eat.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[14].text",
+            "pokedexEntries[4].text"
+          ],
+          "visualIdea": "Show farmers planting a preferred tree, then Diglett following its roots and leaving a freshly plowed field.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 24,
+          "note": "The strangest and most Diglett-specific premise: farmers deliberately plant trees it eats to make it plow fields. It is directly supported by one entry, with related root-eating evidence elsewhere."
+        },
+        {
+          "id": "helpful-but-harmful",
+          "premise": "Diglett can prepare perfect farmland, yet its root-chewing makes it a pest around vulnerable crops.",
+          "hook": "Diglett is both a farmer’s helper and their crop problem.",
+          "archetype": "comparison",
+          "evidence": [
+            "pokedexEntries[5].text",
+            "pokedexEntries[11].text",
+            "pokedexEntries[3].text"
+          ],
+          "visualIdea": "Split the screen: one Diglett tills tidy soil while another chews roots and damages a crop.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 23,
+          "note": "A clear contradiction with excellent split-screen potential; the two-sided farming relationship is well supported."
+        },
+        {
+          "id": "alolan-steel-upgrade",
+          "premise": "Alolan Diglett keeps the same height but gains Steel typing and weighs 0.2 kilograms more.",
+          "hook": "Alolan Diglett changes type and weight without changing height.",
+          "archetype": "transformation",
+          "evidence": [
+            "heightMeters",
+            "weightKg",
+            "types",
+            "varieties[0].types",
+            "varieties[0].heightMeters",
+            "varieties[0].weightKg",
+            "varieties[0].name"
+          ],
+          "visualIdea": "Morph standard Diglett into Alolan Diglett, keeping a 0.2-meter height bar while adding Steel and shifting weight from 0.8 to 1 kilogram.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 23,
+          "note": "A precise, fully supported comparison with strong graphics, but it is more of a stats transformation than a compelling behavioral story."
+        },
+        {
+          "id": "the-farmers-plow",
+          "premise": "Farmers raise Diglett because every tunnel leaves soil perfectly tilled for growing crops.",
+          "hook": "Some farmers don’t buy a plow—they raise Diglett.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[3].text",
+            "pokedexEntries[5].text",
+            "pokedexEntries[6].text"
+          ],
+          "visualIdea": "Show Diglett burrowing beneath a field, with neat tilled rows appearing behind it and vegetables growing.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 22,
+          "note": "Strongly documented and easy to visualize, but the basic farming-helper premise is less unusual than the baiting detail."
+        },
+        {
+          "id": "sunlight-is-weakness",
+          "premise": "Diglett’s thin skin makes bright light dangerous: its blood heats up and it grows weak.",
+          "hook": "Diglett doesn’t just hate sunlight—it physically weakens it.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[2].text",
+            "pokedexEntries[9].text",
+            "pokedexEntries[13].text"
+          ],
+          "visualIdea": "Cut from Diglett underground to a bright sunbeam, then show a heat meter rising as Diglett wilts.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 4,
+            "support": 5
+          },
+          "total": 21,
+          "note": "A concrete biological weakness supported directly by the Gold entry, though the broader sunlight-aversion angle is already familiar."
+        },
+        {
+          "id": "one-yard-underground",
+          "premise": "Diglett lives about one yard underground, surfacing only occasionally or when the sun is no longer bright.",
+          "hook": "Diglett’s normal home is one yard beneath your feet.",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[0].text",
+            "pokedexEntries[4].text",
+            "pokedexEntries[13].text"
+          ],
+          "visualIdea": "Use a cutaway field showing Diglett at one-yard depth, then follow its raised-earth trail to the surface.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 3,
+            "specificity": 4,
+            "visual": 4,
+            "support": 4
+          },
+          "total": 19,
+          "note": "The one-yard measurement is concrete, but the depth is not especially surprising and the surfacing behavior varies across entries."
+        }
+      ],
+      "rejected": [],
+      "request": "No stronger angle is required. A future refinement could add a second source confirming the farming tactic, but the existing Ultra Moon entry directly supports the premise."
+    }
+  ]
+}

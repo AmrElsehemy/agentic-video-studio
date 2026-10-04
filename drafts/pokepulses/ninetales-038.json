@@ -1,0 +1,188 @@
+{
+  "id": "ninetales-038",
+  "title": "The Tail Grab That Can Curse a Family for 1,000 Years",
+  "storyPattern": "mystery",
+  "numberRelevant": false,
+  "premise": "A single grab of Ninetales' tail may bring a 1,000-year curse to the offender and their descendants.",
+  "audiencePromise": "Trace Ninetales' curse from one reckless grab to a punishment that outlives entire families.",
+  "openLoop": "Why would touching one tail threaten a family for a millennium?",
+  "payoff": "Ninetales' Pokédex lore links its supernatural tails to a curse lasting 1,000 years and reaching descendants.",
+  "targetEmotion": "curiosity",
+  "engagementQuestion": "Is Ninetales' curse brilliant lore, or too harsh?",
+  "subject": {
+    "name": "Ninetales",
+    "category": "Fox Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/38.png",
+    "identifier": "#038"
+  },
+  "related": [
+    {
+      "name": "Vulpix",
+      "relation": "evolves-from",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/37.png",
+      "identifier": "#037"
+    },
+    {
+      "name": "Ninetales Alola",
+      "relation": "form",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10104.png",
+      "identifier": "#038"
+    }
+  ],
+  "palette": {
+    "background": "#160D12",
+    "surface": "#2A1718",
+    "primary": "#D9A441",
+    "secondary": "#B83B32",
+    "ink": "#FFF3D1"
+  },
+  "voice": {
+    "instructions": "Speak in a low, tense voice. Start sharply, then slow at each reveal. Stress tail, descendants, and 1,000 years. Leave a brief pause before the final question."
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    },
+    "assets": [
+      {
+        "kind": "Ninetales official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/38.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "one-tail",
+      "beat": "hook",
+      "eyebrow": "DO NOT GRAB IT",
+      "headline": "ONE TAIL. A THOUSAND-YEAR CURSE.",
+      "narration": "Grab one tail. A millennium-long curse may follow.",
+      "caption": "ONE GRAB COULD LAST 1,000 YEARS",
+      "facts": [
+        "ONE TAIL",
+        "1,000 YEARS"
+      ],
+      "accent": "#B83B32",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/38.png",
+      "primitive": {
+        "kind": "counter",
+        "from": 0,
+        "to": 1000,
+        "label": "CURSE YEARS"
+      }
+    },
+    {
+      "id": "vengeful-fox",
+      "beat": "clue",
+      "eyebrow": "THE FIRST CLUE",
+      "headline": "SMART. VENGEFUL. UNFORGIVING.",
+      "narration": "The Pokédex calls Ninetales smart, vengeful, and hard to cross.",
+      "caption": "NINETALES DOES NOT FORGET",
+      "facts": [
+        "VERY SMART",
+        "VERY VENGEFUL"
+      ],
+      "accent": "#D9A441",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/38.png"
+    },
+    {
+      "id": "curse-spreads",
+      "beat": "escalation",
+      "eyebrow": "THE CURSE SPREADS",
+      "headline": "IT DOES NOT END WITH YOU",
+      "narration": "One entry says the curse reaches the offender's descendants too.",
+      "caption": "THE NEXT GENERATIONS PAY",
+      "facts": [
+        "OFFENDER",
+        "DESCENDANTS"
+      ],
+      "accent": "#B83B32",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/38.png",
+      "primitive": {
+        "kind": "timeline",
+        "steps": [
+          {
+            "label": "OFFENDER",
+            "detail": "CURSE BEGINS"
+          },
+          {
+            "label": "DESCENDANTS",
+            "detail": "CURSE CONTINUES"
+          }
+        ],
+        "active": 1
+      }
+    },
+    {
+      "id": "millennium-punishment",
+      "beat": "reveal",
+      "eyebrow": "THE FIRST REVEAL",
+      "headline": "ONE THOUSAND YEARS",
+      "narration": "The Pokédex says that curse lasts one thousand years.",
+      "caption": "THE CURSE LASTS 1,000 YEARS",
+      "facts": [
+        "1,000 YEARS",
+        "CURSE"
+      ],
+      "accent": "#D9A441",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/38.png"
+    },
+    {
+      "id": "nine-powered-tails",
+      "beat": "reveal",
+      "eyebrow": "THE SECOND REVEAL",
+      "headline": "EVERY TAIL HOLDS POWER",
+      "narration": "Each of its nine tails is loaded with supernatural power.",
+      "caption": "NINE TAILS. NINE SOURCES OF POWER.",
+      "facts": [
+        "NINE TAILS",
+        "SUPERNATURAL POWER"
+      ],
+      "accent": "#F3D58A",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/38.png",
+      "primitive": {
+        "kind": "counter",
+        "from": 0,
+        "to": 9,
+        "label": "POWERED TAILS"
+      }
+    },
+    {
+      "id": "brilliant-or-harsh",
+      "beat": "verdict",
+      "eyebrow": "YOUR VERDICT",
+      "headline": "BRILLIANT CURSE OR TOO HARSH?",
+      "narration": "Is Ninetales' curse brilliant lore, or too harsh?",
+      "caption": "WOULD YOU RISK ONE TAIL?",
+      "accent": "#B83B32",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/38.png"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Ninetales",
+      "url": "https://www.pokemon.com/us/pokedex/ninetales",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Ninetales",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Ninetales_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Ninetales",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/38",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

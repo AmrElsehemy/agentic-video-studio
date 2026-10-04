@@ -1,0 +1,168 @@
+{
+  "episodeId": "clefable-036",
+  "createdAt": "2026-10-03T19:33:18.992Z",
+  "chosen": {
+    "id": "lake-walker",
+    "premise": "Clefable does not fly to cross lakes: its bouncy steps let it walk on water during quiet, moonlit nights.",
+    "hook": "Clefable can cross a lake without actually flying.",
+    "archetype": "mechanic",
+    "evidence": [
+      "pokedexEntries[5].text",
+      "pokedexEntries[6].text"
+    ],
+    "visualIdea": "Show Clefable lightly hopping across glowing moonlit water while its wings barely move.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 5,
+      "specificity": 5,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 25,
+    "note": "A concrete, unmistakably Clefable behavior directly supported by two Pokédex entries. The moonlit lake and hopping motion make the premise immediately visual."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "lake-walker",
+          "premise": "Clefable does not fly to cross lakes: its bouncy steps let it walk on water during quiet, moonlit nights.",
+          "hook": "Clefable can cross a lake without actually flying.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[5].text",
+            "pokedexEntries[6].text"
+          ],
+          "visualIdea": "Show Clefable lightly hopping across glowing moonlit water while its wings barely move.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 25,
+          "note": "A concrete, unmistakably Clefable behavior directly supported by two Pokédex entries. The moonlit lake and hopping motion make the premise immediately visual."
+        },
+        {
+          "id": "moon-homesick",
+          "premise": "Clefable may stare at the full moon because it is homesick for relatives whose voices supposedly live there.",
+          "hook": "Clefable may not be moon-gazing—it may be homesick.",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[17].text",
+            "pokedexEntries[18].text",
+            "pokedexEntries[9].text"
+          ],
+          "visualIdea": "Layer the full moon, a skyward gaze, and faint imagined voices from the moon.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 4,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 23,
+          "note": "Highly distinctive and emotionally surprising, with strong imagery. The homesickness explanation is explicitly framed as scientific belief or legend, so it needs careful wording."
+        },
+        {
+          "id": "shy-super-hearing",
+          "premise": "Clefable’s extraordinary hearing creates its biggest weakness: sensing people makes it run and hide.",
+          "hook": "Clefable hears you before you ever see it.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[0].text",
+            "pokedexEntries[7].text",
+            "pokedexEntries[16].text"
+          ],
+          "visualIdea": "Show a distant human footstep reaching Clefable, followed by Clefable vanishing into the mountains.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 4,
+            "support": 4
+          },
+          "total": 20,
+          "note": "The sensory contradiction is compelling, but calling hearing its 'biggest weakness' is interpretation, and the research does not literally say it hears people before they see it."
+        },
+        {
+          "id": "mega-flying-change",
+          "premise": "Mega Clefable changes from a 1.3-meter Fairy type into a 1.7-meter Fairy/Flying form.",
+          "hook": "Clefable’s Mega form adds Flying—and 40 centimeters of height.",
+          "archetype": "transformation",
+          "evidence": [
+            "heightMeters",
+            "types",
+            "varieties[0].name",
+            "varieties[0].types",
+            "varieties[0].heightMeters",
+            "varieties[0].weightKg"
+          ],
+          "visualIdea": "Wipe from base Clefable’s 1.3-meter Fairy profile to Mega Clefable’s 1.7-meter Fairy/Flying profile.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 3,
+            "surprise": 3,
+            "specificity": 5,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 20,
+          "note": "The type and height change are concrete and easy to display, but the premise is primarily a stat comparison and depends on the secondary variety record for Mega Clefable."
+        },
+        {
+          "id": "pin-drop-mile",
+          "premise": "Clefable can hear a pin drop from nearly 1,100 yards away, yet chooses quiet mountains to escape sound.",
+          "hook": "Clefable can hear a pin drop from almost a mile away.",
+          "archetype": "comparison",
+          "evidence": [
+            "pokedexEntries[7].text",
+            "pokedexEntries[14].text",
+            "pokedexEntries[2].text"
+          ],
+          "visualIdea": "Animate a pin dropping far away, then show Clefable fleeing toward an empty mountain.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 4,
+            "support": 3
+          },
+          "total": 19,
+          "note": "The hearing-versus-seclusion contradiction is strong, but 'almost a mile' overstates 1,100 yards, and the entries vary between half a mile, 1,100 yards, and over a mile."
+        },
+        {
+          "id": "moonstone-finale",
+          "premise": "Clefable’s evolution chain ends when Clefairy is given a Moon Stone—not when it reaches a level.",
+          "hook": "Clefable does not evolve by leveling up.",
+          "archetype": "mechanic",
+          "evidence": [
+            "evolutionChain[1].method",
+            "evolutionChain[2].method",
+            "evolutionChain[2].evolvesFrom"
+          ],
+          "visualIdea": "Display Cleffa, Clefairy, then a Moon Stone triggering Clefable’s final evolution.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 2,
+            "surprise": 3,
+            "specificity": 5,
+            "visual": 4,
+            "support": 5
+          },
+          "total": 19,
+          "note": "Accurate and clear, but Moon Stone evolution is not especially unique to Clefable and lacks the surprising lore payoff of the stronger angles."
+        }
+      ],
+      "rejected": [],
+      "request": "None needed: lake-walker is strong enough. An even stronger angle would add a sharper contradiction or verified numerical comparison while staying directly grounded in a specific Clefable behavior."
+    }
+  ]
+}

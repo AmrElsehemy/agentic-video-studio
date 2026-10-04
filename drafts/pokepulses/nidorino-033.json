@@ -1,0 +1,159 @@
+{
+  "id": "nidorino-033",
+  "title": "Nidorino's Poison Gets Stronger When It Gets Angry",
+  "storyPattern": "transformation",
+  "numberRelevant": false,
+  "premise": "Nidorino's poison becomes more potent as the adrenaline in its body rises.",
+  "audiencePromise": "Follow Nidorino's warning signs from nervous tension to a stronger poison strike.",
+  "openLoop": "What happens to Nidorino's poison when it senses danger?",
+  "payoff": "Its bristling warning ends in a horn strike, while rising adrenaline makes the poison more potent.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "Would you watch its ears, or fear the horn?",
+  "subject": {
+    "name": "Nidorino",
+    "category": "Poison Pin Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/33.png",
+    "identifier": "#033"
+  },
+  "related": [
+    {
+      "name": "Nidoking",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/34.png",
+      "identifier": "#034"
+    },
+    {
+      "name": "Nidoran♂",
+      "relation": "evolves-from",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/32.png",
+      "identifier": "#032"
+    }
+  ],
+  "palette": {
+    "background": "#10131A",
+    "surface": "#202631",
+    "primary": "#8CC63F",
+    "secondary": "#D94F70",
+    "ink": "#F4F7F2"
+  },
+  "voice": {
+    "instructions": "Speak with tense curiosity. Start sharp, then build urgency as Nidorino senses danger. Slow slightly on the poison reveal. Keep the final question challenging."
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    },
+    "assets": [
+      {
+        "kind": "Nidorino official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/33.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "anger-builds-poison",
+      "beat": "hook",
+      "eyebrow": "DANGER RISING",
+      "headline": "THE ANGRIER, THE STRONGER",
+      "narration": "Nidorino's poison gets stronger while it gets angrier.",
+      "caption": "ANGER → STRONGER POISON",
+      "accent": "#D94F70",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/33.png"
+    },
+    {
+      "id": "ears-scan-the-area",
+      "beat": "before",
+      "eyebrow": "CHECKING SURROUNDINGS",
+      "headline": "ITS EARS START THE WARNING",
+      "narration": "First, it raises its big ears and checks its surroundings.",
+      "caption": "BIG EARS CHECK THE AREA",
+      "facts": [
+        "BIG EARS",
+        "CHECKS SURROUNDINGS"
+      ],
+      "accent": "#8CC63F",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/33.png"
+    },
+    {
+      "id": "barbs-bristle",
+      "beat": "change",
+      "eyebrow": "HOSTILE PRESENCE",
+      "headline": "EVERY BARB BRISTLES",
+      "narration": "Sense something hostile, and every barb on its back bristles.",
+      "caption": "HOSTILE PRESENCE → BARBS BRISTLE",
+      "facts": [
+        "HOSTILE PRESENCE",
+        "BACK BARBS BRISTLE"
+      ],
+      "accent": "#F2A93B",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/33.png"
+    },
+    {
+      "id": "adrenaline-raises-potency",
+      "beat": "reveal",
+      "eyebrow": "THE HIDDEN ESCALATION",
+      "headline": "ADRENALINE RAISES POTENCY",
+      "narration": "Then it attacks, while rising adrenaline makes its poison more potent.",
+      "caption": "ADRENALINE ↑  POISON POTENCY ↑",
+      "facts": [
+        "ATTACKS IMMEDIATELY",
+        "ADRENALINE RISES",
+        "POISON GETS MORE POTENT"
+      ],
+      "accent": "#D94F70",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/33.png"
+    },
+    {
+      "id": "horn-impact-releases-poison",
+      "beat": "aftermath",
+      "eyebrow": "ON IMPACT",
+      "headline": "THE HORN RELEASES POISON",
+      "narration": "A horn stab makes the poison leak out on impact.",
+      "caption": "HORN IMPACT → POISON LEAKS",
+      "facts": [
+        "HORN CONTAINS VENOM",
+        "POISON LEAKS ON IMPACT"
+      ],
+      "accent": "#8CC63F",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/33.png"
+    },
+    {
+      "id": "watch-ears-or-fear-horn",
+      "beat": "verdict",
+      "eyebrow": "YOUR CALL",
+      "headline": "WHICH WARNING MATTERS MORE?",
+      "narration": "Would you watch its ears, or fear the horn?",
+      "caption": "WATCH THE EARS OR FEAR THE HORN?",
+      "accent": "#F2A93B",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/33.png"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Nidorino",
+      "url": "https://www.pokemon.com/us/pokedex/nidorino",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Nidorino",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Nidorino_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Nidorino",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/33",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

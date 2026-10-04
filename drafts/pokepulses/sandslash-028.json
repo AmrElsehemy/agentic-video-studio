@@ -1,0 +1,165 @@
+{
+  "id": "sandslash-028",
+  "title": "Sandslash’s Broken Claws Return the Next Day",
+  "storyPattern": "mechanic",
+  "numberRelevant": false,
+  "premise": "Sandslash can snap off its claws and spikes, yet they grow back the very next day.",
+  "audiencePromise": "See why breaking Sandslash’s weapons is only a temporary problem.",
+  "openLoop": "How can Sandslash keep fighting after losing its claws and spikes?",
+  "payoff": "Its broken claws and spikes grow back in a day, leaving Sandslash unbothered.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "Smart recovery, or a terrible weakness?",
+  "subject": {
+    "name": "Sandslash",
+    "category": "Mouse Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/28.png",
+    "identifier": "#028"
+  },
+  "related": [
+    {
+      "name": "Sandshrew",
+      "relation": "evolves-from",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/27.png",
+      "identifier": "#027"
+    },
+    {
+      "name": "Sandslash Alola",
+      "relation": "form",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10102.png",
+      "identifier": "#028"
+    }
+  ],
+  "palette": {
+    "background": "#17120E",
+    "surface": "#2A2119",
+    "primary": "#D47A32",
+    "secondary": "#E8C58A",
+    "ink": "#FFF4D6"
+  },
+  "voice": {
+    "instructions": "Use a quick, tense pace with crisp emphasis on broken, one day, and grow back. Pause briefly before each reveal."
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    },
+    "assets": [
+      {
+        "kind": "Sandslash official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/28.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "one-day-problem",
+      "beat": "hook",
+      "eyebrow": "SANDSLASH’S RISK",
+      "headline": "BROKEN CLAWS. ONE DAY.",
+      "narration": "What if breaking your claws lasted just one day?",
+      "caption": "BROKEN CLAWS. ONE DAY.",
+      "accent": "#E8C58A",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/28.png"
+    },
+    {
+      "id": "digging-too-fast",
+      "beat": "evidence",
+      "eyebrow": "THE ACCIDENT",
+      "headline": "DIG TOO FAST, SNAP THEM OFF",
+      "narration": "Sandslash may snap off its spikes and claws digging too fast.",
+      "caption": "DIGGING CAN BREAK BOTH",
+      "facts": [
+        "SPIKES",
+        "CLAWS",
+        "DIGGING TOO FAST"
+      ],
+      "accent": "#D47A32",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/28.png"
+    },
+    {
+      "id": "built-to-attack",
+      "beat": "escalation",
+      "eyebrow": "THE PROBLEM",
+      "headline": "ITS WEAPONS JUST BROKE",
+      "narration": "Bad news for a Pokémon that attacks with both.",
+      "caption": "ITS WEAPONS ARE GONE",
+      "facts": [
+        "SHARP CLAWS",
+        "BODY SPIKES"
+      ],
+      "accent": "#B84A32",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/28.png"
+    },
+    {
+      "id": "grow-back",
+      "beat": "payoff",
+      "eyebrow": "THE RULE",
+      "headline": "THE DAMAGE DOESN’T LAST",
+      "narration": "The Pokédex says broken claws and spikes grow back in a day.",
+      "caption": "GROW BACK IN A DAY",
+      "facts": [
+        "GROW BACK",
+        "ONE DAY"
+      ],
+      "accent": "#8ED081",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/28.png",
+      "primitive": {
+        "kind": "counter",
+        "from": 0,
+        "to": 1,
+        "label": "DAYS TO REGROW"
+      }
+    },
+    {
+      "id": "next-day-reset",
+      "beat": "payoff",
+      "eyebrow": "NEXT DAY",
+      "headline": "SANDSLASH IS FINE AGAIN",
+      "narration": "By the next day, Sandslash is not bothered by losing them.",
+      "caption": "DAY ONE: BROKEN  •  NEXT DAY: FINE",
+      "facts": [
+        "TEMPORARY LOSS",
+        "NOT BOTHERED"
+      ],
+      "accent": "#F2D15C",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/28.png"
+    },
+    {
+      "id": "smart-recovery",
+      "beat": "verdict",
+      "eyebrow": "YOUR VERDICT",
+      "headline": "RECOVERY OR WEAKNESS?",
+      "narration": "Smart recovery, or a terrible weakness?",
+      "caption": "SMART RECOVERY OR WEAKNESS?",
+      "accent": "#E8C58A",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/28.png"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Sandslash",
+      "url": "https://www.pokemon.com/us/pokedex/sandslash",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Sandslash",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Sandslash_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Sandslash",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/28",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

@@ -1,0 +1,188 @@
+{
+  "id": "vulpix-037",
+  "title": "Why Vulpix Breathes Fire on Hot Days",
+  "storyPattern": "mechanic",
+  "numberRelevant": false,
+  "premise": "Vulpix releases flames from its mouth on hot days to prevent its body from growing too hot.",
+  "audiencePromise": "Learn how Vulpix uses mouth flames to prevent its body from growing too hot.",
+  "openLoop": "Why would Vulpix spit out its own endless flame?",
+  "payoff": "On hot days, Vulpix releases flames from its mouth to prevent its body from growing too hot.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "Is Vulpix mainly a heat regulator or fireball maker?",
+  "subject": {
+    "name": "Vulpix",
+    "category": "Fox Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/37.png",
+    "identifier": "#037"
+  },
+  "related": [
+    {
+      "name": "Ninetales",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/38.png",
+      "identifier": "#038"
+    },
+    {
+      "name": "Vulpix Alola",
+      "relation": "form",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10103.png",
+      "identifier": "#037"
+    }
+  ],
+  "palette": {
+    "background": "#16121A",
+    "surface": "#2A1D20",
+    "primary": "#F07A32",
+    "secondary": "#FFD166",
+    "ink": "#FFF4E6"
+  },
+  "voice": {
+    "instructions": "Use a quick, curious pace. Stress the contradiction between rising heat and released flames. Pause before the payoff, then present the final choice clearly."
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    },
+    "assets": [
+      {
+        "kind": "Vulpix official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/37.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "it-spits-out-its-inner-flame",
+      "beat": "hook",
+      "eyebrow": "THE FIRE PARADOX",
+      "headline": "IT SPITS OUT ITS INNER FLAME",
+      "narration": "Why would Vulpix spit out its own endless flame?",
+      "caption": "WHY RELEASE ITS OWN FIRE?",
+      "accent": "#F07A32",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/37.png"
+    },
+    {
+      "id": "the-flame-never-goes-out",
+      "beat": "evidence",
+      "eyebrow": "INSIDE VULPIX",
+      "headline": "THE FLAME NEVER GOES OUT",
+      "narration": "Inside Vulpix burns a flame that never goes out.",
+      "caption": "A NEVER-ENDING INNER FLAME",
+      "facts": [
+        "FIRE-TYPE",
+        "INNER FLAME"
+      ],
+      "accent": "#FFD166",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/37.png"
+    },
+    {
+      "id": "daytime-heat-triggers-release",
+      "beat": "escalation",
+      "eyebrow": "WHEN TEMPERATURES RISE",
+      "headline": "DAYTIME HEAT TRIGGERS RELEASE",
+      "narration": "As daytime temperatures rise, Vulpix releases flames from its mouth.",
+      "caption": "HEAT RISES. FLAMES STREAM OUT.",
+      "facts": [
+        "DAYTIME HEAT",
+        "FLAMES FROM MOUTH"
+      ],
+      "accent": "#EF476F",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/37.png",
+      "primitive": {
+        "kind": "checklist",
+        "items": [
+          {
+            "label": "DAYTIME HEAT",
+            "met": true
+          },
+          {
+            "label": "INNER FLAME",
+            "met": true
+          },
+          {
+            "label": "MOUTH RELEASE",
+            "met": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "the-release-prevents-overheating",
+      "beat": "payoff",
+      "eyebrow": "THE HIDDEN PURPOSE",
+      "headline": "THE RELEASE PREVENTS OVERHEATING",
+      "narration": "That release prevents Vulpix's body from growing too hot.",
+      "caption": "PREVENTS THE BODY FROM GETTING TOO HOT",
+      "facts": [
+        "RELEASES FLAMES",
+        "PREVENTS OVERHEATING"
+      ],
+      "accent": "#06D6A0",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/37.png",
+      "primitive": {
+        "kind": "checklist",
+        "items": [
+          {
+            "label": "FLAME RELEASE",
+            "met": true
+          },
+          {
+            "label": "BODY TOO HOT",
+            "met": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "fire-goes-outward-on-hot-days",
+      "beat": "payoff",
+      "eyebrow": "THE STRANGE MECHANIC",
+      "headline": "FIRE GOES OUTWARD ON HOT DAYS",
+      "narration": "Its permanent inner flame is released when daytime heat rises.",
+      "caption": "INNER FIRE → OUTWARD FLAMES",
+      "facts": [
+        "PERMANENT INNER FLAME",
+        "DAYTIME HEAT RISES"
+      ],
+      "accent": "#FFD166",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/37.png"
+    },
+    {
+      "id": "heat-regulator-or-fireball-maker",
+      "beat": "verdict",
+      "eyebrow": "YOUR VERDICT",
+      "headline": "HEAT REGULATOR OR FIREBALL MAKER?",
+      "narration": "Is Vulpix mainly a heat regulator or fireball maker?",
+      "caption": "HEAT REGULATOR OR FIREBALL MAKER?",
+      "accent": "#F07A32",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/37.png"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Vulpix",
+      "url": "https://www.pokemon.com/us/pokedex/vulpix",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Vulpix",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Vulpix_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Vulpix",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/37",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

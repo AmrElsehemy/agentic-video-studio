@@ -1,0 +1,180 @@
+{
+  "id": "wigglytuff-040",
+  "title": "Make Wigglytuff Angry, and It Becomes 20 Times Bigger",
+  "storyPattern": "transformation",
+  "numberRelevant": true,
+  "premise": "When angered, Wigglytuff inhales and can grow 20 times larger.",
+  "audiencePromise": "Watch Wigglytuff turn anger into a giant balloon threat.",
+  "openLoop": "How does anger turn a soft body into a giant threat?",
+  "payoff": "Wigglytuff's elastic body becomes enormous specifically to intimidate opponents.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "Is Wigglytuff cute, or an intimidating balloon?",
+  "subject": {
+    "name": "Wigglytuff",
+    "category": "Balloon Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/40.png",
+    "identifier": "#040"
+  },
+  "related": [
+    {
+      "name": "Jigglypuff",
+      "relation": "evolves-from",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/39.png",
+      "identifier": "#039"
+    },
+    {
+      "name": "Igglybuff",
+      "relation": "evolves-from",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/174.png",
+      "identifier": "#174"
+    }
+  ],
+  "palette": {
+    "background": "#171225",
+    "surface": "#2B1D3D",
+    "primary": "#F28ACB",
+    "secondary": "#8B5CF6",
+    "ink": "#FFF7FC"
+  },
+  "voice": {
+    "instructions": "Use a surprised, playful tone with quick pacing. Hit the anger trigger, pause before the size reveal, then land the final choice clearly."
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    },
+    "assets": [
+      {
+        "kind": "Wigglytuff official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/40.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "anger-makes-it-huge",
+      "beat": "hook",
+      "eyebrow": "DO NOT ANGER IT",
+      "headline": "ANGER MAKES IT HUGE",
+      "narration": "Angry Wigglytuff can become 20 times bigger.",
+      "caption": "ANGER TRIGGERS A GIANT CHANGE",
+      "facts": [
+        "20 TIMES LARGER"
+      ],
+      "accent": "#F28ACB",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/40.png"
+    },
+    {
+      "id": "soft-body-hidden-threat",
+      "beat": "before",
+      "eyebrow": "BEFORE THE CHANGE",
+      "headline": "SOFT BODY. BIG SECRET.",
+      "narration": "Its soft, rubbery body reacts when anger takes over.",
+      "caption": "SOFT AND RUBBERY",
+      "facts": [
+        "SOFT BODY",
+        "RUBBERY BODY"
+      ],
+      "accent": "#F9A8D4",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/40.png"
+    },
+    {
+      "id": "inhale-and-inflate",
+      "beat": "change",
+      "eyebrow": "THE TRIGGER",
+      "headline": "THEN IT SUCKS IN AIR",
+      "narration": "It inhales with all its might, then steadily starts to inflate.",
+      "caption": "ANGER → INHALE → INFLATE",
+      "facts": [
+        "INHALES DEEPLY",
+        "BODY INFLATES"
+      ],
+      "accent": "#C084FC",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/40.png",
+      "primitive": {
+        "kind": "counter",
+        "from": 1,
+        "to": 20,
+        "label": "SIZE MULTIPLIER"
+      }
+    },
+    {
+      "id": "twenty-times-larger",
+      "beat": "reveal",
+      "eyebrow": "THE SIZE REVEAL",
+      "headline": "TWENTY TIMES LARGER",
+      "narration": "At the biggest point, Wigglytuff can be 20 times larger.",
+      "caption": "SMALL WIGGLYTUFF → 20× SIZE",
+      "facts": [
+        "20 TIMES LARGER"
+      ],
+      "accent": "#F472B6",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/40.png",
+      "primitive": {
+        "kind": "bars",
+        "unit": "X SIZE",
+        "bars": [
+          {
+            "label": "NORMAL SIZE",
+            "value": 1
+          },
+          {
+            "label": "INFLATED",
+            "value": 20
+          }
+        ]
+      }
+    },
+    {
+      "id": "anger-becomes-intimidation",
+      "beat": "aftermath",
+      "eyebrow": "WHY GET THAT BIG?",
+      "headline": "THE SIZE IS A WARNING",
+      "narration": "That enormous size intimidates opponents, turning anger into a threat.",
+      "caption": "INFLATION BECOMES INTIMIDATION",
+      "facts": [
+        "INTIMIDATES OPPONENTS",
+        "ENORMOUS SIZE"
+      ],
+      "accent": "#A78BFA",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/40.png"
+    },
+    {
+      "id": "cute-or-intimidating",
+      "beat": "verdict",
+      "eyebrow": "YOUR VERDICT",
+      "headline": "CUTE OR TERRIFYING?",
+      "narration": "Is Wigglytuff cute, or an intimidating balloon?",
+      "caption": "CUTE BALLOON OR GIANT THREAT?",
+      "accent": "#FB7185",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/40.png"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Wigglytuff",
+      "url": "https://www.pokemon.com/us/pokedex/wigglytuff",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Wigglytuff",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Wigglytuff_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Wigglytuff",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/40",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

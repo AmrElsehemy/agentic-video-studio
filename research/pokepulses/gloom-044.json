@@ -1,0 +1,169 @@
+{
+  "schemaVersion": 1,
+  "id": "gloom-044",
+  "number": 44,
+  "index": "#044",
+  "name": "Gloom",
+  "slug": "gloom",
+  "category": "Weed Pokémon",
+  "generation": "Generation I",
+  "isLegendary": false,
+  "isMythical": false,
+  "types": [
+    "Grass",
+    "Poison"
+  ],
+  "heightMeters": 0.8,
+  "weightKg": 8.6,
+  "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/44.png",
+  "pokedexEntries": [
+    {
+      "game": "Red",
+      "text": "The fluid that oozes from its mouth isn't drool. It is a nectar that is used to attract prey."
+    },
+    {
+      "game": "Yellow",
+      "text": "Smells incredibly foul! However, around 1 out of 1,000 people enjoy sniffing its nose- bending stink."
+    },
+    {
+      "game": "Gold",
+      "text": "What appears to be drool is actually sweet honey. It is very sticky and clings stubbornly if touched."
+    },
+    {
+      "game": "Silver",
+      "text": "It secretes a sticky, drool-like honey. Although sweet, it smells too repulsive to get very close."
+    },
+    {
+      "game": "Crystal",
+      "text": "The smell from its drool-like syrup and the pollen on its petals is so bad, it may make opponents faint."
+    },
+    {
+      "game": "Ruby",
+      "text": "GLOOM releases a foul fragrance from the pistil of its flower. When faced with danger, the stench worsens. If this POKéMON is feeling calm and secure, it does not release its usual stinky aroma."
+    },
+    {
+      "game": "Sapphire",
+      "text": "From its mouth GLOOM drips honey that smells absolutely horrible. Apparently, it loves the horrid stench. It sniffs the noxious fumes and then drools even more of its honey."
+    },
+    {
+      "game": "Emerald",
+      "text": "A horribly noxious honey drools from its mouth. One whiff of the honey can result in memory loss. Some fans are said to enjoy this overwhelming stink, however."
+    },
+    {
+      "game": "Firered",
+      "text": "Its pistils exude an incredibly foul odor. The horrid stench can cause fainting at a distance of 1.25 miles."
+    },
+    {
+      "game": "Leafgreen",
+      "text": "The fluid that oozes from its mouth isn’t drool. It is a nectar that is used to attract prey."
+    },
+    {
+      "game": "Diamond",
+      "text": "The honey it drools from its mouth smells so atrocious, it can curl noses more than a mile away."
+    },
+    {
+      "game": "X",
+      "text": "Smells incredibly foul! However, around one out of a thousand people enjoy sniffing its nose-bending stink."
+    }
+  ],
+  "evolutionChain": [
+    {
+      "name": "Oddish",
+      "index": "#043",
+      "stage": 1,
+      "types": [
+        "Grass",
+        "Poison"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/43.png",
+      "isSubject": false
+    },
+    {
+      "name": "Gloom",
+      "index": "#044",
+      "stage": 2,
+      "evolvesFrom": "Oddish",
+      "method": "Level Up, level 21",
+      "types": [
+        "Grass",
+        "Poison"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/44.png",
+      "isSubject": true
+    },
+    {
+      "name": "Vileplume",
+      "index": "#045",
+      "stage": 3,
+      "evolvesFrom": "Gloom",
+      "method": "Use Item, Leaf Stone",
+      "types": [
+        "Grass",
+        "Poison"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/45.png",
+      "isSubject": false
+    },
+    {
+      "name": "Bellossom",
+      "index": "#182",
+      "stage": 3,
+      "evolvesFrom": "Gloom",
+      "method": "Use Item, Sun Stone",
+      "types": [
+        "Grass"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/182.png",
+      "isSubject": false
+    }
+  ],
+  "varieties": [],
+  "lore": [],
+  "tiers": {
+    "official": [
+      "name",
+      "index",
+      "number",
+      "category",
+      "generation",
+      "isLegendary",
+      "isMythical",
+      "types",
+      "heightMeters",
+      "weightKg",
+      "pokedexEntries",
+      "evolutionChain[].name",
+      "evolutionChain[].index",
+      "evolutionChain[].types",
+      "evolutionChain[].stage",
+      "varieties[].types",
+      "varieties[].heightMeters",
+      "varieties[].weightKg"
+    ],
+    "trusted_secondary": [
+      "evolutionChain[].method",
+      "evolutionChain[].evolvesFrom",
+      "varieties[].name"
+    ],
+    "community": [
+      "lore"
+    ]
+  },
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Gloom",
+      "url": "https://www.pokemon.com/us/pokedex/gloom",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Gloom",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Gloom_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Gloom",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/44",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

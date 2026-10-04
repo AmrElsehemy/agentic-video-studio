@@ -1,0 +1,193 @@
+{
+  "id": "diglett-050",
+  "title": "Farmers Bait Diglett Into Plowing Their Fields",
+  "storyPattern": "mechanic",
+  "numberRelevant": false,
+  "premise": "Farmers plant trees Diglett likes to eat, luring it into plowing the fields around their crops.",
+  "audiencePromise": "See how farmers turn Diglett's root-chewing into perfectly tilled soil.",
+  "openLoop": "Why would farmers invite a root-chewing Pokémon into their fields?",
+  "payoff": "Diglett follows its food underground, leaving soil perfectly tilled for planting crops.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "Would you hire Diglett to plow, or protect your roots?",
+  "subject": {
+    "name": "Diglett",
+    "category": "Mole Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/50.png",
+    "identifier": "#050"
+  },
+  "related": [
+    {
+      "name": "Dugtrio",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/51.png",
+      "identifier": "#051"
+    },
+    {
+      "name": "Diglett Alola",
+      "relation": "form",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10105.png",
+      "identifier": "#050"
+    }
+  ],
+  "palette": {
+    "background": "#10151B",
+    "surface": "#1C2525",
+    "primary": "#8B6A4A",
+    "secondary": "#D6A85F",
+    "ink": "#F4EBD0"
+  },
+  "voice": {
+    "instructions": "Use a quick, amused, documentary tone. Stress bait, roots, and perfectly tilled. Pause briefly before the final choice."
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    },
+    "assets": [
+      {
+        "kind": "Diglett official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/50.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "the-farmers-bait",
+      "beat": "hook",
+      "eyebrow": "A STRANGE FARMING TRICK",
+      "headline": "THEY BAIT DIGLETT",
+      "narration": "Farmers bait Diglett into plowing their fields.",
+      "caption": "BAIT DIGLETT. PLOW FIELDS.",
+      "facts": [
+        "FARMERS",
+        "DIGLETT"
+      ],
+      "accent": "#D6A85F",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/50.png"
+    },
+    {
+      "id": "plant-the-right-tree",
+      "beat": "evidence",
+      "eyebrow": "THE BAIT",
+      "headline": "PLANT WHAT DIGLETT LIKES",
+      "narration": "They plant trees Diglett likes to eat around their crops.",
+      "caption": "THE TREE IS THE BAIT",
+      "facts": [
+        "TREE ROOTS",
+        "CROPS"
+      ],
+      "accent": "#6FA66A",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/50.png",
+      "primitive": {
+        "kind": "checklist",
+        "items": [
+          {
+            "label": "TREE ROOTS",
+            "met": true
+          },
+          {
+            "label": "CROPS",
+            "met": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "roots-lead-underground",
+      "beat": "escalation",
+      "eyebrow": "THE DIGGING BEGINS",
+      "headline": "DIGLETT FOLLOWS THE ROOTS",
+      "narration": "Diglett chews tree roots underground, then burrows through the fields.",
+      "caption": "ROOTS LEAD DIGLETT BELOW",
+      "facts": [
+        "UNDERGROUND",
+        "CHEWS ROOTS",
+        "BURROWS"
+      ],
+      "accent": "#9A7049",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/50.png",
+      "primitive": {
+        "kind": "timeline",
+        "steps": [
+          {
+            "label": "TREE ROOTS",
+            "detail": "DIGLETT CHEWS ROOTS"
+          },
+          {
+            "label": "UNDERGROUND",
+            "detail": "DIGLETT BURROWS"
+          },
+          {
+            "label": "FIELDS",
+            "detail": "SOIL LEFT TILLED"
+          }
+        ],
+        "active": 2
+      }
+    },
+    {
+      "id": "perfectly-tilled-soil",
+      "beat": "payoff",
+      "eyebrow": "THE UNEXPECTED RESULT",
+      "headline": "DIGLETT DOES THE PLOWING",
+      "narration": "Wherever Diglett burrows, the soil is left perfectly tilled.",
+      "caption": "PERFECTLY TILLED SOIL",
+      "facts": [
+        "PERFECTLY TILLED"
+      ],
+      "accent": "#C58A55",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/50.png"
+    },
+    {
+      "id": "ready-for-crops",
+      "beat": "payoff",
+      "eyebrow": "FARMERS WIN",
+      "headline": "READY FOR PLANTING",
+      "narration": "That soil becomes ideal ground for planting crops.",
+      "caption": "IDEAL GROUND FOR CROPS",
+      "facts": [
+        "IDEAL FOR PLANTING",
+        "CROPS"
+      ],
+      "accent": "#6FA66A",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/50.png"
+    },
+    {
+      "id": "hire-or-protect",
+      "beat": "verdict",
+      "eyebrow": "YOUR FARM?",
+      "headline": "HELPFUL PLOW OR ROOT PEST?",
+      "narration": "Would you hire Diglett to plow, or protect your roots?",
+      "caption": "HIRE DIGLETT OR PROTECT ROOTS?",
+      "accent": "#D6A85F",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/50.png"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Diglett",
+      "url": "https://www.pokemon.com/us/pokedex/diglett",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Diglett",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Diglett_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Diglett",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/50",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

@@ -1,0 +1,170 @@
+{
+  "id": "venonat-048",
+  "title": "Venonat's Large Eyes Hide Tiny Radar Clusters",
+  "storyPattern": "mystery",
+  "numberRelevant": false,
+  "premise": "Venonat's large eyes are clusters of many tiny eyes that act as radar.",
+  "audiencePromise": "Reveal what Venonat's large eyes contain, then show how those clusters work in darkness.",
+  "openLoop": "Why do Venonat's large eyes need clusters of tiny eyes?",
+  "payoff": "Its tiny-eye clusters become visible in bright light, then act as radar in darkness.",
+  "targetEmotion": "curiosity",
+  "engagementQuestion": "Are Venonat's tiny-eye clusters brilliant radar, or nightmare fuel?",
+  "subject": {
+    "name": "Venonat",
+    "category": "Insect Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/48.png",
+    "identifier": "#048"
+  },
+  "related": [
+    {
+      "name": "Venomoth",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/49.png",
+      "identifier": "#049"
+    }
+  ],
+  "palette": {
+    "background": "#10151B",
+    "surface": "#202A30",
+    "primary": "#B9D93C",
+    "secondary": "#A85BC7",
+    "ink": "#F5F7E8"
+  },
+  "voice": {
+    "instructions": "Use a curious, tense pace. Start sharply, slow down during the eye zoom, then punch the final question."
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    },
+    "assets": [
+      {
+        "kind": "Venonat official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/48.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "tiny-radar",
+      "beat": "hook",
+      "eyebrow": "LOOK CLOSER",
+      "headline": "LARGE EYES. TINY RADAR.",
+      "narration": "Venonat's large eyes hide tiny radar clusters.",
+      "caption": "WHAT IS INSIDE THEM?",
+      "accent": "#B9D93C",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/48.png"
+    },
+    {
+      "id": "bright-cluster",
+      "beat": "clue",
+      "eyebrow": "UNDER BRIGHT LIGHT",
+      "headline": "THE CLUSTERS APPEAR",
+      "narration": "Bright light reveals what those large eyes are made of.",
+      "caption": "ZOOM IN",
+      "facts": [
+        "BRIGHT LIGHT",
+        "TINY EYE CLUSTERS"
+      ],
+      "accent": "#F4D35E",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/48.png"
+    },
+    {
+      "id": "radar-darkness",
+      "beat": "escalation",
+      "eyebrow": "THE FUNCTION",
+      "headline": "THE CLUSTER ACTS AS RADAR",
+      "narration": "Those tiny clusters act as radar when darkness hides prey.",
+      "caption": "RADAR IN THE DARK",
+      "facts": [
+        "RADAR",
+        "DARKNESS",
+        "HIDDEN PREY"
+      ],
+      "accent": "#7C6CF2",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/48.png",
+      "primitive": {
+        "kind": "checklist",
+        "items": [
+          {
+            "label": "TINY EYE CLUSTERS",
+            "met": true
+          },
+          {
+            "label": "DARKNESS",
+            "met": true
+          },
+          {
+            "label": "HIDDEN PREY",
+            "met": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "hidden-prey",
+      "beat": "reveal",
+      "eyebrow": "FIRST REVEAL",
+      "headline": "DARKNESS CANNOT HIDE BUGS",
+      "narration": "Radar lets Venonat catch small bugs that hide in darkness.",
+      "caption": "SMALL BUGS CANNOT HIDE",
+      "facts": [
+        "SMALL BUGS",
+        "HIDDEN IN DARKNESS"
+      ],
+      "accent": "#A85BC7",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/48.png"
+    },
+    {
+      "id": "light-attraction",
+      "beat": "reveal",
+      "eyebrow": "SECOND REVEAL",
+      "headline": "LIGHT CHANGES THE SCENE",
+      "narration": "But at night, light attracts Venonat's kind toward it.",
+      "caption": "LIGHT REVEALS AND ATTRACTS",
+      "facts": [
+        "AT NIGHT",
+        "ATTRACTED BY LIGHT"
+      ],
+      "accent": "#F4D35E",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/48.png"
+    },
+    {
+      "id": "radar-or-nightmare",
+      "beat": "verdict",
+      "eyebrow": "YOUR VERDICT",
+      "headline": "BRILLIANT OR NIGHTMARE FUEL?",
+      "narration": "Tiny-eye clusters: radar in darkness. Brilliant or nightmare fuel?",
+      "caption": "WHICH ONE?",
+      "accent": "#B9D93C",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/48.png"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Venonat",
+      "url": "https://www.pokemon.com/us/pokedex/venonat",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Venonat",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Venonat_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Venonat",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/48",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

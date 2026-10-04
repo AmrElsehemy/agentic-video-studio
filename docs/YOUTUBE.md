@@ -59,6 +59,8 @@ npm run youtube:schedule -- charmander-004 --publish-at=2026-10-01T17:00:00Z
 
 Scheduling uploads the video as private and sets YouTube's `publishAt` timestamp.
 
+Uploads use YouTube category 24 (Entertainment). Set `YOUTUBE_CATEGORY_ID` to override it for a run.
+
 Optional flags:
 
 ```text
@@ -66,7 +68,20 @@ Optional flags:
 --notify-subscribers=true|false
 ```
 
-The pipeline deliberately does not guess the made-for-kids declaration. Omit the flag unless the release owner has made that determination.
+The pipeline deliberately does not guess the made-for-kids declaration. It is the release owner's determination, recorded as `publishing.madeForKids` in the show profile (PokePulses: `true`, declared as made for kids) and sent with every upload. The flag overrides it for a single upload. Remove the setting to leave it undeclared.
+
+## Playlist
+
+Set `publishing.playlistId` in the show profile (`shows/pokepulses.json`; the part after `list=` in the playlist's URL) and every upload is added to that playlist right after it succeeds. A failure there only warns, because the upload has already worked.
+
+This needs the playlist permission (`youtube.force-ssl`), which also lets the login edit videos. Run `npm run youtube:auth` once more and approve it.
+
+To add episodes that were uploaded earlier, in order, skipping any already in the playlist:
+
+```bash
+npm run youtube:playlist -- 10-20 --dry-run
+npm run youtube:playlist -- 10-20
+```
 
 ## Output
 

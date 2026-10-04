@@ -111,5 +111,16 @@ try {
 } catch (error) {
   console.warn(`⚠ not linked for analytics: ${error instanceof Error ? error.message : error} Keep the existing link, or remove ${path.relative(root, analyticsFile)} and run: npm run analytics -- link ${episodeId} ${video.id}`);
 }
+// Add it to the show's playlist. The upload has already succeeded, so a problem here only warns:
+// add it later with npm run youtube:playlist -- <id>.
+const playlistId = show.publishing?.playlistId;
+if (playlistId) {
+  try {
+    await addToPlaylist(accessToken, playlistId, video.id);
+    console.log(`✓ added to playlist ${playlistId}`);
+  } catch (error) {
+    console.warn(`⚠ not added to the playlist: ${error instanceof Error ? error.message : error}\n  Add it later with: npm run youtube:playlist -- ${episodeId}`);
+  }
+}
 console.log(`✓ YouTube upload complete: ${receipt.url}`);
 console.log(`✓ receipt: ${path.relative(root, receiptPath)}`);

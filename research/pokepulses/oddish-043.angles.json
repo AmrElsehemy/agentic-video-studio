@@ -1,0 +1,147 @@
+{
+  "episodeId": "oddish-043",
+  "createdAt": "2026-10-03T19:58:57.734Z",
+  "chosen": {
+    "id": "moonlight-to-sun-stone",
+    "premise": "Oddish grows by moonlight, yet its evolution can branch into Bellossom using a Sun Stone.",
+    "hook": "The moon-grown Pokémon can evolve with a Sun Stone.",
+    "archetype": "comparison",
+    "evidence": [
+      "pokedexEntries[4].text",
+      "pokedexEntries[11].text",
+      "evolutionChain[3].method",
+      "evolutionChain[3].name"
+    ],
+    "visualIdea": "Contrast moonlight bathing Oddish with Gloom evolving into Bellossom under a glowing Sun Stone.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 5,
+      "specificity": 5,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 25,
+    "note": "A crisp, surprising contradiction: Oddish grows through moonlight but can ultimately branch into Bellossom through a Sun Stone. The evolution and Pokédex facts directly support it."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "moonlight-to-sun-stone",
+          "premise": "Oddish grows by moonlight, yet its evolution can branch into Bellossom using a Sun Stone.",
+          "hook": "The moon-grown Pokémon can evolve with a Sun Stone.",
+          "archetype": "comparison",
+          "evidence": [
+            "pokedexEntries[4].text",
+            "pokedexEntries[11].text",
+            "evolutionChain[3].method",
+            "evolutionChain[3].name"
+          ],
+          "visualIdea": "Contrast moonlight bathing Oddish with Gloom evolving into Bellossom under a glowing Sun Stone.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 25,
+          "note": "A crisp, surprising contradiction: Oddish grows through moonlight but can ultimately branch into Bellossom through a Sun Stone. The evolution and Pokédex facts directly support it."
+        },
+        {
+          "id": "thousand-foot-root-walk",
+          "premise": "At night, Oddish can walk nearly 1,000 feet using its two roots.",
+          "hook": "Those two roots can carry Oddish nearly 1,000 feet.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[8].text"
+          ],
+          "visualIdea": "Animate root-like feet marching across a distance meter that climbs toward 1,000 feet.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 24,
+          "note": "Exceptionally concrete and distinctive. The 1,000-foot claim is compelling, though the entry frames it as something Oddish is only said to do."
+        },
+        {
+          "id": "the-screaming-weed",
+          "premise": "Oddish looks like a clump of weeds, but pulling it from the ground makes it shriek horribly.",
+          "hook": "That harmless-looking weed screams if you try to pull it.",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[1].text"
+          ],
+          "visualIdea": "Zoom in on a normal-looking weed clump, then yank it and cut to Oddish screaming.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 23,
+          "note": "A highly visual horror-comedy premise backed by a direct Pokédex entry, though it has less built-in escalation than the strongest contradiction."
+        },
+        {
+          "id": "roots-for-feet",
+          "premise": "While planted during the day, Oddish’s feet are thought to change shape into something like tree roots.",
+          "hook": "Oddish may literally grow tree roots instead of feet.",
+          "archetype": "transformation",
+          "evidence": [
+            "pokedexEntries[6].text",
+            "pokedexEntries[12].text"
+          ],
+          "visualIdea": "Show Oddish’s feet morphing from rounded feet into branching roots beneath fertile soil.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 22,
+          "note": "Visually striking and very Pokémon-specific, but the source says the root transformation is only thought to happen, so the hook slightly overstates the evidence."
+        },
+        {
+          "id": "day-night-double-life",
+          "premise": "Oddish buries itself by day but becomes an active seed-sower after moonlight awakens it at night.",
+          "hook": "Oddish has two completely different lives, depending on the sky.",
+          "archetype": "transformation",
+          "evidence": [
+            "pokedexEntries[0].text",
+            "pokedexEntries[2].text",
+            "pokedexEntries[3].text"
+          ],
+          "visualIdea": "Split-screen day and night: buried Oddish by day, roaming Oddish scattering seeds at night.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 3,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 21,
+          "note": "Strongly supported and easy to visualize, but the day/night contrast is a familiar Oddish fact and less surprising to longtime fans."
+        }
+      ],
+      "rejected": [
+        {
+          "id": "fertile-soil-gloss",
+          "reason": "unknown story shape \"evidence\""
+        }
+      ],
+      "request": "None—the selected angle is strong enough. A stronger alternative would need an equally specific contradiction or measurable fact with direct Pokédex support and a clear visual payoff."
+    }
+  ]
+}

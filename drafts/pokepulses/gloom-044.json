@@ -1,0 +1,187 @@
+{
+  "id": "gloom-044",
+  "title": "Gloom's Stink Has a Danger Switch",
+  "storyPattern": "mechanic",
+  "numberRelevant": false,
+  "premise": "Gloom's foul fragrance worsens when it faces danger, but vanishes when it feels calm and secure.",
+  "audiencePromise": "Watch Gloom's fragrance rise under danger, then discover why safety shuts it off.",
+  "openLoop": "What makes Gloom's foul fragrance rise, then vanish?",
+  "payoff": "Gloom does not simply stink. Its fragrance changes with whether the world feels dangerous or safe.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "Smart danger switch, or terrible design?",
+  "subject": {
+    "name": "Gloom",
+    "category": "Weed Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/44.png",
+    "identifier": "#044"
+  },
+  "related": [
+    {
+      "name": "Vileplume",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/45.png",
+      "identifier": "#045"
+    },
+    {
+      "name": "Bellossom",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/182.png",
+      "identifier": "#182"
+    },
+    {
+      "name": "Oddish",
+      "relation": "evolves-from",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/43.png",
+      "identifier": "#043"
+    }
+  ],
+  "palette": {
+    "background": "#10131A",
+    "surface": "#20252B",
+    "primary": "#8FCB4F",
+    "secondary": "#B34E9A",
+    "ink": "#F4F1E8"
+  },
+  "voice": {
+    "instructions": "Speak with tense curiosity. Start sharp, build urgency as danger affects the fragrance, then relax noticeably when safety shuts it off. Keep every line punchy and clear."
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    },
+    "assets": [
+      {
+        "kind": "Gloom official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/44.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "danger-switch",
+      "beat": "hook",
+      "eyebrow": "DANGER TRIGGER",
+      "headline": "A STINK WITH AN OFF-SWITCH",
+      "narration": "Gloom's stink has a danger switch—and an off-switch.",
+      "caption": "A STINK WITH AN OFF-SWITCH",
+      "facts": [
+        "DANGER SWITCH",
+        "OFF-SWITCH"
+      ],
+      "accent": "#B34E9A",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/44.png"
+    },
+    {
+      "id": "flower-source",
+      "beat": "evidence",
+      "eyebrow": "WHERE IT STARTS",
+      "headline": "THE FLOWER IS THE SOURCE",
+      "narration": "The source is its flower's pistil, releasing a foul fragrance.",
+      "caption": "FOUL FRAGRANCE FROM THE PISTIL",
+      "facts": [
+        "FOUL FRAGRANCE",
+        "PISTIL"
+      ],
+      "accent": "#8FCB4F",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/44.png"
+    },
+    {
+      "id": "danger-intensifies",
+      "beat": "escalation",
+      "eyebrow": "THE TRIGGER",
+      "headline": "DANGER MAKES THE STENCH WORSE",
+      "narration": "When Gloom faces danger, the foul fragrance from its pistil worsens.",
+      "caption": "FACING DANGER MAKES IT WORSE",
+      "facts": [
+        "FACING DANGER",
+        "FRAGRANCE WORSENS"
+      ],
+      "accent": "#E06A5F",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/44.png"
+    },
+    {
+      "id": "calm-shuts-off",
+      "beat": "payoff",
+      "eyebrow": "THE SURPRISE",
+      "headline": "SAFETY CHANGES EVERYTHING",
+      "narration": "Then calm and security remove Gloom's usual stinky aroma.",
+      "caption": "CALM AND SECURE: USUAL AROMA STOPS",
+      "facts": [
+        "CALM",
+        "SECURE",
+        "NO USUAL AROMA"
+      ],
+      "accent": "#65C7A5",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/44.png",
+      "primitive": {
+        "kind": "checklist",
+        "items": [
+          {
+            "label": "CALM",
+            "met": true
+          },
+          {
+            "label": "SECURE",
+            "met": true
+          },
+          {
+            "label": "USUAL AROMA",
+            "met": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "conditional-stink",
+      "beat": "payoff",
+      "eyebrow": "THE REAL MECHANIC",
+      "headline": "ITS SIGNATURE SMELL IS CONDITIONAL",
+      "narration": "In danger its stench worsens. Calm and secure, Gloom releases no usual aroma.",
+      "caption": "A RESPONSE, NOT A CONSTANT",
+      "facts": [
+        "STINK IS CONDITIONAL",
+        "DANGER FEEDS IT",
+        "SECURITY SILENCES IT"
+      ],
+      "accent": "#F0C95C",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/44.png"
+    },
+    {
+      "id": "smart-or-terrible",
+      "beat": "verdict",
+      "eyebrow": "YOUR CALL",
+      "headline": "SMART SWITCH OR BAD DESIGN?",
+      "narration": "Smart danger switch, or terrible design?",
+      "caption": "SMART SWITCH OR BAD DESIGN?",
+      "accent": "#B34E9A",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/44.png"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Gloom",
+      "url": "https://www.pokemon.com/us/pokedex/gloom",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Gloom",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Gloom_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Gloom",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/44",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

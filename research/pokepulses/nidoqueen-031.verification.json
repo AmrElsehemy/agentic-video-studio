@@ -1,0 +1,529 @@
+{
+  "episodeId": "nidoqueen-031",
+  "checkedAt": "2026-10-03T19:17:10.334Z",
+  "claims": [
+    {
+      "id": "c1",
+      "where": "title",
+      "text": "Nidoqueen Has a Poison Safety Switch",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[12].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c2",
+      "where": "premise",
+      "text": "Nidoqueen’s back spines never secrete poison while young are nestled between them.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[12].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c3",
+      "where": "audiencePromise",
+      "text": "See how Nidoqueen turns its most dangerous defense into a safe shelter for its young.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[12].text"
+      ],
+      "note": "The research supports placing young between the back spines, pacifying them, and preventing poison secretion, but it does not explicitly call the arrangement a safe shelter or the defense its most dangerous.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c4",
+      "where": "openLoop",
+      "text": "Why would a Poison-type place its young between poisonous spines?",
+      "verdict": "supported",
+      "evidence": [
+        "types[0]",
+        "pokedexEntries[12].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c5",
+      "where": "payoff",
+      "text": "When young are present, Nidoqueen’s spines stop secreting poison and calm them safely.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[12].text"
+      ],
+      "note": "The research supports pacifying the young and preventing poison secretion, but 'safely' is an added characterization.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c6",
+      "where": "scenes.poison-safety-switch.headline",
+      "text": "POISON HAS A SAFETY SWITCH",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[12].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c7",
+      "where": "scenes.poison-safety-switch.narration",
+      "text": "Nidoqueen’s poison has one very specific safety switch.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[12].text"
+      ],
+      "note": "The conditional prevention of poison secretion supports the safety-switch metaphor, but the research does not establish that Nidoqueen's poison has exactly one switch.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c8",
+      "where": "scenes.poison-safety-switch.caption",
+      "text": "POISON HAS A SAFETY SWITCH",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[12].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c9",
+      "where": "scenes.poison-safety-switch.eyebrow",
+      "text": "DANGEROUS SHELTER",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[12].text"
+      ],
+      "note": "The research supports the spines' protective role around young, but does not explicitly call the arrangement a dangerous shelter.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c10",
+      "where": "scenes.gaps-pacify-young.headline",
+      "text": "YOUNG GO BETWEEN THE SPINES",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[12].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c11",
+      "where": "scenes.gaps-pacify-young.narration",
+      "text": "Nidoqueen places young in back gaps to pacify them.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[12].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c12",
+      "where": "scenes.gaps-pacify-young.caption",
+      "text": "THE GAPS CALM ITS YOUNG",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[12].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c13",
+      "where": "scenes.gaps-pacify-young.eyebrow",
+      "text": "THE HIDDEN MECHANIC",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c14",
+      "where": "scenes.gaps-pacify-young.facts[0]",
+      "text": "BACK GAPS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[12].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c15",
+      "where": "scenes.gaps-pacify-young.facts[1]",
+      "text": "PACIFIES YOUNG",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[12].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c16",
+      "where": "scenes.poison-stays-inactive.headline",
+      "text": "THE SPINES SECRETE POISON",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[12].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c17",
+      "where": "scenes.poison-stays-inactive.narration",
+      "text": "With young present, the poison defense stays completely inactive.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[12].text"
+      ],
+      "note": "The research says the spines never secrete poison while young are present, but does not establish that the entire poison defense becomes completely inactive.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c18",
+      "where": "scenes.poison-stays-inactive.caption",
+      "text": "YOUNG PRESENT = NO POISON",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[12].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c19",
+      "where": "scenes.poison-stays-inactive.eyebrow",
+      "text": "THE CATCH",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c20",
+      "where": "scenes.poison-stays-inactive.facts[0]",
+      "text": "YOUNG PRESENT",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[12].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c21",
+      "where": "scenes.poison-stays-inactive.facts[1]",
+      "text": "NO POISON",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[12].text"
+      ],
+      "note": "In the scene's conditional context, this restates that the spines do not secrete poison while young are present.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c22",
+      "where": "scenes.safe-back-gaps.headline",
+      "text": "A SHELTER BETWEEN SPIKES",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[12].text"
+      ],
+      "note": "The research supports gaps between the spines and their protective function, but does not explicitly call them a shelter.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c23",
+      "where": "scenes.safe-back-gaps.narration",
+      "text": "The gaps pacify the young. With them present, spines never secrete poison.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[12].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c24",
+      "where": "scenes.safe-back-gaps.caption",
+      "text": "A CALM SHELTER BETWEEN SPIKES",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[12].text"
+      ],
+      "note": "The research supports pacifying the young and placing them between the spines, but 'calm shelter' is a characterization not stated directly.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c25",
+      "where": "scenes.safe-back-gaps.eyebrow",
+      "text": "THE SAFE ZONE",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[12].text"
+      ],
+      "note": "The protective, non-secreting arrangement is supported, but 'safe zone' is an interpretive label.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c26",
+      "where": "scenes.safe-back-gaps.facts[0]",
+      "text": "CALMS YOUNG",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[12].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c27",
+      "where": "scenes.safe-back-gaps.facts[1]",
+      "text": "POISON STAYS OFF",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[12].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c28",
+      "where": "scenes.defense-rule.headline",
+      "text": "YOUNG PRESENT MEANS NO POISON",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[12].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c29",
+      "where": "scenes.defense-rule.narration",
+      "text": "When young are present, its spines never secrete poison.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[12].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c30",
+      "where": "scenes.defense-rule.caption",
+      "text": "NO POISON WHILE YOUNG ARE PRESENT",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[12].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c31",
+      "where": "scenes.defense-rule.eyebrow",
+      "text": "THE RULE",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c32",
+      "where": "scenes.defense-rule.facts[0]",
+      "text": "YOUNG PRESENT",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[12].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c33",
+      "where": "scenes.defense-rule.facts[1]",
+      "text": "NO POISON",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[12].text"
+      ],
+      "note": "In the scene's conditional context, this restates that the spines do not secrete poison while young are present.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c34",
+      "where": "scenes.smart-or-dangerous.headline",
+      "text": "SMART SWITCH OR BAD DESIGN?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c35",
+      "where": "scenes.smart-or-dangerous.narration",
+      "text": "Smart safety switch, or a dangerous design?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c36",
+      "where": "scenes.smart-or-dangerous.caption",
+      "text": "SMART OR DANGEROUS?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c37",
+      "where": "scenes.smart-or-dangerous.eyebrow",
+      "text": "YOUR VERDICT",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    }
+  ],
+  "unsupported": [],
+  "uncertain": [
+    {
+      "id": "c3",
+      "where": "audiencePromise",
+      "text": "See how Nidoqueen turns its most dangerous defense into a safe shelter for its young.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[12].text"
+      ],
+      "note": "The research supports placing young between the back spines, pacifying them, and preventing poison secretion, but it does not explicitly call the arrangement a safe shelter or the defense its most dangerous.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c5",
+      "where": "payoff",
+      "text": "When young are present, Nidoqueen’s spines stop secreting poison and calm them safely.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[12].text"
+      ],
+      "note": "The research supports pacifying the young and preventing poison secretion, but 'safely' is an added characterization.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c7",
+      "where": "scenes.poison-safety-switch.narration",
+      "text": "Nidoqueen’s poison has one very specific safety switch.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[12].text"
+      ],
+      "note": "The conditional prevention of poison secretion supports the safety-switch metaphor, but the research does not establish that Nidoqueen's poison has exactly one switch.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c9",
+      "where": "scenes.poison-safety-switch.eyebrow",
+      "text": "DANGEROUS SHELTER",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[12].text"
+      ],
+      "note": "The research supports the spines' protective role around young, but does not explicitly call the arrangement a dangerous shelter.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c17",
+      "where": "scenes.poison-stays-inactive.narration",
+      "text": "With young present, the poison defense stays completely inactive.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[12].text"
+      ],
+      "note": "The research says the spines never secrete poison while young are present, but does not establish that the entire poison defense becomes completely inactive.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c22",
+      "where": "scenes.safe-back-gaps.headline",
+      "text": "A SHELTER BETWEEN SPIKES",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[12].text"
+      ],
+      "note": "The research supports gaps between the spines and their protective function, but does not explicitly call them a shelter.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c24",
+      "where": "scenes.safe-back-gaps.caption",
+      "text": "A CALM SHELTER BETWEEN SPIKES",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[12].text"
+      ],
+      "note": "The research supports pacifying the young and placing them between the spines, but 'calm shelter' is a characterization not stated directly.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c25",
+      "where": "scenes.safe-back-gaps.eyebrow",
+      "text": "THE SAFE ZONE",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[12].text"
+      ],
+      "note": "The protective, non-secreting arrangement is supported, but 'safe zone' is an interpretive label.",
+      "tier": "official",
+      "checkedBy": "model"
+    }
+  ]
+}

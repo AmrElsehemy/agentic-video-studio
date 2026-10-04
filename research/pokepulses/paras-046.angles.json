@@ -1,0 +1,161 @@
+{
+  "episodeId": "paras-046",
+  "createdAt": "2026-10-03T20:09:59.076Z",
+  "chosen": {
+    "id": "mushrooms-in-command",
+    "premise": "Paras’s mushrooms control it, ordering the bug to extract juice from tree trunks.",
+    "hook": "The mushrooms on Paras’s back are giving the orders.",
+    "archetype": "mystery",
+    "evidence": [
+      "pokedexEntries[4].text",
+      "pokedexEntries[15].text"
+    ],
+    "visualIdea": "Reveal tree-root burrowing first, then animate the mushrooms controlling Paras like a puppet.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 5,
+      "specificity": 5,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 25,
+    "note": "The control reversal is unusually concrete and strongly supported by multiple entries; the puppet-like visual gives it an excellent reveal."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "mushrooms-in-command",
+          "premise": "Paras’s mushrooms control it, ordering the bug to extract juice from tree trunks.",
+          "hook": "The mushrooms on Paras’s back are giving the orders.",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[4].text",
+            "pokedexEntries[15].text"
+          ],
+          "visualIdea": "Reveal tree-root burrowing first, then animate the mushrooms controlling Paras like a puppet.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 25,
+          "note": "The control reversal is unusually concrete and strongly supported by multiple entries; the puppet-like visual gives it an excellent reveal."
+        },
+        {
+          "id": "parasite-medicine",
+          "premise": "The mushrooms draining Paras’s body are also valuable: dried tochukaso can make medicine for extending life.",
+          "hook": "Paras’s nutrient-stealing mushrooms are prized as life-extending medicine.",
+          "archetype": "comparison",
+          "evidence": [
+            "pokedexEntries[6].text",
+            "pokedexEntries[13].text"
+          ],
+          "visualIdea": "Contrast Paras weakening beneath the mushrooms with tochukaso being dried, powdered, and used as medicine.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 24,
+          "note": "Excellent contradiction between exploitation and life-extending medicine; the claim that Paras itself is weakened is implied rather than directly stated."
+        },
+        {
+          "id": "alolan-mushroom-failure",
+          "premise": "In Alola, Paras’s mushrooms fail to grow properly because of insufficient moisture or nutrients.",
+          "hook": "In Alola, Paras’s famous mushrooms don’t grow right.",
+          "archetype": "comparison",
+          "evidence": [
+            "pokedexEntries[14].text",
+            "pokedexEntries[16].text"
+          ],
+          "visualIdea": "Compare a large, healthy tochukaso-covered Paras with an Alolan Paras whose mushrooms are stunted.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 24,
+          "note": "Specific and visually comparative, but the Alola detail is less inherently dramatic and the cause remains an either-or possibility."
+        },
+        {
+          "id": "mushroom-host",
+          "premise": "Paras’s back mushrooms are parasites: they grow by stealing nutrients from the Bug Pokémon carrying them.",
+          "hook": "Paras isn’t carrying mushrooms—the mushrooms are feeding on Paras.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[0].text",
+            "pokedexEntries[6].text",
+            "pokedexEntries[9].text"
+          ],
+          "visualIdea": "Show nutrients flowing from Paras into the mushrooms while the mushrooms visibly enlarge.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 23,
+          "note": "A strong Paras-specific premise with clear nutrient-drain imagery, though the basic parasite relationship is already fairly familiar."
+        },
+        {
+          "id": "born-without-mushrooms",
+          "premise": "Paras is born without its signature mushrooms; they only emerge as its body matures.",
+          "hook": "Baby Paras has no mushrooms on its back.",
+          "archetype": "transformation",
+          "evidence": [
+            "pokedexEntries[2].text",
+            "pokedexEntries[16].text"
+          ],
+          "visualIdea": "Morph an infant Paras with a bare back into a mature Paras covered in tochukaso.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 23,
+          "note": "A clean developmental fact with an obvious before-and-after visual, but less dramatic than the control premise."
+        },
+        {
+          "id": "eats-but-starves",
+          "premise": "No matter how much Paras eats, its mushrooms steal most of the nutrition before Paras can use it.",
+          "hook": "Paras can eat endlessly and still lose most of the nutrition.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[1].text",
+            "pokedexEntries[12].text"
+          ],
+          "visualIdea": "Show food entering Paras, then split the nutrients so most flow upward into the mushrooms.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 22,
+          "note": "The contradiction is compelling and well supported, although 'eat endlessly' slightly overstates the cited wording."
+        }
+      ],
+      "rejected": [],
+      "request": "None—the chosen angle is strong enough. Even stronger execution would clarify that the Pokédex explicitly describes both commanding and controlling, rather than presenting the puppet imagery as literal animation."
+    }
+  ]
+}

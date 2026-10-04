@@ -1,0 +1,166 @@
+{
+  "episodeId": "zubat-041",
+  "createdAt": "2026-10-03T19:50:12.422Z",
+  "chosen": {
+    "id": "colony-sonar-dialects",
+    "premise": "Zubat colonies can have slightly different ultrasonic frequencies, giving each group its own sonar variation.",
+    "hook": "Zubat colonies may not all ‘speak’ in the same frequency.",
+    "archetype": "comparison",
+    "evidence": [
+      "pokedexEntries[17].text"
+    ],
+    "visualIdea": "Display two Zubat colonies emitting visibly different wave patterns, with frequency meters beside them.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 5,
+      "specificity": 5,
+      "visual": 5,
+      "support": 4
+    },
+    "total": 24,
+    "note": "The colony-to-colony frequency difference is unusually specific and genuinely surprising. It is supported by one Pokédex entry, though the ‘speak’ framing is a metaphor rather than a confirmed language system."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "colony-sonar-dialects",
+          "premise": "Zubat colonies can have slightly different ultrasonic frequencies, giving each group its own sonar variation.",
+          "hook": "Zubat colonies may not all ‘speak’ in the same frequency.",
+          "archetype": "comparison",
+          "evidence": [
+            "pokedexEntries[17].text"
+          ],
+          "visualIdea": "Display two Zubat colonies emitting visibly different wave patterns, with frequency meters beside them.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 24,
+          "note": "The colony-to-colony frequency difference is unusually specific and genuinely surprising. It is supported by one Pokédex entry, though the ‘speak’ framing is a metaphor rather than a confirmed language system."
+        },
+        {
+          "id": "blind-but-flies",
+          "premise": "Zubat has no eyes, yet navigates dark caves by emitting ultrasonic waves from its mouth.",
+          "hook": "How does Zubat fly when it cannot see?",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[8].text",
+            "pokedexEntries[22].text",
+            "pokedexEntries[23].text"
+          ],
+          "visualIdea": "Show Zubat's eyeless face, then animate sound waves bouncing off cave walls to reveal its path.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 3,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 21,
+          "note": "Strongly tied to Zubat and fully supported, but its eyeless echolocation is familiar to most fans."
+        },
+        {
+          "id": "sunlight-burns",
+          "premise": "Zubat avoids daylight because its thin skin burns in sunlight, forcing it to sleep in caves.",
+          "hook": "Sunlight is not annoying to Zubat—it actually burns it.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[6].text",
+            "pokedexEntries[7].text",
+            "pokedexEntries[18].text",
+            "pokedexEntries[19].text"
+          ],
+          "visualIdea": "Split the screen between a bright sunbeam causing burn marks and Zubat safely hanging in a cave.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 4,
+            "support": 5
+          },
+          "total": 21,
+          "note": "The burn consequence is a concrete, visually clear mechanic; the thin-skin detail and sunlight burns are directly supported."
+        },
+        {
+          "id": "cold-weather-cluster",
+          "premise": "When it gets cold, Zubat colonies gather together so their bodies can keep one another warm.",
+          "hook": "Zubat's survival strategy for cold weather is becoming a living blanket.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[19].text",
+            "pokedexEntries[4].text",
+            "pokedexEntries[5].text"
+          ],
+          "visualIdea": "Show scattered Zubat shivering, then clustering into a dense upside-down colony with warmth radiating between them.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 21,
+          "note": "A compelling survival behavior with strong visuals, but the cold-gathering claim rests on one entry and the other cited facts only establish communal sleeping."
+        },
+        {
+          "id": "friendship-final-form",
+          "premise": "Zubat evolves into Golbat at level 22, but reaching Crobat requires friendship at 160 instead of just more levels.",
+          "hook": "Zubat's final evolution is unlocked by friendship, not grinding levels.",
+          "archetype": "transformation",
+          "evidence": [
+            "evolutionChain[1].method",
+            "evolutionChain[2].method",
+            "evolutionChain[0].name",
+            "evolutionChain[1].name",
+            "evolutionChain[2].name"
+          ],
+          "visualIdea": "Show Zubat becoming Golbat at level 22, then pause the evolution until a friendship meter reaches 160.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 3,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 21,
+          "note": "The level-versus-friendship contrast is concrete and compelling, though it is primarily an evolution-chain mechanic rather than a unique biological trait of Zubat."
+        },
+        {
+          "id": "cave-flight-specialist",
+          "premise": "Even in tight caves, Zubat can fly skillfully by constantly checking its surroundings with mouth-born ultrasonic waves.",
+          "hook": "Zubat's hardest flight course is a cave with almost no room to turn.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[2].text",
+            "pokedexEntries[3].text",
+            "pokedexEntries[21].text"
+          ],
+          "visualIdea": "Track Zubat weaving through narrow cave passages while sonar pulses map obstacles ahead.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 3,
+            "surprise": 3,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 20,
+          "note": "Well supported and easy to animate, but it largely restates Zubat’s familiar echolocation ability without a highly distinctive twist."
+        }
+      ],
+      "rejected": [],
+      "request": "None—this angle is strong enough. To make it even stronger, add a source or example clarifying whether different frequencies function like colony-specific communication, rather than merely being slight biological variation."
+    }
+  ]
+}

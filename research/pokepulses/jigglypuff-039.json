@@ -1,0 +1,189 @@
+{
+  "schemaVersion": 1,
+  "id": "jigglypuff-039",
+  "number": 39,
+  "index": "#039",
+  "name": "Jigglypuff",
+  "slug": "jigglypuff",
+  "category": "Balloon Pokémon",
+  "generation": "Generation I",
+  "isLegendary": false,
+  "isMythical": false,
+  "types": [
+    "Normal",
+    "Fairy"
+  ],
+  "heightMeters": 0.5,
+  "weightKg": 5.5,
+  "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/39.png",
+  "pokedexEntries": [
+    {
+      "game": "Red",
+      "text": "When its huge eyes light up, it sings a mysteriously soothing melody that lulls its enemies to sleep."
+    },
+    {
+      "game": "Yellow",
+      "text": "Uses its alluring eyes to enrapture its foe. It then sings a pleasing melody that lulls the foe to sleep."
+    },
+    {
+      "game": "Gold",
+      "text": "If it inflates to SING a lullaby, it can perform longer and cause sure drowsiness in its audience."
+    },
+    {
+      "game": "Silver",
+      "text": "Looking into its cute, round eyes causes it to sing a relaxing melody, inducing its enemies to sleep."
+    },
+    {
+      "game": "Crystal",
+      "text": "It rolls its cute eyes as it sings a soothing lullaby. Its gentle song puts anyone who hears it to sleep."
+    },
+    {
+      "game": "Ruby",
+      "text": "JIGGLYPUFF’s vocal chords can freely adjust the wavelength of its voice. This POKéMON uses this ability to sing at precisely the right wavelength to make its foes most drowsy."
+    },
+    {
+      "game": "Sapphire",
+      "text": "When this POKéMON sings, it never pauses to breathe. If it is in a battle against an opponent that does not easily fall asleep, JIGGLYPUFF cannot breathe, endangering its life."
+    },
+    {
+      "game": "Emerald",
+      "text": "Nothing can avoid falling asleep hearing a JIGGLYPUFF’s song. The sound waves of its singing voice match the brain waves of someone in a deep sleep."
+    },
+    {
+      "game": "Firered",
+      "text": "It captivates foes with its huge, round eyes, then lulls them to sleep by singing a soothing melody."
+    },
+    {
+      "game": "Leafgreen",
+      "text": "When its huge eyes waver, it sings a mysteriously soothing melody that lulls its enemies to sleep."
+    },
+    {
+      "game": "Diamond",
+      "text": "When it wavers its big, round eyes, it begins singing a lullaby that makes everyone drowsy."
+    },
+    {
+      "game": "Black 2",
+      "text": "Looking into its cute, round eyes makes it start singing a song so pleasant listeners can’t help but fall asleep."
+    },
+    {
+      "game": "Omega Ruby",
+      "text": "Jigglypuff’s vocal cords can freely adjust the wavelength of its voice. This Pokémon uses this ability to sing at precisely the right wavelength to make its foes most drowsy."
+    },
+    {
+      "game": "Sun",
+      "text": "It hugely inflates its stomach and sings a mysterious melody. If you hear this melody, you’ll become sleepy right away."
+    },
+    {
+      "game": "Moon",
+      "text": "Jigglypuff possess a vocal range that exceeds 12 octaves, but each individual’s singing skill depends on its own effort."
+    },
+    {
+      "game": "Ultra Sun",
+      "text": "Recordings of Jigglypuff’s strange lullabies can be purchased from department stores. These CDs can be found near the bedding area."
+    },
+    {
+      "game": "Ultra Moon",
+      "text": "The songs they sing are totally different depending on the region they live in. Some even sound like they’re shouting!"
+    },
+    {
+      "game": "Lets Go Pikachu",
+      "text": "Uses its cute round eyes to enrapture its foe. It then sings a pleasing melody that lulls the foe to sleep."
+    },
+    {
+      "game": "Sword",
+      "text": "Jigglypuff has top-notch lung capacity, even by comparison to other Pokémon. It won’t stop singing its lullabies until its foes fall asleep."
+    },
+    {
+      "game": "Shield",
+      "text": "By freely changing the wavelength of its voice, Jigglypuff sings a mysterious melody sure to make any listener sleepy."
+    }
+  ],
+  "evolutionChain": [
+    {
+      "name": "Igglybuff",
+      "index": "#174",
+      "stage": 1,
+      "types": [
+        "Normal",
+        "Fairy"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/174.png",
+      "isSubject": false
+    },
+    {
+      "name": "Jigglypuff",
+      "index": "#039",
+      "stage": 2,
+      "evolvesFrom": "Igglybuff",
+      "method": "Level Up, friendship 160",
+      "types": [
+        "Normal",
+        "Fairy"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/39.png",
+      "isSubject": true
+    },
+    {
+      "name": "Wigglytuff",
+      "index": "#040",
+      "stage": 3,
+      "evolvesFrom": "Jigglypuff",
+      "method": "Use Item, Moon Stone",
+      "types": [
+        "Normal",
+        "Fairy"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/40.png",
+      "isSubject": false
+    }
+  ],
+  "varieties": [],
+  "lore": [],
+  "tiers": {
+    "official": [
+      "name",
+      "index",
+      "number",
+      "category",
+      "generation",
+      "isLegendary",
+      "isMythical",
+      "types",
+      "heightMeters",
+      "weightKg",
+      "pokedexEntries",
+      "evolutionChain[].name",
+      "evolutionChain[].index",
+      "evolutionChain[].types",
+      "evolutionChain[].stage",
+      "varieties[].types",
+      "varieties[].heightMeters",
+      "varieties[].weightKg"
+    ],
+    "trusted_secondary": [
+      "evolutionChain[].method",
+      "evolutionChain[].evolvesFrom",
+      "varieties[].name"
+    ],
+    "community": [
+      "lore"
+    ]
+  },
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Jigglypuff",
+      "url": "https://www.pokemon.com/us/pokedex/jigglypuff",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Jigglypuff",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Jigglypuff_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Jigglypuff",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/39",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

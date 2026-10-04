@@ -1,0 +1,158 @@
+{
+  "schemaVersion": 1,
+  "id": "nidoran-m-032",
+  "number": 32,
+  "index": "#032",
+  "name": "Nidoran♂",
+  "slug": "nidoran-m",
+  "category": "Poison Pin Pokémon",
+  "generation": "Generation I",
+  "isLegendary": false,
+  "isMythical": false,
+  "types": [
+    "Poison"
+  ],
+  "heightMeters": 0.5,
+  "weightKg": 9,
+  "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/32.png",
+  "pokedexEntries": [
+    {
+      "game": "Red",
+      "text": "Stiffens its ears to sense danger. The larger its horns, the more powerful its secreted venom."
+    },
+    {
+      "game": "Yellow",
+      "text": "Its large ears are always kept upright. If it senses danger, it will attack with a poisonous sting."
+    },
+    {
+      "game": "Gold",
+      "text": "It is small, but its horn is filled with poison. It charges then stabs with the horn to inject poison."
+    },
+    {
+      "game": "Silver",
+      "text": "It raises its big ears to check its surroundings. It will strike first if it senses any danger."
+    },
+    {
+      "game": "Crystal",
+      "text": "It constantly moves its large ears in many directions in order to detect danger right away."
+    },
+    {
+      "game": "Ruby",
+      "text": "The male NIDORAN has developed muscles for moving its ears. Thanks to them, the ears can be freely moved in any direction. Even the slightest sound does not escape this POKéMON’s notice."
+    },
+    {
+      "game": "Emerald",
+      "text": "The male NIDORAN has developed muscles that freely move its ears in any direction. Even the slightest sound does not escape this POKéMON’s notice."
+    },
+    {
+      "game": "Firered",
+      "text": "Its large ears are flapped like wings when it is listening to distant sounds. It extends toxic barbs when angered."
+    },
+    {
+      "game": "Leafgreen",
+      "text": "It stiffens its ears to sense danger. The larger its horns, the more powerful its secreted venom."
+    },
+    {
+      "game": "Diamond",
+      "text": "It scans its surroundings by raising its ears out of the grass. Its toxic horn is for protection."
+    },
+    {
+      "game": "Omega Ruby",
+      "text": "Nidoran♂ has developed muscles for moving its ears. Thanks to them, the ears can be freely moved in any direction. Even the slightest sound does not escape this Pokémon’s notice."
+    },
+    {
+      "game": "Sword",
+      "text": "The horn on a male Nidoran’s forehead contains a powerful poison. This is a very cautious Pokémon, always straining its large ears."
+    },
+    {
+      "game": "Shield",
+      "text": "Small but brave, this Pokémon will hold its ground and even risk its life in battle to protect the female it’s friendly with."
+    }
+  ],
+  "evolutionChain": [
+    {
+      "name": "Nidoran♂",
+      "index": "#032",
+      "stage": 1,
+      "types": [
+        "Poison"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/32.png",
+      "isSubject": true
+    },
+    {
+      "name": "Nidorino",
+      "index": "#033",
+      "stage": 2,
+      "evolvesFrom": "Nidoran♂",
+      "method": "Level Up, level 16",
+      "types": [
+        "Poison"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/33.png",
+      "isSubject": false
+    },
+    {
+      "name": "Nidoking",
+      "index": "#034",
+      "stage": 3,
+      "evolvesFrom": "Nidorino",
+      "method": "Use Item, Moon Stone",
+      "types": [
+        "Poison",
+        "Ground"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/34.png",
+      "isSubject": false
+    }
+  ],
+  "varieties": [],
+  "lore": [],
+  "tiers": {
+    "official": [
+      "name",
+      "index",
+      "number",
+      "category",
+      "generation",
+      "isLegendary",
+      "isMythical",
+      "types",
+      "heightMeters",
+      "weightKg",
+      "pokedexEntries",
+      "evolutionChain[].name",
+      "evolutionChain[].index",
+      "evolutionChain[].types",
+      "evolutionChain[].stage",
+      "varieties[].types",
+      "varieties[].heightMeters",
+      "varieties[].weightKg"
+    ],
+    "trusted_secondary": [
+      "evolutionChain[].method",
+      "evolutionChain[].evolvesFrom",
+      "varieties[].name"
+    ],
+    "community": [
+      "lore"
+    ]
+  },
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Nidoran♂",
+      "url": "https://www.pokemon.com/us/pokedex/nidoran-m",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Nidoran♂",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Nidoran%E2%99%82_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Nidoran♂",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/32",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

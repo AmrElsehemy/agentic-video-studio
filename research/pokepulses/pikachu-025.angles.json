@@ -1,0 +1,163 @@
+{
+  "episodeId": "pikachu-025",
+  "createdAt": "2026-10-03T18:57:42.260Z",
+  "chosen": {
+    "id": "tail-lightning-risk",
+    "premise": "Pikachu raises its tail to monitor its surroundings, but that alert pose can cause the tail to be struck by lightning.",
+    "hook": "Pikachu's lookout pose can make it a lightning target.",
+    "archetype": "mystery",
+    "evidence": [
+      "pokedexEntries[1].text",
+      "pokedexEntries[3].text",
+      "pokedexEntries[13].text"
+    ],
+    "visualIdea": "Follow Pikachu raising its tail to scan the area, then reveal lightning striking the raised tail.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 5,
+      "specificity": 4,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 24,
+    "note": "A strong contradiction: the tail is raised for awareness, yet that same pose can invite lightning strikes. Multiple entries directly support it, and the danger is immediately understandable on screen."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "tail-lightning-risk",
+          "premise": "Pikachu raises its tail to monitor its surroundings, but that alert pose can cause the tail to be struck by lightning.",
+          "hook": "Pikachu's lookout pose can make it a lightning target.",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[1].text",
+            "pokedexEntries[3].text",
+            "pokedexEntries[13].text"
+          ],
+          "visualIdea": "Follow Pikachu raising its tail to scan the area, then reveal lightning striking the raised tail.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 24,
+          "note": "A strong contradiction: the tail is raised for awareness, yet that same pose can invite lightning strikes. Multiple entries directly support it, and the danger is immediately understandable on screen."
+        },
+        {
+          "id": "tail-greeting",
+          "premise": "Pikachu greets another Pikachu by touching tails and exchanging electricity.",
+          "hook": "For Pikachu, a greeting is literally an electrical exchange.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[20].text"
+          ],
+          "visualIdea": "Two Pikachu touch tails, with electricity visibly traveling between them like a handshake.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 24,
+          "note": "A uniquely Pikachu social behavior with one clear rule: tail-to-tail electrical exchange. Fully supported and easy to stage visually, though the fact may be familiar to dedicated fans."
+        },
+        {
+          "id": "gmax-scale",
+          "premise": "Pikachu's Gigantamax form grows from 0.4 meters and 6 kilograms to 21 meters and 1,000 kilograms.",
+          "hook": "Pikachu can grow from six kilograms to one thousand.",
+          "archetype": "transformation",
+          "evidence": [
+            "heightMeters",
+            "weightKg",
+            "varieties[15].name",
+            "varieties[15].heightMeters",
+            "varieties[15].weightKg"
+          ],
+          "visualIdea": "Place regular Pikachu beside its Gigantamax form, with height and weight counters jumping to 21 meters and 1,000 kilograms.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 3,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 22,
+          "note": "The measurements create a clean visual comparison and are well supported. However, the transformation-scale format could work for many Pokémon, so its uniqueness is limited."
+        },
+        {
+          "id": "sleep-powered",
+          "premise": "Pikachu generates electricity while sleeping, but too little sleep leaves it able to use only weak electricity.",
+          "hook": "Pikachu's strongest attacks start while it's asleep.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[7].text",
+            "pokedexEntries[17].text"
+          ],
+          "visualIdea": "Show Pikachu sleeping as its cheek sacs charge, then cut to a weak spark after a sleepless night.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 4,
+            "support": 5
+          },
+          "total": 21,
+          "note": "A specific sleep-to-electricity mechanic, clearly supported by two Pokédex entries. The hook overreaches slightly: the research says sleep generates electricity and insufficient sleep weakens it, not that Pikachu's strongest attacks start while asleep."
+        },
+        {
+          "id": "electric-berry-roaster",
+          "premise": "Pikachu uses electric shocks as a cooking tool, roasting hard berries until they become tender enough to eat.",
+          "hook": "Pikachu doesn't cook with fire—it roasts berries with electricity.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[2].text",
+            "pokedexEntries[21].text"
+          ],
+          "visualIdea": "Animate a hard berry being zapped, blackened, and transformed into a tender meal.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 21,
+          "note": "Distinctive, concrete, and highly visual. The cited entries support electrically roasting tough berries, though the visual's blackening detail is backed by a different Ruby entry that was not cited."
+        },
+        {
+          "id": "storm-gathering",
+          "premise": "One Pikachu stores electricity, but several together can build enough power to cause lightning storms.",
+          "hook": "A group of Pikachu can turn a forest into a lightning storm.",
+          "archetype": "comparison",
+          "evidence": [
+            "pokedexEntries[0].text",
+            "pokedexEntries[9].text"
+          ],
+          "visualIdea": "Escalate from one Pikachu's spark to a crowd whose combined electricity fills the sky with lightning.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 3,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 21,
+          "note": "The escalation from individual sparks to lightning storms is compelling and supported. It lacks a concrete group size or power threshold, making the premise less precise than the strongest candidates."
+        }
+      ],
+      "rejected": []
+    }
+  ]
+}

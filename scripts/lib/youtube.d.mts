@@ -1,6 +1,8 @@
 export declare const YOUTUBE_UPLOAD_SCOPE: string;
 export declare const YOUTUBE_ANALYTICS_SCOPE: string;
 export declare const YOUTUBE_READONLY_SCOPE: string;
+export declare const YOUTUBE_PLAYLIST_SCOPE: string;
+export declare const YOUTUBE_DEFAULT_CATEGORY: string;
 export declare const tokenPath: (root: string, show?: string) => string;
 export declare const envRefreshToken: (show?: string, env?: Record<string, string | undefined>) => string | undefined;
 export type Channel = {id: string; title?: string; uploads?: string};
@@ -8,6 +10,8 @@ export type Upload = {videoId: string; title: string; publishedAt?: string};
 export declare const channelOf: (accessToken: string, options?: {fetchImpl?: typeof fetch}) => Promise<Channel>;
 export declare const assertShowChannel: (show: import('./shows.mjs').ShowProfile, channel: Channel) => void;
 export declare const listUploads: (accessToken: string, playlistId: string, options?: {fetchImpl?: typeof fetch}) => Promise<Upload[]>;
+export declare const playlistVideoIds: (accessToken: string, playlistId: string, options?: {fetchImpl?: typeof fetch}) => Promise<Set<string>>;
+export declare const addToPlaylist: (accessToken: string, playlistId: string, videoId: string, options?: {fetchImpl?: typeof fetch}) => Promise<boolean>;
 export declare const titleKey: (title: string) => string;
 export declare const matchUploads: (videos: Upload[], episodes: {episodeId: string; title: string}[]) => {matched: {episodeId: string; video: Upload}[]; unmatched: Upload[]};
 export declare const loadClient: (root: string) => {client_id: string; client_secret: string};

@@ -1,0 +1,173 @@
+{
+  "schemaVersion": 1,
+  "id": "oddish-043",
+  "number": 43,
+  "index": "#043",
+  "name": "Oddish",
+  "slug": "oddish",
+  "category": "Weed Pokémon",
+  "generation": "Generation I",
+  "isLegendary": false,
+  "isMythical": false,
+  "types": [
+    "Grass",
+    "Poison"
+  ],
+  "heightMeters": 0.5,
+  "weightKg": 5.4,
+  "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/43.png",
+  "pokedexEntries": [
+    {
+      "game": "Red",
+      "text": "During the day, it keeps its face buried in the ground. At night, it wanders around sowing its seeds."
+    },
+    {
+      "game": "Yellow",
+      "text": "It may be mistaken for a clump of weeds. If you try to yank it out of the ground, it shrieks horribly."
+    },
+    {
+      "game": "Gold",
+      "text": "Awakened by moon light, it roams actively at night. In the day, it stays quietly underground."
+    },
+    {
+      "game": "Silver",
+      "text": "If exposed to moonlight, it starts to move. It roams far and wide at night to scatter its seeds."
+    },
+    {
+      "game": "Crystal",
+      "text": "During the day, it stays in the cold underground to avoid the sun. It grows by bath ing in moonlight."
+    },
+    {
+      "game": "Ruby",
+      "text": "During the daytime, ODDISH buries itself in soil to absorb nutrients from the ground using its entire body. The more fertile the soil, the glossier its leaves become."
+    },
+    {
+      "game": "Sapphire",
+      "text": "ODDISH searches for fertile, nutrient- rich soil, then plants itself. During the daytime, while it is planted, this POKéMON’s feet are thought to change shape and become similar to the roots of trees."
+    },
+    {
+      "game": "Emerald",
+      "text": "This POKéMON grows by absorbing moonlight. During the daytime, it buries itself in the ground, leaving only its leaves exposed to avoid detection by its enemies."
+    },
+    {
+      "game": "Firered",
+      "text": "Its scientific name is “Oddium Wanderus.” At night, it is said to walk nearly 1,000 feet on its two roots."
+    },
+    {
+      "game": "Diamond",
+      "text": "It often plants its root feet in the ground during the day and sows seeds as it walks about at night."
+    },
+    {
+      "game": "Heartgold",
+      "text": "Awakened by moonlight, it roams actively at night. In the day, it stays quietly underground."
+    },
+    {
+      "game": "X",
+      "text": "During the day, it stays in the cold underground to avoid the sun. It grows by bathing in moonlight."
+    },
+    {
+      "game": "Alpha Sapphire",
+      "text": "Oddish searches for fertile, nutrient-rich soil, then plants itself. During the daytime, while it is planted, this Pokémon’s feet are thought to change shape and become similar to the roots of trees."
+    }
+  ],
+  "evolutionChain": [
+    {
+      "name": "Oddish",
+      "index": "#043",
+      "stage": 1,
+      "types": [
+        "Grass",
+        "Poison"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/43.png",
+      "isSubject": true
+    },
+    {
+      "name": "Gloom",
+      "index": "#044",
+      "stage": 2,
+      "evolvesFrom": "Oddish",
+      "method": "Level Up, level 21",
+      "types": [
+        "Grass",
+        "Poison"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/44.png",
+      "isSubject": false
+    },
+    {
+      "name": "Vileplume",
+      "index": "#045",
+      "stage": 3,
+      "evolvesFrom": "Gloom",
+      "method": "Use Item, Leaf Stone",
+      "types": [
+        "Grass",
+        "Poison"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/45.png",
+      "isSubject": false
+    },
+    {
+      "name": "Bellossom",
+      "index": "#182",
+      "stage": 3,
+      "evolvesFrom": "Gloom",
+      "method": "Use Item, Sun Stone",
+      "types": [
+        "Grass"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/182.png",
+      "isSubject": false
+    }
+  ],
+  "varieties": [],
+  "lore": [],
+  "tiers": {
+    "official": [
+      "name",
+      "index",
+      "number",
+      "category",
+      "generation",
+      "isLegendary",
+      "isMythical",
+      "types",
+      "heightMeters",
+      "weightKg",
+      "pokedexEntries",
+      "evolutionChain[].name",
+      "evolutionChain[].index",
+      "evolutionChain[].types",
+      "evolutionChain[].stage",
+      "varieties[].types",
+      "varieties[].heightMeters",
+      "varieties[].weightKg"
+    ],
+    "trusted_secondary": [
+      "evolutionChain[].method",
+      "evolutionChain[].evolvesFrom",
+      "varieties[].name"
+    ],
+    "community": [
+      "lore"
+    ]
+  },
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Oddish",
+      "url": "https://www.pokemon.com/us/pokedex/oddish",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Oddish",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Oddish_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Oddish",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/43",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

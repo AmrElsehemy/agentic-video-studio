@@ -1,0 +1,144 @@
+{
+  "episodeId": "jigglypuff-039",
+  "createdAt": "2026-10-03T19:43:28.236Z",
+  "chosen": {
+    "id": "brainwave-tuning",
+    "premise": "Jigglypuff freely changes its voice’s wavelength until the song matches a listener’s deep-sleep brain waves.",
+    "hook": "Jigglypuff doesn’t just sing softly—it tunes its voice to your brain waves.",
+    "archetype": "mechanic",
+    "evidence": [
+      "pokedexEntries[5].text",
+      "pokedexEntries[7].text"
+    ],
+    "visualIdea": "Display a voice wavelength adjusting against brain-wave lines until both patterns lock together and the target sleeps.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 5,
+      "specificity": 5,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 25,
+    "note": "The wavelength-adjustment mechanic and deep-sleep brain-wave match are explicitly supported by multiple Pokédex entries. It is distinctive, easy to animate, and stronger than the generic idea that Jigglypuff simply sings people to sleep."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "brainwave-tuning",
+          "premise": "Jigglypuff freely changes its voice’s wavelength until the song matches a listener’s deep-sleep brain waves.",
+          "hook": "Jigglypuff doesn’t just sing softly—it tunes its voice to your brain waves.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[5].text",
+            "pokedexEntries[7].text"
+          ],
+          "visualIdea": "Display a voice wavelength adjusting against brain-wave lines until both patterns lock together and the target sleeps.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 25,
+          "note": "The wavelength-adjustment mechanic and deep-sleep brain-wave match are explicitly supported by multiple Pokédex entries. It is distinctive, easy to animate, and stronger than the generic idea that Jigglypuff simply sings people to sleep."
+        },
+        {
+          "id": "sing-until-danger",
+          "premise": "Jigglypuff never pauses to breathe, so an opponent resisting sleep can endanger its life.",
+          "hook": "Jigglypuff’s lullaby can literally become a life-threatening performance.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[6].text",
+            "pokedexEntries[19].text"
+          ],
+          "visualIdea": "Show Jigglypuff singing as a sleep meter stays empty, then flash a warning as its breath runs out.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 24,
+          "note": "A highly specific and unusually dark mechanic unique to Jigglypuff. The danger is directly supported by Sapphire, while Sword reinforces that it keeps singing until foes sleep; support is slightly limited because the life-threatening consequence appears in only one entry."
+        },
+        {
+          "id": "friendship-to-moonstone",
+          "premise": "Jigglypuff sits between two evolution rules: friendship from Igglybuff, then a Moon Stone into Wigglytuff.",
+          "hook": "Jigglypuff’s evolution chain switches from friendship to a Moon Stone.",
+          "archetype": "mechanic",
+          "evidence": [
+            "evolutionChain[1].method",
+            "evolutionChain[1].evolvesFrom",
+            "evolutionChain[2].method"
+          ],
+          "visualIdea": "Show Igglybuff’s friendship meter reaching 160, then replace it with a Moon Stone beside Jigglypuff.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 22,
+          "note": "A clear two-step evolution-rule switch with strong on-screen structure. It is well supported by the supplied evolution data, though the friendship threshold and methods come from trusted secondary data rather than the official Pokédex entries."
+        },
+        {
+          "id": "inflation-performance",
+          "premise": "Jigglypuff inflates its stomach to sing longer, turning its balloon-like body into extra performance time.",
+          "hook": "Jigglypuff’s stomach is a built-in upgrade for longer lullabies.",
+          "archetype": "transformation",
+          "evidence": [
+            "pokedexEntries[2].text",
+            "pokedexEntries[13].text"
+          ],
+          "visualIdea": "Show Jigglypuff swelling up beside a countdown that extends as its lullaby continues.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 21,
+          "note": "The inflation-to-sing-longer connection is concrete and visually clear, but it is less surprising and less mechanically detailed than the wavelength or breath-danger angles."
+        },
+        {
+          "id": "regional-soundtrack",
+          "premise": "Jigglypuff’s lullabies change by region, with some regional versions sounding like outright shouting.",
+          "hook": "Not every Jigglypuff sings a lullaby the same way.",
+          "archetype": "comparison",
+          "evidence": [
+            "pokedexEntries[17].text"
+          ],
+          "visualIdea": "Cut between region labels with contrasting song waveforms, ending on one waveform styled like a shout.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 4,
+            "support": 4
+          },
+          "total": 20,
+          "note": "The regional variation, including shouting-like songs, is a good contradiction to Jigglypuff’s familiar lullaby image. However, it rests on one entry and lacks named regions or a more measurable comparison."
+        }
+      ],
+      "rejected": [
+        {
+          "id": "twelve-octave-lullaby",
+          "reason": "hook: Too big: expected string to have <=80 characters"
+        }
+      ],
+      "request": "None; brainwave-tuning is strong enough. A stronger alternative would need an equally explicit, Jigglypuff-specific mechanic with a sharper contradiction or consequence and direct support from multiple entries."
+    }
+  ]
+}

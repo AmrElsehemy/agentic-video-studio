@@ -1,0 +1,241 @@
+{
+  "schemaVersion": 2,
+  "id": "nidoran-f-029",
+  "show": {
+    "id": "pokepulses",
+    "name": "PokePulses",
+    "handle": "@PokePulses",
+    "wordmark": {
+      "lead": "POKE",
+      "accent": "PULSES"
+    },
+    "fonts": {
+      "display": "Bebas Neue",
+      "body": "system"
+    }
+  },
+  "title": "Nidoran♀ Uses Whiskers Instead of Fighting Predators",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "mechanic",
+    "numberRelevant": false,
+    "premise": "While foraging, Nidoran♀ checks wind direction with her whiskers and stays downwind of predators.",
+    "audiencePromise": "Reveal why Nidoran♀ checks the wind before predators can become a threat.",
+    "openLoop": "Why use whiskers when Nidoran♀ already has a venomous horn?",
+    "payoff": "Her quiet defense is not a fight. It is reading wind direction and staying downwind.",
+    "targetEmotion": "surprise",
+    "engagementQuestion": "Trust wind direction, or rely on her venomous horn?",
+    "targetSecondsBetweenVisualChanges": 0.65
+  },
+  "subject": {
+    "name": "Nidoran♀",
+    "category": "Poison Pin Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/29.png",
+    "identifier": "#029"
+  },
+  "related": [
+    {
+      "name": "Nidoqueen",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/31.png",
+      "identifier": "#031"
+    },
+    {
+      "name": "Nidorina",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/30.png",
+      "identifier": "#030"
+    }
+  ],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#10121C",
+    "surface": "#1D2030",
+    "primary": "#8E6BBE",
+    "secondary": "#8CC9D9",
+    "ink": "#F5F1FF"
+  },
+  "audio": {
+    "music": "generated/nidoran-f-029-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 126,
+      "notes": [
+        110,
+        130.81,
+        146.83,
+        164.81,
+        146.83,
+        130.81,
+        98,
+        130.81
+      ]
+    },
+    "voice": {
+      "provider": "openai",
+      "model": "gpt-4o-mini-tts",
+      "voice": "marin",
+      "instructions": "Fast, hushed, and alert. Build tension on predator words, then slow slightly for the wind reveal. Keep every line crisp and conversational.",
+      "speed": 1.12,
+      "output": "generated/nidoran-f-029-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "assets": [
+      {
+        "kind": "Nidoran♀ official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/29.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ],
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    }
+  },
+  "scenes": [
+    {
+      "id": "wind-against-predators",
+      "durationSeconds": 3.8,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "THE HIDDEN MECHANIC",
+      "headline": "WHISKERS AGAINST PREDATORS",
+      "narration": "Nidoran♀ reads wind to stay downwind of predators.",
+      "caption": "WHISKERS READ THE WIND",
+      "visual": "hook",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/29.png",
+      "accent": "#8E6BBE",
+      "facts": [
+        "WIND DIRECTION",
+        "DOWNWIND"
+      ]
+    },
+    {
+      "id": "venomous-horn",
+      "durationSeconds": 4.8,
+      "beat": "evidence",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "THE CONTRAST",
+      "headline": "SHE HAS ANOTHER DEFENSE",
+      "narration": "She dislikes fighting, but her small horn secretes potent venom.",
+      "caption": "MILD-MANNERED. VENOMOUS HORN.",
+      "visual": "gauntlet",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/29.png",
+      "accent": "#D6A8F2",
+      "facts": [
+        "DISLIKES FIGHTING",
+        "POTENT VENOM"
+      ]
+    },
+    {
+      "id": "whiskers-check-wind",
+      "durationSeconds": 4.8,
+      "beat": "escalation",
+      "role": "escalation",
+      "shot": "comparison",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "THE REAL MECHANIC",
+      "headline": "WHISKERS CHECK WIND DIRECTION",
+      "narration": "While foraging, her whiskers check which way the wind blows.",
+      "caption": "CHECK THE WIND FIRST",
+      "visual": "advantage",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/29.png",
+      "accent": "#8CC9D9",
+      "facts": [
+        "FORAGING",
+        "WHISKERS",
+        "WIND DIRECTION"
+      ]
+    },
+    {
+      "id": "stay-downwind",
+      "durationSeconds": 4.2,
+      "beat": "payoff",
+      "role": "payoff",
+      "shot": "tracking",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "THE NEXT MOVE",
+      "headline": "THEN SHE STAYS DOWNWIND",
+      "narration": "Her next move is simply staying downwind of predators.",
+      "caption": "STAY DOWNWIND",
+      "visual": "race",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/29.png",
+      "accent": "#B7E3E8",
+      "facts": [
+        "PREDATORS",
+        "STAYS DOWNWIND"
+      ]
+    },
+    {
+      "id": "quiet-defense",
+      "durationSeconds": 4.8,
+      "beat": "payoff",
+      "role": "payoff",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "THE SURPRISE",
+      "headline": "A DEFENSE WITHOUT FIGHTING",
+      "narration": "Her quiet answer to predators is wind direction, not fighting.",
+      "caption": "A QUIET DEFENSE, NOT A FIGHT",
+      "visual": "tradeoff",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/29.png",
+      "accent": "#D6A8F2",
+      "facts": [
+        "WIND DIRECTION",
+        "NOT FIGHTING"
+      ]
+    },
+    {
+      "id": "wind-or-venom",
+      "durationSeconds": 4.3,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "YOUR VERDICT",
+      "headline": "WIND OR VENOM?",
+      "narration": "Trust wind direction, or rely on her venomous horn?",
+      "caption": "WIND OR VENOM?",
+      "visual": "cta",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/29.png",
+      "accent": "#8CC9D9"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Nidoran♀",
+      "url": "https://www.pokemon.com/us/pokedex/nidoran-f"
+    },
+    {
+      "label": "Bulbapedia — Nidoran♀",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Nidoran%E2%99%80_(Pok%C3%A9mon)"
+    },
+    {
+      "label": "PokéAPI — Nidoran♀",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/29"
+    }
+  ]
+}

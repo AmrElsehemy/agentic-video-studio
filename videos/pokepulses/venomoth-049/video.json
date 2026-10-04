@@ -1,0 +1,234 @@
+{
+  "schemaVersion": 2,
+  "id": "venomoth-049",
+  "show": {
+    "id": "pokepulses",
+    "name": "PokePulses",
+    "handle": "@PokePulses",
+    "wordmark": {
+      "lead": "POKE",
+      "accent": "PULSES"
+    },
+    "fonts": {
+      "display": "Bebas Neue",
+      "body": "system"
+    }
+  },
+  "title": "Venomoth's Dust Color Decides How You Lose",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "comparison",
+    "numberRelevant": false,
+    "premise": "Venomoth's wing powder has two different effects, and its color tells you which one you face.",
+    "audiencePromise": "Show how Venomoth's scales signal two different dangers before the powder reaches you.",
+    "openLoop": "What exactly changes when Venomoth's wing powder changes color?",
+    "payoff": "Venomoth's wings turn one attack into two outcomes: poison you or stop you standing.",
+    "targetEmotion": "surprise",
+    "engagementQuestion": "Which loss feels worse to you: poison or paralysis?",
+    "targetSecondsBetweenVisualChanges": 0.7
+  },
+  "subject": {
+    "name": "Venomoth",
+    "category": "Poison Moth Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/49.png",
+    "identifier": "#049"
+  },
+  "related": [
+    {
+      "name": "Venonat",
+      "relation": "evolves-from",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/48.png",
+      "identifier": "#048"
+    }
+  ],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#090A0F",
+    "surface": "#171923",
+    "primary": "#A9D94C",
+    "secondary": "#D9E2E8",
+    "ink": "#F5F7FA"
+  },
+  "audio": {
+    "music": "generated/venomoth-049-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 126,
+      "notes": [
+        110,
+        130.81,
+        146.83,
+        164.81,
+        146.83,
+        130.81,
+        98,
+        130.81
+      ]
+    },
+    "voice": {
+      "provider": "openai",
+      "model": "gpt-4o-mini-tts",
+      "voice": "marin",
+      "instructions": "Use a tense, curious pace. Stress color, dark, light, poison, and paralysis. Pause briefly before each contrast.",
+      "speed": 1.12,
+      "output": "generated/venomoth-049-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "assets": [
+      {
+        "kind": "Venomoth official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/49.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ],
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    }
+  },
+  "scenes": [
+    {
+      "id": "color-decides",
+      "durationSeconds": 4,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "comparison",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "VENOMOTH'S WING DUST",
+      "headline": "COLOR DECIDES YOUR LOSS",
+      "narration": "One color poisons. The other stops you standing.",
+      "caption": "THE COLOR IS A WARNING",
+      "visual": "hook",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/49.png",
+      "accent": "#A9D94C"
+    },
+    {
+      "id": "coded-scales",
+      "durationSeconds": 5.2,
+      "beat": "evidence",
+      "role": "evidence",
+      "shot": "wide",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "THE WINGS REVEAL IT",
+      "headline": "COLOR-CODED SCALES",
+      "narration": "Its wing scales are color-coded to show which poison it carries.",
+      "caption": "THE SCALES SIGNAL THE DANGER",
+      "visual": "gauntlet",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/49.png",
+      "accent": "#7B5A9E",
+      "facts": [
+        "WING SCALES",
+        "COLOR-CODED",
+        "POISON"
+      ]
+    },
+    {
+      "id": "contact-danger",
+      "durationSeconds": 4.4,
+      "beat": "evidence",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "CONTACT MAKES IT WORSE",
+      "headline": "THE POWDER STICKS",
+      "narration": "Hard-to-remove scales leak poison when they touch your skin.",
+      "caption": "CONTACT IS ENOUGH",
+      "visual": "advantage",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/49.png",
+      "accent": "#6B467D",
+      "facts": [
+        "HARD TO REMOVE",
+        "TOUCHES SKIN",
+        "POISON LEAKS"
+      ]
+    },
+    {
+      "id": "powder-everywhere",
+      "durationSeconds": 4.3,
+      "beat": "escalation",
+      "role": "escalation",
+      "shot": "tracking",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "WHEN VENOMOTH ATTACKS",
+      "headline": "THE DUST GOES EVERYWHERE",
+      "narration": "Then Venomoth flaps violently, scattering poisonous powder all around.",
+      "caption": "ONE FLAP WIDENS THE DANGER",
+      "visual": "race",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/49.png",
+      "accent": "#A9D94C",
+      "facts": [
+        "FLAPS VIOLENTLY",
+        "SCATTERS POWDER",
+        "ALL AROUND"
+      ]
+    },
+    {
+      "id": "light-isnt-safer",
+      "durationSeconds": 5.2,
+      "beat": "twist",
+      "role": "twist",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "THE COUNTERPOINT",
+      "headline": "LIGHT ISN'T SAFER",
+      "narration": "Light powder sounds better, until paralysis leaves you unable to stand.",
+      "caption": "DIFFERENT EFFECT. SAME THREAT.",
+      "visual": "tradeoff",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/49.png",
+      "accent": "#D9E2E8",
+      "facts": [
+        "LIGHT POWDER",
+        "PARALYSIS",
+        "UNABLE TO STAND"
+      ]
+    },
+    {
+      "id": "choose-your-loss",
+      "durationSeconds": 4.3,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "YOUR CALL",
+      "headline": "WHICH EFFECT IS WORSE?",
+      "narration": "Which loss feels worse to you: poison or paralysis?",
+      "caption": "POISON OR PARALYSIS?",
+      "visual": "cta",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/49.png",
+      "accent": "#E6C85C"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Venomoth",
+      "url": "https://www.pokemon.com/us/pokedex/venomoth"
+    },
+    {
+      "label": "Bulbapedia — Venomoth",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Venomoth_(Pok%C3%A9mon)"
+    },
+    {
+      "label": "PokéAPI — Venomoth",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/49"
+    }
+  ]
+}

@@ -1,0 +1,181 @@
+{
+  "id": "raichu-026",
+  "title": "Raichu’s Strangest Response Begins When Its Pouches Run Empty",
+  "storyPattern": "mechanic",
+  "numberRelevant": false,
+  "premise": "When Raichu’s electric pouches run empty, it raises its tail to gather electricity from the atmosphere.",
+  "audiencePromise": "Reveal why Raichu raises its tail when its electric pouches run empty, then show what its tail can do at both extremes.",
+  "openLoop": "Why would empty electric pouches make Raichu raise its tail?",
+  "payoff": "Raichu’s tail can discharge excess power or gather electricity from the atmosphere when its pouches run empty.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "Clever way to gather electricity, or strange tail trick?",
+  "subject": {
+    "name": "Raichu",
+    "category": "Mouse Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/26.png",
+    "identifier": "#026"
+  },
+  "related": [
+    {
+      "name": "Pikachu",
+      "relation": "evolves-from",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png",
+      "identifier": "#025"
+    },
+    {
+      "name": "Pichu",
+      "relation": "evolves-from",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/172.png",
+      "identifier": "#172"
+    },
+    {
+      "name": "Raichu Alola",
+      "relation": "form",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10100.png",
+      "identifier": "#026"
+    }
+  ],
+  "palette": {
+    "background": "#101525",
+    "surface": "#1C2740",
+    "primary": "#F7C843",
+    "secondary": "#5CC8FF",
+    "ink": "#F5F7FA"
+  },
+  "voice": {
+    "instructions": "Use a quick, curious pace with crisp emphasis on empty, raises, and atmosphere. Build suspense through the tail’s two different jobs, then pause before the final choice."
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    },
+    "assets": [
+      {
+        "kind": "Raichu official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/26.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "empty-pouches",
+      "beat": "hook",
+      "eyebrow": "POWER FAILURE",
+      "headline": "EMPTY POUCHES START THIS",
+      "narration": "Raichu’s strangest response begins when its pouches run empty.",
+      "caption": "EMPTY POUCHES START THIS",
+      "facts": [
+        "ELECTRIC POUCHES",
+        "RUN EMPTY"
+      ],
+      "accent": "#F7C843",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/26.png"
+    },
+    {
+      "id": "pokedex-clue",
+      "beat": "evidence",
+      "eyebrow": "POKÉDEX CLUE",
+      "headline": "THE EMPTY STATE MATTERS",
+      "narration": "Its Pokédex entry links empty pouches to one surprising response.",
+      "caption": "THE EMPTY STATE MATTERS",
+      "facts": [
+        "POKÉDEX ENTRY",
+        "SURPRISING RESPONSE"
+      ],
+      "accent": "#5CC8FF",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/26.png"
+    },
+    {
+      "id": "tail-has-two-jobs",
+      "beat": "escalation",
+      "eyebrow": "TWO DIRECTIONS",
+      "headline": "THE TAIL HANDLES BOTH EXTREMES",
+      "narration": "When overcharged, its tail discharges. When empty, it gathers electricity.",
+      "caption": "DISCHARGE OR GATHER",
+      "facts": [
+        "DISCHARGES EXCESS",
+        "GATHERS ELECTRICITY"
+      ],
+      "accent": "#F7C843",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/26.png",
+      "primitive": {
+        "kind": "checklist",
+        "items": [
+          {
+            "label": "DISCHARGE EXCESS",
+            "met": true
+          },
+          {
+            "label": "GATHER ELECTRICITY",
+            "met": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "tail-rises",
+      "beat": "payoff",
+      "eyebrow": "THE RESPONSE",
+      "headline": "THE TAIL REACHES UP",
+      "narration": "With its tail raised, Raichu gathers electricity from the atmosphere.",
+      "caption": "THE ATMOSPHERE BECOMES THE SOURCE",
+      "facts": [
+        "RAISES ITS TAIL",
+        "ATMOSPHERE"
+      ],
+      "accent": "#5CC8FF",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/26.png"
+    },
+    {
+      "id": "tail-as-outlet-collector",
+      "beat": "payoff",
+      "eyebrow": "THE BIGGER TWIST",
+      "headline": "ONE TAIL. TWO ELECTRIC JOBS.",
+      "narration": "Its tail can discharge excess power or gather electricity from above.",
+      "caption": "DISCHARGE BELOW. GATHER ABOVE.",
+      "facts": [
+        "EXCESS POWER",
+        "ATMOSPHERIC ELECTRICITY"
+      ],
+      "accent": "#F7C843",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/26.png"
+    },
+    {
+      "id": "clever-or-strange",
+      "beat": "verdict",
+      "eyebrow": "YOUR VERDICT",
+      "headline": "CLEVER DESIGN OR TAIL TRICK?",
+      "narration": "Clever way to gather electricity, or strange tail trick?",
+      "caption": "CLEVER OR STRANGE?",
+      "accent": "#5CC8FF",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/26.png"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Raichu",
+      "url": "https://www.pokemon.com/us/pokedex/raichu",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Raichu",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Raichu_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Raichu",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/26",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

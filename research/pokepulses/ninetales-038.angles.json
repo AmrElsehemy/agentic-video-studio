@@ -1,0 +1,169 @@
+{
+  "episodeId": "ninetales-038",
+  "createdAt": "2026-10-03T19:40:19.223Z",
+  "chosen": {
+    "id": "thousand-year-curse",
+    "premise": "Touching one of Ninetales' tails can curse you—and your descendants—for 1,000 years.",
+    "hook": "Touch one tail, and your family may suffer for a millennium.",
+    "archetype": "mystery",
+    "evidence": [
+      "pokedexEntries[0].text",
+      "pokedexEntries[15].text"
+    ],
+    "visualIdea": "A hand reaches toward a tail as a 1,000-year curse spreads through generations.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 5,
+      "specificity": 5,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 25,
+    "note": "A highly specific Ninetales-only threat with strong multi-generation visuals. The Red/LeafGreen entries support the tail curse, while Ultra Sun explicitly adds descendants and 1,000 years."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "thousand-year-curse",
+          "premise": "Touching one of Ninetales' tails can curse you—and your descendants—for 1,000 years.",
+          "hook": "Touch one tail, and your family may suffer for a millennium.",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[0].text",
+            "pokedexEntries[15].text"
+          ],
+          "visualIdea": "A hand reaches toward a tail as a 1,000-year curse spreads through generations.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 25,
+          "note": "A highly specific Ninetales-only threat with strong multi-generation visuals. The Red/LeafGreen entries support the tail curse, while Ultra Sun explicitly adds descendants and 1,000 years."
+        },
+        {
+          "id": "alolan-type-swap",
+          "premise": "Alolan Ninetales keeps the same 1.1-meter height and 19.9-kilogram weight but changes from Fire to Ice/Fairy.",
+          "hook": "Same size, same weight—but Ninetales changes its entire type identity.",
+          "archetype": "comparison",
+          "evidence": [
+            "types",
+            "heightMeters",
+            "weightKg",
+            "varieties[0].name",
+            "varieties[0].types",
+            "varieties[0].heightMeters",
+            "varieties[0].weightKg"
+          ],
+          "visualIdea": "A stat card holds height and weight steady while the type icons switch from Fire to Ice and Fairy.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 23,
+          "note": "An excellent concrete comparison with exact unchanged measurements and a dramatic Fire-to-Ice/Fairy switch, though regional-form type changes are a somewhat familiar Pokémon format."
+        },
+        {
+          "id": "nine-powers-nine-origins",
+          "premise": "Ninetales' nine tails supposedly hold nine different powers, matching legends of nine beings becoming one.",
+          "hook": "Ninetales may be nine supernatural beings fused into one Pokémon.",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[2].text",
+            "pokedexEntries[6].text",
+            "pokedexEntries[13].text"
+          ],
+          "visualIdea": "Nine glowing tails split into nine silhouettes before merging into Ninetales.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 22,
+          "note": "Strongly tied to Ninetales and visually clear, but it combines separate legends rather than establishing one definite rule; the nine tails having unique powers is explicitly framed as a legend."
+        },
+        {
+          "id": "hypnotic-intelligence",
+          "premise": "Ninetales understands human speech, controls minds with its eyes, and hypnotizes foes with flames.",
+          "hook": "Ninetales can understand you—and then hypnotize you.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[5].text",
+            "pokedexEntries[6].text",
+            "pokedexEntries[16].text"
+          ],
+          "visualIdea": "Speech bubbles become red eye beams, then flickering flames surround a hypnotized opponent.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 3,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 21,
+          "note": "The combination of understanding speech, mind control, and flame hypnosis is well supported and cinematic, but it is a bundle of abilities rather than one sharply defined premise."
+        },
+        {
+          "id": "fire-stone-evolution",
+          "premise": "Vulpix becomes Ninetales by using a Fire Stone, not by reaching a level.",
+          "hook": "Ninetales does not evolve at a level—it evolves with a stone.",
+          "archetype": "mechanic",
+          "evidence": [
+            "evolutionChain[0].name",
+            "evolutionChain[1].evolvesFrom",
+            "evolutionChain[1].method"
+          ],
+          "visualIdea": "Show Vulpix beside a Fire Stone, then flash-cut to its nine-tailed evolution.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 3,
+            "surprise": 3,
+            "specificity": 5,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 20,
+          "note": "Concrete and well supported, but evolution-item angles work for many Pokémon and are familiar to most fans. The method comes from trusted secondary research rather than a Pokédex entry."
+        },
+        {
+          "id": "golden-aging",
+          "premise": "A long-lived Ninetales' fur is said to shine gold, tying its appearance to its thousand-year lifespan.",
+          "hook": "For Ninetales, living longer supposedly makes its fur turn gold.",
+          "archetype": "transformation",
+          "evidence": [
+            "pokedexEntries[7].text",
+            "pokedexEntries[8].text",
+            "pokedexEntries[19].text"
+          ],
+          "visualIdea": "Ninetales' coat gradually shifts from ordinary fur into a bright, gleaming gold.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 3,
+            "visual": 4,
+            "support": 3
+          },
+          "total": 18,
+          "note": "The source says a long-lived Ninetales will have fur that shines like gold, but the premise overstates this as a confirmed gradual color transformation. The visual can imply a process the research does not establish."
+        }
+      ],
+      "rejected": [],
+      "request": "No stronger angle is required; the curse premise has the best combination of uniqueness, surprise, specificity, visual potential, and direct Pokédex support."
+    }
+  ]
+}

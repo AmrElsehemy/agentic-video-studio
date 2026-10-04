@@ -1,0 +1,126 @@
+{
+  "episodeId": "sandshrew-027",
+  "createdAt": "2026-10-03T19:04:34.325Z",
+  "chosen": {
+    "id": "volcano-dryer",
+    "premise": "When moisture wrinkles Sandshrew’s skin, it travels to a volcano and lies on geothermal heat to dry out.",
+    "hook": "If Sandshrew gets wrinkled by moisture, it heads straight for a volcano.",
+    "archetype": "transformation",
+    "evidence": [
+      "pokedexEntries[15].text"
+    ],
+    "visualIdea": "Morph Sandshrew from a wrinkled, damp state into a flat silhouette basking on a glowing geothermal spot.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 5,
+      "specificity": 5,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 25,
+    "note": "The single-entry premise is exceptionally specific, strange, memorable, and directly supported: moisture wrinkles its skin, so it uses geothermal heat to dry itself."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "volcano-dryer",
+          "premise": "When moisture wrinkles Sandshrew’s skin, it travels to a volcano and lies on geothermal heat to dry out.",
+          "hook": "If Sandshrew gets wrinkled by moisture, it heads straight for a volcano.",
+          "archetype": "transformation",
+          "evidence": [
+            "pokedexEntries[15].text"
+          ],
+          "visualIdea": "Morph Sandshrew from a wrinkled, damp state into a flat silhouette basking on a glowing geothermal spot.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 25,
+          "note": "The single-entry premise is exceptionally specific, strange, memorable, and directly supported: moisture wrinkles its skin, so it uses geothermal heat to dry itself."
+        },
+        {
+          "id": "the-bouncing-ball",
+          "premise": "When Sandshrew curls into a ball, attacks bounce off—and it can even survive a great fall by bouncing.",
+          "hook": "Sandshrew’s emergency move is turning itself into a bouncing ball.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[2].text",
+            "pokedexEntries[7].text",
+            "pokedexEntries[8].text"
+          ],
+          "visualIdea": "Drop a curled Sandshrew, show it bounce, then have incoming attacks ricochet harmlessly away.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 22,
+          "note": "A highly visual defensive mechanic unique to Sandshrew, though “any attack” and surviving a great fall are broad Pokédex claims rather than precisely defined limits."
+        },
+        {
+          "id": "sand-bath-defense",
+          "premise": "Sandshrew bathes in dry grit to remove dirt and moisture clinging to its body.",
+          "hook": "Sandshrew doesn’t bathe in water—it uses sand to get clean.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[16].text",
+            "pokedexEntries[4].text"
+          ],
+          "visualIdea": "Show Sandshrew rolling through grit as droplets and dirt visibly peel away from its hide.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 22,
+          "note": "Strongly supported and easy to depict, but sand bathing is a less surprising hook than the volcano behavior and overlaps with Sandshrew’s expected desert identity."
+        },
+        {
+          "id": "water-without-waste",
+          "premise": "Sandshrew dislikes water, yet its body absorbs it without waste to survive in the desert.",
+          "hook": "Sandshrew hates water—but its body is built to save every drop.",
+          "archetype": "comparison",
+          "evidence": [
+            "pokedexEntries[0].text",
+            "pokedexEntries[5].text"
+          ],
+          "visualIdea": "Show water repelled by Sandshrew, then animate each absorbed drop being conserved in a desert survival meter.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 4,
+            "support": 4
+          },
+          "total": 20,
+          "note": "The water aversion versus water-conservation contradiction is strong and well supported, but the proposed water-repelling visual conflicts with the claim that Sandshrew absorbs water."
+        }
+      ],
+      "rejected": [
+        {
+          "id": "arctic-sandshrew",
+          "reason": "hook: Too big: expected string to have <=80 characters"
+        },
+        {
+          "id": "claws-through-stone",
+          "reason": "hook: Too big: expected string to have <=80 characters"
+        }
+      ],
+      "request": "N/A—the volcano-dryer angle is strong enough. Stronger alternatives would need an equally specific, surprising behavior backed by a direct Pokédex statement and a clear visual transformation."
+    }
+  ]
+}

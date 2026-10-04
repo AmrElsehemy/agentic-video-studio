@@ -1,0 +1,198 @@
+{
+  "id": "clefairy-035",
+  "title": "Why Clefairy Gather Under a Full Moon",
+  "storyPattern": "mystery",
+  "numberRelevant": false,
+  "premise": "Clefairy is rarely seen, except on full-moon nights when groups gather from all over to dance.",
+  "audiencePromise": "Follow the clues from Clefairy's rarity to its strange full-moon gathering and quiet return at dawn.",
+  "openLoop": "Why do rare Clefairy gather from all over under full moons?",
+  "payoff": "The full moon reveals not one Clefairy, but a dancing gathering surrounded by an abnormal magnetic field before dawn brings mountain sleep.",
+  "targetEmotion": "curiosity",
+  "engagementQuestion": "Would you seek the dance, or avoid its magnetic field?",
+  "subject": {
+    "name": "Clefairy",
+    "category": "Fairy Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/35.png",
+    "identifier": "#035"
+  },
+  "related": [
+    {
+      "name": "Clefable",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/36.png",
+      "identifier": "#036"
+    },
+    {
+      "name": "Cleffa",
+      "relation": "evolves-from",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/173.png",
+      "identifier": "#173"
+    }
+  ],
+  "palette": {
+    "background": "#090B1A",
+    "surface": "#171A32",
+    "primary": "#F4D9FF",
+    "secondary": "#8EE7FF",
+    "ink": "#FFFFFF"
+  },
+  "voice": {
+    "instructions": "Use a hushed, curious tone. Start with surprise, then build tension through each reveal. Slow slightly on full moon and dawn. Make the final choice direct and playful."
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    },
+    "assets": [
+      {
+        "kind": "Clefairy official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/35.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "rare-gathering",
+      "beat": "hook",
+      "eyebrow": "THE STRANGE EXCEPTION",
+      "headline": "RARE, THEN GROUPS GATHER",
+      "narration": "Clefairy is rare. So why do groups gather?",
+      "caption": "THE FULL-MOON MYSTERY",
+      "accent": "#8EE7FF",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/35.png"
+    },
+    {
+      "id": "full-moon-clue",
+      "beat": "clue",
+      "eyebrow": "THE FIRST CLUE",
+      "headline": "FULL MOON MAKES IT EASIER",
+      "narration": "Full moons make this difficult-to-find Pokémon easier to spot.",
+      "caption": "RARE... EXCEPT UNDER A FULL MOON",
+      "facts": [
+        "DIFFICULT TO FIND",
+        "FULL MOON"
+      ],
+      "accent": "#F4D9FF",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/35.png",
+      "primitive": {
+        "kind": "checklist",
+        "items": [
+          {
+            "label": "DIFFICULT TO FIND",
+            "met": true
+          },
+          {
+            "label": "FULL MOON",
+            "met": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "magnetic-field",
+      "beat": "escalation",
+      "eyebrow": "SOMETHING ELSE CHANGES",
+      "headline": "THE AREA TURNS MAGNETIC",
+      "narration": "Their gathering surrounds the area with an abnormal magnetic field.",
+      "caption": "THE FULL MOON HAS A STRANGE EFFECT",
+      "facts": [
+        "ABNORMAL MAGNETIC FIELD"
+      ],
+      "accent": "#B68CFF",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/35.png"
+    },
+    {
+      "id": "groups-from-all-over",
+      "beat": "reveal",
+      "eyebrow": "THE BIG REVEAL",
+      "headline": "THEY COME FROM ALL OVER",
+      "narration": "Groups have come from all over to dance together.",
+      "caption": "A FULL-MOON GATHERING",
+      "facts": [
+        "GATHER FROM ALL OVER",
+        "DANCE TOGETHER"
+      ],
+      "accent": "#FFE58A",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/35.png",
+      "primitive": {
+        "kind": "checklist",
+        "items": [
+          {
+            "label": "FROM ALL OVER",
+            "met": true
+          },
+          {
+            "label": "DANCE TOGETHER",
+            "met": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "dawn-ends-the-night",
+      "beat": "reveal",
+      "eyebrow": "THEN DAWN ARRIVES",
+      "headline": "THE DANCERS DISAPPEAR",
+      "narration": "At dawn, tired Clefairy sleep nestled together in quiet mountains.",
+      "caption": "THE GATHERING ENDS IN MOUNTAIN SLEEP",
+      "facts": [
+        "TIRED AT DAWN",
+        "QUIET MOUNTAINS",
+        "SLEEP NESTLED TOGETHER"
+      ],
+      "accent": "#FF9BCB",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/35.png",
+      "primitive": {
+        "kind": "timeline",
+        "steps": [
+          {
+            "label": "FULL MOON",
+            "detail": "GROUPS DANCE"
+          },
+          {
+            "label": "DAWN",
+            "detail": "SLEEP NESTLED TOGETHER"
+          }
+        ],
+        "active": 1
+      }
+    },
+    {
+      "id": "seek-or-avoid",
+      "beat": "verdict",
+      "eyebrow": "YOUR VERDICT",
+      "headline": "CHASE THE DANCE OR STAY AWAY?",
+      "narration": "Would you seek the dance, or avoid its magnetic field?",
+      "caption": "FULL-MOON SIGHTING: WORTH THE RISK?",
+      "accent": "#8EE7FF",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/35.png"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Clefairy",
+      "url": "https://www.pokemon.com/us/pokedex/clefairy",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Clefairy",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Clefairy_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Clefairy",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/35",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

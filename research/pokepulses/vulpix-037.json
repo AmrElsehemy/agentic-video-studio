@@ -1,0 +1,175 @@
+{
+  "schemaVersion": 1,
+  "id": "vulpix-037",
+  "number": 37,
+  "index": "#037",
+  "name": "Vulpix",
+  "slug": "vulpix",
+  "category": "Fox Pokémon",
+  "generation": "Generation I",
+  "isLegendary": false,
+  "isMythical": false,
+  "types": [
+    "Fire"
+  ],
+  "heightMeters": 0.6,
+  "weightKg": 9.9,
+  "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/37.png",
+  "pokedexEntries": [
+    {
+      "game": "Red",
+      "text": "At the time of birth, it has just one tail. The tail splits from its tip as it grows older."
+    },
+    {
+      "game": "Yellow",
+      "text": "Both its fur and its tails are beautiful. As it grows, the tails split and form more tails."
+    },
+    {
+      "game": "Gold",
+      "text": "As it develops, its single white tail gains color and splits into six. It is quite warm and cuddly."
+    },
+    {
+      "game": "Silver",
+      "text": "If it is attacked by an enemy that is stronger than itself, it feigns injury to fool the enemy and escapes."
+    },
+    {
+      "game": "Crystal",
+      "text": "As its body grows larger, its six warm tails become more beautiful, with a more luxur ious coat of fur."
+    },
+    {
+      "game": "Ruby",
+      "text": "At the time of its birth, VULPIX has one white tail. The tail separates into six if this POKéMON receives plenty of love from its TRAINER. The six tails become magnificently curled."
+    },
+    {
+      "game": "Sapphire",
+      "text": "Inside VULPIX’s body burns a flame that never goes out. During the daytime, when the temperatures rise, this POKéMON releases flames from its mouth to prevent its body from growing too hot."
+    },
+    {
+      "game": "Emerald",
+      "text": "It can freely control fire, making fiery orbs fly like will-o’-the-wisps. Just before evolution, its six tails grow hot as if on fire."
+    },
+    {
+      "game": "Firered",
+      "text": "While young, it has six gorgeous tails. When it grows, several new tails are sprouted."
+    },
+    {
+      "game": "Leafgreen",
+      "text": "When it is born, it has just one snow- white tail. The tail splits from its tip as it grows older."
+    },
+    {
+      "game": "Diamond",
+      "text": "It controls balls of fire. As it grows, its six tails split from their tips to make more tails."
+    },
+    {
+      "game": "Black 2",
+      "text": "As each tail grows, its fur becomes more lustrous. When held, it feels slightly warm."
+    },
+    {
+      "game": "X",
+      "text": "When it is born, it has just one snow-white tail. The tail splits from its tip as it grows older."
+    },
+    {
+      "game": "Sun",
+      "text": "Its beautiful fur and tails have made it very popular. As it grows, its tails split to form more tails."
+    },
+    {
+      "game": "Moon",
+      "text": "From its mouth spew flames that seem to resemble the spirits of the deceased. Some people mistakenly think this fire is a ghost."
+    },
+    {
+      "game": "Ultra Sun",
+      "text": "Its beautiful tails have made it very popular. However, if it’s not brushed diligently, it will be a mass of tangles before you know it."
+    },
+    {
+      "game": "Ultra Moon",
+      "text": "It manipulates balls of fire to catch its prey. If you raise one from when it’s young, it will grow close to you like a puppy Pokémon."
+    },
+    {
+      "game": "Legends Arceus",
+      "text": "In its belly burns a fire, which Vulpix spits out in the form of fireballs. When young, this Pokémon has but one white tail. As the Pokémon matures, this single tail splits into six."
+    }
+  ],
+  "evolutionChain": [
+    {
+      "name": "Vulpix",
+      "index": "#037",
+      "stage": 1,
+      "types": [
+        "Fire"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/37.png",
+      "isSubject": true
+    },
+    {
+      "name": "Ninetales",
+      "index": "#038",
+      "stage": 2,
+      "evolvesFrom": "Vulpix",
+      "method": "Use Item, Fire Stone",
+      "types": [
+        "Fire"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/38.png",
+      "isSubject": false
+    }
+  ],
+  "varieties": [
+    {
+      "name": "Vulpix Alola",
+      "types": [
+        "Ice"
+      ],
+      "heightMeters": 0.6,
+      "weightKg": 9.9,
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10103.png"
+    }
+  ],
+  "lore": [],
+  "tiers": {
+    "official": [
+      "name",
+      "index",
+      "number",
+      "category",
+      "generation",
+      "isLegendary",
+      "isMythical",
+      "types",
+      "heightMeters",
+      "weightKg",
+      "pokedexEntries",
+      "evolutionChain[].name",
+      "evolutionChain[].index",
+      "evolutionChain[].types",
+      "evolutionChain[].stage",
+      "varieties[].types",
+      "varieties[].heightMeters",
+      "varieties[].weightKg"
+    ],
+    "trusted_secondary": [
+      "evolutionChain[].method",
+      "evolutionChain[].evolvesFrom",
+      "varieties[].name"
+    ],
+    "community": [
+      "lore"
+    ]
+  },
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Vulpix",
+      "url": "https://www.pokemon.com/us/pokedex/vulpix",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Vulpix",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Vulpix_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Vulpix",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/37",
+      "tier": "trusted_secondary"
+    }
+  ]
+}
