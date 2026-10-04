@@ -5,7 +5,7 @@ import test from 'node:test';
 import {fileURLToPath} from 'node:url';
 import {creditLine, episodeDescription} from '../scripts/lib/description.mjs';
 import {loadShow} from '../scripts/lib/shows.mjs';
-import {youtubeMetadata} from '../scripts/lib/youtube.mjs';
+import {addToPlaylist, youtubeMetadata} from '../scripts/lib/youtube.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -38,7 +38,8 @@ test('youtube metadata', async (t) => {
   });
 
   await t.test('does not guess made-for-kids status', () => {
-    const unspecified = youtubeMetadata(manifest, {privacy: 'private'});
+    const undeclared = {...loadShow('pokepulses'), publishing: {...loadShow('pokepulses').publishing!, madeForKids: undefined}};
+    const unspecified = youtubeMetadata(manifest, {privacy: 'private', show: undeclared});
     assert.equal('selfDeclaredMadeForKids' in unspecified.status, false);
     const explicit = youtubeMetadata(manifest, {privacy: 'private', madeForKids: false});
     assert.equal(explicit.status.selfDeclaredMadeForKids, false);
@@ -74,5 +75,46 @@ test('youtube description', async (t) => {
   await t.test('is the same text the description file shows', () => {
     const silkRoad = read('geographica', 'silk-road');
     assert.equal(youtubeMetadata(silkRoad, {show: loadShow('geographica')}).snippet.description, episodeDescription(silkRoad, loadShow('geographica')));
+  });
+});
+
+test('made-for-kids declaration', async (t) => {
+  const show = (madeForKids?: boolean) => ({...loadShow('pokepulses'), publishing: {...loadShow('pokepulses').publishing!, madeForKids}});
+  await t.test('uses the show profile unless the flag overrides it', () => {
+    assert.equal(youtubeMetadata(manifest, {show: show(false)}).status.selfDeclaredMadeForKids, false);
+    assert.equal(youtubeMetadata(manifest, {show: show(false), madeForKids: true}).status.selfDeclaredMadeForKids, true);
+  });
+  await t.test('leaves it undeclared when neither says', () => {
+    assert.equal('selfDeclaredMadeForKids' in youtubeMetadata(manifest, {show: show(undefined)}).status, false);
+  });
+});
+
+test('adding an upload to a playlist', async (t) => {
+  const json = (body: unknown, status = 200) => new Response(JSON.stringify(body), {status});
+
+  await t.test('inserts the video and sends the playlist and video ids', async () => {
+    const calls: {url: string; body?: any}[] = [];
+    const fetchImpl = (async (url: string | URL, init?: RequestInit) => {
+      calls.push({url: String(url), body: init?.body ? JSON.parse(String(init.body)) : undefined});
+      return init?.method === 'POST' ? json({id: 'item'}) : json({items: [{contentDetails: {videoId: 'other'}}]});
+    }) as typeof fetch;
+    assert.equal(await addToPlaylist('token', 'PLabc1234567', 'vid1', {fetchImpl}), true);
+    const insert = calls.find((call) => call.body);
+    assert.deepEqual(insert?.body, {snippet: {playlistId: 'PLabc1234567', resourceId: {kind: 'youtube#video', videoId: 'vid1'}}});
+  });
+
+  await t.test('skips a video that is already in the playlist', async () => {
+    let posted = false;
+    const fetchImpl = (async (_url: string | URL, init?: RequestInit) => {
+      if (init?.method === 'POST') posted = true;
+      return json({items: [{contentDetails: {videoId: 'vid1'}}]});
+    }) as typeof fetch;
+    assert.equal(await addToPlaylist('token', 'PLabc1234567', 'vid1', {fetchImpl}), false);
+    assert.equal(posted, false);
+  });
+
+  await t.test('explains a refused insert as a missing permission', async () => {
+    const fetchImpl = (async (_url: string | URL, init?: RequestInit) => (init?.method === 'POST' ? json({error: 'insufficientPermissions'}, 403) : json({items: []}))) as typeof fetch;
+    await assert.rejects(addToPlaylist('token', 'PLabc1234567', 'vid1', {fetchImpl}), /youtube:auth again/);
   });
 });

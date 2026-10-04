@@ -10,6 +10,8 @@ export const YOUTUBE_UPLOAD_SCOPE = 'https://www.googleapis.com/auth/youtube.upl
 export const YOUTUBE_ANALYTICS_SCOPE = 'https://www.googleapis.com/auth/yt-analytics.readonly';
 /** Read-only channel data: which channel a login belongs to, and its uploads. */
 export const YOUTUBE_READONLY_SCOPE = 'https://www.googleapis.com/auth/youtube.readonly';
+/** Manage the channel's playlists (adding an upload to one). Broader than upload: it can also edit videos. */
+export const YOUTUBE_PLAYLIST_SCOPE = 'https://www.googleapis.com/auth/youtube.force-ssl';
 
 // Each show has its own channel, so its own login: .secrets/youtube-token-<show>.json, or
 // YOUTUBE_REFRESH_TOKEN_<SHOW> (e.g. YOUTUBE_REFRESH_TOKEN_GEOGRAPHICA). PokePulses, the
@@ -120,6 +122,31 @@ export const listUploads = async (accessToken, playlistId, {fetchImpl = fetch} =
   return videos;
 };
 
+/** The ids of the videos already in a playlist. */
+export const playlistVideoIds = async (accessToken, playlistId, {fetchImpl = fetch} = {}) => {
+  const ids = new Set();
+  let pageToken;
+  do {
+    const data = await youtubeGet(accessToken, 'playlistItems', {part: 'contentDetails', playlistId, maxResults: '50', ...(pageToken ? {pageToken} : {})}, fetchImpl);
+    for (const item of data.items ?? []) if (item.contentDetails?.videoId) ids.add(item.contentDetails.videoId);
+    pageToken = data.nextPageToken;
+  } while (pageToken);
+  return ids;
+};
+
+/** Append a video to a playlist; false when it was already there. */
+export const addToPlaylist = async (accessToken, playlistId, videoId, {fetchImpl = fetch} = {}) => {
+  if ((await playlistVideoIds(accessToken, playlistId, {fetchImpl})).has(videoId)) return false;
+  const response = await fetchImpl('https://www.googleapis.com/youtube/v3/playlistItems?part=snippet', {
+    method: 'POST',
+    headers: {authorization: `Bearer ${accessToken}`, 'content-type': 'application/json'},
+    body: JSON.stringify({snippet: {playlistId, resourceId: {kind: 'youtube#video', videoId}}}),
+  });
+  if (response.status === 403) throw new Error(`YouTube refused to add ${videoId} to playlist ${playlistId} (403). The login may lack the playlist permission: run npm run youtube:auth again and approve it. ${await response.text()}`);
+  if (!response.ok) throw new Error(`Adding ${videoId} to playlist ${playlistId} failed (${response.status}): ${await response.text()}`);
+  return true;
+};
+
 /** A title reduced to its words: no hashtags, punctuation or case, so "Why Bulbasaur Is…  #Shorts" matches its episode. */
 export const titleKey = (title) => title.toLowerCase().replace(/#\S+/g, ' ').normalize('NFKD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, ' ').trim();
 
@@ -159,7 +186,7 @@ export const authorizeInteractively = async (root, {port = 53682, show = LEGACY_
     client_id: client.client_id,
     redirect_uri: redirectUri,
     response_type: 'code',
-    scope: [YOUTUBE_UPLOAD_SCOPE, YOUTUBE_ANALYTICS_SCOPE, YOUTUBE_READONLY_SCOPE].join(' '),
+    scope: [YOUTUBE_UPLOAD_SCOPE, YOUTUBE_ANALYTICS_SCOPE, YOUTUBE_READONLY_SCOPE, YOUTUBE_PLAYLIST_SCOPE].join(' '),
     access_type: 'offline',
     prompt: 'consent',
     state,
@@ -213,7 +240,8 @@ export const youtubeMetadata = (manifest, {privacy = 'private', publishAt, madeF
   const tags = episodeTags(manifest, show);
   const status = {privacyStatus: publishAt ? 'private' : privacy};
   if (publishAt) status.publishAt = new Date(publishAt).toISOString();
-  if (madeForKids !== undefined) status.selfDeclaredMadeForKids = madeForKids;
+  const declaredForKids = madeForKids ?? show.publishing?.madeForKids;
+  if (declaredForKids !== undefined) status.selfDeclaredMadeForKids = declaredForKids;
   return {
     snippet: {title, description, tags, categoryId: process.env.YOUTUBE_CATEGORY_ID || '27', defaultLanguage: 'en'},
     status,

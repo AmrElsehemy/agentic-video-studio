@@ -38,6 +38,10 @@ export const showSchema = z.object({
     tags: z.array(z.string().min(1).max(40)).min(1).max(20),
     /** The show's YouTube channel; uploads and links refuse a login for any other channel. */
     channelId: z.string().regex(/^UC[\w-]{22}$/, 'A YouTube channel id, e.g. "UCAdCQV1ieA3NjmNiutIRwHQ"').optional(),
+    /** Uploads are added to this playlist (the part after list= in its URL). Needs the playlist scope: run youtube:auth again. */
+    /** The channel owner's made-for-kids declaration, sent with every upload (--made-for-kids=true|false overrides it). Their determination to make, never guessed. */
+    madeForKids: z.boolean().optional(),
+    playlistId: z.string().regex(/^PL[\w-]{6,}$/, 'A YouTube playlist id, copied in full from the list= part of the playlist URL, e.g. "PLxxxxxxxxxxxx"').optional(),
   }).strict().optional(),
   /** Rules for the show's subjects, e.g. PokePulses identifiers are Pokédex numbers like "#001". */
   subjects: z.object({
