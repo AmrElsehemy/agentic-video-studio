@@ -34,6 +34,10 @@ export const episodeDraftSchema = z.preprocess(upgradeLegacySubject, z.object({
   // Other subjects the episode shows: evolutions, forms, rivals. The first is the before/after partner.
   related: z.array(relatedSchema).max(3).optional(),
   palette: paletteSchema.optional(),
+  // A palette named in the show profile's paletteVariants, e.g. "light" (#92).
+  paletteVariant: z.string().regex(/^[a-z0-9-]+$/).optional(),
+  // The episode this one retells with a different palette, so the two can be compared (#92).
+  twinOf: idSchema.optional(),
   musicVolume: z.number().min(0).max(1).optional(),
   voice: z.object({
     model: voiceSettings.model.optional(),

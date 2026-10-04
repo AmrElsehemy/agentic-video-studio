@@ -98,6 +98,12 @@ if (command === 'link') {
   for (const [mode, group] of Object.entries(report.byPalette)) {
     console.log(`  ${mode}: ${group.episodes} episode${group.episodes === 1 ? '' : 's'}, ${group.measured} with numbers${group.averageViewPercent === undefined ? '' : `, ${group.averageViewPercent.toFixed(0)}% average viewed`}${group.views === undefined ? '' : `, ${Math.round(group.views)} views on average`}`);
   }
+  if (report.twins.length) {
+    // Same topic and script, so the palette and the posting time are what differ.
+    console.log('\nPalette twins (same story, different palette):');
+    const side = ({episodeId, paletteMode, views, averageViewPercent}) => `${episodeId} (${paletteMode}) ${averageViewPercent === undefined ? 'no numbers yet' : `${averageViewPercent.toFixed(0)}% viewed, ${views} views`}`;
+    for (const pair of report.twins) console.log(`  ${pair.topic}: ${side(pair.original)} vs ${side(pair.twin)}${pair.daysApart === undefined ? '' : `; posted ${pair.daysApart} days apart`}`);
+  }
   if (report.trends) {
     console.log('\nCorrelation with average % viewed (−1…1):');
     for (const [feature, r] of Object.entries(report.trends)) console.log(`  ${feature}: ${r === undefined ? 'no spread' : r.toFixed(2)}`);

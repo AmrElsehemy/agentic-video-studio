@@ -25,6 +25,15 @@ export const safeDuration = (text, speed) => {
  * profile that isn't on disk. Throws on an invalid draft or a draft that
  * violates production limits.
  */
+/** The draft's own palette, else the show's variant it names, else the show's palette. */
+const episodePalette = (draft, show) => {
+  if (draft.palette && draft.paletteVariant) throw new Error(`${draft.id} sets both a palette and paletteVariant "${draft.paletteVariant}"; keep one.`);
+  if (!draft.paletteVariant) return draft.palette ?? show.palette;
+  const variant = show.paletteVariants?.[draft.paletteVariant];
+  if (!variant) throw new Error(`${draft.id} asks for the "${draft.paletteVariant}" palette, which shows/${show.id}.json doesn't define. Defined: ${Object.keys(show.paletteVariants ?? {}).join(', ') || 'none'}.`);
+  return variant;
+};
+
 export const compileEpisode = (rawDraft, {showId, show = loadShow(showId), geo}) => {
   if (show.id !== showId) throw new Error(`compileEpisode was asked for the ${showId} show but given the ${show.id} profile.`);
   const draft = episodeDraftSchema.parse(rawDraft);
@@ -117,7 +126,8 @@ export const compileEpisode = (rawDraft, {showId, show = loadShow(showId), geo})
     subject: draft.subject,
     related,
     format: {width: 1080, height: 1920, fps: 30},
-    palette: draft.palette ?? show.palette,
+    palette: episodePalette(draft, show),
+    ...(draft.twinOf ? {twinOf: draft.twinOf} : {}),
     audio: {
       music: `generated/${episodeId}-bed.wav`,
       musicVolume: draft.musicVolume ?? show.music.volume,
@@ -128,7 +138,8 @@ export const compileEpisode = (rawDraft, {showId, show = loadShow(showId), geo})
         voice: draft.voice?.voice ?? show.voice.voice,
         instructions: draft.voice?.instructions ?? show.voice.instructions,
         speed,
-        output: `generated/${episodeId}-voice.wav`,
+        // A twin (#92) plays its original's narration, so the two differ only in palette.
+        output: `generated/${draft.twinOf ?? episodeId}-voice.wav`,
       },
     },
     // Map scenes credit the map data they draw.

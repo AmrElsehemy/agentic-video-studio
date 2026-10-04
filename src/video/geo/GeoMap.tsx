@@ -2,6 +2,7 @@ import React, {useMemo} from 'react';
 import {geoCentroid, geoMercator, geoPath, type GeoProjection} from 'd3-geo';
 import {evolvePath} from '@remotion/paths';
 import {Img, interpolate, staticFile} from 'remotion';
+import {paletteMode} from '../../../scripts/lib/palette.mjs';
 import {routeUntil, type GeoAnchor, type GeoMapPrimitive} from '../../../scripts/primitive-schema.mjs';
 import type {ShotProps} from '../shots';
 import {displayFont} from '../typography';
@@ -171,6 +172,8 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
   const vanish = (until?: number) => (until === undefined ? 1 : interpolate(frame, [until * durationInFrames - APPEAR, until * durationInFrames], [1, 0], clamp));
   const point = (lonLat: [number, number]) => projection(lonLat) as [number, number];
   const {palette} = manifest;
+  // A glow reads as light on a dark map; on a light one (#92) it smudges, so it stays tight and faint there.
+  const glow = (radius: number, color: string) => paletteMode(palette) === 'light' ? `drop-shadow(0 0 ${radius * .4}px ${color}66)` : `drop-shadow(0 0 ${radius}px ${color})`;
   // Projecting every country each frame is the render's main cost; skip those whose box is off screen.
   const onScreen = visibleFilter(projection);
   // When the next scene continues this map, the map stays on screen and only this scene's layers fade out.
@@ -231,14 +234,14 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
         const {strokeDasharray, strokeDashoffset} = evolvePath(progress, d);
         return <g key={index}>
           <path d={d} fill={color} opacity={.22 * progress} />
-          <path d={d} fill="none" stroke={color} strokeWidth={7} strokeLinejoin="round" strokeDasharray={strokeDasharray} strokeDashoffset={strokeDashoffset} style={{filter: `drop-shadow(0 0 10px ${color})`}} />
+          <path d={d} fill="none" stroke={color} strokeWidth={7} strokeLinejoin="round" strokeDasharray={strokeDasharray} strokeDashoffset={strokeDashoffset} style={{filter: glow(10, color)}} />
         </g>;
       }
       const shown = appear(highlight.at);
       // The border springs to its width, a touch thicker for a moment, as the place lights up.
       const border = springIn(highlight.at);
       return <path key={index} d={d} fill={highlight.style === 'fill' ? (disputed ? 'url(#geo-hatch)' : color) : 'none'} fillOpacity={.85 * shown}
-        stroke={color} strokeOpacity={shown} strokeWidth={(highlight.style === 'outline' ? 6 : 3) * border} strokeLinejoin="round" style={{filter: `drop-shadow(0 0 ${14 * shown}px ${color})`}} />;
+        stroke={color} strokeOpacity={shown} strokeWidth={(highlight.style === 'outline' ? 6 : 3) * border} strokeLinejoin="round" style={{filter: glow(14 * shown, color)}} />;
     });
   // Routes go underneath, so labels and markers on their stops stay readable.
   const annotations = primitive.annotations.map((annotation, index) => [annotation, index] as const).sort(([a], [b]) => Number(b.type === 'route') - Number(a.type === 'route')).map(([annotation, index]) => {
