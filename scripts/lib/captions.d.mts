@@ -1,6 +1,6 @@
 export type TimedWord = {text: string; start: number; end: number};
 export type Pause = {start: number; end: number};
-export type SpeechSpan = {start: number; end: number; pauses?: Pause[]};
+export type SpeechSpan = {start: number; end: number; pauses?: Pause[]; words?: TimedWord[]};
 export type Phrase = {words: TimedWord[]; start: number; end: number};
 export declare const LEAD_IN: number;
 export declare const MAX_PHRASE_WORDS: number;

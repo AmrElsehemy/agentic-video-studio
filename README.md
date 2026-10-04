@@ -248,14 +248,15 @@ npm run video:openai -- bulbasaur-001
 
 Each generated track is locked to the narration, scene timing and voice settings it was made from. If any of those change afterwards, `npm run video` refuses to use the old track and tells you which command regenerates it (or render without narration using `--voice=none`). In automatic mode, a stale OpenAI track is skipped with a warning when an up-to-date local track exists. Regenerating is free for scenes whose narration didn't change, because each scene's raw audio is cached. Tracks generated before this lock existed count as stale and need regenerating once.
 
-Shows with word-synced captions (Geographica) time each word from the track: the speech span and the pauses heard inside it are measured when the track is generated, and each punctuation break is pinned to its pause. Tracks made before pauses were recorded time words over the whole span; regenerate them (free, from the cache) to pick the pauses up. To check how closely captions follow the voice:
+Shows with word-synced captions (Geographica) light each word up as it is spoken. With the free local aligner installed, voice generation records exactly when each word is said (forced alignment of the track against the script). Without it, word times are estimated: the speech span and the pauses inside it are measured, each punctuation break is pinned to its pause, and syllables share out the rest.
 
 ```bash
-pip install faster-whisper            # once; transcribes locally, no API cost
-npm run captions:drift -- silk-road   # per-word report in out/silk-road-caption-drift.json
+pip install torch torchaudio num2words          # once; the aligner runs locally, no API cost
+npm run captions:align -- silk-road             # add exact word times to an existing track
+npm run captions:drift -- silk-road --estimated # how far the estimate would be off
 ```
 
-The target (#86) is 90% of words lighting up within 150 ms of being spoken. Transcript word times are themselves approximate, especially around pauses, so read single outliers against the audio.
+`captions:drift` measures caption timing against the aligner and writes a per-word report to `out/<id>-caption-drift.json`. The target (#86) is 90% of words lighting up within 150 ms of being spoken; aligned captions meet it by construction, and the estimate reached a median of 60 ms (90% within 277 ms) on the Silk Road.
 
 ## GeoMotion map data
 

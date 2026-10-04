@@ -43,9 +43,13 @@ export const syllables = (token) => {
  * @param {{start: number, end: number, pauses?: {start: number, end: number}[]}} span
  * @returns {{text: string, start: number, end: number}[]}
  */
-export const wordTimes = (narration, {start, end, pauses = []}) => {
+export const wordTimes = (narration, {start, end, pauses = [], words: aligned}) => {
   const tokens = narration.trim().split(/\s+/).filter((token) => /[\p{L}\p{N}]/u.test(token));
   if (!tokens.length || end <= start) return [];
+  // Word times from forced alignment are used as they are, when they're for this narration.
+  if (aligned?.length === tokens.length && aligned.every((word, index) => word.text === tokens[index])) {
+    return aligned.map((word) => ({text: word.text, start: round(word.start), end: round(word.end)}));
+  }
   // First guess: every word shares the whole span by syllables.
   const guess = spread(tokens, start, end);
   // Then pin each punctuation break to a pause actually heard in the track, when one is close,
@@ -133,7 +137,7 @@ const round = (value) => Math.round(value * 1000) / 1000;
  */
 export const speechSpan = (scene, {speed = 1, measured} = {}) => {
   const last = Math.max(LEAD_IN, scene.durationSeconds - END_PADDING);
-  if (measured && measured.end > measured.start) return {start: Math.max(0, measured.start), end: Math.min(last, measured.end), ...(measured.pauses ? {pauses: measured.pauses} : {})};
+  if (measured && measured.end > measured.start) return {start: Math.max(0, measured.start), end: Math.min(last, measured.end), ...(measured.pauses ? {pauses: measured.pauses} : {}), ...(measured.words ? {words: measured.words} : {})};
   return {start: LEAD_IN, end: Math.min(last, LEAD_IN + estimatedSpeech(scene.narration, speed))};
 };
 
