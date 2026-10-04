@@ -1,0 +1,164 @@
+{
+  "id": "vileplume-045",
+  "title": "The Beautiful Flower That Hunts Its Prey",
+  "storyPattern": "mystery",
+  "numberRelevant": false,
+  "premise": "Vileplume's giant petals attract prey, then toxic spores immobilize them before it devours them.",
+  "audiencePromise": "Follow the flower's trap from beautiful lure to terrifying payoff.",
+  "openLoop": "Why would prey approach Vileplume's giant flower?",
+  "payoff": "The petals are bait: toxic spores immobilize the prey, and Vileplume devours it.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "Is this nature's prettiest trap, or its scariest?",
+  "subject": {
+    "name": "Vileplume",
+    "category": "Flower Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/45.png",
+    "identifier": "#045"
+  },
+  "related": [
+    {
+      "name": "Gloom",
+      "relation": "evolves-from",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/44.png",
+      "identifier": "#044"
+    },
+    {
+      "name": "Oddish",
+      "relation": "evolves-from",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/43.png",
+      "identifier": "#043"
+    },
+    {
+      "name": "Bellossom",
+      "relation": "related",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/182.png",
+      "identifier": "#182"
+    }
+  ],
+  "palette": {
+    "background": "#10151B",
+    "surface": "#202A27",
+    "primary": "#E84C9A",
+    "secondary": "#B7D94C",
+    "ink": "#F8F3E7"
+  },
+  "voice": {
+    "instructions": "Use a tense, curious pace. Start soft and inviting, then sharpen the delivery as the trap is revealed. Pause briefly before each reveal."
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    },
+    "assets": [
+      {
+        "kind": "Vileplume official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/45.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "beautiful-bait",
+      "beat": "hook",
+      "eyebrow": "LOOK CLOSER",
+      "headline": "THAT FLOWER IS BAIT",
+      "narration": "That beautiful flower is bait.",
+      "caption": "BEAUTIFUL DOESN'T MEAN SAFE",
+      "accent": "#E84C9A",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/45.png"
+    },
+    {
+      "id": "giant-petals",
+      "beat": "clue",
+      "eyebrow": "THE LURE",
+      "headline": "THE WORLD'S LARGEST PETALS",
+      "narration": "Vileplume's enormous petals attract prey before the danger appears.",
+      "caption": "THE PETALS DRAW PREY CLOSER",
+      "facts": [
+        "LARGEST PETALS",
+        "ATTRACT PREY"
+      ],
+      "accent": "#E84C9A",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/45.png"
+    },
+    {
+      "id": "toxic-cloud",
+      "beat": "escalation",
+      "eyebrow": "THE AIR CHANGES",
+      "headline": "THEN THE PETALS START SHAKING",
+      "narration": "Then each step shakes toxic pollen into heavy clouds.",
+      "caption": "TOXIC POLLEN FILLS THE AIR",
+      "facts": [
+        "TOXIC POLLEN",
+        "HEAVY CLOUDS"
+      ],
+      "accent": "#B7D94C",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/45.png"
+    },
+    {
+      "id": "prey-immobilized",
+      "beat": "reveal",
+      "eyebrow": "THE FIRST REVEAL",
+      "headline": "THE SPORES STOP THE ESCAPE",
+      "narration": "Those toxic spores douse prey, leaving them immobilized.",
+      "caption": "THEY CANNOT MOVE",
+      "facts": [
+        "TOXIC SPORES",
+        "PREY IMMOBILIZED"
+      ],
+      "accent": "#D7E85B",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/45.png"
+    },
+    {
+      "id": "flower-feeds",
+      "beat": "reveal",
+      "eyebrow": "THE REAL PURPOSE",
+      "headline": "THEN VILEPLUME DEVOURS THEM",
+      "narration": "Once they cannot move, Vileplume catches and devours them.",
+      "caption": "THE FLOWER WAS HUNTING",
+      "facts": [
+        "CATCHES PREY",
+        "DEVOURS PREY"
+      ],
+      "accent": "#E84C9A",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/45.png"
+    },
+    {
+      "id": "prettiest-trap",
+      "beat": "verdict",
+      "eyebrow": "YOUR VERDICT",
+      "headline": "A BEAUTIFUL HUNTING TRAP",
+      "narration": "Is this nature's prettiest trap, or its scariest?",
+      "caption": "PRETTIEST TRAP OR SCARIEST?",
+      "accent": "#B7D94C",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/45.png"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Vileplume",
+      "url": "https://www.pokemon.com/us/pokedex/vileplume",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Vileplume",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Vileplume_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Vileplume",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/45",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

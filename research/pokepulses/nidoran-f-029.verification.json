@@ -1,0 +1,561 @@
+{
+  "episodeId": "nidoran-f-029",
+  "checkedAt": "2026-10-03T19:11:02.792Z",
+  "claims": [
+    {
+      "id": "c1",
+      "where": "title",
+      "text": "Nidoran♀ Uses Whiskers Instead of Fighting Predators",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[14].text",
+        "pokedexEntries[1].text"
+      ],
+      "note": "The research supports whisker-based wind checking and a dislike of fighting, but does not explicitly say whiskers are used instead of fighting predators.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c2",
+      "where": "premise",
+      "text": "While foraging, Nidoran♀ checks wind direction with her whiskers and stays downwind of predators.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[14].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c3",
+      "where": "audiencePromise",
+      "text": "Reveal why Nidoran♀ checks the wind before predators can become a threat.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[14].text"
+      ],
+      "note": "The research says she checks wind direction and stays downwind of predators, but does not explicitly give the purpose or timing as preventing a threat.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c4",
+      "where": "openLoop",
+      "text": "Why use whiskers when Nidoran♀ already has a venomous horn?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Question/hook framing.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c5",
+      "where": "payoff",
+      "text": "Her quiet defense is not a fight. It is reading wind direction and staying downwind.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[14].text",
+        "pokedexEntries[1].text"
+      ],
+      "note": "The behavior and dislike of fighting are supported, but the research does not explicitly call wind-reading and staying downwind a defense.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c6",
+      "where": "scenes.wind-against-predators.headline",
+      "text": "WHISKERS AGAINST PREDATORS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[14].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c7",
+      "where": "scenes.wind-against-predators.narration",
+      "text": "Nidoran♀ reads wind to stay downwind of predators.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[14].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c8",
+      "where": "scenes.wind-against-predators.caption",
+      "text": "WHISKERS READ THE WIND",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[14].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c9",
+      "where": "scenes.wind-against-predators.eyebrow",
+      "text": "THE HIDDEN MECHANIC",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Framing phrase.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c10",
+      "where": "scenes.wind-against-predators.facts[0]",
+      "text": "WIND DIRECTION",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[14].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c11",
+      "where": "scenes.wind-against-predators.facts[1]",
+      "text": "DOWNWIND",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[14].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c12",
+      "where": "scenes.venomous-horn.headline",
+      "text": "SHE HAS ANOTHER DEFENSE",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[0].text",
+        "pokedexEntries[4].text",
+        "pokedexEntries[14].text"
+      ],
+      "note": "The horn is explicitly protective, but the research does not explicitly establish the whisker behavior as another defense.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c13",
+      "where": "scenes.venomous-horn.narration",
+      "text": "She dislikes fighting, but her small horn secretes potent venom.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[2].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c14",
+      "where": "scenes.venomous-horn.caption",
+      "text": "MILD-MANNERED. VENOMOUS HORN.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[2].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c15",
+      "where": "scenes.venomous-horn.eyebrow",
+      "text": "THE CONTRAST",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Framing phrase.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c16",
+      "where": "scenes.venomous-horn.facts[0]",
+      "text": "DISLIKES FIGHTING",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c17",
+      "where": "scenes.venomous-horn.facts[1]",
+      "text": "POTENT VENOM",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c18",
+      "where": "scenes.whiskers-check-wind.headline",
+      "text": "WHISKERS CHECK WIND DIRECTION",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[14].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c19",
+      "where": "scenes.whiskers-check-wind.narration",
+      "text": "While foraging, her whiskers check which way the wind blows.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[14].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c20",
+      "where": "scenes.whiskers-check-wind.caption",
+      "text": "CHECK THE WIND FIRST",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[14].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c21",
+      "where": "scenes.whiskers-check-wind.eyebrow",
+      "text": "THE REAL MECHANIC",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Framing phrase.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c22",
+      "where": "scenes.whiskers-check-wind.facts[0]",
+      "text": "FORAGING",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[14].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c23",
+      "where": "scenes.whiskers-check-wind.facts[1]",
+      "text": "WHISKERS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[14].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c24",
+      "where": "scenes.whiskers-check-wind.facts[2]",
+      "text": "WIND DIRECTION",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[14].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c25",
+      "where": "scenes.stay-downwind.headline",
+      "text": "THEN SHE STAYS DOWNWIND",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[14].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c26",
+      "where": "scenes.stay-downwind.narration",
+      "text": "Her next move is simply staying downwind of predators.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[14].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c27",
+      "where": "scenes.stay-downwind.caption",
+      "text": "STAY DOWNWIND",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[14].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c28",
+      "where": "scenes.stay-downwind.eyebrow",
+      "text": "THE NEXT MOVE",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Framing phrase.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c29",
+      "where": "scenes.stay-downwind.facts[0]",
+      "text": "PREDATORS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[14].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c30",
+      "where": "scenes.stay-downwind.facts[1]",
+      "text": "STAYS DOWNWIND",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[14].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c31",
+      "where": "scenes.quiet-defense.headline",
+      "text": "A DEFENSE WITHOUT FIGHTING",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[4].text",
+        "pokedexEntries[14].text",
+        "pokedexEntries[1].text"
+      ],
+      "note": "The research supports protective behavior and a dislike of fighting, but does not explicitly identify the wind behavior as a defense.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c32",
+      "where": "scenes.quiet-defense.narration",
+      "text": "Her quiet answer to predators is wind direction, not fighting.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[14].text",
+        "pokedexEntries[1].text"
+      ],
+      "note": "Wind direction and dislike of fighting are supported, but describing wind direction as her answer or defense against predators is an interpretation not stated in the research.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c33",
+      "where": "scenes.quiet-defense.caption",
+      "text": "A QUIET DEFENSE, NOT A FIGHT",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[14].text",
+        "pokedexEntries[1].text"
+      ],
+      "note": "The research supports the non-combative behavior and wind behavior, but does not explicitly call it a defense.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c34",
+      "where": "scenes.quiet-defense.eyebrow",
+      "text": "THE SURPRISE",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Framing phrase.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c35",
+      "where": "scenes.quiet-defense.facts[0]",
+      "text": "WIND DIRECTION",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[14].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c36",
+      "where": "scenes.quiet-defense.facts[1]",
+      "text": "NOT FIGHTING",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c37",
+      "where": "scenes.wind-or-venom.headline",
+      "text": "WIND OR VENOM?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Question/hook framing.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c38",
+      "where": "scenes.wind-or-venom.narration",
+      "text": "Trust wind direction, or rely on her venomous horn?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Question framing.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c39",
+      "where": "scenes.wind-or-venom.caption",
+      "text": "WIND OR VENOM?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Question/hook framing.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c40",
+      "where": "scenes.wind-or-venom.eyebrow",
+      "text": "YOUR VERDICT",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Audience prompt.",
+      "checkedBy": "model"
+    }
+  ],
+  "unsupported": [],
+  "uncertain": [
+    {
+      "id": "c1",
+      "where": "title",
+      "text": "Nidoran♀ Uses Whiskers Instead of Fighting Predators",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[14].text",
+        "pokedexEntries[1].text"
+      ],
+      "note": "The research supports whisker-based wind checking and a dislike of fighting, but does not explicitly say whiskers are used instead of fighting predators.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c3",
+      "where": "audiencePromise",
+      "text": "Reveal why Nidoran♀ checks the wind before predators can become a threat.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[14].text"
+      ],
+      "note": "The research says she checks wind direction and stays downwind of predators, but does not explicitly give the purpose or timing as preventing a threat.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c5",
+      "where": "payoff",
+      "text": "Her quiet defense is not a fight. It is reading wind direction and staying downwind.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[14].text",
+        "pokedexEntries[1].text"
+      ],
+      "note": "The behavior and dislike of fighting are supported, but the research does not explicitly call wind-reading and staying downwind a defense.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c12",
+      "where": "scenes.venomous-horn.headline",
+      "text": "SHE HAS ANOTHER DEFENSE",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[0].text",
+        "pokedexEntries[4].text",
+        "pokedexEntries[14].text"
+      ],
+      "note": "The horn is explicitly protective, but the research does not explicitly establish the whisker behavior as another defense.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c31",
+      "where": "scenes.quiet-defense.headline",
+      "text": "A DEFENSE WITHOUT FIGHTING",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[4].text",
+        "pokedexEntries[14].text",
+        "pokedexEntries[1].text"
+      ],
+      "note": "The research supports protective behavior and a dislike of fighting, but does not explicitly identify the wind behavior as a defense.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c32",
+      "where": "scenes.quiet-defense.narration",
+      "text": "Her quiet answer to predators is wind direction, not fighting.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[14].text",
+        "pokedexEntries[1].text"
+      ],
+      "note": "Wind direction and dislike of fighting are supported, but describing wind direction as her answer or defense against predators is an interpretation not stated in the research.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c33",
+      "where": "scenes.quiet-defense.caption",
+      "text": "A QUIET DEFENSE, NOT A FIGHT",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[14].text",
+        "pokedexEntries[1].text"
+      ],
+      "note": "The research supports the non-combative behavior and wind behavior, but does not explicitly call it a defense.",
+      "tier": "official",
+      "checkedBy": "model"
+    }
+  ]
+}

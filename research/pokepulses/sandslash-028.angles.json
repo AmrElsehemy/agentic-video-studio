@@ -1,0 +1,166 @@
+{
+  "episodeId": "sandslash-028",
+  "createdAt": "2026-10-03T19:07:35.331Z",
+  "chosen": {
+    "id": "one-day-claws",
+    "premise": "Sandslash can lose its claws and spikes, yet they grow back the very next day.",
+    "hook": "What if breaking your claws was only a one-day problem?",
+    "archetype": "mechanic",
+    "evidence": [
+      "pokedexEntries[1].text",
+      "pokedexEntries[3].text",
+      "pokedexEntries[11].text"
+    ],
+    "visualIdea": "Show Sandslash's claws snapping off, then restore them with a next-day calendar flip.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 5,
+      "specificity": 5,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 25,
+    "note": "A highly specific regeneration rule, directly supported by multiple Pokédex entries and easy to dramatize with a break-and-next-day visual."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "one-day-claws",
+          "premise": "Sandslash can lose its claws and spikes, yet they grow back the very next day.",
+          "hook": "What if breaking your claws was only a one-day problem?",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[1].text",
+            "pokedexEntries[3].text",
+            "pokedexEntries[11].text"
+          ],
+          "visualIdea": "Show Sandslash's claws snapping off, then restore them with a next-day calendar flip.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 25,
+          "note": "A highly specific regeneration rule, directly supported by multiple Pokédex entries and easy to dramatize with a break-and-next-day visual."
+        },
+        {
+          "id": "spikes-for-plows",
+          "premise": "Broken Sandslash claws and horns are hard enough to be carved into plows for farm fields.",
+          "hook": "Sandslash's broken claws can become farming tools.",
+          "archetype": "transformation",
+          "evidence": [
+            "pokedexEntries[13].text"
+          ],
+          "visualIdea": "Transform a dropped claw into a plow carving lines through a field.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 25,
+          "note": "An unusually specific transformation with a strong contradiction—broken body parts become useful farm tools—and direct Pokédex support."
+        },
+        {
+          "id": "tree-drop-ambush",
+          "premise": "Sandslash climbs trees, curls into a spiny ball, and attacks prey by dropping from above.",
+          "hook": "Sandslash does not just roll at prey—it drops on it.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[4].text",
+            "pokedexEntries[12].text",
+            "pokedexEntries[14].text"
+          ],
+          "visualIdea": "Track Sandslash clawing up a tree, then cut to its spiny-ball drop onto a target below.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 23,
+          "note": "A concrete and cinematic hunting tactic, clearly supported by entries describing tree climbing, curling, and dropping onto prey."
+        },
+        {
+          "id": "two-sandslash-weight",
+          "premise": "Alolan Sandslash is Ice and Steel, stands 0.2 meters taller, and weighs 25.5 kilograms more.",
+          "hook": "Sandslash gets taller, heavier, and turns into Ice and Steel.",
+          "archetype": "comparison",
+          "evidence": [
+            "types",
+            "heightMeters",
+            "weightKg",
+            "varieties[0].name",
+            "varieties[0].types",
+            "varieties[0].heightMeters",
+            "varieties[0].weightKg"
+          ],
+          "visualIdea": "Split-screen the two forms with height and weight counters changing beside their type labels.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 3,
+            "surprise": 3,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 21,
+          "note": "The measurements and typing are precise and easy to display, but regional-form comparisons are a broadly reusable angle."
+        },
+        {
+          "id": "sandstorm-disguise",
+          "premise": "To hide, Sandslash runs at top speed and kicks up a blinding dust storm around itself.",
+          "hook": "Sandslash hides by turning its escape into a dust storm.",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[2].text"
+          ],
+          "visualIdea": "Show Sandslash sprinting across dry ground as the dust cloud grows until it vanishes.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 3,
+            "specificity": 4,
+            "visual": 4,
+            "support": 5
+          },
+          "total": 20,
+          "note": "Well supported and visually clear, but the hiding-by-dust concept is less surprising and less distinctive than Sandslash’s regeneration."
+        },
+        {
+          "id": "annual-spike-shed",
+          "premise": "Its spikes are hardened hide, and Sandslash replaces the entire outer layer once every year.",
+          "hook": "Sandslash sheds its armor—but only once a year.",
+          "archetype": "transformation",
+          "evidence": [
+            "pokedexEntries[5].text",
+            "pokedexEntries[10].text"
+          ],
+          "visualIdea": "Zoom from a spike's armored texture to old spikes falling away and new ones growing underneath.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 4,
+            "support": 3
+          },
+          "total": 19,
+          "note": "The yearly spike replacement is compelling, but “entire outer layer” overstates the evidence, which specifically says the old spikes fall out."
+        }
+      ],
+      "rejected": [],
+      "request": "None; one-day-claws is strong enough to lead the episode. A stronger alternative would need an equally specific, surprising rule with direct support and a clear visual payoff."
+    }
+  ]
+}

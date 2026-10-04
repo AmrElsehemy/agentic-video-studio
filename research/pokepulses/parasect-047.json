@@ -1,0 +1,168 @@
+{
+  "schemaVersion": 1,
+  "id": "parasect-047",
+  "number": 47,
+  "index": "#047",
+  "name": "Parasect",
+  "slug": "parasect",
+  "category": "Mushroom Pokémon",
+  "generation": "Generation I",
+  "isLegendary": false,
+  "isMythical": false,
+  "types": [
+    "Bug",
+    "Grass"
+  ],
+  "heightMeters": 1,
+  "weightKg": 29.5,
+  "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/47.png",
+  "pokedexEntries": [
+    {
+      "game": "Red",
+      "text": "A host-parasite pair in which the parasite mushroom has taken over the host bug. Prefers damp places."
+    },
+    {
+      "game": "Yellow",
+      "text": "The bug host is drained of energy by the mushrooms on its back. They appear to do all the thinking."
+    },
+    {
+      "game": "Gold",
+      "text": "It stays mostly in dark, damp places, the preference not of the bug, but of the big mush rooms on its back."
+    },
+    {
+      "game": "Silver",
+      "text": "The larger the mushroom on its back grows, the stronger the mush room spores it scatters."
+    },
+    {
+      "game": "Crystal",
+      "text": "When nothing's left to extract from the bug, the mushrooms on its back leave spores on the bug's egg."
+    },
+    {
+      "game": "Ruby",
+      "text": "PARASECT is known to infest large trees en masse and drain nutrients from the lower trunk and roots. When an infested tree dies, they move onto another tree all at once."
+    },
+    {
+      "game": "Emerald",
+      "text": "PARASECT are known to infest the roots of large trees en masse and drain nutrients. When an infested tree dies, they move onto another tree all at once."
+    },
+    {
+      "game": "Firered",
+      "text": "It scatters toxic spores from the mushroom cap. In China, the spores are used as herbal medicine."
+    },
+    {
+      "game": "Diamond",
+      "text": "A mushroom grown larger than the host’s body controls PARASECT. It scatters poisonous spores."
+    },
+    {
+      "game": "Pearl",
+      "text": "It is controlled by a mushroom grown larger than the bug body. It is said to prefer damp places."
+    },
+    {
+      "game": "Heartgold",
+      "text": "It stays mostly in dark, damp places, the preference not of the bug, but of the big mushroom on its back."
+    },
+    {
+      "game": "Soulsilver",
+      "text": "The larger the mushroom on its back grows, the stronger the mushroom spores it scatters."
+    },
+    {
+      "game": "Sun",
+      "text": "The large mushroom on its back controls it. It often fights over territory with Shiinotic."
+    },
+    {
+      "game": "Moon",
+      "text": "It scatters toxic spores from its mushroom cap. Once harvested, these spores can be steeped and boiled down to prepare herbal medicines."
+    },
+    {
+      "game": "Ultra Sun",
+      "text": "The bug is mostly dead, with the mushroom on its back having become the main body. If the mushroom comes off, the bug stops moving."
+    },
+    {
+      "game": "Ultra Moon",
+      "text": "Its poisonous spores are also used in traditional medicine. Apparently, spores produced in Alola are not of very good quality."
+    },
+    {
+      "game": "Lets Go Pikachu",
+      "text": "The bug host is drained of energy by the mushroom on its back. The mushroom appears to do all the thinking."
+    },
+    {
+      "game": "Legends Arceus",
+      "text": "Mushroom-lacking specimens of this Pokémon lie unmoving in the forest, lending credence to the hypothesis that the large mushroom is in control of Parasect's actions."
+    }
+  ],
+  "evolutionChain": [
+    {
+      "name": "Paras",
+      "index": "#046",
+      "stage": 1,
+      "types": [
+        "Bug",
+        "Grass"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/46.png",
+      "isSubject": false
+    },
+    {
+      "name": "Parasect",
+      "index": "#047",
+      "stage": 2,
+      "evolvesFrom": "Paras",
+      "method": "Level Up, level 24",
+      "types": [
+        "Bug",
+        "Grass"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/47.png",
+      "isSubject": true
+    }
+  ],
+  "varieties": [],
+  "lore": [],
+  "tiers": {
+    "official": [
+      "name",
+      "index",
+      "number",
+      "category",
+      "generation",
+      "isLegendary",
+      "isMythical",
+      "types",
+      "heightMeters",
+      "weightKg",
+      "pokedexEntries",
+      "evolutionChain[].name",
+      "evolutionChain[].index",
+      "evolutionChain[].types",
+      "evolutionChain[].stage",
+      "varieties[].types",
+      "varieties[].heightMeters",
+      "varieties[].weightKg"
+    ],
+    "trusted_secondary": [
+      "evolutionChain[].method",
+      "evolutionChain[].evolvesFrom",
+      "varieties[].name"
+    ],
+    "community": [
+      "lore"
+    ]
+  },
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Parasect",
+      "url": "https://www.pokemon.com/us/pokedex/parasect",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Parasect",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Parasect_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Parasect",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/47",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

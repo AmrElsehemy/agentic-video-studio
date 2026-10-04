@@ -1,0 +1,164 @@
+{
+  "episodeId": "raichu-026",
+  "createdAt": "2026-10-03T19:01:23.999Z",
+  "chosen": {
+    "id": "empty-pouches-atmosphere-charge",
+    "premise": "When Raichu’s electric pouches run empty, it raises its tail to pull electricity from the atmosphere.",
+    "hook": "What does Raichu do when its batteries run out?",
+    "archetype": "mechanic",
+    "evidence": [
+      "pokedexEntries[4].text",
+      "pokedexEntries[20].text"
+    ],
+    "visualIdea": "Show an empty battery icon, then Raichu’s raised tail drawing lightning from storm clouds.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 5,
+      "specificity": 5,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 25,
+    "note": "A highly specific and genuinely strange recharge rule: empty pouches lead to a raised tail gathering atmospheric electricity. The battery-to-storm visual makes the premise instantly understandable."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "empty-pouches-atmosphere-charge",
+          "premise": "When Raichu’s electric pouches run empty, it raises its tail to pull electricity from the atmosphere.",
+          "hook": "What does Raichu do when its batteries run out?",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[4].text",
+            "pokedexEntries[20].text"
+          ],
+          "visualIdea": "Show an empty battery icon, then Raichu’s raised tail drawing lightning from storm clouds.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 25,
+          "note": "A highly specific and genuinely strange recharge rule: empty pouches lead to a raised tail gathering atmospheric electricity. The battery-to-storm visual makes the premise instantly understandable."
+        },
+        {
+          "id": "hundred-thousand-volt-elephant",
+          "premise": "Raichu can exceed 100,000 volts—enough for one strike to incapacitate a Copperajah.",
+          "hook": "One Raichu shock could drop an elephant Pokémon.",
+          "archetype": "comparison",
+          "evidence": [
+            "pokedexEntries[9].text"
+          ],
+          "visualIdea": "Put Raichu’s voltage beside a Copperajah silhouette as the shockwave knocks it out.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 23,
+          "note": "A precise, high-impact comparison backed by the Legends: Arceus entry; however, the hook risks overstating voltage as a direct measure of knockout power."
+        },
+        {
+          "id": "electricity-makes-it-aggressive",
+          "premise": "Raichu’s electricity is also a mood meter: the more it stores, the more aggressive it becomes.",
+          "hook": "Raichu doesn’t just store electricity—it stores stress.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[7].text",
+            "pokedexEntries[18].text",
+            "pokedexEntries[19].text"
+          ],
+          "visualIdea": "Show an electricity gauge filling as Raichu shifts from calm to visibly aggressive.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 22,
+          "note": "The Pokédex directly links stored electricity to aggression and even frames the buildup as stress; the mood-gauge visual is clear, though the general idea is somewhat anthropomorphic."
+        },
+        {
+          "id": "the-pikachu-shadow",
+          "premise": "Raichu is rarely seen for a strange reason: Trainers prefer Pikachu’s appearance.",
+          "hook": "Raichu’s biggest rival might be its own pre-evolution.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[21].text",
+            "evolutionChain[1].name",
+            "evolutionChain[2].name"
+          ],
+          "visualIdea": "Place Pikachu in the spotlight while Raichu fades into the background, then reverse the focus.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 5,
+            "specificity": 4,
+            "visual": 4,
+            "support": 5
+          },
+          "total": 22,
+          "note": "The official entry gives this an unusually candid premise, and the Pikachu-versus-Raichu framing is surprising. It is more social commentary than a visual mechanic."
+        },
+        {
+          "id": "tail-as-lightning-ground",
+          "premise": "Raichu uses its tail as a ground wire, discharging excess electricity to protect itself from its own power.",
+          "hook": "Raichu’s tail is basically a built-in lightning rod.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[0].text",
+            "pokedexEntries[5].text",
+            "pokedexEntries[12].text"
+          ],
+          "visualIdea": "Animate electricity flowing from Raichu’s body down its tail into scorched ground.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 3,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 21,
+          "note": "Strongly supported and easy to animate, but the built-in grounding-tail concept is less surprising than Raichu’s other mechanics."
+        },
+        {
+          "id": "friendship-then-thunder-stone",
+          "premise": "Raichu’s evolution chain switches rules: Pikachu needs friendship, but Raichu needs a Thunder Stone.",
+          "hook": "Raichu’s evolution changes from friendship to an item.",
+          "archetype": "transformation",
+          "evidence": [
+            "evolutionChain[1].method",
+            "evolutionChain[2].method",
+            "evolutionChain[1].evolvesFrom",
+            "evolutionChain[2].evolvesFrom"
+          ],
+          "visualIdea": "Show a friendship meter filling for Pikachu, then a Thunder Stone triggering Raichu’s evolution.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 3,
+            "specificity": 5,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 21,
+          "note": "Concrete and well structured, but evolution-method contrasts are familiar to many fans and the method data comes from trusted secondary research rather than a cited Pokédex entry."
+        }
+      ],
+      "rejected": [],
+      "request": "N/A—the selected angle is strong enough. Stronger alternatives would need an equally specific Raichu-only rule, a surprising contradiction or number, direct research support, and a visual transformation that can be understood immediately."
+    }
+  ]
+}

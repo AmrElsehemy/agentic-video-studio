@@ -1,0 +1,146 @@
+{
+  "episodeId": "gloom-044",
+  "createdAt": "2026-10-03T20:02:54.272Z",
+  "chosen": {
+    "id": "smell-worse-in-danger",
+    "premise": "Gloom’s stench intensifies when it faces danger, but disappears when it feels calm and secure.",
+    "hook": "Gloom’s stink has an emotional trigger.",
+    "archetype": "mechanic",
+    "evidence": [
+      "pokedexEntries[5].text"
+    ],
+    "visualIdea": "Show Gloom’s fragrance meter rising during danger and dropping to zero in a calm, safe scene.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 5,
+      "specificity": 5,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 25,
+    "note": "A concrete, unusual emotional mechanic unique to Gloom: danger increases the stink, while safety suppresses it. The cited Pokédex entry directly supports every part of the premise."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "smell-worse-in-danger",
+          "premise": "Gloom’s stench intensifies when it faces danger, but disappears when it feels calm and secure.",
+          "hook": "Gloom’s stink has an emotional trigger.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[5].text"
+          ],
+          "visualIdea": "Show Gloom’s fragrance meter rising during danger and dropping to zero in a calm, safe scene.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 25,
+          "note": "A concrete, unusual emotional mechanic unique to Gloom: danger increases the stink, while safety suppresses it. The cited Pokédex entry directly supports every part of the premise."
+        },
+        {
+          "id": "one-in-a-thousand-fans",
+          "premise": "Gloom smells so foul that only around one person in 1,000 reportedly enjoys sniffing it.",
+          "hook": "One in a thousand people actually likes Gloom’s smell.",
+          "archetype": "comparison",
+          "evidence": [
+            "pokedexEntries[1].text",
+            "pokedexEntries[11].text"
+          ],
+          "visualIdea": "Display 1,000 tiny people, with exactly one happily sniffing while the other 999 recoil.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 22,
+          "note": "The 1-in-1,000 statistic is highly visual and memorable, but the wording should preserve the source's uncertainty ('around' and 'some people reportedly enjoy it') rather than imply a measured universal fact."
+        },
+        {
+          "id": "sweet-but-repulsive",
+          "premise": "Gloom’s honey is sweet and sticky, yet its smell is so repulsive it can make opponents faint.",
+          "hook": "Gloom produces something sweet that can still knock you out.",
+          "archetype": "comparison",
+          "evidence": [
+            "pokedexEntries[2].text",
+            "pokedexEntries[3].text",
+            "pokedexEntries[4].text"
+          ],
+          "visualIdea": "Show golden honey labeled “sweet,” then blast it with a stink cloud that sends an opponent fainting.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 21,
+          "note": "The sweet-versus-foul contradiction is compelling and highly visual, but the fainting effect is attributed to the combined syrup and pollen, so saying the honey alone knocks opponents out overstates the evidence."
+        },
+        {
+          "id": "honey-not-drool",
+          "premise": "Gloom’s mouth fluid looks like drool, but it is sticky honey or nectar used to attract prey.",
+          "hook": "That is not drool coming out of Gloom’s mouth.",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[0].text",
+            "pokedexEntries[2].text",
+            "pokedexEntries[3].text"
+          ],
+          "visualIdea": "Zoom into the dripping mouth, then relabel the drool as sticky honey and show prey being attracted.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 3,
+            "specificity": 4,
+            "visual": 4,
+            "support": 5
+          },
+          "total": 20,
+          "note": "The mouth-fluid reveal is distinctive and well supported, though the basic 'looks like drool but is honey' twist is relatively familiar and less surprising to longtime fans."
+        },
+        {
+          "id": "two-evolution-fates",
+          "premise": "Gloom can evolve into Vileplume with a Leaf Stone or Bellossom with a Sun Stone.",
+          "hook": "One Gloom has two completely different evolution choices.",
+          "archetype": "transformation",
+          "evidence": [
+            "evolutionChain[2].method",
+            "evolutionChain[3].method",
+            "evolutionChain[2].name",
+            "evolutionChain[3].name"
+          ],
+          "visualIdea": "Split the screen after Gloom: a Leaf Stone leads to Vileplume, while a Sun Stone leads to Bellossom.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 3,
+            "surprise": 3,
+            "specificity": 5,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 20,
+          "note": "Clear and easy to animate, but branching evolutions are not exclusive to Gloom and are familiar to many fans. The evolution methods are supported by trusted secondary data rather than the included Pokédex entries."
+        }
+      ],
+      "rejected": [
+        {
+          "id": "mile-wide-stench",
+          "reason": "unknown story shape \"evidence\""
+        }
+      ],
+      "request": "The selected angle is strong enough. A still stronger version would add a concrete comparison or consequence to the danger-triggered stink mechanic while keeping the calm-versus-danger contrast central."
+    }
+  ]
+}

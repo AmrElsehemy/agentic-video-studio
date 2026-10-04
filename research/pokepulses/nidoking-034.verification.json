@@ -1,0 +1,499 @@
+{
+  "episodeId": "nidoking-034",
+  "checkedAt": "2026-10-03T19:27:13.661Z",
+  "claims": [
+    {
+      "id": "c1",
+      "where": "title",
+      "text": "Nidoking’s Horn Pierces Diamond. Why the Venom Warning?",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[7].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c2",
+      "where": "premise",
+      "text": "Nidoking’s horn is praised for piercing diamond, then singled out with a warning that it contains venom.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[7].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c3",
+      "where": "audiencePromise",
+      "text": "See how Nidoking’s strongest-looking feature changes from impressive to cautionary.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[7].text"
+      ],
+      "note": "The horn's hardness and venom are supported, but calling it Nidoking's 'strongest-looking feature' and saying it changes from impressive to cautionary is interpretive and not directly established.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c4",
+      "where": "openLoop",
+      "text": "Why does the Pokédex praise Nidoking’s horn, then warn you about it?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c5",
+      "where": "payoff",
+      "text": "The horn becomes Nidoking’s clearest contrast: the feature praised for piercing diamond is also the one marked with caution.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[7].text"
+      ],
+      "note": "The two horn descriptions are supported, but 'clearest contrast' is an interpretive comparison not stated in the research.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c6",
+      "where": "scenes.diamond-piercing-venom-warning.headline",
+      "text": "DIAMOND-PIERCING. VENOM WARNING.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[7].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c7",
+      "where": "scenes.diamond-piercing-venom-warning.narration",
+      "text": "Nidoking’s horn pierces diamond. Why the venom warning?",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[7].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c8",
+      "where": "scenes.diamond-piercing-venom-warning.caption",
+      "text": "ONE HORN. TWO DESCRIPTIONS.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[7].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c9",
+      "where": "scenes.diamond-piercing-venom-warning.eyebrow",
+      "text": "TWO OFFICIAL DESCRIPTIONS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[7].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c10",
+      "where": "scenes.horn-pierces-diamond.headline",
+      "text": "HARD ENOUGH FOR DIAMOND",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c11",
+      "where": "scenes.horn-pierces-diamond.narration",
+      "text": "One entry says its horns are so hard, they can pierce a diamond.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c12",
+      "where": "scenes.horn-pierces-diamond.caption",
+      "text": "THE POKÉDEX PRAISES ITS HARDNESS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c13",
+      "where": "scenes.horn-pierces-diamond.eyebrow",
+      "text": "THE PRAISE",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c14",
+      "where": "scenes.horn-pierces-diamond.facts[0]",
+      "text": "DIAMOND",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c15",
+      "where": "scenes.horn-pierces-diamond.facts[1]",
+      "text": "HORN HARDNESS",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c16",
+      "where": "scenes.horn-contains-venom.headline",
+      "text": "THE EXTENDED HORN HAS VENOM",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[7].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c17",
+      "where": "scenes.horn-contains-venom.narration",
+      "text": "Another entry identifies the extended horn and says it contains venom.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[7].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c18",
+      "where": "scenes.horn-contains-venom.caption",
+      "text": "THEN IT SAYS: BE CAREFUL",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[7].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c19",
+      "where": "scenes.horn-contains-venom.eyebrow",
+      "text": "THEN THE WARNING",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c20",
+      "where": "scenes.horn-contains-venom.facts[0]",
+      "text": "EXTENDED HORN",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[7].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c21",
+      "where": "scenes.horn-contains-venom.facts[1]",
+      "text": "CONTAINS VENOM",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[7].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c22",
+      "where": "scenes.strength-then-caution.headline",
+      "text": "STRENGTH FIRST. CAUTION NEXT.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[7].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c23",
+      "where": "scenes.strength-then-caution.narration",
+      "text": "Strength gets the spotlight first. Then the same horn gets a warning.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[7].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c24",
+      "where": "scenes.strength-then-caution.caption",
+      "text": "POWER FIRST. CAUTION NEXT.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[7].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c25",
+      "where": "scenes.strength-then-caution.eyebrow",
+      "text": "THE IMAGE SHIFTS",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[7].text"
+      ],
+      "note": "The two descriptions support a contrast, but that the 'image shifts' is an interpretive effect rather than a researched fact.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c26",
+      "where": "scenes.strength-then-caution.facts[0]",
+      "text": "PIERCES DIAMOND",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c27",
+      "where": "scenes.strength-then-caution.facts[1]",
+      "text": "BE CAREFUL",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[7].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c28",
+      "where": "scenes.warning-changes-the-horn.headline",
+      "text": "THE WARNING CHANGES THE IMAGE",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[7].text"
+      ],
+      "note": "The warning provides a counterpoint to the horn's hardness, but saying it changes the image is interpretive.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c29",
+      "where": "scenes.warning-changes-the-horn.narration",
+      "text": "The warning changes how you see that powerful horn.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[7].text"
+      ],
+      "note": "The horn's hardness and venom warning are supported, but the claim about how the warning changes the viewer's perception is interpretive.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c30",
+      "where": "scenes.warning-changes-the-horn.caption",
+      "text": "IMPRESSIVE ISN’T THE WHOLE STORY",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c31",
+      "where": "scenes.warning-changes-the-horn.eyebrow",
+      "text": "THE COUNTERPOINT",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c32",
+      "where": "scenes.warning-changes-the-horn.facts[0]",
+      "text": "HARD HORN",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c33",
+      "where": "scenes.warning-changes-the-horn.facts[1]",
+      "text": "VENOM WARNING",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[7].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c34",
+      "where": "scenes.power-or-venom.headline",
+      "text": "WHICH DETAIL STICKS?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c35",
+      "where": "scenes.power-or-venom.narration",
+      "text": "Is the diamond claim scarier, or the venom warning?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c36",
+      "where": "scenes.power-or-venom.caption",
+      "text": "POWER OR VENOM?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c37",
+      "where": "scenes.power-or-venom.eyebrow",
+      "text": "YOUR CALL",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    }
+  ],
+  "unsupported": [],
+  "uncertain": [
+    {
+      "id": "c3",
+      "where": "audiencePromise",
+      "text": "See how Nidoking’s strongest-looking feature changes from impressive to cautionary.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[7].text"
+      ],
+      "note": "The horn's hardness and venom are supported, but calling it Nidoking's 'strongest-looking feature' and saying it changes from impressive to cautionary is interpretive and not directly established.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c5",
+      "where": "payoff",
+      "text": "The horn becomes Nidoking’s clearest contrast: the feature praised for piercing diamond is also the one marked with caution.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[7].text"
+      ],
+      "note": "The two horn descriptions are supported, but 'clearest contrast' is an interpretive comparison not stated in the research.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c25",
+      "where": "scenes.strength-then-caution.eyebrow",
+      "text": "THE IMAGE SHIFTS",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[7].text"
+      ],
+      "note": "The two descriptions support a contrast, but that the 'image shifts' is an interpretive effect rather than a researched fact.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c28",
+      "where": "scenes.warning-changes-the-horn.headline",
+      "text": "THE WARNING CHANGES THE IMAGE",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[7].text"
+      ],
+      "note": "The warning provides a counterpoint to the horn's hardness, but saying it changes the image is interpretive.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c29",
+      "where": "scenes.warning-changes-the-horn.narration",
+      "text": "The warning changes how you see that powerful horn.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[7].text"
+      ],
+      "note": "The horn's hardness and venom warning are supported, but the claim about how the warning changes the viewer's perception is interpretive.",
+      "tier": "official",
+      "checkedBy": "model"
+    }
+  ]
+}

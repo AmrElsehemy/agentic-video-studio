@@ -1,0 +1,148 @@
+{
+  "schemaVersion": 1,
+  "id": "venonat-048",
+  "number": 48,
+  "index": "#048",
+  "name": "Venonat",
+  "slug": "venonat",
+  "category": "Insect Pokémon",
+  "generation": "Generation I",
+  "isLegendary": false,
+  "isMythical": false,
+  "types": [
+    "Bug",
+    "Poison"
+  ],
+  "heightMeters": 1,
+  "weightKg": 30,
+  "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/48.png",
+  "pokedexEntries": [
+    {
+      "game": "Red",
+      "text": "Lives in the shadows of tall trees where it eats insects. It is attracted by light at night."
+    },
+    {
+      "game": "Yellow",
+      "text": "Its large eyes act as radars. In a bright place, you can see that they are clusters of many tiny eyes."
+    },
+    {
+      "game": "Gold",
+      "text": "Its eyes also function as radar units. It catches and eats small bugs that hide in darkness."
+    },
+    {
+      "game": "Silver",
+      "text": "Poison oozes from all over its body. It catches and eats small bugs at night that are at tracted by light."
+    },
+    {
+      "game": "Crystal",
+      "text": "The small bugs it eats appear only at night, so it sleeps in a hole in a tree until night falls."
+    },
+    {
+      "game": "Ruby",
+      "text": "VENONAT is said to have evolved with a coat of thin, stiff hair that covers its entire body for protection. It possesses large eyes that never fail to spot even miniscule prey."
+    },
+    {
+      "game": "Emerald",
+      "text": "Its coat of thin, stiff hair that covers its entire body is said to have evolved for protection. Its large eyes never fail to spot even miniscule prey."
+    },
+    {
+      "game": "Firered",
+      "text": "Its eyes act as radar, enabling it to be active in darkness. The eyes can also shoot powerful beams."
+    },
+    {
+      "game": "Leafgreen",
+      "text": "Lives in the shadows of tall trees where it eats bugs. It is attracted by light at night."
+    },
+    {
+      "game": "Diamond",
+      "text": "Its big eyes are actually clusters of tiny eyes. At night, its kind is drawn by light."
+    },
+    {
+      "game": "Soulsilver",
+      "text": "Poison oozes from all over its body. It catches and eats small bugs at night that are attracted by light."
+    },
+    {
+      "game": "Omega Ruby",
+      "text": "Venonat is said to have evolved with a coat of thin, stiff hair that covers its entire body for protection. It possesses large eyes that never fail to spot even minuscule prey."
+    },
+    {
+      "game": "Lets Go Pikachu",
+      "text": "Its large eyes act as radar. In a bright place, you can see that they are clusters of many tiny eyes."
+    }
+  ],
+  "evolutionChain": [
+    {
+      "name": "Venonat",
+      "index": "#048",
+      "stage": 1,
+      "types": [
+        "Bug",
+        "Poison"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/48.png",
+      "isSubject": true
+    },
+    {
+      "name": "Venomoth",
+      "index": "#049",
+      "stage": 2,
+      "evolvesFrom": "Venonat",
+      "method": "Level Up, level 31",
+      "types": [
+        "Bug",
+        "Poison"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/49.png",
+      "isSubject": false
+    }
+  ],
+  "varieties": [],
+  "lore": [],
+  "tiers": {
+    "official": [
+      "name",
+      "index",
+      "number",
+      "category",
+      "generation",
+      "isLegendary",
+      "isMythical",
+      "types",
+      "heightMeters",
+      "weightKg",
+      "pokedexEntries",
+      "evolutionChain[].name",
+      "evolutionChain[].index",
+      "evolutionChain[].types",
+      "evolutionChain[].stage",
+      "varieties[].types",
+      "varieties[].heightMeters",
+      "varieties[].weightKg"
+    ],
+    "trusted_secondary": [
+      "evolutionChain[].method",
+      "evolutionChain[].evolvesFrom",
+      "varieties[].name"
+    ],
+    "community": [
+      "lore"
+    ]
+  },
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Venonat",
+      "url": "https://www.pokemon.com/us/pokedex/venonat",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Venonat",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Venonat_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Venonat",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/48",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

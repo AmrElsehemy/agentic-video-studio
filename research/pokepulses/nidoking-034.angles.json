@@ -1,0 +1,166 @@
+{
+  "episodeId": "nidoking-034",
+  "createdAt": "2026-10-03T19:27:07.229Z",
+  "chosen": {
+    "id": "diamond-piercing-horn",
+    "premise": "Nidoking’s horn is hard enough to pierce diamond, but it also contains venom.",
+    "hook": "Nidoking’s horn can pierce diamond—and it’s poisonous.",
+    "archetype": "comparison",
+    "evidence": [
+      "pokedexEntries[1].text",
+      "pokedexEntries[7].text",
+      "pokedexEntries[11].text"
+    ],
+    "visualIdea": "Show the horn drilling through a diamond, then reveal a venom warning over the same horn.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 5,
+      "specificity": 5,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 25,
+    "note": "A distinctive two-part contradiction: the horn can pierce diamond, yet it is also venomous. Every part of the hook is directly supported and visually clear."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "diamond-piercing-horn",
+          "premise": "Nidoking’s horn is hard enough to pierce diamond, but it also contains venom.",
+          "hook": "Nidoking’s horn can pierce diamond—and it’s poisonous.",
+          "archetype": "comparison",
+          "evidence": [
+            "pokedexEntries[1].text",
+            "pokedexEntries[7].text",
+            "pokedexEntries[11].text"
+          ],
+          "visualIdea": "Show the horn drilling through a diamond, then reveal a venom warning over the same horn.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 25,
+          "note": "A distinctive two-part contradiction: the horn can pierce diamond, yet it is also venomous. Every part of the hook is directly supported and visually clear."
+        },
+        {
+          "id": "tail-vs-tower",
+          "premise": "Nidoking’s tail can topple a metal transmission tower with one swing.",
+          "hook": "This Pokémon can knock down a transmission tower with its tail.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[5].text",
+            "pokedexEntries[6].text"
+          ],
+          "visualIdea": "Animate Nidoking swinging its tail into a metal transmission tower as it collapses.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 24,
+          "note": "A highly concrete destructive feat, directly supported by two Pokédex entries and easy to visualize. The general strength angle is less exclusive to Nidoking."
+        },
+        {
+          "id": "rampage-calm",
+          "premise": "Nidoking is impossible to control during a rampage, yet calms around a long-time Nidoqueen companion.",
+          "hook": "Nothing can stop Nidoking—except one Pokémon it knows well.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[5].text",
+            "pokedexEntries[6].text",
+            "pokedexEntries[13].text"
+          ],
+          "visualIdea": "Cut from a raging Nidoking to the same Pokémon visibly calming beside a familiar Nidoqueen.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 24,
+          "note": "The emotional reversal is unusually specific and memorable. The Sword entry supports the exception, though “nothing can stop it” and the exact relationship are slightly broader than the evidence."
+        },
+        {
+          "id": "moon-stone-upgrade",
+          "premise": "Nidorino reaches level 16, but Nidoking only appears when a Moon Stone is used.",
+          "hook": "Nidoking doesn’t evolve at a higher level—it needs a Moon Stone.",
+          "archetype": "mechanic",
+          "evidence": [
+            "evolutionChain[1].method",
+            "evolutionChain[2].method",
+            "evolutionChain[2].evolvesFrom"
+          ],
+          "visualIdea": "Display Nidorino at level 16, then freeze the level counter while a Moon Stone triggers evolution.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 3,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 22,
+          "note": "A clean, game-mechanic explanation with strong on-screen potential, but experienced players are unlikely to find the evolution method surprising."
+        },
+        {
+          "id": "poison-to-ground",
+          "premise": "The Moon Stone changes Nidorino from pure Poison into Nidoking’s Poison/Ground typing.",
+          "hook": "One Moon Stone adds an entire second type to Nidorino.",
+          "archetype": "transformation",
+          "evidence": [
+            "evolutionChain[1].types",
+            "evolutionChain[2].types",
+            "evolutionChain[2].method"
+          ],
+          "visualIdea": "Show a Poison-only Nidorino gaining a Ground-type color and a second type label after evolution.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 3,
+            "specificity": 4,
+            "visual": 4,
+            "support": 5
+          },
+          "total": 20,
+          "note": "Accurate and easy to show, but gaining a second type on evolution is not especially unusual, and the premise lacks a sharper contradiction or benchmark."
+        },
+        {
+          "id": "melee-specialist",
+          "premise": "Nidoking’s signature fighting style uses its thick arms, legs, and tail for close-range attacks.",
+          "hook": "Nidoking isn’t just a horn fighter—it specializes in melee combat.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[4].text",
+            "pokedexEntries[0].text",
+            "pokedexEntries[2].text"
+          ],
+          "visualIdea": "Highlight Nidoking’s arms, legs, and tail one by one, then show a close-range combo.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 3,
+            "surprise": 2,
+            "specificity": 3,
+            "visual": 4,
+            "support": 5
+          },
+          "total": 17,
+          "note": "Well supported, but it is primarily a broad combat description. Many physically oriented Pokémon could use the same angle."
+        }
+      ],
+      "rejected": [],
+      "request": "N/A—the selected angle is strong enough. A stronger alternative would need an equally specific, surprising contradiction with direct Pokédex support and an unmistakable visual payoff."
+    }
+  ]
+}

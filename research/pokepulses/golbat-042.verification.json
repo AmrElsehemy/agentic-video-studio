@@ -1,0 +1,435 @@
+{
+  "episodeId": "golbat-042",
+  "checkedAt": "2026-10-03T19:54:10.793Z",
+  "claims": [
+    {
+      "id": "c1",
+      "where": "title",
+      "text": "Golbat's Hunger Can Cost It Its Fangs",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[17].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c2",
+      "where": "premise",
+      "text": "Hunger can drive Golbat to bite a Steel-type Pokémon and lose some of its hollow fangs.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[17].text",
+        "pokedexEntries[15].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c3",
+      "where": "audiencePromise",
+      "text": "Show how hunger drives Golbat to bite a Steel-type and lose some fangs.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[17].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c4",
+      "where": "openLoop",
+      "text": "What kind of bite can make Golbat lose its own fangs?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c5",
+      "where": "payoff",
+      "text": "Golbat's hollow fangs suck blood, but biting Steel can make it lose some.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[15].text",
+        "pokedexEntries[17].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c6",
+      "where": "scenes.wrong-bite.headline",
+      "text": "THE WRONG BITE",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c7",
+      "where": "scenes.wrong-bite.narration",
+      "text": "Golbat bit the wrong Pokémon and lost some teeth.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[17].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c8",
+      "where": "scenes.wrong-bite.caption",
+      "text": "SOME GOLBAT ARE MISSING FANGS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[17].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c9",
+      "where": "scenes.wrong-bite.eyebrow",
+      "text": "A COSTLY MISTAKE",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c10",
+      "where": "scenes.hollow-fangs.headline",
+      "text": "TEETH LIKE STRAWS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[15].text",
+        "pokedexEntries[22].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c11",
+      "where": "scenes.hollow-fangs.narration",
+      "text": "Its fangs are hollow like straws, making them unexpectedly fragile.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[15].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c12",
+      "where": "scenes.hollow-fangs.caption",
+      "text": "HOLLOW FANGS = FRAGILE FANGS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[15].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c13",
+      "where": "scenes.hollow-fangs.eyebrow",
+      "text": "LOOK CLOSER",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c14",
+      "where": "scenes.hollow-fangs.facts[0]",
+      "text": "HOLLOW FANGS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[15].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c15",
+      "where": "scenes.hollow-fangs.facts[1]",
+      "text": "SUCK BLOOD",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[15].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c16",
+      "where": "scenes.steel-target.headline",
+      "text": "THE TARGET IS STEEL",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[17].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c17",
+      "where": "scenes.steel-target.narration",
+      "text": "But hunger can drive Golbat to bite a Steel-type Pokémon.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[17].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c18",
+      "where": "scenes.steel-target.caption",
+      "text": "HUNGER PICKS THE WORST TARGET",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[17].text"
+      ],
+      "note": "The research supports hunger driving a bite against a Steel-type and the loss of fangs, but does not establish that Steel is the worst possible target.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c19",
+      "where": "scenes.steel-target.eyebrow",
+      "text": "HUNGER TAKES OVER",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c20",
+      "where": "scenes.steel-target.facts[0]",
+      "text": "STEEL-TYPE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[17].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c21",
+      "where": "scenes.steel-target.facts[1]",
+      "text": "HUNGER",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[17].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c22",
+      "where": "scenes.missing-fangs.headline",
+      "text": "THE BITE BACKFIRES",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[17].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c23",
+      "where": "scenes.missing-fangs.narration",
+      "text": "That bite can leave Golbat missing some of its fangs.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[17].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c24",
+      "where": "scenes.missing-fangs.caption",
+      "text": "STEEL CAN TAKE ITS FANGS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[17].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c25",
+      "where": "scenes.missing-fangs.eyebrow",
+      "text": "THE FIRST REVEAL",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c26",
+      "where": "scenes.missing-fangs.facts[0]",
+      "text": "MISSING FANGS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[17].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c27",
+      "where": "scenes.missing-fangs.facts[1]",
+      "text": "STEEL BITE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[17].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c28",
+      "where": "scenes.fragile-tools.headline",
+      "text": "ITS WEAPON IS ALSO WEAK",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[15].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c29",
+      "where": "scenes.fragile-tools.narration",
+      "text": "Those hollow fangs are made for blood, but unexpectedly fragile.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[15].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c30",
+      "where": "scenes.fragile-tools.caption",
+      "text": "BUILT TO DRAIN. EASY TO BREAK.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[15].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c31",
+      "where": "scenes.fragile-tools.eyebrow",
+      "text": "THE IRONY",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c32",
+      "where": "scenes.fragile-tools.facts[0]",
+      "text": "BLOOD-SUCKING",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[15].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c33",
+      "where": "scenes.fragile-tools.facts[1]",
+      "text": "UNEXPECTEDLY FRAGILE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[15].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c34",
+      "where": "scenes.your-verdict.headline",
+      "text": "WEAKNESS OR BAD DESIGN?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c35",
+      "where": "scenes.your-verdict.narration",
+      "text": "Cool weakness or terrible design choice?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c36",
+      "where": "scenes.your-verdict.caption",
+      "text": "WHICH SIDE ARE YOU ON?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c37",
+      "where": "scenes.your-verdict.eyebrow",
+      "text": "YOUR VERDICT",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    }
+  ],
+  "unsupported": [],
+  "uncertain": [
+    {
+      "id": "c18",
+      "where": "scenes.steel-target.caption",
+      "text": "HUNGER PICKS THE WORST TARGET",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[17].text"
+      ],
+      "note": "The research supports hunger driving a bite against a Steel-type and the loss of fangs, but does not establish that Steel is the worst possible target.",
+      "tier": "official",
+      "checkedBy": "model"
+    }
+  ]
+}

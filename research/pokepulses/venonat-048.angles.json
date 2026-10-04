@@ -1,0 +1,166 @@
+{
+  "episodeId": "venonat-048",
+  "createdAt": "2026-10-03T20:17:32.459Z",
+  "chosen": {
+    "id": "eyes-within-eyes",
+    "premise": "Venonat’s giant eyes are actually clusters of many tiny eyes that work as radar.",
+    "hook": "Venonat doesn’t have big eyes—it has hundreds of tiny ones.",
+    "archetype": "mystery",
+    "evidence": [
+      "pokedexEntries[1].text",
+      "pokedexEntries[9].text"
+    ],
+    "visualIdea": "Zoom into Venonat’s eyes, revealing them splitting into a cluster of tiny eyes with radar waves.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 5,
+      "specificity": 4,
+      "visual": 5,
+      "support": 4
+    },
+    "total": 23,
+    "note": "Highly distinctive and visually arresting, with multiple Pokédex entries confirming the tiny-eye cluster. The hook’s “hundreds” is not directly supported; “many tiny eyes” would be more accurate."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "eyes-within-eyes",
+          "premise": "Venonat’s giant eyes are actually clusters of many tiny eyes that work as radar.",
+          "hook": "Venonat doesn’t have big eyes—it has hundreds of tiny ones.",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[1].text",
+            "pokedexEntries[9].text"
+          ],
+          "visualIdea": "Zoom into Venonat’s eyes, revealing them splitting into a cluster of tiny eyes with radar waves.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 4,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 23,
+          "note": "Highly distinctive and visually arresting, with multiple Pokédex entries confirming the tiny-eye cluster. The hook’s “hundreds” is not directly supported; “many tiny eyes” would be more accurate."
+        },
+        {
+          "id": "light-as-a-lure",
+          "premise": "Venonat is attracted to nighttime light, then catches the small bugs that light draws in.",
+          "hook": "Venonat follows the light—but not for the reason you think.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[0].text",
+            "pokedexEntries[3].text",
+            "pokedexEntries[8].text",
+            "pokedexEntries[9].text"
+          ],
+          "visualIdea": "A night light attracts swarming bugs, then Venonat emerges from the shadows to catch them.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 22,
+          "note": "The entries clearly support the nighttime light attraction and bug-catching sequence. It creates a strong visual hunting loop, though the angle is slightly less uniquely Venonat than the eye anatomy."
+        },
+        {
+          "id": "radar-in-the-dark",
+          "premise": "Venonat can stay active in darkness because its eyes function as radar units.",
+          "hook": "How does Venonat hunt when it can’t see?",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[2].text",
+            "pokedexEntries[5].text",
+            "pokedexEntries[7].text"
+          ],
+          "visualIdea": "Show a dark forest where radar pulses from Venonat’s eyes outline hidden bugs.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 21,
+          "note": "The darkness-hunting mechanic is concrete and easy to visualize, but the research describes the eyes as radar without explaining how that radar works. Less surprising than the eye-cluster reveal."
+        },
+        {
+          "id": "poison-everywhere",
+          "premise": "Venonat’s poison does not come from one attack: it oozes from all over its body.",
+          "hook": "Venonat’s entire body is a source of poison.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[3].text",
+            "pokedexEntries[10].text"
+          ],
+          "visualIdea": "Trace glowing poison along Venonat’s whole body instead of showing it coming from one fanged attack.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 4,
+            "support": 5
+          },
+          "total": 21,
+          "note": "Directly supported by multiple entries and more specific than a generic poison profile. The visual is clear, but the premise has less narrative movement or mystery than the strongest angles."
+        },
+        {
+          "id": "hair-for-protection",
+          "premise": "Venonat evolved a coat of thin, stiff hair for protection while its eyes spot minuscule prey.",
+          "hook": "Venonat’s fuzzy coat is armor, not decoration.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[5].text",
+            "pokedexEntries[6].text",
+            "pokedexEntries[11].text"
+          ],
+          "visualIdea": "Individual stiff hairs rise like protective spikes while a radar-eye locks onto a tiny bug.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 3,
+            "specificity": 4,
+            "visual": 4,
+            "support": 4
+          },
+          "total": 19,
+          "note": "The research supports stiff protective hair, but “armor” and spike imagery exaggerate what is stated. The prey-spotting detail adds a useful secondary beat but makes the premise less focused."
+        },
+        {
+          "id": "level-31-metamorphosis",
+          "premise": "At level 31, Venonat transforms into Venomoth while keeping its Bug and Poison types.",
+          "hook": "At level 31, this fuzzy hunter becomes Venomoth.",
+          "archetype": "transformation",
+          "evidence": [
+            "evolutionChain[0].name",
+            "evolutionChain[1].name",
+            "evolutionChain[1].method",
+            "evolutionChain[0].types",
+            "evolutionChain[1].types"
+          ],
+          "visualIdea": "Display a level counter reaching 31 as Venonat morphs into Venomoth, with both type labels remaining.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 3,
+            "surprise": 3,
+            "specificity": 5,
+            "visual": 5,
+            "support": 3
+          },
+          "total": 19,
+          "note": "The level-31 claim is highly concrete and visually straightforward, but evolution facts are less surprising and the method is from a trusted secondary source rather than the official entries. Keeping both types is accurate but not especially remarkable."
+        }
+      ],
+      "rejected": []
+    }
+  ]
+}

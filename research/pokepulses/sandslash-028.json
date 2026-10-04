@@ -1,0 +1,172 @@
+{
+  "schemaVersion": 1,
+  "id": "sandslash-028",
+  "number": 28,
+  "index": "#028",
+  "name": "Sandslash",
+  "slug": "sandslash",
+  "category": "Mouse Pokémon",
+  "generation": "Generation I",
+  "isLegendary": false,
+  "isMythical": false,
+  "types": [
+    "Ground"
+  ],
+  "heightMeters": 1,
+  "weightKg": 29.5,
+  "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/28.png",
+  "pokedexEntries": [
+    {
+      "game": "Red",
+      "text": "Curls up into a spiny ball when threatened. It can roll while curled up to attack or escape."
+    },
+    {
+      "game": "Yellow",
+      "text": "It is skilled at slashing enemies with its claws. If broken, they start to grow back in a day."
+    },
+    {
+      "game": "Gold",
+      "text": "In an attempt to hide itself, it will run around at top speed to kick up a blinding dust storm."
+    },
+    {
+      "game": "Silver",
+      "text": "If it digs at an incredible pace, it may snap off its spikes and claws. They grow back in a day."
+    },
+    {
+      "game": "Crystal",
+      "text": "Adept at climbing trees, it rolls into a spiny ball, then attacks its enemies from above."
+    },
+    {
+      "game": "Ruby",
+      "text": "SANDSLASH’s body is covered by tough spikes, which are hardened sections of its hide. Once a year, the old spikes fall out, to be replaced with new spikes that grow out from beneath the old ones."
+    },
+    {
+      "game": "Sapphire",
+      "text": "SANDSLASH can roll up its body as if it were a ball covered with large spikes. In battle, this POKéMON will try to make the foe flinch by jabbing it with its spines. It then leaps at the stunned foe to tear wildly with its sharp claws."
+    },
+    {
+      "game": "Emerald",
+      "text": "It curls up in a ball to protect itself from enemy attacks. It also curls up to prevent heatstroke during the daytime when temperatures rise sharply."
+    },
+    {
+      "game": "Firered",
+      "text": "It is adept at attacking with the spines on its back and its sharp claws while quickly scurrying about."
+    },
+    {
+      "game": "Diamond",
+      "text": "It curls up, then rolls into foes with its back. Its sharp spines inflict severe damage."
+    },
+    {
+      "game": "Black 2",
+      "text": "The spikes on its body are made up of its hardened hide. It rolls up and attacks foes with its spikes."
+    },
+    {
+      "game": "Sun",
+      "text": "Although they are sharp, its claws and spikes often break off. They grow back the next day, so it is not bothered by the temporary loss."
+    },
+    {
+      "game": "Moon",
+      "text": "It uses its claws to climb trees and then curls its body into a spiny ball, ready to drop onto any prey that appears."
+    },
+    {
+      "game": "Ultra Sun",
+      "text": "Its claws and horns often break off. The broken claws and horns can be used to carve plows for tilling farm fields."
+    },
+    {
+      "game": "Ultra Moon",
+      "text": "Thanks to its thick claws, it’s good at climbing trees. There are plenty of Sandslash that park themselves in trees and go right to sleep."
+    },
+    {
+      "game": "Sword",
+      "text": "The drier the area Sandslash lives in, the harder and smoother the Pokémon’s spikes will feel when touched."
+    },
+    {
+      "game": "Shield",
+      "text": "It climbs trees by hooking on with its sharp claws. Sandslash shares the berries it gathers, dropping them down to Sandshrew waiting below the tree."
+    }
+  ],
+  "evolutionChain": [
+    {
+      "name": "Sandshrew",
+      "index": "#027",
+      "stage": 1,
+      "types": [
+        "Ground"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/27.png",
+      "isSubject": false
+    },
+    {
+      "name": "Sandslash",
+      "index": "#028",
+      "stage": 2,
+      "evolvesFrom": "Sandshrew",
+      "method": "Level Up, level 22",
+      "types": [
+        "Ground"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/28.png",
+      "isSubject": true
+    }
+  ],
+  "varieties": [
+    {
+      "name": "Sandslash Alola",
+      "types": [
+        "Ice",
+        "Steel"
+      ],
+      "heightMeters": 1.2,
+      "weightKg": 55,
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10102.png"
+    }
+  ],
+  "lore": [],
+  "tiers": {
+    "official": [
+      "name",
+      "index",
+      "number",
+      "category",
+      "generation",
+      "isLegendary",
+      "isMythical",
+      "types",
+      "heightMeters",
+      "weightKg",
+      "pokedexEntries",
+      "evolutionChain[].name",
+      "evolutionChain[].index",
+      "evolutionChain[].types",
+      "evolutionChain[].stage",
+      "varieties[].types",
+      "varieties[].heightMeters",
+      "varieties[].weightKg"
+    ],
+    "trusted_secondary": [
+      "evolutionChain[].method",
+      "evolutionChain[].evolvesFrom",
+      "varieties[].name"
+    ],
+    "community": [
+      "lore"
+    ]
+  },
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Sandslash",
+      "url": "https://www.pokemon.com/us/pokedex/sandslash",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Sandslash",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Sandslash_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Sandslash",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/28",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

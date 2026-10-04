@@ -1,0 +1,186 @@
+{
+  "id": "golbat-042",
+  "title": "Golbat's Hunger Can Cost It Its Fangs",
+  "storyPattern": "mystery",
+  "numberRelevant": false,
+  "premise": "Hunger can drive Golbat to bite a Steel-type Pokémon and lose some of its hollow fangs.",
+  "audiencePromise": "Show how hunger drives Golbat to bite a Steel-type and lose some fangs.",
+  "openLoop": "What kind of bite can make Golbat lose its own fangs?",
+  "payoff": "Golbat's hollow fangs suck blood, but biting Steel can make it lose some.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "Cool weakness or terrible design choice?",
+  "subject": {
+    "name": "Golbat",
+    "category": "Bat Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/42.png",
+    "identifier": "#042"
+  },
+  "related": [
+    {
+      "name": "Crobat",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/169.png",
+      "identifier": "#169"
+    },
+    {
+      "name": "Zubat",
+      "relation": "evolves-from",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/41.png",
+      "identifier": "#041"
+    }
+  ],
+  "palette": {
+    "background": "#090B16",
+    "surface": "#171A2B",
+    "primary": "#A855F7",
+    "secondary": "#CBD5E1",
+    "ink": "#F8FAFC"
+  },
+  "voice": {
+    "instructions": "Use a tense, curious pace. Pause briefly before each reveal, then land the final question clearly."
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    },
+    "assets": [
+      {
+        "kind": "Golbat official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/42.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "wrong-bite",
+      "beat": "hook",
+      "eyebrow": "A COSTLY MISTAKE",
+      "headline": "THE WRONG BITE",
+      "narration": "Golbat bit the wrong Pokémon and lost some teeth.",
+      "caption": "SOME GOLBAT ARE MISSING FANGS",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/42.png"
+    },
+    {
+      "id": "hollow-fangs",
+      "beat": "clue",
+      "eyebrow": "LOOK CLOSER",
+      "headline": "TEETH LIKE STRAWS",
+      "narration": "Its fangs are hollow like straws, making them unexpectedly fragile.",
+      "caption": "HOLLOW FANGS = FRAGILE FANGS",
+      "facts": [
+        "HOLLOW FANGS",
+        "SUCK BLOOD"
+      ],
+      "accent": "#C084FC",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/42.png"
+    },
+    {
+      "id": "steel-target",
+      "beat": "escalation",
+      "eyebrow": "HUNGER TAKES OVER",
+      "headline": "THE TARGET IS STEEL",
+      "narration": "But hunger can drive Golbat to bite a Steel-type Pokémon.",
+      "caption": "HUNGER PICKS THE WORST TARGET",
+      "facts": [
+        "STEEL-TYPE",
+        "HUNGER"
+      ],
+      "accent": "#94A3B8",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/42.png",
+      "primitive": {
+        "kind": "checklist",
+        "items": [
+          {
+            "label": "HUNGER",
+            "met": true
+          },
+          {
+            "label": "STEEL-TYPE",
+            "met": true
+          },
+          {
+            "label": "BITE",
+            "met": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "missing-fangs",
+      "beat": "reveal",
+      "eyebrow": "THE FIRST REVEAL",
+      "headline": "THE BITE BACKFIRES",
+      "narration": "That bite can leave Golbat missing some of its fangs.",
+      "caption": "STEEL CAN TAKE ITS FANGS",
+      "facts": [
+        "MISSING FANGS",
+        "STEEL BITE"
+      ],
+      "accent": "#F43F5E",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/42.png",
+      "primitive": {
+        "kind": "checklist",
+        "items": [
+          {
+            "label": "STEEL BITE",
+            "met": true
+          },
+          {
+            "label": "FANGS INTACT",
+            "met": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "fragile-tools",
+      "beat": "reveal",
+      "eyebrow": "THE IRONY",
+      "headline": "ITS WEAPON IS ALSO WEAK",
+      "narration": "Those hollow fangs are made for blood, but unexpectedly fragile.",
+      "caption": "BUILT TO DRAIN. EASY TO BREAK.",
+      "facts": [
+        "BLOOD-SUCKING",
+        "UNEXPECTEDLY FRAGILE"
+      ],
+      "accent": "#FB7185",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/42.png"
+    },
+    {
+      "id": "your-verdict",
+      "beat": "verdict",
+      "eyebrow": "YOUR VERDICT",
+      "headline": "WEAKNESS OR BAD DESIGN?",
+      "narration": "Cool weakness or terrible design choice?",
+      "caption": "WHICH SIDE ARE YOU ON?",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/42.png"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Golbat",
+      "url": "https://www.pokemon.com/us/pokedex/golbat",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Golbat",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Golbat_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Golbat",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/42",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

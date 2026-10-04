@@ -1,0 +1,472 @@
+{
+  "episodeId": "raichu-026",
+  "checkedAt": "2026-10-03T19:01:32.600Z",
+  "claims": [
+    {
+      "id": "c1",
+      "where": "title",
+      "text": "Raichu’s Strangest Response Begins When Its Pouches Run Empty",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c2",
+      "where": "premise",
+      "text": "When Raichu’s electric pouches run empty, it raises its tail to gather electricity from the atmosphere.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text",
+        "pokedexEntries[20].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c3",
+      "where": "audiencePromise",
+      "text": "Reveal why Raichu raises its tail when its electric pouches run empty, then show what its tail can do at both extremes.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[4].text",
+        "pokedexEntries[7].text"
+      ],
+      "note": "The research supports the two tail responses, but it describes what happens rather than why it happens.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c4",
+      "where": "openLoop",
+      "text": "Why would empty electric pouches make Raichu raise its tail?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c5",
+      "where": "payoff",
+      "text": "Raichu’s tail can discharge excess power or gather electricity from the atmosphere when its pouches run empty.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text",
+        "pokedexEntries[7].text",
+        "pokedexEntries[10].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c6",
+      "where": "scenes.empty-pouches.headline",
+      "text": "EMPTY POUCHES START THIS",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c7",
+      "where": "scenes.empty-pouches.narration",
+      "text": "Raichu’s strangest response begins when its pouches run empty.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c8",
+      "where": "scenes.empty-pouches.caption",
+      "text": "EMPTY POUCHES START THIS",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c9",
+      "where": "scenes.empty-pouches.eyebrow",
+      "text": "POWER FAILURE",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[4].text"
+      ],
+      "note": "Empty pouches are supported, but calling that condition a power failure is a looser interpretation.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c10",
+      "where": "scenes.empty-pouches.facts[0]",
+      "text": "ELECTRIC POUCHES",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c11",
+      "where": "scenes.empty-pouches.facts[1]",
+      "text": "RUN EMPTY",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c12",
+      "where": "scenes.pokedex-clue.headline",
+      "text": "THE EMPTY STATE MATTERS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c13",
+      "where": "scenes.pokedex-clue.narration",
+      "text": "Its Pokédex entry links empty pouches to one surprising response.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c14",
+      "where": "scenes.pokedex-clue.caption",
+      "text": "THE EMPTY STATE MATTERS",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c15",
+      "where": "scenes.pokedex-clue.eyebrow",
+      "text": "POKÉDEX CLUE",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c16",
+      "where": "scenes.pokedex-clue.facts[0]",
+      "text": "POKÉDEX ENTRY",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c17",
+      "where": "scenes.pokedex-clue.facts[1]",
+      "text": "SURPRISING RESPONSE",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c18",
+      "where": "scenes.tail-has-two-jobs.headline",
+      "text": "THE TAIL HANDLES BOTH EXTREMES",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text",
+        "pokedexEntries[7].text",
+        "pokedexEntries[10].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c19",
+      "where": "scenes.tail-has-two-jobs.narration",
+      "text": "When overcharged, its tail discharges. When empty, it gathers electricity.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text",
+        "pokedexEntries[7].text",
+        "pokedexEntries[10].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c20",
+      "where": "scenes.tail-has-two-jobs.caption",
+      "text": "DISCHARGE OR GATHER",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c21",
+      "where": "scenes.tail-has-two-jobs.eyebrow",
+      "text": "TWO DIRECTIONS",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c22",
+      "where": "scenes.tail-has-two-jobs.facts[0]",
+      "text": "DISCHARGES EXCESS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[7].text",
+        "pokedexEntries[10].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c23",
+      "where": "scenes.tail-has-two-jobs.facts[1]",
+      "text": "GATHERS ELECTRICITY",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c24",
+      "where": "scenes.tail-rises.headline",
+      "text": "THE TAIL REACHES UP",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c25",
+      "where": "scenes.tail-rises.narration",
+      "text": "With its tail raised, Raichu gathers electricity from the atmosphere.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c26",
+      "where": "scenes.tail-rises.caption",
+      "text": "THE ATMOSPHERE BECOMES THE SOURCE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c27",
+      "where": "scenes.tail-rises.eyebrow",
+      "text": "THE RESPONSE",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c28",
+      "where": "scenes.tail-rises.facts[0]",
+      "text": "RAISES ITS TAIL",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c29",
+      "where": "scenes.tail-rises.facts[1]",
+      "text": "ATMOSPHERE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c30",
+      "where": "scenes.tail-as-outlet-collector.headline",
+      "text": "ONE TAIL. TWO ELECTRIC JOBS.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text",
+        "pokedexEntries[7].text",
+        "pokedexEntries[10].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c31",
+      "where": "scenes.tail-as-outlet-collector.narration",
+      "text": "Its tail can discharge excess power or gather electricity from above.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text",
+        "pokedexEntries[7].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c32",
+      "where": "scenes.tail-as-outlet-collector.caption",
+      "text": "DISCHARGE BELOW. GATHER ABOVE.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text",
+        "pokedexEntries[7].text",
+        "pokedexEntries[10].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c33",
+      "where": "scenes.tail-as-outlet-collector.eyebrow",
+      "text": "THE BIGGER TWIST",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c34",
+      "where": "scenes.tail-as-outlet-collector.facts[0]",
+      "text": "EXCESS POWER",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[7].text",
+        "pokedexEntries[10].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c35",
+      "where": "scenes.tail-as-outlet-collector.facts[1]",
+      "text": "ATMOSPHERIC ELECTRICITY",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c36",
+      "where": "scenes.clever-or-strange.headline",
+      "text": "CLEVER DESIGN OR TAIL TRICK?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c37",
+      "where": "scenes.clever-or-strange.narration",
+      "text": "Clever way to gather electricity, or strange tail trick?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c38",
+      "where": "scenes.clever-or-strange.caption",
+      "text": "CLEVER OR STRANGE?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c39",
+      "where": "scenes.clever-or-strange.eyebrow",
+      "text": "YOUR VERDICT",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    }
+  ],
+  "unsupported": [],
+  "uncertain": [
+    {
+      "id": "c3",
+      "where": "audiencePromise",
+      "text": "Reveal why Raichu raises its tail when its electric pouches run empty, then show what its tail can do at both extremes.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[4].text",
+        "pokedexEntries[7].text"
+      ],
+      "note": "The research supports the two tail responses, but it describes what happens rather than why it happens.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c9",
+      "where": "scenes.empty-pouches.eyebrow",
+      "text": "POWER FAILURE",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[4].text"
+      ],
+      "note": "Empty pouches are supported, but calling that condition a power failure is a looser interpretation.",
+      "tier": "official",
+      "checkedBy": "model"
+    }
+  ]
+}

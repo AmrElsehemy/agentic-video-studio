@@ -1,0 +1,141 @@
+{
+  "episodeId": "nidoqueen-031",
+  "createdAt": "2026-10-03T19:17:05.032Z",
+  "chosen": {
+    "id": "safe-spines",
+    "premise": "Nidoqueen’s back spines never secrete poison while young are nestled between them.",
+    "hook": "Nidoqueen’s poisonous defense has one very specific safety switch.",
+    "archetype": "mechanic",
+    "evidence": [
+      "pokedexEntries[12].text"
+    ],
+    "visualIdea": "Show glowing spines changing from toxic purple to safe blue as young appear between them.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 5,
+      "specificity": 5,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 25,
+    "note": "An unusually specific biological safety rule, directly stated in the Shield Pokédex entry. The young nestled among the spines create a strong visual reveal."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "safe-spines",
+          "premise": "Nidoqueen’s back spines never secrete poison while young are nestled between them.",
+          "hook": "Nidoqueen’s poisonous defense has one very specific safety switch.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[12].text"
+          ],
+          "visualIdea": "Show glowing spines changing from toxic purple to safe blue as young appear between them.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 25,
+          "note": "An unusually specific biological safety rule, directly stated in the Shield Pokédex entry. The young nestled among the spines create a strong visual reveal."
+        },
+        {
+          "id": "bristling-armor",
+          "premise": "When excited, Nidoqueen’s stiff needle-like scales bristle outward instead of remaining flat.",
+          "hook": "Excite Nidoqueen, and her armor suddenly points straight at you.",
+          "archetype": "transformation",
+          "evidence": [
+            "pokedexEntries[7].text",
+            "pokedexEntries[10].text"
+          ],
+          "visualIdea": "Start with smooth scales, then snap each needle outward as Nidoqueen’s excitement meter rises.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 22,
+          "note": "A clear, animation-friendly transformation directly supported by two entries. It is compelling, but less unexpected than the offspring-specific poison safeguard."
+        },
+        {
+          "id": "living-nest-door",
+          "premise": "Nidoqueen uses her rugged body to seal the entrance of her nest against predators.",
+          "hook": "Nidoqueen doesn’t just guard the nest—she becomes its door.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[3].text",
+            "pokedexEntries[8].text"
+          ],
+          "visualIdea": "Animate Nidoqueen backing into a burrow until her armored body completely blocks the entrance.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 21,
+          "note": "The nest-sealing behavior is distinctive and well supported, but “becomes its door” and “completely blocks” are slightly dramatized beyond the wording of the entries."
+        },
+        {
+          "id": "scales-in-cycles",
+          "premise": "Nidoqueen’s protective scales grow in cycles rather than staying permanently unchanged.",
+          "hook": "Nidoqueen’s armor doesn’t just grow—it grows in cycles.",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[1].text"
+          ],
+          "visualIdea": "Use a time-lapse armor graphic showing successive rings of scales growing over Nidoqueen’s body.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 4,
+            "support": 5
+          },
+          "total": 21,
+          "note": "The cyclic growth detail is directly supported and concrete, though the research gives no timing or mechanism, limiting the visual and explanatory payoff."
+        },
+        {
+          "id": "defense-first",
+          "premise": "Despite her powerful tackles, Nidoqueen is officially described as better at defense than offense.",
+          "hook": "Nidoqueen can send foes flying—and she’s still better at defense.",
+          "archetype": "comparison",
+          "evidence": [
+            "pokedexEntries[5].text",
+            "pokedexEntries[11].text"
+          ],
+          "visualIdea": "Split the screen between a foe launched by a tackle and Nidoqueen shielding children from incoming attacks.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 3,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 4,
+            "support": 5
+          },
+          "total": 20,
+          "note": "The offense-versus-defense contradiction is clearly backed by the entries, but the general defensive-warrior framing could fit several armored Pokémon."
+        }
+      ],
+      "rejected": [
+        {
+          "id": "moonstone-grounding",
+          "reason": "hook: Too big: expected string to have <=80 characters"
+        }
+      ],
+      "request": "No stronger angle is required. The episode should center on the offspring-specific safety switch, ideally clarifying that the Pokédex says the spines do not secrete poison while young are present."
+    }
+  ]
+}

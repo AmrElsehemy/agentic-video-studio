@@ -1,0 +1,234 @@
+{
+  "schemaVersion": 2,
+  "id": "paras-046",
+  "show": {
+    "id": "pokepulses",
+    "name": "PokePulses",
+    "handle": "@PokePulses",
+    "wordmark": {
+      "lead": "POKE",
+      "accent": "PULSES"
+    },
+    "fonts": {
+      "display": "Bebas Neue",
+      "body": "system"
+    }
+  },
+  "title": "Paras Isn’t Giving the Orders",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "mystery",
+    "numberRelevant": false,
+    "premise": "Paras’s back mushrooms control it and order it to extract juice from tree trunks.",
+    "audiencePromise": "Follow the clues from root-burrowing to the reveal that Paras may be controlled by its mushrooms.",
+    "openLoop": "Are Paras’s mushrooms just feeding on it, or actually controlling it?",
+    "payoff": "The mushrooms steal most of Paras’s nutrients, then control the bug and order it to extract tree-trunk juice.",
+    "targetEmotion": "surprise",
+    "engagementQuestion": "Is Paras the bug—or the mushrooms’ puppet?",
+    "targetSecondsBetweenVisualChanges": 0.68
+  },
+  "subject": {
+    "name": "Paras",
+    "category": "Mushroom Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/46.png",
+    "identifier": "#046"
+  },
+  "related": [
+    {
+      "name": "Parasect",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/47.png",
+      "identifier": "#047"
+    }
+  ],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#101719",
+    "surface": "#1B2928",
+    "primary": "#D96B3B",
+    "secondary": "#8EAD5A",
+    "ink": "#F4E8C1"
+  },
+  "audio": {
+    "music": "generated/paras-046-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 126,
+      "notes": [
+        110,
+        130.81,
+        146.83,
+        164.81,
+        146.83,
+        130.81,
+        98,
+        130.81
+      ]
+    },
+    "voice": {
+      "provider": "openai",
+      "model": "gpt-4o-mini-tts",
+      "voice": "marin",
+      "instructions": "Use a tense, curious pace. Stress the control reveal. Pause briefly before each reveal, then end with a playful challenge.",
+      "speed": 1.12,
+      "output": "generated/paras-046-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "assets": [
+      {
+        "kind": "Paras official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/46.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ],
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    }
+  },
+  "scenes": [
+    {
+      "id": "mushrooms-give-orders",
+      "durationSeconds": 3.8,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "mystery",
+      "subjectFocus": "hidden",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "THE BACK IS IN CHARGE",
+      "headline": "THE MUSHROOMS GIVE ORDERS",
+      "narration": "The mushrooms on Paras’s back are giving orders.",
+      "caption": "PARAS MAY NOT BE IN CHARGE",
+      "visual": "hook",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/46.png",
+      "accent": "#D96B3B",
+      "facts": [
+        "TOCHUKASO MUSHROOMS",
+        "CONTROL THE BUG"
+      ]
+    },
+    {
+      "id": "roots-first-clue",
+      "durationSeconds": 4.3,
+      "beat": "clue",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "FOLLOW THE BURROW",
+      "headline": "FIRST, IT DUGS FOR ROOTS",
+      "narration": "First clue: Paras burrows under trees and gnaws roots.",
+      "caption": "UNDERGROUND, IT TARGETS TREE ROOTS",
+      "visual": "gauntlet",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/46.png",
+      "accent": "#8EAD5A",
+      "facts": [
+        "BURROWS UNDERGROUND",
+        "TREE ROOTS"
+      ]
+    },
+    {
+      "id": "nutrition-stolen",
+      "durationSeconds": 5.1,
+      "beat": "escalation",
+      "role": "escalation",
+      "shot": "tracking",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "THE HOST LOSES",
+      "headline": "PARAS DOESN’T GET MOST",
+      "narration": "But the mushrooms steal most of the nutrition Paras takes in.",
+      "caption": "THE HOST FEEDS THE MUSHROOMS",
+      "visual": "advantage",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/46.png",
+      "accent": "#C65A45",
+      "facts": [
+        "MOST NUTRITION",
+        "BUG HOST"
+      ]
+    },
+    {
+      "id": "tree-trunk-order",
+      "durationSeconds": 4.7,
+      "beat": "reveal",
+      "role": "payoff",
+      "shot": "comparison",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "THE STRANGE COMMAND",
+      "headline": "EXTRACT JUICE FROM TRUNKS",
+      "narration": "Then they order Paras to extract juice from tree trunks.",
+      "caption": "THE MUSHROOMS CHOOSE THE JOB",
+      "visual": "race",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/46.png",
+      "accent": "#D96B3B",
+      "facts": [
+        "TREE TRUNKS",
+        "EXTRACT JUICE"
+      ]
+    },
+    {
+      "id": "controlled-bug",
+      "durationSeconds": 4.8,
+      "beat": "reveal",
+      "role": "payoff",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "THE POKÉDEX CONFIRMS IT",
+      "headline": "THE BUG IS CONTROLLED",
+      "narration": "The Pokédex confirms it: the mushrooms are controlling the bug.",
+      "caption": "PARAS IS NOT THE BOSS",
+      "visual": "tradeoff",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/46.png",
+      "accent": "#8EAD5A",
+      "facts": [
+        "MUSHROOMS CONTROL IT",
+        "TOCHUKASO"
+      ]
+    },
+    {
+      "id": "bug-or-puppet",
+      "durationSeconds": 3.8,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "YOUR CALL",
+      "headline": "BUG OR MUSHROOM PUPPET?",
+      "narration": "Paras is the bug—or the mushrooms’ puppet?",
+      "caption": "WHO IS REALLY IN CHARGE?",
+      "visual": "cta",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/46.png",
+      "accent": "#D96B3B"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Paras",
+      "url": "https://www.pokemon.com/us/pokedex/paras"
+    },
+    {
+      "label": "Bulbapedia — Paras",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Paras_(Pok%C3%A9mon)"
+    },
+    {
+      "label": "PokéAPI — Paras",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/46"
+    }
+  ]
+}

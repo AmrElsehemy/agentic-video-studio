@@ -1,0 +1,434 @@
+{
+  "episodeId": "wigglytuff-040",
+  "checkedAt": "2026-10-03T19:46:37.390Z",
+  "claims": [
+    {
+      "id": "c1",
+      "where": "title",
+      "text": "Make Wigglytuff Angry, and It Becomes 20 Times Bigger",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[15].text",
+        "category"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c2",
+      "where": "premise",
+      "text": "When angered, Wigglytuff inhales and can grow 20 times larger.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[15].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c3",
+      "where": "audiencePromise",
+      "text": "Watch Wigglytuff turn anger into a giant balloon threat.",
+      "verdict": "supported",
+      "evidence": [
+        "category",
+        "pokedexEntries[15].text",
+        "pokedexEntries[17].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c4",
+      "where": "openLoop",
+      "text": "How does anger turn a soft body into a giant threat?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Question/open loop; it does not assert a fact.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c5",
+      "where": "payoff",
+      "text": "Wigglytuff's elastic body becomes enormous specifically to intimidate opponents.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text",
+        "pokedexEntries[17].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c6",
+      "where": "scenes.anger-makes-it-huge.headline",
+      "text": "ANGER MAKES IT HUGE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text",
+        "pokedexEntries[15].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c7",
+      "where": "scenes.anger-makes-it-huge.narration",
+      "text": "Angry Wigglytuff can become 20 times bigger.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[15].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c8",
+      "where": "scenes.anger-makes-it-huge.caption",
+      "text": "ANGER TRIGGERS A GIANT CHANGE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[15].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c9",
+      "where": "scenes.anger-makes-it-huge.eyebrow",
+      "text": "DO NOT ANGER IT",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text",
+        "pokedexEntries[15].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c10",
+      "where": "scenes.anger-makes-it-huge.facts[0]",
+      "text": "20 TIMES LARGER",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[15].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c11",
+      "where": "scenes.soft-body-hidden-threat.headline",
+      "text": "SOFT BODY. BIG SECRET.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c12",
+      "where": "scenes.soft-body-hidden-threat.narration",
+      "text": "Its soft, rubbery body reacts when anger takes over.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c13",
+      "where": "scenes.soft-body-hidden-threat.caption",
+      "text": "SOFT AND RUBBERY",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c14",
+      "where": "scenes.soft-body-hidden-threat.eyebrow",
+      "text": "BEFORE THE CHANGE",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Framing phrase; it does not assert a factual detail.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c15",
+      "where": "scenes.soft-body-hidden-threat.facts[0]",
+      "text": "SOFT BODY",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c16",
+      "where": "scenes.soft-body-hidden-threat.facts[1]",
+      "text": "RUBBERY BODY",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c17",
+      "where": "scenes.inhale-and-inflate.headline",
+      "text": "THEN IT SUCKS IN AIR",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[15].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c18",
+      "where": "scenes.inhale-and-inflate.narration",
+      "text": "It inhales with all its might, then steadily starts to inflate.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[15].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c19",
+      "where": "scenes.inhale-and-inflate.caption",
+      "text": "ANGER → INHALE → INFLATE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[15].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c20",
+      "where": "scenes.inhale-and-inflate.eyebrow",
+      "text": "THE TRIGGER",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Framing phrase; it does not itself assert a factual detail.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c21",
+      "where": "scenes.inhale-and-inflate.facts[0]",
+      "text": "INHALES DEEPLY",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[15].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c22",
+      "where": "scenes.inhale-and-inflate.facts[1]",
+      "text": "BODY INFLATES",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[15].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c23",
+      "where": "scenes.twenty-times-larger.headline",
+      "text": "TWENTY TIMES LARGER",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[15].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c24",
+      "where": "scenes.twenty-times-larger.narration",
+      "text": "At the biggest point, Wigglytuff can be 20 times larger.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[15].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c25",
+      "where": "scenes.twenty-times-larger.caption",
+      "text": "SMALL WIGGLYTUFF → 20× SIZE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[15].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c26",
+      "where": "scenes.twenty-times-larger.eyebrow",
+      "text": "THE SIZE REVEAL",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Framing phrase; it does not assert a factual detail.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c27",
+      "where": "scenes.twenty-times-larger.facts[0]",
+      "text": "20 TIMES LARGER",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[15].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c28",
+      "where": "scenes.anger-becomes-intimidation.headline",
+      "text": "THE SIZE IS A WARNING",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[17].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c29",
+      "where": "scenes.anger-becomes-intimidation.narration",
+      "text": "That enormous size intimidates opponents, turning anger into a threat.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[15].text",
+        "pokedexEntries[17].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c30",
+      "where": "scenes.anger-becomes-intimidation.caption",
+      "text": "INFLATION BECOMES INTIMIDATION",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[15].text",
+        "pokedexEntries[17].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c31",
+      "where": "scenes.anger-becomes-intimidation.eyebrow",
+      "text": "WHY GET THAT BIG?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Question/framing phrase; it does not assert a fact.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c32",
+      "where": "scenes.anger-becomes-intimidation.facts[0]",
+      "text": "INTIMIDATES OPPONENTS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[17].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c33",
+      "where": "scenes.anger-becomes-intimidation.facts[1]",
+      "text": "ENORMOUS SIZE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text",
+        "pokedexEntries[17].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c34",
+      "where": "scenes.cute-or-intimidating.headline",
+      "text": "CUTE OR TERRIFYING?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Question; it does not assert a fact.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c35",
+      "where": "scenes.cute-or-intimidating.narration",
+      "text": "Is Wigglytuff cute, or an intimidating balloon?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Question; it does not assert a fact.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c36",
+      "where": "scenes.cute-or-intimidating.caption",
+      "text": "CUTE BALLOON OR GIANT THREAT?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Question; it does not assert a fact.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c37",
+      "where": "scenes.cute-or-intimidating.eyebrow",
+      "text": "YOUR VERDICT",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Prompt to the audience; it does not assert a fact.",
+      "checkedBy": "model"
+    }
+  ],
+  "unsupported": [],
+  "uncertain": []
+}

@@ -1,0 +1,191 @@
+{
+  "id": "parasect-047",
+  "title": "The Mushroom May Be Running Parasect",
+  "storyPattern": "transformation",
+  "numberRelevant": false,
+  "premise": "Parasect may be controlled by the mushroom that has replaced most of its bug body.",
+  "audiencePromise": "Watch the mushroom take control, then see what happens when it disappears.",
+  "openLoop": "Is Parasect really a bug, or is the mushroom in charge?",
+  "payoff": "The mushroom becomes Parasect's main body, and without it, the bug stops moving.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "Bug with a mushroom, or mushroom with a bug?",
+  "subject": {
+    "name": "Parasect",
+    "category": "Mushroom Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/47.png",
+    "identifier": "#047"
+  },
+  "related": [
+    {
+      "name": "Paras",
+      "relation": "evolves-from",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/46.png",
+      "identifier": "#046"
+    }
+  ],
+  "palette": {
+    "background": "#101510",
+    "surface": "#1D2A1D",
+    "primary": "#D94F38",
+    "secondary": "#E5A83B",
+    "ink": "#F4F1DE"
+  },
+  "voice": {
+    "instructions": "Speak with quiet suspense and crisp pacing. Pause briefly before each reveal. Keep the final question curious, not dramatic."
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    },
+    "assets": [
+      {
+        "kind": "Parasect official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/47.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "not-the-bug",
+      "beat": "hook",
+      "eyebrow": "LOOK CLOSER",
+      "headline": "NOT THE BUG YOU THINK",
+      "narration": "Parasect may not be the bug you think.",
+      "caption": "WHO IS REALLY IN CONTROL?",
+      "accent": "#D94F38",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/47.png"
+    },
+    {
+      "id": "mushroom-thinks",
+      "beat": "before",
+      "eyebrow": "THE HOST",
+      "headline": "THE MUSHROOM DOES THE THINKING",
+      "narration": "The mushroom drains the bug and appears to do its thinking.",
+      "caption": "BUG HOST • MUSHROOM CONTROL",
+      "facts": [
+        "DRAINS THE BUG",
+        "APPEARS TO THINK"
+      ],
+      "accent": "#E5A83B",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/47.png"
+    },
+    {
+      "id": "growth-takes-control",
+      "beat": "change",
+      "eyebrow": "THE CHANGE",
+      "headline": "IT GROWS OVER THE HOST",
+      "narration": "As it grows larger than the bug, the mushroom takes control.",
+      "caption": "THE MUSHROOM BECOMES THE BOSS",
+      "facts": [
+        "LARGER THAN THE BUG",
+        "CONTROLS PARASECT"
+      ],
+      "accent": "#C95B3D",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/47.png",
+      "primitive": {
+        "kind": "checklist",
+        "items": [
+          {
+            "label": "LARGER THAN BUG",
+            "met": true
+          },
+          {
+            "label": "CONTROLS PARASECT",
+            "met": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "mushroom-is-body",
+      "beat": "reveal",
+      "eyebrow": "THE POKÉDEX REVEAL",
+      "headline": "THE BUG IS MOSTLY DEAD",
+      "narration": "The bug is mostly dead. The mushroom has become its body.",
+      "caption": "MUSHROOM = MAIN BODY",
+      "facts": [
+        "MOSTLY DEAD",
+        "MAIN BODY"
+      ],
+      "accent": "#E5A83B",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/47.png",
+      "primitive": {
+        "kind": "checklist",
+        "items": [
+          {
+            "label": "BUG MOSTLY DEAD",
+            "met": true
+          },
+          {
+            "label": "MUSHROOM MAIN BODY",
+            "met": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "movement-stops",
+      "beat": "aftermath",
+      "eyebrow": "REMOVE THE MUSHROOM",
+      "headline": "THEN THE BUG STOPS",
+      "narration": "When the mushroom is gone, the bug stops moving.",
+      "caption": "NO MUSHROOM. NO MOVEMENT.",
+      "facts": [
+        "MUSHROOM GONE",
+        "STOPS MOVING"
+      ],
+      "accent": "#D94F38",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/47.png",
+      "primitive": {
+        "kind": "checklist",
+        "items": [
+          {
+            "label": "MUSHROOM GONE",
+            "met": true
+          },
+          {
+            "label": "BUG STOPS MOVING",
+            "met": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "bug-or-mushroom",
+      "beat": "verdict",
+      "eyebrow": "YOUR VERDICT",
+      "headline": "WHAT IS PARASECT?",
+      "narration": "Bug with a mushroom, or mushroom with a bug?",
+      "caption": "CHOOSE ONE",
+      "accent": "#E5A83B",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/47.png"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Parasect",
+      "url": "https://www.pokemon.com/us/pokedex/parasect",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Parasect",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Parasect_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Parasect",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/47",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

@@ -1,0 +1,158 @@
+{
+  "episodeId": "vileplume-045",
+  "createdAt": "2026-10-03T20:07:39.933Z",
+  "chosen": {
+    "id": "pretty-prey-trap",
+    "premise": "Vileplume uses its enormous petals to attract prey, immobilizes them with toxic spores, then devours them.",
+    "hook": "That beautiful flower is bait.",
+    "archetype": "mystery",
+    "evidence": [
+      "pokedexEntries[6].text"
+    ],
+    "visualIdea": "A colorful flower lures a silhouette closer before spores freeze it and Vileplume moves in.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 5,
+      "specificity": 5,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 25,
+    "note": "The strongest character-specific twist: Vileplume's beauty is explicitly a hunting lure, followed by paralysis and devouring. One entry supports it, but that entry directly states the full premise."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "pretty-prey-trap",
+          "premise": "Vileplume uses its enormous petals to attract prey, immobilizes them with toxic spores, then devours them.",
+          "hook": "That beautiful flower is bait.",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[6].text"
+          ],
+          "visualIdea": "A colorful flower lures a silhouette closer before spores freeze it and Vileplume moves in.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 25,
+          "note": "The strongest character-specific twist: Vileplume's beauty is explicitly a hunting lure, followed by paralysis and devouring. One entry supports it, but that entry directly states the full premise."
+        },
+        {
+          "id": "yellow-paralysis-air",
+          "premise": "In high-pollen seasons, Vileplume can turn the air yellow with powder that causes paralysis.",
+          "hook": "Vileplume can make the air itself dangerous.",
+          "archetype": "transformation",
+          "evidence": [
+            "pokedexEntries[4].text",
+            "pokedexEntries[7].text"
+          ],
+          "visualIdea": "Transition from clear air around Vileplume to a dense yellow haze as it walks.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 25,
+          "note": "Excellent transformation premise with an unusually concrete visual: yellow air caused by toxic pollen that paralyzes. Slightly less narratively distinctive than the prey trap."
+        },
+        {
+          "id": "every-step-pollen",
+          "premise": "Vileplume does not need to attack: every step shakes heavy clouds of toxic pollen into the air.",
+          "hook": "For Vileplume, walking is already an attack.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[2].text",
+            "pokedexEntries[10].text"
+          ],
+          "visualIdea": "Animate each footstep releasing a growing yellow pollen cloud behind Vileplume.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 24,
+          "note": "A concrete, highly visual mechanic backed by multiple entries; 'walking is an attack' is a strong and accurate hook."
+        },
+        {
+          "id": "largest-heaviest-bloom",
+          "premise": "Vileplume has the world's largest petals, but their size makes its head heavy and hard to hold up.",
+          "hook": "Vileplume's greatest feature is also a burden.",
+          "archetype": "comparison",
+          "evidence": [
+            "pokedexEntries[0].text",
+            "pokedexEntries[2].text"
+          ],
+          "visualIdea": "Show petals expanding to an enormous size, then tilt Vileplume's head downward under their weight.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 3,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 22,
+          "note": "Distinctive contradiction, directly supported by Red and Gold, though the basic 'big flower is heavy' reveal may be familiar."
+        },
+        {
+          "id": "gloom-split-choice",
+          "premise": "Gloom can become Vileplume with a Leaf Stone or Bellossom with a Sun Stone, creating two different final forms.",
+          "hook": "One Gloom, two stones, two completely different futures.",
+          "archetype": "comparison",
+          "evidence": [
+            "evolutionChain[2].method",
+            "evolutionChain[3].method",
+            "evolutionChain[2].types",
+            "evolutionChain[3].types"
+          ],
+          "visualIdea": "Split the screen at Gloom, then show a Leaf Stone leading to Vileplume and a Sun Stone to Bellossom.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 3,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 22,
+          "note": "Clear branching-evolution explainer with excellent visual structure, but it is mainly about Gloom's evolution options and Bellossom as well as Vileplume."
+        },
+        {
+          "id": "flower-that-roars",
+          "premise": "Vileplume scatters poisonous pollen by flapping its broad petals, and the flapping sound is very loud.",
+          "hook": "Its flower petals are loud enough to be an alarm.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[1].text"
+          ],
+          "visualIdea": "Use visible sound waves from each petal flap while pollen bursts outward.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 21,
+          "note": "The loud petal-flapping fact is direct and visual, but calling it an alarm is an interpretation, and the angle lacks the impact of the stronger danger mechanics."
+        }
+      ],
+      "rejected": []
+    }
+  ]
+}

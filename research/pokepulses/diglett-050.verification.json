@@ -1,0 +1,516 @@
+{
+  "episodeId": "diglett-050",
+  "checkedAt": "2026-10-03T20:25:14.068Z",
+  "claims": [
+    {
+      "id": "c1",
+      "where": "title",
+      "text": "Farmers Bait Diglett Into Plowing Their Fields",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[14].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c2",
+      "where": "premise",
+      "text": "Farmers plant trees Diglett likes to eat, luring it into plowing the fields around their crops.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[14].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c3",
+      "where": "audiencePromise",
+      "text": "See how farmers turn Diglett's root-chewing into perfectly tilled soil.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[4].text",
+        "pokedexEntries[5].text",
+        "pokedexEntries[14].text"
+      ],
+      "note": "The research supports Diglett chewing roots and leaving soil tilled when it burrows, but does not explicitly state that root-chewing itself is what produces the tilled soil.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c4",
+      "where": "openLoop",
+      "text": "Why would farmers invite a root-chewing Pokémon into their fields?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c5",
+      "where": "payoff",
+      "text": "Diglett follows its food underground, leaving soil perfectly tilled for planting crops.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[11].text",
+        "pokedexEntries[14].text"
+      ],
+      "note": "The research supports Diglett eating roots underground and farmers using trees to draw it into plowing, but does not explicitly say Diglett follows its food.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c6",
+      "where": "scenes.the-farmers-bait.headline",
+      "text": "THEY BAIT DIGLETT",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[14].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c7",
+      "where": "scenes.the-farmers-bait.narration",
+      "text": "Farmers bait Diglett into plowing their fields.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[14].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c8",
+      "where": "scenes.the-farmers-bait.caption",
+      "text": "BAIT DIGLETT. PLOW FIELDS.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[14].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c9",
+      "where": "scenes.the-farmers-bait.eyebrow",
+      "text": "A STRANGE FARMING TRICK",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[14].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c10",
+      "where": "scenes.the-farmers-bait.facts[0]",
+      "text": "FARMERS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[14].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c11",
+      "where": "scenes.the-farmers-bait.facts[1]",
+      "text": "DIGLETT",
+      "verdict": "supported",
+      "evidence": [
+        "name"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c12",
+      "where": "scenes.plant-the-right-tree.headline",
+      "text": "PLANT WHAT DIGLETT LIKES",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[14].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c13",
+      "where": "scenes.plant-the-right-tree.narration",
+      "text": "They plant trees Diglett likes to eat around their crops.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[14].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c14",
+      "where": "scenes.plant-the-right-tree.caption",
+      "text": "THE TREE IS THE BAIT",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[14].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c15",
+      "where": "scenes.plant-the-right-tree.eyebrow",
+      "text": "THE BAIT",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[14].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c16",
+      "where": "scenes.plant-the-right-tree.facts[0]",
+      "text": "TREE ROOTS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c17",
+      "where": "scenes.plant-the-right-tree.facts[1]",
+      "text": "CROPS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[14].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c18",
+      "where": "scenes.roots-lead-underground.headline",
+      "text": "DIGLETT FOLLOWS THE ROOTS",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[4].text",
+        "pokedexEntries[14].text"
+      ],
+      "note": "Diglett is documented as eating tree roots underground, and trees are used to draw it into plowing, but the research does not explicitly say it follows roots.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c19",
+      "where": "scenes.roots-lead-underground.narration",
+      "text": "Diglett chews tree roots underground, then burrows through the fields.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text",
+        "pokedexEntries[11].text",
+        "pokedexEntries[14].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c20",
+      "where": "scenes.roots-lead-underground.caption",
+      "text": "ROOTS LEAD DIGLETT BELOW",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text",
+        "pokedexEntries[14].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c21",
+      "where": "scenes.roots-lead-underground.eyebrow",
+      "text": "THE DIGGING BEGINS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text",
+        "pokedexEntries[14].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c22",
+      "where": "scenes.roots-lead-underground.facts[0]",
+      "text": "UNDERGROUND",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text",
+        "pokedexEntries[1].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c23",
+      "where": "scenes.roots-lead-underground.facts[1]",
+      "text": "CHEWS ROOTS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text",
+        "pokedexEntries[11].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c24",
+      "where": "scenes.roots-lead-underground.facts[2]",
+      "text": "BURROWS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[14].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c25",
+      "where": "scenes.perfectly-tilled-soil.headline",
+      "text": "DIGLETT DOES THE PLOWING",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[14].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c26",
+      "where": "scenes.perfectly-tilled-soil.narration",
+      "text": "Wherever Diglett burrows, the soil is left perfectly tilled.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].text",
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c27",
+      "where": "scenes.perfectly-tilled-soil.caption",
+      "text": "PERFECTLY TILLED SOIL",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].text",
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c28",
+      "where": "scenes.perfectly-tilled-soil.eyebrow",
+      "text": "THE UNEXPECTED RESULT",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c29",
+      "where": "scenes.perfectly-tilled-soil.facts[0]",
+      "text": "PERFECTLY TILLED",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].text",
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c30",
+      "where": "scenes.ready-for-crops.headline",
+      "text": "READY FOR PLANTING",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].text",
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c31",
+      "where": "scenes.ready-for-crops.narration",
+      "text": "That soil becomes ideal ground for planting crops.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].text",
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c32",
+      "where": "scenes.ready-for-crops.caption",
+      "text": "IDEAL GROUND FOR CROPS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].text",
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c33",
+      "where": "scenes.ready-for-crops.eyebrow",
+      "text": "FARMERS WIN",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c34",
+      "where": "scenes.ready-for-crops.facts[0]",
+      "text": "IDEAL FOR PLANTING",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].text",
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c35",
+      "where": "scenes.ready-for-crops.facts[1]",
+      "text": "CROPS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].text",
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c36",
+      "where": "scenes.hire-or-protect.headline",
+      "text": "HELPFUL PLOW OR ROOT PEST?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c37",
+      "where": "scenes.hire-or-protect.narration",
+      "text": "Would you hire Diglett to plow, or protect your roots?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c38",
+      "where": "scenes.hire-or-protect.caption",
+      "text": "HIRE DIGLETT OR PROTECT ROOTS?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c39",
+      "where": "scenes.hire-or-protect.eyebrow",
+      "text": "YOUR FARM?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    }
+  ],
+  "unsupported": [],
+  "uncertain": [
+    {
+      "id": "c3",
+      "where": "audiencePromise",
+      "text": "See how farmers turn Diglett's root-chewing into perfectly tilled soil.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[4].text",
+        "pokedexEntries[5].text",
+        "pokedexEntries[14].text"
+      ],
+      "note": "The research supports Diglett chewing roots and leaving soil tilled when it burrows, but does not explicitly state that root-chewing itself is what produces the tilled soil.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c5",
+      "where": "payoff",
+      "text": "Diglett follows its food underground, leaving soil perfectly tilled for planting crops.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[11].text",
+        "pokedexEntries[14].text"
+      ],
+      "note": "The research supports Diglett eating roots underground and farmers using trees to draw it into plowing, but does not explicitly say Diglett follows its food.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c18",
+      "where": "scenes.roots-lead-underground.headline",
+      "text": "DIGLETT FOLLOWS THE ROOTS",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[4].text",
+        "pokedexEntries[14].text"
+      ],
+      "note": "Diglett is documented as eating tree roots underground, and trees are used to draw it into plowing, but the research does not explicitly say it follows roots.",
+      "tier": "official",
+      "checkedBy": "model"
+    }
+  ]
+}

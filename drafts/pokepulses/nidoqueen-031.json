@@ -1,0 +1,192 @@
+{
+  "id": "nidoqueen-031",
+  "title": "Nidoqueen Has a Poison Safety Switch",
+  "storyPattern": "mechanic",
+  "numberRelevant": false,
+  "premise": "Nidoqueen’s back spines never secrete poison while young are nestled between them.",
+  "audiencePromise": "See how Nidoqueen turns its most dangerous defense into a safe shelter for its young.",
+  "openLoop": "Why would a Poison-type place its young between poisonous spines?",
+  "payoff": "When young are present, Nidoqueen’s spines stop secreting poison and calm them safely.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "Smart safety switch, or a dangerous design?",
+  "subject": {
+    "name": "Nidoqueen",
+    "category": "Drill Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/31.png",
+    "identifier": "#031"
+  },
+  "related": [
+    {
+      "name": "Nidorina",
+      "relation": "evolves-from",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/30.png",
+      "identifier": "#030"
+    },
+    {
+      "name": "Nidoran♀",
+      "relation": "evolves-from",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/29.png",
+      "identifier": "#029"
+    }
+  ],
+  "palette": {
+    "background": "#17121F",
+    "surface": "#2A2033",
+    "primary": "#8E4BA8",
+    "secondary": "#73C9E8",
+    "ink": "#F6F0FA"
+  },
+  "voice": {
+    "instructions": "Use a tense, curious pace. Stress safety switch, young, and no poison. Pause briefly before the final question."
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    },
+    "assets": [
+      {
+        "kind": "Nidoqueen official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/31.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      },
+      {
+        "kind": "Nidorina official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/30.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "poison-safety-switch",
+      "beat": "hook",
+      "eyebrow": "DANGEROUS SHELTER",
+      "headline": "POISON HAS A SAFETY SWITCH",
+      "narration": "Nidoqueen’s poison has one very specific safety switch.",
+      "caption": "POISON HAS A SAFETY SWITCH",
+      "accent": "#8E4BA8",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/31.png"
+    },
+    {
+      "id": "gaps-pacify-young",
+      "beat": "evidence",
+      "eyebrow": "THE HIDDEN MECHANIC",
+      "headline": "YOUNG GO BETWEEN THE SPINES",
+      "narration": "Nidoqueen places young in back gaps to pacify them.",
+      "caption": "THE GAPS CALM ITS YOUNG",
+      "facts": [
+        "BACK GAPS",
+        "PACIFIES YOUNG"
+      ],
+      "accent": "#73C9E8",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/31.png",
+      "primitive": {
+        "kind": "checklist",
+        "items": [
+          {
+            "label": "BACK GAPS",
+            "met": true
+          },
+          {
+            "label": "YOUNG PACIFIED",
+            "met": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "poison-stays-inactive",
+      "beat": "escalation",
+      "eyebrow": "THE CATCH",
+      "headline": "THE SPINES SECRETE POISON",
+      "narration": "With young present, the poison defense stays completely inactive.",
+      "caption": "YOUNG PRESENT = NO POISON",
+      "facts": [
+        "YOUNG PRESENT",
+        "NO POISON"
+      ],
+      "accent": "#9C6BC0",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/30.png",
+      "primitive": {
+        "kind": "checklist",
+        "items": [
+          {
+            "label": "YOUNG PRESENT",
+            "met": true
+          },
+          {
+            "label": "POISON SECRETED",
+            "met": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "safe-back-gaps",
+      "beat": "payoff",
+      "eyebrow": "THE SAFE ZONE",
+      "headline": "A SHELTER BETWEEN SPIKES",
+      "narration": "The gaps pacify the young. With them present, spines never secrete poison.",
+      "caption": "A CALM SHELTER BETWEEN SPIKES",
+      "facts": [
+        "CALMS YOUNG",
+        "POISON STAYS OFF"
+      ],
+      "accent": "#73C9E8",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/31.png"
+    },
+    {
+      "id": "defense-rule",
+      "beat": "payoff",
+      "eyebrow": "THE PARENT'S EDGE",
+      "headline": "STRONGEST WHEN GUARDING",
+      "narration": "And defending its young is when Nidoqueen is at its strongest.",
+      "caption": "A CALM NEST, A FIERCE GUARD",
+      "facts": [
+        "STRONGEST AT DEFENSE",
+        "SHIELDS ITS YOUNG"
+      ],
+      "accent": "#B56ED1",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/31.png"
+    },
+    {
+      "id": "smart-or-dangerous",
+      "beat": "verdict",
+      "eyebrow": "YOUR VERDICT",
+      "headline": "SMART SWITCH OR BAD DESIGN?",
+      "narration": "Smart safety switch, or a dangerous design?",
+      "caption": "SMART OR DANGEROUS?",
+      "accent": "#73C9E8",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/31.png"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Nidoqueen",
+      "url": "https://www.pokemon.com/us/pokedex/nidoqueen",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Nidoqueen",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Nidoqueen_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Nidoqueen",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/31",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

@@ -1,0 +1,163 @@
+{
+  "episodeId": "venomoth-049",
+  "createdAt": "2026-10-03T20:21:57.247Z",
+  "chosen": {
+    "id": "dark-or-light",
+    "premise": "Venomoth's powder has two different effects: dark powder poisons, while light powder paralyzes.",
+    "hook": "The color of Venomoth's dust decides how you lose.",
+    "archetype": "comparison",
+    "evidence": [
+      "pokedexEntries[3].text",
+      "pokedexEntries[11].text"
+    ],
+    "visualIdea": "Split the screen between dark powder causing poison and light powder freezing a character in place.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 5,
+      "specificity": 5,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 25,
+    "note": "A sharp, memorable rule with two contrasting outcomes; every part of the hook is directly supported by multiple Pokédex entries."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "dark-or-light",
+          "premise": "Venomoth's powder has two different effects: dark powder poisons, while light powder paralyzes.",
+          "hook": "The color of Venomoth's dust decides how you lose.",
+          "archetype": "comparison",
+          "evidence": [
+            "pokedexEntries[3].text",
+            "pokedexEntries[11].text"
+          ],
+          "visualIdea": "Split the screen between dark powder causing poison and light powder freezing a character in place.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 25,
+          "note": "A sharp, memorable rule with two contrasting outcomes; every part of the hook is directly supported by multiple Pokédex entries."
+        },
+        {
+          "id": "wing-scale-warning",
+          "premise": "Venomoth's wing scales are color-coded to reveal what kind of poison they carry.",
+          "hook": "Venomoth's wings come with a built-in poison warning label.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[0].text",
+            "pokedexEntries[8].text"
+          ],
+          "visualIdea": "Zoom into Venomoth's wings as colored scale patterns appear with warning labels.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 4,
+            "support": 5
+          },
+          "total": 22,
+          "note": "Highly Venomoth-specific and directly supported, though the color-coded warning is less concrete than the actual poison effects."
+        },
+        {
+          "id": "scales-that-wont-leave",
+          "premise": "Venomoth's powdery wing scales are hard to remove, and poison leaks out when they touch skin.",
+          "hook": "Venomoth's dust doesn't just hit you—it refuses to come off.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[1].text",
+            "pokedexEntries[13].text"
+          ],
+          "visualIdea": "Show scales sticking to a hand while glowing droplets leak from them on contact.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 22,
+          "note": "Strong tactile horror and clear visuals, but the premise combines persistence and toxicity rather than centering one especially distinctive rule."
+        },
+        {
+          "id": "streetlight-hunter",
+          "premise": "Venomoth only becomes active at night, hunting the small insects drawn to streetlights.",
+          "hook": "Venomoth doesn't chase prey in the dark—it waits beside the light.",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[5].text",
+            "pokedexEntries[6].text",
+            "pokedexEntries[12].text"
+          ],
+          "visualIdea": "Follow insects toward a glowing streetlight, then reveal Venomoth waiting above them.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 22,
+          "note": "The nocturnal streetlight ambush is visually strong and well supported, but the general moth behavior makes it slightly less uniquely Venomoth."
+        },
+        {
+          "id": "level-31-metamorphosis",
+          "premise": "Venonat becomes Venomoth by leveling up at exactly level 31, completing its two-stage evolution.",
+          "hook": "At level 31, Venonat stops being a small bug and becomes Venomoth.",
+          "archetype": "transformation",
+          "evidence": [
+            "evolutionChain[0].name",
+            "evolutionChain[1].name",
+            "evolutionChain[1].evolvesFrom",
+            "evolutionChain[1].method"
+          ],
+          "visualIdea": "Show a level counter reaching 31 as Venonat flashes into Venomoth with expanding wings.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 3,
+            "surprise": 3,
+            "specificity": 5,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 20,
+          "note": "The exact level is concrete and highly visual, but evolution-at-level is common across Pokémon and the method comes from secondary research rather than the Pokédex entries."
+        },
+        {
+          "id": "powder-attack",
+          "premise": "When Venomoth attacks, violent wingbeats scatter poisonous powder across the entire area.",
+          "hook": "Venomoth's attack isn't a sting—it turns the air into poison.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[2].text",
+            "pokedexEntries[10].text"
+          ],
+          "visualIdea": "Animate increasingly violent wingbeats until a spreading cloud of powder fills the battlefield.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 3,
+            "specificity": 3,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 19,
+          "note": "The spreading poison cloud is easy to show, but 'across the entire area' overstates the entries, which only say the powder is scattered all around."
+        }
+      ],
+      "rejected": [],
+      "request": "Stronger alternatives would need an equally specific Venomoth-only rule, a surprising contrast or contradiction, and direct visual proof from the cited research without overstating what the entries say."
+    }
+  ]
+}

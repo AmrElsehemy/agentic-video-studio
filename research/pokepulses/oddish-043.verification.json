@@ -1,0 +1,552 @@
+{
+  "episodeId": "oddish-043",
+  "checkedAt": "2026-10-03T19:59:14.172Z",
+  "claims": [
+    {
+      "id": "c1",
+      "where": "title",
+      "text": "Oddish Grows by Moonlight, But Evolves with the Sun",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text",
+        "evolutionChain[3].method"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c2",
+      "where": "premise",
+      "text": "Oddish grows through moonlight, yet its evolution can lead to Bellossom through a Sun Stone.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text",
+        "evolutionChain[3].method"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c3",
+      "where": "audiencePromise",
+      "text": "See how Oddish's moonlit nature leads to a surprising choice between two final forms.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[4].text",
+        "evolutionChain[2]",
+        "evolutionChain[3]"
+      ],
+      "note": "The moonlit nature and two final forms are supported, but the research does not state that moonlight leads to the evolutionary choice.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c4",
+      "where": "openLoop",
+      "text": "How does a moon-grown Pokémon end up evolving with sunlight?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c5",
+      "where": "payoff",
+      "text": "Gloom can become Bellossom with a Sun Stone, but that choice changes its typing.",
+      "verdict": "supported",
+      "evidence": [
+        "evolutionChain[1].types",
+        "evolutionChain[3].method",
+        "evolutionChain[3].types"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c6",
+      "where": "scenes.moonlight-sun-stone.headline",
+      "text": "MOONLIGHT GROWS IT. SUN EVOLVES IT.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text",
+        "evolutionChain[3].method"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c7",
+      "where": "scenes.moonlight-sun-stone.narration",
+      "text": "Moonlight grows Oddish. Gloom becomes Bellossom by Sun Stone.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text",
+        "evolutionChain[3].method"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c8",
+      "where": "scenes.moonlight-sun-stone.caption",
+      "text": "MOONLIGHT IN. SUN STONE OUT.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text",
+        "evolutionChain[3].method"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c9",
+      "where": "scenes.moonlight-sun-stone.eyebrow",
+      "text": "THE ODD EVOLUTION",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c10",
+      "where": "scenes.hiding-from-daylight.headline",
+      "text": "IT HIDES FROM THE SUN",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text",
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c11",
+      "where": "scenes.hiding-from-daylight.narration",
+      "text": "Oddish avoids the sun by hiding underground during daytime.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text",
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c12",
+      "where": "scenes.hiding-from-daylight.caption",
+      "text": "DAYTIME MEANS UNDERGROUND",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text",
+        "pokedexEntries[2].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c13",
+      "where": "scenes.hiding-from-daylight.eyebrow",
+      "text": "ODDISH BY DAY",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c14",
+      "where": "scenes.hiding-from-daylight.facts[0]",
+      "text": "AVOIDS THE SUN",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text",
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c15",
+      "where": "scenes.hiding-from-daylight.facts[1]",
+      "text": "UNDERGROUND BY DAY",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text",
+        "pokedexEntries[2].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c16",
+      "where": "scenes.moonlit-roaming.headline",
+      "text": "MOONLIGHT WAKES IT",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text",
+        "pokedexEntries[3].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c17",
+      "where": "scenes.moonlit-roaming.narration",
+      "text": "At night, moonlight wakes it, and it roams while scattering seeds.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text",
+        "pokedexEntries[3].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c18",
+      "where": "scenes.moonlit-roaming.caption",
+      "text": "MOONLIGHT STARTS THE NIGHT SHIFT",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text",
+        "pokedexEntries[3].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c19",
+      "where": "scenes.moonlit-roaming.eyebrow",
+      "text": "ODDISH BY NIGHT",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c20",
+      "where": "scenes.moonlit-roaming.facts[0]",
+      "text": "MOONLIGHT",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text",
+        "pokedexEntries[3].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c21",
+      "where": "scenes.moonlit-roaming.facts[1]",
+      "text": "ROAMS AT NIGHT",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text",
+        "pokedexEntries[2].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c22",
+      "where": "scenes.moonlit-roaming.facts[2]",
+      "text": "SCATTERS SEEDS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text",
+        "pokedexEntries[3].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c23",
+      "where": "scenes.two-final-forms.headline",
+      "text": "GLOOM GETS TWO DESTINATIONS",
+      "verdict": "supported",
+      "evidence": [
+        "evolutionChain[2]",
+        "evolutionChain[3]"
+      ],
+      "note": "",
+      "tier": "trusted_secondary",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c24",
+      "where": "scenes.two-final-forms.narration",
+      "text": "Oddish first becomes Gloom, then reaches two very different final forms.",
+      "verdict": "supported",
+      "evidence": [
+        "evolutionChain[1]",
+        "evolutionChain[2]",
+        "evolutionChain[3]"
+      ],
+      "note": "",
+      "tier": "trusted_secondary",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c25",
+      "where": "scenes.two-final-forms.caption",
+      "text": "GLOOM CAN GO TWO WAYS",
+      "verdict": "supported",
+      "evidence": [
+        "evolutionChain[2]",
+        "evolutionChain[3]"
+      ],
+      "note": "",
+      "tier": "trusted_secondary",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c26",
+      "where": "scenes.two-final-forms.eyebrow",
+      "text": "THE EVOLUTION SPLITS",
+      "verdict": "supported",
+      "evidence": [
+        "evolutionChain[2]",
+        "evolutionChain[3]"
+      ],
+      "note": "",
+      "tier": "trusted_secondary",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c27",
+      "where": "scenes.two-final-forms.facts[0]",
+      "text": "GLOOM",
+      "verdict": "supported",
+      "evidence": [
+        "evolutionChain[1].name"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c28",
+      "where": "scenes.two-final-forms.facts[1]",
+      "text": "VILEPLUME",
+      "verdict": "supported",
+      "evidence": [
+        "evolutionChain[2].name"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c29",
+      "where": "scenes.two-final-forms.facts[2]",
+      "text": "BELLOSSOM",
+      "verdict": "supported",
+      "evidence": [
+        "evolutionChain[3].name"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c30",
+      "where": "scenes.sun-stone-tradeoff.headline",
+      "text": "SUNLIGHT CHANGES THE TYPE",
+      "verdict": "uncertain",
+      "evidence": [
+        "evolutionChain[3].method",
+        "evolutionChain[1].types",
+        "evolutionChain[3].types"
+      ],
+      "note": "The type change is supported, but the research attributes it to using a Sun Stone, not to sunlight itself.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c31",
+      "where": "scenes.sun-stone-tradeoff.narration",
+      "text": "The Sun Stone makes Bellossom, dropping Gloom's Poison typing.",
+      "verdict": "supported",
+      "evidence": [
+        "evolutionChain[3].method",
+        "evolutionChain[1].types",
+        "evolutionChain[3].types"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c32",
+      "where": "scenes.sun-stone-tradeoff.caption",
+      "text": "GRASS AND POISON → GRASS",
+      "verdict": "supported",
+      "evidence": [
+        "evolutionChain[1].types",
+        "evolutionChain[3].types"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c33",
+      "where": "scenes.sun-stone-tradeoff.eyebrow",
+      "text": "THE SUN STONE CHOICE",
+      "verdict": "supported",
+      "evidence": [
+        "evolutionChain[3].method"
+      ],
+      "note": "",
+      "tier": "trusted_secondary",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c34",
+      "where": "scenes.sun-stone-tradeoff.facts[0]",
+      "text": "SUN STONE",
+      "verdict": "supported",
+      "evidence": [
+        "evolutionChain[3].method"
+      ],
+      "note": "",
+      "tier": "trusted_secondary",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c35",
+      "where": "scenes.sun-stone-tradeoff.facts[1]",
+      "text": "BELLOSSOM",
+      "verdict": "supported",
+      "evidence": [
+        "evolutionChain[3].name"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c36",
+      "where": "scenes.sun-stone-tradeoff.facts[2]",
+      "text": "GRASS",
+      "verdict": "supported",
+      "evidence": [
+        "evolutionChain[3].types"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c37",
+      "where": "scenes.sun-stone-tradeoff.facts[3]",
+      "text": "NO POISON",
+      "verdict": "supported",
+      "evidence": [
+        "evolutionChain[3].types"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c38",
+      "where": "scenes.choose-your-evolution.headline",
+      "text": "MOON-GROWN. SUN-BOUND.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[4].text",
+        "evolutionChain[3].method"
+      ],
+      "note": "Moon-grown is supported, while 'sun-bound' is a loose shorthand for evolving with a Sun Stone.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c39",
+      "where": "scenes.choose-your-evolution.narration",
+      "text": "Should Gloom become Vileplume or Bellossom?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c40",
+      "where": "scenes.choose-your-evolution.caption",
+      "text": "WHICH FINAL FORM FITS BETTER?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c41",
+      "where": "scenes.choose-your-evolution.eyebrow",
+      "text": "YOUR EVOLUTION",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    }
+  ],
+  "unsupported": [],
+  "uncertain": [
+    {
+      "id": "c3",
+      "where": "audiencePromise",
+      "text": "See how Oddish's moonlit nature leads to a surprising choice between two final forms.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[4].text",
+        "evolutionChain[2]",
+        "evolutionChain[3]"
+      ],
+      "note": "The moonlit nature and two final forms are supported, but the research does not state that moonlight leads to the evolutionary choice.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c30",
+      "where": "scenes.sun-stone-tradeoff.headline",
+      "text": "SUNLIGHT CHANGES THE TYPE",
+      "verdict": "uncertain",
+      "evidence": [
+        "evolutionChain[3].method",
+        "evolutionChain[1].types",
+        "evolutionChain[3].types"
+      ],
+      "note": "The type change is supported, but the research attributes it to using a Sun Stone, not to sunlight itself.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c38",
+      "where": "scenes.choose-your-evolution.headline",
+      "text": "MOON-GROWN. SUN-BOUND.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[4].text",
+        "evolutionChain[3].method"
+      ],
+      "note": "Moon-grown is supported, while 'sun-bound' is a loose shorthand for evolving with a Sun Stone.",
+      "tier": "official",
+      "checkedBy": "model"
+    }
+  ]
+}

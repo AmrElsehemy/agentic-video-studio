@@ -1,0 +1,562 @@
+{
+  "episodeId": "nidorino-033",
+  "checkedAt": "2026-10-03T19:23:52.914Z",
+  "claims": [
+    {
+      "id": "c1",
+      "where": "title",
+      "text": "Nidorino's Poison Gets Stronger When It Gets Angry",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[3].text",
+        "pokedexEntries[12].text"
+      ],
+      "note": "Nidorino is quick to anger, and poison potency rises with adrenaline, but the research does not explicitly say that anger itself strengthens the poison.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c2",
+      "where": "premise",
+      "text": "Nidorino's poison becomes more potent as the adrenaline in its body rises.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[12].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c3",
+      "where": "audiencePromise",
+      "text": "Follow Nidorino's warning signs from nervous tension to a stronger poison strike.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text",
+        "pokedexEntries[5].text",
+        "pokedexEntries[12].text",
+        "pokedexEntries[3].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c4",
+      "where": "openLoop",
+      "text": "What happens to Nidorino's poison when it senses danger?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "This is a question.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c5",
+      "where": "payoff",
+      "text": "Its bristling warning ends in a horn strike, while rising adrenaline makes the poison more potent.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[3].text",
+        "pokedexEntries[12].text"
+      ],
+      "note": "The research supports bristling, horn attacks, and adrenaline-linked potency, but does not explicitly establish that the bristling warning ends in the horn strike or that adrenaline is rising at that moment.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c6",
+      "where": "scenes.anger-builds-poison.headline",
+      "text": "THE ANGRIER, THE STRONGER",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[3].text",
+        "pokedexEntries[12].text"
+      ],
+      "note": "Nidorino is quick to anger and its poison potency increases with adrenaline, but anger itself is not directly stated to cause stronger poison.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c7",
+      "where": "scenes.anger-builds-poison.narration",
+      "text": "Nidorino's poison gets stronger while it gets angrier.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[3].text",
+        "pokedexEntries[12].text"
+      ],
+      "note": "The research links potency to adrenaline, not explicitly to becoming angrier.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c8",
+      "where": "scenes.anger-builds-poison.caption",
+      "text": "ANGER → STRONGER POISON",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[3].text",
+        "pokedexEntries[12].text"
+      ],
+      "note": "The anger-to-stronger-poison link is an inference; the documented link is between adrenaline level and poison potency.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c9",
+      "where": "scenes.anger-builds-poison.eyebrow",
+      "text": "DANGER RISING",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[2].text",
+        "pokedexEntries[5].text"
+      ],
+      "note": "The research describes sensing surroundings or a hostile presence, but does not specifically say that danger is rising.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c10",
+      "where": "scenes.ears-scan-the-area.headline",
+      "text": "ITS EARS START THE WARNING",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c11",
+      "where": "scenes.ears-scan-the-area.narration",
+      "text": "First, it raises its big ears and checks its surroundings.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c12",
+      "where": "scenes.ears-scan-the-area.caption",
+      "text": "BIG EARS CHECK THE AREA",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c13",
+      "where": "scenes.ears-scan-the-area.eyebrow",
+      "text": "CHECKING SURROUNDINGS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c14",
+      "where": "scenes.ears-scan-the-area.facts[0]",
+      "text": "BIG EARS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c15",
+      "where": "scenes.ears-scan-the-area.facts[1]",
+      "text": "CHECKS SURROUNDINGS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c16",
+      "where": "scenes.barbs-bristle.headline",
+      "text": "EVERY BARB BRISTLES",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c17",
+      "where": "scenes.barbs-bristle.narration",
+      "text": "Sense something hostile, and every barb on its back bristles.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c18",
+      "where": "scenes.barbs-bristle.caption",
+      "text": "HOSTILE PRESENCE → BARBS BRISTLE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c19",
+      "where": "scenes.barbs-bristle.eyebrow",
+      "text": "HOSTILE PRESENCE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c20",
+      "where": "scenes.barbs-bristle.facts[0]",
+      "text": "HOSTILE PRESENCE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c21",
+      "where": "scenes.barbs-bristle.facts[1]",
+      "text": "BACK BARBS BRISTLE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c22",
+      "where": "scenes.adrenaline-raises-potency.headline",
+      "text": "ADRENALINE RAISES POTENCY",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[12].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c23",
+      "where": "scenes.adrenaline-raises-potency.narration",
+      "text": "Then it attacks, while rising adrenaline makes its poison more potent.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[2].text",
+        "pokedexEntries[12].text"
+      ],
+      "note": "Immediate attacking and adrenaline-linked potency are supported, but the text adds a specific sequence and describes adrenaline as rising rather than merely relating potency to its level.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c24",
+      "where": "scenes.adrenaline-raises-potency.caption",
+      "text": "ADRENALINE ↑  POISON POTENCY ↑",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[12].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c25",
+      "where": "scenes.adrenaline-raises-potency.eyebrow",
+      "text": "THE HIDDEN ESCALATION",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "This is framing rather than a specific factual claim.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c26",
+      "where": "scenes.adrenaline-raises-potency.facts[0]",
+      "text": "ATTACKS IMMEDIATELY",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c27",
+      "where": "scenes.adrenaline-raises-potency.facts[1]",
+      "text": "ADRENALINE RISES",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[12].text"
+      ],
+      "note": "The research says poison potency increases with adrenaline level, but does not explicitly state that adrenaline rises.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c28",
+      "where": "scenes.adrenaline-raises-potency.facts[2]",
+      "text": "POISON GETS MORE POTENT",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[12].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c29",
+      "where": "scenes.horn-impact-releases-poison.headline",
+      "text": "THE HORN RELEASES POISON",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c30",
+      "where": "scenes.horn-impact-releases-poison.narration",
+      "text": "A horn stab makes the poison leak out on impact.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c31",
+      "where": "scenes.horn-impact-releases-poison.caption",
+      "text": "HORN IMPACT → POISON LEAKS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c32",
+      "where": "scenes.horn-impact-releases-poison.eyebrow",
+      "text": "ON IMPACT",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c33",
+      "where": "scenes.horn-impact-releases-poison.facts[0]",
+      "text": "HORN CONTAINS VENOM",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c34",
+      "where": "scenes.horn-impact-releases-poison.facts[1]",
+      "text": "POISON LEAKS ON IMPACT",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c35",
+      "where": "scenes.watch-ears-or-fear-horn.headline",
+      "text": "WHICH WARNING MATTERS MORE?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "This is a question.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c36",
+      "where": "scenes.watch-ears-or-fear-horn.narration",
+      "text": "Would you watch its ears, or fear the horn?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "This is a question.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c37",
+      "where": "scenes.watch-ears-or-fear-horn.caption",
+      "text": "WATCH THE EARS OR FEAR THE HORN?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "This is a question.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c38",
+      "where": "scenes.watch-ears-or-fear-horn.eyebrow",
+      "text": "YOUR CALL",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "This is framing rather than a factual claim.",
+      "checkedBy": "model"
+    }
+  ],
+  "unsupported": [],
+  "uncertain": [
+    {
+      "id": "c1",
+      "where": "title",
+      "text": "Nidorino's Poison Gets Stronger When It Gets Angry",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[3].text",
+        "pokedexEntries[12].text"
+      ],
+      "note": "Nidorino is quick to anger, and poison potency rises with adrenaline, but the research does not explicitly say that anger itself strengthens the poison.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c5",
+      "where": "payoff",
+      "text": "Its bristling warning ends in a horn strike, while rising adrenaline makes the poison more potent.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[3].text",
+        "pokedexEntries[12].text"
+      ],
+      "note": "The research supports bristling, horn attacks, and adrenaline-linked potency, but does not explicitly establish that the bristling warning ends in the horn strike or that adrenaline is rising at that moment.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c6",
+      "where": "scenes.anger-builds-poison.headline",
+      "text": "THE ANGRIER, THE STRONGER",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[3].text",
+        "pokedexEntries[12].text"
+      ],
+      "note": "Nidorino is quick to anger and its poison potency increases with adrenaline, but anger itself is not directly stated to cause stronger poison.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c7",
+      "where": "scenes.anger-builds-poison.narration",
+      "text": "Nidorino's poison gets stronger while it gets angrier.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[3].text",
+        "pokedexEntries[12].text"
+      ],
+      "note": "The research links potency to adrenaline, not explicitly to becoming angrier.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c8",
+      "where": "scenes.anger-builds-poison.caption",
+      "text": "ANGER → STRONGER POISON",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[3].text",
+        "pokedexEntries[12].text"
+      ],
+      "note": "The anger-to-stronger-poison link is an inference; the documented link is between adrenaline level and poison potency.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c9",
+      "where": "scenes.anger-builds-poison.eyebrow",
+      "text": "DANGER RISING",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[2].text",
+        "pokedexEntries[5].text"
+      ],
+      "note": "The research describes sensing surroundings or a hostile presence, but does not specifically say that danger is rising.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c23",
+      "where": "scenes.adrenaline-raises-potency.narration",
+      "text": "Then it attacks, while rising adrenaline makes its poison more potent.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[2].text",
+        "pokedexEntries[12].text"
+      ],
+      "note": "Immediate attacking and adrenaline-linked potency are supported, but the text adds a specific sequence and describes adrenaline as rising rather than merely relating potency to its level.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c27",
+      "where": "scenes.adrenaline-raises-potency.facts[1]",
+      "text": "ADRENALINE RISES",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[12].text"
+      ],
+      "note": "The research says poison potency increases with adrenaline level, but does not explicitly state that adrenaline rises.",
+      "tier": "official",
+      "checkedBy": "model"
+    }
+  ]
+}

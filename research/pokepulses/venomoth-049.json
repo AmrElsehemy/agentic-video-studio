@@ -1,0 +1,152 @@
+{
+  "schemaVersion": 1,
+  "id": "venomoth-049",
+  "number": 49,
+  "index": "#049",
+  "name": "Venomoth",
+  "slug": "venomoth",
+  "category": "Poison Moth Pokémon",
+  "generation": "Generation I",
+  "isLegendary": false,
+  "isMythical": false,
+  "types": [
+    "Bug",
+    "Poison"
+  ],
+  "heightMeters": 1.5,
+  "weightKg": 12.5,
+  "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/49.png",
+  "pokedexEntries": [
+    {
+      "game": "Red",
+      "text": "The dust-like scales covering its wings are color coded to indicate the kinds of poison it has."
+    },
+    {
+      "game": "Yellow",
+      "text": "The powdery scales on its wings are hard to remove. They also contain poison that leaks out on contact."
+    },
+    {
+      "game": "Gold",
+      "text": "When it attacks, it flaps its large wings violently to scatter its poi sonous powder all around."
+    },
+    {
+      "game": "Silver",
+      "text": "The powder on its wings is poisonous if it is dark in color. If it is light, it causes paralysis."
+    },
+    {
+      "game": "Crystal",
+      "text": "The scales it scatters will paralyze anyone who touches them, making that person unable to stand."
+    },
+    {
+      "game": "Ruby",
+      "text": "VENOMOTH is nocturnal - it is a POKéMON that only becomes active at night. Its favorite prey are small insects that gather around streetlights, attracted by the light in the darkness."
+    },
+    {
+      "game": "Emerald",
+      "text": "VENOMOTH are nocturnal--they only are active at night. Their favorite prey are insects that gather around streetlights, attracted by the light in the darkness."
+    },
+    {
+      "game": "Firered",
+      "text": "The wings are covered with dustlike scales. Every time it flaps its wings, it looses highly toxic dust."
+    },
+    {
+      "game": "Leafgreen",
+      "text": "The dustlike scales covering its wings are color-coded to indicate the kinds of poison it has."
+    },
+    {
+      "game": "Diamond",
+      "text": "It flutters its wings to scatter dustlike scales. The scales leach toxins if they contact skin."
+    },
+    {
+      "game": "Heartgold",
+      "text": "When it attacks, it flaps its large wings violently to scatter its poisonous powder all around."
+    },
+    {
+      "game": "Soulsilver",
+      "text": "The powder on its wings is poisonous if it is dark in hue. If it is light in hue, it causes paralysis."
+    },
+    {
+      "game": "Omega Ruby",
+      "text": "Venomoth is nocturnal—it is a Pokémon that only becomes active at night. Its favorite prey are small insects that gather around streetlights, attracted by the light in the darkness."
+    },
+    {
+      "game": "Lets Go Pikachu",
+      "text": "The powdery scales on its wings are hard to remove from skin. They also contain poison that leaks out on contact."
+    }
+  ],
+  "evolutionChain": [
+    {
+      "name": "Venonat",
+      "index": "#048",
+      "stage": 1,
+      "types": [
+        "Bug",
+        "Poison"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/48.png",
+      "isSubject": false
+    },
+    {
+      "name": "Venomoth",
+      "index": "#049",
+      "stage": 2,
+      "evolvesFrom": "Venonat",
+      "method": "Level Up, level 31",
+      "types": [
+        "Bug",
+        "Poison"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/49.png",
+      "isSubject": true
+    }
+  ],
+  "varieties": [],
+  "lore": [],
+  "tiers": {
+    "official": [
+      "name",
+      "index",
+      "number",
+      "category",
+      "generation",
+      "isLegendary",
+      "isMythical",
+      "types",
+      "heightMeters",
+      "weightKg",
+      "pokedexEntries",
+      "evolutionChain[].name",
+      "evolutionChain[].index",
+      "evolutionChain[].types",
+      "evolutionChain[].stage",
+      "varieties[].types",
+      "varieties[].heightMeters",
+      "varieties[].weightKg"
+    ],
+    "trusted_secondary": [
+      "evolutionChain[].method",
+      "evolutionChain[].evolvesFrom",
+      "varieties[].name"
+    ],
+    "community": [
+      "lore"
+    ]
+  },
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Venomoth",
+      "url": "https://www.pokemon.com/us/pokedex/venomoth",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Venomoth",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Venomoth_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Venomoth",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/49",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

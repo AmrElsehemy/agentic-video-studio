@@ -1,14 +1,14 @@
 {
   "id": "pikachu-025",
-  "title": "Pikachu: The Culinary Electrician",
-  "storyPattern": "profile",
+  "title": "Pikachu Raises Its Tail, And Lightning Sometimes Strikes It",
+  "storyPattern": "mystery",
   "numberRelevant": false,
-  "premise": "Explore how Pikachu uses its electric abilities to tenderize food, elevating its skill set beyond simple battles.",
-  "audiencePromise": "Discover Pikachu's clever use of electricity in cooking, supported by its natural traits and habits.",
-  "openLoop": "How does Pikachu use electricity to prepare food?",
-  "payoff": "Pikachu cleverly uses its stored electricity to roast tough berries, making them easier and more delicious to eat.",
+  "premise": "Pikachu raises its tail to monitor its surroundings, and lightning sometimes strikes the tail in that pose.",
+  "audiencePromise": "Reveal why Pikachu raises its tail, then show the lightning warning tied to that exact pose.",
+  "openLoop": "Why does Pikachu raise a tail that lightning sometimes strikes?",
+  "payoff": "Pikachu raises its tail to check its surroundings, but that exact pose is sometimes when lightning strikes it.",
   "targetEmotion": "surprise",
-  "engagementQuestion": "Is Pikachu a survivalist or a chef?",
+  "engagementQuestion": "Raise it to look around, or keep it down?",
   "subject": {
     "name": "Pikachu",
     "category": "Mouse Pokémon",
@@ -36,112 +36,115 @@
     }
   ],
   "palette": {
-    "background": "#2f2f2f",
-    "surface": "#4a4a4a",
-    "primary": "#f2c500",
-    "secondary": "#f7a704",
-    "ink": "#ffffff"
+    "background": "#10131C",
+    "surface": "#202637",
+    "primary": "#F5C542",
+    "secondary": "#5BCBFA",
+    "ink": "#F7F8FC"
   },
   "voice": {
-    "instructions": "Engaging and playful with a hint of wonder."
+    "instructions": "Use a tense, curious pace. Start sharply, pause before each reveal, and make the final choice playful but serious."
   },
   "rights": {
     "releaseStatus": "internal-prototype",
     "publicReleaseApproved": false,
     "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
     "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    },
     "assets": [
       {
         "kind": "Pikachu official artwork mirror",
         "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png",
         "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
-        "licenseStatus": "unverified",
-        "publicReleaseApproved": false,
-        "notes": "Internal prototype only pending legal review or replacement."
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
       }
     ]
   },
   "scenes": [
     {
-      "id": "pikachu-hook",
+      "id": "lightning-sometimes-strikes",
       "beat": "hook",
-      "headline": "Pikachu, the Electric Chef",
-      "narration": "Meet the Pokémon that cooks with shocks!",
-      "caption": "Culinary Pikachu at Work",
+      "eyebrow": "THE SURPRISE",
+      "headline": "RAISE THE TAIL. LIGHTNING SOMETIMES STRIKES.",
+      "narration": "Pikachu raises its tail. Lightning sometimes strikes it.",
+      "caption": "THE TAIL IS NOT ALWAYS SAFE",
+      "facts": [
+        "RAISED TAIL",
+        "LIGHTNING"
+      ],
+      "accent": "#F5C542",
       "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png"
     },
     {
-      "id": "pikachu-evidence-1",
-      "beat": "evidence",
-      "headline": "Electric Berry Roasting",
-      "narration": "Pikachu roasts hard berries with electricity.",
-      "caption": "Making tough berries tender—electric-style!",
+      "id": "checking-surroundings",
+      "beat": "clue",
+      "eyebrow": "THE REASON",
+      "headline": "THE TAIL CHECKS THE AREA",
+      "narration": "Pikachu raises its tail to check its surroundings.",
+      "caption": "A RAISED TAIL HELPS IT MONITOR AROUND IT",
       "facts": [
-        "Intelligent Pokémon",
-        "Uses stored electricity"
+        "CHECKS SURROUNDINGS",
+        "TAIL RAISED"
       ],
-      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png",
-      "primitive": {
-        "kind": "timeline",
-        "steps": [
-          {
-            "label": "Pichu",
-            "detail": "START"
-          },
-          {
-            "label": "Pikachu",
-            "detail": "BERRY ROAST"
-          },
-          {
-            "label": "Raichu",
-            "detail": "POWER UP"
-          }
-        ],
-        "active": 1
-      }
-    },
-    {
-      "id": "pikachu-evidence-2",
-      "beat": "evidence",
-      "headline": "Cheeky Power",
-      "narration": "Stores electricity in cheek sacs for cooking bursts.",
-      "caption": "Its cheeks: more than just cute.",
-      "facts": [
-        "Cheek sacs storage",
-        "Electric cooking bursts"
-      ],
+      "accent": "#5BCBFA",
       "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png"
     },
     {
-      "id": "pikachu-escalation",
+      "id": "storms-around-pikachu",
       "beat": "escalation",
-      "headline": "Berry Blackening Skills",
-      "narration": "Sometimes, Pikachu overcooks berries, charring them.",
-      "caption": "Oops! A bit too much zap.",
+      "eyebrow": "ELECTRICITY BUILDS",
+      "headline": "GROUPS CAN CAUSE STORMS",
+      "narration": "Several Pikachu can build electricity and cause lightning storms.",
+      "caption": "MORE PIKACHU. MORE ELECTRICITY.",
       "facts": [
-        "Blackened berries",
-        "Intensity mistake"
+        "SEVERAL PIKACHU",
+        "LIGHTNING STORMS"
       ],
+      "accent": "#A98BFF",
       "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png"
     },
     {
-      "id": "pikachu-twist",
-      "beat": "twist",
-      "headline": "Efficiency or Taste?",
-      "narration": "Does Pikachu cook for survival or flavor?",
-      "caption": "Electricity adds flavor or just practicality?",
+      "id": "direct-tail-warning",
+      "beat": "reveal",
+      "eyebrow": "THE DIRECT WARNING",
+      "headline": "THE TAIL GETS ITS OWN WARNING",
+      "narration": "Another entry gives a direct warning about Pikachu’s tail.",
+      "caption": "THE WARNING IS ABOUT THE TAIL",
       "facts": [
-        "Survival skills",
-        "Flavor enhancement"
+        "POKÉDEX ENTRY",
+        "PIKACHU’S TAIL"
       ],
+      "accent": "#FFCB5C",
       "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png"
     },
     {
-      "id": "pikachu-verdict",
+      "id": "lightning-in-this-pose",
+      "beat": "reveal",
+      "eyebrow": "THE EXACT DETAIL",
+      "headline": "LIGHTNING STRIKES IT IN THIS POSE",
+      "narration": "It says lightning sometimes strikes the tail in this pose.",
+      "caption": "TAIL RAISED. LIGHTNING SOMETIMES STRIKES.",
+      "facts": [
+        "SOMETIMES STRUCK",
+        "THIS POSE"
+      ],
+      "accent": "#DCE7FF",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png"
+    },
+    {
+      "id": "raise-or-lower",
       "beat": "verdict",
-      "headline": "Survivalist or Chef?",
-      "narration": "Is Pikachu a survivalist or a chef? You decide.",
-      "caption": "Chef or survivalist? You be the judge.",
+      "eyebrow": "YOUR CHOICE",
+      "headline": "RAISE IT OR KEEP IT DOWN?",
+      "narration": "Raise it to look around, or keep it down?",
+      "caption": "WHICH WOULD YOU CHOOSE?",
+      "accent": "#FF6B6B",
       "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png"
     }
   ],

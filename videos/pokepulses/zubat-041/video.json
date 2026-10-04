@@ -1,0 +1,272 @@
+{
+  "schemaVersion": 2,
+  "id": "zubat-041",
+  "show": {
+    "id": "pokepulses",
+    "name": "PokePulses",
+    "handle": "@PokePulses",
+    "wordmark": {
+      "lead": "POKE",
+      "accent": "PULSES"
+    },
+    "fonts": {
+      "display": "Bebas Neue",
+      "body": "system"
+    }
+  },
+  "title": "Zubat's Sonar Isn't the Same in Every Colony",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "comparison",
+    "numberRelevant": false,
+    "premise": "Zubat colonies can have slightly different ultrasonic frequencies, giving each group its own sonar variation.",
+    "audiencePromise": "Reveal how Zubat navigates without eyes, then show the slight frequency difference between colonies.",
+    "openLoop": "If Zubat navigates by sound, why can colonies use slightly different frequencies?",
+    "payoff": "Zubat shares eyeless ultrasonic sonar across colonies, while its frequencies can differ slightly from group to group.",
+    "targetEmotion": "curiosity",
+    "engagementQuestion": "Which is cooler: eyeless sonar or slight colony variation?",
+    "targetSecondsBetweenVisualChanges": 0.7
+  },
+  "subject": {
+    "name": "Zubat",
+    "category": "Bat Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/41.png",
+    "identifier": "#041"
+  },
+  "related": [
+    {
+      "name": "Crobat",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/169.png",
+      "identifier": "#169"
+    },
+    {
+      "name": "Golbat",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/42.png",
+      "identifier": "#042"
+    }
+  ],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#090D1A",
+    "surface": "#151C32",
+    "primary": "#7E5AC8",
+    "secondary": "#4CC9F0",
+    "ink": "#F4F1FF"
+  },
+  "audio": {
+    "music": "generated/zubat-041-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 126,
+      "notes": [
+        110,
+        130.81,
+        146.83,
+        164.81,
+        146.83,
+        130.81,
+        98,
+        130.81
+      ]
+    },
+    "voice": {
+      "provider": "openai",
+      "model": "gpt-4o-mini-tts",
+      "voice": "marin",
+      "instructions": "Speak with quiet urgency and clear contrast. Pause briefly before each reveal. Keep the final choice playful and direct.",
+      "speed": 1.12,
+      "output": "generated/zubat-041-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "assets": [
+      {
+        "kind": "Zubat official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/41.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ],
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    }
+  },
+  "scenes": [
+    {
+      "id": "different-signals",
+      "durationSeconds": 4.3,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "comparison",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "SAME SONAR?",
+      "headline": "BLIND, BUT COLONIES CAN DIFFER",
+      "narration": "Zubat is blind, but its colonies may sound different.",
+      "caption": "SLIGHTLY DIFFERENT FREQUENCIES BETWEEN COLONIES",
+      "visual": "hook",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/41.png"
+    },
+    {
+      "id": "blind-navigation",
+      "durationSeconds": 5.2,
+      "beat": "evidence",
+      "role": "evidence",
+      "shot": "wide",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "NO EYES NEEDED",
+      "headline": "SOUND REPLACES SIGHT",
+      "narration": "It has no eyes, so ultrasonic waves check obstacles in darkness.",
+      "caption": "ULTRASONIC WAVES CHECK THE WAY",
+      "visual": "gauntlet",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/41.png",
+      "accent": "#4CC9F0",
+      "facts": [
+        "NO EYES",
+        "ULTRASONIC WAVES",
+        "DARK CAVES"
+      ],
+      "primitive": {
+        "kind": "checklist",
+        "items": [
+          {
+            "label": "EYES",
+            "met": false
+          },
+          {
+            "label": "ULTRASONIC WAVES",
+            "met": true
+          },
+          {
+            "label": "DARK CAVES",
+            "met": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "reflected-navigation",
+      "durationSeconds": 4.8,
+      "beat": "evidence",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "THE SIGNAL RETURNS",
+      "headline": "ZUBAT READS REFLECTIONS",
+      "narration": "It emits waves from its mouth, then reads their reflections.",
+      "caption": "EMIT. REFLECT. CHECK.",
+      "visual": "advantage",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/41.png",
+      "accent": "#65D6FF",
+      "facts": [
+        "MOUTH",
+        "REFLECTIONS",
+        "SURROUNDINGS"
+      ],
+      "primitive": {
+        "kind": "checklist",
+        "items": [
+          {
+            "label": "MOUTH",
+            "met": true
+          },
+          {
+            "label": "REFLECTIONS",
+            "met": true
+          },
+          {
+            "label": "SURROUNDINGS",
+            "met": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "colony-variation",
+      "durationSeconds": 5.2,
+      "beat": "escalation",
+      "role": "escalation",
+      "shot": "tracking",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "THE STRANGE PART",
+      "headline": "FREQUENCIES CAN DIFFER",
+      "narration": "Then comes the strange part: frequencies can differ slightly between colonies.",
+      "caption": "SLIGHT DIFFERENCES BETWEEN COLONIES",
+      "visual": "race",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/41.png",
+      "accent": "#F15BB5",
+      "facts": [
+        "ULTRASONIC FREQUENCY",
+        "SLIGHT DIFFERENCE",
+        "COLONY TO COLONY"
+      ]
+    },
+    {
+      "id": "slight-not-total",
+      "durationSeconds": 4.8,
+      "beat": "twist",
+      "role": "twist",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "IMPORTANT LIMIT",
+      "headline": "DIFFERENT DOESN'T MEAN OPPOSITE",
+      "narration": "The variation is slight, but the waves still check surroundings.",
+      "caption": "SLIGHT VARIATION. SAME SONAR JOB.",
+      "visual": "tradeoff",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/41.png",
+      "accent": "#FFB703",
+      "facts": [
+        "SLIGHT VARIATION",
+        "ULTRASONIC WAVES",
+        "SURROUNDINGS"
+      ]
+    },
+    {
+      "id": "choose-the-signal",
+      "durationSeconds": 3.9,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "YOUR CALL",
+      "headline": "SAME TOOL. DIFFERENT FREQUENCY.",
+      "narration": "Which is cooler: eyeless sonar or colony variation?",
+      "caption": "SAME SONAR, SLIGHTLY DIFFERENT FREQUENCIES",
+      "visual": "cta",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/41.png"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Zubat",
+      "url": "https://www.pokemon.com/us/pokedex/zubat"
+    },
+    {
+      "label": "Bulbapedia — Zubat",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Zubat_(Pok%C3%A9mon)"
+    },
+    {
+      "label": "PokéAPI — Zubat",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/41"
+    }
+  ]
+}

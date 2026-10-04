@@ -1,0 +1,159 @@
+{
+  "schemaVersion": 1,
+  "id": "nidoqueen-031",
+  "number": 31,
+  "index": "#031",
+  "name": "Nidoqueen",
+  "slug": "nidoqueen",
+  "category": "Drill Pokémon",
+  "generation": "Generation I",
+  "isLegendary": false,
+  "isMythical": false,
+  "types": [
+    "Poison",
+    "Ground"
+  ],
+  "heightMeters": 1.3,
+  "weightKg": 60,
+  "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/31.png",
+  "pokedexEntries": [
+    {
+      "game": "Red",
+      "text": "Its hard scales provide strong protection. It uses its hefty bulk to execute powerful moves."
+    },
+    {
+      "game": "Yellow",
+      "text": "Tough scales cover the sturdy body of this POKéMON. It appears that the scales grow in cycles."
+    },
+    {
+      "game": "Gold",
+      "text": "Its body is cover ed with needle- like scales. It never shows signs of shrinking from any attack."
+    },
+    {
+      "game": "Silver",
+      "text": "It uses its scaly, rugged body to seal the entrance of its nest and protect its young from predators."
+    },
+    {
+      "game": "Crystal",
+      "text": "The hard scales that cover its strong body serve as excellent protection from any attack."
+    },
+    {
+      "game": "Ruby",
+      "text": "NIDOQUEEN’s body is encased in extremely hard scales. It is adept at sending foes flying with harsh tackles. This POKéMON is at its strongest when it is defending its young."
+    },
+    {
+      "game": "Emerald",
+      "text": "It is adept at sending foes flying with harsh tackles using its tough, scaly body. This POKéMON is at its strongest when it is defending its young."
+    },
+    {
+      "game": "Firered",
+      "text": "The body is covered by stiff, needle- like scales. If it becomes excited, the needles bristle outwards."
+    },
+    {
+      "game": "Diamond",
+      "text": "Its entire body is armored with hard scales. It will protect the young in its burrow with its life."
+    },
+    {
+      "game": "Heartgold",
+      "text": "Its body is covered with needle-like scales. It never shows signs of shrinking from any attack."
+    },
+    {
+      "game": "Y",
+      "text": "The body is covered by stiff, needlelike scales. If it becomes excited, the needles bristle outwards."
+    },
+    {
+      "game": "Sword",
+      "text": "Nidoqueen is better at defense than offense. With scales like armor, this Pokémon will shield its children from any kind of attack."
+    },
+    {
+      "game": "Shield",
+      "text": "It pacifies offspring by placing them in the gaps between the spines on its back. The spines will never secrete poison while young are present."
+    }
+  ],
+  "evolutionChain": [
+    {
+      "name": "Nidoran♀",
+      "index": "#029",
+      "stage": 1,
+      "types": [
+        "Poison"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/29.png",
+      "isSubject": false
+    },
+    {
+      "name": "Nidorina",
+      "index": "#030",
+      "stage": 2,
+      "evolvesFrom": "Nidoran♀",
+      "method": "Level Up, level 16",
+      "types": [
+        "Poison"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/30.png",
+      "isSubject": false
+    },
+    {
+      "name": "Nidoqueen",
+      "index": "#031",
+      "stage": 3,
+      "evolvesFrom": "Nidorina",
+      "method": "Use Item, Moon Stone",
+      "types": [
+        "Poison",
+        "Ground"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/31.png",
+      "isSubject": true
+    }
+  ],
+  "varieties": [],
+  "lore": [],
+  "tiers": {
+    "official": [
+      "name",
+      "index",
+      "number",
+      "category",
+      "generation",
+      "isLegendary",
+      "isMythical",
+      "types",
+      "heightMeters",
+      "weightKg",
+      "pokedexEntries",
+      "evolutionChain[].name",
+      "evolutionChain[].index",
+      "evolutionChain[].types",
+      "evolutionChain[].stage",
+      "varieties[].types",
+      "varieties[].heightMeters",
+      "varieties[].weightKg"
+    ],
+    "trusted_secondary": [
+      "evolutionChain[].method",
+      "evolutionChain[].evolvesFrom",
+      "varieties[].name"
+    ],
+    "community": [
+      "lore"
+    ]
+  },
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Nidoqueen",
+      "url": "https://www.pokemon.com/us/pokedex/nidoqueen",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Nidoqueen",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Nidoqueen_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Nidoqueen",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/31",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

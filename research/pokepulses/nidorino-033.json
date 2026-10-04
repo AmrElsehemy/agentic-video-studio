@@ -1,0 +1,158 @@
+{
+  "schemaVersion": 1,
+  "id": "nidorino-033",
+  "number": 33,
+  "index": "#033",
+  "name": "Nidorino",
+  "slug": "nidorino",
+  "category": "Poison Pin Pokémon",
+  "generation": "Generation I",
+  "isLegendary": false,
+  "isMythical": false,
+  "types": [
+    "Poison"
+  ],
+  "heightMeters": 0.9,
+  "weightKg": 19.5,
+  "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/33.png",
+  "pokedexEntries": [
+    {
+      "game": "Red",
+      "text": "An aggressive POKéMON that is quick to attack. The horn on its head secretes a powerful venom."
+    },
+    {
+      "game": "Yellow",
+      "text": "Its horns contain venom. If they are stabbed into an enemy, the impact makes the poison leak out."
+    },
+    {
+      "game": "Gold",
+      "text": "It raises its big ears to check its surroundings. If it senses any thing, it attacks immediately."
+    },
+    {
+      "game": "Silver",
+      "text": "Quick to anger, it stabs enemies with its horn to inject a powerful poison when it becomes agitated."
+    },
+    {
+      "game": "Crystal",
+      "text": "It is easily agitated and uses its horn for offense as soon as it notices an attacker."
+    },
+    {
+      "game": "Ruby",
+      "text": "NIDORINO has a horn that is harder than a diamond. If it senses a hostile presence, all the barbs on its back bristle up at once, and it challenges the foe with all its might."
+    },
+    {
+      "game": "Emerald",
+      "text": "Its horn is harder than a diamond. If it senses a hostile presence, all the barbs on its back bristle up at once, and it challenges the foe with all its might."
+    },
+    {
+      "game": "Firered",
+      "text": "It is easily angered. By swinging its well- developed horn wildly, it can even punch through diamond."
+    },
+    {
+      "game": "Diamond",
+      "text": "It has a violent disposition and stabs foes with its horn, which oozes poison upon impact."
+    },
+    {
+      "game": "Heartgold",
+      "text": "It raises its big ears to check its surroundings. If it senses anything, it attacks immediately."
+    },
+    {
+      "game": "Lets Go Pikachu",
+      "text": "Its horn contains venom. If it stabs an enemy with the horn, the impact makes the poison leak out."
+    },
+    {
+      "game": "Sword",
+      "text": "With a horn that’s harder than diamond, this Pokémon goes around shattering boulders as it searches for a moon stone."
+    },
+    {
+      "game": "Shield",
+      "text": "It’s nervous and quick to act aggressively. The potency of its poison increases along with the level of adrenaline present in its body."
+    }
+  ],
+  "evolutionChain": [
+    {
+      "name": "Nidoran♂",
+      "index": "#032",
+      "stage": 1,
+      "types": [
+        "Poison"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/32.png",
+      "isSubject": false
+    },
+    {
+      "name": "Nidorino",
+      "index": "#033",
+      "stage": 2,
+      "evolvesFrom": "Nidoran♂",
+      "method": "Level Up, level 16",
+      "types": [
+        "Poison"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/33.png",
+      "isSubject": true
+    },
+    {
+      "name": "Nidoking",
+      "index": "#034",
+      "stage": 3,
+      "evolvesFrom": "Nidorino",
+      "method": "Use Item, Moon Stone",
+      "types": [
+        "Poison",
+        "Ground"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/34.png",
+      "isSubject": false
+    }
+  ],
+  "varieties": [],
+  "lore": [],
+  "tiers": {
+    "official": [
+      "name",
+      "index",
+      "number",
+      "category",
+      "generation",
+      "isLegendary",
+      "isMythical",
+      "types",
+      "heightMeters",
+      "weightKg",
+      "pokedexEntries",
+      "evolutionChain[].name",
+      "evolutionChain[].index",
+      "evolutionChain[].types",
+      "evolutionChain[].stage",
+      "varieties[].types",
+      "varieties[].heightMeters",
+      "varieties[].weightKg"
+    ],
+    "trusted_secondary": [
+      "evolutionChain[].method",
+      "evolutionChain[].evolvesFrom",
+      "varieties[].name"
+    ],
+    "community": [
+      "lore"
+    ]
+  },
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Nidorino",
+      "url": "https://www.pokemon.com/us/pokedex/nidorino",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Nidorino",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Nidorino_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Nidorino",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/33",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

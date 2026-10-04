@@ -1,0 +1,164 @@
+{
+  "episodeId": "parasect-047",
+  "createdAt": "2026-10-03T20:13:10.022Z",
+  "chosen": {
+    "id": "mushroom-in-control",
+    "premise": "Parasect is mostly dead: its mushroom is the main body, and removing it stops the bug from moving.",
+    "hook": "Parasect may not be the bug you think it is.",
+    "archetype": "transformation",
+    "evidence": [
+      "pokedexEntries[14].text",
+      "pokedexEntries[17].text",
+      "pokedexEntries[8].text"
+    ],
+    "visualIdea": "Show the mushroom growing over the bug, then cut to the host freezing when the mushroom disappears.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 5,
+      "specificity": 5,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 25,
+    "note": "A highly Parasect-specific identity reversal, directly supported by multiple entries: the mushroom is the main body, controls the Pokémon, and the bug stops moving without it."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "mushroom-in-control",
+          "premise": "Parasect is mostly dead: its mushroom is the main body, and removing it stops the bug from moving.",
+          "hook": "Parasect may not be the bug you think it is.",
+          "archetype": "transformation",
+          "evidence": [
+            "pokedexEntries[14].text",
+            "pokedexEntries[17].text",
+            "pokedexEntries[8].text"
+          ],
+          "visualIdea": "Show the mushroom growing over the bug, then cut to the host freezing when the mushroom disappears.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 25,
+          "note": "A highly Parasect-specific identity reversal, directly supported by multiple entries: the mushroom is the main body, controls the Pokémon, and the bug stops moving without it."
+        },
+        {
+          "id": "last-thing-it-takes",
+          "premise": "When Parasect’s mushroom has extracted everything from the bug, it leaves spores on the bug’s egg.",
+          "hook": "The mushroom doesn’t stop when Parasect runs out of energy.",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[1].text",
+            "pokedexEntries[4].text"
+          ],
+          "visualIdea": "Follow clues from drained energy to an empty host, then reveal spores being left on an egg.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 25,
+          "note": "Extremely specific, disturbing, and visually strong. The egg detail is directly supported, though the premise should carefully distinguish the mushroom from Parasect itself."
+        },
+        {
+          "id": "tree-to-tree-swarm",
+          "premise": "Parasect infest large trees en masse, and when one dies, they all move to another tree together.",
+          "hook": "When their tree dies, Parasect relocate as one swarm.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[5].text",
+            "pokedexEntries[6].text"
+          ],
+          "visualIdea": "Animate Parasect draining a tree’s roots, then swarm across the forest to the next trunk.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 23,
+          "note": "A clear ecological behavior with strong animation potential and excellent evidence, but it feels more like a species behavior than Parasect’s most shocking identity hook."
+        },
+        {
+          "id": "poison-or-medicine",
+          "premise": "Parasect’s toxic spores are poisonous, yet people also harvest them to make herbal medicine.",
+          "hook": "Parasect’s poison can also become medicine.",
+          "archetype": "comparison",
+          "evidence": [
+            "pokedexEntries[7].text",
+            "pokedexEntries[13].text",
+            "pokedexEntries[15].text"
+          ],
+          "visualIdea": "Split the screen between a toxic spore cloud and the same spores being boiled into a medicinal brew.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 22,
+          "note": "The poisonous-spore versus medicine contradiction is compelling and well supported, though the broader poison-to-medicine premise could fit other fictional organisms."
+        },
+        {
+          "id": "whose-habitat",
+          "premise": "Parasect stays in dark, damp places not because the bug prefers them, but because the mushroom does.",
+          "hook": "Parasect’s favorite habitat belongs to the mushroom, not the bug.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[2].text",
+            "pokedexEntries[10].text",
+            "pokedexEntries[1].text"
+          ],
+          "visualIdea": "Show the bug resisting a damp cave while the mushroom pulls Parasect deeper into darkness.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 4,
+            "support": 5
+          },
+          "total": 21,
+          "note": "The mushroom-versus-host habitat distinction is specific and supported, but the visual conflict and reveal are less powerful than the control premise."
+        },
+        {
+          "id": "spore-power-scale",
+          "premise": "The larger Parasect’s mushroom grows, the stronger the spores it scatters become.",
+          "hook": "For Parasect, a bigger mushroom means a stronger weapon.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[3].text",
+            "pokedexEntries[11].text",
+            "pokedexEntries[8].text"
+          ],
+          "visualIdea": "Scale up the mushroom cap while spore clouds intensify from weak to poisonous.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 3,
+            "specificity": 4,
+            "visual": 4,
+            "support": 5
+          },
+          "total": 20,
+          "note": "The growth-to-spore-strength rule is concrete and well supported, but less surprising and less distinctive than the control reveal. “Weapon” is slightly interpretive."
+        }
+      ],
+      "rejected": []
+    }
+  ]
+}

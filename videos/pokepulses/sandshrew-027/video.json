@@ -1,0 +1,277 @@
+{
+  "schemaVersion": 2,
+  "id": "sandshrew-027",
+  "show": {
+    "id": "pokepulses",
+    "name": "PokePulses",
+    "handle": "@PokePulses",
+    "wordmark": {
+      "lead": "POKE",
+      "accent": "PULSES"
+    },
+    "fonts": {
+      "display": "Bebas Neue",
+      "body": "system"
+    }
+  },
+  "title": "Why Moisture Sends Sandshrew to a Volcano",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "transformation",
+    "numberRelevant": false,
+    "premise": "When moisture wrinkles Sandshrew’s skin, it heads to a volcano and dries itself on geothermal heat.",
+    "audiencePromise": "See how Sandshrew turns a moisture problem into a volcanic drying routine.",
+    "openLoop": "How can a volcano fix Sandshrew’s wrinkled skin?",
+    "payoff": "The strange detour ends with Sandshrew dry instead of wrinkled.",
+    "targetEmotion": "surprise",
+    "engagementQuestion": "Dry sand or geothermal heat: which would you choose?",
+    "targetSecondsBetweenVisualChanges": 0.62
+  },
+  "subject": {
+    "name": "Sandshrew",
+    "category": "Mouse Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/27.png",
+    "identifier": "#027"
+  },
+  "related": [
+    {
+      "name": "Sandslash",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/28.png",
+      "identifier": "#028"
+    },
+    {
+      "name": "Sandshrew Alola",
+      "relation": "form",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10101.png",
+      "identifier": "#027"
+    }
+  ],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#17120D",
+    "surface": "#2A1D15",
+    "primary": "#D88A3D",
+    "secondary": "#F2C078",
+    "ink": "#FFF3D6"
+  },
+  "audio": {
+    "music": "generated/sandshrew-027-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 126,
+      "notes": [
+        110,
+        130.81,
+        146.83,
+        164.81,
+        146.83,
+        130.81,
+        98,
+        130.81
+      ]
+    },
+    "voice": {
+      "provider": "openai",
+      "model": "gpt-4o-mini-tts",
+      "voice": "marin",
+      "instructions": "Speak with dry, urgent curiosity. Start sharply, build tension as moisture disrupts Sandshrew’s dry life, then slow slightly on the geothermal reveal. Keep every line crisp and natural.",
+      "speed": 1.12,
+      "output": "generated/sandshrew-027-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "assets": [
+      {
+        "kind": "Sandshrew official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/27.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ],
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    }
+  },
+  "scenes": [
+    {
+      "id": "moisture-warning",
+      "durationSeconds": 4,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "MOISTURE IS THE PROBLEM",
+      "headline": "WHY A VOLCANO?",
+      "narration": "Moisture wrinkles Sandshrew. Why head toward a volcano?",
+      "caption": "WRINKLED BY MOISTURE",
+      "visual": "hook",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/27.png",
+      "accent": "#7AC7C2"
+    },
+    {
+      "id": "dry-life",
+      "durationSeconds": 6.1,
+      "beat": "before",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "A DRY-LIVING POKÉMON",
+      "headline": "DRYNESS IS HOME",
+      "narration": "Its body is dry, and it lives in arid places far from water.",
+      "caption": "DRY BODY • ARID HOME",
+      "visual": "gauntlet",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/27.png",
+      "accent": "#D88A3D",
+      "facts": [
+        "Dry body",
+        "Arid places",
+        "Far from water"
+      ]
+    },
+    {
+      "id": "wrinkle-trigger",
+      "durationSeconds": 4.8,
+      "beat": "change",
+      "role": "escalation",
+      "shot": "tracking",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "THE ROUTINE",
+      "headline": "SAND BATH, THEN A VOLCANO",
+      "narration": "Sand bathing sheds moisture. Wrinkles send it to a volcano.",
+      "caption": "SAND FIRST, VOLCANO NEXT",
+      "visual": "race",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/27.png",
+      "accent": "#7AC7C2",
+      "facts": [
+        "Sand bathing",
+        "Wrinkled skin",
+        "Heads to a volcano"
+      ],
+      "primitive": {
+        "kind": "timeline",
+        "steps": [
+          {
+            "label": "SAND BATHING",
+            "detail": "Rids itself of moisture"
+          },
+          {
+            "label": "WRINKLED SKIN",
+            "detail": "Moisture causes wrinkles"
+          },
+          {
+            "label": "VOLCANO",
+            "detail": "Heads for volcanic heat"
+          },
+          {
+            "label": "GEOTHERMAL HEAT",
+            "detail": "Dries itself out"
+          }
+        ],
+        "active": 2
+      }
+    },
+    {
+      "id": "geothermal-reveal",
+      "durationSeconds": 5.5,
+      "beat": "reveal",
+      "role": "payoff",
+      "shot": "comparison",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "THE HEAT SOURCE",
+      "headline": "THE DESTINATION IS HEAT",
+      "narration": "It lies flat on a spot with a lot of geothermal heat.",
+      "caption": "GEOTHERMAL HEAT",
+      "visual": "advantage",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/27.png",
+      "accent": "#FF6B2C",
+      "facts": [
+        "Lies flat",
+        "Geothermal heat"
+      ],
+      "primitive": {
+        "kind": "checklist",
+        "items": [
+          {
+            "label": "LIES FLAT",
+            "met": true
+          },
+          {
+            "label": "GEOTHERMAL HEAT",
+            "met": true
+          },
+          {
+            "label": "DRIES ITSELF OUT",
+            "met": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "drying-aftermath",
+      "durationSeconds": 4.7,
+      "beat": "aftermath",
+      "role": "payoff",
+      "shot": "wide",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "DRYING ITSELF OUT",
+      "headline": "THE DETOUR WORKS",
+      "narration": "The strange detour ends with Sandshrew dry instead of wrinkled.",
+      "caption": "WRINKLED → DRY",
+      "visual": "tradeoff",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/27.png",
+      "accent": "#F2C078",
+      "facts": [
+        "Dries itself out",
+        "Dry body"
+      ]
+    },
+    {
+      "id": "choose-the-cure",
+      "durationSeconds": 4.3,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "YOUR CALL",
+      "headline": "SAND OR VOLCANIC HEAT?",
+      "narration": "Dry sand or geothermal heat: which would you choose?",
+      "caption": "WHICH DRYING METHOD WINS?",
+      "visual": "cta",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/27.png",
+      "accent": "#FF6B2C"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Sandshrew",
+      "url": "https://www.pokemon.com/us/pokedex/sandshrew"
+    },
+    {
+      "label": "Bulbapedia — Sandshrew",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Sandshrew_(Pok%C3%A9mon)"
+    },
+    {
+      "label": "PokéAPI — Sandshrew",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/27"
+    }
+  ]
+}

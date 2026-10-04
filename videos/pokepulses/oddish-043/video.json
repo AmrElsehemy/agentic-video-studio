@@ -1,0 +1,293 @@
+{
+  "schemaVersion": 2,
+  "id": "oddish-043",
+  "show": {
+    "id": "pokepulses",
+    "name": "PokePulses",
+    "handle": "@PokePulses",
+    "wordmark": {
+      "lead": "POKE",
+      "accent": "PULSES"
+    },
+    "fonts": {
+      "display": "Bebas Neue",
+      "body": "system"
+    }
+  },
+  "title": "Oddish Grows by Moonlight, But Evolves with the Sun",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "comparison",
+    "numberRelevant": false,
+    "premise": "Oddish grows through moonlight, yet its evolution can lead to Bellossom through a Sun Stone.",
+    "audiencePromise": "See how Oddish's moonlit nature leads to a surprising choice between two final forms.",
+    "openLoop": "How does a moon-grown Pokémon end up evolving with sunlight?",
+    "payoff": "Gloom can become Bellossom with a Sun Stone, but that choice changes its typing.",
+    "targetEmotion": "surprise",
+    "engagementQuestion": "Moon-grown Oddish: Leaf Stone or Sun Stone?",
+    "targetSecondsBetweenVisualChanges": 0.7
+  },
+  "subject": {
+    "name": "Oddish",
+    "category": "Weed Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/43.png",
+    "identifier": "#043"
+  },
+  "related": [
+    {
+      "name": "Vileplume",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/45.png",
+      "identifier": "#045"
+    },
+    {
+      "name": "Bellossom",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/182.png",
+      "identifier": "#182"
+    },
+    {
+      "name": "Gloom",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/44.png",
+      "identifier": "#044"
+    }
+  ],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#101526",
+    "surface": "#1C2740",
+    "primary": "#8BC34A",
+    "secondary": "#FFD54F",
+    "ink": "#F5F7E9"
+  },
+  "audio": {
+    "music": "generated/oddish-043-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 126,
+      "notes": [
+        110,
+        130.81,
+        146.83,
+        164.81,
+        146.83,
+        130.81,
+        98,
+        130.81
+      ]
+    },
+    "voice": {
+      "provider": "openai",
+      "model": "gpt-4o-mini-tts",
+      "voice": "marin",
+      "instructions": "Use a curious, dramatic pace. Stress the moonlight and Sun Stone contrast. Pause briefly before the typing twist.",
+      "speed": 1.12,
+      "output": "generated/oddish-043-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "assets": [
+      {
+        "kind": "Oddish official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/43.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      },
+      {
+        "kind": "Gloom official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/44.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      },
+      {
+        "kind": "Bellossom official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/182.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ],
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    }
+  },
+  "scenes": [
+    {
+      "id": "moonlight-sun-stone",
+      "durationSeconds": 4.4,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "comparison",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "THE ODD EVOLUTION",
+      "headline": "MOONLIGHT GROWS IT. SUN EVOLVES IT.",
+      "narration": "Moonlight grows Oddish. Gloom becomes Bellossom by Sun Stone.",
+      "caption": "MOONLIGHT IN. SUN STONE OUT.",
+      "visual": "hook",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/43.png",
+      "accent": "#B39DDB"
+    },
+    {
+      "id": "hiding-from-daylight",
+      "durationSeconds": 4.2,
+      "beat": "evidence",
+      "role": "evidence",
+      "shot": "wide",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "ODDISH BY DAY",
+      "headline": "IT HIDES FROM THE SUN",
+      "narration": "Oddish avoids the sun by hiding underground during daytime.",
+      "caption": "DAYTIME MEANS UNDERGROUND",
+      "visual": "gauntlet",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/43.png",
+      "accent": "#455A64",
+      "facts": [
+        "AVOIDS THE SUN",
+        "UNDERGROUND BY DAY"
+      ]
+    },
+    {
+      "id": "moonlit-roaming",
+      "durationSeconds": 5.3,
+      "beat": "evidence",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "ODDISH BY NIGHT",
+      "headline": "MOONLIGHT WAKES IT",
+      "narration": "At night, moonlight wakes it, and it roams while scattering seeds.",
+      "caption": "MOONLIGHT STARTS THE NIGHT SHIFT",
+      "visual": "advantage",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/43.png",
+      "accent": "#B39DDB",
+      "facts": [
+        "MOONLIGHT",
+        "ROAMS AT NIGHT",
+        "SCATTERS SEEDS"
+      ]
+    },
+    {
+      "id": "two-final-forms",
+      "durationSeconds": 5.2,
+      "beat": "escalation",
+      "role": "escalation",
+      "shot": "tracking",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "THE EVOLUTION SPLITS",
+      "headline": "GLOOM GETS TWO DESTINATIONS",
+      "narration": "Oddish first becomes Gloom, then reaches two very different final forms.",
+      "caption": "GLOOM CAN GO TWO WAYS",
+      "visual": "race",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/44.png",
+      "accent": "#9C6ADE",
+      "facts": [
+        "GLOOM",
+        "VILEPLUME",
+        "BELLOSSOM"
+      ],
+      "primitive": {
+        "kind": "timeline",
+        "steps": [
+          {
+            "label": "Oddish"
+          },
+          {
+            "label": "Gloom",
+            "detail": "LEVEL 21"
+          },
+          {
+            "label": "Vileplume",
+            "detail": "LEAF STONE"
+          },
+          {
+            "label": "Bellossom",
+            "detail": "SUN STONE"
+          }
+        ],
+        "active": 1
+      }
+    },
+    {
+      "id": "sun-stone-tradeoff",
+      "durationSeconds": 4.3,
+      "beat": "twist",
+      "role": "twist",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "THE SUN STONE CHOICE",
+      "headline": "SUNLIGHT CHANGES THE TYPE",
+      "narration": "The Sun Stone makes Bellossom, dropping Gloom's Poison typing.",
+      "caption": "GRASS AND POISON → GRASS",
+      "visual": "tradeoff",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/182.png",
+      "accent": "#FFD54F",
+      "facts": [
+        "SUN STONE",
+        "BELLOSSOM",
+        "GRASS",
+        "NO POISON"
+      ],
+      "primitive": {
+        "kind": "type-shift",
+        "from": [
+          "Grass",
+          "Poison"
+        ],
+        "to": [
+          "Grass"
+        ]
+      }
+    },
+    {
+      "id": "choose-your-evolution",
+      "durationSeconds": 3.8,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "YOUR EVOLUTION",
+      "headline": "MOON-GROWN. SUN-BOUND.",
+      "narration": "Should Gloom become Vileplume or Bellossom?",
+      "caption": "WHICH FINAL FORM FITS BETTER?",
+      "visual": "cta",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/182.png",
+      "accent": "#8BC34A"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Oddish",
+      "url": "https://www.pokemon.com/us/pokedex/oddish"
+    },
+    {
+      "label": "Bulbapedia — Oddish",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Oddish_(Pok%C3%A9mon)"
+    },
+    {
+      "label": "PokéAPI — Oddish",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/43"
+    }
+  ]
+}

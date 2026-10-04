@@ -1,0 +1,176 @@
+{
+  "schemaVersion": 1,
+  "id": "sandshrew-027",
+  "number": 27,
+  "index": "#027",
+  "name": "Sandshrew",
+  "slug": "sandshrew",
+  "category": "Mouse Pokémon",
+  "generation": "Generation I",
+  "isLegendary": false,
+  "isMythical": false,
+  "types": [
+    "Ground"
+  ],
+  "heightMeters": 0.6,
+  "weightKg": 12,
+  "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/27.png",
+  "pokedexEntries": [
+    {
+      "game": "Red",
+      "text": "Burrows deep underground in arid locations far from water. It only emerges to hunt for food."
+    },
+    {
+      "game": "Yellow",
+      "text": "Its body is dry. When it gets cold at night, its hide is said to become coated with a fine dew."
+    },
+    {
+      "game": "Gold",
+      "text": "If it fell from a great height, this POKéMON could save itself by rolling into a ball and bouncing."
+    },
+    {
+      "game": "Silver",
+      "text": "Disliking water, it lives in deep burrows in arid areas. It can roll itself instantly into a ball."
+    },
+    {
+      "game": "Crystal",
+      "text": "It prefers dry, sandy places because it uses the sand to protect itself when threatened."
+    },
+    {
+      "game": "Ruby",
+      "text": "SANDSHREW’s body is configured to absorb water without waste, enabling it to survive in an arid desert. This POKéMON curls up to protect itself from its enemies."
+    },
+    {
+      "game": "Sapphire",
+      "text": "SANDSHREW has a very dry hide that is extremely tough. The POKéMON can roll into a ball that repels any attack. At night, it burrows into the desert sand to sleep."
+    },
+    {
+      "game": "Emerald",
+      "text": "When it curls up in a ball, it can make any attack bounce off harmlessly. Its hide has turned tough and solid as a result of living in the desert."
+    },
+    {
+      "game": "Firered",
+      "text": "It burrows and lives underground. If threatened, it curls itself up into a ball for protection."
+    },
+    {
+      "game": "Leafgreen",
+      "text": "Burrows deep underground in arid locations far from water. It only emerges to hunt for prey."
+    },
+    {
+      "game": "Diamond",
+      "text": "To protect itself from attackers, it curls up into a ball. It lives in arid regions with minimal rainfall."
+    },
+    {
+      "game": "Black 2",
+      "text": "It digs deep burrows to live in. When in danger, it rolls up its body to withstand attacks."
+    },
+    {
+      "game": "Sun",
+      "text": "It can roll its body into a ball. It moves through the desert by rolling at high speeds."
+    },
+    {
+      "game": "Moon",
+      "text": "It usually makes its home in deserts and arid zones, where rain does not fall. It digs holes to catch Bug-type Pokémon."
+    },
+    {
+      "game": "Ultra Sun",
+      "text": "It lives in areas of limited rainfall. When danger approaches, it curls up into a ball to protect its soft stomach."
+    },
+    {
+      "game": "Ultra Moon",
+      "text": "When its skin gets wrinkled from moisture, it heads for a volcano. It lies flat on a spot with a lot of geothermal heat and dries itself out."
+    },
+    {
+      "game": "Sword",
+      "text": "It loves to bathe in the grit of dry, sandy areas. By sand bathing, the Pokémon rids itself of dirt and moisture clinging to its body."
+    },
+    {
+      "game": "Shield",
+      "text": "It burrows into the ground to create its nest. If hard stones impede its tunneling, it uses its sharp claws to shatter them and then carries on digging."
+    }
+  ],
+  "evolutionChain": [
+    {
+      "name": "Sandshrew",
+      "index": "#027",
+      "stage": 1,
+      "types": [
+        "Ground"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/27.png",
+      "isSubject": true
+    },
+    {
+      "name": "Sandslash",
+      "index": "#028",
+      "stage": 2,
+      "evolvesFrom": "Sandshrew",
+      "method": "Level Up, level 22",
+      "types": [
+        "Ground"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/28.png",
+      "isSubject": false
+    }
+  ],
+  "varieties": [
+    {
+      "name": "Sandshrew Alola",
+      "types": [
+        "Ice",
+        "Steel"
+      ],
+      "heightMeters": 0.7,
+      "weightKg": 40,
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10101.png"
+    }
+  ],
+  "lore": [],
+  "tiers": {
+    "official": [
+      "name",
+      "index",
+      "number",
+      "category",
+      "generation",
+      "isLegendary",
+      "isMythical",
+      "types",
+      "heightMeters",
+      "weightKg",
+      "pokedexEntries",
+      "evolutionChain[].name",
+      "evolutionChain[].index",
+      "evolutionChain[].types",
+      "evolutionChain[].stage",
+      "varieties[].types",
+      "varieties[].heightMeters",
+      "varieties[].weightKg"
+    ],
+    "trusted_secondary": [
+      "evolutionChain[].method",
+      "evolutionChain[].evolvesFrom",
+      "varieties[].name"
+    ],
+    "community": [
+      "lore"
+    ]
+  },
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Sandshrew",
+      "url": "https://www.pokemon.com/us/pokedex/sandshrew",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Sandshrew",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Sandshrew_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Sandshrew",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/27",
+      "tier": "trusted_secondary"
+    }
+  ]
+}
