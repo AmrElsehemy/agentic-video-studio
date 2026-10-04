@@ -248,6 +248,15 @@ npm run video:openai -- bulbasaur-001
 
 Each generated track is locked to the narration, scene timing and voice settings it was made from. If any of those change afterwards, `npm run video` refuses to use the old track and tells you which command regenerates it (or render without narration using `--voice=none`). In automatic mode, a stale OpenAI track is skipped with a warning when an up-to-date local track exists. Regenerating is free for scenes whose narration didn't change, because each scene's raw audio is cached. Tracks generated before this lock existed count as stale and need regenerating once.
 
+Shows with word-synced captions (Geographica) time each word from the track: the speech span and the pauses heard inside it are measured when the track is generated, and each punctuation break is pinned to its pause. Tracks made before pauses were recorded time words over the whole span; regenerate them (free, from the cache) to pick the pauses up. To check how closely captions follow the voice:
+
+```bash
+pip install faster-whisper            # once; transcribes locally, no API cost
+npm run captions:drift -- silk-road   # per-word report in out/silk-road-caption-drift.json
+```
+
+The target (#86) is 90% of words lighting up within 150 ms of being spoken. Transcript word times are themselves approximate, especially around pauses, so read single outliers against the audio.
+
 ## GeoMotion map data
 
 Geography episodes (the GeoMotion epic, #69) draw countries, seas and disputed areas from pinned, public-domain Natural Earth data in `public/geo/`, with an entity registry (`country:GEO`, `water:black-sea`, …) and checksums. `npm run geo:prepare` rebuilds it from the pinned source; `npm run geo:verify` (in CI) checks it. Decisions (data, license, projection, disputed borders) are in [docs/geomotion-data.md](docs/geomotion-data.md).
