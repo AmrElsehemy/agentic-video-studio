@@ -41,6 +41,15 @@ describe('narration provider (#102)', () => {
     assert.equal(narrationProvider(JSON.parse(fs.readFileSync('videos/geographica/silk-road/video.json', 'utf8'))), 'openai');
   });
 
+  it('lets one episode be read by another provider than its show', () => {
+    const draft = JSON.parse(fs.readFileSync('drafts/geographica/silk-road.json', 'utf8'));
+    const voiced = compileEpisode({...draft, voice: {provider: 'elevenlabs', voice: 'IRHApOXLvnW57QJPQH2P'}}, {showId: 'geographica'}).manifest;
+    assert.deepEqual([voiced.audio.voice!.provider, voiced.audio.voice!.model, voiced.audio.voice!.voice], ['elevenlabs', 'eleven_v4', 'IRHApOXLvnW57QJPQH2P']);
+    assert.throws(() => compileEpisode({...draft, voice: {provider: 'elevenlabs'}}, {showId: 'geographica'}), /names no voice/);
+    assert.throws(() => compileEpisode({...draft, voice: {provider: 'elevenlabs', voice: 'cedar'}}, {showId: 'geographica'}), /isn't an ElevenLabs voice id/);
+    assert.equal(compileEpisode(draft, {showId: 'geographica'}).manifest.audio.voice!.provider, 'openai');
+  });
+
   it('prices ElevenLabs by characters and OpenAI by minutes', () => {
     assert.ok(Math.abs(speechCost({model: 'eleven_v4', seconds: 40, characters: 450})! - .045) < 1e-12);
     assert.equal(speechCost({model: 'gpt-4o-mini-tts', seconds: 60, characters: 450}), .015);

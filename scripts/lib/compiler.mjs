@@ -1,6 +1,7 @@
 import {isDeepStrictEqual} from 'node:util';
 import {getArchetype, planScenes} from '../archetypes.mjs';
 import {episodeDraftSchema} from '../draft-schema.mjs';
+import {VOICE_MODELS, voiceProblems} from '../episode-fields.mjs';
 import {geoProblems, geoRightsAsset, loadGeoData} from './geo-primitives.mjs';
 import {loadShow} from './shows.mjs';
 import {COMPILE_FILL, END_PADDING, estimatedSpeech} from './speech.mjs';
@@ -25,6 +26,20 @@ export const safeDuration = (text, speed) => {
  * profile that isn't on disk. Throws on an invalid draft or a draft that
  * violates production limits.
  */
+/**
+ * Who reads the episode: the show's voice, or the draft's (#102). A draft that
+ * changes provider must name a voice of that provider, and gets its default model.
+ */
+const episodeVoice = (draft, show) => {
+  const provider = draft.voice?.provider ?? show.voice.provider ?? 'openai';
+  const switched = provider !== (show.voice.provider ?? 'openai');
+  if (switched && !draft.voice?.voice) throw new Error(`${draft.id} is read by ${provider} but names no voice; add voice.voice (an ${provider} voice).`);
+  const voice = {provider, model: draft.voice?.model ?? (switched ? VOICE_MODELS[provider] : show.voice.model), voice: draft.voice?.voice ?? show.voice.voice};
+  const problems = voiceProblems({...voice, speed: draft.voice?.speed ?? show.voice.speed});
+  if (problems.length) throw new Error(`${draft.id}'s voice: ${problems.join('; ')}.`);
+  return voice;
+};
+
 /** The draft's own palette, else the show's variant it names, else the show's palette. */
 const episodePalette = (draft, show) => {
   if (draft.palette && draft.paletteVariant) throw new Error(`${draft.id} sets both a palette and paletteVariant "${draft.paletteVariant}"; keep one.`);
@@ -133,9 +148,7 @@ export const compileEpisode = (rawDraft, {showId, show = loadShow(showId), geo})
       musicVolume: draft.musicVolume ?? show.music.volume,
       bed: {bpm: show.music.bpm, notes: show.music.notes},
       voice: {
-        provider: show.voice.provider ?? 'openai',
-        model: draft.voice?.model ?? show.voice.model,
-        voice: draft.voice?.voice ?? show.voice.voice,
+        ...episodeVoice(draft, show),
         instructions: draft.voice?.instructions ?? show.voice.instructions,
         speed,
         // A twin (#92) plays its original's narration, so the two differ only in palette.

@@ -3,7 +3,7 @@ import {archetypes} from './archetypes.mjs';
 import {primitiveSchema} from './primitive-schema.mjs';
 import {fontsSchema, wordmarkSchema} from './show-schema.mjs';
 import {relatedSchema, subjectSchema, upgradeLegacySubject} from './subject-schema.mjs';
-import {idSchema, paletteSchema, pitchLine, rightsSchema, sceneText, sourcesSchema, TARGET_EMOTIONS, voiceSettings} from './episode-fields.mjs';
+import {idSchema, paletteSchema, pitchLine, rightsSchema, sceneText, sourcesSchema, TARGET_EMOTIONS, VOICE_PROVIDERS, voiceSettings} from './episode-fields.mjs';
 // Any archetype defined in archetypes/<name>.json.
 const storyPattern = z.string().regex(/^[a-z0-9-]+$/, 'Expected a lowercase archetype name, e.g. "mystery"').superRefine((name, context) => {
   if (!Object.hasOwn(archetypes, name)) context.addIssue({code: 'custom', message: `Unknown story archetype "${name}". Supported: ${Object.keys(archetypes).join(', ')}`});
@@ -40,8 +40,11 @@ export const episodeDraftSchema = z.preprocess(upgradeLegacySubject, z.object({
   twinOf: idSchema.optional(),
   musicVolume: z.number().min(0).max(1).optional(),
   voice: z.object({
+    // An episode can be read by another provider than its show's (#102), e.g. to try ElevenLabs on new episodes.
+    provider: z.enum(VOICE_PROVIDERS).optional(),
     model: voiceSettings.model.optional(),
-    voice: voiceSettings.voice.optional(),
+    // An OpenAI voice name or an ElevenLabs voice id; checked against the provider when compiled.
+    voice: z.string().min(1).optional(),
     speed: voiceSettings.speed.optional(),
     instructions: voiceSettings.instructions.optional(),
   }).optional(),
