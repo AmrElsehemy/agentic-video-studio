@@ -6,6 +6,7 @@ import path from 'node:path';
 import {findManifest, resolveEpisodeId} from './catalog.mjs';
 import {speechBounds, speechPauses} from './lib/captions.mjs';
 import {buildVoiceInstructions} from './lib/voice-direction.mjs';
+import {alignerAvailable, alignNarration} from './lib/align.mjs';
 import {appendProduction} from './lib/production.mjs';
 import {voiceInputHash} from './lib/voice-lock.mjs';
 
@@ -130,6 +131,17 @@ try {
 
   const normalize = spawnSync('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-y', '-i', assembledTrack, '-af', 'loudnorm=I=-16:TP=-1.5:LRA=11', '-ar', '44100', '-ac', '2', outputPath], {encoding: 'utf8'});
   if (normalize.status !== 0) throw new Error(normalize.stderr || 'Could not normalize narration track.');
+  // Word-synced captions (#86) use when each word is actually spoken, when the free local aligner is installed.
+  if (manifest.show?.captions?.mode === 'words') {
+    if (alignerAvailable()) {
+      const aligned = alignNarration({root, track: outputPath, scenes: manifest.scenes.map((scene) => ({...scene, durationSeconds: timing[scene.id]}))});
+      if (aligned.error) console.warn(`⚠ word alignment failed (${aligned.error}); captions use estimated word times`);
+      for (const [id, words] of Object.entries(aligned.words ?? {})) if (speech[id]) speech[id].words = words;
+      if (aligned.words) console.log(`✓ word times aligned for ${Object.keys(aligned.words).length}/${manifest.scenes.length} scenes`);
+    } else {
+      console.log('ℹ captions use estimated word times; for exact ones: pip install torch torchaudio num2words, then npm run captions:align -- ' + episodeId);
+    }
+  }
   const timingPath = path.join(generatedRoot, `${episodeId}-${provider}-timing.json`);
   fs.writeFileSync(timingPath, JSON.stringify({episodeId, provider, inputHash: voiceInputHash(manifest, provider), scenes: timing, speech}, null, 2));
   const peakVolume = probePeakVolume(outputPath);

@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import {describe, it} from 'node:test';
 import {captionDrift, matchWords, MAX_DRIFT, timelineWords} from '../scripts/lib/caption-drift.mjs';
+import {alignerAvailable, alignNarration} from '../scripts/lib/align.mjs';
 import {speechPauses, syllables, wordTimes} from '../scripts/lib/captions.mjs';
 
 const words = (...list: [string, number][]) => list.map(([text, start]) => ({text, start, end: start + .2}));
@@ -61,5 +62,22 @@ describe('caption drift', () => {
     assert.equal(late.pass, false);
     assert.equal(late.max, .4);
     assert.ok(late.p90! > MAX_DRIFT);
+  });
+});
+
+describe('aligned word times', () => {
+  it('uses forced-alignment times as they are when they belong to this narration', () => {
+    const aligned = [{text: 'Never', start: .21, end: .5}, {text: 'one', start: .55, end: .7}, {text: 'road.', start: .74, end: 1.1}];
+    assert.deepEqual(wordTimes('Never one road.', {start: 0, end: 1.2, words: aligned}), aligned);
+  });
+
+  it('falls back to the estimate when the aligned words are for other narration', () => {
+    const aligned = [{text: 'Never', start: .21, end: .5}, {text: 'two', start: .55, end: .7}, {text: 'roads.', start: .74, end: 1.1}];
+    assert.deepEqual(wordTimes('Never one road.', {start: 0, end: 1.2, words: aligned}), wordTimes('Never one road.', {start: 0, end: 1.2}));
+  });
+
+  it('reports the aligner as missing rather than failing', () => {
+    assert.equal(alignerAvailable('python-that-does-not-exist'), false);
+    assert.ok(alignNarration({root: process.cwd(), track: 'missing.wav', scenes: [], python: 'python-that-does-not-exist'}).error);
   });
 });
