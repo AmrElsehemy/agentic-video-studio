@@ -1,0 +1,539 @@
+{
+  "schemaVersion": 2,
+  "id": "gambia-river",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica",
+    "wordmark": {
+      "lead": "GEO",
+      "accent": "GRAPHICA"
+    },
+    "fonts": {
+      "display": "Oswald",
+      "body": "Inter"
+    },
+    "captions": {
+      "mode": "words"
+    }
+  },
+  "title": "The Country That Follows a River",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "mystery",
+    "numberRelevant": false,
+    "premise": "The Gambia is under 50 km wide because its borders were drawn around a river.",
+    "audiencePromise": "See why one African country is a thin strip on the map.",
+    "openLoop": "Why is a whole country less than 50 kilometres wide?",
+    "payoff": "In 1889 Britain and France drew the Gambia's border about 16 km either side of the Gambia River.",
+    "targetEmotion": "surprise",
+    "engagementQuestion": "Could your country fit along one river?",
+    "targetSecondsBetweenVisualChanges": 0.68
+  },
+  "subject": {
+    "name": "The Gambia",
+    "category": "Border",
+    "attributes": {
+      "geoEntity": "country:GMB"
+    }
+  },
+  "related": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#0b1a2a",
+    "surface": "#23473d",
+    "primary": "#e4b363",
+    "secondary": "#8c2f39",
+    "ink": "#f6f1e7"
+  },
+  "audio": {
+    "music": "generated/gambia-river-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 96,
+      "notes": [
+        98,
+        116.54,
+        130.81,
+        146.83,
+        130.81,
+        116.54,
+        87.31,
+        98
+      ]
+    },
+    "voice": {
+      "provider": "openai",
+      "model": "gpt-4o-mini-tts",
+      "voice": "cedar",
+      "instructions": "Warm, curious storyteller walking a friend across a map. Clear and confident, with a sense of discovery on each reveal; slow slightly on dates and place names so they land. Conversational and human, never a documentary announcer, lecture, or neutral TTS. Never imitate a known person or character.",
+      "speed": 1.06,
+      "output": "generated/gambia-river-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "durationSeconds": 4.2,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "mystery",
+      "subjectFocus": "hidden",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "A MAP MYSTERY",
+      "headline": "SO THIN?",
+      "narration": "This country is less than 50 kilometres wide.",
+      "caption": "UNDER 50 KM WIDE",
+      "visual": "hook",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "world",
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -18,
+                11,
+                -10,
+                17
+              ]
+            },
+            "at": 0.4,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:GMB",
+            "style": "fill",
+            "at": 0.42
+          }
+        ],
+        "annotations": [],
+        "dataset": "natural-earth"
+      }
+    },
+    {
+      "id": "name",
+      "durationSeconds": 4.6,
+      "beat": "clue",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "MEET IT",
+      "headline": "THE GAMBIA",
+      "narration": "It's the Gambia, the smallest country on Africa's mainland.",
+      "caption": "SMALLEST ON THE MAINLAND",
+      "visual": "gauntlet",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -17,
+                12.8,
+                -13.6,
+                14.2
+              ]
+            },
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:GMB",
+            "style": "fill",
+            "at": 0
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:GMB",
+            "text": "THE GAMBIA",
+            "at": 0.3
+          }
+        ],
+        "dataset": "natural-earth"
+      }
+    },
+    {
+      "id": "senegal",
+      "durationSeconds": 4.9,
+      "beat": "clue",
+      "role": "evidence",
+      "shot": "wide",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "WRAPPED",
+      "headline": "INSIDE SENEGAL",
+      "narration": "Senegal wraps around it on every side but the sea.",
+      "caption": "SENEGAL ALL AROUND",
+      "visual": "gauntlet",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -18,
+                10.5,
+                -10.5,
+                17.5
+              ]
+            },
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:GMB",
+            "style": "fill",
+            "at": 0
+          },
+          {
+            "entity": "country:SEN",
+            "style": "outline",
+            "at": 0.15
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:SEN",
+            "text": "SENEGAL",
+            "at": 0.35
+          }
+        ],
+        "dataset": "natural-earth"
+      }
+    },
+    {
+      "id": "river",
+      "durationSeconds": 4,
+      "beat": "escalation",
+      "role": "escalation",
+      "shot": "tracking",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "THE CLUE",
+      "headline": "FOLLOW THE RIVER",
+      "narration": "Now follow the Gambia River to the Atlantic.",
+      "caption": "THE GAMBIA RIVER",
+      "visual": "advantage",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -14.9,
+                12.9,
+                -13.6,
+                13.9
+              ]
+            },
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -17,
+                12.8,
+                -13.6,
+                14.2
+              ]
+            },
+            "at": 0.75,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:GMB",
+            "style": "fill",
+            "at": 0
+          }
+        ],
+        "annotations": [
+          {
+            "type": "route",
+            "path": [
+              {
+                "lon": -14.2167,
+                "lat": 13.3167
+              },
+              {
+                "lon": -14.7662,
+                "lat": 13.5341
+              },
+              {
+                "lon": -15.6,
+                "lat": 13.5667
+              },
+              {
+                "lon": -16.5753,
+                "lat": 13.4542
+              }
+            ],
+            "text": "GAMBIA RIVER",
+            "at": 0.1,
+            "until": 0.8,
+            "marker": true,
+            "follow": true
+          }
+        ],
+        "dataset": "natural-earth"
+      }
+    },
+    {
+      "id": "deal",
+      "durationSeconds": 5.7,
+      "beat": "reveal",
+      "role": "payoff",
+      "shot": "comparison",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "THE ANSWER",
+      "headline": "DRAWN IN 1889",
+      "narration": "In 1889, Britain and France drew the border around the river.",
+      "caption": "BRITAIN & FRANCE, 1889",
+      "visual": "race",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -16.3,
+                13,
+                -14.6,
+                14
+              ]
+            },
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:GMB",
+            "style": "outline",
+            "at": 0.2
+          }
+        ],
+        "annotations": [
+          {
+            "type": "route",
+            "path": [
+              {
+                "lon": -14.2167,
+                "lat": 13.3167
+              },
+              {
+                "lon": -14.7662,
+                "lat": 13.5341
+              },
+              {
+                "lon": -15.6,
+                "lat": 13.5667
+              },
+              {
+                "lon": -16.5753,
+                "lat": 13.4542
+              }
+            ],
+            "at": 0,
+            "marker": false,
+            "follow": false
+          }
+        ],
+        "dataset": "natural-earth"
+      }
+    },
+    {
+      "id": "width",
+      "durationSeconds": 4.7,
+      "beat": "reveal",
+      "role": "payoff",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "THE RULE",
+      "headline": "16 KM EACH SIDE",
+      "narration": "About 16 kilometres on each side of the water.",
+      "caption": "16 KM EACH SIDE",
+      "visual": "tradeoff",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -15.3,
+                13.15,
+                -14.3,
+                13.95
+              ]
+            },
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:GMB",
+            "style": "fill",
+            "at": 0.1
+          }
+        ],
+        "annotations": [
+          {
+            "type": "route",
+            "path": [
+              {
+                "lon": -14.2167,
+                "lat": 13.3167
+              },
+              {
+                "lon": -14.7662,
+                "lat": 13.5341
+              },
+              {
+                "lon": -15.6,
+                "lat": 13.5667
+              },
+              {
+                "lon": -16.5753,
+                "lat": 13.4542
+              }
+            ],
+            "at": 0,
+            "marker": false,
+            "follow": false
+          },
+          {
+            "type": "label",
+            "anchor": "country:GMB",
+            "text": "16 KM EACH SIDE",
+            "at": 0.35
+          }
+        ],
+        "dataset": "natural-earth"
+      }
+    },
+    {
+      "id": "verdict",
+      "durationSeconds": 4,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "YOUR TURN",
+      "headline": "ONE RIVER",
+      "narration": "Could your country fit along a single river?",
+      "caption": "COULD YOURS FIT?",
+      "visual": "cta",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -18,
+                11,
+                -10,
+                17
+              ]
+            },
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:GMB",
+            "style": "fill",
+            "at": 0.1
+          },
+          {
+            "entity": "country:SEN",
+            "style": "outline",
+            "at": 0.2
+          }
+        ],
+        "annotations": [],
+        "dataset": "natural-earth"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia: The Gambia (revision 1377841535)",
+      "url": "https://en.wikipedia.org/w/index.php?title=The_Gambia&oldid=1377841535"
+    },
+    {
+      "label": "Wikipedia: Gambia River (revision 1367426579)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Gambia_River&oldid=1367426579"
+    },
+    {
+      "label": "Wikipedia: Basse Santa Su (revision 1377564982)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Basse_Santa_Su&oldid=1377564982"
+    },
+    {
+      "label": "Wikipedia: Janjanbureh (revision 1377796314)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Janjanbureh&oldid=1377796314"
+    },
+    {
+      "label": "Wikipedia: Farafenni (revision 1377604942)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Farafenni&oldid=1377604942"
+    },
+    {
+      "label": "Wikipedia: Banjul (revision 1377725086)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Banjul&oldid=1377725086"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ]
+}

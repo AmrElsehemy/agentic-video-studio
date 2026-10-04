@@ -1,0 +1,87 @@
+{
+  "schemaVersion": 1,
+  "id": "france-brazil-border",
+  "subject": "France",
+  "kind": "curated",
+  "note": "Hand-curated research for a Geographica episode about France's border with Brazil. Claims are cited to pinned Wikipedia revisions (trusted_secondary). Map geometry comes from Natural Earth (which draws French Guiana as part of France) and is not evidence for any claim.",
+  "regions": [
+    "France",
+    "Brazil",
+    "Spain",
+    "Suriname"
+  ],
+  "claims": [
+    {
+      "id": "longest",
+      "text": "At 730 kilometres, the Brazil–France border is the longest border France shares with another country, despite not being in metropolitan France. The second longest is with Spain, at 623 kilometres.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-border"
+      ]
+    },
+    {
+      "id": "guiana-is-france",
+      "text": "French Guiana is an overseas department and region of France on the northern coast of South America, bordered by Suriname to the west and Brazil to the east and south.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-french-guiana"
+      ]
+    },
+    {
+      "id": "amapa",
+      "text": "The border separates the Brazilian state of Amapá from French Guiana and runs through the Amazon rainforest; the Oyapock River defines part of it.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-border"
+      ]
+    },
+    {
+      "id": "one-bridge",
+      "text": "The Oyapock River Bridge, between Saint-Georges (French Guiana) and Oiapoque (Brazil), is the only bridge crossing the border.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-border"
+      ]
+    },
+    {
+      "id": "1713-1900",
+      "text": "The border's basis dates to the Treaty of Utrecht of 1713; the dispute over it was resolved in Brazil's favour in 1900 by international arbitration in Switzerland.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-border"
+      ]
+    }
+  ],
+  "places": {
+    "french-guiana": {
+      "lon": -53,
+      "lat": 4,
+      "source": "wikipedia-french-guiana",
+      "note": "Centre of French Guiana."
+    },
+    "oyapock-bridge": {
+      "lon": -51.8256,
+      "lat": 3.8569,
+      "source": "wikipedia-bridge",
+      "note": "The bridge between Saint-Georges and Oiapoque."
+    }
+  },
+  "sources": {
+    "wikipedia-border": {
+      "label": "Wikipedia: Brazil–France border (revision 1370725915)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Brazil–France_border&oldid=1370725915"
+    },
+    "wikipedia-french-guiana": {
+      "label": "Wikipedia: French Guiana (revision 1378454265)",
+      "url": "https://en.wikipedia.org/w/index.php?title=French_Guiana&oldid=1378454265"
+    },
+    "wikipedia-bridge": {
+      "label": "Wikipedia: Franco-Brazilian Binational Bridge (revision 1370450615)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Franco-Brazilian_Binational_Bridge&oldid=1370450615"
+    },
+    "natural-earth": {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  }
+}

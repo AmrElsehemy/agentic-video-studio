@@ -1,0 +1,387 @@
+{
+  "id": "mercator-greenland",
+  "title": "This Map Is Lying to You",
+  "storyPattern": "mechanic",
+  "numberRelevant": false,
+  "premise": "On most maps Greenland looks as big as Africa; the projection that stretches it is the real story.",
+  "audiencePromise": "See the true size of Greenland next to Africa, and why the map shows it wrong.",
+  "openLoop": "If Greenland isn't as big as Africa, why does the map say it is?",
+  "payoff": "The Mercator projection swells land far from the equator: Africa is 14 times Greenland's size.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "How big did you think Greenland was?",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica"
+  },
+  "subject": {
+    "name": "Greenland",
+    "category": "Map projection",
+    "attributes": {
+      "geoEntity": "country:GRL"
+    }
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "eyebrow": "A MAP MYSTERY",
+      "headline": "SAME SIZE?",
+      "narration": "On this map, Greenland looks as big as Africa.",
+      "caption": "GREENLAND = AFRICA?",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "world",
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -75,
+                -15,
+                55,
+                84
+              ]
+            },
+            "at": 0.4,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:GRL",
+            "style": "fill",
+            "at": 0.25
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:GRL",
+            "text": "GREENLAND",
+            "at": 0.35
+          },
+          {
+            "type": "label",
+            "anchor": "country:CAF",
+            "text": "AFRICA",
+            "at": 0.5
+          }
+        ],
+        "dataset": "natural-earth"
+      }
+    },
+    {
+      "id": "truth",
+      "beat": "evidence",
+      "eyebrow": "THE TRUTH",
+      "headline": "NOT EVEN CLOSE",
+      "narration": "It isn't. Africa is 14 times bigger.",
+      "caption": "AFRICA: 14× BIGGER",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -75,
+                -15,
+                55,
+                84
+              ]
+            },
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:GRL",
+            "style": "outline",
+            "at": 0.1
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:CAF",
+            "text": "14× BIGGER",
+            "at": 0.35
+          }
+        ],
+        "dataset": "natural-earth"
+      }
+    },
+    {
+      "id": "algeria",
+      "beat": "evidence",
+      "eyebrow": "TRUE SIZES",
+      "headline": "ALGERIA WINS",
+      "narration": "Even Algeria alone is bigger than Greenland.",
+      "caption": "ALGERIA > GREENLAND",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -75,
+                -15,
+                55,
+                84
+              ]
+            },
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "data": {
+          "label": "TRUE AREA",
+          "unit": "km²",
+          "values": [
+            {
+              "entity": "country:DZA",
+              "value": 2381741
+            },
+            {
+              "entity": "country:COD",
+              "value": 2345408
+            },
+            {
+              "entity": "country:GRL",
+              "value": 2166086
+            }
+          ],
+          "at": 0.15,
+          "legend": true
+        }
+      }
+    },
+    {
+      "id": "stretch",
+      "beat": "escalation",
+      "eyebrow": "WHY?",
+      "headline": "STRETCHED NORTH",
+      "narration": "This map swells land the farther it is from the equator.",
+      "caption": "FARTHER = BIGGER",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "world",
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:GRL",
+            "style": "fill",
+            "at": 0.55
+          }
+        ],
+        "annotations": [
+          {
+            "type": "route",
+            "path": [
+              {
+                "lon": -170,
+                "lat": 0
+              },
+              {
+                "lon": -90,
+                "lat": 0
+              },
+              {
+                "lon": 0,
+                "lat": 0
+              },
+              {
+                "lon": 90,
+                "lat": 0
+              },
+              {
+                "lon": 170,
+                "lat": 0
+              }
+            ],
+            "text": "EQUATOR",
+            "at": 0.1,
+            "marker": false
+          }
+        ],
+        "dataset": "natural-earth"
+      }
+    },
+    {
+      "id": "mercator",
+      "beat": "payoff",
+      "eyebrow": "THE CULPRIT",
+      "headline": "MERCATOR, 1569",
+      "narration": "Mercator drew it in 1569. Sailors loved its straight lines.",
+      "caption": "MERCATOR, 1569",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -80,
+                20,
+                10,
+                70
+              ]
+            },
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "water:north-atlantic-ocean",
+            "text": "MERCATOR, 1569",
+            "at": 0.25
+          }
+        ],
+        "dataset": "natural-earth"
+      }
+    },
+    {
+      "id": "today",
+      "beat": "payoff",
+      "eyebrow": "STILL HERE",
+      "headline": "EVEN THIS MAP",
+      "narration": "Online maps brought it back. Including this one.",
+      "caption": "INCLUDING THIS MAP",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "country:GRL",
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          },
+          {
+            "target": "world",
+            "at": 0.45,
+            "padding": 0.15,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:GRL",
+            "style": "outline",
+            "at": 0.1
+          }
+        ],
+        "annotations": [],
+        "dataset": "natural-earth"
+      }
+    },
+    {
+      "id": "verdict",
+      "beat": "verdict",
+      "eyebrow": "YOUR TURN",
+      "headline": "HOW BIG?",
+      "narration": "So, how big did you think Greenland was?",
+      "caption": "HOW BIG DID YOU THINK?",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -75,
+                -15,
+                55,
+                84
+              ]
+            },
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:GRL",
+            "style": "outline",
+            "at": 0.1
+          },
+          {
+            "entity": "country:DZA",
+            "style": "outline",
+            "at": 0.3
+          }
+        ],
+        "annotations": [],
+        "dataset": "natural-earth"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia: Mercator projection (revision 1378396297)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Mercator_projection&oldid=1378396297"
+    },
+    {
+      "label": "Wikipedia: Greenland (revision 1377213152)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Greenland&oldid=1377213152"
+    },
+    {
+      "label": "Wikipedia: Africa (revision 1377093137)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Africa&oldid=1377093137"
+    },
+    {
+      "label": "Geographica map renderer documentation (docs/geomotion-primitives.md)",
+      "url": "https://github.com/AmrElsehemy/agentic-video-studio/blob/master/docs/geomotion-primitives.md"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    },
+    {
+      "label": "Wikipedia: Algeria (revision 1378106837)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Algeria&oldid=1378106837"
+    },
+    {
+      "label": "Wikipedia: Democratic Republic of the Congo (revision 1375614006)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Democratic_Republic_of_the_Congo&oldid=1375614006"
+    },
+    {
+      "label": "Wikipedia: Greenland (1377213152), Algeria (1378106837) and Democratic Republic of the Congo (1375614006)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Greenland&oldid=1377213152"
+    }
+  ]
+}
