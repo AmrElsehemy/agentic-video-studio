@@ -7,6 +7,7 @@ import path from 'node:path';
 import {episodeAnalyticsSchema, snapshotSchema} from '../analytics-schema.mjs';
 import {scoreEpisode} from './engagement.mjs';
 import {paletteMode} from './palette.mjs';
+import {twinPairs} from './twins.mjs';
 
 export const analyticsPath = (root, showId, episodeId) => path.join(root, 'analytics', showId, `${episodeId}.json`);
 
@@ -165,6 +166,7 @@ export const buildReport = (entries) => {
       url: analytics.url,
       // What the palette comparison can't control for: what the episode was about, and when it went out.
       topic: manifest.subject?.name ?? manifest.title,
+      ...(manifest.twinOf ? {twinOf: manifest.twinOf} : {}),
       ...(analytics.publishedAt ? {publishedAt: analytics.publishedAt} : {}),
       ...features,
       ...(cost == null ? {} : {cost}),
@@ -185,5 +187,5 @@ export const buildReport = (entries) => {
   const trends = measured.length >= MIN_EPISODES_FOR_TRENDS
     ? Object.fromEntries(['hookSeconds', 'totalSeconds', 'scenes', 'primitives', 'auditScore'].map((feature) => [feature, correlation(measured.map((row) => row[feature]), measured.map((row) => row.snapshot.averageViewPercent))]))
     : undefined;
-  return {rows, measured: measured.length, trends, byPalette: byPaletteMode(rows)};
+  return {rows, measured: measured.length, trends, byPalette: byPaletteMode(rows), twins: twinPairs(rows)};
 };

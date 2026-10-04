@@ -61,7 +61,9 @@ export const prepareRenderProps = (episodeId, {voice: requestedVoice = 'auto', c
   const openAiVoice = manifest.audio.voice?.output;
   const localVoice = openAiVoice?.replace(/\.wav$/i, '-local.wav');
   const providerFor = (candidate) => candidate === localVoice ? 'local' : 'openai';
-  const timingPathFor = (provider) => path.join(root, 'public', 'generated', `${episodeId}-${provider}-timing.json`);
+  // A twin (#92) uses its original's narration, and so its timing.
+  const voiceOwner = manifest.twinOf ?? episodeId;
+  const timingPathFor = (provider) => path.join(root, 'public', 'generated', `${voiceOwner}-${provider}-timing.json`);
   const readTiming = (provider) => fs.existsSync(timingPathFor(provider)) ? JSON.parse(fs.readFileSync(timingPathFor(provider), 'utf8')) : null;
 
   const voiceCandidates = requestedVoice === 'openai' ? [openAiVoice] : requestedVoice === 'local' ? [localVoice] : requestedVoice === 'none' ? [] : [openAiVoice, localVoice];
@@ -74,7 +76,7 @@ export const prepareRenderProps = (episodeId, {voice: requestedVoice = 'auto', c
     });
   const fresh = existing.find((track) => !track.staleReason);
   const stale = existing.filter((track) => track.staleReason);
-  const regenerate = (provider) => `npm run voice:${provider} -- ${episodeId}`;
+  const regenerate = (provider) => `npm run voice:${provider} -- ${voiceOwner}`;
 
   if (!fresh && stale.length > 0) {
     const reasons = stale.map((track) => `✗ ${track.provider} narration is stale: ${track.staleReason}. Regenerate it: ${regenerate(track.provider)}`);
@@ -85,12 +87,12 @@ export const prepareRenderProps = (episodeId, {voice: requestedVoice = 'auto', c
   if (fresh) {
     manifest.audio.voiceover = fresh.candidate;
     manifest.scenes = manifest.scenes.map((scene) => fresh.timing.scenes?.[scene.id] ? {...scene, durationSeconds: fresh.timing.scenes[scene.id]} : scene);
-    log(`✓ applied narration timing [${fresh.provider}] from public/generated/${episodeId}-${fresh.provider}-timing.json`);
+    log(`✓ applied narration timing [${fresh.provider}] from public/generated/${voiceOwner}-${fresh.provider}-timing.json`);
     log(`✓ narration [${fresh.provider}]: public/${fresh.candidate}`);
   } else if (requestedVoice !== 'auto' && requestedVoice !== 'none') {
-    throw new Error(`${requestedVoice} narration has not been generated for ${episodeId}.`);
+    throw new Error(`${requestedVoice} narration has not been generated for ${voiceOwner}.`);
   } else if (manifest.audio.voice) {
-    log(`ℹ narration not generated; run: npm run voice:local -- ${episodeId} or npm run voice:openai -- ${episodeId}`);
+    log(`ℹ narration not generated; run: npm run voice:local -- ${voiceOwner} or npm run voice:openai -- ${voiceOwner}`);
   }
 
   // Map reveals land on the music's beats (#87), now that every scene has its final length.

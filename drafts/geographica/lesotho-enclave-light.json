@@ -1,0 +1,411 @@
+{
+  "id": "lesotho-enclave-light",
+  "title": "The Kingdom Sealed Inside Another Country",
+  "twinOf": "lesotho-enclave",
+  "paletteVariant": "light",
+  "storyPattern": "mystery",
+  "numberRelevant": false,
+  "premise": "Zoom into southern Africa to find a whole country sealed inside another, and discover it is also the highest country on Earth.",
+  "audiencePromise": "See the country that sits entirely inside South Africa, and why no country's lowest point is higher.",
+  "openLoop": "Which country is completely surrounded by another one?",
+  "payoff": "Lesotho sits entirely inside South Africa, and even its lowest point is 1,400 metres up.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "Would you live this high up, or stay closer to the sea?",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica"
+  },
+  "subject": {
+    "name": "Lesotho",
+    "category": "Country",
+    "attributes": {
+      "geoEntity": "country:LSO"
+    }
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "eyebrow": "A MAP MYSTERY",
+      "headline": "ONE COUNTRY, SEALED IN",
+      "narration": "One country is sealed inside another. Spot it?",
+      "caption": "SEALED IN ON EVERY SIDE",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "world",
+            "at": 0,
+            "padding": 0.15,
+            "ease": "in-out"
+          },
+          {
+            "target": "country:ZAF",
+            "at": 0.45,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": "country:LSO",
+            "at": 0.85,
+            "padding": 0.35,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:ZAF",
+            "style": "outline",
+            "at": 0.5
+          },
+          {
+            "entity": "country:LSO",
+            "style": "fill",
+            "at": 0.8
+          }
+        ],
+        "annotations": [],
+        "dataset": "natural-earth"
+      }
+    },
+    {
+      "id": "reveal",
+      "beat": "clue",
+      "eyebrow": "FOUND IT",
+      "headline": "MEET LESOTHO",
+      "narration": "It's Lesotho, a kingdom completely surrounded by South Africa.",
+      "caption": "ENTIRELY INSIDE SOUTH AFRICA",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "country:ZAF",
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:ZAF",
+            "style": "outline",
+            "at": 0
+          },
+          {
+            "entity": "country:LSO",
+            "style": "trace",
+            "at": 0.1
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:LSO",
+            "text": "LESOTHO",
+            "at": 0.4
+          },
+          {
+            "type": "label",
+            "anchor": "country:ZAF",
+            "text": "SOUTH AFRICA",
+            "at": 0.6
+          }
+        ],
+        "dataset": "natural-earth"
+      }
+    },
+    {
+      "id": "club",
+      "beat": "clue",
+      "eyebrow": "A RARE CLUB",
+      "headline": "ONLY THREE OF THEM",
+      "narration": "Only three countries are enclosed like this. The other two sit inside Italy.",
+      "caption": "THE LARGEST OF THREE",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "country:ITA",
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:ITA",
+            "style": "outline",
+            "at": 0.1
+          }
+        ],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": "country:SMR",
+            "text": "SAN MARINO",
+            "at": 0.45
+          },
+          {
+            "type": "marker",
+            "anchor": "country:VAT",
+            "text": "VATICAN CITY",
+            "at": 0.6
+          }
+        ],
+        "dataset": "natural-earth"
+      }
+    },
+    {
+      "id": "high",
+      "beat": "escalation",
+      "eyebrow": "BUT WAIT",
+      "headline": "A COUNTRY IN THE CLOUDS",
+      "narration": "It's also the only country lying entirely above one thousand metres.",
+      "caption": "ALL OF IT ABOVE 1,000 M",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "country:LSO",
+            "at": 0,
+            "padding": 0.2,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:LSO",
+            "style": "trace",
+            "at": 0
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:LSO",
+            "text": "ALL ABOVE 1,000 M",
+            "at": 0.5
+          }
+        ],
+        "dataset": "natural-earth",
+        "relief": true
+      }
+    },
+    {
+      "id": "lowest",
+      "beat": "reveal",
+      "eyebrow": "THE RECORD",
+      "headline": "THE HIGHEST LOW POINT",
+      "narration": "Its lowest point sits fourteen hundred metres up, a world record.",
+      "caption": "LOWEST POINT: 1,400 M",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "country:LSO",
+            "at": 0,
+            "padding": 0.2,
+            "ease": "in-out"
+          },
+          {
+            "target": "country:ZAF",
+            "at": 0.5,
+            "padding": 0.06,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:LSO",
+            "style": "outline",
+            "at": 0.1
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:LSO",
+            "text": "LOWEST POINT 1,400 M",
+            "at": 0.65
+          }
+        ],
+        "dataset": "natural-earth",
+        "relief": true,
+        "data": {
+          "label": "LOWEST POINT",
+          "unit": "m",
+          "values": [
+            {
+              "entity": "country:LSO",
+              "value": 1400
+            },
+            {
+              "entity": "country:BWA",
+              "value": 513
+            },
+            {
+              "entity": "country:ZWE",
+              "value": 162
+            },
+            {
+              "entity": "country:SWZ",
+              "value": 21
+            },
+            {
+              "entity": "country:ZAF",
+              "value": 0
+            },
+            {
+              "entity": "country:NAM",
+              "value": 0
+            },
+            {
+              "entity": "country:MOZ",
+              "value": 0
+            }
+          ],
+          "at": 0.3,
+          "legend": true
+        }
+      }
+    },
+    {
+      "id": "peak",
+      "beat": "reveal",
+      "eyebrow": "THE SUMMIT",
+      "headline": "ROOF OF SOUTHERN AFRICA",
+      "narration": "Thabana Ntlenyana, at 3,482 metres, is southern Africa's highest peak.",
+      "caption": "3,482 M",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "country:LSO",
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                28.267,
+                -30.217,
+                30.267,
+                -28.717
+              ]
+            },
+            "at": 0.45,
+            "padding": 0.2,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:LSO",
+            "style": "outline",
+            "at": 0
+          }
+        ],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 29.267,
+              "lat": -29.467
+            },
+            "text": "THABANA NTLENYANA",
+            "at": 0.5
+          },
+          {
+            "type": "label",
+            "anchor": "country:LSO",
+            "text": "3,482 M",
+            "at": 0.7
+          }
+        ],
+        "dataset": "natural-earth",
+        "relief": true
+      }
+    },
+    {
+      "id": "verdict",
+      "beat": "verdict",
+      "eyebrow": "YOUR CALL",
+      "headline": "LIFE UP HIGH",
+      "narration": "The capital, Maseru, sits on the border. Would you live up here?",
+      "caption": "MASERU · CAPITAL",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                27.052,
+                -30.642,
+                29.391,
+                -28.582
+              ]
+            },
+            "at": 0,
+            "padding": 0.2,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:LSO",
+            "style": "fill",
+            "at": 0
+          }
+        ],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 27.48,
+              "lat": -29.31
+            },
+            "text": "MASERU",
+            "at": 0.3
+          }
+        ],
+        "dataset": "natural-earth",
+        "relief": true
+      }
+    }
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia: Lesotho (revision 1377338235)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Lesotho&oldid=1377338235"
+    },
+    {
+      "label": "Wikipedia: Thabana Ntlenyana (revision 1369724167)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Thabana_Ntlenyana&oldid=1369724167"
+    },
+    {
+      "label": "Wikipedia: Maseru (revision 1377338556)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Maseru&oldid=1377338556"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ]
+}

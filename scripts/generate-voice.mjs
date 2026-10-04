@@ -18,6 +18,8 @@ const {root, manifestPath} = findManifest(episodeId);
 const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
 const config = manifest.audio.voice;
 if (!config) throw new Error(`${episodeId} does not define audio.voice.`);
+// A twin (#92) plays its original's narration; narrating it again would pay twice for the same words.
+if (manifest.twinOf) throw new Error(`${episodeId} uses ${manifest.twinOf}'s narration. Narrate that instead: npm run voice:${provider} -- ${manifest.twinOf}`);
 
 // npm run pipeline has already certified this episode in the same run (its lint stage).
 if (provider === 'openai' && process.env.STUDIO_CHECKED !== episodeId) {

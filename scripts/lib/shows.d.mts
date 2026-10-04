@@ -8,6 +8,7 @@ export type ShowProfile = {
   wordmark: {lead: string; accent: string};
   fonts: {display: string; body: string};
   palette: {background: string; surface: string; primary: string; secondary: string; ink: string};
+  paletteVariants?: Record<string, {background: string; surface: string; primary: string; secondary: string; ink: string}>;
   music: {bpm: number; notes: number[]; volume: number};
   voice: {voice: string; speed: number; model: string; instructions: string};
   notices: {ownership: string; nonAffiliation: string};

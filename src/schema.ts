@@ -53,6 +53,8 @@ export const videoSchema = z.object({
   related: z.array(relatedSchema).max(3).default([]),
   format: z.object({width: z.literal(1080), height: z.literal(1920), fps: z.literal(30)}),
   palette: paletteSchema,
+  // The episode this one retells with a different palette (#92).
+  twinOf: idSchema.optional(),
   audio: z.object({
     voiceover: z.string().optional(),
     voice: z.object({

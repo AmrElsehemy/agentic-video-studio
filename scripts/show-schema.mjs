@@ -29,6 +29,8 @@ export const showSchema = z.object({
   wordmark: wordmarkSchema,
   fonts: fontsSchema,
   palette: z.object({background: color, surface: color, primary: color, secondary: color, ink: color}).strict(),
+  /** Other palettes an episode can pick by name instead of spelling one out, e.g. "light" (#92). */
+  paletteVariants: z.record(z.string().regex(/^[a-z0-9-]+$/), z.object({background: color, surface: color, primary: color, secondary: color, ink: color}).strict()).optional(),
   music: musicBedSchema.extend({volume: z.number().min(0).max(1).default(0.09)}).strict(),
   voice: z.object({voice: voiceName, speed: z.number().min(0.25).max(4), model: z.string().min(1).default('gpt-4o-mini-tts'), instructions: z.string().min(1).max(1000)}).strict(),
   notices: z.object({ownership: z.string().min(1), nonAffiliation: z.string().min(1)}).strict(),

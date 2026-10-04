@@ -4,6 +4,7 @@ import {pathToFileURL} from 'node:url';
 import {videoSchema} from '../src/schema';
 import {findManifest, listManifests, resolveEpisodeId} from './catalog.mjs';
 import {paletteMode, paletteProblems} from './lib/palette.mjs';
+import {twinProblems} from './lib/twins.mjs';
 
 /**
  * Validate the catalog, or only one episode when `requested` is given: then
@@ -22,6 +23,11 @@ export const validateCatalog = ({videosDir, requested, log = console.log}: {vide
     // Text and accents must read on a light palette as well as a dark one (#92).
     const faint = paletteProblems(parsed.palette);
     if (faint.length) throw new Error(`${parsed.id}'s palette is too low-contrast: ${faint.join('; ')}.`);
+    if (parsed.twinOf) {
+      const twin = (() => { try { return JSON.parse(fs.readFileSync(findManifest(parsed.twinOf, videosDir).manifestPath, 'utf8')); } catch { return undefined; } })();
+      const problems = twinProblems(parsed, twin);
+      if (problems.length) throw new Error(`${parsed.id} isn't a usable twin: ${problems.join('; ')}.`);
+    }
     log(`✓ ${parsed.id}: ${parsed.scenes.length} scenes, ${seconds.toFixed(1)}s, ${paletteMode(parsed.palette)} palette`);
   }
   return manifests.length;
