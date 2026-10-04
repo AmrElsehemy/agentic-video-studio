@@ -25,6 +25,8 @@ A place, a border or a route that surprises, told with an animated map in 30 to 
 - A data map only when the narration compares places by a number, with the legend on screen.
 - A route only for movement: journeys, trade, migrations. Follow it with the camera when the route is the story.
 - Map palette: deep water, muted land, one warm accent for the subject. Highlights are fills or outlines in the accent; never more than two accent colours in a frame.
+- Light variant (an experiment, #92): pale blue water `#cfdde6`, paper land `#f3ede0`, burnt-orange accent `#b4561f`, deep blue `#2c5d7f` (it tints the water), near-black ink `#1b2730`. Set it as the draft's `palette`. The Silk Road has a light twin, `silk-road-light`, to compare. Relief reads more faintly on pale land.
+- Every palette, light or dark, must pass the contrast check in `npm run validate`: text 4.5:1 on the background and the land, the accent 3:1 on the background.
 
 ## Motion
 - Reveals land on the beat; highlights and labels spring in with a small overshoot.

@@ -79,8 +79,9 @@ if (command === 'link') {
   const entries = files.map((file) => {
     const analytics = readAnalytics(file);
     const manifest = JSON.parse(fs.readFileSync(findManifest(analytics.episodeId).manifestPath, 'utf8'));
-    const production = summarizeProduction(readProduction(root, manifest.show.id, analytics.episodeId), {manifest});
-    return {analytics, manifest, cost: production.cost};
+    const log = readProduction(root, manifest.show.id, analytics.episodeId);
+    // No log yet means the cost is unknown, not zero.
+    return {analytics, manifest, cost: log.entries.length ? summarizeProduction(log, {manifest}).cost : undefined};
   });
   const report = buildReport(entries);
   // Hook hold and engagement are fractions; YouTube reports average % viewed as a percentage already.
@@ -92,6 +93,10 @@ if (command === 'link') {
   for (const row of report.rows) {
     const s = row.snapshot;
     console.log(`| ${row.episodeId} | ${row.storyPattern} | ${row.hookSeconds}s | ${row.totalSeconds}s | ${row.auditScore} | ${s?.views ?? '–'} | ${s?.averageViewPercent === undefined ? '–' : `${s.averageViewPercent.toFixed(0)}%`} | ${percent(s?.hookHold)} | ${percent(s?.engagementRate)} | ${dollars(row.cost)} | ${dollars(s?.costPerThousandViews)} |`);
+  }
+  console.log('\nBy palette (topic and posting time differ between episodes; see out/analytics-report.json):');
+  for (const [mode, group] of Object.entries(report.byPalette)) {
+    console.log(`  ${mode}: ${group.episodes} episode${group.episodes === 1 ? '' : 's'}, ${group.measured} with numbers${group.averageViewPercent === undefined ? '' : `, ${group.averageViewPercent.toFixed(0)}% average viewed`}${group.views === undefined ? '' : `, ${Math.round(group.views)} views on average`}`);
   }
   if (report.trends) {
     console.log('\nCorrelation with average % viewed (−1…1):');

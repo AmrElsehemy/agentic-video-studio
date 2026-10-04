@@ -4,7 +4,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {describe, it} from 'node:test';
 import {fileURLToPath} from 'node:url';
-import {addSnapshot, buildReport, correlation, costPerThousandViews, episodeFeatures, fetchYouTubeSnapshot, linkVideo, MIN_EPISODES_FOR_TRENDS, watchingAt, youtubeVideoId} from '../scripts/lib/analytics.mjs';
+import {addSnapshot, buildReport, byPaletteMode, correlation, costPerThousandViews, episodeFeatures, fetchYouTubeSnapshot, linkVideo, MIN_EPISODES_FOR_TRENDS, watchingAt, youtubeVideoId} from '../scripts/lib/analytics.mjs';
 import {episodeAnalyticsSchema} from '../scripts/analytics-schema.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -89,6 +89,23 @@ describe('episode analytics', () => {
     const [unknown] = buildReport([{manifest: manifestOf('geographica', 'silk-road'), analytics}]).rows;
     assert.equal(unknown.cost, undefined);
     assert.equal(unknown.snapshot?.costPerThousandViews, undefined);
+  });
+
+  it('groups episodes by palette mode, with what the comparison can\'t control for', () => {
+    const snapshot = (views: number, averageViewPercent: number) => ({capturedAt: '2026-10-02T00:00:00Z', source: 'manual' as const, views, averageViewPercent});
+    const entries = [['geographica', 'silk-road', 400, 60], ['geographica', 'silk-road-light', 600, 70], ['geographica', 'georgia-wine', 0, 0]].map(([show, id, views, percent]) => ({
+      manifest: manifestOf(show as string, id as string),
+      analytics: addSnapshot(linkVideo(undefined, {episodeId: id as string, video: `${id}AAAAAAAAAAA`.replace(/-/g, '').slice(0, 11), publishedAt: '2026-10-01T17:00:00Z'}), snapshot(views as number, percent as number)),
+    }));
+    const {byPalette, measured} = buildReport(entries);
+    // The 0-view snapshot isn't counted as measured.
+    assert.equal(measured, 2);
+    assert.equal(byPalette.dark.episodes, 2);
+    assert.equal(byPalette.dark.measured, 1);
+    assert.equal(byPalette.dark.averageViewPercent, 60);
+    assert.equal(byPalette.light.averageViewPercent, 70);
+    assert.deepEqual(byPalette.light.confounders, [{episodeId: 'silk-road-light', topic: 'Silk Road', publishedAt: '2026-10-01T17:00:00Z'}]);
+    assert.deepEqual(byPaletteMode([]).light, {episodes: 0, measured: 0, averageViewPercent: undefined, views: undefined, confounders: []});
   });
 
   it('reads performance files only, not the production logs beside them', () => {
