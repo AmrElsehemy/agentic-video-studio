@@ -258,6 +258,17 @@ npm run captions:drift -- silk-road --estimated # how far the estimate would be 
 
 `captions:drift` measures caption timing against the aligner and writes a per-word report to `out/<id>-caption-drift.json`. The target (#86) is 90% of words lighting up within 150 ms of being spoken; aligned captions meet it by construction, and the estimate reached a median of 60 ms (90% within 277 ms) on the Silk Road.
 
+### Choosing a narrator (ElevenLabs listening test, #102)
+
+With `ELEVENLABS_API_KEY` in the environment, a listening test compares ElevenLabs library voices with the current OpenAI voice on one episode:
+
+```bash
+npm run voice:audition -- silk-road                                   # list library narrators, free
+npm run voice:audition -- silk-road --voices=<owner/voice>,<owner/voice>,<owner/voice>
+```
+
+The reads land in `out/voice-audition/<id>/` as `A.mp3`, `B.mp3` and so on, in a fresh random order; `key.json` says which is which, so listen before opening it. Each ElevenLabs read costs about as many credits as the narration has characters (around 450 per episode). Candidates come from the Voice Library: ElevenLabs' default voices expire on 2026-12-31, and library voices with an extra per-character fee or a short withdrawal notice are left out. Check a voice's terms before publishing with it.
+
 ## GeoMotion map data
 
 Geography episodes (the GeoMotion epic, #69) draw countries, seas and disputed areas from pinned, public-domain Natural Earth data in `public/geo/`, with an entity registry (`country:GEO`, `water:black-sea`, …) and checksums. `npm run geo:prepare` rebuilds it from the pinned source; `npm run geo:verify` (in CI) checks it. Decisions (data, license, projection, disputed borders) are in [docs/geomotion-data.md](docs/geomotion-data.md).
