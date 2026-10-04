@@ -111,6 +111,8 @@ Each `record` or `fetch` adds a dated snapshot, so it's worth taking one at 24 h
 
 The report lines each episode's average % viewed, hook hold and engagement up against its story shape, hook length, total length and engagement-audit score:
 - **Hook hold** is the share of viewers still watching when the hook scene ends.
+- **By palette** groups episodes into dark and light (#92) with their average % viewed and views. Topic and posting time differ between the episodes and aren't controlled for; `out/analytics-report.json` lists both for each episode so you can read the numbers against them.
+- A snapshot with 0 views isn't counted as measured: it says nothing about how long people watch.
 - **Cost** is the production log's estimate of what the episode cost to make, and **per 1k views** divides it by the latest view count (see Production log below). Both show – until there is a cost or a view.
 - **Trends:** once five episodes have numbers, the report also shows how each lever correlates with completion. That is the evidence for retuning the director's defaults (#25).
 

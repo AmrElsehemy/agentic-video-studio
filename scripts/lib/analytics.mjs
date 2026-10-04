@@ -6,6 +6,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {episodeAnalyticsSchema, snapshotSchema} from '../analytics-schema.mjs';
 import {scoreEpisode} from './engagement.mjs';
+import {paletteMode} from './palette.mjs';
 
 export const analyticsPath = (root, showId, episodeId) => path.join(root, 'analytics', showId, `${episodeId}.json`);
 
@@ -106,8 +107,29 @@ export const episodeFeatures = (manifest) => {
     scenes: manifest.scenes.length,
     primitives: manifest.scenes.filter((scene) => scene.primitive).length,
     auditScore: scoreEpisode(manifest).score,
+    // Light or dark (#92): compared across episodes in the report.
+    paletteMode: paletteMode(manifest.palette),
   };
 };
+
+const mean = (values) => (values.length ? values.reduce((sum, value) => sum + value, 0) / values.length : undefined);
+
+/**
+ * Episodes grouped by palette mode, with their mean average % viewed and views
+ * (#92). Topic and posting time differ between episodes and aren't controlled
+ * for, so each group lists its episodes with both, to read the numbers against.
+ */
+export const byPaletteMode = (rows) => Object.fromEntries(['dark', 'light'].map((mode) => {
+  const group = rows.filter((row) => row.paletteMode === mode);
+  const measured = group.filter((row) => row.snapshot?.views && row.snapshot.averageViewPercent !== undefined);
+  return [mode, {
+    episodes: group.length,
+    measured: measured.length,
+    averageViewPercent: mean(measured.map((row) => row.snapshot.averageViewPercent)),
+    views: mean(group.filter((row) => row.snapshot).map((row) => row.snapshot.views)),
+    confounders: group.map((row) => ({episodeId: row.episodeId, topic: row.topic, publishedAt: row.publishedAt})),
+  }];
+}));
 
 /** Pearson correlation, or undefined when there are too few points or no spread. */
 export const correlation = (xs, ys) => {
@@ -141,6 +163,9 @@ export const buildReport = (entries) => {
       episodeId: manifest.id,
       show: manifest.show.id,
       url: analytics.url,
+      // What the palette comparison can't control for: what the episode was about, and when it went out.
+      topic: manifest.subject?.name ?? manifest.title,
+      ...(analytics.publishedAt ? {publishedAt: analytics.publishedAt} : {}),
       ...features,
       ...(cost == null ? {} : {cost}),
       snapshot: latest ? {
@@ -155,9 +180,10 @@ export const buildReport = (entries) => {
       } : undefined,
     };
   });
-  const measured = rows.filter((row) => row.snapshot?.averageViewPercent !== undefined);
+  // A snapshot with no views says nothing about how long people watch, so it isn't counted.
+  const measured = rows.filter((row) => row.snapshot?.views && row.snapshot.averageViewPercent !== undefined);
   const trends = measured.length >= MIN_EPISODES_FOR_TRENDS
     ? Object.fromEntries(['hookSeconds', 'totalSeconds', 'scenes', 'primitives', 'auditScore'].map((feature) => [feature, correlation(measured.map((row) => row[feature]), measured.map((row) => row.snapshot.averageViewPercent))]))
     : undefined;
-  return {rows, measured: measured.length, trends};
+  return {rows, measured: measured.length, trends, byPalette: byPaletteMode(rows)};
 };

@@ -3,6 +3,7 @@ import path from 'node:path';
 import {pathToFileURL} from 'node:url';
 import {videoSchema} from '../src/schema';
 import {findManifest, listManifests, resolveEpisodeId} from './catalog.mjs';
+import {paletteMode, paletteProblems} from './lib/palette.mjs';
 
 /**
  * Validate the catalog, or only one episode when `requested` is given: then
@@ -18,7 +19,10 @@ export const validateCatalog = ({videosDir, requested, log = console.log}: {vide
     const seconds = parsed.scenes.reduce((sum, scene) => sum + scene.durationSeconds, 0);
     if (seconds > 60) throw new Error(`${parsed.id} is ${seconds}s; short-form episodes must be 60s or less.`);
     if (new Set(parsed.scenes.map((scene) => scene.id)).size !== parsed.scenes.length) throw new Error(`${parsed.id} has duplicate scene IDs.`);
-    log(`✓ ${parsed.id}: ${parsed.scenes.length} scenes, ${seconds.toFixed(1)}s`);
+    // Text and accents must read on a light palette as well as a dark one (#92).
+    const faint = paletteProblems(parsed.palette);
+    if (faint.length) throw new Error(`${parsed.id}'s palette is too low-contrast: ${faint.join('; ')}.`);
+    log(`✓ ${parsed.id}: ${parsed.scenes.length} scenes, ${seconds.toFixed(1)}s, ${paletteMode(parsed.palette)} palette`);
   }
   return manifests.length;
 };
