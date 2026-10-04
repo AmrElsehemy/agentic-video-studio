@@ -21,3 +21,5 @@ export type ShowProfile = {
 
 export declare const parseShow: (raw: unknown, source?: string) => ShowProfile;
 export declare const loadShow: (showId: string, options?: {dir?: string}) => ShowProfile;
+export declare const loadStyleGuide: (showId: string, options?: {dir?: string}) => string;
+export declare const styleGuideSection: (showId: string, options?: {dir?: string}) => string;

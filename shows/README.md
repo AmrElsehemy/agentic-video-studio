@@ -2,6 +2,8 @@
 
 Each file here defines one show. A new show is a new `shows/<id>.json` plus drafts in `drafts/<id>/`; no code changes. The compiler merges the profile under every draft (a draft's own `show`, `palette`, `voice` and `musicVolume` win) and embeds the result in each `videos/<id>/<episode>/video.json`, so the renderer and the audio read branding only from the manifest.
 
+A show can also have a style guide, `shows/<id>.style.md`: its story, voice, visual and motion rules, and what it never does. The writer, the visual director and the map director read it before every episode (#92). Rules in their instructions and the checks still win where they're stricter. Edit the guide to change the show's taste without touching code.
+
 | Field | What it controls |
 | --- | --- |
 | `id`, `name`, `handle` | Identity; `id` must match the file name and the `drafts/<id>/` folder. |

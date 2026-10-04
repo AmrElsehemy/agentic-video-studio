@@ -17,6 +17,22 @@ export const parseShow = (raw, source = 'show profile') => {
   return result.data;
 };
 
+/**
+ * A show's style guide, shows/<id>.style.md (#92): its visual rules, voice and
+ * formats, read by the agents that write and direct its episodes. Empty when a
+ * show has none.
+ */
+export const loadStyleGuide = (showId, {dir = defaultDir} = {}) => {
+  const file = path.join(dir, `${showId}.style.md`);
+  return fs.existsSync(file) ? fs.readFileSync(file, 'utf8').trim() : '';
+};
+
+/** The style guide as a prompt section, or nothing when the show has none. */
+export const styleGuideSection = (showId, options) => {
+  const guide = loadStyleGuide(showId, options);
+  return guide ? `\n\n# Show style guide (shows/${showId}.style.md)\nFollow it for tone, visuals and formats; the rules and hard limits in these instructions win where they're stricter.\n\n${guide}` : '';
+};
+
 /** Load shows/<id>.json (cached per folder). */
 export const loadShow = (showId, {dir = defaultDir} = {}) => {
   const key = path.join(dir, `${showId}.json`);
