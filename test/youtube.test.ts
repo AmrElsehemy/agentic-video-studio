@@ -37,6 +37,18 @@ test('youtube metadata', async (t) => {
     assert.equal(metadata.status.publishAt, '2026-10-01T17:00:00.000Z');
   });
 
+  await t.test('uploads as Entertainment unless YOUTUBE_CATEGORY_ID overrides it', () => {
+    const saved = process.env.YOUTUBE_CATEGORY_ID;
+    try {
+      delete process.env.YOUTUBE_CATEGORY_ID;
+      assert.equal(youtubeMetadata(manifest, {privacy: 'private'}).snippet.categoryId, '24');
+      process.env.YOUTUBE_CATEGORY_ID = '27';
+      assert.equal(youtubeMetadata(manifest, {privacy: 'private'}).snippet.categoryId, '27');
+    } finally {
+      if (saved === undefined) delete process.env.YOUTUBE_CATEGORY_ID; else process.env.YOUTUBE_CATEGORY_ID = saved;
+    }
+  });
+
   await t.test('does not guess made-for-kids status', () => {
     const undeclared = {...loadShow('pokepulses'), publishing: {...loadShow('pokepulses').publishing!, madeForKids: undefined}};
     const unspecified = youtubeMetadata(manifest, {privacy: 'private', show: undeclared});

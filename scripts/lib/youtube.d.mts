@@ -2,6 +2,7 @@ export declare const YOUTUBE_UPLOAD_SCOPE: string;
 export declare const YOUTUBE_ANALYTICS_SCOPE: string;
 export declare const YOUTUBE_READONLY_SCOPE: string;
 export declare const YOUTUBE_PLAYLIST_SCOPE: string;
+export declare const YOUTUBE_DEFAULT_CATEGORY: string;
 export declare const tokenPath: (root: string, show?: string) => string;
 export declare const envRefreshToken: (show?: string, env?: Record<string, string | undefined>) => string | undefined;
 export type Channel = {id: string; title?: string; uploads?: string};

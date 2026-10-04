@@ -10,6 +10,8 @@ export const YOUTUBE_UPLOAD_SCOPE = 'https://www.googleapis.com/auth/youtube.upl
 export const YOUTUBE_ANALYTICS_SCOPE = 'https://www.googleapis.com/auth/yt-analytics.readonly';
 /** Read-only channel data: which channel a login belongs to, and its uploads. */
 export const YOUTUBE_READONLY_SCOPE = 'https://www.googleapis.com/auth/youtube.readonly';
+/** YouTube category sent with uploads: 24 is Entertainment. YOUTUBE_CATEGORY_ID overrides it. */
+export const YOUTUBE_DEFAULT_CATEGORY = '24';
 /** Manage the channel's playlists (adding an upload to one). Broader than upload: it can also edit videos. */
 export const YOUTUBE_PLAYLIST_SCOPE = 'https://www.googleapis.com/auth/youtube.force-ssl';
 
@@ -243,7 +245,7 @@ export const youtubeMetadata = (manifest, {privacy = 'private', publishAt, madeF
   const declaredForKids = madeForKids ?? show.publishing?.madeForKids;
   if (declaredForKids !== undefined) status.selfDeclaredMadeForKids = declaredForKids;
   return {
-    snippet: {title, description, tags, categoryId: process.env.YOUTUBE_CATEGORY_ID || '27', defaultLanguage: 'en'},
+    snippet: {title, description, tags, categoryId: process.env.YOUTUBE_CATEGORY_ID || YOUTUBE_DEFAULT_CATEGORY, defaultLanguage: 'en'},
     status,
   };
 };
