@@ -7,7 +7,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {findManifest, resolveEpisodeId} from './catalog.mjs';
 import {alignNarration} from './lib/align.mjs';
-import {voiceStaleReason} from './lib/voice-lock.mjs';
+import {narrationProvider, voiceStaleReason} from './lib/voice-lock.mjs';
 
 const episodeId = resolveEpisodeId(process.argv.slice(2).find((arg) => !arg.startsWith('--')));
 if (!episodeId) throw new Error('Usage: npm run captions:align -- <episode-id>');
@@ -15,12 +15,13 @@ const {root, manifestPath} = findManifest(episodeId);
 const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
 // A twin (#92) plays its original's narration, so the original's timing is the one to align.
 const owner = manifest.twinOf ?? episodeId;
-const timingPath = path.join(root, 'public', 'generated', `${owner}-openai-timing.json`);
+const provider = narrationProvider(manifest);
+const timingPath = path.join(root, 'public', 'generated', `${owner}-${provider}-timing.json`);
 const track = path.join(root, 'public', manifest.audio.voice.output);
-if (!fs.existsSync(timingPath) || !fs.existsSync(track)) throw new Error(`${owner} has no OpenAI narration yet: npm run voice:openai -- ${owner}`);
+if (!fs.existsSync(timingPath) || !fs.existsSync(track)) throw new Error(`${owner} has no ${provider} narration yet: npm run voice -- ${owner}`);
 const timing = JSON.parse(fs.readFileSync(timingPath, 'utf8'));
-const stale = voiceStaleReason(manifest, 'openai', timing);
-if (stale) throw new Error(`${owner}'s narration is stale (${stale}); regenerate it first: npm run voice:openai -- ${owner}`);
+const stale = voiceStaleReason(manifest, provider, timing);
+if (stale) throw new Error(`${owner}'s narration is stale (${stale}); regenerate it first: npm run voice -- ${owner}`);
 
 const aligned = alignNarration({root, track, scenes: manifest.scenes.map((scene) => ({...scene, durationSeconds: timing.scenes[scene.id] ?? scene.durationSeconds}))});
 if (aligned.error) throw new Error(`Alignment failed: ${aligned.error}\nIt needs: pip install torch torchaudio num2words`);

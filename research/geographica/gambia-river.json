@@ -1,0 +1,118 @@
+{
+  "schemaVersion": 1,
+  "id": "gambia-river",
+  "subject": "The Gambia",
+  "kind": "curated",
+  "note": "Hand-curated research for a Geographica episode about the shape of The Gambia. Claims are cited to pinned Wikipedia revisions (trusted_secondary). The river is drawn through towns on its banks (sourced coordinates), not traced from map data. The popular story that the border was set by cannon range is not in the sources and is not used.",
+  "regions": [
+    "The Gambia",
+    "Senegal"
+  ],
+  "claims": [
+    {
+      "id": "smallest",
+      "text": "The Gambia is the smallest country on the African mainland.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-gambia"
+      ]
+    },
+    {
+      "id": "narrow",
+      "text": "The Gambia is less than 50 kilometres wide at its widest point.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-gambia"
+      ]
+    },
+    {
+      "id": "senegal",
+      "text": "Senegal surrounds the Gambia on all sides except the west, where it has 80 km of Atlantic coastline.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-gambia"
+      ]
+    },
+    {
+      "id": "river",
+      "text": "The Gambia's territory lies on both sides of the lower Gambia River, which flows through the centre of the country to the Atlantic and gives the country its elongated shape and its name.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-gambia",
+        "wikipedia-gambia-river"
+      ]
+    },
+    {
+      "id": "1889",
+      "text": "The present boundaries were defined in 1889 by an agreement between the United Kingdom and France; the resulting straight lines and arcs gave Britain areas about 16 kilometres north and south of the river.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-gambia"
+      ]
+    },
+    {
+      "id": "river-length",
+      "text": "The Gambia River runs 1,120 kilometres from the Fouta Djallon plateau in Guinea; The Gambia occupies its downstream half.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-gambia-river"
+      ]
+    }
+  ],
+  "places": {
+    "basse": {
+      "lon": -14.2167,
+      "lat": 13.3167,
+      "source": "wikipedia-basse",
+      "note": "Basse Santa Su, on the river in the east."
+    },
+    "janjanbureh": {
+      "lon": -14.7662,
+      "lat": 13.5341,
+      "source": "wikipedia-janjanbureh",
+      "note": "Janjanbureh, on an island in the river."
+    },
+    "farafenni": {
+      "lon": -15.6,
+      "lat": 13.5667,
+      "source": "wikipedia-farafenni",
+      "note": "Farafenni, near the north bank."
+    },
+    "banjul": {
+      "lon": -16.5753,
+      "lat": 13.4542,
+      "source": "wikipedia-banjul",
+      "note": "Banjul, the capital, at the river's mouth."
+    }
+  },
+  "sources": {
+    "wikipedia-gambia": {
+      "label": "Wikipedia: The Gambia (revision 1377841535)",
+      "url": "https://en.wikipedia.org/w/index.php?title=The_Gambia&oldid=1377841535"
+    },
+    "wikipedia-gambia-river": {
+      "label": "Wikipedia: Gambia River (revision 1367426579)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Gambia_River&oldid=1367426579"
+    },
+    "wikipedia-basse": {
+      "label": "Wikipedia: Basse Santa Su (revision 1377564982)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Basse_Santa_Su&oldid=1377564982"
+    },
+    "wikipedia-janjanbureh": {
+      "label": "Wikipedia: Janjanbureh (revision 1377796314)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Janjanbureh&oldid=1377796314"
+    },
+    "wikipedia-farafenni": {
+      "label": "Wikipedia: Farafenni (revision 1377604942)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Farafenni&oldid=1377604942"
+    },
+    "wikipedia-banjul": {
+      "label": "Wikipedia: Banjul (revision 1377725086)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Banjul&oldid=1377725086"
+    },
+    "natural-earth": {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  }
+}

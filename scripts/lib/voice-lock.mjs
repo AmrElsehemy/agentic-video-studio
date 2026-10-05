@@ -17,6 +17,9 @@ export const voiceInputHash = (manifest, provider) => {
   return crypto.createHash('sha256').update(JSON.stringify(inputs)).digest('hex');
 };
 
+/** The service that reads an episode's narration track (#102): OpenAI unless the show chose ElevenLabs. */
+export const narrationProvider = (manifest) => manifest.audio?.voice?.provider ?? 'openai';
+
 /**
  * Why a timing file doesn't match the manifest, or null when it does.
  * Timing files written before input hashes existed are treated as stale.

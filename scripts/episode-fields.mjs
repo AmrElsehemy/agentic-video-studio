@@ -11,6 +11,21 @@ export const TARGET_EMOTIONS = ['curiosity', 'surprise', 'debate', 'awe'];
 export const pitchLine = z.string().min(1).max(140);
 
 export const VOICE_NAMES = ['alloy', 'ash', 'ballad', 'coral', 'echo', 'fable', 'onyx', 'nova', 'sage', 'shimmer', 'verse', 'marin', 'cedar'];
+/** Who reads the narration (#102). OpenAI voices are named; an ElevenLabs voice is its voice id. */
+export const VOICE_PROVIDERS = ['openai', 'elevenlabs'];
+/** Default model per provider. */
+export const VOICE_MODELS = {openai: 'gpt-4o-mini-tts', elevenlabs: 'eleven_v4'};
+/** ElevenLabs takes a narrower speed range than OpenAI. */
+export const ELEVENLABS_SPEED = [0.7, 1.2];
+
+/** What's wrong with a voice for its provider: an OpenAI voice name, or an ElevenLabs speed in range. */
+export const voiceProblems = ({provider = 'openai', voice, speed, model}) => [
+  ...(model && (provider === 'elevenlabs') !== model.startsWith('eleven_') ? [`"${model}" isn't an ${provider} model; use ${VOICE_MODELS[provider]} or leave model out`] : []),
+  ...(provider === 'openai' && !VOICE_NAMES.includes(voice) ? [`"${voice}" isn't an OpenAI voice; use one of ${VOICE_NAMES.join(', ')}`] : []),
+  ...(provider === 'elevenlabs' && !/^[A-Za-z0-9]{10,40}$/.test(voice) ? [`"${voice}" isn't an ElevenLabs voice id`] : []),
+  ...(provider === 'elevenlabs' && speed !== undefined && (speed < ELEVENLABS_SPEED[0] || speed > ELEVENLABS_SPEED[1]) ? [`ElevenLabs speed must be ${ELEVENLABS_SPEED.join('–')}, not ${speed}`] : []),
+];
+
 export const voiceSettings = {
   model: z.string().min(1),
   voice: z.enum(VOICE_NAMES),

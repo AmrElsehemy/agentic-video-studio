@@ -1,0 +1,484 @@
+{
+  "schemaVersion": 2,
+  "id": "france-brazil-border",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica",
+    "wordmark": {
+      "lead": "GEO",
+      "accent": "GRAPHICA"
+    },
+    "fonts": {
+      "display": "Oswald",
+      "body": "Inter"
+    },
+    "captions": {
+      "mode": "words"
+    }
+  },
+  "title": "France's Longest Border Isn't in Europe",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "mystery",
+    "numberRelevant": false,
+    "premise": "France's longest land border isn't with Spain but with Brazil, through French Guiana in South America.",
+    "audiencePromise": "Find France's longest land border on the map: across an ocean, in the Amazon.",
+    "openLoop": "If not Spain, which country shares France's longest land border?",
+    "payoff": "French Guiana is part of France, and its 730 km border with Brazil beats Spain's 623 km.",
+    "targetEmotion": "surprise",
+    "engagementQuestion": "Did you guess Brazil?",
+    "targetSecondsBetweenVisualChanges": 0.68
+  },
+  "subject": {
+    "name": "French Guiana",
+    "category": "Border",
+    "attributes": {
+      "geoEntity": "country:FRA"
+    }
+  },
+  "related": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#0b1a2a",
+    "surface": "#23473d",
+    "primary": "#e4b363",
+    "secondary": "#8c2f39",
+    "ink": "#f6f1e7"
+  },
+  "audio": {
+    "music": "generated/france-brazil-border-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 96,
+      "notes": [
+        98,
+        116.54,
+        130.81,
+        146.83,
+        130.81,
+        116.54,
+        87.31,
+        98
+      ]
+    },
+    "voice": {
+      "provider": "elevenlabs",
+      "model": "eleven_v4",
+      "voice": "JBFqnCBsd6RMkjVDRZzb",
+      "instructions": "Warm, curious storyteller walking a friend across a map. Clear and confident, with a sense of discovery on each reveal; slow slightly on dates and place names so they land. Conversational and human, never a documentary announcer, lecture, or neutral TTS. Never imitate a known person or character.",
+      "speed": 1.06,
+      "output": "generated/france-brazil-border-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      }
+    ],
+    "bordersReview": {
+      "reviewer": "Amr Elsehemy",
+      "date": "2026-10-04",
+      "decision": "Approved as shown: Natural Earth's default borders for France (including French Guiana) and Brazil. The Lawa Headwaters, administered by France and claimed by Suriname, are not highlighted or labelled on their own."
+    }
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "durationSeconds": 3.8,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "mystery",
+      "subjectFocus": "hidden",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "A MAP MYSTERY",
+      "headline": "NOT SPAIN?",
+      "narration": "France's longest land border isn't with Spain.",
+      "caption": "NOT WITH SPAIN",
+      "visual": "hook",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -10,
+                35,
+                10,
+                52
+              ]
+            },
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:FRA",
+            "style": "fill",
+            "at": 0.2
+          },
+          {
+            "entity": "country:ESP",
+            "style": "outline",
+            "at": 0.5
+          }
+        ],
+        "annotations": [],
+        "dataset": "natural-earth"
+      }
+    },
+    {
+      "id": "spain",
+      "durationSeconds": 3.9,
+      "beat": "clue",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "THE OBVIOUS ONE",
+      "headline": "623 KM",
+      "narration": "Spain's runs 623 kilometres. Another is longer.",
+      "caption": "SPAIN: 623 KM",
+      "visual": "gauntlet",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -10,
+                35,
+                10,
+                52
+              ]
+            },
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:ESP",
+            "style": "outline",
+            "at": 0.1
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:ESP",
+            "text": "623 KM",
+            "at": 0.3
+          }
+        ],
+        "dataset": "natural-earth"
+      }
+    },
+    {
+      "id": "atlantic",
+      "durationSeconds": 4.1,
+      "beat": "clue",
+      "role": "evidence",
+      "shot": "wide",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "FOLLOW FRANCE",
+      "headline": "ACROSS THE SEA",
+      "narration": "To find it, follow France across the Atlantic.",
+      "caption": "ACROSS THE ATLANTIC",
+      "visual": "gauntlet",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -10,
+                35,
+                10,
+                52
+              ]
+            },
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -62,
+                -2,
+                10,
+                52
+              ]
+            },
+            "at": 0.35,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:FRA",
+            "style": "fill",
+            "at": 0.55
+          }
+        ],
+        "annotations": [],
+        "dataset": "natural-earth"
+      }
+    },
+    {
+      "id": "guiana",
+      "durationSeconds": 4.7,
+      "beat": "escalation",
+      "role": "escalation",
+      "shot": "tracking",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "SURPRISE",
+      "headline": "FRANCE, IN AMERICA",
+      "narration": "French Guiana, in South America, is part of France.",
+      "caption": "FRANCE IN SOUTH AMERICA",
+      "visual": "advantage",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -58,
+                1,
+                -50,
+                7
+              ]
+            },
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:FRA",
+            "style": "fill",
+            "at": 0.1
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": {
+              "lon": -53,
+              "lat": 4
+            },
+            "text": "FRENCH GUIANA",
+            "at": 0.3
+          }
+        ],
+        "dataset": "natural-earth"
+      }
+    },
+    {
+      "id": "brazil",
+      "durationSeconds": 3.8,
+      "beat": "reveal",
+      "role": "payoff",
+      "shot": "comparison",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "THE ANSWER",
+      "headline": "730 KM",
+      "narration": "Its border with Brazil runs 730 kilometres.",
+      "caption": "BRAZIL: 730 KM",
+      "visual": "race",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -58,
+                1,
+                -50,
+                7
+              ]
+            },
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:FRA",
+            "style": "fill",
+            "at": 0
+          },
+          {
+            "entity": "country:BRA",
+            "style": "outline",
+            "at": 0.2
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": {
+              "lon": -51.8256,
+              "lat": 3.8569
+            },
+            "text": "730 KM",
+            "at": 0.4
+          }
+        ],
+        "dataset": "natural-earth"
+      }
+    },
+    {
+      "id": "bridge",
+      "durationSeconds": 4.6,
+      "beat": "reveal",
+      "role": "payoff",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "ONE CROSSING",
+      "headline": "ONE BRIDGE",
+      "narration": "Just one bridge crosses it, over the Oyapock River.",
+      "caption": "ONE BRIDGE",
+      "visual": "tradeoff",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -58,
+                1,
+                -50,
+                7
+              ]
+            },
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -53.5,
+                2.6,
+                -50.5,
+                5.2
+              ]
+            },
+            "at": 0.3,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:FRA",
+            "style": "fill",
+            "at": 0
+          }
+        ],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": -51.8256,
+              "lat": 3.8569
+            },
+            "text": "OYAPOCK BRIDGE",
+            "at": 0.5
+          }
+        ],
+        "dataset": "natural-earth"
+      }
+    },
+    {
+      "id": "verdict",
+      "durationSeconds": 3.9,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "YOUR TURN",
+      "headline": "DID YOU KNOW?",
+      "narration": "Settled in 1900. Did you guess Brazil?",
+      "caption": "SETTLED IN 1900",
+      "visual": "cta",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -62,
+                -2,
+                10,
+                52
+              ]
+            },
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:FRA",
+            "style": "fill",
+            "at": 0.1
+          },
+          {
+            "entity": "country:BRA",
+            "style": "outline",
+            "at": 0.3
+          }
+        ],
+        "annotations": [],
+        "dataset": "natural-earth"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia: Brazil–France border (revision 1370725915)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Brazil–France_border&oldid=1370725915"
+    },
+    {
+      "label": "Wikipedia: French Guiana (revision 1378454265)",
+      "url": "https://en.wikipedia.org/w/index.php?title=French_Guiana&oldid=1378454265"
+    },
+    {
+      "label": "Wikipedia: Franco-Brazilian Binational Bridge (revision 1370450615)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Franco-Brazilian_Binational_Bridge&oldid=1370450615"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ]
+}

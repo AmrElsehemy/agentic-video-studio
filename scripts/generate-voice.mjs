@@ -8,22 +8,27 @@ import {speechBounds, speechPauses} from './lib/captions.mjs';
 import {buildVoiceInstructions} from './lib/voice-direction.mjs';
 import {alignerAvailable, alignNarration} from './lib/align.mjs';
 import {appendProduction} from './lib/production.mjs';
-import {voiceInputHash} from './lib/voice-lock.mjs';
+import {narrationProvider, voiceInputHash} from './lib/voice-lock.mjs';
+import {charactersToWords, synthesize} from './lib/elevenlabs.mjs';
 
 const args = process.argv.slice(2);
 const episodeId = resolveEpisodeId(args.find((arg) => !arg.startsWith('--')) ?? 'bulbasaur-001');
-const provider = args.find((arg) => arg.startsWith('--provider='))?.split('=')[1] ?? 'openai';
-if (!['openai', 'local'].includes(provider)) throw new Error(`Unsupported voice provider: ${provider}`);
+const requested = args.find((arg) => arg.startsWith('--provider='))?.split('=')[1];
+if (requested && !['openai', 'elevenlabs', 'local'].includes(requested)) throw new Error(`Unsupported voice provider: ${requested}`);
 
 const {root, manifestPath} = findManifest(episodeId);
 const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
 const config = manifest.audio.voice;
 if (!config) throw new Error(`${episodeId} does not define audio.voice.`);
+// The show picks who reads its narration (#102); the free local preview works for any show.
+const provider = requested === 'local' ? 'local' : narrationProvider(manifest);
+if (requested && requested !== provider) throw new Error(`${episodeId}'s narration is read by ${provider}, not ${requested} (shows/${manifest.show.id}.json). Run: npm run voice -- ${episodeId}`);
+const paid = provider !== 'local';
 // A twin (#92) plays its original's narration; narrating it again would pay twice for the same words.
-if (manifest.twinOf) throw new Error(`${episodeId} uses ${manifest.twinOf}'s narration. Narrate that instead: npm run voice:${provider} -- ${manifest.twinOf}`);
+if (manifest.twinOf) throw new Error(`${episodeId} uses ${manifest.twinOf}'s narration. Narrate that instead: npm run voice${paid ? '' : ':local'} -- ${manifest.twinOf}`);
 
 // npm run pipeline has already certified this episode in the same run (its lint stage).
-if (provider === 'openai' && process.env.STUDIO_CHECKED !== episodeId) {
+if (paid && process.env.STUDIO_CHECKED !== episodeId) {
   console.log(`▶ certifying ${episodeId} before any paid TTS request`);
   const certification = spawnSync(process.execPath, ['scripts/certify-episode.mjs', episodeId, '--fast'], {cwd: root, stdio: 'inherit'});
   if (certification.status !== 0) process.exit(certification.status ?? 1);
@@ -31,6 +36,10 @@ if (provider === 'openai' && process.env.STUDIO_CHECKED !== episodeId) {
 
 const apiKey = process.env.OPENAI_API_KEY;
 if (provider === 'openai' && !apiKey) throw new Error('OPENAI_API_KEY is required to generate OpenAI narration.');
+const elevenLabsKey = process.env.ELEVENLABS_API_KEY;
+if (provider === 'elevenlabs' && !elevenLabsKey) throw new Error('ELEVENLABS_API_KEY is required to generate ElevenLabs narration.');
+// ElevenLabs returns when each character is spoken; word captions (#86) use it directly.
+const spokenWords = {};
 
 const generatedRoot = path.join(root, 'public', 'generated');
 const cacheRoot = path.join(generatedRoot, 'voice-cache', episodeId, provider);
@@ -63,7 +72,9 @@ const measureSpeech = (file, duration) => {
 };
 
 const instructionsFor = (scene) => buildVoiceInstructions({baseInstructions: config.instructions, scene});
-const cacheKey = (scene) => crypto.createHash('sha256').update(JSON.stringify({provider, model: config.model, voice: config.voice, speed: config.speed, instructions: instructionsFor(scene), narration: scene.narration})).digest('hex').slice(0, 20);
+// ElevenLabs hears the neighbouring lines too, so a scene flows on from the one before it.
+const neighbours = (index) => provider === 'elevenlabs' ? {previousText: manifest.scenes[index - 1]?.narration, nextText: manifest.scenes[index + 1]?.narration} : {};
+const cacheKey = (scene, index) => crypto.createHash('sha256').update(JSON.stringify({provider, model: config.model, voice: config.voice, speed: config.speed, instructions: instructionsFor(scene), narration: scene.narration, ...neighbours(index)})).digest('hex').slice(0, 20);
 
 // What was synthesised this run, for the production log (#89); cached scenes cost nothing.
 const synthesised = {characters: 0, seconds: 0, scenes: 0};
@@ -71,14 +82,26 @@ try {
   fs.mkdirSync(cacheRoot, {recursive: true});
 
   for (const [index, scene] of manifest.scenes.entries()) {
-    const extension = provider === 'local' ? 'aiff' : 'wav';
-    const cachedRaw = path.join(cacheRoot, `${String(index).padStart(2, '0')}-${scene.id}-${cacheKey(scene)}.${extension}`);
+    const extension = provider === 'local' ? 'aiff' : provider === 'elevenlabs' ? 'mp3' : 'wav';
+    const cachedRaw = path.join(cacheRoot, `${String(index).padStart(2, '0')}-${scene.id}-${cacheKey(scene, index)}.${extension}`);
+    const cachedWords = `${cachedRaw}.words.json`;
     const rawTrack = path.join(tempRoot, `${String(index).padStart(2, '0')}-${scene.id}-raw.${extension}`);
 
     const fromCache = fs.existsSync(cachedRaw);
     if (fromCache) {
       fs.copyFileSync(cachedRaw, rawTrack);
+      if (fs.existsSync(cachedWords)) spokenWords[scene.id] = JSON.parse(fs.readFileSync(cachedWords, 'utf8'));
       console.log(`↻ ${scene.id} [${provider}]: reused cached paid/raw narration`);
+    } else if (provider === 'elevenlabs') {
+      const {previousText, nextText} = neighbours(index);
+      const {audio, alignment} = await synthesize({apiKey: elevenLabsKey, voiceId: config.voice, text: scene.narration, model: config.model, voiceSettings: {speed: config.speed}, previousText, nextText});
+      fs.writeFileSync(rawTrack, audio);
+      fs.copyFileSync(rawTrack, cachedRaw);
+      const words = charactersToWords(scene.narration, alignment);
+      if (words) {
+        spokenWords[scene.id] = words;
+        fs.writeFileSync(cachedWords, JSON.stringify(words));
+      }
     } else if (provider === 'openai') {
       const response = await fetch('https://api.openai.com/v1/audio/speech', {
         method: 'POST',
@@ -115,6 +138,8 @@ try {
     timing[scene.id] = effectiveDuration;
     const span = measureSpeech(fittedTrack, effectiveDuration);
     if (span) speech[scene.id] = span;
+    // The track was sped up to fit, so its words came sooner by the same factor.
+    if (span && spokenWords[scene.id]) speech[scene.id].words = spokenWords[scene.id].map((word) => ({text: word.text, start: Math.round(word.start / appliedTempo * 1000) / 1000, end: Math.round(word.end / appliedTempo * 1000) / 1000}));
     const expanded = effectiveDuration > scene.durationSeconds + 0.001 ? `, scene expanded ${scene.durationSeconds.toFixed(2)}→${effectiveDuration.toFixed(2)}s` : '';
     const fitLabel = appliedTempo > 1 ? `, auto-fit ${appliedTempo.toFixed(2)}x` : '';
     console.log(`✓ ${scene.id} [${provider}]: ${spokenDuration.toFixed(2)}s / ${effectiveDuration.toFixed(2)}s${fitLabel}${expanded}`);
@@ -132,7 +157,10 @@ try {
   const normalize = spawnSync('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-y', '-i', assembledTrack, '-af', 'loudnorm=I=-16:TP=-1.5:LRA=11', '-ar', '44100', '-ac', '2', outputPath], {encoding: 'utf8'});
   if (normalize.status !== 0) throw new Error(normalize.stderr || 'Could not normalize narration track.');
   // Word-synced captions (#86) use when each word is actually spoken, when the free local aligner is installed.
-  if (manifest.show?.captions?.mode === 'words') {
+  const timed = manifest.scenes.every((scene) => speech[scene.id]?.words);
+  if (manifest.show?.captions?.mode === 'words' && timed) {
+    console.log(`✓ word times from ${provider} for all ${manifest.scenes.length} scenes`);
+  } else if (manifest.show?.captions?.mode === 'words') {
     if (alignerAvailable()) {
       const aligned = alignNarration({root, track: outputPath, scenes: manifest.scenes.map((scene) => ({...scene, durationSeconds: timing[scene.id]}))});
       if (aligned.error) console.warn(`⚠ word alignment failed (${aligned.error}); captions use estimated word times`);

@@ -18,7 +18,7 @@ export const creditLine = (manifest) => {
   const maps = unique((manifest.rights?.assets ?? []).filter((asset) => asset.kind === 'map-data').map((asset) => sourceName(asset.owner)));
   return [
     'Animated in code',
-    voice ? `Narration: AI-generated voice${voice.provider === 'openai' ? ' (OpenAI TTS)' : ''}` : undefined,
+    voice ? `Narration: AI-generated voice${{openai: ' (OpenAI TTS)', elevenlabs: ' (ElevenLabs)'}[voice.provider] ?? ''}` : undefined,
     maps.length ? `Map data: ${maps.join(', ')}` : undefined,
   ].filter(Boolean).join(' · ');
 };

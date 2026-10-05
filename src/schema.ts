@@ -2,7 +2,7 @@ import {z} from 'zod';
 import {primitiveSchema} from '../scripts/primitive-schema.mjs';
 import {captionsSchema, fontsSchema, musicBedSchema, wordmarkSchema} from '../scripts/show-schema.mjs';
 import {relatedSchema, subjectSchema} from '../scripts/subject-schema.mjs';
-import {idSchema, paletteSchema, pitchLine, rightsSchema, sceneText, sourcesSchema, TARGET_EMOTIONS, voiceSettings} from '../scripts/episode-fields.mjs';
+import {idSchema, paletteSchema, pitchLine, rightsSchema, sceneText, sourcesSchema, TARGET_EMOTIONS, VOICE_PROVIDERS, voiceProblems, voiceSettings} from '../scripts/episode-fields.mjs';
 
 export const sceneSchema = z.object({
   id: z.string().min(1),
@@ -58,11 +58,12 @@ export const videoSchema = z.object({
   audio: z.object({
     voiceover: z.string().optional(),
     voice: z.object({
-      provider: z.literal('openai'),
+      provider: z.enum(VOICE_PROVIDERS),
       ...voiceSettings,
+      voice: z.string().min(1),
       speed: voiceSettings.speed.default(1),
       output: z.string().min(1),
-    }).optional(),
+    }).superRefine((voice, context) => voiceProblems(voice).forEach((message) => context.addIssue({code: 'custom', path: ['voice'], message}))).optional(),
     music: z.string().optional(),
     // How scripts/generate-audio.mjs builds the music bed (from the show profile).
     bed: musicBedSchema.optional(),

@@ -7,9 +7,11 @@ import {findManifest} from '../catalog.mjs';
 import {writeAudioBed} from './audio-bed.mjs';
 import {snapToBeats} from './beats.mjs';
 import {withWordCaptions} from './captions.mjs';
-import {voiceStaleReason} from './voice-lock.mjs';
+import {narrationProvider, voiceStaleReason} from './voice-lock.mjs';
 
-export const VOICES = ['auto', 'openai', 'local', 'none'];
+// "paid" is the show's narration track, whichever service reads it; "openai" and "elevenlabs" name it too (#102).
+export const VOICES = ['auto', 'paid', 'openai', 'elevenlabs', 'local', 'none'];
+const PAID = ['paid', 'openai', 'elevenlabs'];
 
 const sceneExplicitlyReferences = (scene, item) => {
   if (scene.artworkUrl === item.artworkUrl) return true;
@@ -58,15 +60,16 @@ export const prepareRenderProps = (episodeId, {voice: requestedVoice = 'auto', c
     manifest.related = (manifest.related ?? []).filter((item) => manifest.scenes.some((scene) => sceneExplicitlyReferences(scene, item)));
   }
 
-  const openAiVoice = manifest.audio.voice?.output;
-  const localVoice = openAiVoice?.replace(/\.wav$/i, '-local.wav');
-  const providerFor = (candidate) => candidate === localVoice ? 'local' : 'openai';
+  const paidVoice = manifest.audio.voice?.output;
+  const localVoice = paidVoice?.replace(/\.wav$/i, '-local.wav');
+  const paid = narrationProvider(manifest);
+  const providerFor = (candidate) => candidate === localVoice ? 'local' : paid;
   // A twin (#92) uses its original's narration, and so its timing.
   const voiceOwner = manifest.twinOf ?? episodeId;
   const timingPathFor = (provider) => path.join(root, 'public', 'generated', `${voiceOwner}-${provider}-timing.json`);
   const readTiming = (provider) => fs.existsSync(timingPathFor(provider)) ? JSON.parse(fs.readFileSync(timingPathFor(provider), 'utf8')) : null;
 
-  const voiceCandidates = requestedVoice === 'openai' ? [openAiVoice] : requestedVoice === 'local' ? [localVoice] : requestedVoice === 'none' ? [] : [openAiVoice, localVoice];
+  const voiceCandidates = PAID.includes(requestedVoice) ? [paidVoice] : requestedVoice === 'local' ? [localVoice] : requestedVoice === 'none' ? [] : [paidVoice, localVoice];
   const existing = voiceCandidates
     .filter((candidate) => candidate && fs.existsSync(path.join(root, 'public', candidate)))
     .map((candidate) => {
@@ -76,7 +79,7 @@ export const prepareRenderProps = (episodeId, {voice: requestedVoice = 'auto', c
     });
   const fresh = existing.find((track) => !track.staleReason);
   const stale = existing.filter((track) => track.staleReason);
-  const regenerate = (provider) => `npm run voice:${provider} -- ${voiceOwner}`;
+  const regenerate = (provider) => `npm run voice${provider === 'local' ? ':local' : ''} -- ${voiceOwner}`;
 
   if (!fresh && stale.length > 0) {
     const reasons = stale.map((track) => `✗ ${track.provider} narration is stale: ${track.staleReason}. Regenerate it: ${regenerate(track.provider)}`);
@@ -90,9 +93,9 @@ export const prepareRenderProps = (episodeId, {voice: requestedVoice = 'auto', c
     log(`✓ applied narration timing [${fresh.provider}] from public/generated/${voiceOwner}-${fresh.provider}-timing.json`);
     log(`✓ narration [${fresh.provider}]: public/${fresh.candidate}`);
   } else if (requestedVoice !== 'auto' && requestedVoice !== 'none') {
-    throw new Error(`${requestedVoice} narration has not been generated for ${voiceOwner}.`);
+    throw new Error(`${PAID.includes(requestedVoice) ? paid : requestedVoice} narration has not been generated for ${voiceOwner}.`);
   } else if (manifest.audio.voice) {
-    log(`ℹ narration not generated; run: npm run voice:local -- ${voiceOwner} or npm run voice:openai -- ${voiceOwner}`);
+    log(`ℹ narration not generated; run: npm run voice:local -- ${voiceOwner} or npm run voice -- ${voiceOwner}`);
   }
 
   // Map reveals land on the music's beats (#87), now that every scene has its final length.

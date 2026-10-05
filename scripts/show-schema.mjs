@@ -3,14 +3,13 @@
 // and embeds the result in the manifest, so the renderer and audio read
 // branding only from the manifest.
 import {z} from 'zod';
-import {reviewSchema} from './episode-fields.mjs';
+import {reviewSchema, VOICE_MODELS, VOICE_PROVIDERS, voiceProblems} from './episode-fields.mjs';
 
 /** Fonts the renderer can load (Google Fonts bundled with Remotion). */
 export const DISPLAY_FONTS = ['Bebas Neue', 'Anton', 'Oswald', 'Archivo Black', 'Bangers'];
 export const BODY_FONTS = ['system', 'Inter', 'Montserrat', 'Poppins'];
 
 const color = z.string().regex(/^#[0-9a-f]{6}$/i, 'Expected a six-digit hex color');
-const voiceName = z.enum(['alloy', 'ash', 'ballad', 'coral', 'echo', 'fable', 'onyx', 'nova', 'sage', 'shimmer', 'verse', 'marin', 'cedar']);
 
 /** The wordmark in the corner of every scene and on the cover: lead text, then an accent-coloured part. */
 export const wordmarkSchema = z.object({lead: z.string().min(1).max(24), accent: z.string().max(24).default('')}).strict();
@@ -32,7 +31,10 @@ export const showSchema = z.object({
   /** Other palettes an episode can pick by name instead of spelling one out, e.g. "light" (#92). */
   paletteVariants: z.record(z.string().regex(/^[a-z0-9-]+$/), z.object({background: color, surface: color, primary: color, secondary: color, ink: color}).strict()).optional(),
   music: musicBedSchema.extend({volume: z.number().min(0).max(1).default(0.09)}).strict(),
-  voice: z.object({voice: voiceName, speed: z.number().min(0.25).max(4), model: z.string().min(1).default('gpt-4o-mini-tts'), instructions: z.string().min(1).max(1000)}).strict(),
+  // provider "elevenlabs" (#102): `voice` is the voice id in the ElevenLabs account, chosen by listening test (npm run voice:audition).
+  voice: z.object({provider: z.enum(VOICE_PROVIDERS).default('openai'), voice: z.string().min(1), speed: z.number().min(0.25).max(4), model: z.string().min(1).optional(), instructions: z.string().min(1).max(1000)}).strict()
+    .superRefine((voice, context) => voiceProblems(voice).forEach((message) => context.addIssue({code: 'custom', path: ['voice'], message})))
+    .transform((voice) => ({...voice, model: voice.model ?? VOICE_MODELS[voice.provider]})),
   notices: z.object({ownership: z.string().min(1), nonAffiliation: z.string().min(1)}).strict(),
   /** What an upload carries: hashtags at the end of the description, and the video's tags. */
   publishing: z.object({

@@ -1,0 +1,143 @@
+{
+  "schemaVersion": 1,
+  "id": "mercator-greenland",
+  "subject": "Greenland",
+  "kind": "curated",
+  "note": "Hand-curated research for a Geographica episode about map projections. Claims are cited to pinned Wikipedia revisions (trusted_secondary). Map geometry comes from Natural Earth and is not evidence for any claim.",
+  "regions": [
+    "Greenland",
+    "Democratic Republic of the Congo",
+    "Central African Rep.",
+    "Algeria"
+  ],
+  "claims": [
+    {
+      "id": "same-size",
+      "text": "On the Mercator projection, Greenland appears the same size as Africa, when in reality Africa's area is 14 times as large.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-mercator"
+      ]
+    },
+    {
+      "id": "drc",
+      "text": "Greenland's real area is comparable to the Democratic Republic of the Congo's alone.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-mercator"
+      ]
+    },
+    {
+      "id": "inflates",
+      "text": "The Mercator projection inflates the size of lands the farther they are from the equator, so Greenland and Antarctica appear far larger than they are.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-mercator"
+      ]
+    },
+    {
+      "id": "1569",
+      "text": "Gerardus Mercator first presented the projection in 1569; in the 18th century it became the standard map projection for navigation, because it draws rhumb lines (constant compass bearings) as straight lines.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-mercator"
+      ]
+    },
+    {
+      "id": "online",
+      "text": "Its use for maps other than marine charts declined in the 20th century but resurged in the 21st century because of characteristics favourable for online mapping.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-mercator"
+      ]
+    },
+    {
+      "id": "this-map",
+      "text": "Geographica's maps are drawn in the Web Mercator projection.",
+      "tier": "official",
+      "sources": [
+        "geomotion-primitives"
+      ]
+    },
+    {
+      "id": "greenland-area",
+      "text": "Greenland's total area is 2,166,086 km2; Africa's is about 30.3 million km2.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-greenland",
+        "wikipedia-africa"
+      ]
+    },
+    {
+      "id": "algeria",
+      "text": "Algeria, at 2,381,741 km2, is the largest country in Africa; the Democratic Republic of the Congo, at 2,345,408 km2, is the second largest. Both are larger than Greenland (2,166,086 km2).",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-algeria",
+        "wikipedia-drc",
+        "wikipedia-greenland"
+      ]
+    }
+  ],
+  "places": {
+    "equator-west": {
+      "lon": -170,
+      "lat": 0,
+      "source": "wikipedia-mercator",
+      "note": "A point on the equator, to draw it across the map."
+    },
+    "equator-east": {
+      "lon": 170,
+      "lat": 0,
+      "source": "wikipedia-mercator",
+      "note": "A point on the equator, to draw it across the map."
+    }
+  },
+  "sources": {
+    "wikipedia-mercator": {
+      "label": "Wikipedia: Mercator projection (revision 1378396297)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Mercator_projection&oldid=1378396297"
+    },
+    "wikipedia-greenland": {
+      "label": "Wikipedia: Greenland (revision 1377213152)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Greenland&oldid=1377213152"
+    },
+    "wikipedia-africa": {
+      "label": "Wikipedia: Africa (revision 1377093137)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Africa&oldid=1377093137"
+    },
+    "geomotion-primitives": {
+      "label": "Geographica map renderer documentation (docs/geomotion-primitives.md)",
+      "url": "https://github.com/AmrElsehemy/agentic-video-studio/blob/master/docs/geomotion-primitives.md"
+    },
+    "natural-earth": {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    },
+    "wikipedia-algeria": {
+      "label": "Wikipedia: Algeria (revision 1378106837)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Algeria&oldid=1378106837"
+    },
+    "wikipedia-drc": {
+      "label": "Wikipedia: Democratic Republic of the Congo (revision 1375614006)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Democratic_Republic_of_the_Congo&oldid=1375614006"
+    },
+    "wikipedia-areas": {
+      "label": "Wikipedia: Greenland (1377213152), Algeria (1378106837) and Democratic Republic of the Congo (1375614006)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Greenland&oldid=1377213152"
+    }
+  },
+  "datasets": {
+    "true-area": {
+      "label": "TRUE AREA",
+      "unit": "km²",
+      "source": "wikipedia-areas",
+      "note": "Each place's total area from its Wikipedia article.",
+      "values": {
+        "Greenland": 2166086,
+        "Algeria": 2381741,
+        "Democratic Republic of the Congo": 2345408
+      }
+    }
+  }
+}

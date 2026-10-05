@@ -213,7 +213,8 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
     const size = annotation.type === 'marker' ? POINT_LABEL_SIZE : LABEL_SIZE;
     texts.set(index, {box: fitInside(labelBox(x, annotation.type === 'marker' ? y - MARKER_LIFT : y, annotation.text, size), BOUNDS), anchorY: projected[1], priority: annotation.at, opacity: appear(annotation.at) * vanish(annotation.until), size});
   });
-  const legendBox: Box | undefined = primitive.data?.legend ? {x: LEGEND.x + LEGEND.width / 2, y: SIZE.height - SAFE - 112 + 47, halfWidth: LEGEND.width / 2 + 18, halfHeight: 65} : undefined;
+  const keyWidth = primitive.data ? legendWidth(valueRange(primitive.data.values.map(({value}) => value)), primitive.data.unit) : LEGEND.width;
+  const legendBox: Box | undefined = primitive.data?.legend ? {x: LEGEND.x + keyWidth / 2, y: SIZE.height - SAFE - 112 + 47, halfWidth: keyWidth / 2 + 18, halfHeight: 65} : undefined;
   const placed = [...texts.values(), ...(legendBox ? [{box: legendBox, priority: Infinity, opacity: primitive.data ? appear(primitive.data.at) : 0}] : [])];
   const resolved = resolveLabels(placed, BOUNDS);
   const boxes = new Map([...texts.keys()].map((index, order) => [index, resolved.boxes[order]]));
@@ -395,9 +396,16 @@ const shade = (value: number, [low, high]: [number, number]) => .12 + .78 * (hig
 export const formatValue = (value: number, unit?: string) => `${value.toLocaleString('en-US')}${unit ? ` ${unit.toUpperCase()}` : ''}`;
 
 const LEGEND = {x: SAFE, width: 340, bar: 20};
+/** About how wide one 26 px legend character is, letter spacing included, and the space kept between the two values. */
+const LEGEND_CHAR = 15;
+const LEGEND_GAP = 48;
+/** The key's width: long values ("2,166,086 KM²") widen it so its two ends don't run into each other; short ones keep it as it was. */
+const legendWidth = (range: [number, number], unit?: string) => Math.max(LEGEND.width, range.map((value) => formatValue(value, unit).length).reduce((sum, length) => sum + length, 0) * LEGEND_CHAR + LEGEND_GAP);
 /** The data map's key: its label, a bar from faint to strong, and the lowest and highest values. */
 const DataLegend: React.FC<{label: string; unit?: string; range: [number, number]; accent: string; ink: string; backdrop: string; opacity: number}> = ({label, unit, range, accent, ink, backdrop, opacity}) => {
   const top = SIZE.height - SAFE - 112;
+  const [low, high] = range.map((value) => formatValue(value, unit));
+  const width = legendWidth(range, unit);
   const text = {fontFamily: displayFont, letterSpacing: 2, fill: ink};
   return <g opacity={opacity}>
     <defs>
@@ -406,10 +414,10 @@ const DataLegend: React.FC<{label: string; unit?: string; range: [number, number
         <stop offset="1" stopColor={accent} stopOpacity={shade(range[1], range)} />
       </linearGradient>
     </defs>
-    <rect x={LEGEND.x - 18} y={top - 18} width={LEGEND.width + 36} height={130} rx={18} fill={backdrop} opacity={.78} />
+    <rect x={LEGEND.x - 18} y={top - 18} width={width + 36} height={130} rx={18} fill={backdrop} opacity={.78} />
     <text x={LEGEND.x} y={top + 22} style={{...text, fontSize: 30}}>{label}</text>
-    <rect x={LEGEND.x} y={top + 42} width={LEGEND.width} height={LEGEND.bar} rx={LEGEND.bar / 2} fill="url(#geo-data-ramp)" stroke={ink} strokeOpacity={.35} />
-    <text x={LEGEND.x} y={top + 92} style={{...text, fontSize: 26}}>{formatValue(range[0], unit)}</text>
-    <text x={LEGEND.x + LEGEND.width} y={top + 92} textAnchor="end" style={{...text, fontSize: 26}}>{formatValue(range[1], unit)}</text>
+    <rect x={LEGEND.x} y={top + 42} width={width} height={LEGEND.bar} rx={LEGEND.bar / 2} fill="url(#geo-data-ramp)" stroke={ink} strokeOpacity={.35} />
+    <text x={LEGEND.x} y={top + 92} style={{...text, fontSize: 26}}>{low}</text>
+    <text x={LEGEND.x + width} y={top + 92} textAnchor="end" style={{...text, fontSize: 26}}>{high}</text>
   </g>;
 };
