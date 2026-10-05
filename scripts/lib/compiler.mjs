@@ -1,6 +1,8 @@
 import {isDeepStrictEqual} from 'node:util';
 import {getArchetype, planScenes} from '../archetypes.mjs';
 import {episodeDraftSchema} from '../draft-schema.mjs';
+import {diagramActionProblems, diagramProblems} from '../diagram-schema.mjs';
+import {layoutDiagram, layoutProblems} from './diagram-layout.mjs';
 import {VOICE_MODELS, voiceProblems} from '../episode-fields.mjs';
 import {geoProblems, geoRightsAsset, loadGeoData} from './geo-primitives.mjs';
 import {loadShow} from './shows.mjs';
@@ -40,6 +42,24 @@ const episodeVoice = (draft, show) => {
   return voice;
 };
 
+/**
+ * The episode's diagram (#120) with its layout, after checking the spec, the
+ * geometry and every scene's actions; undefined when the episode has none.
+ */
+const compileDiagram = (draft) => {
+  const scenes = draft.scenes.filter((scene) => scene.primitive?.kind === 'diagram');
+  if (!draft.diagram) {
+    if (scenes.length) throw new Error(`${draft.id} has diagram scenes (${scenes.map((scene) => scene.id).join(', ')}) but no diagram; add one at the top of the draft.`);
+    return undefined;
+  }
+  const fail = (problems) => { if (problems.length) throw new Error(`${draft.id}'s diagram has problems:\n${problems.map((problem) => `- ${problem}`).join('\n')}`); };
+  // The spec first: layout needs every edge to point at a node.
+  fail(diagramProblems(draft.diagram));
+  const layout = layoutDiagram(draft.diagram);
+  fail([...layoutProblems(draft.diagram, layout), ...diagramActionProblems(draft.diagram, draft.scenes)]);
+  return {spec: draft.diagram, layout};
+};
+
 /** The draft's own palette, else the show's variant it names, else the show's palette. */
 const episodePalette = (draft, show) => {
   if (draft.palette && draft.paletteVariant) throw new Error(`${draft.id} sets both a palette and paletteVariant "${draft.paletteVariant}"; keep one.`);
@@ -71,10 +91,10 @@ export const compileEpisode = (rawDraft, {showId, show = loadShow(showId), geo})
   const cleanFacts = (facts = []) => facts.filter((fact) => numberRelevant || !identifiers.has(fact));
 
   // A subject without artwork (e.g. a country, told with maps) needs every scene to bring its own visual:
-  // a map, or artwork of its own. Other primitives and the archetype's shots draw the subject's artwork.
+  // a map, a diagram, or artwork of its own. Other primitives and the archetype's shots draw the subject's artwork.
   if (!draft.subject.artworkUrl) {
-    const bare = draft.scenes.filter((scene) => !scene.artworkUrl && scene.primitive?.kind !== 'geo-map').map((scene) => scene.id);
-    if (bare.length) throw new Error(`${episodeId}'s subject has no artwork, so every scene needs a geo-map primitive or its own artworkUrl. Missing: ${bare.join(', ')}.`);
+    const bare = draft.scenes.filter((scene) => !scene.artworkUrl && !['geo-map', 'diagram'].includes(scene.primitive?.kind)).map((scene) => scene.id);
+    if (bare.length) throw new Error(`${episodeId}'s subject has no artwork, so every scene needs a geo-map or diagram primitive, or its own artworkUrl. Missing: ${bare.join(', ')}.`);
   }
 
   // Map scenes must name places that exist in the pinned map data (public/geo/).
@@ -82,6 +102,8 @@ export const compileEpisode = (rawDraft, {showId, show = loadShow(showId), geo})
   const geoData = geoScenes.length ? geo ?? loadGeoData() : undefined;
   const geoErrors = geoScenes.flatMap((scene) => geoProblems(scene.primitive, geoData).map((problem) => `scene "${scene.id}" ${problem}`));
   if (geoErrors.length) throw new Error(`${episodeId} has map scenes that refer to unknown places:\n${geoErrors.map((error) => `- ${error}`).join('\n')}`);
+
+  const diagram = compileDiagram(draft);
 
   const plan = planScenes(archetype, draft.scenes);
   const scenes = draft.scenes.map((scene, index) => {
@@ -142,6 +164,7 @@ export const compileEpisode = (rawDraft, {showId, show = loadShow(showId), geo})
     related,
     format: {width: 1080, height: 1920, fps: 30},
     palette: episodePalette(draft, show),
+    ...(diagram ? {diagram} : {}),
     ...(draft.twinOf ? {twinOf: draft.twinOf} : {}),
     audio: {
       music: `generated/${episodeId}-bed.wav`,

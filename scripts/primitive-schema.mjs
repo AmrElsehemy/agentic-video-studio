@@ -3,6 +3,7 @@
 // archetype's shot is the fallback. Shared by the draft schema, the compiler
 // and the renderer's manifest schema.
 import {z} from 'zod';
+import {diagramPrimitiveFields} from './diagram-schema.mjs';
 
 export const POKEMON_TYPE_NAMES = ['Normal', 'Fire', 'Water', 'Grass', 'Electric', 'Ice', 'Fighting', 'Poison', 'Ground', 'Flying', 'Psychic', 'Bug', 'Rock', 'Ghost', 'Dragon', 'Dark', 'Steel', 'Fairy'];
 
@@ -83,6 +84,8 @@ export const primitiveSchema = z.discriminatedUnion('kind', [
       legend: z.boolean().default(true),
     }).strict().optional(),
   }).strict(),
+  // An architecture diagram (#120): actions on the episode's persistent canvas.
+  z.object(diagramPrimitiveFields).strict(),
 ]).superRefine((primitive, context) => {
   if (primitive.kind === 'geo-map') {
     // Keyframes start at the beginning of the scene and move forward in time.

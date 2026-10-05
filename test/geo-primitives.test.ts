@@ -86,7 +86,7 @@ describe('compiling map scenes', () => {
   it('requires a map or artwork in every scene when the subject has no artwork', () => {
     const draft = draftWithMap(shots['between-two-seas']);
     delete draft.subject.artworkUrl;
-    assert.throws(() => compileEpisode(draft, {showId: 'pokepulses'}), /subject has no artwork, so every scene needs a geo-map primitive or its own artworkUrl\. Missing: /);
+    assert.throws(() => compileEpisode(draft, {showId: 'pokepulses'}), /subject has no artwork, so every scene needs a geo-map or diagram primitive, or its own artworkUrl\. Missing: /);
     draft.scenes.forEach((scene: {primitive?: unknown}) => { scene.primitive = shots['fly-to-georgia']; });
     assert.ok(compileEpisode(draft, {showId: 'pokepulses'}).manifest.scenes.every((scene) => scene.primitive?.kind === 'geo-map'));
   });

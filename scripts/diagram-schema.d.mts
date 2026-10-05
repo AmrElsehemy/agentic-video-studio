@@ -1,0 +1,14 @@
+import type {z} from 'zod';
+import type {DiagramSpec} from './lib/diagram-layout.mjs';
+export type {DiagramSpec};
+export declare const NODE_KINDS: string[];
+export declare const DIAGRAM_VERBS: string[];
+export declare const diagramSpecSchema: z.ZodType<DiagramSpec & {direction: 'down'; edges: (DiagramSpec['edges'][number] & {style: 'solid' | 'dashed'})[]}>;
+export declare const anchorSchema: z.ZodType<any>;
+export declare const diagramActionSchema: z.ZodType<any>;
+export declare const diagramPrimitiveFields: Record<string, z.ZodType<any>>;
+export declare const diagramProblems: (spec: DiagramSpec) => string[];
+export declare const diagramActionProblems: (spec: DiagramSpec, scenes: {id: string; narration: string; primitive?: any}[]) => string[];
+export declare const actionTargets: (action: any) => string[];
+export declare const wordKey: (text: string) => string;
+export declare const wordMatches: (token: string, word: string) => boolean;

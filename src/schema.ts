@@ -1,5 +1,6 @@
 import {z} from 'zod';
 import {primitiveSchema} from '../scripts/primitive-schema.mjs';
+import {diagramSpecSchema} from '../scripts/diagram-schema.mjs';
 import {captionsSchema, fontsSchema, musicBedSchema, wordmarkSchema} from '../scripts/show-schema.mjs';
 import {relatedSchema, subjectSchema} from '../scripts/subject-schema.mjs';
 import {idSchema, paletteSchema, pitchLine, rightsSchema, sceneText, sourcesSchema, TARGET_EMOTIONS, VOICE_PROVIDERS, voiceProblems, voiceSettings} from '../scripts/episode-fields.mjs';
@@ -17,6 +18,8 @@ export const sceneSchema = z.object({
   primitive: primitiveSchema.optional(),
   // Word-synced captions (#86): added at render time from the narration track, never stored in the manifest.
   words: z.array(z.object({text: z.string(), start: z.number(), end: z.number()})).optional(),
+  // When each diagram action happens, in seconds from the scene start (#125): set in the render props.
+  diagramTimes: z.array(z.object({start: z.number(), end: z.number(), until: z.number().optional()})).optional(),
 });
 
 // Compiled episodes use an archetype from archetypes/<name>.json (checked by
@@ -53,6 +56,17 @@ export const videoSchema = z.object({
   related: z.array(relatedSchema).max(3).default([]),
   format: z.object({width: z.literal(1080), height: z.literal(1920), fps: z.literal(30)}),
   palette: paletteSchema,
+  // An architecture diagram (#120) with its layout, computed when the episode was compiled.
+  diagram: z.object({
+    spec: diagramSpecSchema,
+    layout: z.object({
+      width: z.number(),
+      height: z.number(),
+      nodes: z.record(z.string(), z.object({x: z.number(), y: z.number(), w: z.number(), h: z.number(), rank: z.number()})),
+      edges: z.record(z.string(), z.object({points: z.array(z.tuple([z.number(), z.number()])), labelAt: z.tuple([z.number(), z.number()]).optional()})),
+      groups: z.record(z.string(), z.object({x: z.number(), y: z.number(), w: z.number(), h: z.number()})),
+    }),
+  }).optional(),
   // The episode this one retells with a different palette (#92).
   twinOf: idSchema.optional(),
   audio: z.object({

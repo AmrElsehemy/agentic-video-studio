@@ -3,6 +3,7 @@ import {interpolate, spring} from 'remotion';
 import type {Primitive} from '../../scripts/primitive-schema.mjs';
 import type {VideoManifest} from '../schema';
 import {Art, artworkPair, type ShotProps} from './shots';
+import {DiagramCanvas} from './diagram/DiagramCanvas';
 import {GeoMapVisual} from './geo/GeoMap';
 import {bodyFont, displayFont} from './typography';
 
@@ -198,6 +199,7 @@ export const PrimitiveVisual: React.FC<ShotProps & {primitive: Primitive}> = ({p
     case 'timeline': return <TimelinePrimitive {...props} data={primitive} />;
     case 'checklist': return <ChecklistPrimitive {...props} data={primitive} />;
     case 'geo-map': return <GeoMapVisual {...props} data={primitive} />;
+    case 'diagram': return <DiagramCanvas {...props} data={primitive} />;
   }
 };
 

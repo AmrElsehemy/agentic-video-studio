@@ -1,0 +1,11 @@
+export type DiagramNode = {id: string; label: string; kind: string; detail?: string; group?: string};
+export type DiagramEdge = {id: string; from: string; to: string; label?: string; style?: 'solid' | 'dashed'};
+export type DiagramSpec = {direction?: 'down'; nodes: DiagramNode[]; edges: DiagramEdge[]; groups: {id: string; label: string}[]};
+export type Box = {x: number; y: number; w: number; h: number};
+export type DiagramLayout = {width: number; height: number; nodes: Record<string, Box & {rank: number}>; edges: Record<string, {points: [number, number][]; labelAt?: [number, number]}>; groups: Record<string, Box>};
+export declare const CANVAS_WIDTH: number;
+export declare const TYPE: {label: number; detail: number; tag: number};
+export declare const nodeSize: (node: DiagramNode) => {w: number; h: number};
+export declare const ranks: (spec: DiagramSpec) => Map<string, number>;
+export declare const layoutDiagram: (spec: DiagramSpec) => DiagramLayout;
+export declare const layoutProblems: (spec: DiagramSpec, layout: DiagramLayout) => string[];

@@ -79,7 +79,7 @@ describe('map scenes in the catalog', () => {
 });
 
 describe('continuous camera across map scenes (#85)', () => {
-  const episodes = listManifests().map((file) => JSON.parse(fs.readFileSync(file, 'utf8'))).filter((manifest) => manifest.scenes.some((_: unknown, index: number) => continuesMap(manifest.scenes, index)));
+  const episodes = listManifests().map((file) => JSON.parse(fs.readFileSync(file, 'utf8'))).filter((manifest) => manifest.scenes.some((_: unknown, index: number) => continuesMap(manifest.scenes, index) && manifest.scenes[index].primitive.kind === 'geo-map'));
   const same = (a: {lon: number; lat: number; scale: number}, b: typeof a) => Math.abs(a.lon - b.lon) < 1e-9 && Math.abs(a.lat - b.lat) < 1e-9 && Math.abs(a.scale - b.scale) < 1e-6;
 
   it('has episodes with consecutive map scenes', () => {
