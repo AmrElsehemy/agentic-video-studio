@@ -106,15 +106,14 @@ export const DiagramCanvas: React.FC<ShotProps & {data: DiagramPrimitive}> = ({s
   const state = canvasState(manifest, index, frame, manifest.format.fps);
   const {spec, layout} = manifest.diagram;
   const palette: Palette = {background: manifest.palette.background, surface: manifest.palette.surface, ink: manifest.palette.ink, accent};
-  // Later arrivals draw on top, so a new node is never hidden under an older edge.
-  const order = (start: number) => start;
   return <div style={{position: 'absolute', inset: 0, overflow: 'hidden', WebkitMaskImage: 'linear-gradient(transparent 0, #000 48px, #000 calc(100% - 48px), transparent 100%)'}}>
     <svg width={layout.width} height={layout.height} overflow="visible" style={{position: 'absolute', left: 0, top: 0, transformOrigin: '0 0', transform: viewTransform(state.camera, MAP_SIZE)}}>
       <Grid layout={layout} ink={palette.ink} />
       {spec.groups.filter((group) => state.groups[group.id] && layout.groups[group.id]).map((group) => <GroupBox key={group.id} label={group.label} box={layout.groups[group.id]} entrance={state.groups[group.id]} palette={palette} />)}
-      {spec.edges.filter((edge) => state.edges[edge.id]).sort((a, b) => order(state.edges[a.id].start) - order(state.edges[b.id].start))
+      {spec.edges.filter((edge) => state.edges[edge.id]).sort((a, b) => state.edges[a.id].start - state.edges[b.id].start)
         .map((edge) => <Edge key={edge.id} edge={edge} geometry={layout.edges[edge.id]} state={state.edges[edge.id]} time={state.time} palette={palette} />)}
-      {spec.nodes.filter((node) => state.nodes[node.id]).sort((a, b) => order(state.nodes[a.id].start) - order(state.nodes[b.id].start))
+      {/* Later arrivals draw on top, so a new node is never hidden under an older one. */}
+      {spec.nodes.filter((node) => state.nodes[node.id]).sort((a, b) => state.nodes[a.id].start - state.nodes[b.id].start)
         .map((node) => <NodeBox key={node.id} node={node} box={layout.nodes[node.id]} entrance={state.nodes[node.id]} palette={palette} />)}
     </svg>
   </div>;
