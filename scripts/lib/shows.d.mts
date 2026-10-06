@@ -12,7 +12,7 @@ export type ShowProfile = {
   music: {bpm: number; notes: number[]; volume: number};
   voice: {provider: 'openai' | 'elevenlabs'; voice: string; speed: number; model: string; instructions: string};
   notices: {ownership: string; nonAffiliation: string};
-  publishing?: {hashtags: string[]; tags: string[]; channelId?: string; playlistId?: string; madeForKids?: boolean};
+  publishing?: {hashtags: string[]; tags: string[]; channelId?: string; playlistId?: string; madeForKids?: boolean; categoryId?: string; credits?: boolean};
   subjects?: {identifierLabel: string; identifierPattern: string};
   /** A recorded legal review allowing the show's subject artwork to be published without a licence. */
   artworkClearance?: Review;

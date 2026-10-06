@@ -245,7 +245,7 @@ export const youtubeMetadata = (manifest, {privacy = 'private', publishAt, madeF
   const declaredForKids = madeForKids ?? show.publishing?.madeForKids;
   if (declaredForKids !== undefined) status.selfDeclaredMadeForKids = declaredForKids;
   return {
-    snippet: {title, description, tags, categoryId: process.env.YOUTUBE_CATEGORY_ID || YOUTUBE_DEFAULT_CATEGORY, defaultLanguage: 'en'},
+    snippet: {title, description, tags, categoryId: process.env.YOUTUBE_CATEGORY_ID || show.publishing?.categoryId || YOUTUBE_DEFAULT_CATEGORY, defaultLanguage: 'en'},
     status,
   };
 };

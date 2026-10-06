@@ -64,10 +64,18 @@ test('youtube description', async (t) => {
   await t.test('credits how a map episode was made, without model names', () => {
     const silkRoad = read('geographica', 'silk-road');
     assert.equal(creditLine(silkRoad), 'Animated in code · Narration: AI-generated voice (OpenAI TTS) · Map data: Natural Earth');
-    const {snippet} = youtubeMetadata(silkRoad, {show: loadShow('geographica')});
+    const geographica = loadShow('geographica');
+    const {snippet} = youtubeMetadata(silkRoad, {show: {...geographica, publishing: {...geographica.publishing!, credits: undefined}}});
     assert.match(snippet.description, /Animated in code · Narration: AI-generated voice \(OpenAI TTS\) · Map data: Natural Earth/);
     assert.match(snippet.description, /Made with Natural Earth/);
     assert.doesNotMatch(snippet.description, /gpt-|claude-|tts-1|gpt-4o/i);
+  });
+
+  await t.test('leaves out the credits when the show sets credits: false, keeping the notice and sources', () => {
+    const {description} = youtubeMetadata(read('geographica', 'silk-road'), {show: loadShow('geographica')}).snippet;
+    assert.doesNotMatch(description, /Animated in code|Made with Natural Earth|Maps drawn from Natural Earth/);
+    assert.match(description, /independent educational series/);
+    assert.match(description, /Sources:/);
   });
 
   await t.test("uses the show's own hashtags and tags, so a Geographica upload isn't tagged as Pokémon", () => {

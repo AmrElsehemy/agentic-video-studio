@@ -45,6 +45,8 @@ export const showSchema = z.object({
     /** Uploads are added to this playlist (the part after list= in its URL). Needs the playlist scope: run youtube:auth again. */
     /** The channel owner's made-for-kids declaration, sent with every upload (--made-for-kids=true|false overrides it). Their determination to make, never guessed. */
     madeForKids: z.boolean().optional(),
+    credits: z.boolean().optional(),
+    categoryId: z.string().regex(/^\d+$/).optional(),
     playlistId: z.string().regex(/^PL[\w-]{6,}$/, 'A YouTube playlist id, copied in full from the list= part of the playlist URL, e.g. "PLxxxxxxxxxxxx"').optional(),
   }).strict().optional(),
   /** Rules for the show's subjects, e.g. PokePulses identifiers are Pokédex numbers like "#001". */

@@ -59,7 +59,7 @@ npm run youtube:schedule -- charmander-004 --publish-at=2026-10-01T17:00:00Z
 
 Scheduling uploads the video as private and sets YouTube's `publishAt` timestamp.
 
-Uploads use YouTube category 24 (Entertainment). Set `YOUTUBE_CATEGORY_ID` to override it for a run.
+Uploads use YouTube category 24 (Entertainment) unless the show profile sets `publishing.categoryId` (Geographica: `27`, Education). Set `YOUTUBE_CATEGORY_ID` to override either for a run.
 
 Optional flags:
 

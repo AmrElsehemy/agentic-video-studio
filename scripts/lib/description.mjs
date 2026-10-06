@@ -25,15 +25,17 @@ export const creditLine = (manifest) => {
 
 /** The description, at most 5,000 characters (YouTube's limit). */
 export const episodeDescription = (manifest, show) => {
-  const attributions = (manifest.rights?.assets ?? []).filter((asset) => asset.kind === 'map-data' && asset.notes).map((asset) => asset.notes);
+  // A show can leave out the ownership notice, the credit line and the asset attributions (publishing.credits: false).
+  const credits = show?.publishing?.credits !== false;
+  const attributions = !credits ? [] : (manifest.rights?.assets ?? []).filter((asset) => asset.kind === 'map-data' && asset.notes).map((asset) => asset.notes);
   const sources = (manifest.sources ?? []).map((source) => `- ${source.label}: ${source.url}`);
   const hashtags = show?.publishing?.hashtags ?? ['#Shorts'];
   return [
     manifest.title,
     '',
     manifest.rights?.nonAffiliationNotice,
-    manifest.rights?.ownershipNotice,
-    creditLine(manifest),
+    credits ? manifest.rights?.ownershipNotice : undefined,
+    credits ? creditLine(manifest) : undefined,
     ...unique(attributions),
     ...(sources.length ? ['', 'Sources:', ...sources] : []),
     '',
