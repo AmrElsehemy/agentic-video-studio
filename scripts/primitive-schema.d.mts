@@ -30,6 +30,7 @@ export type DiagramAction =
   | (ActionBase & {do: 'reveal'; target: string; anim: 'draw' | 'pop' | 'fade'})
   | (ActionBase & {do: 'connect'; edge: string})
   | (ActionBase & {do: 'highlight'; target: string; until?: DiagramAnchor})
+  | (ActionBase & {do: 'annotate'; target: string; text: string})
   | (ActionBase & {do: 'camera'; focus: 'all' | string[]; padding: number});
 export type DiagramPrimitive = {kind: 'diagram'; actions: DiagramAction[]; cut?: boolean};
 export type PrimitiveKind = Primitive['kind'];

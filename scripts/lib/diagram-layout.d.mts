@@ -1,8 +1,8 @@
-export type DiagramNode = {id: string; label: string; kind: string; detail?: string; group?: string};
+export type DiagramNode = {id: string; label: string; kind: string; detail?: string; group?: string; doodle?: string};
 export type DiagramEdge = {id: string; from: string; to: string; label?: string; style?: 'solid' | 'dashed'};
-export type DiagramSpec = {direction?: 'down'; nodes: DiagramNode[]; edges: DiagramEdge[]; groups: {id: string; label: string}[]};
+export type DiagramSpec = {direction?: 'down'; theme?: 'clean' | 'notebook'; title?: string; nodes: DiagramNode[]; edges: DiagramEdge[]; groups: {id: string; label: string}[]};
 export type Box = {x: number; y: number; w: number; h: number};
-export type DiagramLayout = {width: number; height: number; nodes: Record<string, Box & {rank: number}>; edges: Record<string, {points: [number, number][]; labelAt?: [number, number]}>; groups: Record<string, Box>};
+export type DiagramLayout = {width: number; height: number; nodes: Record<string, Box & {rank: number; cx?: number; cy?: number; r?: number}>; edges: Record<string, {points: [number, number][]; labelAt?: [number, number]; d?: string}>; groups: Record<string, Box>; titleAt?: [number, number]};
 export declare const CANVAS_WIDTH: number;
 export declare const TYPE: {label: number; detail: number; tag: number};
 export declare const nodeSize: (node: DiagramNode) => {w: number; h: number};

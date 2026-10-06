@@ -35,60 +35,71 @@
     ]
   },
   "diagram": {
+    "theme": "notebook",
+    "title": "How an AI video studio works",
     "nodes": [
       {
         "id": "prompt",
         "label": "User prompt",
         "kind": "user",
-        "detail": "one line: a topic"
+        "detail": "one line: a topic",
+        "doodle": "person"
       },
       {
         "id": "planner",
         "label": "Planner",
         "kind": "agent",
-        "detail": "picks the angle and story shape"
+        "detail": "picks the angle and story shape",
+        "doodle": "compass"
       },
       {
         "id": "writer",
         "label": "Writer",
         "kind": "agent",
-        "detail": "scenes and narration"
+        "detail": "scenes and narration",
+        "doodle": "pencil"
       },
       {
         "id": "storyboard",
         "label": "Storyboard",
         "kind": "artifact",
-        "detail": "shots as data, not pixels"
+        "detail": "shots as data, not pixels",
+        "doodle": "film"
       },
       {
         "id": "voice",
         "label": "Voice",
         "kind": "tool",
         "group": "assets",
-        "detail": "with word timings"
+        "detail": "with word timings",
+        "doodle": "microphone"
       },
       {
         "id": "music",
         "label": "Music + art",
         "kind": "tool",
-        "group": "assets"
+        "group": "assets",
+        "doodle": "notes"
       },
       {
         "id": "remotion",
         "label": "Remotion",
         "kind": "process",
-        "detail": "data to frames, every time"
+        "detail": "data to frames, every time",
+        "doodle": "clapper"
       },
       {
         "id": "qa",
         "label": "QA critic",
         "kind": "agent",
-        "detail": "checks the render"
+        "detail": "checks the render",
+        "doodle": "magnifier"
       },
       {
         "id": "video",
         "label": "Final video",
-        "kind": "artifact"
+        "kind": "artifact",
+        "doodle": "play"
       }
     ],
     "groups": [
@@ -171,7 +182,17 @@
           {
             "do": "reveal",
             "target": "prompt",
-            "at": 0.04
+            "at": {
+              "word": "line"
+            }
+          },
+          {
+            "do": "annotate",
+            "target": "prompt",
+            "text": "e.g. why Greenland looks so big",
+            "at": {
+              "after": "prompt"
+            }
           }
         ]
       }
@@ -199,6 +220,14 @@
             "target": "planner",
             "at": {
               "word": "planner"
+            }
+          },
+          {
+            "do": "annotate",
+            "target": "planner",
+            "text": "5 story shapes, e.g. mystery",
+            "at": {
+              "after": "planner"
             }
           },
           {
@@ -244,6 +273,14 @@
             }
           },
           {
+            "do": "annotate",
+            "target": "writer",
+            "text": "every scene under 6.4 s",
+            "at": {
+              "after": "writer"
+            }
+          },
+          {
             "do": "connect",
             "edge": "e2",
             "at": {
@@ -276,6 +313,14 @@
             "target": "storyboard",
             "at": {
               "word": "storyboards"
+            }
+          },
+          {
+            "do": "annotate",
+            "target": "storyboard",
+            "text": "counters, maps, timelines, diagrams",
+            "at": {
+              "after": "storyboard"
             }
           },
           {
@@ -320,6 +365,14 @@
               "word": "assets"
             },
             "anim": "fade"
+          },
+          {
+            "do": "annotate",
+            "target": "voice",
+            "text": "OpenAI or ElevenLabs, word-aligned",
+            "at": {
+              "after": "assets"
+            }
           },
           {
             "do": "connect",
@@ -371,6 +424,14 @@
             }
           },
           {
+            "do": "annotate",
+            "target": "remotion",
+            "text": "1080×1920 at 30 fps",
+            "at": {
+              "after": "remotion"
+            }
+          },
+          {
             "do": "connect",
             "edge": "e6",
             "at": {
@@ -417,6 +478,14 @@
             "target": "qa",
             "at": {
               "word": "critic"
+            }
+          },
+          {
+            "do": "annotate",
+            "target": "qa",
+            "text": "OCR and frame-jump checks",
+            "at": {
+              "after": "qa"
             }
           },
           {

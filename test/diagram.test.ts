@@ -43,7 +43,7 @@ describe('diagram spec', () => {
 
 describe('diagram layout', () => {
   it('ranks by longest path and lays a valid, deterministic picture', () => {
-    const spec = diagramSpecSchema.parse(draft().diagram);
+    const spec = diagramSpecSchema.parse({...draft().diagram, theme: 'clean'});
     assert.deepEqual([...ranks(spec)].filter(([, rank]) => rank === 4).map(([id]) => id), ['voice', 'music']);
     const layout = layoutDiagram(spec);
     assert.deepEqual(layoutProblems(spec, layout), []);
@@ -52,6 +52,19 @@ describe('diagram layout', () => {
     assert.equal(layout.edges.e1.points.length, 2, 'aligned nodes get a straight edge');
     assert.equal(layout.edges.e4.points.length, 4, 'offset nodes get an orthogonal elbow');
     assert.ok(layout.groups.assets.y < layout.nodes.voice.y && layout.groups.assets.x < layout.nodes.voice.x);
+  });
+
+  it('lays a notebook page as a zig-zag, centring the stages that fan out and gather', () => {
+    const spec = diagramSpecSchema.parse(draft().diagram);
+    assert.equal(spec.theme, 'notebook');
+    const layout = layoutDiagram(spec);
+    assert.deepEqual(layoutProblems(spec, layout), []);
+    const x = (id: string) => layout.nodes[id].cx;
+    assert.ok(x('prompt')! < 700 && x('planner')! > 700 && x('writer')! < 700, 'single stages alternate sides');
+    assert.equal(x('storyboard'), 700);
+    assert.equal(x('remotion'), 700);
+    assert.ok(layout.edges.e1.d?.startsWith('M ') && layout.titleAt);
+    assert.match(layoutProblems({...spec, nodes: spec.nodes.map((node, i) => (i ? node : {...node, detail: 'a detail line far too long to letter'}))}, layout).join(), /too long to letter/);
   });
 
   it('sizes boxes from their text and reports nodes that run off the canvas', () => {

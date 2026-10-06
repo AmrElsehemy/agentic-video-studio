@@ -3,6 +3,8 @@ import type {DiagramSpec} from './lib/diagram-layout.mjs';
 export type {DiagramSpec};
 export declare const NODE_KINDS: string[];
 export declare const DIAGRAM_VERBS: string[];
+export declare const DOODLES: string[];
+export declare const DIAGRAM_THEMES: string[];
 export declare const diagramSpecSchema: z.ZodType<DiagramSpec & {direction: 'down'; edges: (DiagramSpec['edges'][number] & {style: 'solid' | 'dashed'})[]}>;
 export declare const anchorSchema: z.ZodType<any>;
 export declare const diagramActionSchema: z.ZodType<any>;

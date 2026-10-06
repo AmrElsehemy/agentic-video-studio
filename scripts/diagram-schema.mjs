@@ -10,6 +10,10 @@ const id = z.string().regex(/^[a-z][a-z0-9-]*$/, 'use lowercase words joined by 
 
 /** What a node is: decides its tag and, later, its icon. */
 export const NODE_KINDS = ['user', 'agent', 'tool', 'process', 'artifact', 'store', 'model', 'api'];
+/** Hand-drawn doodles the notebook theme can draw for a node (src/video/sketch/doodles.ts); without one it draws its kind's. */
+export const DOODLES = ['person', 'robot', 'compass', 'pencil', 'film', 'microphone', 'notes', 'clapper', 'magnifier', 'play', 'gear', 'wrench', 'page', 'database', 'brain', 'plug'];
+/** How the diagram is drawn: clean boxes and arrows, or a hand-drawn notebook page (#132). */
+export const DIAGRAM_THEMES = ['clean', 'notebook'];
 
 export const diagramNodeSchema = z.object({
   id,
@@ -18,6 +22,7 @@ export const diagramNodeSchema = z.object({
   // A short line under the label, e.g. "picks the story shape".
   detail: z.string().min(1).max(36).optional(),
   group: id.optional(),
+  doodle: z.enum(DOODLES).optional(),
 }).strict();
 
 export const diagramEdgeSchema = z.object({
@@ -33,6 +38,9 @@ export const diagramGroupSchema = z.object({id, label: z.string().min(1).max(20)
 export const diagramSpecSchema = z.object({
   // Top to bottom suits a 9:16 frame; more directions come with the layered layout (#131).
   direction: z.literal('down').default('down'),
+  theme: z.enum(DIAGRAM_THEMES).default('clean'),
+  // Lettered across the top of a notebook page.
+  title: z.string().min(1).max(40).optional(),
   nodes: z.array(diagramNodeSchema).min(2).max(16),
   edges: z.array(diagramEdgeSchema).max(24).default([]),
   groups: z.array(diagramGroupSchema).max(6).default([]),
@@ -81,8 +89,8 @@ export const anchorSchema = z.union([
   z.literal('scene-end'),
 ]);
 
-/** Verbs the prototype draws; the rest of the vocabulary (#131) adds annotate, circle, pulse, dim, code and clear. */
-export const DIAGRAM_VERBS = ['reveal', 'connect', 'highlight', 'camera'];
+/** Verbs the prototype draws; the rest of the vocabulary (#131) adds circle, pulse, dim, code and clear. */
+export const DIAGRAM_VERBS = ['reveal', 'connect', 'highlight', 'camera', 'annotate'];
 
 const base = {id: id.optional(), at: anchorSchema, dur: z.number().min(0.1).max(4).optional()};
 export const diagramActionSchema = z.discriminatedUnion('do', [
@@ -93,6 +101,8 @@ export const diagramActionSchema = z.discriminatedUnion('do', [
   // A node or edge lights up in the accent colour until `until` (or the end of the canvas).
   z.object({do: z.literal('highlight'), target: id, until: anchorSchema.optional(), ...base}).strict(),
   // The camera moves to frame these elements ("all": everything defined).
+  // A handwritten side note beside a node, with a little arrow to it (drawn on notebook pages; skipped on clean ones).
+  z.object({do: z.literal('annotate'), target: id, text: z.string().min(1).max(44), ...base}).strict(),
   z.object({do: z.literal('camera'), focus: z.union([z.literal('all'), z.array(id).min(1).max(8)]), padding: z.number().min(0).max(.4).default(.14), ...base}).strict(),
 ]);
 
@@ -135,7 +145,7 @@ export const diagramActionProblems = (spec, scenes) => {
     const earlier = new Set();
     scene.primitive.actions.forEach((action, index) => {
       for (const target of actionTargets(action)) {
-        const known = action.do === 'connect' ? edges.has(target) : nodes.has(target) || groups.has(target) || (action.do === 'highlight' && edges.has(target));
+        const known = action.do === 'connect' ? edges.has(target) : action.do === 'annotate' ? nodes.has(target) : nodes.has(target) || groups.has(target) || (action.do === 'highlight' && edges.has(target));
         if (!known) problems.push(`${where(index)} (${action.do}) names "${target}", which isn't in the diagram`);
       }
       if (action.do === 'connect' && edges.has(action.edge)) {
@@ -143,6 +153,8 @@ export const diagramActionProblems = (spec, scenes) => {
         for (const end of [edge.from, edge.to]) if (!shown.has(end)) problems.push(`${where(index)} draws "${action.edge}" before "${end}" is on screen`);
       }
       if (action.do === 'highlight' && !shown.has(action.target)) problems.push(`${where(index)} highlights "${action.target}" before it is on screen`);
+      if (action.do === 'annotate' && !nodes.has(action.target)) problems.push(`${where(index)} annotates "${action.target}", which isn't a node`);
+      else if (action.do === 'annotate' && !shown.has(action.target)) problems.push(`${where(index)} annotates "${action.target}" before it is on screen`);
       for (const anchor of [action.at, action.until].filter(Boolean)) {
         if (typeof anchor === 'object' && 'word' in anchor && tokens.filter((token) => wordMatches(token, anchor.word)).length < (anchor.nth ?? 1)) {
           problems.push(`${where(index)} waits for "${anchor.word}"${(anchor.nth ?? 1) > 1 ? ` (time ${anchor.nth})` : ''}, which the narration doesn't say: "${scene.narration}"`);

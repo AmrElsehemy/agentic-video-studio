@@ -5,6 +5,7 @@ import type {VideoManifest, VideoScene} from '../schema';
 import {continuesMap} from './geo/camera';
 import {PrimitiveVisual} from './primitives';
 import {HEADLINE_SHOTS, ShotVisual} from './shots';
+import {SketchScene} from './sketch/SketchPage';
 import {bodyFont, displayFont} from './typography';
 import {Wordmark} from './wordmark';
 
@@ -35,6 +36,11 @@ export const CompiledEpisodeScene: React.FC<Props> = ({scene, manifest, sceneInd
   const textFade = seams.out ? exit : 1;
   // The subject's identifier (e.g. a Pokédex number) shows only when the story is actually about it.
   const identifier = manifest.direction.numberRelevant ? manifest.subject.identifier : undefined;
+
+  // A notebook diagram (#132) takes the whole frame: the page on the desk, no headline or scene chrome.
+  if (scene.primitive?.kind === 'diagram' && manifest.diagram?.spec.theme === 'notebook') {
+    return <AbsoluteFill style={{fontFamily: bodyFont}}><SketchScene scene={scene} manifest={manifest} sceneIndex={sceneIndex} frame={frame} fps={fps} durationInFrames={durationInFrames} fadeOut={!seams.out} /></AbsoluteFill>;
+  }
 
   return <AbsoluteFill style={{overflow: 'hidden', color: manifest.palette.ink, background: `radial-gradient(circle at ${runStart % 2 ? '25%' : '75%'} 38%, ${glow}30 0%, transparent 38%), linear-gradient(160deg, ${manifest.palette.surface}, ${manifest.palette.background} 64%)`, opacity: sceneFade, fontFamily: bodyFont}}>
     <div style={{position: 'absolute', inset: -260, opacity: .055, transform: `rotate(${runFrame * .07 + runStart * 23}deg)`, background: `repeating-conic-gradient(from 0deg, transparent 0deg 20deg, ${glow} 20.4deg 21deg)`}} />

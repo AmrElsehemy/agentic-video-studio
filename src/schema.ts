@@ -62,9 +62,10 @@ export const videoSchema = z.object({
     layout: z.object({
       width: z.number(),
       height: z.number(),
-      nodes: z.record(z.string(), z.object({x: z.number(), y: z.number(), w: z.number(), h: z.number(), rank: z.number()})),
-      edges: z.record(z.string(), z.object({points: z.array(z.tuple([z.number(), z.number()])), labelAt: z.tuple([z.number(), z.number()]).optional()})),
+      nodes: z.record(z.string(), z.object({x: z.number(), y: z.number(), w: z.number(), h: z.number(), rank: z.number(), cx: z.number().optional(), cy: z.number().optional(), r: z.number().optional()})),
+      edges: z.record(z.string(), z.object({points: z.array(z.tuple([z.number(), z.number()])), labelAt: z.tuple([z.number(), z.number()]).optional(), d: z.string().optional()})),
       groups: z.record(z.string(), z.object({x: z.number(), y: z.number(), w: z.number(), h: z.number()})),
+      titleAt: z.tuple([z.number(), z.number()]).optional(),
     }),
   }).optional(),
   // The episode this one retells with a different palette (#92).

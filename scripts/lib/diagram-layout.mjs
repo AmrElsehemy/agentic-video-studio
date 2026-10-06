@@ -5,7 +5,9 @@
 //
 // The prototype lays nodes out top to bottom in ranks (a node's rank is the
 // longest path to it from a start), side by side within a rank, centred. The
-// layered layout with wrapping comes with #131.
+// layered layout with wrapping comes with #131. A notebook-themed spec gets
+// the hand-drawn page layout instead (./diagram-sketch-layout.mjs).
+import {layoutSketch, sketchTextProblems} from './diagram-sketch-layout.mjs';
 
 /** The canvas is the scene's visual area (the same as a map's), in its pixels. */
 export const CANVAS_WIDTH = 1010;
@@ -50,6 +52,7 @@ const round = (value) => Math.round(value * 10) / 10;
  * x and y are the box's top-left corner.
  */
 export const layoutDiagram = (spec) => {
+  if (spec.theme === 'notebook') return layoutSketch(spec);
   const rank = ranks(spec);
   const rows = [];
   for (const node of spec.nodes) (rows[rank.get(node.id)] ??= []).push(node);
@@ -99,7 +102,7 @@ const crosses = ([x1, y1], [x2, y2], box) => {
 
 /** What's wrong with a layout: overlapping boxes, anything off the canvas, edges running through boxes. */
 export const layoutProblems = (spec, layout) => {
-  const problems = [];
+  const problems = spec.theme === 'notebook' ? sketchTextProblems(spec) : [];
   const ids = Object.keys(layout.nodes);
   ids.forEach((a, index) => ids.slice(index + 1).forEach((b) => {
     if (overlaps(layout.nodes[a], layout.nodes[b], 12)) problems.push(`nodes "${a}" and "${b}" overlap`);

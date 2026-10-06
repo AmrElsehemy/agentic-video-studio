@@ -6,11 +6,17 @@ import {speechSpan, wordTimes} from './captions.mjs';
 import {wordMatches} from '../diagram-schema.mjs';
 
 /** How long each kind of action takes by default, in seconds. */
-export const DEFAULT_DUR = {draw: .7, pop: .45, fade: .5, connect: .6, highlight: .35, camera: 1.2};
+export const DEFAULT_DUR = {draw: .7, pop: .45, fade: .5, connect: .6, highlight: .35, camera: 1.2, annotate: .8};
 /** Visuals start this much before their word, so they land as it is heard rather than after. */
 export const WORD_LEAD = .06;
 
-export const actionDur = (action) => action.dur ?? (action.do === 'reveal' ? DEFAULT_DUR[action.anim ?? 'draw'] : DEFAULT_DUR[action.do]);
+/** On a notebook page everything is drawn by hand, so it takes longer: a node is a circle, a doodle, marker and lettering. */
+export const NOTEBOOK_DUR = {draw: 2, pop: 2, fade: 2, connect: .7, highlight: .6, camera: 1.4, annotate: 1.1};
+
+export const actionDur = (action, theme = 'clean') => {
+  const table = theme === 'notebook' ? NOTEBOOK_DUR : DEFAULT_DUR;
+  return action.dur ?? (action.do === 'reveal' ? table[action.anim ?? 'draw'] : table[action.do]);
+};
 
 const round = (value) => Math.round(value * 1000) / 1000;
 
@@ -18,7 +24,7 @@ const round = (value) => Math.round(value * 1000) / 1000;
  * The times of one scene's actions: [{start, end, until?}] in seconds, in the
  * order of the actions. `words` are the scene's timed words ({text, start, end}).
  */
-export const resolveActions = (actions, {words, duration}) => {
+export const resolveActions = (actions, {words, duration, theme = 'clean'}) => {
   const times = [];
   const byId = new Map();
   const at = (anchor, dur) => {
@@ -33,7 +39,7 @@ export const resolveActions = (actions, {words, duration}) => {
     return (before ? before.end : 0) + (anchor.delay ?? 0);
   };
   actions.forEach((action) => {
-    const dur = actionDur(action);
+    const dur = actionDur(action, theme);
     const start = Math.min(at(action.at, dur), Math.max(0, duration - .1));
     const time = {start: round(start), end: round(Math.min(start + dur, duration))};
     if (action.do === 'highlight' && action.until !== undefined) time.until = round(Math.max(time.end, at(action.until, 0)));
@@ -55,6 +61,6 @@ export const withDiagramTimes = (manifest, speech = {}) => {
   return {...manifest, scenes: manifest.scenes.map((scene) => {
     if (scene.primitive?.kind !== 'diagram') return scene;
     const words = scene.words ?? wordTimes(scene.narration, speechSpan(scene, {speed, measured: speech[scene.id]}));
-    return {...scene, diagramTimes: resolveActions(scene.primitive.actions, {words, duration: scene.durationSeconds})};
+    return {...scene, diagramTimes: resolveActions(scene.primitive.actions, {words, duration: scene.durationSeconds, theme: manifest.diagram?.spec.theme})};
   })};
 };
