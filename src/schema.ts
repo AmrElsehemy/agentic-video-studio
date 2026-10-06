@@ -1,5 +1,6 @@
 import {z} from 'zod';
 import {primitiveSchema} from '../scripts/primitive-schema.mjs';
+import {archSpecSchema} from '../scripts/diagram-arch-schema.mjs';
 import {diagramSpecSchema} from '../scripts/diagram-schema.mjs';
 import {captionsSchema, fontsSchema, musicBedSchema, wordmarkSchema} from '../scripts/show-schema.mjs';
 import {relatedSchema, subjectSchema} from '../scripts/subject-schema.mjs';
@@ -54,11 +55,11 @@ export const videoSchema = z.object({
   }),
   subject: subjectSchema,
   related: z.array(relatedSchema).max(3).default([]),
-  format: z.object({width: z.literal(1080), height: z.literal(1920), fps: z.literal(30)}),
+  format: z.union([z.object({width: z.literal(1080), height: z.literal(1920), fps: z.literal(30)}), z.object({width: z.literal(1920), height: z.literal(1080), fps: z.literal(30)})]),
   palette: paletteSchema,
   // An architecture diagram (#120) with its layout, computed when the episode was compiled.
   diagram: z.object({
-    spec: diagramSpecSchema,
+    spec: z.union([archSpecSchema, diagramSpecSchema]),
     layout: z.object({
       width: z.number(),
       height: z.number(),
@@ -90,6 +91,13 @@ export const videoSchema = z.object({
 });
 
 export type VideoManifest = z.infer<typeof videoSchema>;
+type EpisodeDiagram = NonNullable<VideoManifest['diagram']>;
+/** A diagram the compiler laid out (the clean and notebook themes), as opposed to an architecture picture kept as drawn. */
+export type LaidOutDiagram = EpisodeDiagram & {spec: Exclude<EpisodeDiagram['spec'], {theme: 'architecture'}>};
+/** An existing architecture picture (#120), replayed with its own coordinates. */
+export type ArchitectureDiagram = EpisodeDiagram & {spec: Extract<EpisodeDiagram['spec'], {theme: 'architecture'}>};
+/** The manifest's diagram, for the renderers of laid-out themes (CompiledEpisodeScene routes architecture diagrams elsewhere). */
+export const laidOut = (manifest: VideoManifest) => manifest.diagram as LaidOutDiagram;
 export type VideoScene = z.infer<typeof sceneSchema>;
 
 export const getDurationInFrames = (manifest: VideoManifest) =>

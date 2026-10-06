@@ -1,4 +1,5 @@
 import {z} from 'zod';
+import {archSpecSchema} from './diagram-arch-schema.mjs';
 import {diagramSpecSchema} from './diagram-schema.mjs';
 import {archetypes} from './archetypes.mjs';
 import {primitiveSchema} from './primitive-schema.mjs';
@@ -36,7 +37,10 @@ export const episodeDraftSchema = z.preprocess(upgradeLegacySubject, z.object({
   related: z.array(relatedSchema).max(3).optional(),
   palette: paletteSchema.optional(),
   // An architecture diagram that builds up across the episode (#120): what exists; scenes' diagram primitives say what appears when.
-  diagram: diagramSpecSchema.optional(),
+  // An existing architecture picture replayed as is (theme "architecture"), or a spec laid out for the episode.
+  diagram: z.union([archSpecSchema, diagramSpecSchema]).optional(),
+  // 9:16 for Shorts (the default), or 16:9 for architecture walkthroughs and long-form.
+  format: z.enum(['vertical', 'landscape']).optional(),
   // A palette named in the show profile's paletteVariants, e.g. "light" (#92).
   paletteVariant: z.string().regex(/^[a-z0-9-]+$/).optional(),
   // The episode this one retells with a different palette, so the two can be compared (#92).

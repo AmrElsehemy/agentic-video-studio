@@ -6,12 +6,12 @@ import {speechSpan, wordTimes} from './captions.mjs';
 import {wordMatches} from '../diagram-schema.mjs';
 
 /** How long each kind of action takes by default, in seconds. */
-export const DEFAULT_DUR = {draw: .7, pop: .45, fade: .5, connect: .6, highlight: .35, camera: 1.2, annotate: .8};
+export const DEFAULT_DUR = {draw: .7, pop: .45, fade: .5, connect: .6, highlight: .35, camera: 1.2, annotate: .8, flow: 1.4};
 /** Visuals start this much before their word, so they land as it is heard rather than after. */
 export const WORD_LEAD = .06;
 
 /** On a notebook page everything is drawn by hand, so it takes longer: a node is a circle, a doodle, marker and lettering. */
-export const NOTEBOOK_DUR = {draw: 2, pop: 2, fade: 2, connect: .7, highlight: .6, camera: 1.4, annotate: 1.1};
+export const NOTEBOOK_DUR = {draw: 2, pop: 2, fade: 2, connect: .7, highlight: .6, camera: 1.4, annotate: 1.1, flow: 1.6};
 
 export const actionDur = (action, theme = 'clean') => {
   const table = theme === 'notebook' ? NOTEBOOK_DUR : DEFAULT_DUR;
@@ -45,7 +45,7 @@ export const resolveActions = (actions, {words, duration, theme = 'clean'}) => {
     if (action.do === 'highlight' && action.until !== undefined) time.until = round(Math.max(time.end, at(action.until, 0)));
     times.push(time);
     // `after` can name an action's id or the element it acts on.
-    for (const key of [action.id, action.target, action.edge].filter(Boolean)) byId.set(key, time);
+    for (const key of [action.id, action.target, action.edge, action.step].filter(Boolean)) byId.set(key, time);
   });
   return times;
 };

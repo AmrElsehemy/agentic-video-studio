@@ -3,6 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {describe, it} from 'node:test';
 import {fileURLToPath} from 'node:url';
+import {archActionProblems, archProblems, archSpecSchema} from '../scripts/diagram-arch-schema.mjs';
 import {diagramActionProblems, diagramProblems, diagramSpecSchema, wordMatches} from '../scripts/diagram-schema.mjs';
 import {primitiveSchema} from '../scripts/primitive-schema.mjs';
 import {compileEpisode} from '../scripts/lib/compiler.mjs';
@@ -10,6 +11,7 @@ import {layoutDiagram, layoutProblems, nodeSize, ranks} from '../scripts/lib/dia
 import {resolveActions, WORD_LEAD, withDiagramTimes} from '../scripts/lib/diagram-timing.mjs';
 import {videoSchema} from '../src/schema';
 import {fitBox, mixViews, viewAt} from '../src/video/canvas/camera';
+import {archState, dotAt} from '../src/video/arch/state';
 import {canvasState} from '../src/video/diagram/state';
 import {continuesMap} from '../src/video/geo/camera';
 
@@ -138,5 +140,43 @@ describe('diagram canvas state', () => {
     assert.equal(later.groups.assets.progress, 1);
     assert.equal(later.nodes.voice.anim, 'fade');
     assert.deepEqual(canvasState(timed, assets, 40, 30), canvasState(timed, assets, 40, 30));
+  });
+});
+
+describe('architecture walkthroughs', () => {
+  const azure = () => JSON.parse(fs.readFileSync(path.join(root, 'drafts/under-the-hood/azure-cache-aside.json'), 'utf8'));
+
+  it('keeps the source picture and finds steps and routes that are wrong', () => {
+    const spec = archSpecSchema.parse(azure().diagram);
+    assert.deepEqual(archProblems(spec), []);
+    assert.match(archProblems({...spec, steps: [...spec.steps, {...spec.steps[0], id: 'r1-again'}]}).join(), /both read step 1/);
+    assert.match(archProblems({...spec, edges: [{...spec.edges[0], points: [[0, 0], [5000, 0]]}]}).join(), /runs outside the 1540×968 source/);
+    const scenes = [{id: 's', narration: 'A read checks the cache.', primitive: primitiveSchema.parse({kind: 'diagram', actions: [{do: 'flow', step: 'r9', edges: ['nowhere'], at: {word: 'write'}}]})}];
+    assert.match(archActionProblems(spec, scenes, wordMatches).join(), /isn't in the diagram[\s\S]*isn't a step[\s\S]*isn't an edge[\s\S]*waits for "write"/);
+  });
+
+  it('compiles to a 16:9 walkthrough with longer limits than a Short', () => {
+    const {manifest} = compileEpisode(azure(), {showId: 'under-the-hood'});
+    assert.deepEqual(manifest.format, {width: 1920, height: 1080, fps: 30});
+    assert.equal(manifest.diagram?.spec.theme, 'architecture');
+    assert.ok(manifest.scenes.reduce((sum: number, scene: {durationSeconds: number}) => sum + scene.durationSeconds, 0) > 45);
+    assert.ok(videoSchema.safeParse(manifest).success);
+  });
+
+  it("sends each flow's dot along its edges and draws them as it goes", () => {
+    const {manifest} = compileEpisode(azure(), {showId: 'under-the-hood'});
+    const timed = withDiagramTimes(manifest) as typeof manifest;
+    const hit = timed.scenes.findIndex((scene: {id: string}) => scene.id === 'hit');
+    const times = (timed.scenes[hit] as {diagramTimes: {start: number; end: number}[]}).diagramTimes;
+    const frameAt = (seconds: number) => Math.round(seconds * 30);
+    const before = archState(timed, hit, frameAt(times[2].start) + 1, 30, {width: 1920, height: 1080});
+    const flow = before.flows.find((item) => item.step === 'r2')!;
+    assert.ok(flow.progress > 0 && flow.progress < .2 && before.edges['read-cache'].progress < 1);
+    const dot = dotAt(archSpecSchema.parse(manifest.diagram!.spec), flow)!;
+    assert.ok(Math.abs(dot.x - 600) < 2 && dot.y < 362, 'the dot leaves the app upward, along the route as drawn');
+    const after = archState(timed, hit, frameAt(times[2].end) + 2, 30, {width: 1920, height: 1080});
+    assert.equal(after.edges['read-cache'].progress, 1);
+    assert.equal(after.legend.read, 1);
+    assert.equal(after.edges['write-db'], undefined, 'the write flow has not started yet');
   });
 });

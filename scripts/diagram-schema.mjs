@@ -90,7 +90,7 @@ export const anchorSchema = z.union([
 ]);
 
 /** Verbs the prototype draws; the rest of the vocabulary (#131) adds circle, pulse, dim, code and clear. */
-export const DIAGRAM_VERBS = ['reveal', 'connect', 'highlight', 'camera', 'annotate'];
+export const DIAGRAM_VERBS = ['reveal', 'connect', 'highlight', 'camera', 'annotate', 'flow'];
 
 const base = {id: id.optional(), at: anchorSchema, dur: z.number().min(0.1).max(4).optional()};
 export const diagramActionSchema = z.discriminatedUnion('do', [
@@ -103,6 +103,9 @@ export const diagramActionSchema = z.discriminatedUnion('do', [
   // The camera moves to frame these elements ("all": everything defined).
   // A handwritten side note beside a node, with a little arrow to it (drawn on notebook pages; skipped on clean ones).
   z.object({do: z.literal('annotate'), target: id, text: z.string().min(1).max(44), ...base}).strict(),
+  // A numbered step of an architecture diagram (./diagram-arch-schema.mjs): its badge and text appear,
+  // and a dot in the step's lane colour travels the edges in order, drawing any not yet shown.
+  z.object({do: z.literal('flow'), step: id, edges: z.array(id).min(1).max(6), ...base}).strict(),
   z.object({do: z.literal('camera'), focus: z.union([z.literal('all'), z.array(id).min(1).max(8)]), padding: z.number().min(0).max(.4).default(.14), ...base}).strict(),
 ]);
 
@@ -114,7 +117,7 @@ export const diagramPrimitiveFields = {
 };
 
 /** The ids an action refers to. */
-export const actionTargets = (action) => (action.do === 'connect' ? [action.edge] : action.do === 'camera' ? (action.focus === 'all' ? [] : action.focus) : [action.target]);
+export const actionTargets = (action) => (action.do === 'connect' ? [action.edge] : action.do === 'flow' ? [action.step, ...action.edges] : action.do === 'camera' ? (action.focus === 'all' ? [] : action.focus) : [action.target]);
 
 /** Lowercase letters and digits of a word, for matching anchors to narration. */
 export const wordKey = (text) => String(text).toLowerCase().normalize('NFKD').replace(/[^a-z0-9]/g, '');

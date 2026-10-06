@@ -3,6 +3,7 @@ import React from 'react';
 import type {DiagramPrimitive} from '../../../scripts/primitive-schema.mjs';
 import {MAP_SIZE} from '../geo/camera';
 import {viewTransform} from '../canvas/camera';
+import {laidOut} from '../../schema';
 import type {ShotProps} from '../shots';
 import {bodyFont, displayFont} from '../typography';
 import {canvasState, type Entrance, type Layout} from './state';
@@ -104,7 +105,7 @@ export const DiagramCanvas: React.FC<ShotProps & {data: DiagramPrimitive}> = ({s
   if (!manifest.diagram) return null;
   const index = manifest.scenes.findIndex((item) => item.id === scene.id);
   const state = canvasState(manifest, index, frame, manifest.format.fps);
-  const {spec, layout} = manifest.diagram;
+  const {spec, layout} = laidOut(manifest);
   const palette: Palette = {background: manifest.palette.background, surface: manifest.palette.surface, ink: manifest.palette.ink, accent};
   return <div style={{position: 'absolute', inset: 0, overflow: 'hidden', WebkitMaskImage: 'linear-gradient(transparent 0, #000 48px, #000 calc(100% - 48px), transparent 100%)'}}>
     <svg width={layout.width} height={layout.height} overflow="visible" style={{position: 'absolute', left: 0, top: 0, transformOrigin: '0 0', transform: viewTransform(state.camera, MAP_SIZE)}}>

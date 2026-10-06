@@ -3,7 +3,7 @@ import {evolvePath} from '@remotion/paths';
 import React from 'react';
 import {interpolate} from 'remotion';
 import {captionAt} from '../../../scripts/lib/captions.mjs';
-import type {VideoManifest, VideoScene} from '../../schema';
+import {laidOut, type VideoManifest, type VideoScene} from '../../schema';
 import {viewTransform, type Size} from '../canvas/camera';
 import {canvasState, type CanvasState} from '../diagram/state';
 import {CIRCLE_RED, edgePlan, groupPlan, INK, markPlan, nodePlan, notePlan, partProgress, penTip, titlePlan, type Part, type Plan} from './plan';
@@ -94,7 +94,7 @@ const penAt = (drawn: Drawn[], time: number) => {
 };
 
 const Page: React.FC<{manifest: VideoManifest; state: CanvasState; fps: number}> = ({manifest, state, fps}) => {
-  const {spec, layout} = manifest.diagram!;
+  const {spec, layout} = laidOut(manifest);
   const title = titlePlan(spec, layout);
   const drawn: Drawn[] = [];
   const nodes = spec.nodes.filter((node) => state.nodes[node.id]).map((node) => {

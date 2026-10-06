@@ -6,7 +6,7 @@
 import {speechSpan, wordTimes} from '../../../scripts/lib/captions.mjs';
 import {resolveActions, type ActionTime} from '../../../scripts/lib/diagram-timing.mjs';
 import type {DiagramAction, DiagramPrimitive} from '../../../scripts/primitive-schema.mjs';
-import type {VideoManifest} from '../../schema';
+import {laidOut, type VideoManifest} from '../../schema';
 import {fitBox, unionBox, viewAt, type Box, type CameraMove, type PlaneView, type Size} from '../canvas/camera';
 import {continuesMap, MAP_SIZE} from '../geo/camera';
 import {noteBox, titleBox} from '../sketch/plan';
@@ -80,7 +80,7 @@ const noteFocus = (layout: Layout, target: string, text: string, size: Size): Pl
 
 export const canvasState = (manifest: VideoManifest, index: number, frame: number, fps: number, size: Size = MAP_SIZE): CanvasState => {
   const {scenes} = manifest;
-  const {spec, layout} = manifest.diagram!;
+  const {spec, layout} = laidOut(manifest);
   // A notebook page follows the pen: the camera goes to each new element as it is drawn,
   // and only a scene's wide framing ("all") is taken from its camera actions.
   const notebook = spec.theme === 'notebook';

@@ -5,7 +5,7 @@
 // Strokes are roughened with fixed seeds, so every render is the same.
 import {getLength, getPointAtLength, scalePath, translatePath} from '@remotion/paths';
 import rough from 'roughjs';
-import type {VideoManifest} from '../../schema';
+import type {LaidOutDiagram, VideoManifest} from '../../schema';
 import {DOODLE_PATHS, KIND_DOODLE, MARKERS} from './doodles';
 
 export const INK = '#1f1d1b';
@@ -13,7 +13,7 @@ export const HIGHLIGHTER = '#ffd83d';
 export const CIRCLE_RED = '#e5383b';
 
 type Layout = NonNullable<VideoManifest['diagram']>['layout'];
-type Spec = NonNullable<VideoManifest['diagram']>['spec'];
+type Spec = LaidOutDiagram['spec'];
 
 export type PathPart = {type: 'path'; d: string; stroke: string; width: number; weight: number; length: number; marker?: boolean; opacity?: number; dash?: string};
 export type TextPart = {type: 'text'; text: string; x: number; y: number; size: number; width: number; color: string; weight: number; length: number};

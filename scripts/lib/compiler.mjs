@@ -1,8 +1,9 @@
 import {isDeepStrictEqual} from 'node:util';
 import {getArchetype, planScenes} from '../archetypes.mjs';
 import {episodeDraftSchema} from '../draft-schema.mjs';
-import {diagramActionProblems, diagramProblems} from '../diagram-schema.mjs';
+import {diagramActionProblems, diagramProblems, wordMatches} from '../diagram-schema.mjs';
 import {layoutDiagram, layoutProblems} from './diagram-layout.mjs';
+import {archActionProblems, archProblems} from '../diagram-arch-schema.mjs';
 import {VOICE_MODELS, voiceProblems} from '../episode-fields.mjs';
 import {geoProblems, geoRightsAsset, loadGeoData} from './geo-primitives.mjs';
 import {loadShow} from './shows.mjs';
@@ -14,10 +15,12 @@ export const DEFAULT_SPEED = 1.08;
 export const MIN_SCENE = 3.8;
 export const MAX_SCENE = 6.4;
 export const MAX_TOTAL = 45;
+/** A 16:9 walkthrough isn't a Short: scenes can hold a longer step, and the episode can run to three minutes. */
+export const LANDSCAPE_LIMITS = {scene: 12, total: 180};
 
-export const safeDuration = (text, speed) => {
+export const safeDuration = (text, speed, maxScene = MAX_SCENE) => {
   const required = estimatedSpeech(text, speed) / COMPILE_FILL + END_PADDING;
-  if (required > MAX_SCENE) throw new Error(`Narration needs ${required.toFixed(2)}s but compiler max scene is ${MAX_SCENE}s. Shorten: "${text}"`);
+  if (required > maxScene) throw new Error(`Narration needs ${required.toFixed(2)}s but compiler max scene is ${maxScene}s. Shorten: "${text}"`);
   return Math.max(MIN_SCENE, Math.ceil(required * 10) / 10);
 };
 
@@ -53,6 +56,12 @@ const compileDiagram = (draft) => {
     return undefined;
   }
   const fail = (problems) => { if (problems.length) throw new Error(`${draft.id}'s diagram has problems:\n${problems.map((problem) => `- ${problem}`).join('\n')}`); };
+  // An existing architecture picture keeps its own coordinates: there is nothing to lay out.
+  if (draft.diagram.theme === 'architecture') {
+    fail([...archProblems(draft.diagram), ...archActionProblems(draft.diagram, draft.scenes, wordMatches)]);
+    const {width, height} = draft.diagram.source;
+    return {spec: draft.diagram, layout: {width, height, nodes: {}, edges: {}, groups: {}}};
+  }
   // The spec first: layout needs every edge to point at a node.
   fail(diagramProblems(draft.diagram));
   const layout = layoutDiagram(draft.diagram);
@@ -108,7 +117,7 @@ export const compileEpisode = (rawDraft, {showId, show = loadShow(showId), geo})
   const plan = planScenes(archetype, draft.scenes);
   const scenes = draft.scenes.map((scene, index) => {
     const {beat, role, shot, visual, subjectFocus, maxSeconds} = plan[index];
-    const durationSeconds = safeDuration(scene.narration, speed);
+    const durationSeconds = safeDuration(scene.narration, speed, draft.format === 'landscape' ? LANDSCAPE_LIMITS.scene : MAX_SCENE);
     if (maxSeconds && durationSeconds > maxSeconds) throw new Error(`Scene "${scene.id}" (${beat}) needs ${durationSeconds.toFixed(1)}s but the ${draft.storyPattern} ${beat} beat allows at most ${maxSeconds}s. Shorten: "${scene.narration}"`);
     return {
       id: scene.id,
@@ -134,7 +143,8 @@ export const compileEpisode = (rawDraft, {showId, show = loadShow(showId), geo})
   // rounding can't push the total across the limit.
   const totalTenths = scenes.reduce((sum, scene) => sum + Math.round(scene.durationSeconds * 10), 0);
   const totalSeconds = totalTenths / 10;
-  if (totalTenths > MAX_TOTAL * 10) throw new Error(`${episodeId} compiles to ${totalSeconds.toFixed(1)}s. Shorten narration in the draft; compiler target is <=${MAX_TOTAL}s.`);
+  const maxTotal = draft.format === 'landscape' ? LANDSCAPE_LIMITS.total : MAX_TOTAL;
+  if (totalTenths > maxTotal * 10) throw new Error(`${episodeId} compiles to ${totalSeconds.toFixed(1)}s. Shorten narration in the draft; compiler target is <=${maxTotal}s.`);
 
   const manifest = {
     schemaVersion: 2,
@@ -162,7 +172,7 @@ export const compileEpisode = (rawDraft, {showId, show = loadShow(showId), geo})
     },
     subject: draft.subject,
     related,
-    format: {width: 1080, height: 1920, fps: 30},
+    format: draft.format === 'landscape' ? {width: 1920, height: 1080, fps: 30} : {width: 1080, height: 1920, fps: 30},
     palette: episodePalette(draft, show),
     ...(diagram ? {diagram} : {}),
     ...(draft.twinOf ? {twinOf: draft.twinOf} : {}),

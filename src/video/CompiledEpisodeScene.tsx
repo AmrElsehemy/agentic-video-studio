@@ -6,6 +6,7 @@ import {continuesMap} from './geo/camera';
 import {PrimitiveVisual} from './primitives';
 import {HEADLINE_SHOTS, ShotVisual} from './shots';
 import {SketchScene} from './sketch/SketchPage';
+import {ArchScene} from './arch/ArchScene';
 import {bodyFont, displayFont} from './typography';
 import {Wordmark} from './wordmark';
 
@@ -37,6 +38,10 @@ export const CompiledEpisodeScene: React.FC<Props> = ({scene, manifest, sceneInd
   // The subject's identifier (e.g. a Pokédex number) shows only when the story is actually about it.
   const identifier = manifest.direction.numberRelevant ? manifest.subject.identifier : undefined;
 
+  // An architecture walkthrough (#120) replays its source diagram across the whole frame.
+  if (scene.primitive?.kind === 'diagram' && manifest.diagram?.spec.theme === 'architecture') {
+    return <AbsoluteFill><ArchScene scene={scene} manifest={manifest} sceneIndex={sceneIndex} frame={frame} fps={fps} durationInFrames={durationInFrames} fadeOut={!seams.out} /></AbsoluteFill>;
+  }
   // A notebook diagram (#132) takes the whole frame: the page on the desk, no headline or scene chrome.
   if (scene.primitive?.kind === 'diagram' && manifest.diagram?.spec.theme === 'notebook') {
     return <AbsoluteFill style={{fontFamily: bodyFont}}><SketchScene scene={scene} manifest={manifest} sceneIndex={sceneIndex} frame={frame} fps={fps} durationInFrames={durationInFrames} fadeOut={!seams.out} /></AbsoluteFill>;

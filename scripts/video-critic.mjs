@@ -44,25 +44,28 @@ if (!hasTesseract) console.warn('⚠ tesseract is not installed, so text checks 
 // visual area, caption), greyscale and inverted: tesseract reads light text on
 // a busy dark frame far better this way than as one page, and no text is
 // counted twice.
-const BANDS = [[0, 315, 6], [315, 1635, 11], [1635, 1920, 6]];
+// A 16:9 walkthrough (ArchScene) has its chapter top left and captions along the bottom instead.
+const landscape = manifest.format.width > manifest.format.height;
+const [WIDTH, HEIGHT] = [manifest.format.width, manifest.format.height];
+const BANDS = landscape ? [[0, 170, 6], [170, 920, 11], [920, 1080, 6]] : [[0, 315, 6], [315, 1635, 11], [1635, 1920, 6]];
 // The headline block (eyebrow and up to three headline lines, y≈140-700) read
 // again as a block: sparse-text mode garbles long two-line headlines
 // ("ONE POKÉMON. THREE FORMS." came back as "ONE Ste THREE").
-const HEADLINE_BAND = [140, 700, 4];
+const HEADLINE_BAND = landscape ? [30, 170, 4] : [140, 700, 4];
 // The cover's title block (EpisodeCover, from y≈1185) read as one block of
 // text: sparse-text mode over the whole middle band loses words next to the
 // artwork or map, while this reads the title exactly.
-const COVER_BANDS = [...BANDS, [1100, 1620, 6]];
+const COVER_BANDS = landscape ? [...BANDS, [40, 360, 6]] : [...BANDS, [1100, 1620, 6]];
 const ocr = (file, bands = BANDS) => {
   if (!hasTesseract) return undefined;
   return bands.map(([top, bottom, pageMode], index) => {
     const band = `${file}.band${index}.png`;
-    run('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-y', '-i', file, '-vf', `scale=1080:1920,crop=1080:${bottom - top}:0:${top},format=gray,negate`, band]);
+    run('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-y', '-i', file, '-vf', `scale=${WIDTH}:${HEIGHT},crop=${WIDTH}:${bottom - top}:0:${top},format=gray,negate`, band]);
     return run('tesseract', [band, '-', '--psm', String(pageMode)], {encoding: 'utf8'});
   }).join('\n');
 };
 // A 16×28 greyscale thumbnail: enough to tell a blank or repeated frame.
-const thumbnail = (file) => new Uint8Array(run('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-i', file, '-vf', 'scale=16:28,format=gray', '-f', 'rawvideo', '-']));
+const thumbnail = (file) => new Uint8Array(run('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-i', file, '-vf', landscape ? 'scale=28:16,format=gray' : 'scale=16:28,format=gray', '-f', 'rawvideo', '-']));
 
 const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), `${episodeId}-critic-`));
 try {

@@ -69,3 +69,23 @@ The compiler checks everything below before any render:
 - every word anchor is actually said in its scene's narration.
 
 At render time, anchors resolve against the aligned word times (`npm run captions:align -- <id>`), so visuals start 60 ms before their word.
+
+## Architecture walkthroughs (an existing diagram, 16:9)
+
+To explain a diagram that already exists, such as an Azure reference architecture or your own draw.io file, set `"theme": "architecture"` and `"format": "landscape"` in the draft. The picture keeps its own coordinates, because viewers recognise it. `drafts/under-the-hood/azure-cache-aside.json` is the example.
+
+- `source` records where the coordinates came from: `"image"`, read once by a vision pass and checked by a person, or `"drawio"` (importer to come). Its `width` and `height` are the source's pixel size.
+- `nodes` have an `icon` from `public/icons/`, a centre `at`, a `size`, a `labelAt` and an optional grey `tile`. Azure icons follow Microsoft's terms in `public/icons/azure/NOTICE.md`.
+- `groups` are the dashed or dotted boundaries, such as a virtual network or a subnet.
+- `edges` are routes exactly as drawn (start, corners, end) in a lane: `read` (green), `write` (blue), `plain` or `telemetry` (grey).
+- `steps` are the numbered badges: a green circle for reads, a blue square for writes, with their text. `legend` and free `labels` complete the picture.
+
+Scenes use `reveal`, `connect` and `camera`, plus `flow`, which walks a step:
+
+```json
+{"do": "flow", "step": "r2", "edges": ["read-cache"], "at": {"word": "cache"}}
+```
+
+The step's badge pops in, and a dot in its lane colour travels the listed edges in order, drawing any that aren't on the picture yet. Camera focus can name nodes, groups, steps, edges or labels. The camera zooms up to 2.6× so the source's small labels can be read on a 1080p frame.
+
+A landscape episode isn't a Short, so a scene can run up to 12 s and the episode up to 3 minutes. The video critic reads the chapter at the top left and the captions along the bottom. The cover is the finished diagram, with the hook's headline on a card.
