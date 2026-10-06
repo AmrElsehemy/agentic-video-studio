@@ -89,3 +89,15 @@ Scenes use `reveal`, `connect` and `camera`, plus `flow`, which walks a step:
 The step's badge pops in, and a dot in its lane colour travels the listed edges in order, drawing any that aren't on the picture yet. Camera focus can name nodes, groups, steps, edges or labels. The camera zooms up to 2.6× so the source's small labels can be read on a 1080p frame.
 
 A landscape episode isn't a Short, so a scene can run up to 12 s and the episode up to 3 minutes. The video critic reads the chapter at the top left and the captions along the bottom. The cover is the finished diagram, with the hook's headline on a card.
+
+### Two looks for the same picture
+
+`"look": "clean"` (the default) draws the diagram as its source does: a white page, real icons and a serif face. `"look": "sketch"` draws it by hand on the notebook page instead, at the same coordinates:
+- routes and boundaries in sketchy ink, in each lane's colour;
+- labels lettered in Patrick Hand SC;
+- the real icons coloured in with marker strokes, and grey tiles hatched;
+- step badges filled with marker, and each flow a highlighter swipe that the pen follows.
+
+The sketch draws each element a little slower, so it can be seen being drawn.
+
+A sketch version is a twin of the clean one: give it `"twinOf"` the clean episode, the same scenes and narration, and its own title (`drafts/under-the-hood/azure-cache-aside-sketch.json`). It plays the clean episode's narration, so it costs nothing extra to voice. Twins may differ by palette or by look.

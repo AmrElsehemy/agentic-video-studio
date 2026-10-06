@@ -44,11 +44,11 @@ export const TITLE_DUR = 1.1;
 const ramp = (time: number, start: number, end: number) => (end <= start ? (time >= start ? 1 : 0) : Math.max(0, Math.min(1, (time - start) / (end - start))));
 
 /** A scene's action times: resolved in the render props, or estimated from its text (e.g. in the Studio). */
-export const sceneTimes = (scene: Scene, speed = 1, notebook = false): ActionTime[] => {
+export const sceneTimes = (scene: Scene, speed = 1, theme = 'clean'): ActionTime[] => {
   const primitive = scene.primitive as DiagramPrimitive;
   if (scene.diagramTimes?.length === primitive.actions.length) return scene.diagramTimes;
   const words = scene.words ?? wordTimes(scene.narration, speechSpan(scene, {speed}));
-  return resolveActions(primitive.actions, {words, duration: scene.durationSeconds, theme: notebook ? 'notebook' : 'clean'});
+  return resolveActions(primitive.actions, {words, duration: scene.durationSeconds, theme});
 };
 
 /** The canvas box an element occupies: a node, a group, or an edge's bounds. */
@@ -95,7 +95,7 @@ export const canvasState = (manifest: VideoManifest, index: number, frame: numbe
   let offset = 0;
   for (let i = start; i <= index; i++) {
     const scene = scenes[i];
-    const times = sceneTimes(scene, speed, notebook).map((time) => ({start: offset + time.start, end: offset + time.end, until: time.until === undefined ? undefined : offset + time.until}));
+    const times = sceneTimes(scene, speed, notebook ? 'notebook' : 'clean').map((time) => ({start: offset + time.start, end: offset + time.end, until: time.until === undefined ? undefined : offset + time.until}));
     const sceneEnd = offset + scene.durationSeconds;
     const now = i === index ? offset + frame / fps : Infinity;
     if (i === index) state.time = now;

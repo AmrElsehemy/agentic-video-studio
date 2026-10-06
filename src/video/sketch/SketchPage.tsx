@@ -12,18 +12,18 @@ import {CIRCLE_RED, edgePlan, groupPlan, INK, markPlan, nodePlan, notePlan, part
 // camera following the pen, then pulling back to the finished page on the
 // desk. Everything is a function of the frame (./plan.ts, ../diagram/state.ts).
 
-const {fontFamily: LETTERING} = loadFont('normal', {weights: ['400'], subsets: ['latin']});
+export const {fontFamily: LETTERING} = loadFont('normal', {weights: ['400'], subsets: ['latin']});
 export const FRAME: Size = {width: 1080, height: 1920};
-const PAPER = '#f8f5ee';
-const DOTS = '#bdb6a8';
-const DESK = '#2b2622';
+export const PAPER = '#f8f5ee';
+export const DOTS = '#bdb6a8';
+export const DESK = '#2b2622';
 /** How long the pen takes to lift away once an element is finished. */
 const LIFT = .45;
 
 const clamp01 = (value: number) => Math.max(0, Math.min(1, value));
 
 /** One part of a plan, `share` of it drawn. */
-const PartView: React.FC<{part: Part; share: number; id: string}> = ({part, share, id}) => {
+export const PartView: React.FC<{part: Part; share: number; id: string}> = ({part, share, id}) => {
   if (share <= 0) return null;
   if (part.type === 'text') {
     const top = part.y - part.size * 1.05;
@@ -40,14 +40,14 @@ const PartView: React.FC<{part: Part; share: number; id: string}> = ({part, shar
   return <path {...common} strokeDasharray={evolved.strokeDasharray} strokeDashoffset={evolved.strokeDashoffset} />;
 };
 
-const PlanView: React.FC<{plan: Plan; progress: number; id: string}> = ({plan, progress, id}) => {
+export const PlanView: React.FC<{plan: Plan; progress: number; id: string}> = ({plan, progress, id}) => {
   if (progress <= 0) return null;
   const shares = partProgress(plan, progress);
   return <g>{plan.parts.map((part, i) => <PartView key={i} part={part} share={shares[i]} id={`${id}-${i}`} />)}</g>;
 };
 
 /** A fineliner (or a marker, when colouring), its tip at the origin, pointing up and left like a right hand's. */
-const Pen: React.FC<{marker?: string}> = ({marker}) => {
+export const Pen: React.FC<{marker?: string}> = ({marker}) => {
   const barrel = marker ?? '#262626';
   const body = <>
     <path d={marker ? 'M 0 0 L 30 -14 L 34 12 Z' : 'M 0 0 L 30 -6 L 30 6 Z'} />
@@ -66,12 +66,12 @@ const Pen: React.FC<{marker?: string}> = ({marker}) => {
   </g>;
 };
 
-type Drawn = {plan: Plan; progress: number; start: number; end: number};
+export type Drawn = {plan: Plan; progress: number; start: number; end: number};
 
 /** The pen glides between strokes instead of jumping: its position is a weighted average over the last few frames. */
 const GLIDE = [.36, .24, .16, .11, .08, .05];
 
-const penState = (drawn: Drawn[], time: number, fps: number) => {
+export const penState = (drawn: Drawn[], time: number, fps: number) => {
   const samples = GLIDE.map((weight, i) => ({weight, pen: penAt(drawn, time - i / fps)})).filter((sample) => sample.pen);
   if (!samples.length || !penAt(drawn, time)) return null;
   const total = samples.reduce((sum, sample) => sum + sample.weight, 0);
@@ -140,10 +140,10 @@ const Page: React.FC<{manifest: VideoManifest; state: CanvasState; fps: number}>
 };
 
 /** A paper strip for lettering laid over the page: headlines and captions. */
-const STRIP: React.CSSProperties = {padding: '10px 28px 16px', background: `${PAPER}f2`, borderRadius: 14, boxShadow: '0 10px 30px #0006', fontFamily: LETTERING, lineHeight: 1.05, color: INK, textAlign: 'center'};
+export const STRIP: React.CSSProperties = {padding: '10px 28px 16px', background: `${PAPER}f2`, borderRadius: 14, boxShadow: '0 10px 30px #0006', fontFamily: LETTERING, lineHeight: 1.05, color: INK, textAlign: 'center'};
 
 /** The narration a few words at a time, lettered on a paper strip; the spoken word is underlined in red marker. */
-const NotebookCaption: React.FC<{words: NonNullable<VideoScene['words']>; seconds: number}> = ({words, seconds}) => {
+export const NotebookCaption: React.FC<{words: NonNullable<VideoScene['words']>; seconds: number}> = ({words, seconds}) => {
   const caption = captionAt(words, seconds);
   if (!caption) return null;
   return <div style={{...STRIP, display: 'inline-flex', flexWrap: 'wrap', gap: '0 .3em', fontSize: 66}}>

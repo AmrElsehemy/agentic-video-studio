@@ -13,8 +13,14 @@ export const WORD_LEAD = .06;
 /** On a notebook page everything is drawn by hand, so it takes longer: a node is a circle, a doodle, marker and lettering. */
 export const NOTEBOOK_DUR = {draw: 2, pop: 2, fade: 2, connect: .7, highlight: .6, camera: 1.4, annotate: 1.1, flow: 1.6};
 
+/** An architecture picture drawn by hand: each component is quicker than a notebook node (an icon, not a doodle), each flow a highlighter swipe. */
+export const SKETCH_ARCH_DUR = {draw: 1.2, pop: 1.2, fade: 1.2, connect: .8, highlight: .6, camera: 1.4, annotate: 1.1, flow: 1.8};
+
+/** Which timing table a diagram uses: its theme, or for an architecture picture, its look. */
+export const timingTheme = (spec) => (spec?.theme === 'architecture' ? (spec.look === 'sketch' ? 'sketch' : 'clean') : spec?.theme ?? 'clean');
+
 export const actionDur = (action, theme = 'clean') => {
-  const table = theme === 'notebook' ? NOTEBOOK_DUR : DEFAULT_DUR;
+  const table = theme === 'notebook' ? NOTEBOOK_DUR : theme === 'sketch' ? SKETCH_ARCH_DUR : DEFAULT_DUR;
   return action.dur ?? (action.do === 'reveal' ? table[action.anim ?? 'draw'] : table[action.do]);
 };
 
@@ -61,6 +67,6 @@ export const withDiagramTimes = (manifest, speech = {}) => {
   return {...manifest, scenes: manifest.scenes.map((scene) => {
     if (scene.primitive?.kind !== 'diagram') return scene;
     const words = scene.words ?? wordTimes(scene.narration, speechSpan(scene, {speed, measured: speech[scene.id]}));
-    return {...scene, diagramTimes: resolveActions(scene.primitive.actions, {words, duration: scene.durationSeconds, theme: manifest.diagram?.spec.theme})};
+    return {...scene, diagramTimes: resolveActions(scene.primitive.actions, {words, duration: scene.durationSeconds, theme: timingTheme(manifest.diagram?.spec)})};
   })};
 };

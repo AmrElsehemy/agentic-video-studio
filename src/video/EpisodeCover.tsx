@@ -4,6 +4,7 @@ import {paletteMode} from '../../scripts/lib/palette.mjs';
 import type {VideoManifest} from '../schema';
 import {GeoMapVisual} from './geo/GeoMap';
 import {ArchScene} from './arch/ArchScene';
+import {ArchSketchScene} from './arch/ArchSketch';
 import {LANE_COLORS} from '../../scripts/diagram-arch-schema.mjs';
 import {bodyFont, displayFont, fontVariables} from './typography';
 import {Wordmark} from './wordmark';
@@ -42,9 +43,10 @@ const CoverTitle: React.FC<{headline: string; subject: string; accent: string}> 
 const ArchitectureCover: React.FC<Props> = ({manifest}) => {
   const last = manifest.scenes.length - 1;
   const hook = manifest.scenes[0];
+  const Look = manifest.diagram?.spec.theme === 'architecture' && manifest.diagram.spec.look === 'sketch' ? ArchSketchScene : ArchScene;
   return <AbsoluteFill style={{...fontVariables(manifest), background: '#ffffff'}}>
     {/* The last scene a moment before its fade, so everything is drawn and the camera has settled. */}
-    <ArchScene scene={{...manifest.scenes[last], words: undefined, caption: ''}} manifest={manifest} sceneIndex={last} frame={Math.round(manifest.scenes[last].durationSeconds * manifest.format.fps) - 10} fps={manifest.format.fps} durationInFrames={Math.round(manifest.scenes[last].durationSeconds * manifest.format.fps)} fadeOut={false} chrome={false} />
+    <Look scene={{...manifest.scenes[last], words: undefined, caption: ''}} manifest={manifest} sceneIndex={last} frame={Math.round(manifest.scenes[last].durationSeconds * manifest.format.fps) - 10} fps={manifest.format.fps} durationInFrames={Math.round(manifest.scenes[last].durationSeconds * manifest.format.fps)} fadeOut={false} chrome={false} />
     <div style={{position: 'absolute', left: 64, top: 56, maxWidth: 900, padding: '28px 40px 32px', borderRadius: 18, background: '#ffffff', boxShadow: '0 18px 60px #0000002e, 0 0 0 1px #0000000d', fontFamily: bodyFont}}>
       {hook.eyebrow ? <div style={{fontSize: 30, fontWeight: 700, letterSpacing: 4, color: LANE_COLORS.write}}>{hook.eyebrow}</div> : null}
       <div style={{fontSize: 92, lineHeight: 1, fontWeight: 900, color: '#1b1b1b', marginTop: 8}}>{hook.headline}</div>

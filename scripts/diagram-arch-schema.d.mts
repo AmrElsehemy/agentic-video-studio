@@ -5,7 +5,7 @@ export type ArchNode = {id: string; label: string; icon: string; at: ArchPoint; 
 export type ArchGroup = {id: string; label?: string; box: ArchBox; style: 'dashed' | 'dotted'; color: string; labelAt?: ArchPoint; icon?: string; iconAt?: ArchPoint};
 export type ArchEdge = {id: string; points: ArchPoint[]; lane: 'read' | 'write' | 'plain' | 'telemetry'; arrow: boolean};
 export type ArchStep = {id: string; n: number; lane: 'read' | 'write'; at: ArchPoint; text: string; textAt: ArchPoint};
-export type ArchSpec = {theme: 'architecture'; source: {kind: 'image' | 'drawio'; file: string; width: number; height: number}; nodes: ArchNode[]; groups: ArchGroup[]; edges: ArchEdge[]; steps: ArchStep[]; labels: {id: string; text: string; at: ArchPoint}[]; legend: {lane: 'read' | 'write'; text: string; at: ArchPoint}[]};
+export type ArchSpec = {theme: 'architecture'; look: 'clean' | 'sketch'; source: {kind: 'image' | 'drawio'; file: string; width: number; height: number}; nodes: ArchNode[]; groups: ArchGroup[]; edges: ArchEdge[]; steps: ArchStep[]; labels: {id: string; text: string; at: ArchPoint}[]; legend: {lane: 'read' | 'write'; text: string; at: ArchPoint}[]};
 export declare const LANE_COLORS: Record<'read' | 'write' | 'plain' | 'telemetry', string>;
 export declare const LANES: string[];
 export declare const archSpecSchema: z.ZodType<ArchSpec>;

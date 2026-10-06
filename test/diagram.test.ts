@@ -8,7 +8,8 @@ import {diagramActionProblems, diagramProblems, diagramSpecSchema, wordMatches} 
 import {primitiveSchema} from '../scripts/primitive-schema.mjs';
 import {compileEpisode} from '../scripts/lib/compiler.mjs';
 import {layoutDiagram, layoutProblems, nodeSize, ranks} from '../scripts/lib/diagram-layout.mjs';
-import {resolveActions, WORD_LEAD, withDiagramTimes} from '../scripts/lib/diagram-timing.mjs';
+import {actionDur, resolveActions, timingTheme, WORD_LEAD, withDiagramTimes} from '../scripts/lib/diagram-timing.mjs';
+import {twinProblems} from '../scripts/lib/twins.mjs';
 import {videoSchema} from '../src/schema';
 import {fitBox, mixViews, viewAt} from '../src/video/canvas/camera';
 import {archState, dotAt} from '../src/video/arch/state';
@@ -178,5 +179,26 @@ describe('architecture walkthroughs', () => {
     assert.equal(after.edges['read-cache'].progress, 1);
     assert.equal(after.legend.read, 1);
     assert.equal(after.edges['write-db'], undefined, 'the write flow has not started yet');
+  });
+});
+
+describe('architecture sketch look', () => {
+  const draftOf = (id: string) => JSON.parse(fs.readFileSync(path.join(root, `drafts/under-the-hood/${id}.json`), 'utf8'));
+
+  it('is a twin of the clean walkthrough: same script and narration, a different look', () => {
+    const clean = compileEpisode(draftOf('azure-cache-aside'), {showId: 'under-the-hood'}).manifest;
+    const sketch = compileEpisode(draftOf('azure-cache-aside-sketch'), {showId: 'under-the-hood'}).manifest;
+    assert.equal((sketch.diagram!.spec as {look: string}).look, 'sketch');
+    assert.deepEqual(twinProblems(sketch, clean), []);
+    assert.equal(sketch.audio.voice?.output, clean.audio.voice?.output, 'it plays the clean episode\'s narration');
+    const same = {...sketch, diagram: {...sketch.diagram!, spec: {...sketch.diagram!.spec, look: 'clean'}}};
+    assert.match(twinProblems(same as typeof sketch, clean).join(), /same palette and are both drawn clean/);
+  });
+
+  it('times drawing by look: a sketched component takes longer than a clean one', () => {
+    assert.equal(timingTheme({theme: 'architecture', look: 'sketch'}), 'sketch');
+    assert.equal(timingTheme({theme: 'architecture'}), 'clean');
+    assert.equal(timingTheme({theme: 'notebook'}), 'notebook');
+    assert.ok(actionDur({do: 'reveal'}, 'sketch') > actionDur({do: 'reveal'}, 'clean'));
   });
 });

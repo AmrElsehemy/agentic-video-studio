@@ -1,7 +1,8 @@
-// Palette twins (#92): an episode that retells another with a different
-// palette, so the two can be compared with the topic held fixed. The story
-// must be the same, the palette mode must differ, and the titles must differ
-// so the channel can tell the uploads apart.
+// Twins (#92): an episode that retells another with a different palette, or
+// (for an architecture walkthrough) a different drawing style, so the two can
+// be compared with the topic held fixed. The story must be the same, the
+// palette mode or the look must differ, and the titles must differ so the
+// channel can tell the uploads apart.
 import {paletteMode} from './palette.mjs';
 import {narrationProvider, voiceInputHash} from './voice-lock.mjs';
 
@@ -15,7 +16,9 @@ export const twinProblems = (manifest, twin) => {
   if (twin.id === manifest.id) problems.push('it is its own twin');
   if (twin.twinOf) problems.push(`its twin ${twin.id} is itself a twin of ${twin.twinOf}; point both at the original`);
   if (twin.show.id !== manifest.show.id) problems.push(`its twin ${twin.id} is a ${twin.show.id} episode, not ${manifest.show.id}`);
-  if (paletteMode(twin.palette) === paletteMode(manifest.palette)) problems.push(`it and its twin ${twin.id} both have a ${paletteMode(manifest.palette)} palette`);
+  // What a twin changes is its palette (light vs dark) or how its diagram is drawn (clean vs sketch).
+  const look = (episode) => (episode.diagram?.spec.theme === 'architecture' ? episode.diagram.spec.look ?? 'clean' : undefined);
+  if (paletteMode(twin.palette) === paletteMode(manifest.palette) && look(twin) === look(manifest)) problems.push(look(manifest) ? `it and its twin ${twin.id} have the same palette and are both drawn ${look(manifest)}` : `it and its twin ${twin.id} both have a ${paletteMode(manifest.palette)} palette`);
   if (twin.title.trim().toLowerCase() === manifest.title.trim().toLowerCase()) problems.push(`it has the same title as its twin ${twin.id}, so their uploads can't be told apart`);
   if (narration(twin) !== narration(manifest)) problems.push(`its narration differs from its twin ${twin.id}'s; twins tell the same story`);
   // It plays the original's narration track, which only fits when the voice and scene timing match too.

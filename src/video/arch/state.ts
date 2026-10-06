@@ -8,6 +8,7 @@ import type {ArchSpec} from '../../../scripts/diagram-arch-schema.mjs';
 import type {DiagramAction, DiagramPrimitive} from '../../../scripts/primitive-schema.mjs';
 import type {ArchitectureDiagram, VideoManifest} from '../../schema';
 import {fitBox, unionBox, viewAt, type Box, type CameraMove, type PlaneView, type Size} from '../canvas/camera';
+import {timingTheme} from '../../../scripts/lib/diagram-timing.mjs';
 import {sceneTimes} from '../diagram/state';
 import {continuesMap} from '../geo/camera';
 
@@ -103,7 +104,7 @@ export const archState = (manifest: VideoManifest, index: number, frame: number,
   let offset = 0;
   for (let i = start; i <= index; i++) {
     const scene = scenes[i];
-    const times = sceneTimes(scene, speed).map((time) => ({start: offset + time.start, end: offset + time.end}));
+    const times = sceneTimes(scene, speed, timingTheme(spec)).map((time) => ({start: offset + time.start, end: offset + time.end}));
     const now = i === index ? offset + frame / fps : Infinity;
     if (i === index) state.time = now;
     (scene.primitive as DiagramPrimitive).actions.forEach((action: DiagramAction, n) => {

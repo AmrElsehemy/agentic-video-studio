@@ -59,6 +59,8 @@ export const archStepSchema = z.object({
 
 export const archSpecSchema = z.object({
   theme: z.literal('architecture'),
+  // How it's drawn: as the source draws it ("clean"), or by hand on a dotted notebook page ("sketch").
+  look: z.enum(['clean', 'sketch']).default('clean'),
   // Where the diagram came from: "image" (read by a vision pass and checked by a person) or "drawio".
   source: z.object({kind: z.enum(['image', 'drawio']), file: z.string().min(1), width: z.number(), height: z.number()}).strict(),
   nodes: z.array(archNodeSchema).min(1).max(40),

@@ -7,6 +7,7 @@ import {PrimitiveVisual} from './primitives';
 import {HEADLINE_SHOTS, ShotVisual} from './shots';
 import {SketchScene} from './sketch/SketchPage';
 import {ArchScene} from './arch/ArchScene';
+import {ArchSketchScene} from './arch/ArchSketch';
 import {bodyFont, displayFont} from './typography';
 import {Wordmark} from './wordmark';
 
@@ -40,7 +41,8 @@ export const CompiledEpisodeScene: React.FC<Props> = ({scene, manifest, sceneInd
 
   // An architecture walkthrough (#120) replays its source diagram across the whole frame.
   if (scene.primitive?.kind === 'diagram' && manifest.diagram?.spec.theme === 'architecture') {
-    return <AbsoluteFill><ArchScene scene={scene} manifest={manifest} sceneIndex={sceneIndex} frame={frame} fps={fps} durationInFrames={durationInFrames} fadeOut={!seams.out} /></AbsoluteFill>;
+    const Look = manifest.diagram.spec.look === 'sketch' ? ArchSketchScene : ArchScene;
+    return <AbsoluteFill><Look scene={scene} manifest={manifest} sceneIndex={sceneIndex} frame={frame} fps={fps} durationInFrames={durationInFrames} fadeOut={!seams.out} /></AbsoluteFill>;
   }
   // A notebook diagram (#132) takes the whole frame: the page on the desk, no headline or scene chrome.
   if (scene.primitive?.kind === 'diagram' && manifest.diagram?.spec.theme === 'notebook') {

@@ -26,34 +26,34 @@ const LABEL = 58;
 const DETAIL = 33;
 const EDGE_LABEL = 34;
 
-const generator = rough.generator();
-const seedOf = (text: string) => {
+export const generator = rough.generator();
+export const seedOf = (text: string) => {
   let hash = 2166136261;
   for (let i = 0; i < text.length; i++) hash = Math.imul(hash ^ text.charCodeAt(i), 16777619);
   return (Math.abs(hash) % 2147483646) + 1;
 };
 
-const lengthOf = (d: string) => {
+export const lengthOf = (d: string) => {
   try { return getLength(d); } catch { return 0; }
 };
 
 /** Roughened strokes for a path: roughjs draws each line twice, slightly apart, like a quick pen. */
-const roughStrokes = (d: string, seed: number, options: Record<string, unknown> = {}) => generator.toPaths(generator.path(d, {seed, roughness: .7, bowing: .8, stroke: INK, strokeWidth: 3, ...options}))
+export const roughStrokes = (d: string, seed: number, options: Record<string, unknown> = {}) => generator.toPaths(generator.path(d, {seed, roughness: .7, bowing: .8, stroke: INK, strokeWidth: 3, ...options}))
   .map((path) => path.d).filter((path) => lengthOf(path) > 0);
 
-const pathParts = (ds: string[], weight: number, style: Omit<PathPart, 'type' | 'd' | 'weight' | 'length'>): PathPart[] => {
+export const pathParts = (ds: string[], weight: number, style: Omit<PathPart, 'type' | 'd' | 'weight' | 'length'>): PathPart[] => {
   const lengths = ds.map(lengthOf);
   const total = lengths.reduce((sum, length) => sum + length, 0) || 1;
   return ds.map((d, i) => ({type: 'path', d, weight: weight * lengths[i] / total, length: lengths[i], ...style}));
 };
 
-const text = (value: string, x: number, y: number, size: number, weight: number, color = INK): TextPart => {
+export const text = (value: string, x: number, y: number, size: number, weight: number, color = INK): TextPart => {
   const width = value.length * size * LETTER_EM;
   return {type: 'text', text: value, x: x - width / 2, y, size, width, color, weight, length: width};
 };
 
 const cache = new Map<string, Plan>();
-const cached = (key: string, build: () => Plan) => {
+export const cached = (key: string, build: () => Plan) => {
   if (!cache.has(key)) cache.set(key, build());
   return cache.get(key)!;
 };
@@ -83,7 +83,7 @@ export const nodePlan = (spec: Spec, layout: Layout, id: string): Plan => cached
 });
 
 /** The end of a quadratic edge and the direction it arrives from, for the arrowhead. */
-const arrowHead = (d: string, seed: number, size = 1) => {
+export const arrowHead = (d: string, seed: number, size = 1) => {
   const numbers = d.match(/-?[\d.]+/g)!.map(Number);
   const [qx, qy, ex, ey] = numbers.slice(-4);
   const angle = Math.atan2(ey - qy, ex - qx);
