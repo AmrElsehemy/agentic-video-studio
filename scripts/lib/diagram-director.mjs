@@ -91,7 +91,8 @@ const problemsOf = (spec, scenes) => {
  * several words waits for the first of them the narration says; a word's
  * "nth" beyond the times it is said is taken as its last time; highlighting
  * something not yet on the canvas reveals it; "revealing" a step walks it
- * (flow), unless the scene walks it anyway.
+ * (flow), unless the scene walks it anyway; a part the scene draws outside every
+ * camera framing is added to the last one.
  */
 export const repairActions = (actions, {spec, scene, previous}) => {
   const repairs = [];
@@ -139,6 +140,20 @@ export const repairActions = (actions, {spec, scene, previous}) => {
     else if (action.do === 'flow') for (const id of [action.step, ...(action.edges ?? [])]) shown.add(id);
     repaired.push(action);
   });
+  // The camera frames what the scene draws: a part, step, boundary or label drawn outside every framing is added to the last one.
+  const cameras = repaired.filter((action) => action?.do === 'camera' && Array.isArray(action.focus));
+  if (cameras.length && !repaired.some((action) => action?.do === 'camera' && action.focus === 'all')) {
+    const edges = new Set(spec.edges.map((edge) => edge.id));
+    const framed = new Set(cameras.flatMap((action) => action.focus));
+    const drawnHere = repaired.flatMap((action) => (action?.do === 'reveal' ? [action.target] : action?.do === 'flow' ? [action.step] : [])).filter((id) => typeof id === 'string' && !edges.has(id));
+    const missing = [...new Set(drawnHere)].filter((id) => !framed.has(id));
+    const last = cameras.at(-1);
+    const room = Math.max(0, 8 - last.focus.length);
+    if (missing.length && room) {
+      last.focus = [...last.focus, ...missing.slice(0, room)];
+      repairs.push(`the camera framed ${missing.slice(0, room).map((id) => `"${id}"`).join(', ')} too, which the scene draws`);
+    }
+  }
   return {actions: repaired, repairs};
 };
 
@@ -408,7 +423,7 @@ Rules:
 - ${arch ? 'Highlight only components an earlier action already put on the picture; to show something new, reveal it. Steps are shown only by "flow" (never reveal a step), and a flow draws its routes, so routes a step travels need no connect. "edges" may be left out: the step\'s own route is used.' : 'An arrow can be drawn only when both its ends are on screen. Highlight or annotate only what is already shown.'}
 - A word anchor must be a word of THIS scene's narration. Use "nth" only when that word is said more than once in the scene; to time two actions off one word, chain the second with "after".
 - Reveal an element on the word that names it; show what the narration talks about, in the order it says it. About one new element per second of narration: leave the rest for later scenes.
-- Start each scene with a camera move framing what it is about. Pull back to "all" only in the last scene (or when a scene is about the whole picture).
+- Start each scene with a camera move framing what it is about, including everything the scene reveals or walks. Pull back to "all" only in the last scene (or when a scene is about the whole picture).
 - By the last scene, everything the story needs should be on the picture.
 
 Reply with a JSON object only: {"scenes": [<scene>, ...]}${showId ? styleGuideSection(showId) : ''}`,

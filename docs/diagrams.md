@@ -14,6 +14,7 @@ A diagram that builds up across an episode, each element appearing as the narrat
 | Prototype episode | `drafts/under-the-hood/how-avs-works.json` | #126 |
 | Diagram Director: actions from the narration | `scripts/lib/diagram-director.mjs` | #129 |
 | Walkthrough writer: the script from the diagram | `scripts/lib/walkthrough-writer.mjs` | #128 |
+| Diagram QA after render, in the video critic | `src/video/diagram/audit.ts` | #130 |
 
 ## Authoring
 
@@ -74,7 +75,9 @@ The model sees the diagram's ids, labels and steps, and each scene's narration. 
 A few mistakes have only one reading, so they are repaired and listed:
 - an `nth` beyond the times a word is said becomes its last time;
 - highlighting something not yet on the picture reveals it;
-- "revealing" a step walks it instead.
+- "revealing" a step walks it instead;
+- an anchor of several words ("Cosmos DB") waits for the first of them the narration says;
+- a part, step, boundary or label the scene draws outside every camera framing is added to the last one.
 
 A scene with any other problem gets the fallback, and the CLI prints the reason. Without a model, every scene gets it. The fallback builds the picture in order:
 - a laid-out diagram goes rank by rank down the graph;
@@ -96,6 +99,16 @@ The compiler checks everything below before any render:
 - every word anchor is actually said in its scene's narration.
 
 At render time, anchors resolve against the aligned word times (`npm run captions:align -- <id>`), so visuals start 60 ms before their word.
+
+After render, `npm run critic:video -- <id>` checks the result. It uses the same state code the renderer draws from, plus OCR on the rendered frames.
+
+| Check | Fails (blocking) | Warns |
+| --- | --- | --- |
+| Timing | An action anchored to a word starts more than 150 ms from it, or the word is never said. An element whose name is spoken but is timed some other way appears more than 2.5 s before its name or 3 s after it. | The name and the element are more than 1.2 s apart. |
+| Framing | A part, step, boundary or label drawn in a scene is less than 60% in the frame when the scene ends. Arrows and routes may run off toward parts out of the frame. | |
+| Covered | In a 16:9 walkthrough, an element is more than 40% under the chapter card or the captions as it finishes drawing. | |
+| Empty canvas | | The camera frames mostly empty canvas: the picture fills less than 12% of the frame. |
+| Labels | OCR can't read a component's label in the final overview frame. Each label is read on its own, from where the camera puts it. 16:9 walkthroughs only. | |
 
 ## Architecture walkthroughs (an existing diagram, 16:9)
 
