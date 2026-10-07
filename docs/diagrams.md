@@ -12,6 +12,7 @@ A diagram that builds up across an episode, each element appearing as the narrat
 | Canvas state (a fold over the run's actions) and SVG renderer | `src/video/diagram/` | #124 |
 | Word-anchored timing, resolved in the render props | `scripts/lib/diagram-timing.mjs` | #125 |
 | Prototype episode | `drafts/under-the-hood/how-avs-works.json` | #126 |
+| Diagram Director: actions from the narration | `scripts/lib/diagram-director.mjs` | #129 |
 
 ## Authoring
 
@@ -56,6 +57,31 @@ Every action has `at` and an optional `dur` (seconds). `at` takes one of four fo
 - `"scene-end"`.
 
 Consecutive diagram scenes are one canvas, so each scene opens on what the previous one left. Set `"cut": true` to start fresh.
+
+## Directing: actions from the narration
+
+Once a draft has its diagram and narration, the director writes every scene's actions:
+
+```
+npm run diagram:direct -- url-shortener            # writes out/url-shortener.diagram-directed.json
+npm run diagram:direct -- url-shortener --write    # replaces the draft's actions
+npm run diagram:direct -- url-shortener --offline  # no model: the fallback for every scene
+```
+
+The model sees the diagram's ids, labels and steps, and each scene's narration. It picks which actions happen on which spoken words; it never writes coordinates. Each scene is checked against the canvas the earlier scenes left, with the compiler's own checks.
+
+A few mistakes have only one reading, so they are repaired and listed:
+- an `nth` beyond the times a word is said becomes its last time;
+- highlighting something not yet on the picture reveals it;
+- "revealing" a step walks it instead.
+
+A scene with any other problem gets the fallback, and the CLI prints the reason. Without a model, every scene gets it. The fallback builds the picture in order:
+- a laid-out diagram goes rank by rank down the graph;
+- an architecture builds its parts, then walks each lane's steps in order, in the scenes whose narration talks about that lane. A step brings the parts at its route's ends, and a part brings the boundaries around it.
+
+Either way, each element appears on a word that names it where the narration has one. There is about one new element per second of narration, the camera frames what is new, and the last scene pulls back to the whole picture.
+
+Saved model replies for three systems are in `test/fixtures/diagram-director/`. They cover `how-avs-works`, `azure-cache-aside` and `url-shortener`, a plain-box draw.io diagram (`test/fixtures/drawio/url-shortener.drawio`). Pass `--save-reply=<file>` to keep a new one.
 
 ## Checks
 
@@ -136,6 +162,6 @@ The starter walkthrough uses the `walkthrough` story shape:
 4. a monitoring scene, if the diagram has telemetry routes;
 5. the whole picture, drawing any routes no step used.
 
-Its narration is placeholder text built from the step labels. Rewrite it, anchor actions to the words you write, and replace the placeholder sources before you voice it.
+Its narration is placeholder text built from the step labels. Rewrite it, run `npm run diagram:direct -- <id> --write` so the actions follow the words you wrote, and replace the placeholder sources before you voice it.
 
 `test/fixtures/drawio/azure-cache-aside.drawio` was saved by draw.io itself. The tests import it and check the result against the hand-made `azure-cache-aside` spec.
