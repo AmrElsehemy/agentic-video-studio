@@ -40,10 +40,16 @@ export const textBox = (text: string, [cx, cy]: [number, number], align: 'left' 
   return {x: align === 'left' ? cx : align === 'right' ? cx - w : cx - w / 2, y: cy - h / 2, w, h};
 };
 
+/** A node's own box: its icon square, or its shape. */
+export const nodeBox = (node: ArchSpec['nodes'][number]): Box => {
+  const [w, h] = node.shape ? [node.shape.w, node.shape.h] : [node.size, node.size];
+  return {x: node.at[0] - w / 2, y: node.at[1] - h / 2, w, h};
+};
+
 /** The source-pixel box an element occupies, for the camera. */
 export const archBox = (spec: ArchSpec, id: string): Box | undefined => {
   const node = spec.nodes.find((item) => item.id === id);
-  if (node) return unionBox([{x: node.at[0] - node.size / 2, y: node.at[1] - node.size / 2, w: node.size, h: node.size}, textBox(node.label, node.labelAt), ...(node.tile ? [node.tile] : [])]);
+  if (node) return unionBox([nodeBox(node), textBox(node.label, node.labelAt), ...(node.tile ? [node.tile] : [])]);
   const group = spec.groups.find((item) => item.id === id);
   if (group) return group.box;
   const step = spec.steps.find((item) => item.id === id);
