@@ -5,7 +5,7 @@ import type {ArchitectureDiagram, VideoManifest, VideoScene} from '../../schema'
 import {viewTransform} from '../canvas/camera';
 import {arrowHead, cached, generator, INK, partProgress, pathParts, roughStrokes, seedOf, text, type Part, type Plan} from '../sketch/plan';
 import {DESK, DOTS, LETTERING, NotebookCaption, PAPER, PlanView, Pen, penState, STRIP, type Drawn} from '../sketch/SketchPage';
-import {archState, edgePath, type ArchState} from './state';
+import {archState, edgePath, nodeBox, type ArchState} from './state';
 
 // Sketch look for architecture walkthroughs (#132): the same picture, at the
 // same coordinates, drawn by hand on a dotted page. Routes and boundaries in
@@ -41,7 +41,15 @@ type IconPlan = Plan & {icon?: {href: string; box: {x: number; y: number; w: num
 const nodePlan = (spec: ArchSpec, id: string): IconPlan => cached(`arch-node:${id}`, () => {
   const node = spec.nodes.find((item) => item.id === id)!;
   const seed = seedOf(id);
-  const box = {x: node.at[0] - node.size / 2, y: node.at[1] - node.size / 2, w: node.size, h: node.size};
+  const box = nodeBox(node);
+  if (node.shape) {
+    // A plain box or ellipse: its outline in ink, a wash of marker if the source filled it, then its label.
+    const {kind, fill, stroke} = node.shape;
+    const ink = stroke === 'none' ? INK : stroke;
+    const outline = generator.toPaths(kind === 'ellipse' ? generator.ellipse(node.at[0], node.at[1], box.w, box.h, {seed, roughness: 1, stroke: ink, strokeWidth: 2.2}) : generator.rectangle(box.x, box.y, box.w, box.h, {seed, roughness: 1, stroke: ink, strokeWidth: 2.2})).map((path) => path.d).slice(0, 1);
+    const wash = fill !== 'none' && fill.toLowerCase() !== '#ffffff' ? pathParts(hatch({x: box.x + 4, y: box.y + 4, w: box.w - 8, h: box.h - 8}, seed + 3, fill, 7, 6), .25, {stroke: fill, width: 6, marker: true, opacity: .55}) : [];
+    return {parts: [...pathParts(outline, wash.length ? .3 : .45, {stroke: ink, width: 2.2}), ...wash, ...lettering(node.label, node.labelAt, wash.length ? .45 : .55, node.align)]};
+  }
   const tile = node.tile ? pathParts(hatch(node.tile, seed + 5, '#cfcac0', 8, 6), .18, {stroke: '#cfcac0', width: 6, marker: true, opacity: .7}) : [];
   // The icon is revealed through a mask of marker strokes; the strokes themselves are invisible, but the pen follows them.
   const strokes = hatch(box, seed, '#000', 5, 1);
@@ -130,7 +138,7 @@ const IconView: React.FC<{plan: IconPlan; progress: number; id: string}> = ({pla
 };
 
 const Page: React.FC<{spec: ArchSpec; state: ArchState; fps: number}> = ({spec, state, fps}) => {
-  useIcons(spec.nodes.map((node) => staticFile(`icons/${node.icon}.svg`)));
+  useIcons(spec.nodes.filter((node) => node.icon).map((node) => staticFile(`icons/${node.icon}.svg`)));
   const drawn: Drawn[] = [];
   const add = (plan: Plan, entry: {progress: number; start: number; end: number}) => { drawn.push({plan, ...entry}); return plan; };
   const nodes = spec.nodes.filter((node) => state.nodes[node.id]);

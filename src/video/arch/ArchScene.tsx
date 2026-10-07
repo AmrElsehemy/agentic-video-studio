@@ -7,7 +7,7 @@ import {LANE_COLORS, type ArchSpec} from '../../../scripts/diagram-arch-schema.m
 import type {ArchitectureDiagram, VideoManifest, VideoScene} from '../../schema';
 import {viewTransform, type Size} from '../canvas/camera';
 import {bodyFont} from '../typography';
-import {archState, dotAt, edgePath, TEXT, type ArchState} from './state';
+import {archState, dotAt, edgePath, nodeBox, TEXT, type ArchState} from './state';
 
 // Architecture scenes (#120): an existing reference diagram replayed as it
 // was drawn (white page, real icons, dashed boundaries, numbered steps), the
@@ -74,6 +74,14 @@ const Picture: React.FC<{spec: ArchSpec; state: ArchState; fps: number; frame: n
         </g>;
       })}
       {spec.edges.filter((edge) => state.edges[edge.id]).map((edge) => <Edge key={edge.id} edge={edge} progress={state.edges[edge.id].progress} />)}
+      {/* A plain box or ellipse from the source, drawn with its own colours. */}
+      {spec.nodes.filter((node) => node.shape && state.nodes[node.id]).map((node) => {
+        const box = nodeBox(node);
+        const {kind, fill, stroke, rounded} = node.shape!;
+        const p = pop(state.nodes[node.id].start);
+        const props = {fill: fill === 'none' ? '#ffffff' : fill, stroke: stroke === 'none' ? 'none' : stroke, strokeWidth: 1.4, opacity: clamp01(p * 1.5), transform: `translate(${node.at[0]} ${node.at[1]}) scale(${.7 + .3 * p}) translate(${-node.at[0]} ${-node.at[1]})`};
+        return kind === 'ellipse' ? <ellipse key={`shape-${node.id}`} cx={node.at[0]} cy={node.at[1]} rx={box.w / 2} ry={box.h / 2} {...props} /> : <rect key={`shape-${node.id}`} x={box.x} y={box.y} width={box.w} height={box.h} rx={rounded ? 8 : 0} {...props} />;
+      })}
       {spec.labels.filter((label) => state.labels[label.id]).map((label) => <Lines key={label.id} text={label.text} at={label.at} opacity={fade(state.labels[label.id].start)} />)}
       {spec.nodes.filter((node) => state.nodes[node.id]).map((node) => <Lines key={`label-${node.id}`} text={node.label} at={node.labelAt} align={node.align} opacity={fade(state.nodes[node.id].start + .15)} />)}
       {spec.steps.filter((step) => state.steps[step.id]).map((step) => <g key={step.id}>
@@ -96,7 +104,7 @@ const Picture: React.FC<{spec: ArchSpec; state: ArchState; fps: number; frame: n
         </g>;
       })}
     </svg>
-    {spec.nodes.filter((node) => state.nodes[node.id]).map((node) => {
+    {spec.nodes.filter((node) => node.icon && state.nodes[node.id]).map((node) => {
       const p = pop(state.nodes[node.id].start);
       const glow = state.nodes[node.id].highlight;
       return <Img key={`icon-${node.id}`} src={staticFile(`icons/${node.icon}.svg`)} style={{position: 'absolute', left: node.at[0] - node.size / 2, top: node.at[1] - node.size / 2, width: node.size, height: node.size, opacity: clamp01(p * 1.5), transform: `scale(${.55 + .45 * p})`, filter: glow ? `drop-shadow(0 0 ${8 * glow}px #4472c4)` : undefined}} />;

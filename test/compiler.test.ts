@@ -5,6 +5,7 @@ import {describe, it} from 'node:test';
 import {fileURLToPath} from 'node:url';
 import {archetypes, archetypeSchema, planScenes} from '../scripts/archetypes.mjs';
 import {compileEpisode, estimatedSpeech, manifestDrift, MAX_SCENE, MIN_SCENE, safeDuration, serializeManifest} from '../scripts/lib/compiler.mjs';
+import {loadShow} from '../scripts/lib/shows.mjs';
 import {videoSchema} from '../src/schema';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -92,7 +93,8 @@ describe('archetype mapping', () => {
   const compileWith = (mutate: (draft: ReturnType<typeof sampleDraft>) => void) => {
     const draft = sampleDraft();
     mutate(draft);
-    return compileEpisode(draft, {showId: 'pokepulses'}).manifest;
+    // Every story shape is tried here, so the profile allows them all (a show only lists the ones it uses).
+    return compileEpisode(draft, {showId: 'pokepulses', show: {...loadShow('pokepulses'), archetypes: Object.keys(archetypes)}}).manifest;
   };
   // A short line that fits any beat, including the hook limit.
   const extraScene = (id: string, beat?: string) => ({id, ...(beat ? {beat} : {}), headline: 'EXTRA BEAT', narration: 'One more clue.', caption: 'ONE MORE CLUE'});

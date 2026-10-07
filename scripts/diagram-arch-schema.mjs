@@ -19,15 +19,17 @@ export const LANES = Object.keys(LANE_COLORS);
 export const archNodeSchema = z.object({
   id,
   label,
-  // An icon under public/icons/, e.g. "azure/app-service" (see public/icons/azure/NOTICE.md).
-  icon: z.string().regex(/^[a-z0-9-]+\/[a-z0-9-]+$/),
+  // An icon under public/icons/, e.g. "azure/app-service" (see public/icons/azure/NOTICE.md)...
+  icon: z.string().regex(/^[a-z0-9-]+\/[a-z0-9-]+$/).optional(),
+  // ...or, for a plain box in the source, the shape itself, its label drawn inside.
+  shape: z.object({kind: z.enum(['rect', 'ellipse']), w: z.number().positive(), h: z.number().positive(), fill: z.string().regex(/^(#[0-9a-f]{6}|none)$/i).default('none'), stroke: z.string().regex(/^(#[0-9a-f]{6}|none)$/i).default('#1b1b1b'), rounded: z.boolean().default(false)}).strict().optional(),
   at: point,
   size: z.number().min(16).max(160).default(60),
   labelAt: point,
   align: z.enum(['left', 'center', 'right']).default('center'),
   // A shaded tile behind the node, as external services are drawn.
   tile: box.optional(),
-}).strict();
+}).strict().refine((node) => Boolean(node.icon) !== Boolean(node.shape), {message: 'a node has an icon or a shape, not both and not neither'});
 
 export const archGroupSchema = z.object({
   id,

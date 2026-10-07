@@ -1,0 +1,11 @@
+{
+  "description": "A walk through an existing architecture diagram: the picture assembles, then each numbered flow is followed step by step, ending on the whole system.",
+  "defaultBeat": 0.65,
+  "beats": [
+    {"id": "hook", "role": "hook", "minScenes": 1, "maxScenes": 1, "shots": ["wide"], "visuals": ["hook"], "subjectFocus": ["primary"], "maxSeconds": 6.4},
+    {"id": "setup", "role": "evidence", "minScenes": 1, "maxScenes": 3, "shots": ["wide", "macro"], "visuals": ["gauntlet"], "subjectFocus": ["primary"]},
+    {"id": "flow", "role": "escalation", "minScenes": 1, "maxScenes": 7, "shots": ["tracking", "macro", "comparison"], "visuals": ["advantage", "race"], "subjectFocus": ["primary"]},
+    {"id": "wrap", "role": "payoff", "minScenes": 0, "maxScenes": 2, "shots": ["wide"], "visuals": ["tradeoff"], "subjectFocus": ["primary"]},
+    {"id": "verdict", "role": "interaction", "minScenes": 1, "maxScenes": 1, "shots": ["interaction"], "visuals": ["cta"], "subjectFocus": ["primary"]}
+  ]
+}
