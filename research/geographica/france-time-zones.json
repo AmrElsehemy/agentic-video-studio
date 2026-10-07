@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "id": "france-time-zones",
+  "subject": "France",
+  "kind": "curated",
+  "note": "Hand-curated research for a Geographica episode about the time zones of France. Claims are cited to a pinned Wikipedia revision (trusted_secondary). Overseas France is shown by highlighting the country on the world map; individual territories are not labelled.",
+  "regions": [
+    "France",
+    "Russia",
+    "United States"
+  ],
+  "claims": [
+    {
+      "id": "most",
+      "text": "With its overseas territories, France uses 12 different time zones (13 including its claim in Antarctica), more than any other country in the world.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-time-in-france"
+      ]
+    },
+    {
+      "id": "metropolitan",
+      "text": "Metropolitan France uses Central European Time (UTC+01:00) as its standard time.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-time-in-france"
+      ]
+    },
+    {
+      "id": "overseas",
+      "text": "All parts of Overseas France use different time zones from Metropolitan France.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-time-in-france"
+      ]
+    }
+  ],
+  "places": {},
+  "sources": {
+    "wikipedia-time-in-france": {
+      "label": "Wikipedia: Time in France (revision 1349654400)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Time_in_France&oldid=1349654400"
+    },
+    "natural-earth": {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  }
+}

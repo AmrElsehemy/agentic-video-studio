@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "id": "bolivia-lost-coast",
+  "subject": "Bolivia",
+  "kind": "curated",
+  "note": "Hand-curated research for a Geographica episode about Bolivia and the War of the Pacific. Claims are cited to a pinned Wikipedia revision (trusted_secondary). Bolivia’s former coast is shown as a labelled point (approximate), not drawn from historical borders.",
+  "regions": [
+    "Bolivia",
+    "Chile",
+    "Peru",
+    "Pacific Ocean"
+  ],
+  "claims": [
+    {
+      "id": "war",
+      "text": "During the War of the Pacific (1879–84), Chile occupied vast territories rich in natural resources southwest of Bolivia, including the Bolivian coast.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-bolivia"
+      ]
+    },
+    {
+      "id": "antofagasta",
+      "text": "Chile took control of the Chuquicamata area, the adjoining saltpeter fields, and the port of Antofagasta among other Bolivian territories.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-bolivia"
+      ]
+    },
+    {
+      "id": "litoral",
+      "text": "Bolivia lost its Litoral Department, and thus access to a maritime coast, following the War of the Pacific in 1883.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-bolivia"
+      ]
+    },
+    {
+      "id": "claim",
+      "text": "Bolivia has historically upheld a state policy asserting a maritime claim over the lost territory.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-bolivia"
+      ]
+    }
+  ],
+  "places": {
+    "antofagasta": {
+      "lon": -70.4,
+      "lat": -23.65,
+      "source": "wikipedia-bolivia",
+      "approximate": true,
+      "note": "Antofagasta, the port town Chile took."
+    }
+  },
+  "sources": {
+    "wikipedia-bolivia": {
+      "label": "Wikipedia: Bolivia (revision 1378338095)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Bolivia&oldid=1378338095"
+    },
+    "natural-earth": {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  }
+}

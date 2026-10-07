@@ -1,0 +1,405 @@
+{
+  "id": "bir-tawil",
+  "title": "The Land That No Country Wants",
+  "storyPattern": "mystery",
+  "numberRelevant": false,
+  "premise": "Bir Tawil, between Egypt and Sudan, is land that neither country claims.",
+  "audiencePromise": "Find the 2,060 km² of land that no country wants.",
+  "openLoop": "Which patch of land do two neighbouring countries both refuse?",
+  "payoff": "Two borders drawn in 1899 and 1902 leave Bir Tawil on the wrong side of each country’s favourite line.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "Would you claim it?",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica"
+  },
+  "subject": {
+    "name": "Egypt",
+    "category": "Border",
+    "attributes": {
+      "geoEntity": "country:EGY"
+    }
+  },
+  "voice": {
+    "provider": "elevenlabs",
+    "voice": "JBFqnCBsd6RMkjVDRZzb"
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "eyebrow": "A MAP MYSTERY",
+      "headline": "NOBODY’S LAND",
+      "narration": "One patch of land belongs to no country.",
+      "caption": "CLAIMED BY NO ONE",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "world",
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                22,
+                18,
+                42,
+                32
+              ]
+            },
+            "at": 0.45,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth"
+      }
+    },
+    {
+      "id": "where",
+      "beat": "clue",
+      "eyebrow": "WHERE?",
+      "headline": "EGYPT MEETS SUDAN",
+      "narration": "It sits on the border between Egypt and Sudan.",
+      "caption": "EGYPT–SUDAN BORDER",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                22,
+                18,
+                42,
+                32
+              ]
+            },
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:EGY",
+            "style": "outline",
+            "at": 0.2
+          },
+          {
+            "entity": "country:SDN",
+            "style": "outline",
+            "at": 0.3
+          }
+        ],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 33.75,
+              "lat": 21.9
+            },
+            "text": "BIR TAWIL ~",
+            "at": 0.5
+          }
+        ],
+        "dataset": "natural-earth"
+      }
+    },
+    {
+      "id": "size",
+      "beat": "clue",
+      "eyebrow": "HOW BIG?",
+      "headline": "2,060 KM²",
+      "narration": "Bir Tawil covers about 2,060 square kilometres.",
+      "caption": "2,060 KM²",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                22,
+                18,
+                42,
+                32
+              ]
+            },
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                30.5,
+                19.5,
+                36.5,
+                24
+              ]
+            },
+            "at": 0.4,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:EGY",
+            "style": "outline",
+            "at": 0
+          },
+          {
+            "entity": "country:SDN",
+            "style": "outline",
+            "at": 0
+          }
+        ],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 33.75,
+              "lat": 21.9
+            },
+            "text": "2,060 KM² ~",
+            "at": 0.5
+          }
+        ],
+        "dataset": "natural-earth"
+      }
+    },
+    {
+      "id": "two-lines",
+      "beat": "escalation",
+      "eyebrow": "THE CLUE",
+      "headline": "TWO BORDERS",
+      "narration": "Two different borders were drawn: one in 1899, another in 1902.",
+      "caption": "BORDERS DRAWN IN 1899 AND 1902",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                30.5,
+                19.5,
+                36.5,
+                24
+              ]
+            },
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:EGY",
+            "style": "outline",
+            "at": 0
+          },
+          {
+            "entity": "country:SDN",
+            "style": "outline",
+            "at": 0
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": {
+              "lon": 31.5,
+              "lat": 22
+            },
+            "text": "1899: STRAIGHT LINE",
+            "at": 0.3
+          },
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 33.75,
+              "lat": 21.9
+            },
+            "text": "BIR TAWIL ~",
+            "at": 0.5
+          }
+        ],
+        "dataset": "natural-earth"
+      }
+    },
+    {
+      "id": "egypt",
+      "beat": "reveal",
+      "eyebrow": "THE ANSWER",
+      "headline": "EACH PICKS ONE",
+      "narration": "Egypt follows the first border. Sudan follows the second.",
+      "caption": "EGYPT: 1899. SUDAN: 1902.",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                30.5,
+                19.5,
+                36.5,
+                24
+              ]
+            },
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:EGY",
+            "style": "fill",
+            "at": 0.2
+          },
+          {
+            "entity": "country:SDN",
+            "style": "outline",
+            "at": 0.5
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:EGY",
+            "text": "EGYPT: 1899",
+            "at": 0.3
+          },
+          {
+            "type": "label",
+            "anchor": "country:SDN",
+            "text": "SUDAN: 1902",
+            "at": 0.55
+          }
+        ],
+        "dataset": "natural-earth"
+      }
+    },
+    {
+      "id": "neither",
+      "beat": "reveal",
+      "eyebrow": "THE CATCH",
+      "headline": "BIR TAWIL IS LEFT OVER",
+      "narration": "And that leaves Bir Tawil on neither country’s map.",
+      "caption": "LEFT ON NO ONE’S MAP",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                30.5,
+                19.5,
+                36.5,
+                24
+              ]
+            },
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:EGY",
+            "style": "outline",
+            "at": 0
+          },
+          {
+            "entity": "country:SDN",
+            "style": "outline",
+            "at": 0
+          }
+        ],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 33.75,
+              "lat": 21.9
+            },
+            "text": "BIR TAWIL ~",
+            "at": 0.3
+          }
+        ],
+        "dataset": "natural-earth"
+      }
+    },
+    {
+      "id": "verdict",
+      "beat": "verdict",
+      "eyebrow": "YOUR TURN",
+      "headline": "WOULD YOU CLAIM IT?",
+      "narration": "Would you claim it?",
+      "caption": "WOULD YOU CLAIM IT?",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                22,
+                18,
+                42,
+                32
+              ]
+            },
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:EGY",
+            "style": "outline",
+            "at": 0.1
+          },
+          {
+            "entity": "country:SDN",
+            "style": "outline",
+            "at": 0.1
+          }
+        ],
+        "annotations": [],
+        "dataset": "natural-earth"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia: Bir Tawil (revision 1377306827)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Bir_Tawil&oldid=1377306827"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ]
+}

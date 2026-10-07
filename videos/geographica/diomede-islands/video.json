@@ -1,0 +1,502 @@
+{
+  "schemaVersion": 2,
+  "id": "diomede-islands",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica",
+    "wordmark": {
+      "lead": "GEO",
+      "accent": "GRAPHICA"
+    },
+    "fonts": {
+      "display": "Oswald",
+      "body": "Inter"
+    },
+    "captions": {
+      "mode": "words"
+    }
+  },
+  "title": "Two Islands, Almost a Day Apart",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "mystery",
+    "numberRelevant": false,
+    "premise": "Two islands 3.8 km apart are 21 hours apart in time, because the International Date Line runs between them.",
+    "audiencePromise": "Meet the islands where tomorrow is just across the water.",
+    "openLoop": "How can two islands 3.8 km apart be almost a day apart in time?",
+    "payoff": "The International Date Line runs between Big Diomede and Little Diomede, so Russia’s island is 21 hours ahead of the U.S. one.",
+    "targetEmotion": "surprise",
+    "engagementQuestion": "Would you rather live in yesterday or tomorrow?",
+    "targetSecondsBetweenVisualChanges": 0.68
+  },
+  "subject": {
+    "name": "Diomede Islands",
+    "category": "Border",
+    "attributes": {
+      "geoEntity": "country:RUS"
+    }
+  },
+  "related": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#0b1a2a",
+    "surface": "#23473d",
+    "primary": "#e4b363",
+    "secondary": "#8c2f39",
+    "ink": "#f6f1e7"
+  },
+  "audio": {
+    "music": "generated/diomede-islands-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 96,
+      "notes": [
+        98,
+        116.54,
+        130.81,
+        146.83,
+        130.81,
+        116.54,
+        87.31,
+        98
+      ]
+    },
+    "voice": {
+      "provider": "elevenlabs",
+      "model": "eleven_v4",
+      "voice": "JBFqnCBsd6RMkjVDRZzb",
+      "instructions": "Warm, curious storyteller walking a friend across a map. Clear and confident, with a sense of discovery on each reveal; slow slightly on dates and place names so they land. Conversational and human, never a documentary announcer, lecture, or neutral TTS. Never imitate a known person or character.",
+      "speed": 1.06,
+      "output": "generated/diomede-islands-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "durationSeconds": 3.8,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "mystery",
+      "subjectFocus": "hidden",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "A MAP MYSTERY",
+      "headline": "A DAY APART?",
+      "narration": "Two islands live in different days.",
+      "caption": "3.8 KM APART",
+      "visual": "hook",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -180,
+                55,
+                -150,
+                72
+              ]
+            },
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -171.2,
+                64.8,
+                -166.8,
+                66.8
+              ]
+            },
+            "at": 0.45,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": -169.05,
+              "lat": 65.78
+            },
+            "text": "BIG DIOMEDE ~",
+            "at": 0.6
+          },
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": -168.92,
+              "lat": 65.76
+            },
+            "text": "LITTLE DIOMEDE ~",
+            "at": 0.7
+          }
+        ],
+        "dataset": "natural-earth"
+      }
+    },
+    {
+      "id": "little",
+      "durationSeconds": 3.8,
+      "beat": "clue",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "EAST SIDE",
+      "headline": "LITTLE DIOMEDE",
+      "narration": "Little Diomede belongs to the United States.",
+      "caption": "LITTLE DIOMEDE: ALASKA",
+      "visual": "gauntlet",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -171.2,
+                64.8,
+                -166.8,
+                66.8
+              ]
+            },
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:USA",
+            "style": "fill",
+            "at": 0.1
+          }
+        ],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": -168.92,
+              "lat": 65.76
+            },
+            "text": "USA ~",
+            "at": 0.35
+          }
+        ],
+        "dataset": "natural-earth"
+      }
+    },
+    {
+      "id": "big",
+      "durationSeconds": 3.8,
+      "beat": "clue",
+      "role": "evidence",
+      "shot": "wide",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "WEST SIDE",
+      "headline": "BIG DIOMEDE",
+      "narration": "Big Diomede belongs to Russia.",
+      "caption": "BIG DIOMEDE: RUSSIA",
+      "visual": "gauntlet",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -171.2,
+                64.8,
+                -166.8,
+                66.8
+              ]
+            },
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:RUS",
+            "style": "fill",
+            "at": 0.1
+          }
+        ],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": -169.05,
+              "lat": 65.78
+            },
+            "text": "RUSSIA ~",
+            "at": 0.35
+          }
+        ],
+        "dataset": "natural-earth"
+      }
+    },
+    {
+      "id": "line",
+      "durationSeconds": 3.8,
+      "beat": "escalation",
+      "role": "escalation",
+      "shot": "tracking",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "THE CLUE",
+      "headline": "THE DATE LINE",
+      "narration": "Between them runs the International Date Line.",
+      "caption": "THE INTERNATIONAL DATE LINE",
+      "visual": "advantage",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -171.2,
+                64.8,
+                -166.8,
+                66.8
+              ]
+            },
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:USA",
+            "style": "fill",
+            "at": 0
+          },
+          {
+            "entity": "country:RUS",
+            "style": "fill",
+            "at": 0
+          }
+        ],
+        "annotations": [
+          {
+            "type": "arrow",
+            "from": {
+              "lon": -168.92,
+              "lat": 65.76
+            },
+            "to": {
+              "lon": -169.05,
+              "lat": 65.78
+            },
+            "text": "DATE LINE",
+            "at": 0.3
+          }
+        ],
+        "dataset": "natural-earth"
+      }
+    },
+    {
+      "id": "ahead",
+      "durationSeconds": 5.1,
+      "beat": "reveal",
+      "role": "payoff",
+      "shot": "comparison",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "THE ANSWER",
+      "headline": "21 HOURS AHEAD",
+      "narration": "Russia’s island is 21 hours ahead of the American one.",
+      "caption": "21 HOURS AHEAD",
+      "visual": "race",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -171.2,
+                64.8,
+                -166.8,
+                66.8
+              ]
+            },
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:USA",
+            "style": "fill",
+            "at": 0
+          },
+          {
+            "entity": "country:RUS",
+            "style": "fill",
+            "at": 0
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": {
+              "lon": -169.05,
+              "lat": 65.78
+            },
+            "text": "+21 HOURS ~",
+            "at": 0.35
+          }
+        ],
+        "dataset": "natural-earth"
+      }
+    },
+    {
+      "id": "names",
+      "durationSeconds": 4.4,
+      "beat": "reveal",
+      "role": "payoff",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "NICKNAMES",
+      "headline": "TOMORROW AND YESTERDAY",
+      "narration": "So they are nicknamed Tomorrow Island and Yesterday Island.",
+      "caption": "TOMORROW ISLAND, YESTERDAY ISLAND",
+      "visual": "tradeoff",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -171.2,
+                64.8,
+                -166.8,
+                66.8
+              ]
+            },
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:USA",
+            "style": "fill",
+            "at": 0
+          },
+          {
+            "entity": "country:RUS",
+            "style": "fill",
+            "at": 0
+          }
+        ],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": -169.05,
+              "lat": 65.78
+            },
+            "text": "TOMORROW ~",
+            "at": 0.3
+          },
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": -168.92,
+              "lat": 65.76
+            },
+            "text": "YESTERDAY ~",
+            "at": 0.45
+          }
+        ],
+        "dataset": "natural-earth"
+      }
+    },
+    {
+      "id": "verdict",
+      "durationSeconds": 5.7,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "YOUR TURN",
+      "headline": "PICK A DAY",
+      "narration": "In winter, ice usually links them. Which day would you pick?",
+      "caption": "YESTERDAY OR TOMORROW?",
+      "visual": "cta",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -180,
+                55,
+                -150,
+                72
+              ]
+            },
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:USA",
+            "style": "fill",
+            "at": 0.1
+          },
+          {
+            "entity": "country:RUS",
+            "style": "fill",
+            "at": 0.1
+          }
+        ],
+        "annotations": [],
+        "dataset": "natural-earth"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia: Diomede Islands (revision 1378147919)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Diomede_Islands&oldid=1378147919"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ]
+}

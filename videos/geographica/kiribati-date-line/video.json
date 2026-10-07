@@ -1,0 +1,432 @@
+{
+  "schemaVersion": 2,
+  "id": "kiribati-date-line",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica",
+    "wordmark": {
+      "lead": "GEO",
+      "accent": "GRAPHICA"
+    },
+    "fonts": {
+      "display": "Oswald",
+      "body": "Inter"
+    },
+    "captions": {
+      "mode": "words"
+    }
+  },
+  "title": "The Country That Moved the Date Line",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "transformation",
+    "numberRelevant": false,
+    "premise": "In 1995 Kiribati moved the International Date Line so the whole country shares one day.",
+    "audiencePromise": "See the country that rewrote the world’s date line.",
+    "openLoop": "What would you do if your country lived in two different days?",
+    "payoff": "In 1995 Kiribati moved the International Date Line east, so every island shares one day, in UTC+14.",
+    "targetEmotion": "surprise",
+    "engagementQuestion": "Could a country move your time too?",
+    "targetSecondsBetweenVisualChanges": 0.62
+  },
+  "subject": {
+    "name": "Kiribati",
+    "category": "Border",
+    "attributes": {
+      "geoEntity": "country:KIR"
+    }
+  },
+  "related": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#0b1a2a",
+    "surface": "#23473d",
+    "primary": "#e4b363",
+    "secondary": "#8c2f39",
+    "ink": "#f6f1e7"
+  },
+  "audio": {
+    "music": "generated/kiribati-date-line-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 96,
+      "notes": [
+        98,
+        116.54,
+        130.81,
+        146.83,
+        130.81,
+        116.54,
+        87.31,
+        98
+      ]
+    },
+    "voice": {
+      "provider": "elevenlabs",
+      "model": "eleven_v4",
+      "voice": "JBFqnCBsd6RMkjVDRZzb",
+      "instructions": "Warm, curious storyteller walking a friend across a map. Clear and confident, with a sense of discovery on each reveal; slow slightly on dates and place names so they land. Conversational and human, never a documentary announcer, lecture, or neutral TTS. Never imitate a known person or character.",
+      "speed": 1.06,
+      "output": "generated/kiribati-date-line-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "durationSeconds": 4,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "WHAT CHANGED",
+      "headline": "TWO DAYS AT ONCE",
+      "narration": "This country was split between two different days.",
+      "caption": "SPLIT BETWEEN TWO DAYS",
+      "visual": "hook",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "world",
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                160,
+                -14,
+                -140,
+                8
+              ]
+            },
+            "at": 0.45,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:KIR",
+            "style": "outline",
+            "at": 0.35
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:KIR",
+            "text": "KIRIBATI",
+            "at": 0.6
+          }
+        ],
+        "dataset": "natural-earth"
+      }
+    },
+    {
+      "id": "islands",
+      "durationSeconds": 6.3,
+      "beat": "before",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "BEFORE",
+      "headline": "SCATTERED ISLANDS",
+      "narration": "Its islands are scattered over more than three million square kilometres of ocean.",
+      "caption": "ONLY 811 KM² OF LAND",
+      "visual": "gauntlet",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                160,
+                -14,
+                -140,
+                8
+              ]
+            },
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:KIR",
+            "style": "outline",
+            "at": 0.1
+          }
+        ],
+        "annotations": [],
+        "dataset": "natural-earth"
+      }
+    },
+    {
+      "id": "straddle",
+      "durationSeconds": 4,
+      "beat": "before",
+      "role": "evidence",
+      "shot": "wide",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "THE PROBLEM",
+      "headline": "ON BOTH SIDES OF 180°",
+      "narration": "They straddle the equator and the 180th meridian.",
+      "caption": "THE EQUATOR AND THE 180TH MERIDIAN",
+      "visual": "gauntlet",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                165,
+                -8,
+                -165,
+                6
+              ]
+            },
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:KIR",
+            "style": "outline",
+            "at": 0
+          }
+        ],
+        "annotations": [],
+        "dataset": "natural-earth"
+      }
+    },
+    {
+      "id": "change",
+      "durationSeconds": 4.8,
+      "beat": "change",
+      "role": "escalation",
+      "shot": "tracking",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "THE CHANGE",
+      "headline": "1995",
+      "narration": "So in 1995, Kiribati moved the International Date Line.",
+      "caption": "KIRIBATI MOVED THE DATE LINE, 1995",
+      "visual": "race",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                165,
+                -8,
+                -165,
+                6
+              ]
+            },
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                160,
+                -14,
+                -140,
+                8
+              ]
+            },
+            "at": 0.4,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:KIR",
+            "style": "outline",
+            "at": 0
+          }
+        ],
+        "annotations": [],
+        "dataset": "natural-earth"
+      }
+    },
+    {
+      "id": "week",
+      "durationSeconds": 4.4,
+      "beat": "reveal",
+      "role": "payoff",
+      "shot": "comparison",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "THE REASON",
+      "headline": "ONE BUSINESS WEEK",
+      "narration": "Now businesses across every island keep the same week.",
+      "caption": "THE SAME BUSINESS WEEK",
+      "visual": "advantage",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                160,
+                -14,
+                -140,
+                8
+              ]
+            },
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:KIR",
+            "style": "outline",
+            "at": 0
+          }
+        ],
+        "annotations": [],
+        "dataset": "natural-earth"
+      }
+    },
+    {
+      "id": "utc14",
+      "durationSeconds": 5.8,
+      "beat": "aftermath",
+      "role": "payoff",
+      "shot": "wide",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "THE RESULT",
+      "headline": "UTC+14",
+      "narration": "Its eastern islands now sit in the earliest time zone on Earth.",
+      "caption": "UTC+14: THE EARLIEST TIME ZONE",
+      "visual": "tradeoff",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                160,
+                -14,
+                -140,
+                8
+              ]
+            },
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -165,
+                -12,
+                -150,
+                6
+              ]
+            },
+            "at": 0.4,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:KIR",
+            "style": "outline",
+            "at": 0
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:KIR",
+            "text": "UTC+14",
+            "at": 0.55
+          }
+        ],
+        "dataset": "natural-earth"
+      }
+    },
+    {
+      "id": "verdict",
+      "durationSeconds": 3.8,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "YOUR TURN",
+      "headline": "MOVE YOUR TIME?",
+      "narration": "Could a country move your time too?",
+      "caption": "COULD A COUNTRY MOVE YOUR TIME?",
+      "visual": "cta",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "world",
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:KIR",
+            "style": "outline",
+            "at": 0.1
+          }
+        ],
+        "annotations": [],
+        "dataset": "natural-earth"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia: Kiribati (revision 1378031791)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Kiribati&oldid=1378031791"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "id": "brazil-borders",
+  "subject": "Brazil",
+  "kind": "curated",
+  "note": "Hand-curated research for a Geographica episode about Brazil’s neighbours. Claims are cited to a pinned Wikipedia revision (trusted_secondary). The article counts France as a neighbour through French Guiana; the count of ten is the sum of its list. France is not highlighted, so the Lawa headwaters flag is not touched.",
+  "regions": [
+    "Brazil",
+    "Chile",
+    "Ecuador",
+    "Uruguay",
+    "Argentina",
+    "Paraguay",
+    "Bolivia",
+    "Peru",
+    "Colombia",
+    "Venezuela",
+    "Guyana",
+    "Suriname"
+  ],
+  "claims": [
+    {
+      "id": "nearly-half",
+      "text": "Brazil occupies nearly half of the land area of South America (47.7%).",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-brazil"
+      ]
+    },
+    {
+      "id": "all-but-two",
+      "text": "Brazil borders all other countries and territories on the continent except Ecuador and Chile.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-brazil"
+      ]
+    },
+    {
+      "id": "neighbours",
+      "text": "Brazil borders Uruguay to the south; Argentina and Paraguay to the southwest; Bolivia and Peru to the west; Colombia to the northwest; and Venezuela, Guyana, Suriname, and France (French Guiana) to the north.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-brazil"
+      ],
+      "note": "That is ten neighbours, counting France."
+    }
+  ],
+  "places": {},
+  "sources": {
+    "wikipedia-brazil": {
+      "label": "Wikipedia: Brazil (revision 1378644706)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Brazil&oldid=1378644706"
+    },
+    "natural-earth": {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  }
+}

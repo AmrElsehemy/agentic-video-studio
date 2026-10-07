@@ -1,0 +1,96 @@
+{
+  "schemaVersion": 1,
+  "id": "diomede-islands",
+  "subject": "Diomede Islands",
+  "kind": "curated",
+  "note": "Hand-curated research for a Geographica episode about the Diomede Islands. Claims are cited to a pinned Wikipedia revision (trusted_secondary). The island points are approximate: the islands are far smaller than a map pixel at this zoom, so they are marked, not outlined.",
+  "regions": [
+    "Russia",
+    "United States",
+    "Bering Sea"
+  ],
+  "claims": [
+    {
+      "id": "two",
+      "text": "The Diomede Islands are two rocky islands in the middle of the Bering Strait: Big Diomede, a Russian island, and Little Diomede, a U.S. island part of Alaska.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-diomede-islands"
+      ]
+    },
+    {
+      "id": "close",
+      "text": "At their closest points the two islands are approximately 3.8 km (2.4 miles) apart.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-diomede-islands"
+      ]
+    },
+    {
+      "id": "dateline",
+      "text": "The islands are separated by an international border which also defines the International Date Line in that area.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-diomede-islands"
+      ]
+    },
+    {
+      "id": "ahead",
+      "text": "Big Diomede is 21 hours ahead of Little Diomede (20 in summer), according to locally defined time zones.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-diomede-islands"
+      ]
+    },
+    {
+      "id": "nicknames",
+      "text": "The islands are sometimes called Tomorrow Island (Big Diomede) and Yesterday Island (Little Diomede).",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-diomede-islands"
+      ]
+    },
+    {
+      "id": "ice",
+      "text": "An ice bridge usually spans the distance between the two islands in winter.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-diomede-islands"
+      ]
+    },
+    {
+      "id": "east",
+      "text": "Big Diomede Island is the easternmost point of Russia.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-diomede-islands"
+      ]
+    }
+  ],
+  "places": {
+    "big-diomede": {
+      "lon": -169.05,
+      "lat": 65.78,
+      "source": "wikipedia-diomede-islands",
+      "approximate": true,
+      "note": "Big Diomede (Russia)."
+    },
+    "little-diomede": {
+      "lon": -168.92,
+      "lat": 65.76,
+      "source": "wikipedia-diomede-islands",
+      "approximate": true,
+      "note": "Little Diomede (United States)."
+    }
+  },
+  "sources": {
+    "wikipedia-diomede-islands": {
+      "label": "Wikipedia: Diomede Islands (revision 1378147919)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Diomede_Islands&oldid=1378147919"
+    },
+    "natural-earth": {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  }
+}

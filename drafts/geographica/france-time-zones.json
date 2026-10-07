@@ -1,0 +1,302 @@
+{
+  "id": "france-time-zones",
+  "title": "Which Country Has the Most Time Zones?",
+  "storyPattern": "mystery",
+  "numberRelevant": false,
+  "premise": "France uses more time zones than any other country, thanks to its overseas territories.",
+  "audiencePromise": "Find the country with the most time zones. It is not the one you expect.",
+  "openLoop": "Which country has the most time zones?",
+  "payoff": "France has 12 time zones (13 with Antarctica), more than any other country, because of its overseas territories.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "Could you name them all?",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica"
+  },
+  "subject": {
+    "name": "France",
+    "category": "Border",
+    "attributes": {
+      "geoEntity": "country:FRA"
+    }
+  },
+  "voice": {
+    "provider": "elevenlabs",
+    "voice": "JBFqnCBsd6RMkjVDRZzb"
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "eyebrow": "A MAP MYSTERY",
+      "headline": "MOST TIME ZONES?",
+      "narration": "Which country has the most time zones?",
+      "caption": "MOST TIME ZONES?",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "world",
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth"
+      }
+    },
+    {
+      "id": "guess",
+      "beat": "clue",
+      "eyebrow": "THE OBVIOUS ONES",
+      "headline": "NOT THE BIGGEST",
+      "narration": "You might say Russia. Or the United States.",
+      "caption": "RUSSIA? THE US?",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "world",
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:RUS",
+            "style": "outline",
+            "at": 0.2
+          },
+          {
+            "entity": "country:USA",
+            "style": "outline",
+            "at": 0.4
+          }
+        ],
+        "annotations": [],
+        "dataset": "natural-earth"
+      }
+    },
+    {
+      "id": "wrong",
+      "beat": "clue",
+      "eyebrow": "NOT QUITE",
+      "headline": "BOTH LOSE",
+      "narration": "Both are beaten by a much smaller country.",
+      "caption": "BEATEN BY A SMALLER ONE",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "world",
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -30,
+                30,
+                50,
+                62
+              ]
+            },
+            "at": 0.5,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:RUS",
+            "style": "outline",
+            "at": 0
+          },
+          {
+            "entity": "country:USA",
+            "style": "outline",
+            "at": 0
+          }
+        ],
+        "annotations": [],
+        "dataset": "natural-earth"
+      }
+    },
+    {
+      "id": "france",
+      "beat": "escalation",
+      "eyebrow": "THE CLUE",
+      "headline": "ONE ZONE AT HOME",
+      "narration": "At home, France uses just one: Central European Time.",
+      "caption": "ONE ZONE AT HOME",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -6,
+                41,
+                10,
+                52
+              ]
+            },
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:FRA",
+            "style": "fill",
+            "at": 0.15
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:FRA",
+            "text": "UTC+1",
+            "at": 0.4
+          }
+        ],
+        "dataset": "natural-earth"
+      }
+    },
+    {
+      "id": "overseas",
+      "beat": "reveal",
+      "eyebrow": "THE ANSWER",
+      "headline": "THE OVERSEAS TERRITORIES",
+      "narration": "But every overseas territory runs on a different zone.",
+      "caption": "OVERSEAS = NEW ZONES",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -6,
+                41,
+                10,
+                52
+              ]
+            },
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          },
+          {
+            "target": "world",
+            "at": 0.35,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:FRA",
+            "style": "fill",
+            "at": 0.1
+          }
+        ],
+        "annotations": [],
+        "dataset": "natural-earth"
+      }
+    },
+    {
+      "id": "twelve",
+      "beat": "reveal",
+      "eyebrow": "THE COUNT",
+      "headline": "12 TIME ZONES",
+      "narration": "Twelve in all. Thirteen, if you count Antarctica.",
+      "caption": "12 TIME ZONES (13 WITH ANTARCTICA)",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "world",
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:FRA",
+            "style": "fill",
+            "at": 0
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:FRA",
+            "text": "12 TIME ZONES",
+            "at": 0.3
+          }
+        ],
+        "dataset": "natural-earth"
+      }
+    },
+    {
+      "id": "verdict",
+      "beat": "verdict",
+      "eyebrow": "YOUR TURN",
+      "headline": "NAME THEM",
+      "narration": "Could you name every one of them?",
+      "caption": "COULD YOU NAME THEM ALL?",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "world",
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:FRA",
+            "style": "fill",
+            "at": 0.1
+          }
+        ],
+        "annotations": [],
+        "dataset": "natural-earth"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia: Time in France (revision 1349654400)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Time_in_France&oldid=1349654400"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ]
+}

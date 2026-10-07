@@ -1,0 +1,390 @@
+{
+  "id": "doubly-landlocked",
+  "title": "The Two Countries Landlocked Twice",
+  "storyPattern": "mystery",
+  "numberRelevant": false,
+  "premise": "Only two countries, Liechtenstein and Uzbekistan, are doubly landlocked.",
+  "audiencePromise": "Find the two countries that are landlocked twice.",
+  "openLoop": "Which two countries are surrounded entirely by landlocked countries?",
+  "payoff": "Liechtenstein and Uzbekistan are the only doubly landlocked countries: every neighbour is landlocked too.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "Which one would you visit first?",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica"
+  },
+  "subject": {
+    "name": "Uzbekistan",
+    "category": "Border",
+    "attributes": {
+      "geoEntity": "country:UZB"
+    }
+  },
+  "voice": {
+    "provider": "elevenlabs",
+    "voice": "JBFqnCBsd6RMkjVDRZzb"
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "eyebrow": "A MAP MYSTERY",
+      "headline": "LANDLOCKED TWICE",
+      "narration": "Only two countries on Earth are landlocked twice.",
+      "caption": "LANDLOCKED TWICE",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "world",
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -10,
+                30,
+                90,
+                62
+              ]
+            },
+            "at": 0.45,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:LIE",
+            "style": "fill",
+            "at": 0.5
+          },
+          {
+            "entity": "country:UZB",
+            "style": "fill",
+            "at": 0.6
+          }
+        ],
+        "annotations": [],
+        "dataset": "natural-earth"
+      }
+    },
+    {
+      "id": "rule",
+      "beat": "clue",
+      "eyebrow": "THE RULE",
+      "headline": "NO COAST AT ALL",
+      "narration": "Doubly landlocked means every neighbour has no coast either.",
+      "caption": "ALL NEIGHBOURS LANDLOCKED",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -10,
+                30,
+                90,
+                62
+              ]
+            },
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth"
+      }
+    },
+    {
+      "id": "liechtenstein",
+      "beat": "clue",
+      "eyebrow": "NUMBER ONE",
+      "headline": "LIECHTENSTEIN",
+      "narration": "Liechtenstein is tucked between Austria and Switzerland.",
+      "caption": "BETWEEN AUSTRIA AND SWITZERLAND",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                5,
+                44.5,
+                14,
+                49.5
+              ]
+            },
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                8.4,
+                46.6,
+                10.6,
+                47.8
+              ]
+            },
+            "at": 0.4,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:LIE",
+            "style": "fill",
+            "at": 0.2
+          },
+          {
+            "entity": "country:AUT",
+            "style": "outline",
+            "at": 0.4
+          },
+          {
+            "entity": "country:CHE",
+            "style": "outline",
+            "at": 0.4
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:LIE",
+            "text": "LIECHTENSTEIN",
+            "at": 0.55
+          }
+        ],
+        "dataset": "natural-earth"
+      }
+    },
+    {
+      "id": "small",
+      "beat": "escalation",
+      "eyebrow": "TINY",
+      "headline": "SIXTH-SMALLEST",
+      "narration": "It's the sixth-smallest country in the world.",
+      "caption": "SIXTH-SMALLEST COUNTRY",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                8.4,
+                46.6,
+                10.6,
+                47.8
+              ]
+            },
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:LIE",
+            "style": "fill",
+            "at": 0.1
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:LIE",
+            "text": "SIXTH-SMALLEST",
+            "at": 0.3
+          }
+        ],
+        "dataset": "natural-earth"
+      }
+    },
+    {
+      "id": "uzbekistan",
+      "beat": "reveal",
+      "eyebrow": "NUMBER TWO",
+      "headline": "UZBEKISTAN",
+      "narration": "Uzbekistan has five neighbours, and not one reaches the ocean.",
+      "caption": "FIVE LANDLOCKED NEIGHBOURS",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                46,
+                34,
+                80,
+                48
+              ]
+            },
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:UZB",
+            "style": "fill",
+            "at": 0.15
+          },
+          {
+            "entity": "country:KAZ",
+            "style": "outline",
+            "at": 0.35
+          },
+          {
+            "entity": "country:AFG",
+            "style": "outline",
+            "at": 0.45
+          },
+          {
+            "entity": "country:TKM",
+            "style": "outline",
+            "at": 0.55
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:UZB",
+            "text": "UZBEKISTAN",
+            "at": 0.4
+          }
+        ],
+        "dataset": "natural-earth"
+      }
+    },
+    {
+      "id": "rivers",
+      "beat": "reveal",
+      "eyebrow": "EVEN THE RIVERS",
+      "headline": "NO RIVER REACHES THE SEA",
+      "narration": "None of Uzbekistan's rivers ever reach the sea.",
+      "caption": "NO RIVER REACHES THE SEA",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                46,
+                34,
+                80,
+                48
+              ]
+            },
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                54,
+                36,
+                74,
+                46
+              ]
+            },
+            "at": 0.4,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:UZB",
+            "style": "fill",
+            "at": 0
+          }
+        ],
+        "annotations": [],
+        "dataset": "natural-earth"
+      }
+    },
+    {
+      "id": "verdict",
+      "beat": "verdict",
+      "eyebrow": "YOUR TURN",
+      "headline": "FIND BOTH",
+      "narration": "Can you find both on a blank map?",
+      "caption": "CAN YOU FIND BOTH?",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -10,
+                30,
+                90,
+                62
+              ]
+            },
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:LIE",
+            "style": "fill",
+            "at": 0.1
+          },
+          {
+            "entity": "country:UZB",
+            "style": "fill",
+            "at": 0.2
+          }
+        ],
+        "annotations": [],
+        "dataset": "natural-earth"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia: Landlocked country (revision 1377715267)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Landlocked_country&oldid=1377715267"
+    },
+    {
+      "label": "Wikipedia: Liechtenstein (revision 1378783482)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Liechtenstein&oldid=1378783482"
+    },
+    {
+      "label": "Wikipedia: Uzbekistan (revision 1378623458)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Uzbekistan&oldid=1378623458"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ]
+}

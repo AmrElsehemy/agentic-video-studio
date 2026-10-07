@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "id": "kaliningrad-exclave",
+  "subject": "Russia",
+  "kind": "curated",
+  "note": "Hand-curated research for a Geographica episode about Kaliningrad Oblast. Claims are cited to pinned Wikipedia revisions (trusted_secondary). The oblast is called a semi-exclave because it has a Baltic coast. Its city points are approximate (taken to the nearest minute of the article).",
+  "regions": [
+    "Russia",
+    "Poland",
+    "Lithuania",
+    "Baltic Sea"
+  ],
+  "claims": [
+    {
+      "id": "westernmost",
+      "text": "Kaliningrad Oblast is the westernmost federal subject of Russia.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-kaliningrad-oblast"
+      ]
+    },
+    {
+      "id": "neighbours",
+      "text": "The oblast is a semi-exclave on the Baltic Sea, bordered by Poland to the south, Lithuania to the north and east, and the Baltic Sea to the west.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-kaliningrad-oblast"
+      ]
+    },
+    {
+      "id": "baltiysk",
+      "text": "The port town of Baltiysk is Russia's only port on the Baltic Sea that remains ice-free in winter.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-kaliningrad-oblast"
+      ]
+    },
+    {
+      "id": "million",
+      "text": "Kaliningrad Oblast had a population of roughly one million in the 2021 Russian census.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-kaliningrad-oblast"
+      ]
+    },
+    {
+      "id": "prussia",
+      "text": "The territory was formerly the northern part of East Prussia and overwhelmingly inhabited by Germans; after the defeat of Nazi Germany in World War II the Soviet Union annexed the region into the Russian SFSR.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-kaliningrad-oblast"
+      ]
+    },
+    {
+      "id": "konigsberg",
+      "text": "In 1255 the Teutonic Order founded the city of Königsberg, modern Kaliningrad, on the foundations of a destroyed Sambian settlement.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-kaliningrad-oblast"
+      ]
+    }
+  ],
+  "places": {
+    "kaliningrad": {
+      "lon": 20.51,
+      "lat": 54.71,
+      "source": "wikipedia-kaliningrad-oblast",
+      "approximate": true,
+      "note": "Kaliningrad, the oblast’s largest city and administrative centre."
+    },
+    "baltiysk": {
+      "lon": 19.92,
+      "lat": 54.65,
+      "source": "wikipedia-kaliningrad-oblast",
+      "approximate": true,
+      "note": "Baltiysk, the ice-free port on the Baltic coast."
+    }
+  },
+  "sources": {
+    "wikipedia-kaliningrad-oblast": {
+      "label": "Wikipedia: Kaliningrad Oblast (revision 1377690451)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Kaliningrad_Oblast&oldid=1377690451"
+    },
+    "natural-earth": {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  }
+}

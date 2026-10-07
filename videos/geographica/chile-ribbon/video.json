@@ -1,0 +1,417 @@
+{
+  "schemaVersion": 2,
+  "id": "chile-ribbon",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica",
+    "wordmark": {
+      "lead": "GEO",
+      "accent": "GRAPHICA"
+    },
+    "fonts": {
+      "display": "Oswald",
+      "body": "Inter"
+    },
+    "captions": {
+      "mode": "words"
+    }
+  },
+  "title": "4,300 km Long. Barely 175 km Wide.",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "profile",
+    "numberRelevant": false,
+    "premise": "Chile is 4,300 km long but only about 175 km wide on average.",
+    "audiencePromise": "See the most stretched-out country on the map.",
+    "openLoop": "How can a country be 4,300 km long and so thin?",
+    "payoff": "Chile is squeezed between the Andes and the Pacific, with an average width of 175 km.",
+    "targetEmotion": "surprise",
+    "engagementQuestion": "Would you want to live in a ribbon?",
+    "targetSecondsBetweenVisualChanges": 0.72
+  },
+  "subject": {
+    "name": "Chile",
+    "category": "Border",
+    "attributes": {
+      "geoEntity": "country:CHL"
+    }
+  },
+  "related": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#0b1a2a",
+    "surface": "#23473d",
+    "primary": "#e4b363",
+    "secondary": "#8c2f39",
+    "ink": "#f6f1e7"
+  },
+  "audio": {
+    "music": "generated/chile-ribbon-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 96,
+      "notes": [
+        98,
+        116.54,
+        130.81,
+        146.83,
+        130.81,
+        116.54,
+        87.31,
+        98
+      ]
+    },
+    "voice": {
+      "provider": "elevenlabs",
+      "model": "eleven_v4",
+      "voice": "JBFqnCBsd6RMkjVDRZzb",
+      "instructions": "Warm, curious storyteller walking a friend across a map. Clear and confident, with a sense of discovery on each reveal; slow slightly on dates and place names so they land. Conversational and human, never a documentary announcer, lecture, or neutral TTS. Never imitate a known person or character.",
+      "speed": 1.06,
+      "output": "generated/chile-ribbon-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "durationSeconds": 3.8,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "mystery",
+      "subjectFocus": "hidden",
+      "beatEverySeconds": 0.72,
+      "eyebrow": "A MAP MYSTERY",
+      "headline": "HOW LONG?",
+      "narration": "This country is 4,300 kilometres long.",
+      "caption": "4,300 KM LONG",
+      "visual": "hook",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -82,
+                -57,
+                -62,
+                -15
+              ]
+            },
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:CHL",
+            "style": "fill",
+            "at": 0.2
+          }
+        ],
+        "annotations": [],
+        "dataset": "natural-earth"
+      }
+    },
+    {
+      "id": "wide",
+      "durationSeconds": 4.8,
+      "beat": "evidence",
+      "role": "evidence",
+      "shot": "tracking",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.72,
+      "eyebrow": "BUT",
+      "headline": "BARELY 175 KM WIDE",
+      "narration": "But on average, it is only 175 kilometres wide.",
+      "caption": "175 KM WIDE ON AVERAGE",
+      "visual": "gauntlet",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -82,
+                -57,
+                -62,
+                -15
+              ]
+            },
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -76,
+                -40,
+                -66,
+                -30
+              ]
+            },
+            "at": 0.4,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:CHL",
+            "style": "fill",
+            "at": 0
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:CHL",
+            "text": "175 KM WIDE",
+            "at": 0.55
+          }
+        ],
+        "dataset": "natural-earth"
+      }
+    },
+    {
+      "id": "extremes",
+      "durationSeconds": 5.3,
+      "beat": "evidence",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.72,
+      "eyebrow": "THE EXTREMES",
+      "headline": "350 KM AT MOST",
+      "narration": "At its widest, 350. At its narrowest, just 64.",
+      "caption": "350 KM WIDEST, 64 KM NARROWEST",
+      "visual": "advantage",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -76,
+                -40,
+                -66,
+                -30
+              ]
+            },
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:CHL",
+            "style": "fill",
+            "at": 0
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:CHL",
+            "text": "64–350 KM WIDE",
+            "at": 0.4
+          }
+        ],
+        "dataset": "natural-earth"
+      }
+    },
+    {
+      "id": "squeeze",
+      "durationSeconds": 4.4,
+      "beat": "escalation",
+      "role": "escalation",
+      "shot": "comparison",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.72,
+      "eyebrow": "THE SQUEEZE",
+      "headline": "ANDES VS OCEAN",
+      "narration": "It is squeezed between the Andes and the Pacific.",
+      "caption": "BETWEEN THE ANDES AND THE PACIFIC",
+      "visual": "race",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -82,
+                -57,
+                -62,
+                -15
+              ]
+            },
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -78,
+                -45,
+                -64,
+                -20
+              ]
+            },
+            "at": 0.4,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:CHL",
+            "style": "fill",
+            "at": 0
+          },
+          {
+            "entity": "country:ARG",
+            "style": "outline",
+            "at": 0.3
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:ARG",
+            "text": "ANDES →",
+            "at": 0.6
+          }
+        ],
+        "dataset": "natural-earth"
+      }
+    },
+    {
+      "id": "south",
+      "durationSeconds": 3.8,
+      "beat": "twist",
+      "role": "twist",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.72,
+      "eyebrow": "END OF THE LINE",
+      "headline": "CLOSEST TO ANTARCTICA",
+      "narration": "It's the southernmost country in the world.",
+      "caption": "SOUTHERNMOST COUNTRY",
+      "visual": "tradeoff",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -82,
+                -57,
+                -62,
+                -15
+              ]
+            },
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -78,
+                -57,
+                -62,
+                -48
+              ]
+            },
+            "at": 0.4,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:CHL",
+            "style": "fill",
+            "at": 0
+          }
+        ],
+        "annotations": [],
+        "dataset": "natural-earth"
+      }
+    },
+    {
+      "id": "verdict",
+      "durationSeconds": 4,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.72,
+      "eyebrow": "YOUR TURN",
+      "headline": "LIVE ON A RIBBON?",
+      "narration": "Would you want to live on a ribbon?",
+      "caption": "WOULD YOU LIVE ON A RIBBON?",
+      "visual": "cta",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -82,
+                -57,
+                -62,
+                -15
+              ]
+            },
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:CHL",
+            "style": "fill",
+            "at": 0.1
+          }
+        ],
+        "annotations": [],
+        "dataset": "natural-earth"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia: Chile (revision 1378806827)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Chile&oldid=1378806827"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ]
+}

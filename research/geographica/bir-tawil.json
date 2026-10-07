@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "id": "bir-tawil",
+  "subject": "Egypt",
+  "kind": "curated",
+  "note": "Hand-curated research for a Geographica episode about Bir Tawil. Claims are cited to a pinned Wikipedia revision (trusted_secondary). Bir Tawil is not an entity in the map data, so it is a labelled approximate point on the Egypt–Sudan border. The Halaib Triangle, claimed by both countries, is not drawn or labelled. Needs the disputed-borders sign-off before release (Sudan has a flagged area, Abyei, which this episode does not show).",
+  "regions": [
+    "Egypt",
+    "Sudan"
+  ],
+  "claims": [
+    {
+      "id": "unclaimed",
+      "text": "Bir Tawil is a 2,060 km² area of land along the border between Egypt and Sudan which is claimed by neither country.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-bir-tawil"
+      ]
+    },
+    {
+      "id": "why",
+      "text": "Its unclaimed status results from a discrepancy between the straight political boundary between Egypt and Sudan established in 1899 and the irregular administrative boundary established in 1902.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-bir-tawil"
+      ]
+    },
+    {
+      "id": "sides",
+      "text": "Egypt asserts the political boundary, and Sudan asserts the administrative boundary, so the Halaib Triangle is claimed by both and Bir Tawil by neither.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-bir-tawil"
+      ]
+    }
+  ],
+  "places": {
+    "bir-tawil": {
+      "lon": 33.75,
+      "lat": 21.9,
+      "source": "wikipedia-bir-tawil",
+      "approximate": true,
+      "note": "The centre of Bir Tawil, on the Egypt–Sudan border, to the nearest tenth of a degree."
+    }
+  },
+  "sources": {
+    "wikipedia-bir-tawil": {
+      "label": "Wikipedia: Bir Tawil (revision 1377306827)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Bir_Tawil&oldid=1377306827"
+    },
+    "natural-earth": {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  }
+}

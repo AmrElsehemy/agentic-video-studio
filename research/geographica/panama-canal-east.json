@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "id": "panama-canal-east",
+  "subject": "Panama",
+  "kind": "curated",
+  "note": "Hand-curated research for a Geographica episode about the Panama Canal. Claims are cited to a pinned Wikipedia revision (trusted_secondary). The two ends of the canal are approximate points. The canal itself is drawn as an approximate route between them.",
+  "regions": [
+    "Panama",
+    "Costa Rica",
+    "Colombia",
+    "Caribbean Sea"
+  ],
+  "claims": [
+    {
+      "id": "isthmus",
+      "text": "Globally the Atlantic Ocean is east of the isthmus of Panama and the Pacific is west.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-panama-canal"
+      ]
+    },
+    {
+      "id": "direction",
+      "text": "The general direction of the canal passage from the Atlantic to the Pacific is from northwest to southeast, because of the shape of the isthmus at the point the canal occupies.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-panama-canal"
+      ]
+    },
+    {
+      "id": "atlantic-end",
+      "text": "From the formal marking line of the Atlantic Entrance, one enters Limón Bay, a large natural harbor, with the deepwater port of Cristóbal.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-panama-canal"
+      ]
+    },
+    {
+      "id": "bridge",
+      "text": "The Bridge of the Americas stands at the Pacific side of the canal.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-panama-canal"
+      ]
+    }
+  ],
+  "places": {
+    "cristobal": {
+      "lon": -79.91,
+      "lat": 9.35,
+      "source": "wikipedia-panama-canal",
+      "approximate": true,
+      "note": "Atlantic entrance, Limón Bay and Cristóbal."
+    },
+    "bridge-of-the-americas": {
+      "lon": -79.57,
+      "lat": 8.94,
+      "source": "wikipedia-panama-canal",
+      "approximate": true,
+      "note": "Pacific end, the Bridge of the Americas."
+    }
+  },
+  "sources": {
+    "wikipedia-panama-canal": {
+      "label": "Wikipedia: Panama Canal (revision 1378403287)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Panama_Canal&oldid=1378403287"
+    },
+    "natural-earth": {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  }
+}

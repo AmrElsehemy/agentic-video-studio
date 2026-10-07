@@ -1,0 +1,500 @@
+{
+  "schemaVersion": 2,
+  "id": "kaliningrad-exclave",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica",
+    "wordmark": {
+      "lead": "GEO",
+      "accent": "GRAPHICA"
+    },
+    "fonts": {
+      "display": "Oswald",
+      "body": "Inter"
+    },
+    "captions": {
+      "mode": "words"
+    }
+  },
+  "title": "The Russian Region Cut Off From Russia",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "mystery",
+    "numberRelevant": false,
+    "premise": "Kaliningrad is Russian territory with no land border with the rest of Russia.",
+    "audiencePromise": "Find the Russian region that sits between Poland and Lithuania.",
+    "openLoop": "Which part of Russia has no land border with Russia?",
+    "payoff": "Kaliningrad, Russia’s westernmost region, was part of German East Prussia until the Soviet Union annexed it after World War II.",
+    "targetEmotion": "surprise",
+    "engagementQuestion": "Would you have found it on the map?",
+    "targetSecondsBetweenVisualChanges": 0.68
+  },
+  "subject": {
+    "name": "Russia",
+    "category": "Border",
+    "attributes": {
+      "geoEntity": "country:RUS"
+    }
+  },
+  "related": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#0b1a2a",
+    "surface": "#23473d",
+    "primary": "#e4b363",
+    "secondary": "#8c2f39",
+    "ink": "#f6f1e7"
+  },
+  "audio": {
+    "music": "generated/kaliningrad-exclave-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 96,
+      "notes": [
+        98,
+        116.54,
+        130.81,
+        146.83,
+        130.81,
+        116.54,
+        87.31,
+        98
+      ]
+    },
+    "voice": {
+      "provider": "elevenlabs",
+      "model": "eleven_v4",
+      "voice": "JBFqnCBsd6RMkjVDRZzb",
+      "instructions": "Warm, curious storyteller walking a friend across a map. Clear and confident, with a sense of discovery on each reveal; slow slightly on dates and place names so they land. Conversational and human, never a documentary announcer, lecture, or neutral TTS. Never imitate a known person or character.",
+      "speed": 1.06,
+      "output": "generated/kaliningrad-exclave-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "durationSeconds": 4.4,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "mystery",
+      "subjectFocus": "hidden",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "A MAP MYSTERY",
+      "headline": "WHERE IS IT?",
+      "narration": "One part of Russia has no border with Russia.",
+      "caption": "NO BORDER WITH RUSSIA",
+      "visual": "hook",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                10,
+                49,
+                32,
+                60
+              ]
+            },
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:RUS",
+            "style": "fill",
+            "at": 0.2
+          }
+        ],
+        "annotations": [],
+        "dataset": "natural-earth"
+      }
+    },
+    {
+      "id": "between",
+      "durationSeconds": 5,
+      "beat": "clue",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "LOOK WEST",
+      "headline": "BETWEEN TWO NEIGHBOURS",
+      "narration": "It sits on the Baltic coast, between Poland and Lithuania.",
+      "caption": "POLAND AND LITHUANIA",
+      "visual": "gauntlet",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                10,
+                49,
+                32,
+                60
+              ]
+            },
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                16,
+                52.5,
+                30,
+                57.5
+              ]
+            },
+            "at": 0.4,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:POL",
+            "style": "outline",
+            "at": 0.3
+          },
+          {
+            "entity": "country:LTU",
+            "style": "outline",
+            "at": 0.4
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:POL",
+            "text": "POLAND",
+            "at": 0.55
+          },
+          {
+            "type": "label",
+            "anchor": "country:LTU",
+            "text": "LITHUANIA",
+            "at": 0.65
+          }
+        ],
+        "dataset": "natural-earth"
+      }
+    },
+    {
+      "id": "name",
+      "durationSeconds": 3.8,
+      "beat": "clue",
+      "role": "evidence",
+      "shot": "wide",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "MEET IT",
+      "headline": "KALININGRAD",
+      "narration": "It's Kaliningrad, Russia's westernmost region.",
+      "caption": "RUSSIA'S WESTERNMOST REGION",
+      "visual": "gauntlet",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                17,
+                53,
+                29,
+                57.5
+              ]
+            },
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:RUS",
+            "style": "fill",
+            "at": 0.1
+          }
+        ],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 20.51,
+              "lat": 54.71
+            },
+            "text": "KALININGRAD ~",
+            "at": 0.35
+          }
+        ],
+        "dataset": "natural-earth"
+      }
+    },
+    {
+      "id": "port",
+      "durationSeconds": 5.7,
+      "beat": "escalation",
+      "role": "escalation",
+      "shot": "tracking",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "A RARE PRIZE",
+      "headline": "IT NEVER FREEZES",
+      "narration": "Its port, Baltiysk, is Russia's only ice-free Baltic port in winter.",
+      "caption": "ICE-FREE IN WINTER",
+      "visual": "advantage",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                17,
+                53,
+                29,
+                57.5
+              ]
+            },
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                18.4,
+                54,
+                22.2,
+                55.4
+              ]
+            },
+            "at": 0.35,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:RUS",
+            "style": "fill",
+            "at": 0
+          }
+        ],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 19.92,
+              "lat": 54.65
+            },
+            "text": "BALTIYSK ~",
+            "at": 0.5
+          }
+        ],
+        "dataset": "natural-earth"
+      }
+    },
+    {
+      "id": "prussia",
+      "durationSeconds": 5.3,
+      "beat": "reveal",
+      "role": "payoff",
+      "shot": "comparison",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "THE ANSWER",
+      "headline": "ONCE GERMAN PRUSSIA",
+      "narration": "It was German East Prussia until the Soviet Union annexed it.",
+      "caption": "ANNEXED AFTER WWII",
+      "visual": "race",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                17,
+                53,
+                29,
+                57.5
+              ]
+            },
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:RUS",
+            "style": "fill",
+            "at": 0.1
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": {
+              "lon": 20.51,
+              "lat": 54.71
+            },
+            "text": "EAST PRUSSIA ~",
+            "at": 0.3
+          }
+        ],
+        "dataset": "natural-earth"
+      }
+    },
+    {
+      "id": "people",
+      "durationSeconds": 3.8,
+      "beat": "reveal",
+      "role": "payoff",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "TODAY",
+      "headline": "ABOUT 1 MILLION PEOPLE",
+      "narration": "Roughly one million people live there today.",
+      "caption": "~1 MILLION PEOPLE",
+      "visual": "tradeoff",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                17,
+                53,
+                29,
+                57.5
+              ]
+            },
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                18.4,
+                54,
+                22.2,
+                55.4
+              ]
+            },
+            "at": 0.4,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:RUS",
+            "style": "fill",
+            "at": 0
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": {
+              "lon": 20.51,
+              "lat": 54.71
+            },
+            "text": "~1 MILLION PEOPLE",
+            "at": 0.45
+          }
+        ],
+        "dataset": "natural-earth"
+      }
+    },
+    {
+      "id": "verdict",
+      "durationSeconds": 4.4,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "YOUR TURN",
+      "headline": "FIND IT AGAIN",
+      "narration": "Can you find Russia's detour on a blank map?",
+      "caption": "COULD YOU FIND IT?",
+      "visual": "cta",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                10,
+                49,
+                32,
+                60
+              ]
+            },
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:RUS",
+            "style": "fill",
+            "at": 0.1
+          },
+          {
+            "entity": "country:POL",
+            "style": "outline",
+            "at": 0.3
+          },
+          {
+            "entity": "country:LTU",
+            "style": "outline",
+            "at": 0.3
+          }
+        ],
+        "annotations": [],
+        "dataset": "natural-earth"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia: Kaliningrad Oblast (revision 1377690451)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Kaliningrad_Oblast&oldid=1377690451"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ]
+}

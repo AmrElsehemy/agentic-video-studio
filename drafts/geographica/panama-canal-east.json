@@ -1,0 +1,379 @@
+{
+  "id": "panama-canal-east",
+  "title": "The Canal Where the Pacific Is East",
+  "storyPattern": "mystery",
+  "numberRelevant": false,
+  "premise": "At the Panama Canal the Pacific end lies east of the Atlantic end, because the isthmus bends.",
+  "audiencePromise": "See the one canal where ships sail east to reach the Pacific.",
+  "openLoop": "Which canal makes the Pacific lie east of the Atlantic?",
+  "payoff": "The canal runs northwest to southeast, so ships leave it east of where they entered.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "Did you expect the Pacific to be east?",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica"
+  },
+  "subject": {
+    "name": "Panama",
+    "category": "Border",
+    "attributes": {
+      "geoEntity": "country:PAN"
+    }
+  },
+  "voice": {
+    "provider": "elevenlabs",
+    "voice": "JBFqnCBsd6RMkjVDRZzb"
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "eyebrow": "A MAP MYSTERY",
+      "headline": "PACIFIC IN THE EAST?",
+      "narration": "Here, the Pacific is east of the Atlantic.",
+      "caption": "PACIFIC IS EAST OF ATLANTIC",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -86,
+                4,
+                -74,
+                13
+              ]
+            },
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:PAN",
+            "style": "fill",
+            "at": 0.2
+          }
+        ],
+        "annotations": [],
+        "dataset": "natural-earth"
+      }
+    },
+    {
+      "id": "expect",
+      "beat": "clue",
+      "eyebrow": "WHAT YOU EXPECT",
+      "headline": "THE USUAL ORDER",
+      "narration": "Overall, the Atlantic is east of Panama, the Pacific west.",
+      "caption": "ATLANTIC EAST, PACIFIC WEST",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -95,
+                -2,
+                -62,
+                20
+              ]
+            },
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:PAN",
+            "style": "fill",
+            "at": 0.1
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": {
+              "lon": -69,
+              "lat": 15
+            },
+            "text": "ATLANTIC",
+            "at": 0.3
+          },
+          {
+            "type": "label",
+            "anchor": {
+              "lon": -90,
+              "lat": 5
+            },
+            "text": "PACIFIC",
+            "at": 0.45
+          }
+        ],
+        "dataset": "natural-earth"
+      }
+    },
+    {
+      "id": "bend",
+      "beat": "clue",
+      "eyebrow": "THE TWIST",
+      "headline": "THE ISTHMUS BENDS",
+      "narration": "But the isthmus bends right where the canal cuts through.",
+      "caption": "THE ISTHMUS BENDS",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -95,
+                -2,
+                -62,
+                20
+              ]
+            },
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -82.5,
+                7.5,
+                -77,
+                10.5
+              ]
+            },
+            "at": 0.4,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:PAN",
+            "style": "fill",
+            "at": 0
+          }
+        ],
+        "annotations": [],
+        "dataset": "natural-earth"
+      }
+    },
+    {
+      "id": "atlantic",
+      "beat": "escalation",
+      "eyebrow": "START HERE",
+      "headline": "THE ATLANTIC END",
+      "narration": "Ships enter from the Atlantic at Limón Bay, beside Cristóbal.",
+      "caption": "LIMÓN BAY",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -82.5,
+                7.5,
+                -77,
+                10.5
+              ]
+            },
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:PAN",
+            "style": "fill",
+            "at": 0
+          }
+        ],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": -79.91,
+              "lat": 9.35
+            },
+            "text": "ATLANTIC END ~",
+            "at": 0.35
+          }
+        ],
+        "dataset": "natural-earth"
+      }
+    },
+    {
+      "id": "route",
+      "beat": "reveal",
+      "eyebrow": "THE ANSWER",
+      "headline": "NORTHWEST TO SOUTHEAST",
+      "narration": "From there the canal runs northwest to southeast.",
+      "caption": "NORTHWEST → SOUTHEAST",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -81.2,
+                8.2,
+                -78.4,
+                10
+              ]
+            },
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:PAN",
+            "style": "fill",
+            "at": 0
+          }
+        ],
+        "annotations": [
+          {
+            "type": "route",
+            "path": [
+              {
+                "lon": -79.91,
+                "lat": 9.35
+              },
+              {
+                "lon": -79.57,
+                "lat": 8.94
+              }
+            ],
+            "text": "CANAL ~",
+            "at": 0.15,
+            "until": 0.8,
+            "marker": true
+          }
+        ],
+        "dataset": "natural-earth"
+      }
+    },
+    {
+      "id": "pacific",
+      "beat": "reveal",
+      "eyebrow": "THE OTHER END",
+      "headline": "THE PACIFIC END",
+      "narration": "It reaches the Pacific by the Bridge of the Americas, farther east.",
+      "caption": "THE BRIDGE OF THE AMERICAS",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -81.2,
+                8.2,
+                -78.4,
+                10
+              ]
+            },
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:PAN",
+            "style": "fill",
+            "at": 0
+          }
+        ],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": -79.57,
+              "lat": 8.94
+            },
+            "text": "PACIFIC END ~",
+            "at": 0.3
+          },
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": -79.91,
+              "lat": 9.35
+            },
+            "text": "ATLANTIC END ~",
+            "at": 0.3
+          }
+        ],
+        "dataset": "natural-earth"
+      }
+    },
+    {
+      "id": "verdict",
+      "beat": "verdict",
+      "eyebrow": "YOUR TURN",
+      "headline": "EAST TO THE PACIFIC",
+      "narration": "Did you expect the Pacific to be east?",
+      "caption": "DID YOU EXPECT THAT?",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -95,
+                -2,
+                -62,
+                20
+              ]
+            },
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:PAN",
+            "style": "fill",
+            "at": 0.1
+          }
+        ],
+        "annotations": [],
+        "dataset": "natural-earth"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia: Panama Canal (revision 1378403287)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Panama_Canal&oldid=1378403287"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ]
+}

@@ -1,0 +1,388 @@
+{
+  "id": "brazil-borders",
+  "title": "Brazil Touches Everyone But Two",
+  "storyPattern": "mystery",
+  "numberRelevant": false,
+  "premise": "Brazil shares a border with every South American country except Chile and Ecuador.",
+  "audiencePromise": "See the only two countries Brazil does not touch.",
+  "openLoop": "Which two South American countries never touch Brazil?",
+  "payoff": "Chile and Ecuador are the only two South American countries without a border with Brazil.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "Did you guess Chile and Ecuador?",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica"
+  },
+  "subject": {
+    "name": "Brazil",
+    "category": "Border",
+    "attributes": {
+      "geoEntity": "country:BRA"
+    }
+  },
+  "voice": {
+    "provider": "elevenlabs",
+    "voice": "JBFqnCBsd6RMkjVDRZzb"
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "eyebrow": "A MAP MYSTERY",
+      "headline": "WHO DOES IT MISS?",
+      "narration": "Brazil touches almost every country in South America.",
+      "caption": "BRAZIL TOUCHES ALMOST ALL",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -84,
+                -57,
+                -32,
+                14
+              ]
+            },
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:BRA",
+            "style": "fill",
+            "at": 0.2
+          }
+        ],
+        "annotations": [],
+        "dataset": "natural-earth"
+      }
+    },
+    {
+      "id": "half",
+      "beat": "clue",
+      "eyebrow": "HUGE",
+      "headline": "HALF THE CONTINENT",
+      "narration": "It covers nearly half of the continent.",
+      "caption": "NEARLY HALF OF SOUTH AMERICA",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -84,
+                -57,
+                -32,
+                14
+              ]
+            },
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:BRA",
+            "style": "fill",
+            "at": 0
+          }
+        ],
+        "annotations": [],
+        "dataset": "natural-earth"
+      }
+    },
+    {
+      "id": "neighbours",
+      "beat": "clue",
+      "eyebrow": "EVERYONE ELSE",
+      "headline": "TEN NEIGHBOURS",
+      "narration": "Ten neighbours in all, even France, through French Guiana.",
+      "caption": "TEN NEIGHBOURS, INCLUDING FRANCE",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -84,
+                -57,
+                -32,
+                14
+              ]
+            },
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -76,
+                -36,
+                -44,
+                8
+              ]
+            },
+            "at": 0.4,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:BRA",
+            "style": "fill",
+            "at": 0
+          },
+          {
+            "entity": "country:ARG",
+            "style": "outline",
+            "at": 0.25
+          },
+          {
+            "entity": "country:PER",
+            "style": "outline",
+            "at": 0.4
+          },
+          {
+            "entity": "country:COL",
+            "style": "outline",
+            "at": 0.5
+          }
+        ],
+        "annotations": [],
+        "dataset": "natural-earth"
+      }
+    },
+    {
+      "id": "two",
+      "beat": "escalation",
+      "eyebrow": "THE CLUE",
+      "headline": "ONLY TWO MISSING",
+      "narration": "Only two countries on the continent are left out.",
+      "caption": "ONLY TWO LEFT OUT",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -84,
+                -57,
+                -32,
+                14
+              ]
+            },
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:BRA",
+            "style": "fill",
+            "at": 0
+          }
+        ],
+        "annotations": [],
+        "dataset": "natural-earth"
+      }
+    },
+    {
+      "id": "chile",
+      "beat": "reveal",
+      "eyebrow": "THE ANSWER",
+      "headline": "CHILE",
+      "narration": "One is Chile, hidden behind Argentina and the Andes.",
+      "caption": "CHILE",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -84,
+                -57,
+                -32,
+                14
+              ]
+            },
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -80,
+                -45,
+                -60,
+                -18
+              ]
+            },
+            "at": 0.4,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:BRA",
+            "style": "fill",
+            "at": 0
+          },
+          {
+            "entity": "country:CHL",
+            "style": "outline",
+            "at": 0.35
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:CHL",
+            "text": "CHILE",
+            "at": 0.55
+          }
+        ],
+        "dataset": "natural-earth"
+      }
+    },
+    {
+      "id": "ecuador",
+      "beat": "reveal",
+      "eyebrow": "THE OTHER",
+      "headline": "ECUADOR",
+      "narration": "The other is Ecuador, squeezed between Colombia and Peru.",
+      "caption": "ECUADOR",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -84,
+                -57,
+                -32,
+                14
+              ]
+            },
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -84,
+                -8,
+                -68,
+                6
+              ]
+            },
+            "at": 0.4,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:BRA",
+            "style": "fill",
+            "at": 0
+          },
+          {
+            "entity": "country:ECU",
+            "style": "outline",
+            "at": 0.35
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:ECU",
+            "text": "ECUADOR",
+            "at": 0.55
+          }
+        ],
+        "dataset": "natural-earth"
+      }
+    },
+    {
+      "id": "verdict",
+      "beat": "verdict",
+      "eyebrow": "YOUR TURN",
+      "headline": "DID YOU GUESS?",
+      "narration": "Did you guess Chile and Ecuador?",
+      "caption": "DID YOU GUESS?",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -84,
+                -57,
+                -32,
+                14
+              ]
+            },
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:BRA",
+            "style": "fill",
+            "at": 0.1
+          },
+          {
+            "entity": "country:CHL",
+            "style": "outline",
+            "at": 0.3
+          },
+          {
+            "entity": "country:ECU",
+            "style": "outline",
+            "at": 0.4
+          }
+        ],
+        "annotations": [],
+        "dataset": "natural-earth"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia: Brazil (revision 1378644706)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Brazil&oldid=1378644706"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ]
+}
