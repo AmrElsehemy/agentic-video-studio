@@ -40,8 +40,16 @@ describe('episode analytics', () => {
     const snapshot = await fetchYouTubeSnapshot({videoId: 'mjQ2YcEQ3B4', accessToken: 't', startDate: '2026-09-30', now: new Date('2026-10-01T15:00:00Z'), fetchImpl});
     assert.equal(requests[0].searchParams.get('filters'), 'video==mjQ2YcEQ3B4');
     assert.equal(requests[0].searchParams.get('endDate'), '2026-10-01');
+    assert.ok(snapshot);
     assert.deepEqual({views: snapshot.views, avg: snapshot.averageViewPercent, shares: snapshot.shares, subs: snapshot.subscribersGained}, {views: 1500, avg: 75.2, shares: 7, subs: 3});
     assert.equal(snapshot.retention?.length, 3);
+  });
+
+  it('returns nothing while YouTube Analytics has no views yet, instead of zeros', async () => {
+    const zeros = (async () => new Response(JSON.stringify({rows: [[0, 0, 0, 0, 0, 0, 0]]}), {status: 200})) as unknown as typeof fetch;
+    assert.equal(await fetchYouTubeSnapshot({videoId: 'mjQ2YcEQ3B4', accessToken: 't', startDate: '2026-10-05', fetchImpl: zeros}), undefined);
+    const fetchImpl = (async () => new Response(JSON.stringify({columnHeaders: []}), {status: 200})) as unknown as typeof fetch;
+    assert.equal(await fetchYouTubeSnapshot({videoId: 'mjQ2YcEQ3B4', accessToken: 't', startDate: '2026-10-05', fetchImpl}), undefined);
   });
 
   it('explains a missing analytics scope', async () => {

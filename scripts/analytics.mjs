@@ -70,12 +70,16 @@ if (command === 'link') {
   const record = linked(file, episodeId);
   const startDate = (record.publishedAt ?? '2020-01-01').slice(0, 10);
   const snapshot = await fetchYouTubeSnapshot({videoId: record.videoId, accessToken: await getAccessToken(root, {show: manifest.show.id}), startDate});
+  if (!snapshot) {
+    console.log(`✗ ${episodeId}: YouTube Analytics has no data for this video yet (its reports run a day or two behind). Nothing recorded; try again later. Live view counts are in Studio.`);
+    process.exit(1);
+  }
   writeAnalytics(file, addSnapshot(record, snapshot));
   console.log(`✓ ${episodeId}: ${snapshot.views} views, ${snapshot.averageViewPercent?.toFixed(1)}% average viewed${snapshot.retention ? `, retention curve (${snapshot.retention.length} points)` : ''}`);
 } else if (command === 'report') {
   const base = path.join(root, 'analytics');
   // Performance files only; each episode's production log (#89) sits beside its own.
-  const files = fs.existsSync(base) ? fs.readdirSync(base).flatMap((show) => fs.readdirSync(path.join(base, show)).filter((name) => name.endsWith('.json') && !name.endsWith('.production.json')).map((name) => path.join(base, show, name))) : [];
+  const files = fs.existsSync(base) ? fs.readdirSync(base).filter((show) => fs.statSync(path.join(base, show)).isDirectory()).flatMap((show) => fs.readdirSync(path.join(base, show)).filter((name) => name.endsWith('.json') && !name.endsWith('.production.json')).map((name) => path.join(base, show, name))) : [];
   const entries = files.map((file) => {
     const analytics = readAnalytics(file);
     const manifest = JSON.parse(fs.readFileSync(findManifest(analytics.episodeId).manifestPath, 'utf8'));

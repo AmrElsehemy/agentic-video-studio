@@ -107,6 +107,8 @@ npm run analytics -- report         # every published episode: its numbers next 
 
 Each `record` or `fetch` adds a dated snapshot, so it's worth taking one at 24 hours and another at 7 days.
 
+While YouTube Analytics reports no views for a video yet (its reports run a day or two behind), `fetch` says so and records nothing, rather than saving a snapshot of zeros.
+
 `fetch` needs the read-only analytics scope (`yt-analytics.readonly`), which `youtube:auth` now requests along with upload. If your token predates this, run `npm run youtube:auth` once more.
 
 The report lines each episode's average % viewed, hook hold and engagement up against its story shape, hook length, total length and engagement-audit score:

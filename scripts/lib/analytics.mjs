@@ -51,6 +51,8 @@ const METRICS = ['views', 'averageViewDuration', 'averageViewPercentage', 'likes
 /**
  * The video's lifetime numbers and retention curve from the YouTube Analytics
  * API (needs the yt-analytics.readonly scope: run npm run youtube:auth again).
+ * Returns undefined while the API reports no views: its reports run a day or
+ * two behind and answer a young video with a row of zeros, which is not a measurement.
  */
 export const fetchYouTubeSnapshot = async ({videoId, accessToken, startDate, now = new Date(), fetchImpl = fetch}) => {
   const endDate = now.toISOString().slice(0, 10);
@@ -67,7 +69,8 @@ export const fetchYouTubeSnapshot = async ({videoId, accessToken, startDate, now
     return body;
   };
   const totals = await query({metrics: METRICS.join(',')});
-  const row = totals.rows?.[0] ?? METRICS.map(() => 0);
+  const row = totals.rows?.[0];
+  if (!row || !Number(row[METRICS.indexOf('views')])) return undefined;
   const value = (name) => Number(row[METRICS.indexOf(name)] ?? 0);
   const curve = await query({metrics: 'audienceWatchRatio', dimensions: 'elapsedVideoTimeRatio'});
   return snapshotSchema.parse({
