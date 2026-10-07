@@ -14,3 +14,4 @@ export declare const directDiagram: (input: {draft: any; complete?: Complete; sh
   fallbacks: {id: string; reason: string}[];
   modelError?: string;
 }>;
+export declare const describeDiagram: (spec: any) => string;

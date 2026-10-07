@@ -87,7 +87,8 @@ const problemsOf = (spec, scenes) => {
 };
 
 /**
- * Small, unambiguous repairs to the model's actions, each listed: a word's
+ * Small, unambiguous repairs to the model's actions, each listed: an anchor of
+ * several words waits for the first of them the narration says; a word's
  * "nth" beyond the times it is said is taken as its last time; highlighting
  * something not yet on the canvas reveals it; "revealing" a step walks it
  * (flow), unless the scene walks it anyway.
@@ -99,6 +100,15 @@ export const repairActions = (actions, {spec, scene, previous}) => {
   const steps = new Set((spec.steps ?? []).map((step) => step.id));
   const flowed = new Set(actions.filter((action) => action?.do === 'flow').map((action) => action.step));
   const anchor = (value, where) => {
+    if (value && typeof value === 'object' && typeof value.word === 'string' && /\s/.test(value.word.trim())) {
+      // An anchor is one spoken word: "Cosmos DB" waits for the first of its words the narration says.
+      const said = value.word.trim().split(/\s+/).find((word) => tokens.some((token) => wordMatches(token, word)));
+      if (said) {
+        repairs.push(`${where}: "${value.word}" is several words; it waits for "${said}"`);
+        value = {...value, word: said};
+        if (value.nth === undefined || value.nth === 1) return value;
+      }
+    }
     if (!value || typeof value !== 'object' || typeof value.word !== 'string' || !value.nth) return value;
     const said = tokens.filter((token) => wordMatches(token, value.word)).length;
     if (said >= 1 && value.nth > said) {
@@ -349,7 +359,8 @@ export const fallbackActions = (spec, scene, {shown, scenesLeft, first = false, 
   return {kind: 'diagram', actions: [camera, ...timed, ...arrows]};
 };
 
-const describe = (spec) => {
+/** The diagram as text: each element's id, kind and label, and what each route or arrow joins. */
+export const describeDiagram = (spec) => {
   const items = elementsOf(spec);
   const lines = [];
   for (const [id, item] of items) {
@@ -386,7 +397,7 @@ A scene's actions are JSON:
  "why": "one sentence"}
 
 A (when) is one of:
-- {"word": "cache"}: the moment that word is spoken. It must be a word of THIS scene's narration, spelled as said (a plural also matches). Add "nth": 2 for its second time.
+- {"word": "cache"}: the moment that word is spoken. It must be ONE word of THIS scene's narration, spelled as said (a plural also matches). Add "nth": 2 for its second time.
 - {"after": "<id of an earlier action's target in this scene>", "delay": 0.2}: right after it.
 - a fraction of the scene, 0 to 1.
 - "scene-end".
@@ -401,7 +412,7 @@ Rules:
 - By the last scene, everything the story needs should be on the picture.
 
 Reply with a JSON object only: {"scenes": [<scene>, ...]}${showId ? styleGuideSection(showId) : ''}`,
-    messages: [{role: 'user', content: `Diagram elements (id (kind): label):\n${describe(spec)}\n\nScenes:\n${JSON.stringify(draft.scenes.map((scene) => ({id: scene.id, beat: scene.beat, headline: scene.headline, narration: scene.narration})), null, 2)}`}],
+    messages: [{role: 'user', content: `Diagram elements (id (kind): label):\n${describeDiagram(spec)}\n\nScenes:\n${JSON.stringify(draft.scenes.map((scene) => ({id: scene.id, beat: scene.beat, headline: scene.headline, narration: scene.narration})), null, 2)}`}],
   };
 };
 
