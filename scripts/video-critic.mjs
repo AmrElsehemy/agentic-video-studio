@@ -55,12 +55,14 @@ const HEADLINE_BAND = landscape ? [30, 170, 4] : [140, 700, 4];
 // The cover's title block (EpisodeCover, from y≈1185) read as one block of
 // text: sparse-text mode over the whole middle band loses words next to the
 // artwork or map, while this reads the title exactly.
-const COVER_BANDS = landscape ? [...BANDS, [40, 360, 6]] : [...BANDS, [1100, 1620, 6]];
+// On a 16:9 cover the title card sits top left over the diagram: read only the card's width, as sparse text, or the
+// diagram's labels beside and under it garble the title as a block ("A LOOKUP IN MILLISECONDS" came back as "MILLISECONDS").
+const COVER_BANDS = landscape ? [...BANDS, [40, 360, 11, 1060]] : [...BANDS, [1100, 1620, 6]];
 const ocr = (file, bands = BANDS) => {
   if (!hasTesseract) return undefined;
-  return bands.map(([top, bottom, pageMode], index) => {
+  return bands.map(([top, bottom, pageMode, width = WIDTH], index) => {
     const band = `${file}.band${index}.png`;
-    run('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-y', '-i', file, '-vf', `scale=${WIDTH}:${HEIGHT},crop=${WIDTH}:${bottom - top}:0:${top},format=gray,negate`, band]);
+    run('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-y', '-i', file, '-vf', `scale=${WIDTH}:${HEIGHT},crop=${width}:${bottom - top}:0:${top},format=gray,negate`, band]);
     return run('tesseract', [band, '-', '--psm', String(pageMode)], {encoding: 'utf8'});
   }).join('\n');
 };
