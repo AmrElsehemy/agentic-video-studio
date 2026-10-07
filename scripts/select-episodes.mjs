@@ -28,6 +28,6 @@ walk(path.join(root, 'videos'));
 
 const changedFiles = full ? [] : execFileSync('git', ['diff', '--name-only', `${base}...HEAD`], {cwd: root, encoding: 'utf8'}).split('\n').filter(Boolean);
 const golden = JSON.parse(fs.readFileSync(path.join(root, '.github', 'golden-episodes.json'), 'utf8')).episodes;
-const {episodes, frames, geo, reason} = selectEpisodes({changedFiles, catalog, golden, full});
+const {episodes, frames, geo, diagram, reason} = selectEpisodes({changedFiles, catalog, golden, full});
 console.error(`Full renders: ${episodes.length}; frame checks: ${frames.length}. ${reason}`);
-process.stdout.write(`episodes=${JSON.stringify(toShards(episodes))}\nframes=${frames.join(' ')}\ngeo=${geo}\n`);
+process.stdout.write(`episodes=${JSON.stringify(toShards(episodes))}\nframes=${frames.join(' ')}\ngeo=${geo}\ndiagram=${diagram}\n`);

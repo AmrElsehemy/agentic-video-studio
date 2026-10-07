@@ -13,6 +13,9 @@ const GEO_ONLY = [/^public\/geo\//, /^src\/video\/geo\//, /^scripts\/(lib\/)?geo
 /** Shared paths that also shape map scenes (the primitive contract, the scene layout, dependencies). */
 const GEO_SHARED = [/^scripts\/primitive-schema\./, /^src\/video\/(primitives|CompiledEpisodeScene)\.tsx$/, /^src\/schema\.ts$/, /^package(-lock)?\.json$/, /^\.github\/workflows\//];
 
+/** Diagram rendering (#120): the diagram state, renderers, schemas and their golden frames. Changing them also re-checks the diagram golden frames. */
+const DIAGRAM = [/^src\/video\/(diagram|arch|sketch|canvas)\//, /^scripts\/diagram-[a-z-]+\.(mjs|d\.mts)$/, /^scripts\/lib\/diagram-[a-z-]+\.(mjs|d\.mts)$/, /^test\/(golden\/diagram|fixtures\/diagram-verbs)/];
+
 /**
  * Shared paths that can change the MP4 in ways review frames can't show:
  * audio, encoding, the render script and its QA, dependencies and the workflow.
@@ -41,22 +44,27 @@ const episodeOf = (file) => {
  * @param {string[]} options.catalog every episode id that exists now
  * @param {string[]} options.golden the regression set
  * @param {boolean} [options.full] render everything (nightly / manual)
- * @returns {{episodes: string[], frames: string[], geo: boolean, reason: string}} episodes to render as full MP4s, episodes to check frame by frame, and whether to check the geo golden frames
+ * @returns {{episodes: string[], frames: string[], geo: boolean, diagram: boolean, reason: string}} episodes to render as full MP4s, episodes to check frame by frame, and whether to check the geo and the diagram golden frames
  */
 export const selectEpisodes = ({changedFiles, catalog, golden, full = false}) => {
   const exists = new Set(catalog);
-  if (full) return {episodes: [...catalog].sort(), frames: [], geo: true, reason: 'full catalog run'};
+  if (full) return {episodes: [...catalog].sort(), frames: [], geo: true, diagram: true, reason: 'full catalog run'};
 
   const touched = new Set();
   let sharedChange;
   let mp4Change;
   let geoChange;
+  let diagramChange;
   for (const file of changedFiles) {
+    if (DIAGRAM.some((pattern) => pattern.test(file))) diagramChange ??= file;
     if (GEO_ONLY.some((pattern) => pattern.test(file))) {
       geoChange ??= file;
       continue;
     }
-    if (GEO_SHARED.some((pattern) => pattern.test(file))) geoChange ??= file;
+    if (GEO_SHARED.some((pattern) => pattern.test(file))) {
+      geoChange ??= file;
+      diagramChange ??= file;
+    }
     const episode = episodeOf(file);
     if (episode) {
       if (exists.has(episode)) touched.add(episode);
@@ -78,7 +86,8 @@ export const selectEpisodes = ({changedFiles, catalog, golden, full = false}) =>
   if (smoke && !touched.size) reasons.push(`full render of ${smoke}, because audio or encoding may have changed (e.g. ${mp4Change})`);
   if (frames.length) reasons.push(`frame check of the golden set, because shared code changed (e.g. ${sharedChange})`);
   if (geoChange) reasons.push(`geo golden frames, because map rendering may have changed (e.g. ${geoChange})`);
-  return {episodes: [...episodes].sort(), frames: frames.sort(), geo: Boolean(geoChange), reason: reasons.join('; ') || 'nothing that affects rendering changed'};
+  if (diagramChange) reasons.push(`diagram golden frames, because diagram rendering may have changed (e.g. ${diagramChange})`);
+  return {episodes: [...episodes].sort(), frames: frames.sort(), geo: Boolean(geoChange), diagram: Boolean(diagramChange), reason: reasons.join('; ') || 'nothing that affects rendering changed'};
 };
 
 /** GitHub Actions caps a job matrix at 256 entries; stay well below it. */

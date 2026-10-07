@@ -50,8 +50,14 @@ Each scene's primitive says what happens when:
 | `connect` | An edge's arrow draws along its path. | `edge` |
 | `highlight` | A node or edge glows in the accent colour; a highlighted edge carries a pulse. | `target`, `until` (default: the end of the scene) |
 | `camera` | The camera moves to frame these elements. | `focus`: ids or `"all"`, `padding` |
+| `annotate` | A callout beside a node. The clean looks draw a card with a leader line, on whichever side is clear of the other parts; the clean canvas frames the node and its card as the card appears. Paper draws a handwritten note with an arrow. | `target`, `text` (up to 44 characters) |
+| `circle` | A hand-drawn ring round a node, seeded so every render draws the same ring. | `target`, `until` |
+| `dim` | Everything else fades back while the narration is about these elements. | `keep`: up to 8 ids, `until` |
+| `pulse` | Dots stream along an edge, as data flowing. | `edge`, `until` |
 
-Every action has `at` and an optional `dur` (seconds). `at` takes one of four forms:
+Every action has `at` and an optional `dur` (seconds). `circle`, `dim` and `pulse` last until their `until` anchor, or the end of their scene, and then fade out. A circle drawn on paper stays on the page. Architecture walkthroughs take all four of these actions as well, on components and routes.
+
+Golden frames: `npm run diagram:golden` renders each of these four actions in each look and compares the frames with `test/golden/diagram/`. The looks are clean and notebook laid-out diagrams, and clean and sketch architectures. Pass `--update` to accept intended changes. CI runs it whenever diagram rendering changes. `at` takes one of four forms:
 
 - a fraction of the scene, e.g. `0.4`;
 - a spoken word, `{"word": "planner", "nth": 1}`. A plural or possessive of the word also matches;

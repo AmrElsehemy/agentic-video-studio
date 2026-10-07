@@ -1,11 +1,12 @@
 import {loadFont} from '@remotion/google-fonts/PatrickHandSC';
-import {evolvePath} from '@remotion/paths';
+import {evolvePath, getLength, getPointAtLength} from '@remotion/paths';
 import React from 'react';
 import {interpolate} from 'remotion';
 import {captionAt} from '../../../scripts/lib/captions.mjs';
 import {laidOut, type VideoManifest, type VideoScene} from '../../schema';
 import {viewTransform, type Size} from '../canvas/camera';
 import {canvasState, type CanvasState} from '../diagram/state';
+import {dimmed, pulseDots} from '../canvas/emphasis';
 import {CIRCLE_RED, edgePlan, groupPlan, INK, markPlan, nodePlan, notePlan, partProgress, penTip, titlePlan, type Part, type Plan} from './plan';
 
 // The notebook theme (#132): the diagram drawn by hand on a dotted page, the
@@ -113,6 +114,10 @@ const Page: React.FC<{manifest: VideoManifest; state: CanvasState; fps: number}>
   for (const group of groups) drawn.push({plan: groupPlan(spec, layout, group.id), progress: state.groups[group.id].progress, start: state.groups[group.id].start, end: state.groups[group.id].end});
   if (title) drawn.push({plan: title, progress: state.title.progress, start: state.title.start, end: state.title.end});
   for (const note of state.notes) drawn.push({plan: notePlan(layout, note.target, note.text), progress: note.progress, start: note.start, end: note.end});
+  // A circle is the pen's red ring, like a highlight's; on paper it stays.
+  const rings = state.circles.filter((ring) => layout.nodes[ring.target]);
+  for (const ring of rings) drawn.push({plan: markPlan(layout, ring.target), progress: ring.progress, start: ring.start, end: ring.end});
+  const fade = (...ids: string[]) => dimmed(state.dim, ...ids);
   const pen = penState(drawn, state.time, fps);
   return <svg width={layout.width} height={layout.height} overflow="visible" style={{position: 'absolute', left: 0, top: 0, transformOrigin: '0 0', transform: viewTransform(state.camera, FRAME)}}>
     <defs>
@@ -130,11 +135,24 @@ const Page: React.FC<{manifest: VideoManifest; state: CanvasState; fps: number}>
     {title ? <PlanView plan={title} progress={state.title.progress} id="title" /> : null}
     {/* Highlighter goes under the ink, so the arrows show through it. */}
     {edges.filter((edge) => state.edges[edge.id].mark > 0).map((edge) => <PlanView key={`hl-${edge.id}`} plan={markPlan(layout, edge.id)} progress={state.edges[edge.id].mark} id={`hl-${edge.id}`} />)}
-    {groups.map((group) => <PlanView key={group.id} plan={groupPlan(spec, layout, group.id)} progress={state.groups[group.id].progress} id={`g-${group.id}`} />)}
-    {edges.map((edge) => <PlanView key={edge.id} plan={edgePlan(spec, layout, edge.id)} progress={state.edges[edge.id].progress} id={`e-${edge.id}`} />)}
-    {nodes.map((node) => <PlanView key={node.id} plan={nodePlan(spec, layout, node.id)} progress={state.nodes[node.id].progress} id={`n-${node.id}`} />)}
+    {groups.map((group) => <g key={group.id} opacity={fade(group.id)}><PlanView plan={groupPlan(spec, layout, group.id)} progress={state.groups[group.id].progress} id={`g-${group.id}`} /></g>)}
+    {edges.map((edge) => <g key={edge.id} opacity={fade(edge.id, ...(state.dim.keep.has(edge.from) && state.dim.keep.has(edge.to) ? [edge.from] : []))}><PlanView plan={edgePlan(spec, layout, edge.id)} progress={state.edges[edge.id].progress} id={`e-${edge.id}`} /></g>)}
+    {/* Pulses: red marker dots running along the arrow. */}
+    {state.pulses.filter((pulse) => layout.edges[pulse.edge]).map((pulse, i) => {
+      const edge = layout.edges[pulse.edge];
+      const d = edge.d ?? `M ${edge.points.map(([x, y]) => `${x} ${y}`).join(' L ')}`;
+      const length = getLength(d);
+      return <g key={`pulse-${i}`} opacity={pulse.level} style={{mixBlendMode: 'multiply'}}>
+        {pulseDots(state.time, pulse.start, length).map((share, j) => {
+          const point = getPointAtLength(d, share * length);
+          return point ? <circle key={j} cx={point.x} cy={point.y} r={13} fill={CIRCLE_RED} opacity={.75} /> : null;
+        })}
+      </g>;
+    })}
+    {nodes.map((node) => <g key={node.id} opacity={fade(node.id, ...(node.group ? [node.group] : []))}><PlanView plan={nodePlan(spec, layout, node.id)} progress={state.nodes[node.id].progress} id={`n-${node.id}`} /></g>)}
     {state.notes.map((note, i) => <PlanView key={`note-${i}`} plan={notePlan(layout, note.target, note.text)} progress={note.progress} id={`note-${i}`} />)}
     {nodes.filter((node) => state.nodes[node.id].mark > 0).map((node) => <PlanView key={`ring-${node.id}`} plan={markPlan(layout, node.id)} progress={state.nodes[node.id].mark} id={`ring-${node.id}`} />)}
+    {rings.filter((ring) => !(state.nodes[ring.target]?.mark > 0)).map((ring) => <PlanView key={`circle-${ring.target}`} plan={markPlan(layout, ring.target)} progress={ring.progress} id={`circle-${ring.target}`} />)}
     {pen ? <g transform={`translate(${pen.x + pen.lift * 90} ${pen.y + pen.lift * 140})`} opacity={1 - pen.lift}><Pen marker={pen.marker} /></g> : null}
   </svg>;
 };

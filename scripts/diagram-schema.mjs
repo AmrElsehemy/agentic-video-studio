@@ -89,8 +89,8 @@ export const anchorSchema = z.union([
   z.literal('scene-end'),
 ]);
 
-/** Verbs the prototype draws; the rest of the vocabulary (#131) adds circle, pulse, dim, code and clear. */
-export const DIAGRAM_VERBS = ['reveal', 'connect', 'highlight', 'camera', 'annotate', 'flow'];
+/** Verbs every diagram theme draws (#124, #131). */
+export const DIAGRAM_VERBS = ['reveal', 'connect', 'highlight', 'camera', 'annotate', 'flow', 'dim', 'pulse', 'circle'];
 
 const base = {id: id.optional(), at: anchorSchema, dur: z.number().min(0.1).max(4).optional()};
 export const diagramActionSchema = z.discriminatedUnion('do', [
@@ -101,12 +101,18 @@ export const diagramActionSchema = z.discriminatedUnion('do', [
   // A node or edge lights up in the accent colour until `until` (or the end of the canvas).
   z.object({do: z.literal('highlight'), target: id, until: anchorSchema.optional(), ...base}).strict(),
   // The camera moves to frame these elements ("all": everything defined).
-  // A handwritten side note beside a node, with a little arrow to it (drawn on notebook pages; skipped on clean ones).
+  // A callout beside a node: a card with a leader line in the clean looks, a handwritten note with an arrow on paper.
   z.object({do: z.literal('annotate'), target: id, text: z.string().min(1).max(44), ...base}).strict(),
   // A numbered step of an architecture diagram (./diagram-arch-schema.mjs): its badge and text appear,
   // and a dot in the step's lane colour travels the edges in order, drawing any not yet shown.
   z.object({do: z.literal('flow'), step: id, edges: z.array(id).min(1).max(6), ...base}).strict(),
   z.object({do: z.literal('camera'), focus: z.union([z.literal('all'), z.array(id).min(1).max(8)]), padding: z.number().min(0).max(.4).default(.14), ...base}).strict(),
+  // Everything but these elements fades back, until `until` (or the end of the scene): focus by subtraction.
+  z.object({do: z.literal('dim'), keep: z.array(id).min(1).max(8), until: anchorSchema.optional(), ...base}).strict(),
+  // Dots stream along an edge, as data flowing, until `until` (or the end of the scene).
+  z.object({do: z.literal('pulse'), edge: id, until: anchorSchema.optional(), ...base}).strict(),
+  // A hand-drawn ring around a node, seeded so it is the same ring every render; it stays until `until` (or the end of the scene).
+  z.object({do: z.literal('circle'), target: id, until: anchorSchema.optional(), ...base}).strict(),
 ]);
 
 export const diagramPrimitiveFields = {
@@ -117,7 +123,7 @@ export const diagramPrimitiveFields = {
 };
 
 /** The ids an action refers to. */
-export const actionTargets = (action) => (action.do === 'connect' ? [action.edge] : action.do === 'flow' ? [action.step, ...action.edges] : action.do === 'camera' ? (action.focus === 'all' ? [] : action.focus) : [action.target]);
+export const actionTargets = (action) => (action.do === 'connect' || action.do === 'pulse' ? [action.edge] : action.do === 'flow' ? [action.step, ...action.edges] : action.do === 'camera' ? (action.focus === 'all' ? [] : action.focus) : action.do === 'dim' ? action.keep : [action.target]);
 
 /** Lowercase letters and digits of a word, for matching anchors to narration. */
 export const wordKey = (text) => String(text).toLowerCase().normalize('NFKD').replace(/[^a-z0-9]/g, '');
@@ -148,7 +154,7 @@ export const diagramActionProblems = (spec, scenes) => {
     const earlier = new Set();
     scene.primitive.actions.forEach((action, index) => {
       for (const target of actionTargets(action)) {
-        const known = action.do === 'connect' ? edges.has(target) : action.do === 'annotate' ? nodes.has(target) : nodes.has(target) || groups.has(target) || (action.do === 'highlight' && edges.has(target));
+        const known = action.do === 'connect' || action.do === 'pulse' ? edges.has(target) : action.do === 'annotate' || action.do === 'circle' ? nodes.has(target) : nodes.has(target) || groups.has(target) || (['highlight', 'dim'].includes(action.do) && edges.has(target));
         if (!known) problems.push(`${where(index)} (${action.do}) names "${target}", which isn't in the diagram`);
       }
       if (action.do === 'connect' && edges.has(action.edge)) {
@@ -156,6 +162,8 @@ export const diagramActionProblems = (spec, scenes) => {
         for (const end of [edge.from, edge.to]) if (!shown.has(end)) problems.push(`${where(index)} draws "${action.edge}" before "${end}" is on screen`);
       }
       if (action.do === 'highlight' && !shown.has(action.target)) problems.push(`${where(index)} highlights "${action.target}" before it is on screen`);
+      if (action.do === 'circle' && !shown.has(action.target)) problems.push(`${where(index)} circles "${action.target}" before it is on screen`);
+      if (action.do === 'pulse' && !shown.has(action.edge)) problems.push(`${where(index)} pulses along "${action.edge}" before it is drawn`);
       if (action.do === 'annotate' && !nodes.has(action.target)) problems.push(`${where(index)} annotates "${action.target}", which isn't a node`);
       else if (action.do === 'annotate' && !shown.has(action.target)) problems.push(`${where(index)} annotates "${action.target}" before it is on screen`);
       for (const anchor of [action.at, action.until].filter(Boolean)) {

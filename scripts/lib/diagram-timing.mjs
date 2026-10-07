@@ -6,15 +6,15 @@ import {speechSpan, wordTimes} from './captions.mjs';
 import {wordMatches} from '../diagram-schema.mjs';
 
 /** How long each kind of action takes by default, in seconds. */
-export const DEFAULT_DUR = {draw: .7, pop: .45, fade: .5, connect: .6, highlight: .35, camera: 1.2, annotate: .8, flow: 1.4};
+export const DEFAULT_DUR = {draw: .7, pop: .45, fade: .5, connect: .6, highlight: .35, camera: 1.2, annotate: .8, flow: 1.4, dim: .6, pulse: .5, circle: .7};
 /** Visuals start this much before their word, so they land as it is heard rather than after. */
 export const WORD_LEAD = .06;
 
 /** On a notebook page everything is drawn by hand, so it takes longer: a node is a circle, a doodle, marker and lettering. */
-export const NOTEBOOK_DUR = {draw: 2, pop: 2, fade: 2, connect: .7, highlight: .6, camera: 1.4, annotate: 1.1, flow: 1.6};
+export const NOTEBOOK_DUR = {draw: 2, pop: 2, fade: 2, connect: .7, highlight: .6, camera: 1.4, annotate: 1.1, flow: 1.6, dim: .7, pulse: .6, circle: .9};
 
 /** An architecture picture drawn by hand: each component is quicker than a notebook node (an icon, not a doodle), each flow a highlighter swipe. */
-export const SKETCH_ARCH_DUR = {draw: 1.2, pop: 1.2, fade: 1.2, connect: .8, highlight: .6, camera: 1.4, annotate: 1.1, flow: 1.8};
+export const SKETCH_ARCH_DUR = {draw: 1.2, pop: 1.2, fade: 1.2, connect: .8, highlight: .6, camera: 1.4, annotate: 1.1, flow: 1.8, dim: .7, pulse: .6, circle: .9};
 
 /** Which timing table a diagram uses: its theme, or for an architecture picture, its look. */
 export const timingTheme = (spec) => (spec?.theme === 'architecture' ? (spec.look === 'sketch' ? 'sketch' : 'clean') : spec?.theme ?? 'clean');
@@ -48,7 +48,7 @@ export const resolveActions = (actions, {words, duration, theme = 'clean'}) => {
     const dur = actionDur(action, theme);
     const start = Math.min(at(action.at, dur), Math.max(0, duration - .1));
     const time = {start: round(start), end: round(Math.min(start + dur, duration))};
-    if (action.do === 'highlight' && action.until !== undefined) time.until = round(Math.max(time.end, at(action.until, 0)));
+    if (['highlight', 'dim', 'pulse', 'circle'].includes(action.do) && action.until !== undefined) time.until = round(Math.max(time.end, at(action.until, 0)));
     times.push(time);
     // `after` can name an action's id or the element it acts on.
     for (const key of [action.id, action.target, action.edge, action.step].filter(Boolean)) byId.set(key, time);

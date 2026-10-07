@@ -42,6 +42,7 @@ describe('CI episode selection', () => {
       episodes: ['zacian-888'],
       frames: [...golden].sort(),
       geo: false,
+      diagram: false,
       reason: 'full render of changed episodes: zacian-888; frame check of the golden set, because shared code changed (e.g. src/video/shots.tsx)',
     });
     assert.deepEqual(plan(['package.json', 'drafts/pokepulses/mew-151.json']).episodes, ['mew-151']);
@@ -71,9 +72,17 @@ describe('CI episode selection', () => {
     assert.equal(shards.flatMap((shard) => shard.split(' ')).length, 1025, 'every episode rendered once');
   });
 
+  it('checks the diagram golden frames when diagram rendering changes', () => {
+    for (const file of ['src/video/arch/ArchScene.tsx', 'src/video/canvas/emphasis.ts', 'scripts/diagram-schema.mjs', 'scripts/lib/diagram-timing.mjs', 'scripts/diagram-golden.mjs', 'test/golden/diagram/dim-clean.png', 'test/fixtures/diagram-verbs.json', 'scripts/primitive-schema.mjs']) {
+      assert.equal(plan([file]).diagram, true, file);
+    }
+    assert.equal(plan(['src/video/geo/GeoMap.tsx']).diagram, false);
+    assert.equal(plan(['README.md']).diagram, false);
+  });
+
   it('checks only the geo golden frames when map-only code changes', () => {
     for (const file of ['public/geo/countries.geojson', 'src/video/geo/GeoMap.tsx', 'scripts/geo-data.mjs', 'scripts/lib/geo-primitives.mjs', 'scripts/geo-golden.mjs', 'test/golden/geo/fly-to-georgia-end.png', 'test/fixtures/geo-georgia-shots.json']) {
-      assert.deepEqual({...plan([file]), reason: ''}, {episodes: [], frames: [], geo: true, reason: ''}, file);
+      assert.deepEqual({...plan([file]), reason: ''}, {episodes: [], frames: [], geo: true, diagram: false, reason: ''}, file);
     }
     assert.equal(plan(['README.md']).geo, false);
     assert.equal(plan(['drafts/pokepulses/zacian-888.json']).geo, false);
@@ -87,7 +96,7 @@ describe('CI episode selection', () => {
   });
 
   it('renders every episode in full on a full run', () => {
-    assert.deepEqual(plan([], true), {episodes: [...catalog].sort(), frames: [], geo: true, reason: 'full catalog run'});
+    assert.deepEqual(plan([], true), {episodes: [...catalog].sort(), frames: [], geo: true, diagram: true, reason: 'full catalog run'});
   });
 
   it('keeps the golden set to real episodes covering each rendering path', () => {
