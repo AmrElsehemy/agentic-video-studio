@@ -11,13 +11,16 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
-import {auditFrames} from './lib/frame-audit.mjs';
+import {auditFrames, coverage, MIN_COVERAGE} from './lib/frame-audit.mjs';
+// Diagram QA (#130) shares the renderer's TypeScript state code; run with tsx (npm run critic:video), which loads it as CommonJS.
+import diagramAudit from '../src/video/diagram/audit.ts';
 import {createCompletion} from './lib/llm.mjs';
 import {appendProduction, modelEntry} from './lib/production.mjs';
 import {framePath, reviewFrames} from './lib/render-props.mjs';
 import {critiqueFrames} from './lib/video-critic.mjs';
 import {resolveEpisodeId} from './catalog.mjs';
 
+const {auditDiagram, chapterBox, overviewLabels} = diagramAudit;
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const args = process.argv.slice(2);
 const episodeId = resolveEpisodeId(args.find((arg) => !arg.startsWith('--')));
@@ -71,11 +74,17 @@ const thumbnail = (file) => new Uint8Array(run('ffmpeg', ['-hide_banner', '-logl
 
 const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), `${episodeId}-critic-`));
 try {
+  // A 16:9 chapter card sits top left over the diagram: read only its width, or labels beside it garble the headline.
+  const headlineBand = (scene) => {
+    if (!landscape) return HEADLINE_BAND;
+    const card = chapterBox(scene);
+    return [...HEADLINE_BAND, Math.min(WIDTH, Math.round(card.x + card.w + 60))];
+  };
   const frames = reviewFrames(manifest).map(({index, seconds}) => {
     const file = path.join(tempDir, `${String(index).padStart(2, '0')}.png`);
     if (fromFrames) fs.copyFileSync(framePath(root, episodeId, index), file);
     else run('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-y', '-ss', seconds.toFixed(3), '-i', videoPath, '-frames:v', '1', file]);
-    return {file, text: ocr(file), headlineText: ocr(file, [HEADLINE_BAND]), gray: thumbnail(file)};
+    return {file, text: ocr(file), headlineText: ocr(file, [headlineBand(manifest.scenes[index])]), gray: thumbnail(file)};
   });
   // Work on a copy of the cover so OCR bands and resized images stay in the temp folder.
   const coverCopy = path.join(tempDir, 'cover.png');
@@ -83,6 +92,24 @@ try {
   const cover = fs.existsSync(coverCopy) ? {file: coverCopy, text: ocr(coverCopy, COVER_BANDS), gray: thumbnail(coverCopy)} : undefined;
 
   const issues = auditFrames({manifest, frames, cover});
+  // Diagram episodes (#130): timing and framing from the render props, then every label read in the final overview.
+  issues.push(...auditDiagram(manifest));
+  const overview = overviewLabels(manifest);
+  if (overview && hasTesseract && !fromFrames) {
+    const file = path.join(tempDir, 'overview.png');
+    run('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-y', '-ss', overview.seconds.toFixed(3), '-i', videoPath, '-frames:v', '1', file]);
+    for (const {label, box} of overview.labels) {
+      // Each label read on its own, enlarged: a whole busy diagram loses words inside filled shapes.
+      const pad = 8;
+      const [x, y] = [Math.max(0, Math.round(box.x - pad)), Math.max(0, Math.round(box.y - pad))];
+      const [w, h] = [Math.min(WIDTH - x, Math.round(box.w + 2 * pad)), Math.min(HEIGHT - y, Math.round(box.h + 2 * pad))];
+      if (w < 4 || h < 4) { issues.push({where: 'overview', check: 'label', severity: 'blocking', message: `"${label}" is outside the final overview.`}); continue; }
+      const crop = path.join(tempDir, 'label.png');
+      run('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-y', '-i', file, '-vf', `crop=${w}:${h}:${x}:${y},scale=iw*2:-1,format=gray`, crop]);
+      const text = run('tesseract', [crop, '-', '--psm', '6'], {encoding: 'utf8'});
+      if (coverage(label, text) < MIN_COVERAGE) issues.push({where: 'overview', check: 'label', severity: 'blocking', message: `"${label}" can't be read in the final overview (OCR read "${text.trim().replace(/\s+/g, ' ')}").`});
+    }
+  }
   let visionReport;
   if (vision) {
     // Half-size frames keep the request small while text stays readable.

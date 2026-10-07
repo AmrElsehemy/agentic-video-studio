@@ -113,6 +113,36 @@ describe('diagram director', () => {
     assert.throws(() => shotToActions({actions: [{do: 'reveal', target: 'client', at: {word: 'cache'}}]}, {spec, scene, previous: []}), /waits for "cache"/);
   });
 
+  it('waits for the first said word of a several-word anchor, keeping a valid nth', () => {
+    const spec = systems['azure-cache-aside'].diagram;
+    const scene = {id: 'miss', narration: 'On a miss, it reads Cosmos DB, then Cosmos DB again.'};
+    const {actions, repairs} = repairActions([
+      {do: 'reveal', target: 'cosmos', at: {word: 'Cosmos DB'}},
+      {do: 'highlight', target: 'cosmos', at: {word: 'Cosmos DB', nth: 2}},
+      {do: 'highlight', target: 'cosmos', at: {word: 'Cosmos DB', nth: 3}},
+      {do: 'reveal', target: 'redis', at: {word: 'Azure Redis'}},
+    ], {spec, scene, previous: []});
+    assert.deepEqual(actions.map((action: Action) => action.at), [{word: 'Cosmos'}, {word: 'Cosmos', nth: 2}, {word: 'Cosmos', nth: 2}, {word: 'Azure Redis'}]);
+    assert.ok(repairs.some((repair: string) => /"Cosmos DB" is several words; it waits for "Cosmos"/.test(repair)));
+    // A phrase none of whose words is said is left for the checks to reject.
+    assert.throws(() => shotToActions({actions: [{do: 'camera', focus: 'all', at: 0}, actions[3]]}, {spec, scene, previous: []}), /waits for "Azure Redis"/);
+  });
+
+  it('frames what a scene draws when the model left it out of the camera', () => {
+    const spec = systems['url-shortener'].diagram;
+    const previous = (systems['url-shortener'].scenes as Scene[]).slice(0, 6);
+    const scene = {id: 'analytics', narration: 'The queue is batched into the analytics warehouse, away from the redirect path.'};
+    const {actions, repairs} = repairActions([
+      {do: 'camera', focus: ['queue'], padding: .2, at: 0},
+      {do: 'reveal', target: 'warehouse', at: {word: 'warehouse'}},
+      {do: 'flow', step: 'w3', edges: ['e-queue-wh'], at: {after: 'warehouse'}},
+    ], {spec, scene, previous});
+    assert.deepEqual(actions[0].focus, ['queue', 'warehouse', 'w3']);
+    assert.match(repairs.join('\n'), /framed "warehouse", "w3" too/);
+    // A wide shot already frames everything.
+    assert.deepEqual(repairActions([{do: 'camera', focus: 'all', at: 0}, {do: 'reveal', target: 'warehouse', at: 0}], {spec, scene, previous}).repairs, []);
+  });
+
   it('directs a freshly imported draw.io diagram (placeholder narration) with no model', async () => {
     const {spec} = importDrawio(fs.readFileSync(path.join(root, 'test/fixtures/drawio/url-shortener.drawio'), 'utf8'), {file: 'url-shortener.drawio'});
     const draft = starterDraft({id: 'imported', title: 'How a URL Shortener Works', show: systems['url-shortener'].show, spec, file: 'url-shortener.drawio'});
