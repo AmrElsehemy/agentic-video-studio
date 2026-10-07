@@ -8,7 +8,7 @@
 // architecture: its parts left to right, then each lane's numbered steps),
 // anchored to the words the narration says, with the camera following.
 import {z} from 'zod';
-import {actionTargets, diagramActionProblems, diagramActionSchema, wordMatches} from '../diagram-schema.mjs';
+import {diagramActionProblems, diagramActionSchema, wordMatches} from '../diagram-schema.mjs';
 import {archActionProblems} from '../diagram-arch-schema.mjs';
 import {compileEpisode, estimatedSpeech} from './compiler.mjs';
 import {ranks} from './diagram-layout.mjs';
@@ -28,7 +28,6 @@ const actionsSchema = z.array(diagramActionSchema).min(1).max(ACTIONS);
 const COMMON = new Set(['the', 'and', 'for', 'with', 'from', 'into', 'that', 'this', 'then', 'each', 'every', 'your', 'their', 'data', 'step', 'flow', 'read', 'write', 'service', 'private', 'endpoint']);
 
 const round = (value) => Math.round(value * 100) / 100;
-const firstLine = (text) => String(text).split('\n')[0];
 
 /** What an element is called on screen, for the prompt and for matching narration. */
 const elementsOf = (spec) => {
