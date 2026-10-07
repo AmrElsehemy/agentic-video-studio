@@ -5,8 +5,25 @@
 // text built from the diagram's own words: rewrite it, then anchor actions to
 // the words you write ({"word": ...}) for tight sync.
 
+import {archetypes} from '../archetypes.mjs';
+import {LANDSCAPE_LIMITS, safeDuration} from './compiler.mjs';
+
 const ACTIONS = 12;
+// The walkthrough shape's flow beat allows at most this many scenes.
 const FLOW_SCENES = 7;
+// Placeholder narration has to fit its scene: a landscape scene runs to 12 s and the hook to 6.4 s.
+// Each line is measured with the compiler's own estimate, at an unhurried pace and with a second to spare.
+const SCENE_SECONDS = LANDSCAPE_LIMITS.scene - 1;
+const HOOK_SECONDS = archetypes.walkthrough.beats[0].maxSeconds - 1;
+
+const words = (text) => text.split(/\s+/).filter(Boolean);
+const fits = (text, seconds) => {
+  try { return safeDuration(text, 1, seconds) <= seconds; } catch { return false; }
+};
+/** `text` when it can be read in `seconds`, else the shorter `fallback`. */
+const fit = (text, seconds, fallback) => (fits(text, seconds) ? text : fallback);
+/** A label cut to its first few words, for naming it in a sentence. */
+const short = (text, count = 4) => words(text.replace(/\n/g, ' ')).slice(0, count).join(' ');
 
 const firstLine = (text) => text.split('\n')[0];
 const list = (names) => (names.length <= 1 ? names.join('') : `${names.slice(0, -1).join(', ')} and ${names.at(-1)}`);
@@ -51,7 +68,7 @@ export const starterDraft = ({id, title, show, spec, file}) => {
   hookEdges.forEach((edge) => shown.add(edge.id));
   scenes.push({
     id: 'hook', beat: 'hook', eyebrow: 'ARCHITECTURE', headline: title.toUpperCase().slice(0, 70), caption: title.slice(0, 120),
-    narration: sentence(`Here's how ${title.charAt(0).toLowerCase()}${title.slice(1)} works`),
+    narration: fit(sentence(`Here's how ${title.charAt(0).toLowerCase()}${title.slice(1)} works`), HOOK_SECONDS, 'Here is how this system works.'),
     primitive: {kind: 'diagram', actions: [
       {do: 'camera', focus: opening.map((node) => node.id), padding: .12, at: 0, dur: .1},
       ...opening.map((node, i) => ({do: 'reveal', target: node.id, at: .05 + i * .3})),
@@ -71,18 +88,19 @@ export const starterDraft = ({id, title, show, spec, file}) => {
       actions.push({do: 'connect', edge: edge.id, at: .85});
       shown.add(edge.id);
     }
-    const names = [...new Set(items.filter((item) => item.kind === 'node').map((item) => item.label))].slice(0, 5);
+    const names = [...new Set(items.filter((item) => item.kind === 'node').map((item) => short(item.label)))].slice(0, 5);
     scenes.push({
       id: `setup-${index + 1}`, beat: 'setup', eyebrow: 'THE PARTS', headline: all.length > 1 ? `THE PARTS, ${index + 1} OF ${all.length}` : 'THE PARTS', caption: 'THE PARTS',
-      narration: sentence(names.length ? `It's built from ${list(names)}` : 'Here is how it is laid out'),
+      narration: fit(sentence(names.length ? `It's built from ${list(names)}` : 'Here is how it is laid out'), SCENE_SECONDS, 'It is built from these parts.'),
       primitive: {kind: 'diagram', actions},
     });
   });
 
   // Flows: each lane's steps in order, up to three a scene (more when a long walkthrough needs fewer scenes).
   const lanes = ['read', 'write'].map((lane) => spec.steps.filter((step) => step.lane === lane).sort((a, b) => a.n - b.n)).filter((steps) => steps.length);
-  const totalSteps = lanes.reduce((sum, steps) => sum + steps.length, 0);
-  const perScene = Math.max(3, Math.ceil(totalSteps / FLOW_SCENES));
+  // Up to three steps a scene, more when that would give more flow scenes than the beat allows.
+  let perScene = 3;
+  while (perScene < ACTIONS - 1 && lanes.reduce((sum, steps) => sum + Math.ceil(steps.length / perScene), 0) > FLOW_SCENES) perScene++;
   for (const steps of lanes) {
     const taken = new Set();
     for (const group of chunk(steps, perScene)) {
@@ -100,7 +118,7 @@ export const starterDraft = ({id, title, show, spec, file}) => {
       const span = group.length > 1 ? `STEPS ${group[0].n}–${group.at(-1).n}` : `STEP ${group[0].n}`;
       scenes.push({
         id: `${lane}-${group[0].n}`, beat: 'flow', eyebrow: `${lane.toUpperCase()} FLOW`, headline: `${lane.toUpperCase()} FLOW · ${span}`, caption: `${lane.toUpperCase()} FLOW`,
-        narration: group.map((step) => sentence(`Step ${step.n}: ${step.text.replace(/\n/g, ' ')}`)).join(' ').slice(0, 260),
+        narration: fit(group.map((step) => sentence(`Step ${step.n}: ${short(step.text, 6)}`)).join(' '), SCENE_SECONDS, sentence(`The ${lane} flow, ${span.toLowerCase().replace('–', ' to ')}`)),
         primitive: {kind: 'diagram', actions},
       });
     }

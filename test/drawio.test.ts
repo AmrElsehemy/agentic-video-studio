@@ -132,6 +132,22 @@ describe('the starter draft', () => {
     for (const item of [...imported.spec.nodes, ...imported.spec.groups, ...imported.spec.labels]) assert.ok(revealed.has(item.id), item.id);
   });
 
+  it('still compiles for a big, wordy diagram: long labels, a long title and 21 steps', () => {
+    const long = (i: number) => `Extremely verbose component name number ${i} with many words in it`;
+    const spec = archSpecSchema.parse({
+      theme: 'architecture', source: {kind: 'drawio', file: 'big.drawio', width: 1400, height: 700},
+      nodes: Array.from({length: 8}, (_, i) => ({id: `n${i}`, label: long(i), icon: 'azure/app-service', at: [100 + i * 150, 300], labelAt: [100 + i * 150, 360]})),
+      edges: Array.from({length: 7}, (_, i) => ({id: `e${i}`, points: [[130 + i * 150, 300], [220 + i * 150, 300]], lane: i % 2 ? 'write' : 'read'})),
+      steps: [
+        ...Array.from({length: 11}, (_, i) => ({id: `r${i + 1}`, n: i + 1, lane: 'read', at: [100 + i * 100, 200], text: 'A long step description that goes on\nfor a while about what happens here', textAt: [100 + i * 100, 230]})),
+        ...Array.from({length: 10}, (_, i) => ({id: `w${i + 1}`, n: i + 1, lane: 'write', at: [100 + i * 100, 500], text: 'Another long step description that\nkeeps going about the write path', textAt: [100 + i * 100, 530]})),
+      ],
+    });
+    const big = starterDraft({id: 'big', title: 'A Very Long Title For A Big Enterprise Order Processing And Fulfilment System', show, spec, file: 'big.drawio'});
+    assert.ok(big.scenes.filter((scene: {beat: string}) => scene.beat === 'flow').length <= 7, 'no more flow scenes than the walkthrough allows');
+    assert.doesNotThrow(() => compileEpisode(big, {showId: 'under-the-hood'}));
+  });
+
   it('compiles as a 16:9 walkthrough without edits', () => {
     const {manifest} = compileEpisode(draft, {showId: 'under-the-hood'});
     assert.equal(manifest.direction.storyPattern, 'walkthrough');
