@@ -9,7 +9,8 @@ export type Primitive =
   | {kind: 'type-shift'; from: PokemonTypeName[]; to: PokemonTypeName[]}
   | {kind: 'timeline'; steps: {label: string; detail?: string}[]; active?: number}
   | {kind: 'checklist'; items: {label: string; met: boolean}[]}
-  | GeoMapPrimitive;
+  | GeoMapPrimitive
+  | DiagramPrimitive;
 export type GeoEntityId = string;
 export type GeoPoint = {lon: number; lat: number};
 export type GeoAnchor = GeoEntityId | GeoPoint;
@@ -22,6 +23,17 @@ export type GeoAnnotation =
   | {type: 'route'; path: GeoAnchor[]; text?: string; at: number; until?: number; marker: boolean; follow: boolean};
 export type GeoMapPrimitive = {kind: 'geo-map'; camera: GeoCameraKey[]; highlights: GeoHighlight[]; annotations: GeoAnnotation[]; dataset: 'natural-earth'; cut?: boolean; relief?: boolean; data?: GeoData};
 export type GeoData = {label: string; unit?: string; values: {entity: GeoEntityId; value: number}[]; at: number; legend: boolean};
+/** When a diagram action happens (#120): a fraction of the scene, a spoken word, a chain, or the scene's end. */
+export type DiagramAnchor = number | {word: string; nth: number} | {after: string; delay: number} | 'scene-end';
+type ActionBase = {id?: string; at: DiagramAnchor; dur?: number};
+export type DiagramAction =
+  | (ActionBase & {do: 'reveal'; target: string; anim: 'draw' | 'pop' | 'fade'})
+  | (ActionBase & {do: 'connect'; edge: string})
+  | (ActionBase & {do: 'highlight'; target: string; until?: DiagramAnchor})
+  | (ActionBase & {do: 'annotate'; target: string; text: string})
+  | (ActionBase & {do: 'flow'; step: string; edges: string[]})
+  | (ActionBase & {do: 'camera'; focus: 'all' | string[]; padding: number});
+export type DiagramPrimitive = {kind: 'diagram'; actions: DiagramAction[]; cut?: boolean};
 export type PrimitiveKind = Primitive['kind'];
 
 export declare const GEO_ENTITY_ID: RegExp;

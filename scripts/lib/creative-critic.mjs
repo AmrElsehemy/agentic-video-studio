@@ -16,6 +16,19 @@ export const CREATIVE_CRITERIA = {
   payoff: 'Payoff: does the ending resolve the opening promise with something stronger than a restatement?',
   question: 'Question: is the closing question a genuine split between credible positions?',
 };
+/** What an explainer (a walkthrough of a system's diagram) is judged on instead: a story too, but one that teaches. */
+export const EXPLAINER_CRITERIA = {
+  hook: 'Hook: does the first line give a reason to care how this system works (a cost, a puzzle, a promise)?',
+  clarity: 'Clarity: could a developer new to the system follow every step, each part named before it is relied on?',
+  order: "Order: do the scenes follow the diagram's flows in order, each step building on the last?",
+  specificity: "Specificity: is it about this system's own parts and steps rather than generic advice?",
+  tension: 'Tension: is there a problem (a slow path, a failure, a trade-off) the walkthrough resolves?',
+  variety: 'Variety: does every scene say something new (no scene restating another)?',
+  payoff: 'Payoff: does the ending show why the design works, rather than restating it?',
+  question: 'Question: is the closing question a genuine choice a developer could argue either way?',
+};
+const criteriaFor = (kind) => (kind === 'explainer' ? EXPLAINER_CRITERIA : CREATIVE_CRITERIA);
+
 /** Out of 100. A criterion scored 2 or lower also fails the draft. */
 export const CREATIVE_PASSING_SCORE = 70;
 export const CRITERION_FLOOR = 2;
@@ -53,6 +66,24 @@ export const deterministicCritique = (draft) => {
   return findings;
 };
 
+/**
+ * The critic for an explainer: the diagram's own text (and any notes) is the
+ * only factual source, as the research is for a story.
+ */
+export const buildExplainerCriticPrompt = ({draft, sources}) => ({
+  system: `You are the creative director of ${draft.show?.name ?? 'an explainer series'}: videos that walk through how a software system works while its diagram builds on screen. Production checks (timing, structure) have already passed; judge only whether a developer would watch this to the end, understand the system, and want to argue about it.
+
+Score each criterion from 1 (poor) to 5 (excellent). Be strict: a competent but forgettable draft scores 3.
+${Object.entries(EXPLAINER_CRITERIA).map(([key, description]) => `- ${key}: ${description}`).join('\n')}
+
+CRITICAL EVIDENCE RULE: every revision you recommend must be achievable using ONLY what the diagram and the notes below state. Never suggest inventing numbers, products, failure stories or behaviour the sources don't give. You may improve framing, ordering, clarity, contrast, pacing and wording.
+
+For each, quote the exact words from the draft your score is based on, and give one concrete evidence-safe revision, or "" if it scores 5.
+
+Reply with a JSON object only: {${Object.keys(EXPLAINER_CRITERIA).map((key) => `"${key}": {"score": 1-5, "quote": "...", "revision": "..."}`).join(', ')}}`,
+  messages: [{role: 'user', content: `Sources (the ONLY factual source for revision advice):\n${sources}\n\nDraft:\n${JSON.stringify({title: draft.title, premise: draft.premise, openLoop: draft.openLoop, payoff: draft.payoff, engagementQuestion: draft.engagementQuestion, scenes: draft.scenes.map(({id, beat, headline, narration}) => ({id, beat, headline, narration}))}, null, 2)}`}],
+});
+
 const criterionSchema = z.object({
   score: z.number().int().min(1).max(5),
   quote: z.string().default(''),
@@ -80,20 +111,21 @@ Reply with a JSON object only: {${Object.keys(CREATIVE_CRITERIA).map((key) => `"
 });
 
 /**
- * Critique a draft. Without `complete` the model half is skipped and the
+ * Critique a draft (`kind` "explainer" judges a walkthrough against `sources`,
+ * the diagram's text and notes). Without `complete` the model half is skipped and the
  * draft is not judged (reported as `skipped`); a model failure is reported
  * as `modelError` rather than blocking the episode.
  */
-export const critiqueDraft = async ({draft, research, angle, complete}) => {
+export const critiqueDraft = async ({draft, research, angle, complete, kind = 'story', sources = ''}) => {
   const findings = deterministicCritique(draft);
   if (!complete) return {skipped: true, passed: true, findings};
   let reply;
   try {
-    reply = parseJsonReply(await complete(buildCreativeCriticPrompt({draft, research, angle})));
+    reply = parseJsonReply(await complete(kind === 'explainer' ? buildExplainerCriticPrompt({draft, sources}) : buildCreativeCriticPrompt({draft, research, angle})));
   } catch (error) {
     return {skipped: true, passed: true, findings, modelError: error instanceof Error ? error.message : String(error)};
   }
-  const criteria = Object.keys(CREATIVE_CRITERIA).map((criterion) => {
+  const criteria = Object.keys(criteriaFor(kind)).map((criterion) => {
     const parsed = criterionSchema.safeParse(reply?.[criterion]);
     // A missing or malformed criterion counts as unproven: middling, with a note.
     const judged = parsed.success ? parsed.data : {score: 3, quote: '', revision: 'The critic gave no usable score for this criterion.'};
@@ -120,7 +152,7 @@ export const creativeProblems = (review) => {
     .map((item) => {
       const prefix = `Creative ${item.criterion} scored ${item.score}/5${item.quote ? ` ("${item.quote}")` : ''}`;
       if (item.capped && item.revision) return `${prefix}: ${item.revision}`;
-      return `${prefix}. Improve ${CREATIVE_CRITERIA[item.criterion]} Use only facts already present in the research; do not add a new factual claim to solve this.`;
+      return `${prefix}. Improve ${{...CREATIVE_CRITERIA, ...EXPLAINER_CRITERIA}[item.criterion]} Use only facts already present in the research; do not add a new factual claim to solve this.`;
     })
     .concat(`Creative score ${review.score}/100 (needs ${CREATIVE_PASSING_SCORE}, and no criterion at ${CRITERION_FLOOR} or below).`);
 };

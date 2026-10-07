@@ -1,0 +1,1852 @@
+{
+  "schemaVersion": 2,
+  "id": "how-avs-works",
+  "show": {
+    "id": "under-the-hood",
+    "name": "Under the Hood",
+    "handle": "@UnderTheHood",
+    "wordmark": {
+      "lead": "UNDER THE ",
+      "accent": "HOOD"
+    },
+    "fonts": {
+      "display": "Oswald",
+      "body": "Inter"
+    },
+    "captions": {
+      "mode": "words"
+    }
+  },
+  "title": "How an AI Video Studio Works",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "mechanic",
+    "numberRelevant": false,
+    "premise": "Agentic Video Studio turns one line into a finished short through a chain of agents and tools, and checks the result before it ships.",
+    "audiencePromise": "See every stage of an AI video pipeline, from a one-line topic to a checked final video.",
+    "openLoop": "How does one line become a finished video?",
+    "payoff": "Planner, writer, storyboard, assets, a deterministic renderer and a QA critic: and this video came out of that renderer.",
+    "targetEmotion": "curiosity",
+    "engagementQuestion": "Which stage would you automate first?",
+    "targetSecondsBetweenVisualChanges": 0.65
+  },
+  "subject": {
+    "name": "Agentic Video Studio",
+    "category": "System"
+  },
+  "related": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#0b1220",
+    "surface": "#18243a",
+    "primary": "#5cc8e0",
+    "secondary": "#f0884f",
+    "ink": "#e8eef5"
+  },
+  "diagram": {
+    "spec": {
+      "direction": "down",
+      "theme": "notebook",
+      "title": "How an AI video studio works",
+      "nodes": [
+        {
+          "id": "prompt",
+          "label": "User prompt",
+          "kind": "user",
+          "detail": "one line: a topic",
+          "doodle": "person"
+        },
+        {
+          "id": "planner",
+          "label": "Planner",
+          "kind": "agent",
+          "detail": "picks the angle and story shape",
+          "doodle": "compass"
+        },
+        {
+          "id": "writer",
+          "label": "Writer",
+          "kind": "agent",
+          "detail": "scenes and narration",
+          "doodle": "pencil"
+        },
+        {
+          "id": "storyboard",
+          "label": "Storyboard",
+          "kind": "artifact",
+          "detail": "shots as data, not pixels",
+          "doodle": "film"
+        },
+        {
+          "id": "voice",
+          "label": "Voice",
+          "kind": "tool",
+          "detail": "with word timings",
+          "group": "assets",
+          "doodle": "microphone"
+        },
+        {
+          "id": "music",
+          "label": "Music + art",
+          "kind": "tool",
+          "group": "assets",
+          "doodle": "notes"
+        },
+        {
+          "id": "remotion",
+          "label": "Remotion",
+          "kind": "process",
+          "detail": "data to frames, every time",
+          "doodle": "clapper"
+        },
+        {
+          "id": "qa",
+          "label": "QA critic",
+          "kind": "agent",
+          "detail": "checks the render",
+          "doodle": "magnifier"
+        },
+        {
+          "id": "video",
+          "label": "Final video",
+          "kind": "artifact",
+          "doodle": "play"
+        }
+      ],
+      "edges": [
+        {
+          "id": "e1",
+          "from": "prompt",
+          "to": "planner",
+          "style": "solid"
+        },
+        {
+          "id": "e2",
+          "from": "planner",
+          "to": "writer",
+          "label": "brief",
+          "style": "solid"
+        },
+        {
+          "id": "e3",
+          "from": "writer",
+          "to": "storyboard",
+          "label": "script",
+          "style": "solid"
+        },
+        {
+          "id": "e4",
+          "from": "storyboard",
+          "to": "voice",
+          "style": "solid"
+        },
+        {
+          "id": "e5",
+          "from": "storyboard",
+          "to": "music",
+          "style": "solid"
+        },
+        {
+          "id": "e6",
+          "from": "voice",
+          "to": "remotion",
+          "style": "solid"
+        },
+        {
+          "id": "e7",
+          "from": "music",
+          "to": "remotion",
+          "style": "solid"
+        },
+        {
+          "id": "e8",
+          "from": "remotion",
+          "to": "qa",
+          "style": "solid"
+        },
+        {
+          "id": "e9",
+          "from": "qa",
+          "to": "video",
+          "label": "if it passes",
+          "style": "solid"
+        }
+      ],
+      "groups": [
+        {
+          "id": "assets",
+          "label": "Assets"
+        }
+      ]
+    },
+    "layout": {
+      "width": 1400,
+      "height": 3386,
+      "nodes": {
+        "prompt": {
+          "x": 130,
+          "y": 332,
+          "w": 540,
+          "h": 329,
+          "rank": 0,
+          "cx": 400,
+          "cy": 432,
+          "r": 92
+        },
+        "planner": {
+          "x": 730,
+          "y": 682,
+          "w": 540,
+          "h": 329,
+          "rank": 1,
+          "cx": 1000,
+          "cy": 782,
+          "r": 92
+        },
+        "writer": {
+          "x": 130,
+          "y": 1032,
+          "w": 540,
+          "h": 329,
+          "rank": 2,
+          "cx": 400,
+          "cy": 1132,
+          "r": 92
+        },
+        "storyboard": {
+          "x": 430,
+          "y": 1382,
+          "w": 540,
+          "h": 329,
+          "rank": 3,
+          "cx": 700,
+          "cy": 1482,
+          "r": 92
+        },
+        "voice": {
+          "x": 130,
+          "y": 1822,
+          "w": 540,
+          "h": 329,
+          "rank": 4,
+          "cx": 400,
+          "cy": 1922,
+          "r": 92
+        },
+        "music": {
+          "x": 730,
+          "y": 1822,
+          "w": 540,
+          "h": 284,
+          "rank": 4,
+          "cx": 1000,
+          "cy": 1922,
+          "r": 92
+        },
+        "remotion": {
+          "x": 430,
+          "y": 2262,
+          "w": 540,
+          "h": 329,
+          "rank": 5,
+          "cx": 700,
+          "cy": 2362,
+          "r": 92
+        },
+        "qa": {
+          "x": 730,
+          "y": 2612,
+          "w": 540,
+          "h": 329,
+          "rank": 6,
+          "cx": 1000,
+          "cy": 2712,
+          "r": 92
+        },
+        "video": {
+          "x": 130,
+          "y": 2962,
+          "w": 540,
+          "h": 284,
+          "rank": 7,
+          "cx": 400,
+          "cy": 3062,
+          "r": 92
+        }
+      },
+      "edges": {
+        "e1": {
+          "points": [
+            [
+              498.3,
+              471.7
+            ],
+            [
+              511.9,
+              477.3
+            ],
+            [
+              525.9,
+              483.4
+            ],
+            [
+              540.1,
+              489.8
+            ],
+            [
+              554.7,
+              496.7
+            ],
+            [
+              569.5,
+              503.9
+            ],
+            [
+              584.7,
+              511.6
+            ],
+            [
+              600.2,
+              519.6
+            ],
+            [
+              616,
+              528.1
+            ],
+            [
+              632.1,
+              536.9
+            ],
+            [
+              648.5,
+              546.1
+            ],
+            [
+              665.2,
+              555.8
+            ],
+            [
+              682.3,
+              565.8
+            ],
+            [
+              699.6,
+              576.3
+            ],
+            [
+              717.3,
+              587.1
+            ],
+            [
+              735.2,
+              598.4
+            ],
+            [
+              753.5,
+              610.1
+            ],
+            [
+              772.1,
+              622.1
+            ],
+            [
+              790.9,
+              634.6
+            ],
+            [
+              810.1,
+              647.4
+            ],
+            [
+              829.6,
+              660.7
+            ],
+            [
+              849.5,
+              674.3
+            ],
+            [
+              869.6,
+              688.4
+            ],
+            [
+              890,
+              702.8
+            ],
+            [
+              910.8,
+              717.7
+            ]
+          ],
+          "d": "M 498.3 471.7 Q 660 537 910.8 717.7"
+        },
+        "e2": {
+          "points": [
+            [
+              901.7,
+              821.7
+            ],
+            [
+              888.1,
+              827.3
+            ],
+            [
+              874.1,
+              833.4
+            ],
+            [
+              859.9,
+              839.8
+            ],
+            [
+              845.3,
+              846.7
+            ],
+            [
+              830.5,
+              853.9
+            ],
+            [
+              815.3,
+              861.6
+            ],
+            [
+              799.8,
+              869.6
+            ],
+            [
+              784,
+              878.1
+            ],
+            [
+              767.9,
+              886.9
+            ],
+            [
+              751.5,
+              896.1
+            ],
+            [
+              734.8,
+              905.8
+            ],
+            [
+              717.7,
+              915.8
+            ],
+            [
+              700.4,
+              926.3
+            ],
+            [
+              682.7,
+              937.1
+            ],
+            [
+              664.8,
+              948.4
+            ],
+            [
+              646.5,
+              960.1
+            ],
+            [
+              627.9,
+              972.1
+            ],
+            [
+              609.1,
+              984.6
+            ],
+            [
+              589.9,
+              997.4
+            ],
+            [
+              570.4,
+              1010.7
+            ],
+            [
+              550.5,
+              1024.3
+            ],
+            [
+              530.4,
+              1038.4
+            ],
+            [
+              510,
+              1052.8
+            ],
+            [
+              489.2,
+              1067.7
+            ]
+          ],
+          "d": "M 901.7 821.7 Q 740 887 489.2 1067.7",
+          "labelAt": [
+            717.7,
+            915.8
+          ]
+        },
+        "e3": {
+          "points": [
+            [
+              476.7,
+              1205.2
+            ],
+            [
+              479.6,
+              1208.1
+            ],
+            [
+              482.8,
+              1211.4
+            ],
+            [
+              486.4,
+              1215.1
+            ],
+            [
+              490.3,
+              1219.3
+            ],
+            [
+              494.4,
+              1223.9
+            ],
+            [
+              498.9,
+              1229
+            ],
+            [
+              503.7,
+              1234.5
+            ],
+            [
+              508.8,
+              1240.4
+            ],
+            [
+              514.2,
+              1246.8
+            ],
+            [
+              519.9,
+              1253.6
+            ],
+            [
+              526,
+              1260.9
+            ],
+            [
+              532.3,
+              1268.6
+            ],
+            [
+              539,
+              1276.7
+            ],
+            [
+              545.9,
+              1285.3
+            ],
+            [
+              553.2,
+              1294.3
+            ],
+            [
+              560.8,
+              1303.7
+            ],
+            [
+              568.7,
+              1313.6
+            ],
+            [
+              576.9,
+              1323.9
+            ],
+            [
+              585.4,
+              1334.7
+            ],
+            [
+              594.2,
+              1345.9
+            ],
+            [
+              603.3,
+              1357.5
+            ],
+            [
+              612.8,
+              1369.6
+            ],
+            [
+              622.5,
+              1382.1
+            ],
+            [
+              632.6,
+              1395.1
+            ]
+          ],
+          "d": "M 476.7 1205.2 Q 510 1237 632.6 1395.1",
+          "labelAt": [
+            532.3,
+            1268.6
+          ]
+        },
+        "e4": {
+          "points": [
+            [
+              637.3,
+              1567.5
+            ],
+            [
+              633.2,
+              1573.1
+            ],
+            [
+              628.9,
+              1579.2
+            ],
+            [
+              624.2,
+              1585.7
+            ],
+            [
+              619.3,
+              1592.7
+            ],
+            [
+              614,
+              1600.2
+            ],
+            [
+              608.5,
+              1608.1
+            ],
+            [
+              602.7,
+              1616.5
+            ],
+            [
+              596.6,
+              1625.3
+            ],
+            [
+              590.2,
+              1634.6
+            ],
+            [
+              583.6,
+              1644.4
+            ],
+            [
+              576.6,
+              1654.7
+            ],
+            [
+              569.4,
+              1665.4
+            ],
+            [
+              561.9,
+              1676.5
+            ],
+            [
+              554.1,
+              1688.2
+            ],
+            [
+              546,
+              1700.3
+            ],
+            [
+              537.6,
+              1712.8
+            ],
+            [
+              528.9,
+              1725.8
+            ],
+            [
+              520,
+              1739.3
+            ],
+            [
+              510.8,
+              1753.3
+            ],
+            [
+              501.2,
+              1767.7
+            ],
+            [
+              491.4,
+              1782.6
+            ],
+            [
+              481.3,
+              1797.9
+            ],
+            [
+              470.9,
+              1813.7
+            ],
+            [
+              460.3,
+              1830
+            ]
+          ],
+          "d": "M 637.3 1567.5 Q 590 1632 460.3 1830"
+        },
+        "e5": {
+          "points": [
+            [
+              762.7,
+              1567.5
+            ],
+            [
+              766.8,
+              1573.1
+            ],
+            [
+              771.1,
+              1579.2
+            ],
+            [
+              775.8,
+              1585.7
+            ],
+            [
+              780.7,
+              1592.7
+            ],
+            [
+              786,
+              1600.2
+            ],
+            [
+              791.5,
+              1608.1
+            ],
+            [
+              797.3,
+              1616.5
+            ],
+            [
+              803.4,
+              1625.3
+            ],
+            [
+              809.8,
+              1634.6
+            ],
+            [
+              816.4,
+              1644.4
+            ],
+            [
+              823.4,
+              1654.7
+            ],
+            [
+              830.6,
+              1665.4
+            ],
+            [
+              838.1,
+              1676.5
+            ],
+            [
+              845.9,
+              1688.2
+            ],
+            [
+              854,
+              1700.3
+            ],
+            [
+              862.4,
+              1712.8
+            ],
+            [
+              871.1,
+              1725.8
+            ],
+            [
+              880,
+              1739.3
+            ],
+            [
+              889.2,
+              1753.3
+            ],
+            [
+              898.8,
+              1767.7
+            ],
+            [
+              908.6,
+              1782.6
+            ],
+            [
+              918.7,
+              1797.9
+            ],
+            [
+              929.1,
+              1813.7
+            ],
+            [
+              939.7,
+              1830
+            ]
+          ],
+          "d": "M 762.7 1567.5 Q 810 1632 939.7 1830"
+        },
+        "e6": {
+          "points": [
+            [
+              483.2,
+              1987.7
+            ],
+            [
+              492,
+              1994.9
+            ],
+            [
+              500.7,
+              2002.4
+            ],
+            [
+              509.3,
+              2010.4
+            ],
+            [
+              517.8,
+              2018.6
+            ],
+            [
+              526.1,
+              2027.3
+            ],
+            [
+              534.4,
+              2036.3
+            ],
+            [
+              542.5,
+              2045.6
+            ],
+            [
+              550.4,
+              2055.3
+            ],
+            [
+              558.3,
+              2065.4
+            ],
+            [
+              566,
+              2075.8
+            ],
+            [
+              573.6,
+              2086.6
+            ],
+            [
+              581,
+              2097.7
+            ],
+            [
+              588.4,
+              2109.2
+            ],
+            [
+              595.6,
+              2121
+            ],
+            [
+              602.7,
+              2133.2
+            ],
+            [
+              609.7,
+              2145.8
+            ],
+            [
+              616.5,
+              2158.7
+            ],
+            [
+              623.3,
+              2172
+            ],
+            [
+              629.9,
+              2185.6
+            ],
+            [
+              636.3,
+              2199.6
+            ],
+            [
+              642.7,
+              2214
+            ],
+            [
+              648.9,
+              2228.7
+            ],
+            [
+              655,
+              2243.7
+            ],
+            [
+              661,
+              2259.2
+            ]
+          ],
+          "d": "M 483.2 1987.7 Q 590 2072 661 2259.2"
+        },
+        "e7": {
+          "points": [
+            [
+              916.8,
+              1987.7
+            ],
+            [
+              908,
+              1994.9
+            ],
+            [
+              899.3,
+              2002.4
+            ],
+            [
+              890.7,
+              2010.4
+            ],
+            [
+              882.2,
+              2018.6
+            ],
+            [
+              873.9,
+              2027.3
+            ],
+            [
+              865.6,
+              2036.3
+            ],
+            [
+              857.5,
+              2045.6
+            ],
+            [
+              849.6,
+              2055.3
+            ],
+            [
+              841.7,
+              2065.4
+            ],
+            [
+              834,
+              2075.8
+            ],
+            [
+              826.4,
+              2086.6
+            ],
+            [
+              819,
+              2097.7
+            ],
+            [
+              811.6,
+              2109.2
+            ],
+            [
+              804.4,
+              2121
+            ],
+            [
+              797.3,
+              2133.2
+            ],
+            [
+              790.3,
+              2145.8
+            ],
+            [
+              783.5,
+              2158.7
+            ],
+            [
+              776.7,
+              2172
+            ],
+            [
+              770.1,
+              2185.6
+            ],
+            [
+              763.7,
+              2199.6
+            ],
+            [
+              757.3,
+              2214
+            ],
+            [
+              751.1,
+              2228.7
+            ],
+            [
+              745,
+              2243.7
+            ],
+            [
+              739,
+              2259.2
+            ]
+          ],
+          "d": "M 916.8 1987.7 Q 810 2072 739 2259.2"
+        },
+        "e8": {
+          "points": [
+            [
+              792.8,
+              2413.3
+            ],
+            [
+              800.8,
+              2417.9
+            ],
+            [
+              808.8,
+              2422.9
+            ],
+            [
+              816.6,
+              2428.1
+            ],
+            [
+              824.3,
+              2433.7
+            ],
+            [
+              831.9,
+              2439.6
+            ],
+            [
+              839.4,
+              2445.8
+            ],
+            [
+              846.7,
+              2452.3
+            ],
+            [
+              854,
+              2459.2
+            ],
+            [
+              861.2,
+              2466.4
+            ],
+            [
+              868.2,
+              2473.8
+            ],
+            [
+              875.1,
+              2481.6
+            ],
+            [
+              881.9,
+              2489.7
+            ],
+            [
+              888.6,
+              2498.2
+            ],
+            [
+              895.2,
+              2506.9
+            ],
+            [
+              901.7,
+              2515.9
+            ],
+            [
+              908.1,
+              2525.3
+            ],
+            [
+              914.3,
+              2535
+            ],
+            [
+              920.5,
+              2545
+            ],
+            [
+              926.5,
+              2555.3
+            ],
+            [
+              932.4,
+              2566
+            ],
+            [
+              938.2,
+              2576.9
+            ],
+            [
+              943.9,
+              2588.2
+            ],
+            [
+              949.5,
+              2599.8
+            ],
+            [
+              954.9,
+              2611.7
+            ]
+          ],
+          "d": "M 792.8 2413.3 Q 890 2467 954.9 2611.7"
+        },
+        "e9": {
+          "points": [
+            [
+              898.7,
+              2743.3
+            ],
+            [
+              878.9,
+              2749.6
+            ],
+            [
+              859.3,
+              2756.2
+            ],
+            [
+              840,
+              2763.2
+            ],
+            [
+              820.8,
+              2770.5
+            ],
+            [
+              801.8,
+              2778.2
+            ],
+            [
+              783,
+              2786.1
+            ],
+            [
+              764.5,
+              2794.4
+            ],
+            [
+              746.1,
+              2803.1
+            ],
+            [
+              727.9,
+              2812
+            ],
+            [
+              710,
+              2821.4
+            ],
+            [
+              692.2,
+              2831
+            ],
+            [
+              674.7,
+              2841
+            ],
+            [
+              657.4,
+              2851.3
+            ],
+            [
+              640.2,
+              2861.9
+            ],
+            [
+              623.3,
+              2872.9
+            ],
+            [
+              606.5,
+              2884.2
+            ],
+            [
+              590,
+              2895.8
+            ],
+            [
+              573.7,
+              2907.8
+            ],
+            [
+              557.6,
+              2920.1
+            ],
+            [
+              541.7,
+              2932.7
+            ],
+            [
+              526,
+              2945.7
+            ],
+            [
+              510.5,
+              2959
+            ],
+            [
+              495.2,
+              2972.6
+            ],
+            [
+              480.1,
+              2986.6
+            ]
+          ],
+          "d": "M 898.7 2743.3 Q 660 2817 480.1 2986.6",
+          "labelAt": [
+            674.7,
+            2841
+          ]
+        }
+      },
+      "groups": {
+        "assets": {
+          "x": 96,
+          "y": 1764,
+          "w": 1208,
+          "h": 421
+        }
+      },
+      "titleAt": [
+        700,
+        226
+      ]
+    }
+  },
+  "audio": {
+    "music": "generated/how-avs-works-bed.wav",
+    "musicVolume": 0.08,
+    "bed": {
+      "bpm": 100,
+      "notes": [
+        110,
+        130.81,
+        146.83,
+        130.81,
+        110,
+        98,
+        87.31,
+        98
+      ]
+    },
+    "voice": {
+      "provider": "openai",
+      "model": "gpt-4o-mini-tts",
+      "voice": "ash",
+      "instructions": "An engineer showing a friend how a system works at a whiteboard. Clear, relaxed and precise; lands each component's name as it appears. Conversational, never a hype voice or a lecture. Never imitate a known person or character.",
+      "speed": 1.08,
+      "output": "generated/how-avs-works-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Diagrams and narration are original. System details are cited in the sources below.",
+    "nonAffiliationNotice": "Under the Hood is an independent educational series. Product names belong to their owners.",
+    "assets": [
+      {
+        "kind": "diagram",
+        "sourceUrl": "https://github.com/AmrElsehemy/agentic-video-studio",
+        "owner": "Agentic Video Studio",
+        "licenseStatus": "owned",
+        "publicReleaseApproved": false,
+        "notes": "Diagram drawn by the renderer from this draft's spec; no third-party artwork."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "durationSeconds": 4.8,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "HOW IT WORKS",
+      "headline": "ONE LINE IN",
+      "narration": "How do AI agents turn one line into a video?",
+      "caption": "ONE LINE IN",
+      "visual": "hook",
+      "primitive": {
+        "kind": "diagram",
+        "actions": [
+          {
+            "do": "camera",
+            "focus": [
+              "prompt"
+            ],
+            "padding": 0.3,
+            "at": 0,
+            "dur": 0.1
+          },
+          {
+            "do": "reveal",
+            "target": "prompt",
+            "anim": "draw",
+            "at": {
+              "word": "line",
+              "nth": 1
+            }
+          },
+          {
+            "do": "annotate",
+            "target": "prompt",
+            "text": "e.g. why Greenland looks so big",
+            "at": {
+              "after": "prompt",
+              "delay": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "plan",
+      "durationSeconds": 4.9,
+      "beat": "evidence",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "STEP 1",
+      "headline": "THE PLANNER",
+      "narration": "First, a planner picks the angle and the story shape.",
+      "caption": "A PLANNER PICKS THE SHAPE",
+      "visual": "gauntlet",
+      "primitive": {
+        "kind": "diagram",
+        "actions": [
+          {
+            "do": "camera",
+            "focus": [
+              "prompt",
+              "planner"
+            ],
+            "padding": 0.14,
+            "at": 0
+          },
+          {
+            "do": "reveal",
+            "target": "planner",
+            "anim": "draw",
+            "at": {
+              "word": "planner",
+              "nth": 1
+            }
+          },
+          {
+            "do": "annotate",
+            "target": "planner",
+            "text": "5 story shapes, e.g. mystery",
+            "at": {
+              "after": "planner",
+              "delay": 0
+            }
+          },
+          {
+            "do": "connect",
+            "edge": "e1",
+            "at": {
+              "after": "planner",
+              "delay": 0
+            }
+          },
+          {
+            "do": "highlight",
+            "target": "planner",
+            "at": {
+              "word": "shape",
+              "nth": 1
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "write",
+      "durationSeconds": 4.4,
+      "beat": "evidence",
+      "role": "evidence",
+      "shot": "wide",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "STEP 2",
+      "headline": "THE WRITER",
+      "narration": "A writer turns that brief into scenes and narration.",
+      "caption": "FROM BRIEF TO SCRIPT",
+      "visual": "gauntlet",
+      "primitive": {
+        "kind": "diagram",
+        "actions": [
+          {
+            "do": "camera",
+            "focus": [
+              "planner",
+              "writer"
+            ],
+            "padding": 0.14,
+            "at": 0
+          },
+          {
+            "do": "reveal",
+            "target": "writer",
+            "anim": "draw",
+            "at": {
+              "word": "writer",
+              "nth": 1
+            }
+          },
+          {
+            "do": "annotate",
+            "target": "writer",
+            "text": "every scene under 6.4 s",
+            "at": {
+              "after": "writer",
+              "delay": 0
+            }
+          },
+          {
+            "do": "connect",
+            "edge": "e2",
+            "at": {
+              "word": "brief",
+              "nth": 1
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "storyboard",
+      "durationSeconds": 4.2,
+      "beat": "escalation",
+      "role": "escalation",
+      "shot": "comparison",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "STEP 3",
+      "headline": "DATA, NOT PIXELS",
+      "narration": "A director storyboards it: not pixels, but data.",
+      "caption": "A LIST OF SHOTS",
+      "visual": "advantage",
+      "primitive": {
+        "kind": "diagram",
+        "actions": [
+          {
+            "do": "camera",
+            "focus": [
+              "writer",
+              "storyboard"
+            ],
+            "padding": 0.14,
+            "at": 0
+          },
+          {
+            "do": "reveal",
+            "target": "storyboard",
+            "anim": "draw",
+            "at": {
+              "word": "storyboards",
+              "nth": 1
+            }
+          },
+          {
+            "do": "annotate",
+            "target": "storyboard",
+            "text": "counters, maps, timelines, diagrams",
+            "at": {
+              "after": "storyboard",
+              "delay": 0
+            }
+          },
+          {
+            "do": "connect",
+            "edge": "e3",
+            "at": {
+              "after": "storyboard",
+              "delay": 0
+            }
+          },
+          {
+            "do": "highlight",
+            "target": "storyboard",
+            "at": {
+              "word": "data",
+              "nth": 1
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "assets",
+      "durationSeconds": 5.4,
+      "beat": "escalation",
+      "role": "escalation",
+      "shot": "tracking",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "STEP 4",
+      "headline": "THE ASSETS",
+      "narration": "Then the assets: a voice that knows when every word lands.",
+      "caption": "TIMED TO EVERY WORD",
+      "visual": "advantage",
+      "primitive": {
+        "kind": "diagram",
+        "actions": [
+          {
+            "do": "camera",
+            "focus": [
+              "storyboard",
+              "assets"
+            ],
+            "padding": 0.14,
+            "at": 0
+          },
+          {
+            "do": "reveal",
+            "target": "assets",
+            "anim": "fade",
+            "at": {
+              "word": "assets",
+              "nth": 1
+            }
+          },
+          {
+            "do": "annotate",
+            "target": "voice",
+            "text": "OpenAI or ElevenLabs, word-aligned",
+            "at": {
+              "after": "assets",
+              "delay": 0
+            }
+          },
+          {
+            "do": "connect",
+            "edge": "e4",
+            "at": {
+              "after": "assets",
+              "delay": 0
+            }
+          },
+          {
+            "do": "connect",
+            "edge": "e5",
+            "at": {
+              "after": "assets",
+              "delay": 0
+            }
+          },
+          {
+            "do": "highlight",
+            "target": "voice",
+            "at": {
+              "word": "word",
+              "nth": 1
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "render",
+      "durationSeconds": 5.4,
+      "beat": "payoff",
+      "role": "payoff",
+      "shot": "tracking",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "STEP 5",
+      "headline": "THE RENDERER",
+      "narration": "Remotion renders it frame by frame, the same way every time.",
+      "caption": "THE SAME WAY EVERY TIME",
+      "visual": "race",
+      "primitive": {
+        "kind": "diagram",
+        "actions": [
+          {
+            "do": "camera",
+            "focus": [
+              "assets",
+              "remotion"
+            ],
+            "padding": 0.14,
+            "at": 0
+          },
+          {
+            "do": "reveal",
+            "target": "remotion",
+            "anim": "draw",
+            "at": {
+              "word": "remotion",
+              "nth": 1
+            }
+          },
+          {
+            "do": "annotate",
+            "target": "remotion",
+            "text": "1080×1920 at 30 fps",
+            "at": {
+              "after": "remotion",
+              "delay": 0
+            }
+          },
+          {
+            "do": "connect",
+            "edge": "e6",
+            "at": {
+              "after": "remotion",
+              "delay": 0
+            }
+          },
+          {
+            "do": "connect",
+            "edge": "e7",
+            "at": {
+              "after": "remotion",
+              "delay": 0
+            }
+          },
+          {
+            "do": "highlight",
+            "target": "remotion",
+            "at": {
+              "word": "same",
+              "nth": 1
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "check",
+      "durationSeconds": 5.3,
+      "beat": "payoff",
+      "role": "payoff",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "STEP 6",
+      "headline": "THE CRITIC",
+      "narration": "A critic checks the render and blocks it if anything fails.",
+      "caption": "BLOCKED IF ANYTHING FAILS",
+      "visual": "tradeoff",
+      "primitive": {
+        "kind": "diagram",
+        "actions": [
+          {
+            "do": "camera",
+            "focus": [
+              "remotion",
+              "qa"
+            ],
+            "padding": 0.14,
+            "at": 0
+          },
+          {
+            "do": "reveal",
+            "target": "qa",
+            "anim": "draw",
+            "at": {
+              "word": "critic",
+              "nth": 1
+            }
+          },
+          {
+            "do": "annotate",
+            "target": "qa",
+            "text": "OCR and frame-jump checks",
+            "at": {
+              "after": "qa",
+              "delay": 0
+            }
+          },
+          {
+            "do": "connect",
+            "edge": "e8",
+            "at": {
+              "after": "qa",
+              "delay": 0
+            }
+          },
+          {
+            "do": "highlight",
+            "target": "qa",
+            "at": {
+              "word": "blocks",
+              "nth": 1
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "reveal",
+      "durationSeconds": 5.3,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "THE WHOLE PIPELINE",
+      "headline": "PROMPT TO VIDEO",
+      "narration": "And this video was rendered by the system you just watched.",
+      "caption": "WHICH STAGE WOULD YOU AUTOMATE?",
+      "visual": "cta",
+      "primitive": {
+        "kind": "diagram",
+        "actions": [
+          {
+            "do": "reveal",
+            "target": "video",
+            "anim": "pop",
+            "at": {
+              "word": "video",
+              "nth": 1
+            }
+          },
+          {
+            "do": "connect",
+            "edge": "e9",
+            "at": {
+              "after": "video",
+              "delay": 0
+            }
+          },
+          {
+            "do": "camera",
+            "focus": "all",
+            "padding": 0.06,
+            "id": "wide",
+            "at": {
+              "word": "rendered",
+              "nth": 1
+            },
+            "dur": 1.6
+          },
+          {
+            "do": "highlight",
+            "target": "e1",
+            "at": {
+              "after": "wide",
+              "delay": 0
+            }
+          },
+          {
+            "do": "highlight",
+            "target": "e2",
+            "at": {
+              "after": "wide",
+              "delay": 0.12
+            }
+          },
+          {
+            "do": "highlight",
+            "target": "e3",
+            "at": {
+              "after": "wide",
+              "delay": 0.24
+            }
+          },
+          {
+            "do": "highlight",
+            "target": "e4",
+            "at": {
+              "after": "wide",
+              "delay": 0.36
+            }
+          },
+          {
+            "do": "highlight",
+            "target": "e5",
+            "at": {
+              "after": "wide",
+              "delay": 0.48
+            }
+          },
+          {
+            "do": "highlight",
+            "target": "e6",
+            "at": {
+              "after": "wide",
+              "delay": 0.6
+            }
+          },
+          {
+            "do": "highlight",
+            "target": "e7",
+            "at": {
+              "after": "wide",
+              "delay": 0.72
+            }
+          },
+          {
+            "do": "highlight",
+            "target": "e8",
+            "at": {
+              "after": "wide",
+              "delay": 0.84
+            }
+          },
+          {
+            "do": "highlight",
+            "target": "e9",
+            "at": {
+              "after": "wide",
+              "delay": 0.96
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "sources": [
+    {
+      "label": "Agentic Video Studio repository",
+      "url": "https://github.com/AmrElsehemy/agentic-video-studio"
+    },
+    {
+      "label": "Remotion: make videos programmatically",
+      "url": "https://www.remotion.dev/docs/"
+    }
+  ]
+}

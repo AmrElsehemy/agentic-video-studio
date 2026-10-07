@@ -89,6 +89,8 @@ export const directVisuals = async ({draft, research, angle, complete, showId = 
     if (chosen.has(id)) { reject('the reply names this scene more than once; the first valid primitive is kept'); continue; }
     const parsed = primitiveSchema.safeParse(item.primitive);
     if (!parsed.success) { reject(parsed.error.issues.map((issue) => `${issue.path.join('.') || 'primitive'}: ${issue.message}`).join('; ')); continue; }
+    // Maps and diagrams have their own directors; this one only places the kinds in its guide.
+    if (!PRIMITIVE_GUIDE.some(([kind]) => kind === parsed.data.kind)) { reject(`${parsed.data.kind} isn't one of this director's primitives`); continue; }
     const problems = checkPrimitive(parsed.data, research);
     if (problems.length) { reject(`${parsed.data.kind} ${problems.join('; ')}`); continue; }
     chosen.set(id, parsed.data);

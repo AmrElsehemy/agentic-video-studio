@@ -1,0 +1,985 @@
+{
+  "schemaVersion": 2,
+  "id": "url-shortener",
+  "show": {
+    "id": "under-the-hood",
+    "name": "Under the Hood",
+    "handle": "@UnderTheHood",
+    "wordmark": {
+      "lead": "UNDER THE ",
+      "accent": "HOOD"
+    },
+    "fonts": {
+      "display": "Oswald",
+      "body": "Inter"
+    },
+    "captions": {
+      "mode": "words"
+    }
+  },
+  "title": "How a URL Shortener Works",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "walkthrough",
+    "numberRelevant": false,
+    "premise": "How a URL shortener redirects in milliseconds and still counts every click.",
+    "audiencePromise": "Follow each numbered step through the architecture, as it is drawn.",
+    "openLoop": "How can a redirect be this fast and still count every click?",
+    "payoff": "The redirect path stays short; analytics happen off to the side.",
+    "targetEmotion": "curiosity",
+    "engagementQuestion": "What would you add?",
+    "targetSecondsBetweenVisualChanges": 0.65
+  },
+  "subject": {
+    "name": "How a URL Shortener Works",
+    "category": "Architecture"
+  },
+  "related": [],
+  "format": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#0b1220",
+    "surface": "#18243a",
+    "primary": "#5cc8e0",
+    "secondary": "#f0884f",
+    "ink": "#e8eef5"
+  },
+  "diagram": {
+    "spec": {
+      "theme": "architecture",
+      "look": "clean",
+      "source": {
+        "kind": "drawio",
+        "file": "url-shortener.drawio",
+        "width": 1006,
+        "height": 579
+      },
+      "nodes": [
+        {
+          "id": "user",
+          "label": "Visitor",
+          "shape": {
+            "kind": "ellipse",
+            "w": 110,
+            "h": 60,
+            "fill": "#fff2cc",
+            "stroke": "#1b1b1b",
+            "rounded": false
+          },
+          "at": [
+            86,
+            250
+          ],
+          "size": 60,
+          "labelAt": [
+            86,
+            250
+          ],
+          "align": "center"
+        },
+        {
+          "id": "cdn",
+          "label": "CDN edge",
+          "shape": {
+            "kind": "rect",
+            "w": 110,
+            "h": 60,
+            "fill": "#dae8fc",
+            "stroke": "#1b1b1b",
+            "rounded": true
+          },
+          "at": [
+            246,
+            250
+          ],
+          "size": 60,
+          "labelAt": [
+            246,
+            250
+          ],
+          "align": "center"
+        },
+        {
+          "id": "api",
+          "label": "Link API",
+          "shape": {
+            "kind": "rect",
+            "w": 130,
+            "h": 60,
+            "fill": "#d5e8d4",
+            "stroke": "#1b1b1b",
+            "rounded": true
+          },
+          "at": [
+            446,
+            250
+          ],
+          "size": 60,
+          "labelAt": [
+            446,
+            250
+          ],
+          "align": "center"
+        },
+        {
+          "id": "redis",
+          "label": "Redis cache",
+          "shape": {
+            "kind": "rect",
+            "w": 130,
+            "h": 60,
+            "fill": "#f8cecc",
+            "stroke": "#1b1b1b",
+            "rounded": true
+          },
+          "at": [
+            696,
+            130
+          ],
+          "size": 60,
+          "labelAt": [
+            696,
+            130
+          ],
+          "align": "center"
+        },
+        {
+          "id": "db",
+          "label": "Postgres",
+          "shape": {
+            "kind": "rect",
+            "w": 130,
+            "h": 60,
+            "fill": "#e1d5e7",
+            "stroke": "#1b1b1b",
+            "rounded": true
+          },
+          "at": [
+            696,
+            350
+          ],
+          "size": 60,
+          "labelAt": [
+            696,
+            350
+          ],
+          "align": "center"
+        },
+        {
+          "id": "queue",
+          "label": "Click queue",
+          "shape": {
+            "kind": "rect",
+            "w": 130,
+            "h": 60,
+            "fill": "#ffe6cc",
+            "stroke": "#1b1b1b",
+            "rounded": true
+          },
+          "at": [
+            446,
+            440
+          ],
+          "size": 60,
+          "labelAt": [
+            446,
+            440
+          ],
+          "align": "center"
+        },
+        {
+          "id": "warehouse",
+          "label": "Analytics warehouse",
+          "shape": {
+            "kind": "rect",
+            "w": 150,
+            "h": 60,
+            "fill": "#f5f5f5",
+            "stroke": "#1b1b1b",
+            "rounded": true
+          },
+          "at": [
+            966,
+            440
+          ],
+          "size": 60,
+          "labelAt": [
+            966,
+            440
+          ],
+          "align": "center"
+        }
+      ],
+      "groups": [
+        {
+          "id": "net",
+          "label": "Private network",
+          "box": {
+            "x": 341,
+            "y": 40,
+            "w": 460,
+            "h": 460
+          },
+          "style": "dashed",
+          "color": "#7fa7e0",
+          "labelAt": [
+            353,
+            55
+          ]
+        }
+      ],
+      "edges": [
+        {
+          "id": "e-user-cdn",
+          "points": [
+            [
+              141,
+              250
+            ],
+            [
+              191,
+              250
+            ]
+          ],
+          "lane": "read",
+          "arrow": true
+        },
+        {
+          "id": "e-cdn-api",
+          "points": [
+            [
+              301,
+              250
+            ],
+            [
+              381,
+              250
+            ]
+          ],
+          "lane": "read",
+          "arrow": true
+        },
+        {
+          "id": "e-api-redis",
+          "points": [
+            [
+              446,
+              220
+            ],
+            [
+              446,
+              130
+            ],
+            [
+              631,
+              130
+            ]
+          ],
+          "lane": "read",
+          "arrow": true
+        },
+        {
+          "id": "e-api-db-read",
+          "points": [
+            [
+              478.5,
+              280
+            ],
+            [
+              478,
+              338
+            ],
+            [
+              631,
+              338
+            ]
+          ],
+          "lane": "read",
+          "arrow": true
+        },
+        {
+          "id": "e-api-db-write",
+          "points": [
+            [
+              511,
+              268
+            ],
+            [
+              696,
+              268
+            ],
+            [
+              696,
+              320
+            ]
+          ],
+          "lane": "write",
+          "arrow": true
+        },
+        {
+          "id": "e-api-queue",
+          "points": [
+            [
+              413.5,
+              280
+            ],
+            [
+              413.5,
+              410
+            ]
+          ],
+          "lane": "write",
+          "arrow": true
+        },
+        {
+          "id": "e-queue-wh",
+          "points": [
+            [
+              511,
+              440
+            ],
+            [
+              891,
+              440
+            ]
+          ],
+          "lane": "write",
+          "arrow": true
+        }
+      ],
+      "steps": [
+        {
+          "id": "r3",
+          "n": 3,
+          "lane": "read",
+          "at": [
+            474,
+            123
+          ],
+          "text": "Look up code",
+          "textAt": [
+            541,
+            142
+          ]
+        },
+        {
+          "id": "r1",
+          "n": 1,
+          "lane": "read",
+          "at": [
+            164,
+            193
+          ],
+          "text": "Open short link",
+          "textAt": [
+            166,
+            162
+          ]
+        },
+        {
+          "id": "r2",
+          "n": 2,
+          "lane": "read",
+          "at": [
+            322,
+            193
+          ],
+          "text": "Forward on edge miss",
+          "textAt": [
+            321,
+            162
+          ]
+        },
+        {
+          "id": "w1",
+          "n": 1,
+          "lane": "write",
+          "at": [
+            724,
+            233
+          ],
+          "text": "Save new link",
+          "textAt": [
+            741,
+            204
+          ]
+        },
+        {
+          "id": "r4",
+          "n": 4,
+          "lane": "read",
+          "at": [
+            504,
+            361
+          ],
+          "text": "Cache miss: read DB",
+          "textAt": [
+            591,
+            362
+          ]
+        },
+        {
+          "id": "w2",
+          "n": 2,
+          "lane": "write",
+          "at": [
+            354,
+            373
+          ],
+          "text": "Log the click",
+          "textAt": [
+            289,
+            372
+          ]
+        },
+        {
+          "id": "w3",
+          "n": 3,
+          "lane": "write",
+          "at": [
+            844,
+            385
+          ],
+          "text": "Batch into warehouse",
+          "textAt": [
+            938,
+            385
+          ]
+        }
+      ],
+      "labels": [],
+      "legend": [
+        {
+          "lane": "read",
+          "text": "Redirect flow",
+          "at": [
+            40,
+            539
+          ]
+        },
+        {
+          "lane": "write",
+          "text": "Write flow",
+          "at": [
+            200,
+            539
+          ]
+        }
+      ]
+    },
+    "layout": {
+      "width": 1006,
+      "height": 579,
+      "nodes": {},
+      "edges": {},
+      "groups": {}
+    }
+  },
+  "audio": {
+    "music": "generated/url-shortener-bed.wav",
+    "musicVolume": 0.08,
+    "bed": {
+      "bpm": 100,
+      "notes": [
+        110,
+        130.81,
+        146.83,
+        130.81,
+        110,
+        98,
+        87.31,
+        98
+      ]
+    },
+    "voice": {
+      "provider": "openai",
+      "model": "gpt-4o-mini-tts",
+      "voice": "ash",
+      "instructions": "An engineer showing a friend how a system works at a whiteboard. Clear, relaxed and precise; lands each component's name as it appears. Conversational, never a hype voice or a lecture. Never imitate a known person or character.",
+      "speed": 1.08,
+      "output": "generated/url-shortener-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Diagram drawn for this repository as a test fixture. Narration and checks are original.",
+    "nonAffiliationNotice": "An independent explainer. Product names belong to their owners.",
+    "assets": [
+      {
+        "kind": "diagram",
+        "sourceUrl": "https://example.com/replace-with-the-diagram-source",
+        "owner": "Diagram source: url-shortener.drawio",
+        "licenseStatus": "owned",
+        "publicReleaseApproved": false,
+        "notes": "A generic architecture drawn for the tests (test/fixtures/drawio/url-shortener.drawio). Internal prototype; not for release."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "durationSeconds": 4.4,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "wide",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "URL SHORTENER",
+      "headline": "A LOOKUP IN MILLISECONDS",
+      "narration": "Every short link hides a lookup that takes milliseconds.",
+      "caption": "A LOOKUP IN MILLISECONDS",
+      "visual": "hook",
+      "primitive": {
+        "kind": "diagram",
+        "actions": [
+          {
+            "do": "camera",
+            "focus": [
+              "user"
+            ],
+            "padding": 0.2,
+            "at": 0
+          },
+          {
+            "do": "reveal",
+            "target": "user",
+            "anim": "draw",
+            "at": {
+              "word": "Every",
+              "nth": 1
+            }
+          },
+          {
+            "do": "highlight",
+            "target": "user",
+            "at": {
+              "word": "lookup",
+              "nth": 1
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "setup",
+      "durationSeconds": 8.9,
+      "beat": "setup",
+      "role": "evidence",
+      "shot": "wide",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "THE PARTS",
+      "headline": "EDGE, API, CACHE, DATABASE",
+      "narration": "A visitor's click passes a CDN edge to the link API, in a private network with Redis and Postgres.",
+      "caption": "EDGE, API, CACHE, DATABASE",
+      "visual": "gauntlet",
+      "primitive": {
+        "kind": "diagram",
+        "actions": [
+          {
+            "do": "camera",
+            "focus": [
+              "user",
+              "cdn",
+              "api",
+              "net",
+              "redis",
+              "db"
+            ],
+            "padding": 0.15,
+            "at": 0
+          },
+          {
+            "do": "reveal",
+            "target": "cdn",
+            "anim": "draw",
+            "at": {
+              "word": "CDN",
+              "nth": 1
+            }
+          },
+          {
+            "do": "connect",
+            "edge": "e-user-cdn",
+            "at": {
+              "after": "cdn",
+              "delay": 0.1
+            }
+          },
+          {
+            "do": "reveal",
+            "target": "api",
+            "anim": "draw",
+            "at": {
+              "word": "API",
+              "nth": 1
+            }
+          },
+          {
+            "do": "connect",
+            "edge": "e-cdn-api",
+            "at": {
+              "after": "api",
+              "delay": 0.1
+            }
+          },
+          {
+            "do": "reveal",
+            "target": "net",
+            "anim": "draw",
+            "at": {
+              "word": "private",
+              "nth": 1
+            }
+          },
+          {
+            "do": "reveal",
+            "target": "redis",
+            "anim": "draw",
+            "at": {
+              "word": "Redis",
+              "nth": 1
+            }
+          },
+          {
+            "do": "reveal",
+            "target": "db",
+            "anim": "draw",
+            "at": {
+              "word": "Postgres",
+              "nth": 1
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "open",
+      "durationSeconds": 9.6,
+      "beat": "flow",
+      "role": "escalation",
+      "shot": "tracking",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "REDIRECT FLOW",
+      "headline": "STEPS 1–2",
+      "narration": "Opening a short link starts at the CDN edge. On an edge miss, it forwards the request to the API.",
+      "caption": "EDGE FIRST",
+      "visual": "advantage",
+      "primitive": {
+        "kind": "diagram",
+        "actions": [
+          {
+            "do": "camera",
+            "focus": [
+              "user",
+              "cdn",
+              "api",
+              "r1",
+              "r2"
+            ],
+            "padding": 0.15,
+            "at": 0
+          },
+          {
+            "do": "flow",
+            "step": "r1",
+            "edges": [
+              "e-user-cdn"
+            ],
+            "at": {
+              "word": "Opening",
+              "nth": 1
+            }
+          },
+          {
+            "do": "flow",
+            "step": "r2",
+            "edges": [
+              "e-cdn-api"
+            ],
+            "at": {
+              "word": "miss",
+              "nth": 1
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "lookup",
+      "durationSeconds": 7.2,
+      "beat": "flow",
+      "role": "escalation",
+      "shot": "macro",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "REDIRECT FLOW",
+      "headline": "STEP 3",
+      "narration": "The API looks up the code in the Redis cache. Most redirects end right there.",
+      "caption": "CACHE LOOKUP",
+      "visual": "race",
+      "primitive": {
+        "kind": "diagram",
+        "actions": [
+          {
+            "do": "camera",
+            "focus": [
+              "api",
+              "redis",
+              "r3"
+            ],
+            "padding": 0.15,
+            "at": 0
+          },
+          {
+            "do": "flow",
+            "step": "r3",
+            "edges": [
+              "e-api-redis"
+            ],
+            "at": {
+              "word": "looks",
+              "nth": 1
+            }
+          },
+          {
+            "do": "highlight",
+            "target": "redis",
+            "at": {
+              "word": "there",
+              "nth": 1
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "miss",
+      "durationSeconds": 5.4,
+      "beat": "flow",
+      "role": "escalation",
+      "shot": "comparison",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "REDIRECT FLOW",
+      "headline": "STEP 4",
+      "narration": "On a cache miss, it reads the link from Postgres instead.",
+      "caption": "CACHE MISS: POSTGRES",
+      "visual": "advantage",
+      "primitive": {
+        "kind": "diagram",
+        "actions": [
+          {
+            "do": "camera",
+            "focus": [
+              "api",
+              "redis",
+              "db",
+              "r4"
+            ],
+            "padding": 0.15,
+            "at": 0
+          },
+          {
+            "do": "flow",
+            "step": "r4",
+            "edges": [
+              "e-api-db-read"
+            ],
+            "at": {
+              "word": "miss",
+              "nth": 1
+            }
+          },
+          {
+            "do": "highlight",
+            "target": "db",
+            "at": {
+              "word": "Postgres",
+              "nth": 1
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "write",
+      "durationSeconds": 7.2,
+      "beat": "flow",
+      "role": "escalation",
+      "shot": "tracking",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "WRITE FLOW",
+      "headline": "STEPS 1–2",
+      "narration": "Creating a link writes straight to Postgres. Every click is also logged to a queue.",
+      "caption": "WRITES AND CLICKS",
+      "visual": "race",
+      "primitive": {
+        "kind": "diagram",
+        "actions": [
+          {
+            "do": "camera",
+            "focus": [
+              "api",
+              "db",
+              "w1",
+              "queue",
+              "w2"
+            ],
+            "padding": 0.15,
+            "at": 0
+          },
+          {
+            "do": "flow",
+            "step": "w1",
+            "edges": [
+              "e-api-db-write"
+            ],
+            "at": {
+              "word": "writes",
+              "nth": 1
+            }
+          },
+          {
+            "do": "reveal",
+            "target": "queue",
+            "anim": "draw",
+            "at": {
+              "word": "queue",
+              "nth": 1
+            }
+          },
+          {
+            "do": "flow",
+            "step": "w2",
+            "edges": [
+              "e-api-queue"
+            ],
+            "at": {
+              "after": "queue",
+              "delay": 0.1
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "analytics",
+      "durationSeconds": 6.3,
+      "beat": "wrap",
+      "role": "payoff",
+      "shot": "wide",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "WRITE FLOW",
+      "headline": "STEP 3",
+      "narration": "The queue is batched into the analytics warehouse, away from the redirect path.",
+      "caption": "ANALYTICS OFF THE PATH",
+      "visual": "tradeoff",
+      "primitive": {
+        "kind": "diagram",
+        "actions": [
+          {
+            "do": "camera",
+            "focus": [
+              "queue",
+              "warehouse",
+              "w3"
+            ],
+            "padding": 0.2,
+            "at": 0
+          },
+          {
+            "do": "reveal",
+            "target": "warehouse",
+            "anim": "draw",
+            "at": {
+              "word": "warehouse",
+              "nth": 1
+            }
+          },
+          {
+            "do": "flow",
+            "step": "w3",
+            "edges": [
+              "e-queue-wh"
+            ],
+            "at": {
+              "after": "warehouse",
+              "delay": 0.1
+            }
+          },
+          {
+            "do": "highlight",
+            "target": "warehouse",
+            "at": {
+              "word": "away",
+              "nth": 1
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "verdict",
+      "durationSeconds": 6.5,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "THE WHOLE PICTURE",
+      "headline": "FAST REDIRECTS",
+      "narration": "Fast redirects, and analytics that never slow them down. What would you add?",
+      "caption": "WHAT WOULD YOU ADD?",
+      "visual": "cta",
+      "primitive": {
+        "kind": "diagram",
+        "actions": [
+          {
+            "do": "camera",
+            "focus": "all",
+            "padding": 0.1,
+            "at": 0
+          },
+          {
+            "do": "highlight",
+            "target": "cdn",
+            "at": {
+              "word": "Fast",
+              "nth": 1
+            }
+          },
+          {
+            "do": "highlight",
+            "target": "redis",
+            "at": {
+              "word": "redirects",
+              "nth": 1
+            }
+          },
+          {
+            "do": "highlight",
+            "target": "warehouse",
+            "at": {
+              "word": "analytics",
+              "nth": 1
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "sources": [
+    {
+      "label": "Source diagram: url-shortener.drawio (replace with the system's docs or repository)",
+      "url": "https://example.com/replace-with-a-real-source"
+    }
+  ]
+}

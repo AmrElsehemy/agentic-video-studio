@@ -7,6 +7,7 @@ import {findManifest} from '../catalog.mjs';
 import {writeAudioBed} from './audio-bed.mjs';
 import {snapToBeats} from './beats.mjs';
 import {withWordCaptions} from './captions.mjs';
+import {withDiagramTimes} from './diagram-timing.mjs';
 import {narrationProvider, voiceStaleReason} from './voice-lock.mjs';
 
 // "paid" is the show's narration track, whichever service reads it; "openai" and "elevenlabs" name it too (#102).
@@ -106,6 +107,9 @@ export const prepareRenderProps = (episodeId, {voice: requestedVoice = 'auto', c
     Object.assign(manifest, withWordCaptions(manifest, fresh?.timing.speech));
     log(`✓ word captions: ${fresh?.timing.speech ? 'measured speech timing' : 'estimated from the text (preview)'}`);
   }
+
+  // Diagram elements appear as the narration names them (#125), so their times follow the words.
+  Object.assign(manifest, withDiagramTimes(manifest, fresh?.timing.speech));
 
   // Music and sound effects follow this manifest's scene lengths, which narration timing may have
   // stretched, so the cues land on the scene changes the render actually has.

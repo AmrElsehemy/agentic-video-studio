@@ -1,0 +1,22 @@
+{
+  "id": "under-the-hood",
+  "name": "Under the Hood",
+  "handle": "@UnderTheHood",
+  "description": "a vertical short-form video series that explains how software and AI systems work, with diagrams that build as the narrator speaks",
+  "wordmark": {"lead": "UNDER THE ", "accent": "HOOD"},
+  "fonts": {"display": "Oswald", "body": "Inter"},
+  "palette": {"background": "#0b1220", "surface": "#18243a", "primary": "#5cc8e0", "secondary": "#f0884f", "ink": "#e8eef5"},
+  "music": {"bpm": 100, "notes": [110, 130.81, 146.83, 130.81, 110, 98, 87.31, 98], "volume": 0.08},
+  "voice": {
+    "voice": "ash",
+    "speed": 1.08,
+    "model": "gpt-4o-mini-tts",
+    "instructions": "An engineer showing a friend how a system works at a whiteboard. Clear, relaxed and precise; lands each component's name as it appears. Conversational, never a hype voice or a lecture. Never imitate a known person or character."
+  },
+  "notices": {
+    "ownership": "Diagrams and narration are original. System details are cited in the sources below.",
+    "nonAffiliation": "Under the Hood is an independent educational series. Product names belong to their owners."
+  },
+  "captions": {"mode": "words"},
+  "archetypes": ["mechanic", "walkthrough"]
+}

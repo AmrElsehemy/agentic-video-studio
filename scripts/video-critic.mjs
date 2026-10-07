@@ -11,13 +11,16 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
-import {auditFrames} from './lib/frame-audit.mjs';
+import {auditFrames, coverage, MIN_COVERAGE} from './lib/frame-audit.mjs';
+// Diagram QA (#130) shares the renderer's TypeScript state code; run with tsx (npm run critic:video), which loads it as CommonJS.
+import diagramAudit from '../src/video/diagram/audit.ts';
 import {createCompletion} from './lib/llm.mjs';
 import {appendProduction, modelEntry} from './lib/production.mjs';
 import {framePath, reviewFrames} from './lib/render-props.mjs';
 import {critiqueFrames} from './lib/video-critic.mjs';
 import {resolveEpisodeId} from './catalog.mjs';
 
+const {auditDiagram, chapterBox, overviewLabels} = diagramAudit;
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const args = process.argv.slice(2);
 const episodeId = resolveEpisodeId(args.find((arg) => !arg.startsWith('--')));
@@ -44,33 +47,44 @@ if (!hasTesseract) console.warn('⚠ tesseract is not installed, so text checks 
 // visual area, caption), greyscale and inverted: tesseract reads light text on
 // a busy dark frame far better this way than as one page, and no text is
 // counted twice.
-const BANDS = [[0, 315, 6], [315, 1635, 11], [1635, 1920, 6]];
+// A 16:9 walkthrough (ArchScene) has its chapter top left and captions along the bottom instead.
+const landscape = manifest.format.width > manifest.format.height;
+const [WIDTH, HEIGHT] = [manifest.format.width, manifest.format.height];
+const BANDS = landscape ? [[0, 170, 6], [170, 920, 11], [920, 1080, 6]] : [[0, 315, 6], [315, 1635, 11], [1635, 1920, 6]];
 // The headline block (eyebrow and up to three headline lines, y≈140-700) read
 // again as a block: sparse-text mode garbles long two-line headlines
 // ("ONE POKÉMON. THREE FORMS." came back as "ONE Ste THREE").
-const HEADLINE_BAND = [140, 700, 4];
+const HEADLINE_BAND = landscape ? [30, 170, 4] : [140, 700, 4];
 // The cover's title block (EpisodeCover, from y≈1185) read as one block of
 // text: sparse-text mode over the whole middle band loses words next to the
 // artwork or map, while this reads the title exactly.
-const COVER_BANDS = [...BANDS, [1100, 1620, 6]];
+// On a 16:9 cover the title card sits top left over the diagram: read only the card's width, as sparse text, or the
+// diagram's labels beside and under it garble the title as a block ("A LOOKUP IN MILLISECONDS" came back as "MILLISECONDS").
+const COVER_BANDS = landscape ? [...BANDS, [40, 360, 11, 1060]] : [...BANDS, [1100, 1620, 6]];
 const ocr = (file, bands = BANDS) => {
   if (!hasTesseract) return undefined;
-  return bands.map(([top, bottom, pageMode], index) => {
+  return bands.map(([top, bottom, pageMode, width = WIDTH], index) => {
     const band = `${file}.band${index}.png`;
-    run('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-y', '-i', file, '-vf', `scale=1080:1920,crop=1080:${bottom - top}:0:${top},format=gray,negate`, band]);
+    run('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-y', '-i', file, '-vf', `scale=${WIDTH}:${HEIGHT},crop=${width}:${bottom - top}:0:${top},format=gray,negate`, band]);
     return run('tesseract', [band, '-', '--psm', String(pageMode)], {encoding: 'utf8'});
   }).join('\n');
 };
 // A 16×28 greyscale thumbnail: enough to tell a blank or repeated frame.
-const thumbnail = (file) => new Uint8Array(run('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-i', file, '-vf', 'scale=16:28,format=gray', '-f', 'rawvideo', '-']));
+const thumbnail = (file) => new Uint8Array(run('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-i', file, '-vf', landscape ? 'scale=28:16,format=gray' : 'scale=16:28,format=gray', '-f', 'rawvideo', '-']));
 
 const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), `${episodeId}-critic-`));
 try {
+  // A 16:9 chapter card sits top left over the diagram: read only its width, or labels beside it garble the headline.
+  const headlineBand = (scene) => {
+    if (!landscape) return HEADLINE_BAND;
+    const card = chapterBox(scene);
+    return [...HEADLINE_BAND, Math.min(WIDTH, Math.round(card.x + card.w + 60))];
+  };
   const frames = reviewFrames(manifest).map(({index, seconds}) => {
     const file = path.join(tempDir, `${String(index).padStart(2, '0')}.png`);
     if (fromFrames) fs.copyFileSync(framePath(root, episodeId, index), file);
     else run('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-y', '-ss', seconds.toFixed(3), '-i', videoPath, '-frames:v', '1', file]);
-    return {file, text: ocr(file), headlineText: ocr(file, [HEADLINE_BAND]), gray: thumbnail(file)};
+    return {file, text: ocr(file), headlineText: ocr(file, [headlineBand(manifest.scenes[index])]), gray: thumbnail(file)};
   });
   // Work on a copy of the cover so OCR bands and resized images stay in the temp folder.
   const coverCopy = path.join(tempDir, 'cover.png');
@@ -78,6 +92,24 @@ try {
   const cover = fs.existsSync(coverCopy) ? {file: coverCopy, text: ocr(coverCopy, COVER_BANDS), gray: thumbnail(coverCopy)} : undefined;
 
   const issues = auditFrames({manifest, frames, cover});
+  // Diagram episodes (#130): timing and framing from the render props, then every label read in the final overview.
+  issues.push(...auditDiagram(manifest));
+  const overview = overviewLabels(manifest);
+  if (overview && hasTesseract && !fromFrames) {
+    const file = path.join(tempDir, 'overview.png');
+    run('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-y', '-ss', overview.seconds.toFixed(3), '-i', videoPath, '-frames:v', '1', file]);
+    for (const {label, box} of overview.labels) {
+      // Each label read on its own, enlarged: a whole busy diagram loses words inside filled shapes.
+      const pad = 8;
+      const [x, y] = [Math.max(0, Math.round(box.x - pad)), Math.max(0, Math.round(box.y - pad))];
+      const [w, h] = [Math.min(WIDTH - x, Math.round(box.w + 2 * pad)), Math.min(HEIGHT - y, Math.round(box.h + 2 * pad))];
+      if (w < 4 || h < 4) { issues.push({where: 'overview', check: 'label', severity: 'blocking', message: `"${label}" is outside the final overview.`}); continue; }
+      const crop = path.join(tempDir, 'label.png');
+      run('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-y', '-i', file, '-vf', `crop=${w}:${h}:${x}:${y},scale=iw*2:-1,format=gray`, crop]);
+      const text = run('tesseract', [crop, '-', '--psm', '6'], {encoding: 'utf8'});
+      if (coverage(label, text) < MIN_COVERAGE) issues.push({where: 'overview', check: 'label', severity: 'blocking', message: `"${label}" can't be read in the final overview (OCR read "${text.trim().replace(/\s+/g, ' ')}").`});
+    }
+  }
   let visionReport;
   if (vision) {
     // Half-size frames keep the request small while text stays readable.

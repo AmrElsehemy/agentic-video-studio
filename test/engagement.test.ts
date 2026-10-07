@@ -47,3 +47,14 @@ describe('counterpoint is archetype-specific', () => {
     assert.deepEqual(named, Object.keys(archetypes).filter(requiresCounterpoint).sort());
   });
 });
+
+describe('16:9 walkthroughs', () => {
+  const pace = (manifest: ReturnType<typeof compileAs>) => scoreEpisode(manifest).checks.filter((check) => ['Natural narration pace', 'Story breathing room'].includes(check.label));
+  it("are timed by the landscape limits, not a Short's", () => {
+    const walkthrough = videoSchema.parse(JSON.parse(fs.readFileSync(path.join(root, 'videos/under-the-hood/url-shortener/video.json'), 'utf8')));
+    // About a minute, with scenes up to 12 s: too long for a Short, right for a walkthrough.
+    assert.ok(walkthrough.scenes.some((scene) => scene.durationSeconds > 6.5));
+    assert.ok(pace(walkthrough).every((check) => check.passed));
+    assert.ok(pace({...walkthrough, format: {...walkthrough.format, width: 1080, height: 1920}}).some((check) => !check.passed), 'the same timing fails as a Short');
+  });
+});
