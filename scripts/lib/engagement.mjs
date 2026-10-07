@@ -1,4 +1,5 @@
 import {archetypes} from '../archetypes.mjs';
+import {LANDSCAPE_LIMITS} from './compiler.mjs';
 
 export const PASSING_SCORE = 80;
 
@@ -18,15 +19,19 @@ export const scoreEpisode = (video) => {
   const pattern = video.direction?.storyPattern ?? 'profile';
   // Hook limit comes from the archetype file; legacy patterns (reveal, debate) keep 4.8s.
   const hookLimit = archetypes[pattern]?.beats[0].maxSeconds ?? 4.8;
+  // A 16:9 walkthrough isn't a Short: a scene may hold a longer step, and the episode may run to three minutes.
+  const landscape = (video.format?.width ?? 0) > (video.format?.height ?? 1);
+  const sceneLimit = landscape ? LANDSCAPE_LIMITS.scene + .1 : 6.5;
+  const [shortest, longest] = landscape ? [30, LANDSCAPE_LIMITS.total] : [24, 45];
 
   const commonChecks = [
     ['Short hook copy', scenes[0]?.headline.trim().split(/\s+/).length <= 8, 10],
     ['Open loop', Boolean(video.direction?.openLoop && video.direction?.payoff), 10],
     ['Pattern interrupts', scenes.every((scene) => scene.beatEverySeconds <= 1.2), 15],
     ['Shot variety', distinctShots >= Math.min(5, scenes.length), 10],
-    ['Natural narration pace', scenes.every((scene) => scene.durationSeconds <= 6.5 && scene.narration.trim().split(/\s+/).length / scene.durationSeconds <= 2.8), 10],
+    ['Natural narration pace', scenes.every((scene) => scene.durationSeconds <= sceneLimit && scene.narration.trim().split(/\s+/).length / scene.durationSeconds <= 2.8), 10],
     ['Debatable interaction', scenes.at(-1)?.role === 'interaction' && /\?|pick|or|which|worth|best/i.test(`${scenes.at(-1)?.headline} ${scenes.at(-1)?.narration}`), 10],
-    ['Story breathing room', duration >= 24 && duration <= 45, 5],
+    ['Story breathing room', duration >= shortest && duration <= longest, 5],
   ];
 
   const patternChecks = {

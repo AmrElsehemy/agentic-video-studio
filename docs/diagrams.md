@@ -13,6 +13,7 @@ A diagram that builds up across an episode, each element appearing as the narrat
 | Word-anchored timing, resolved in the render props | `scripts/lib/diagram-timing.mjs` | #125 |
 | Prototype episode | `drafts/under-the-hood/how-avs-works.json` | #126 |
 | Diagram Director: actions from the narration | `scripts/lib/diagram-director.mjs` | #129 |
+| Walkthrough writer: the script from the diagram | `scripts/lib/walkthrough-writer.mjs` | #128 |
 
 ## Authoring
 
@@ -162,6 +163,37 @@ The starter walkthrough uses the `walkthrough` story shape:
 4. a monitoring scene, if the diagram has telemetry routes;
 5. the whole picture, drawing any routes no step used.
 
-Its narration is placeholder text built from the step labels. Rewrite it, run `npm run diagram:direct -- <id> --write` so the actions follow the words you wrote, and replace the placeholder sources before you voice it.
+Its narration is placeholder text built from the step labels. Have the writer replace it (below), or rewrite it yourself and run `npm run diagram:direct -- <id> --write` so the actions follow your words. Replace the placeholder sources before you voice it.
+
+### Writing the script
+
+```
+npm run diagram:write -- my-system                      # writes out/my-system.walkthrough.json
+npm run diagram:write -- my-system --write              # replaces the draft's script and actions
+npm run diagram:write -- my-system --notes=notes.json   # adds facts the diagram doesn't show
+```
+
+The writer reads the diagram in plain words: the parts (a part's name is the first line of its label), the boundaries, the routes, and each lane's numbered steps in order. It writes the walkthrough in that shape:
+- a hook;
+- the parts;
+- each flow's steps, told as one request's journey;
+- an optional wrap-up;
+- an either/or question.
+
+It may state only what the diagram and the notes give. A number that neither states is rejected.
+
+Each script goes through:
+- the compiler, with the director's fallback;
+- the engagement audit, timed by the 16:9 limits;
+- the story critic, judging it as an explainer: hook, clarity, order, specificity, tension, variety, payoff and question.
+
+A rejected script is revised with its problems and the critic's suggestions, up to `--attempts` times (3 by default). The Diagram Director then times the picture to the final words. If the critic never passes a script, the best one that passes production is kept and flagged for review.
+
+Notes are JSON. Their sources replace the importer's placeholders:
+
+```json
+{"facts": ["Redirects are served from the Redis cache when the code is there."],
+ "sources": [{"label": "Design doc", "url": "https://example.com/design"}]}
+```
 
 `test/fixtures/drawio/azure-cache-aside.drawio` was saved by draw.io itself. The tests import it and check the result against the hand-made `azure-cache-aside` spec.
