@@ -1,0 +1,1032 @@
+{
+  "id": "azure-cache-aside",
+  "title": "Cache-Aside with a Change Feed on Azure",
+  "storyPattern": "mechanic",
+  "numberRelevant": false,
+  "premise": "An Azure reference architecture reads through a Redis cache and keeps it fresh from the Cosmos DB change feed.",
+  "audiencePromise": "Follow one read and one write through a real Azure architecture, step by numbered step.",
+  "openLoop": "How does the cache stay correct when writes skip it?",
+  "payoff": "The change feed triggers a Function that updates Redis or writes a versioned tombstone.",
+  "targetEmotion": "curiosity",
+  "engagementQuestion": "Would you build it this way?",
+  "show": {
+    "id": "under-the-hood",
+    "name": "Under the Hood",
+    "handle": "@UnderTheHood"
+  },
+  "subject": {
+    "name": "Cache-aside with change feed",
+    "category": "Architecture"
+  },
+  "format": "landscape",
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Internal prototype replaying a Microsoft Azure reference diagram. Not for publication.",
+    "nonAffiliationNotice": "Under the Hood is an independent educational series. Product names belong to their owners.",
+    "assets": [
+      {
+        "kind": "diagram",
+        "sourceUrl": "https://learn.microsoft.com/en-us/azure/architecture/icons/",
+        "owner": "Microsoft (Azure architecture icons, diagram layout)",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": false,
+        "notes": "Icons used under Microsoft's icon terms (architecture diagrams, training, documentation). The diagram layout is Microsoft's; this episode is an internal test of replaying an existing architecture and is not to be published."
+      }
+    ]
+  },
+  "diagram": {
+    "theme": "architecture",
+    "source": {
+      "kind": "image",
+      "file": "Microsoft Azure reference diagram (not committed; review copy only)",
+      "width": 1540,
+      "height": 968
+    },
+    "nodes": [
+      {
+        "id": "client",
+        "label": "Client application",
+        "icon": "azure/browser",
+        "at": [
+          92,
+          397
+        ],
+        "size": 52,
+        "labelAt": [
+          88,
+          447
+        ]
+      },
+      {
+        "id": "app",
+        "label": "App Service\nApplication tier",
+        "icon": "azure/app-service",
+        "at": [
+          600,
+          400
+        ],
+        "size": 62,
+        "labelAt": [
+          541,
+          449
+        ]
+      },
+      {
+        "id": "pe-redis",
+        "label": "Private endpoint\n(Azure Managed Redis)",
+        "icon": "azure/private-endpoint",
+        "at": [
+          983,
+          231
+        ],
+        "size": 50,
+        "labelAt": [
+          868,
+          228
+        ]
+      },
+      {
+        "id": "functions",
+        "label": "Azure Functions\nChange feed\nprocessor",
+        "icon": "azure/function-app",
+        "at": [
+          983,
+          408
+        ],
+        "size": 64,
+        "labelAt": [
+          885,
+          412
+        ]
+      },
+      {
+        "id": "pe-cosmos",
+        "label": "Private endpoint\n(Azure Cosmos DB)",
+        "icon": "azure/private-endpoint",
+        "at": [
+          983,
+          590
+        ],
+        "size": 50,
+        "labelAt": [
+          878,
+          589
+        ]
+      },
+      {
+        "id": "redis",
+        "label": "Azure Managed Redis\nDistributed cache",
+        "icon": "azure/managed-redis",
+        "at": [
+          1365,
+          235
+        ],
+        "size": 56,
+        "labelAt": [
+          1360,
+          300
+        ],
+        "tile": {
+          "x": 1270,
+          "y": 190,
+          "w": 194,
+          "h": 147
+        }
+      },
+      {
+        "id": "cosmos",
+        "label": "Azure Cosmos DB\nFor NoSQL\nSystem of record",
+        "icon": "azure/cosmos-db",
+        "at": [
+          1365,
+          590
+        ],
+        "size": 56,
+        "labelAt": [
+          1363,
+          654
+        ],
+        "tile": {
+          "x": 1270,
+          "y": 547,
+          "w": 194,
+          "h": 147
+        }
+      },
+      {
+        "id": "monitor",
+        "label": "Azure Monitor",
+        "icon": "azure/monitor",
+        "at": [
+          1141,
+          795
+        ],
+        "size": 50,
+        "labelAt": [
+          1141,
+          836
+        ]
+      }
+    ],
+    "groups": [
+      {
+        "id": "vnet",
+        "label": "Azure virtual network",
+        "box": {
+          "x": 376,
+          "y": 45,
+          "w": 856,
+          "h": 827
+        },
+        "style": "dashed",
+        "color": "#7fa7e0",
+        "labelAt": [
+          390,
+          70
+        ],
+        "icon": "azure/virtual-network",
+        "iconAt": [
+          1200,
+          872
+        ]
+      },
+      {
+        "id": "subnet",
+        "box": {
+          "x": 422,
+          "y": 115,
+          "w": 773,
+          "h": 625
+        },
+        "style": "dotted",
+        "color": "#7f7f7f"
+      }
+    ],
+    "edges": [
+      {
+        "id": "client-app",
+        "points": [
+          [
+            118,
+            400
+          ],
+          [
+            563,
+            400
+          ]
+        ],
+        "lane": "plain"
+      },
+      {
+        "id": "read-cache",
+        "points": [
+          [
+            600,
+            362
+          ],
+          [
+            600,
+            152
+          ],
+          [
+            983,
+            152
+          ],
+          [
+            983,
+            186
+          ]
+        ],
+        "lane": "read"
+      },
+      {
+        "id": "cache-hit",
+        "points": [
+          [
+            963,
+            200
+          ],
+          [
+            963,
+            174
+          ],
+          [
+            619,
+            174
+          ],
+          [
+            619,
+            358
+          ]
+        ],
+        "lane": "read"
+      },
+      {
+        "id": "read-db",
+        "points": [
+          [
+            600,
+            440
+          ],
+          [
+            600,
+            697
+          ],
+          [
+            983,
+            697
+          ],
+          [
+            983,
+            622
+          ]
+        ],
+        "lane": "read"
+      },
+      {
+        "id": "db-return",
+        "points": [
+          [
+            960,
+            572
+          ],
+          [
+            637,
+            424
+          ]
+        ],
+        "lane": "read"
+      },
+      {
+        "id": "write-db",
+        "points": [
+          [
+            619,
+            442
+          ],
+          [
+            619,
+            679
+          ],
+          [
+            965,
+            679
+          ],
+          [
+            965,
+            630
+          ]
+        ],
+        "lane": "write"
+      },
+      {
+        "id": "commit",
+        "points": [
+          [
+            1015,
+            590
+          ],
+          [
+            1330,
+            590
+          ]
+        ],
+        "lane": "write"
+      },
+      {
+        "id": "change-feed",
+        "points": [
+          [
+            983,
+            445
+          ],
+          [
+            983,
+            548
+          ]
+        ],
+        "lane": "write"
+      },
+      {
+        "id": "update-cache",
+        "points": [
+          [
+            983,
+            368
+          ],
+          [
+            983,
+            262
+          ]
+        ],
+        "lane": "write"
+      },
+      {
+        "id": "redis-link",
+        "points": [
+          [
+            1018,
+            236
+          ],
+          [
+            1333,
+            236
+          ]
+        ],
+        "lane": "plain"
+      },
+      {
+        "id": "logs-subnet",
+        "points": [
+          [
+            514,
+            740
+          ],
+          [
+            514,
+            795
+          ],
+          [
+            1105,
+            795
+          ]
+        ],
+        "lane": "telemetry"
+      },
+      {
+        "id": "logs-services",
+        "points": [
+          [
+            1465,
+            263
+          ],
+          [
+            1500,
+            263
+          ],
+          [
+            1500,
+            795
+          ],
+          [
+            1178,
+            795
+          ]
+        ],
+        "lane": "telemetry"
+      },
+      {
+        "id": "logs-cosmos",
+        "points": [
+          [
+            1465,
+            620
+          ],
+          [
+            1500,
+            620
+          ]
+        ],
+        "lane": "telemetry",
+        "arrow": false
+      }
+    ],
+    "steps": [
+      {
+        "id": "r1",
+        "n": 1,
+        "lane": "read",
+        "at": [
+          208,
+          369
+        ],
+        "text": "HTTPS\nread request",
+        "textAt": [
+          270,
+          369
+        ]
+      },
+      {
+        "id": "w1",
+        "n": 1,
+        "lane": "write",
+        "at": [
+          209,
+          428
+        ],
+        "text": "HTTPS\nwrite request",
+        "textAt": [
+          270,
+          433
+        ]
+      },
+      {
+        "id": "r2",
+        "n": 2,
+        "lane": "read",
+        "at": [
+          504,
+          217
+        ],
+        "text": "Read from\ncache",
+        "textAt": [
+          557,
+          218
+        ]
+      },
+      {
+        "id": "r3",
+        "n": 3,
+        "lane": "read",
+        "at": [
+          641,
+          265
+        ],
+        "text": "Cache hit:\nReturn value",
+        "textAt": [
+          697,
+          268
+        ]
+      },
+      {
+        "id": "r4",
+        "n": 4,
+        "lane": "read",
+        "at": [
+          462,
+          628
+        ],
+        "text": "Cache miss:\nRead from Azure\nCosmos DB",
+        "textAt": [
+          533,
+          629
+        ]
+      },
+      {
+        "id": "r5",
+        "n": 5,
+        "lane": "read",
+        "at": [
+          693,
+          469
+        ],
+        "text": "Return value",
+        "textAt": [
+          693,
+          495
+        ]
+      },
+      {
+        "id": "w2",
+        "n": 2,
+        "lane": "write",
+        "at": [
+          641,
+          656
+        ],
+        "text": "Write authoritative\nchange",
+        "textAt": [
+          720,
+          652
+        ]
+      },
+      {
+        "id": "w3",
+        "n": 3,
+        "lane": "write",
+        "at": [
+          1046,
+          612
+        ],
+        "text": "Azure Cosmos\nDB commits\nchange",
+        "textAt": [
+          1110,
+          622
+        ]
+      },
+      {
+        "id": "w4",
+        "n": 4,
+        "lane": "write",
+        "at": [
+          1040,
+          410
+        ],
+        "text": "Read and\nprocess\nchange feed",
+        "textAt": [
+          1092,
+          408
+        ]
+      },
+      {
+        "id": "w5",
+        "n": 5,
+        "lane": "write",
+        "at": [
+          1020,
+          273
+        ],
+        "text": "Update value\nor write\nversioned\ntombstone",
+        "textAt": [
+          1080,
+          293
+        ]
+      }
+    ],
+    "labels": [
+      {
+        "id": "logs-label",
+        "text": "Metrics and logs",
+        "at": [
+          655,
+          818
+        ]
+      }
+    ],
+    "legend": [
+      {
+        "lane": "read",
+        "text": "Read flow",
+        "at": [
+          79,
+          527
+        ]
+      },
+      {
+        "lane": "write",
+        "text": "Write flow",
+        "at": [
+          79,
+          562
+        ]
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "beat": "hook",
+      "eyebrow": "CACHE-ASIDE ON AZURE",
+      "headline": "EVERY READ COSTS",
+      "narration": "Every read that hits your database costs time and money.",
+      "caption": "EVERY READ COSTS",
+      "primitive": {
+        "kind": "diagram",
+        "actions": [
+          {
+            "do": "camera",
+            "focus": [
+              "client",
+              "app"
+            ],
+            "padding": 0.12,
+            "at": 0,
+            "dur": 0.1
+          },
+          {
+            "do": "reveal",
+            "target": "client",
+            "at": 0.03
+          },
+          {
+            "do": "reveal",
+            "target": "app",
+            "at": {
+              "word": "read"
+            }
+          },
+          {
+            "do": "connect",
+            "edge": "client-app",
+            "at": {
+              "after": "app"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "setup",
+      "beat": "evidence",
+      "eyebrow": "THE SETUP",
+      "headline": "A PRIVATE NETWORK",
+      "narration": "The app sits in a private network, next to Redis and Cosmos DB.",
+      "caption": "REDIS AND COSMOS DB",
+      "primitive": {
+        "kind": "diagram",
+        "actions": [
+          {
+            "do": "camera",
+            "focus": [
+              "vnet",
+              "redis",
+              "cosmos"
+            ],
+            "padding": 0.05,
+            "at": 0
+          },
+          {
+            "do": "reveal",
+            "target": "vnet",
+            "at": {
+              "word": "private"
+            }
+          },
+          {
+            "do": "reveal",
+            "target": "subnet",
+            "at": {
+              "after": "vnet"
+            }
+          },
+          {
+            "do": "reveal",
+            "target": "pe-redis",
+            "at": {
+              "word": "redis"
+            }
+          },
+          {
+            "do": "reveal",
+            "target": "redis",
+            "at": {
+              "after": "pe-redis"
+            }
+          },
+          {
+            "do": "connect",
+            "edge": "redis-link",
+            "at": {
+              "after": "redis"
+            }
+          },
+          {
+            "do": "reveal",
+            "target": "pe-cosmos",
+            "at": {
+              "word": "cosmos"
+            }
+          },
+          {
+            "do": "reveal",
+            "target": "cosmos",
+            "at": {
+              "after": "pe-cosmos"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "hit",
+      "beat": "evidence",
+      "eyebrow": "READ FLOW",
+      "headline": "CACHE FIRST",
+      "narration": "Reads check the cache first. A hit returns right away.",
+      "caption": "CACHE HIT: STRAIGHT BACK",
+      "primitive": {
+        "kind": "diagram",
+        "actions": [
+          {
+            "do": "camera",
+            "focus": [
+              "client",
+              "app",
+              "pe-redis",
+              "r2",
+              "r3"
+            ],
+            "padding": 0.06,
+            "at": 0
+          },
+          {
+            "do": "flow",
+            "step": "r1",
+            "edges": [
+              "client-app"
+            ],
+            "at": {
+              "word": "reads"
+            }
+          },
+          {
+            "do": "flow",
+            "step": "r2",
+            "edges": [
+              "read-cache"
+            ],
+            "at": {
+              "word": "cache"
+            }
+          },
+          {
+            "do": "flow",
+            "step": "r3",
+            "edges": [
+              "cache-hit"
+            ],
+            "at": {
+              "word": "hit"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "miss",
+      "beat": "escalation",
+      "eyebrow": "READ FLOW",
+      "headline": "CACHE MISS",
+      "narration": "On a miss, it reads Cosmos DB, the system of record.",
+      "caption": "MISS: READ COSMOS DB",
+      "primitive": {
+        "kind": "diagram",
+        "actions": [
+          {
+            "do": "camera",
+            "focus": [
+              "app",
+              "pe-cosmos",
+              "r4",
+              "r5",
+              "cosmos"
+            ],
+            "padding": 0.06,
+            "at": 0
+          },
+          {
+            "do": "flow",
+            "step": "r4",
+            "edges": [
+              "read-db"
+            ],
+            "at": {
+              "word": "miss"
+            }
+          },
+          {
+            "do": "flow",
+            "step": "r5",
+            "edges": [
+              "db-return"
+            ],
+            "at": {
+              "word": "record"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "write",
+      "beat": "escalation",
+      "eyebrow": "WRITE FLOW",
+      "headline": "WRITES SKIP THE CACHE",
+      "narration": "Writes skip the cache and go straight to Cosmos DB, which commits them.",
+      "caption": "STRAIGHT TO COSMOS DB",
+      "primitive": {
+        "kind": "diagram",
+        "actions": [
+          {
+            "do": "camera",
+            "focus": [
+              "client",
+              "app",
+              "pe-cosmos",
+              "cosmos",
+              "w2",
+              "w3"
+            ],
+            "padding": 0.05,
+            "at": 0
+          },
+          {
+            "do": "flow",
+            "step": "w1",
+            "edges": [
+              "client-app"
+            ],
+            "at": {
+              "word": "writes"
+            }
+          },
+          {
+            "do": "flow",
+            "step": "w2",
+            "edges": [
+              "write-db"
+            ],
+            "at": {
+              "word": "straight"
+            }
+          },
+          {
+            "do": "flow",
+            "step": "w3",
+            "edges": [
+              "commit"
+            ],
+            "at": {
+              "word": "commits"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "feed",
+      "beat": "payoff",
+      "eyebrow": "WRITE FLOW",
+      "headline": "THE CHANGE FEED",
+      "narration": "Each commit lands in the change feed. An Azure Function picks it up.",
+      "caption": "AN AZURE FUNCTION PICKS IT UP",
+      "primitive": {
+        "kind": "diagram",
+        "actions": [
+          {
+            "do": "camera",
+            "focus": [
+              "pe-redis",
+              "functions",
+              "pe-cosmos",
+              "w4"
+            ],
+            "padding": 0.08,
+            "at": 0
+          },
+          {
+            "do": "reveal",
+            "target": "functions",
+            "at": {
+              "word": "function"
+            }
+          },
+          {
+            "do": "flow",
+            "step": "w4",
+            "edges": [
+              "change-feed"
+            ],
+            "at": {
+              "after": "functions"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "update",
+      "beat": "payoff",
+      "eyebrow": "WRITE FLOW",
+      "headline": "CACHE STAYS FRESH",
+      "narration": "It updates the value in Redis, or writes a versioned tombstone.",
+      "caption": "A VERSIONED TOMBSTONE",
+      "primitive": {
+        "kind": "diagram",
+        "actions": [
+          {
+            "do": "camera",
+            "focus": [
+              "pe-redis",
+              "functions",
+              "w5",
+              "redis"
+            ],
+            "padding": 0.08,
+            "at": 0
+          },
+          {
+            "do": "flow",
+            "step": "w5",
+            "edges": [
+              "update-cache"
+            ],
+            "at": {
+              "word": "updates"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "monitor",
+      "beat": "payoff",
+      "eyebrow": "OBSERVABILITY",
+      "headline": "METRICS AND LOGS",
+      "narration": "Azure Monitor collects metrics and logs from every part of it.",
+      "caption": "EVERY PART, MONITORED",
+      "primitive": {
+        "kind": "diagram",
+        "actions": [
+          {
+            "do": "camera",
+            "focus": "all",
+            "padding": 0.04,
+            "at": 0
+          },
+          {
+            "do": "reveal",
+            "target": "monitor",
+            "at": {
+              "word": "monitor"
+            }
+          },
+          {
+            "do": "connect",
+            "edge": "logs-subnet",
+            "at": {
+              "after": "monitor"
+            }
+          },
+          {
+            "do": "connect",
+            "edge": "logs-services",
+            "at": {
+              "after": "monitor"
+            }
+          },
+          {
+            "do": "connect",
+            "edge": "logs-cosmos",
+            "at": {
+              "after": "monitor"
+            }
+          },
+          {
+            "do": "reveal",
+            "target": "logs-label",
+            "at": {
+              "word": "logs"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "verdict",
+      "beat": "verdict",
+      "eyebrow": "THE WHOLE PICTURE",
+      "headline": "FAST AND CORRECT",
+      "narration": "Fast reads, correct writes. Would you build it this way?",
+      "caption": "WOULD YOU BUILD IT THIS WAY?",
+      "primitive": {
+        "kind": "diagram",
+        "actions": [
+          {
+            "do": "camera",
+            "focus": "all",
+            "padding": 0.03,
+            "at": 0
+          }
+        ]
+      }
+    }
+  ],
+  "sources": [
+    {
+      "label": "Azure architecture icons and their terms",
+      "url": "https://learn.microsoft.com/en-us/azure/architecture/icons/"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+import type {z} from 'zod';
+export type ArchPoint = [number, number];
+export type ArchBox = {x: number; y: number; w: number; h: number};
+export type ArchNode = {id: string; label: string; icon: string; at: ArchPoint; size: number; labelAt: ArchPoint; align: 'left' | 'center' | 'right'; tile?: ArchBox};
+export type ArchGroup = {id: string; label?: string; box: ArchBox; style: 'dashed' | 'dotted'; color: string; labelAt?: ArchPoint; icon?: string; iconAt?: ArchPoint};
+export type ArchEdge = {id: string; points: ArchPoint[]; lane: 'read' | 'write' | 'plain' | 'telemetry'; arrow: boolean};
+export type ArchStep = {id: string; n: number; lane: 'read' | 'write'; at: ArchPoint; text: string; textAt: ArchPoint};
+export type ArchSpec = {theme: 'architecture'; look: 'clean' | 'sketch'; source: {kind: 'image' | 'drawio'; file: string; width: number; height: number}; nodes: ArchNode[]; groups: ArchGroup[]; edges: ArchEdge[]; steps: ArchStep[]; labels: {id: string; text: string; at: ArchPoint}[]; legend: {lane: 'read' | 'write'; text: string; at: ArchPoint}[]};
+export declare const LANE_COLORS: Record<'read' | 'write' | 'plain' | 'telemetry', string>;
+export declare const LANES: string[];
+export declare const archSpecSchema: z.ZodType<ArchSpec>;
+export declare const archProblems: (spec: ArchSpec) => string[];
+export declare const archActionProblems: (spec: ArchSpec, scenes: {id: string; narration: string; primitive?: any}[], wordMatches: (token: string, word: string) => boolean) => string[];

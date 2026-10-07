@@ -1,0 +1,629 @@
+{
+  "id": "how-avs-works",
+  "title": "How an AI Video Studio Works",
+  "storyPattern": "mechanic",
+  "numberRelevant": false,
+  "premise": "Agentic Video Studio turns one line into a finished short through a chain of agents and tools, and checks the result before it ships.",
+  "audiencePromise": "See every stage of an AI video pipeline, from a one-line topic to a checked final video.",
+  "openLoop": "How does one line become a finished video?",
+  "payoff": "Planner, writer, storyboard, assets, a deterministic renderer and a QA critic: and this video came out of that renderer.",
+  "targetEmotion": "curiosity",
+  "engagementQuestion": "Which stage would you automate first?",
+  "show": {
+    "id": "under-the-hood",
+    "name": "Under the Hood",
+    "handle": "@UnderTheHood"
+  },
+  "subject": {
+    "name": "Agentic Video Studio",
+    "category": "System"
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Diagrams and narration are original. System details are cited in the sources below.",
+    "nonAffiliationNotice": "Under the Hood is an independent educational series. Product names belong to their owners.",
+    "assets": [
+      {
+        "kind": "diagram",
+        "sourceUrl": "https://github.com/AmrElsehemy/agentic-video-studio",
+        "owner": "Agentic Video Studio",
+        "licenseStatus": "owned",
+        "publicReleaseApproved": false,
+        "notes": "Diagram drawn by the renderer from this draft's spec; no third-party artwork."
+      }
+    ]
+  },
+  "diagram": {
+    "theme": "notebook",
+    "title": "How an AI video studio works",
+    "nodes": [
+      {
+        "id": "prompt",
+        "label": "User prompt",
+        "kind": "user",
+        "detail": "one line: a topic",
+        "doodle": "person"
+      },
+      {
+        "id": "planner",
+        "label": "Planner",
+        "kind": "agent",
+        "detail": "picks the angle and story shape",
+        "doodle": "compass"
+      },
+      {
+        "id": "writer",
+        "label": "Writer",
+        "kind": "agent",
+        "detail": "scenes and narration",
+        "doodle": "pencil"
+      },
+      {
+        "id": "storyboard",
+        "label": "Storyboard",
+        "kind": "artifact",
+        "detail": "shots as data, not pixels",
+        "doodle": "film"
+      },
+      {
+        "id": "voice",
+        "label": "Voice",
+        "kind": "tool",
+        "group": "assets",
+        "detail": "with word timings",
+        "doodle": "microphone"
+      },
+      {
+        "id": "music",
+        "label": "Music + art",
+        "kind": "tool",
+        "group": "assets",
+        "doodle": "notes"
+      },
+      {
+        "id": "remotion",
+        "label": "Remotion",
+        "kind": "process",
+        "detail": "data to frames, every time",
+        "doodle": "clapper"
+      },
+      {
+        "id": "qa",
+        "label": "QA critic",
+        "kind": "agent",
+        "detail": "checks the render",
+        "doodle": "magnifier"
+      },
+      {
+        "id": "video",
+        "label": "Final video",
+        "kind": "artifact",
+        "doodle": "play"
+      }
+    ],
+    "groups": [
+      {
+        "id": "assets",
+        "label": "Assets"
+      }
+    ],
+    "edges": [
+      {
+        "id": "e1",
+        "from": "prompt",
+        "to": "planner"
+      },
+      {
+        "id": "e2",
+        "from": "planner",
+        "to": "writer",
+        "label": "brief"
+      },
+      {
+        "id": "e3",
+        "from": "writer",
+        "to": "storyboard",
+        "label": "script"
+      },
+      {
+        "id": "e4",
+        "from": "storyboard",
+        "to": "voice"
+      },
+      {
+        "id": "e5",
+        "from": "storyboard",
+        "to": "music"
+      },
+      {
+        "id": "e6",
+        "from": "voice",
+        "to": "remotion"
+      },
+      {
+        "id": "e7",
+        "from": "music",
+        "to": "remotion"
+      },
+      {
+        "id": "e8",
+        "from": "remotion",
+        "to": "qa"
+      },
+      {
+        "id": "e9",
+        "from": "qa",
+        "to": "video",
+        "label": "if it passes"
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "beat": "hook",
+      "eyebrow": "HOW IT WORKS",
+      "headline": "ONE LINE IN",
+      "narration": "How do AI agents turn one line into a video?",
+      "caption": "ONE LINE IN",
+      "primitive": {
+        "kind": "diagram",
+        "actions": [
+          {
+            "do": "camera",
+            "focus": [
+              "prompt"
+            ],
+            "padding": 0.3,
+            "at": 0,
+            "dur": 0.1
+          },
+          {
+            "do": "reveal",
+            "target": "prompt",
+            "at": {
+              "word": "line"
+            }
+          },
+          {
+            "do": "annotate",
+            "target": "prompt",
+            "text": "e.g. why Greenland looks so big",
+            "at": {
+              "after": "prompt"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "plan",
+      "beat": "evidence",
+      "eyebrow": "STEP 1",
+      "headline": "THE PLANNER",
+      "narration": "First, a planner picks the angle and the story shape.",
+      "caption": "A PLANNER PICKS THE SHAPE",
+      "primitive": {
+        "kind": "diagram",
+        "actions": [
+          {
+            "do": "camera",
+            "focus": [
+              "prompt",
+              "planner"
+            ],
+            "at": 0
+          },
+          {
+            "do": "reveal",
+            "target": "planner",
+            "at": {
+              "word": "planner"
+            }
+          },
+          {
+            "do": "annotate",
+            "target": "planner",
+            "text": "5 story shapes, e.g. mystery",
+            "at": {
+              "after": "planner"
+            }
+          },
+          {
+            "do": "connect",
+            "edge": "e1",
+            "at": {
+              "after": "planner"
+            }
+          },
+          {
+            "do": "highlight",
+            "target": "planner",
+            "at": {
+              "word": "shape"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "write",
+      "beat": "evidence",
+      "eyebrow": "STEP 2",
+      "headline": "THE WRITER",
+      "narration": "A writer turns that brief into scenes and narration.",
+      "caption": "FROM BRIEF TO SCRIPT",
+      "primitive": {
+        "kind": "diagram",
+        "actions": [
+          {
+            "do": "camera",
+            "focus": [
+              "planner",
+              "writer"
+            ],
+            "at": 0
+          },
+          {
+            "do": "reveal",
+            "target": "writer",
+            "at": {
+              "word": "writer"
+            }
+          },
+          {
+            "do": "annotate",
+            "target": "writer",
+            "text": "every scene under 6.4 s",
+            "at": {
+              "after": "writer"
+            }
+          },
+          {
+            "do": "connect",
+            "edge": "e2",
+            "at": {
+              "word": "brief"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "storyboard",
+      "beat": "escalation",
+      "eyebrow": "STEP 3",
+      "headline": "DATA, NOT PIXELS",
+      "narration": "A director storyboards it: not pixels, but data.",
+      "caption": "A LIST OF SHOTS",
+      "primitive": {
+        "kind": "diagram",
+        "actions": [
+          {
+            "do": "camera",
+            "focus": [
+              "writer",
+              "storyboard"
+            ],
+            "at": 0
+          },
+          {
+            "do": "reveal",
+            "target": "storyboard",
+            "at": {
+              "word": "storyboards"
+            }
+          },
+          {
+            "do": "annotate",
+            "target": "storyboard",
+            "text": "counters, maps, timelines, diagrams",
+            "at": {
+              "after": "storyboard"
+            }
+          },
+          {
+            "do": "connect",
+            "edge": "e3",
+            "at": {
+              "after": "storyboard"
+            }
+          },
+          {
+            "do": "highlight",
+            "target": "storyboard",
+            "at": {
+              "word": "data"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "assets",
+      "beat": "escalation",
+      "eyebrow": "STEP 4",
+      "headline": "THE ASSETS",
+      "narration": "Then the assets: a voice that knows when every word lands.",
+      "caption": "TIMED TO EVERY WORD",
+      "primitive": {
+        "kind": "diagram",
+        "actions": [
+          {
+            "do": "camera",
+            "focus": [
+              "storyboard",
+              "assets"
+            ],
+            "at": 0
+          },
+          {
+            "do": "reveal",
+            "target": "assets",
+            "at": {
+              "word": "assets"
+            },
+            "anim": "fade"
+          },
+          {
+            "do": "annotate",
+            "target": "voice",
+            "text": "OpenAI or ElevenLabs, word-aligned",
+            "at": {
+              "after": "assets"
+            }
+          },
+          {
+            "do": "connect",
+            "edge": "e4",
+            "at": {
+              "after": "assets"
+            }
+          },
+          {
+            "do": "connect",
+            "edge": "e5",
+            "at": {
+              "after": "assets"
+            }
+          },
+          {
+            "do": "highlight",
+            "target": "voice",
+            "at": {
+              "word": "word"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "render",
+      "beat": "payoff",
+      "eyebrow": "STEP 5",
+      "headline": "THE RENDERER",
+      "narration": "Remotion renders it frame by frame, the same way every time.",
+      "caption": "THE SAME WAY EVERY TIME",
+      "primitive": {
+        "kind": "diagram",
+        "actions": [
+          {
+            "do": "camera",
+            "focus": [
+              "assets",
+              "remotion"
+            ],
+            "at": 0
+          },
+          {
+            "do": "reveal",
+            "target": "remotion",
+            "at": {
+              "word": "remotion"
+            }
+          },
+          {
+            "do": "annotate",
+            "target": "remotion",
+            "text": "1080×1920 at 30 fps",
+            "at": {
+              "after": "remotion"
+            }
+          },
+          {
+            "do": "connect",
+            "edge": "e6",
+            "at": {
+              "after": "remotion"
+            }
+          },
+          {
+            "do": "connect",
+            "edge": "e7",
+            "at": {
+              "after": "remotion"
+            }
+          },
+          {
+            "do": "highlight",
+            "target": "remotion",
+            "at": {
+              "word": "same"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "check",
+      "beat": "payoff",
+      "eyebrow": "STEP 6",
+      "headline": "THE CRITIC",
+      "narration": "A critic checks the render and blocks it if anything fails.",
+      "caption": "BLOCKED IF ANYTHING FAILS",
+      "primitive": {
+        "kind": "diagram",
+        "actions": [
+          {
+            "do": "camera",
+            "focus": [
+              "remotion",
+              "qa"
+            ],
+            "at": 0
+          },
+          {
+            "do": "reveal",
+            "target": "qa",
+            "at": {
+              "word": "critic"
+            }
+          },
+          {
+            "do": "annotate",
+            "target": "qa",
+            "text": "OCR and frame-jump checks",
+            "at": {
+              "after": "qa"
+            }
+          },
+          {
+            "do": "connect",
+            "edge": "e8",
+            "at": {
+              "after": "qa"
+            }
+          },
+          {
+            "do": "highlight",
+            "target": "qa",
+            "at": {
+              "word": "blocks"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "reveal",
+      "beat": "verdict",
+      "eyebrow": "THE WHOLE PIPELINE",
+      "headline": "PROMPT TO VIDEO",
+      "narration": "And this video was rendered by the system you just watched.",
+      "caption": "WHICH STAGE WOULD YOU AUTOMATE?",
+      "primitive": {
+        "kind": "diagram",
+        "actions": [
+          {
+            "do": "reveal",
+            "target": "video",
+            "at": {
+              "word": "video"
+            },
+            "anim": "pop"
+          },
+          {
+            "do": "connect",
+            "edge": "e9",
+            "at": {
+              "after": "video"
+            }
+          },
+          {
+            "id": "wide",
+            "do": "camera",
+            "focus": "all",
+            "padding": 0.06,
+            "at": {
+              "word": "rendered"
+            },
+            "dur": 1.6
+          },
+          {
+            "do": "highlight",
+            "target": "e1",
+            "at": {
+              "after": "wide",
+              "delay": 0.0
+            }
+          },
+          {
+            "do": "highlight",
+            "target": "e2",
+            "at": {
+              "after": "wide",
+              "delay": 0.12
+            }
+          },
+          {
+            "do": "highlight",
+            "target": "e3",
+            "at": {
+              "after": "wide",
+              "delay": 0.24
+            }
+          },
+          {
+            "do": "highlight",
+            "target": "e4",
+            "at": {
+              "after": "wide",
+              "delay": 0.36
+            }
+          },
+          {
+            "do": "highlight",
+            "target": "e5",
+            "at": {
+              "after": "wide",
+              "delay": 0.48
+            }
+          },
+          {
+            "do": "highlight",
+            "target": "e6",
+            "at": {
+              "after": "wide",
+              "delay": 0.6
+            }
+          },
+          {
+            "do": "highlight",
+            "target": "e7",
+            "at": {
+              "after": "wide",
+              "delay": 0.72
+            }
+          },
+          {
+            "do": "highlight",
+            "target": "e8",
+            "at": {
+              "after": "wide",
+              "delay": 0.84
+            }
+          },
+          {
+            "do": "highlight",
+            "target": "e9",
+            "at": {
+              "after": "wide",
+              "delay": 0.96
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "sources": [
+    {
+      "label": "Agentic Video Studio repository",
+      "url": "https://github.com/AmrElsehemy/agentic-video-studio"
+    },
+    {
+      "label": "Remotion: make videos programmatically",
+      "url": "https://www.remotion.dev/docs/"
+    }
+  ]
+}

@@ -66,9 +66,11 @@ export const cameraKeys = (camera: {target: CameraTarget; at: number; padding: n
 export const CONTINUE_AT = .35;
 
 type SceneLike = {primitive?: {kind: string; cut?: boolean} | null};
-/** Whether scene `index` continues the map of the scene before it. */
+/** Primitives whose canvas carries on from one scene to the next: maps, and diagrams (#124). */
+export const CONTINUOUS_KINDS = new Set(['geo-map', 'diagram']);
+/** Whether scene `index` continues the map (or diagram) of the scene before it. */
 export const continuesMap = (scenes: SceneLike[], index: number) => index > 0 && index < scenes.length
-  && scenes[index].primitive?.kind === 'geo-map' && scenes[index - 1].primitive?.kind === 'geo-map' && !scenes[index].primitive?.cut;
+  && CONTINUOUS_KINDS.has(scenes[index].primitive?.kind ?? '') && scenes[index].primitive?.kind === scenes[index - 1].primitive?.kind && !scenes[index].primitive?.cut;
 
 /** A scene's keys, starting from `from` (the previous scene's last view). */
 export const continueKeys = (keys: CameraKey[], from: View): CameraKey[] => {
