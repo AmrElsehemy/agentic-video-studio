@@ -57,7 +57,9 @@ Each scene's primitive says what happens when:
 
 Every action has `at` and an optional `dur` (seconds). `circle`, `dim` and `pulse` last until their `until` anchor, or the end of their scene, and then fade out. A circle drawn on paper stays on the page. Architecture walkthroughs take all four of these actions as well, on components and routes.
 
-Golden frames: `npm run diagram:golden` renders each of these four actions in each look and compares the frames with `test/golden/diagram/`. The looks are clean and notebook laid-out diagrams, and clean and sketch architectures. Pass `--update` to accept intended changes. CI runs it whenever diagram rendering changes. `at` takes one of four forms:
+Golden frames: `npm run diagram:golden` renders each of these four actions in each look and compares the frames with `test/golden/diagram/`. The looks are clean and notebook laid-out diagrams, and clean and sketch architectures. Pass `--update` to accept intended changes. CI runs it whenever diagram rendering changes.
+
+`at` takes one of four forms:
 
 - a fraction of the scene, e.g. `0.4`;
 - a spoken word, `{"word": "planner", "nth": 1}`. A plural or possessive of the word also matches;
