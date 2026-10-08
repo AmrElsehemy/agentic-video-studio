@@ -3,7 +3,7 @@ import path from 'node:path';
 import {spawnSync} from 'node:child_process';
 import {findManifest, resolveEpisodeId} from './catalog.mjs';
 import {loadShow} from './lib/shows.mjs';
-import {assertShowChannel, channelOf, getAccessToken, youtubeMetadata} from './lib/youtube.mjs';
+import {addToPlaylist, assertShowChannel, channelOf, getAccessToken, youtubeMetadata} from './lib/youtube.mjs';
 import {analyticsPath, linkVideo, readAnalytics, writeAnalytics} from './lib/analytics.mjs';
 
 const args = process.argv.slice(2);
