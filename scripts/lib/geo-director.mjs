@@ -290,7 +290,7 @@ export const shotToPrimitive = (shot, {places, research, datasets = new Map()}) 
   }
   // A comparison is only valid in an equal-area projection; assembly sets the episode's, so judge the shot as if Albers.
   const comparing = annotations.some((annotation) => annotation.type === 'truesize');
-  const parsed = primitiveSchema.safeParse({kind: 'geo-map', camera, highlights, annotations, ...(comparing ? {projection: 'albers'} : {}), ...(shot.cut === true ? {cut: true} : {}), ...(shot.globe === true ? {globe: true} : {}), ...(shot.relief === true ? {relief: true} : {}), ...(data ? {data} : {})});
+  const parsed = primitiveSchema.safeParse({kind: 'geo-map', camera, highlights, annotations, ...(comparing ? {projection: 'albers'} : {}), ...(shot.cut === true ? {cut: true} : {}), ...(shot.globe === true ? {globe: true} : {}), ...(shot.relief === true ? {relief: true} : {}), ...(shot.morph === true ? {morph: true} : {}), ...(data ? {data} : {})});
   if (!parsed.success) throw new Error(parsed.error.issues.map((issue) => `${issue.path.join('.') || 'shot'}: ${issue.message}`).join('; '));
   return parsed.data;
 };
@@ -570,6 +570,7 @@ A shot is JSON:
                  {"type": "route", "path": [A, A, ...], "text": "SHORT CAPS", "at": 0.2, "until": 0.8, "follow": false}],   // up to 4 in all
  "globe": false,   // optional: draw the map on a spinning globe
  "relief": false,   // optional: shaded relief for terrain and altitude
+ "morph": false,    // optional: the map flows from Mercator to Equal Earth during the scene, so stretched sizes settle to true
  "data": {"dataset": "<dataset key>", "at": 0.3, "view": "map" | "bars" | "both" | "bubbles"},   // optional: show a dataset: shade the places (map), a ranked bar chart (bars), both, or sized circles on the places (bubbles)
  "why": "one sentence"}
 
@@ -584,6 +585,7 @@ Rules:
 - Disputed areas can be highlighted (outline) when the narration is about them; never frame them alone.
 - Places also include rivers, lakes, states and cities near the episode's subject. A river highlight always draws its course (use "trace"); a lake or state can be filled or outlined like a country; a city is a point: use it for a label, marker, arrow or camera, never a highlight. Prefer a real river, lake, state or city over a vague label when the narration names it or it makes the map clearer.
 - "globe": true draws the map on a globe that spins between the camera framings: a dramatic opening or closing. Use it on the first scene (a planet turning to the place) and, if it suits, the last; never in between, because the map changes from globe to flat map with a cut.
+- "morph": true makes the map flow from Mercator to the Equal Earth projection during the scene, so places Mercator inflates (Greenland, Russia, Canada, Antarctica) shrink to their true size on screen. Use it at most once an episode, only on a scene that says a place is bigger or smaller than it looks on the map, and give that scene a wide camera (most of the world). The map says what it is doing. Do not combine it with a globe or a true-size comparison.
 - "relief": true adds shaded relief (mountains and valleys) under the map. Use it when the narration is about terrain or altitude: mountains, highlands, plateaus, valleys.
 - "data" shows one of the datasets listed below. Use it when the narration compares places by a number (heights, sizes, populations, how crowded or empty a place is). Name the dataset only; its values come from the research or the map data. "view": "map" shades the places with a legend; "bars" shows a ranked bar chart of them beside the map (the clearest way to compare sizes or populations: use it at least once in an episode that compares places); "both" does both; "bubbles" puts a circle on each place, its area in proportion to its value, right on the map (good when the places are spread out and you want the comparison to sit on the geography; the bars are better for a ranked list). Frame the places the dataset covers.
 - A "ring" draws a true circle of "radiusKm" around "center" (a place id or a named point), growing out from the centre, with its text on the ring's east edge. Use it when the narration is about a DISTANCE from a place: "within 14 kilometres", "400 kilometres of water", "farthest from the sea", or two shores a short way apart (a ring from one shore that reaches the other shows how close they are). The radius must be a number the research states (it is checked); the text may say it. Frame the whole ring. At most two rings in a scene.
@@ -746,10 +748,18 @@ export const directGeoVisuals = async ({draft, research: rawResearch, complete, 
   // A true-size comparison is only honest in an equal-area projection, so one forces Albers on an episode that would be Mercator.
   const comparing = [...shots.values()].some((shot) => shot.annotations.some((annotation) => annotation.type === 'truesize'));
   const projection = comparing && !['albers', 'equal-earth'].includes(chosen) ? 'albers' : chosen;
+  // A morph starts in Mercator whatever the episode uses, so only the first one is kept, and it cuts in from a map in another projection.
+  let morphSeen = false;
   for (const [id, shot] of shots) {
     const {projection: _old, ...rest} = shot;
-    shots.set(id, shot.globe || projection === 'mercator' ? rest : {...rest, projection});
+    if (rest.morph && (morphSeen || rest.globe || rest.relief || rest.annotations.some((annotation) => annotation.type === 'truesize'))) delete rest.morph;
+    if (rest.morph) morphSeen = true;
+    shots.set(id, shot.globe || rest.morph || projection === 'mercator' ? rest : {...rest, projection});
   }
+  if (projection !== 'mercator') order.forEach((id, index) => {
+    const [here, before] = [shots.get(id), shots.get(order[index - 1])];
+    if (index > 0 && !here.cut && (here.morph || before?.morph)) shots.set(id, {...here, cut: true});
+  });
   const directed = {
     ...draft,
     subject: {...draft.subject, attributes: {...draft.subject.attributes, geoEntity: subjectId}},

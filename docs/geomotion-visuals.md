@@ -34,6 +34,10 @@ An episode uses one projection so the camera flows between scenes (the globe ope
 
 `npm run looks -- <episode> --projection=albers` previews any episode in a projection.
 
+### Projection morph
+
+`"morph": true` on a shot makes the map flow from Mercator to Equal Earth during the scene (`makeMorphProjection`: every point is the blend of where the two put it). It holds still for the first fifth of the scene, flows, and settles for the last fifth, so places that Mercator inflates (Greenland, Russia, Canada, Antarctica) shrink to their true size on screen. A chip says what the map is doing: "MERCATOR · SIZES STRETCHED", then "EQUAL EARTH · SIZES TRUE". It is for a wide camera and a scene that says a place is bigger or smaller than it looks; the director keeps at most one per episode, never with a globe, relief or a true-size comparison, and the map cuts in and out of it when the episode uses another projection. `npm run looks -- <episode> --morph=2 --at=0.15,0.5,0.9` previews it.
+
 ## True-size comparisons
 
 `{"type": "truesize", "entity": "admin1:USA-3563", "onto": "country:USA"}` slides a copy of one place across the map onto another to show how big it is. The copy is rotated on the sphere (`scripts/lib/true-size.mjs`), so its area and shape are exactly true, and it is kept north-up. The place's real position stays on the map as a dashed outline, and a chip says "<PLACE> · SAME SIZE, MOVED", so the viewer is told it moved.

@@ -5,7 +5,7 @@ import {describe, it} from 'node:test';
 import {fileURLToPath} from 'node:url';
 import {geoGraticule, geoPath} from 'd3-geo';
 import {MAP_SIZE} from '../src/video/geo/camera';
-import {AZIMUTHAL_CLIP, EQUAL_EARTH_K, hasSphereOutline, makeProjection, PROJECTION_KINDS} from '../src/video/geo/projections';
+import {AZIMUTHAL_CLIP, EQUAL_EARTH_K, hasSphereOutline, makeMorphProjection, makeProjection, morphMix, PROJECTION_KINDS} from '../src/video/geo/projections';
 import {chooseProjection, directGeoVisuals} from '../scripts/lib/geo-director.mjs';
 import {loadGeoData} from '../scripts/lib/geo-primitives.mjs';
 import {primitiveSchema} from '../scripts/primitive-schema.mjs';
@@ -98,5 +98,47 @@ describe('choosing a projection for an episode', () => {
     assert.equal(result.draft.scenes[0].primitive.globe, true);
     assert.equal(result.draft.scenes[0].primitive.projection, undefined);
     assert.equal(result.draft.scenes[1].primitive.projection, 'azimuthal');
+  });
+});
+
+describe('projection morph', () => {
+  const places: [number, number][] = [[-42, 72], [20, 5], [100, 60], [-70, -30]];
+  const near = (a: number[], b: number[]) => Math.abs(a[0] - b[0]) < 1e-6 && Math.abs(a[1] - b[1]) < 1e-6;
+
+  it('starts as Mercator and ends as Equal Earth, point for point', () => {
+    for (const place of places) {
+      assert.ok(near(makeMorphProjection(view, MAP_SIZE, 0, 0)(place)!, makeProjection('mercator', view, MAP_SIZE)(place)!), `${place} at 0`);
+      assert.ok(near(makeMorphProjection(view, MAP_SIZE, 0, 1)(place)!, makeProjection('equal-earth', view, MAP_SIZE)(place)!), `${place} at 1`);
+    }
+  });
+
+  it('keeps the centre of the view in the middle of the frame all the way', () => {
+    for (const mix of [0, .3, .7, 1]) {
+      const [x, y] = makeMorphProjection(view, MAP_SIZE, 0, mix)([view.lon, view.lat])!;
+      assert.ok(Math.abs(x - MAP_SIZE.width / 2) < 1e-6 && Math.abs(y - MAP_SIZE.height / 2) < 1e-6, `${mix}`);
+    }
+  });
+
+  it('shrinks a far-north place steadily as it settles to its true size', () => {
+    const greenland = (mix: number) => {
+      const projection = makeMorphProjection({lon: -40, lat: 20, scale: 300}, MAP_SIZE, 0, mix);
+      return Math.abs(projection([-60, 82])![1] - projection([-60, 60])![1]);
+    };
+    assert.ok(greenland(0) > greenland(.5) && greenland(.5) > greenland(1));
+  });
+
+  it('holds still, then flows, then settles', () => {
+    assert.equal(morphMix(0), 0);
+    assert.equal(morphMix(.2), 0);
+    assert.equal(morphMix(.8), 1);
+    assert.equal(morphMix(1), 1);
+    assert.ok(morphMix(.5) > .4 && morphMix(.5) < .6);
+  });
+
+  it('is a flat Mercator-to-Equal-Earth shot only', () => {
+    const base = {kind: 'geo-map', camera: [{target: 'world', at: 0}], highlights: [], annotations: [], dataset: 'natural-earth'};
+    assert.ok(primitiveSchema.safeParse({...base, morph: true}).success);
+    assert.ok(!primitiveSchema.safeParse({...base, morph: true, globe: true}).success);
+    assert.ok(!primitiveSchema.safeParse({...base, morph: true, projection: 'albers'}).success);
   });
 });

@@ -18,7 +18,7 @@ import {TIMELINE_HEIGHT, TimelineStrip} from './TimelineStrip';
 import {reconstruction, rotateGeometry} from '../../../scripts/lib/plates.mjs';
 import {partialRotation, trueSizeRotation} from '../../../scripts/lib/true-size.mjs';
 import {destination, kmToDegrees} from '../../../scripts/lib/geodesy.mjs';
-import {hasSphereOutline, makeProjection, type ProjectionKind} from './projections';
+import {hasSphereOutline, makeMorphProjection, makeProjection, morphMix, type ProjectionKind} from './projections';
 import {adminVisibility, lookOf, maxLakeRank, maxRiverRank, pickByHash, tiltPoint} from './look';
 import {blurSamples, shutterFor, viewShift} from './blur';
 import {followView, followWeight, partialRoute, routeLine, routeProgress, type RouteLine} from './route';
@@ -198,7 +198,7 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
   const {data, keys, routes, viewAt} = useCameraPath(props);
   const look = lookOf(manifest.look);
   // Relief imagery is stored in Web Mercator, so it only fits a flat Mercator map.
-  const mercatorFlat = !primitive.globe && (primitive.projection ?? 'mercator') === 'mercator';
+  const mercatorFlat = !primitive.globe && !primitive.morph && (primitive.projection ?? 'mercator') === 'mercator';
   const wantsRelief = mercatorFlat && (Boolean(primitive.relief) || look.relief > 0);
   const relief = useReliefData(wantsRelief);
   if (!data || !keys || (wantsRelief && !relief)) return null;
@@ -221,12 +221,17 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
   const globe = Boolean(primitive.globe);
   const flatKind: ProjectionKind = primitive.projection ?? 'mercator';
   const globeRadius = Math.max(view.scale, GLOBE_RADIUS);
-  const projection: GeoProjection = globe
+  // A morph flows from Mercator to Equal Earth over the scene; `mix` is how far.
+  const morphing = Boolean(primitive.morph) && !globe;
+  const mix = morphing ? morphMix(t) : 0;
+  const projection: GeoProjection = morphing
+    ? makeMorphProjection(view, SIZE, barsShift, mix)
+    : globe
     ? geoOrthographic().rotate([-view.lon, -view.lat]).scale(globeRadius).translate([SIZE.width / 2, SIZE.height / 2 - barsShift]).clipAngle(90)
     : makeProjection(flatKind, view, SIZE, barsShift);
   const path = geoPath(projection);
   // Equal Earth and azimuthal maps are drawn as a shape of their own (an egg, a disc) on a darker ground.
-  const sphereOutline = !globe && hasSphereOutline(flatKind) ? path({type: 'Sphere'}) ?? '' : '';
+  const sphereOutline = !globe && (morphing || hasSphereOutline(flatKind)) ? path({type: 'Sphere'}) ?? '' : '';
   const appear = (at: number, frames = APPEAR) => interpolate(frame, [at * durationInFrames, at * durationInFrames + frames], [0, 1], clamp);
   /** Spring progress (motion.ts) of an entrance at `at`: 0 before, a small overshoot, then 1. */
   const springIn = (at: number) => pop(frame, at * durationInFrames, manifest.format.fps);
@@ -631,7 +636,7 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
     const [x, y] = toScreen(point(lonLat));
     return farOffFrame([x, y]) ? [] : [{id: entity, name: place?.name ?? entity, x, y, value, subject: entity === manifest.subject.attributes?.geoEntity}];
   }) : [];
-  const bubbleLayer = primitive.data?.view === 'bubbles' && bubbleItems.length ? out(<g opacity={outro}>
+  const bubblesOnly = primitive.data?.view === 'bubbles' && bubbleItems.length ? out(<g opacity={outro}>
     <Bubbles items={bubbleItems} frame={frame} startFrame={primitive.data.at * durationInFrames} fps={manifest.format.fps}
       accent={styled ? look.subject.from : accent} ink={styled && look.chip ? look.chip.text : palette.ink} backdrop={styled && look.chip ? look.chip.fill : palette.background} muted={styled ? look.subject.side : palette.ink} />
     <g opacity={appear(primitive.data.at, 10)}>
@@ -639,6 +644,16 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
       <text x={SIZE.width / 2} y={SAFE + 58} textAnchor="middle" dominantBaseline="middle" style={{fontFamily: displayFont, fontSize: 38, letterSpacing: 3, fill: styled && look.chip ? look.chip.text : palette.ink}}>{primitive.data.label.toUpperCase()}</text>
     </g>
   </g>) : null;
+  // The morph says what the map is doing, so the change in size is understood.
+  const morphChip = morphing ? out(<g opacity={outro}>{(() => {
+    const text = mix < .5 ? 'MERCATOR · SIZES STRETCHED' : 'EQUAL EARTH · SIZES TRUE';
+    const width = text.length * 25 + 60;
+    return <>
+      <rect x={SIZE.width / 2 - width / 2} y={SAFE + 20} width={width} height={84} rx={42} fill={styled && look.chip ? look.chip.fill : palette.background} opacity={.9} />
+      <text x={SIZE.width / 2} y={SAFE + 64} textAnchor="middle" dominantBaseline="middle" style={{fontFamily: displayFont, fontSize: 40, letterSpacing: 3, fill: styled && look.chip ? look.chip.text : palette.ink}}>{text}</text>
+    </>;
+  })()}</g>) : null;
+  const bubbleLayer = <>{bubblesOnly}{morphChip}</>;
 
   const timeline = timelineOn && timelineAnnotation ? <TimelineStrip steps={timelineAnnotation.steps} active={timelineAnnotation.active} frame={frame} startFrame={timelineStart} fps={manifest.format.fps} width={SIZE.width} height={SIZE.height}
     accent={styled ? look.subject.from : accent} ink={styled && look.chip ? look.chip.text : palette.ink} backdrop={styled && look.chip ? look.chip.fill : palette.background} muted={styled ? look.subject.side : palette.ink} /> : null;

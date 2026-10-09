@@ -93,6 +93,8 @@ export const primitiveSchema = z.discriminatedUnion('kind', [
     cut: z.boolean().optional(),
     // How the map is projected (src/video/geo/projections.ts); Mercator when absent.
     projection: z.enum(['mercator', 'equal-earth', 'albers', 'azimuthal']).optional(),
+    // Flow from Mercator to Equal Earth over the scene, so sizes stretched by Mercator settle to their true area (a world view).
+    morph: z.boolean().optional(),
     // Draw the map on a globe (an orthographic projection) that spins between the camera's framings: for openings and closings.
     globe: z.boolean().optional(),
     // Shaded relief (#91) under the map: mountains and valleys from the pinned Natural Earth raster.
@@ -114,6 +116,7 @@ export const primitiveSchema = z.discriminatedUnion('kind', [
   z.object(diagramPrimitiveFields).strict(),
 ]).superRefine((primitive, context) => {
   if (primitive.kind === 'geo-map') {
+    if (primitive.morph && (primitive.globe || (primitive.projection ?? 'mercator') !== 'mercator')) context.addIssue({code: 'custom', path: ['morph'], message: 'A morph runs from Mercator to Equal Earth on a flat map: no globe, and no other projection'});
     primitive.annotations.forEach((annotation, index) => {
       if (annotation.type === 'truesize' && (primitive.globe || !['albers', 'equal-earth'].includes(primitive.projection ?? ''))) context.addIssue({code: 'custom', path: ['annotations', index], message: 'A true-size comparison needs an equal-area projection (projection "albers" or "equal-earth") and no globe, or the copy would look the wrong size'});
       if (annotation.type === 'truesize' && annotation.entity === annotation.onto) context.addIssue({code: 'custom', path: ['annotations', index, 'onto'], message: 'A place cannot be compared with itself'});
