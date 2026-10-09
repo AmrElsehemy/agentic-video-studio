@@ -60,6 +60,19 @@ describe('frame audit', () => {
     assert.deepEqual(auditFrames({manifest, frames: garbled}), []);
   });
 
+  it('does not call a caption phrase that another text on screen contains a second copy of it', () => {
+    const base = darmanitan();
+    const manifest = {...base, scenes: base.scenes.map((scene, index) => (index === 0 ? {...scene, headline: `${scene.headline} ${scene.caption}`} : scene))};
+    assert.deepEqual(auditFrames({manifest, frames: frames(manifest)}), []);
+  });
+
+  it('still catches a caption drawn twice when nothing else on screen says it', () => {
+    const manifest = darmanitan();
+    const texts = goodText(manifest);
+    texts[1] = `${texts[1]}\n${manifest.scenes[1].caption}`;
+    assert.deepEqual(checks(auditFrames({manifest, frames: frames(manifest, texts)})), ['blocking scene 2 (identity) caption']);
+  });
+
   it('never counts the headline read towards duplicate captions', () => {
     const manifest = darmanitan();
     const withHeadline = frames(manifest).map((frame, index) => ({...frame, headlineText: `${manifest.scenes[index].headline}\n${manifest.scenes[index].caption}`}));

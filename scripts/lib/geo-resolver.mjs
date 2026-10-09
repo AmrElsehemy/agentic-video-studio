@@ -12,6 +12,15 @@ const ALIASES = JSON.parse(fs.readFileSync(path.join(path.dirname(fileURLToPath(
 export const placeKey = (name) => String(name).normalize('NFKD').replace(/[̀-ͯ]/g, '').toLowerCase()
   .replace(/[^a-z0-9]+/g, ' ').trim().replace(/^the /, '');
 
+/**
+ * How specific a place is. When a name fits places of different kinds ("Georgia" is a country and a
+ * US state; "Panama" a country and a city) the least specific kind wins, so research that says
+ * "Georgia" keeps meaning the country. Same-rank matches are ambiguous as before.
+ */
+const RANK = {country: 0, admin1: 1, lake: 1, river: 1, city: 2};
+const rankOf = (entity) => RANK[entity.kind] ?? 0;
+const LAKE_WORD = /^(lake|lago|lac|lough|loch)\s+/i;
+
 /** An index from every usable name (registry name, ISO code, Wikidata id, alias) to entity ids. */
 export const buildPlaceIndex = (entities) => {
   const index = new Map();
@@ -23,6 +32,20 @@ export const buildPlaceIndex = (entities) => {
     add(placeKey(entity.name), entity.id);
     if (entity.iso3) add(placeKey(entity.iso3), entity.id);
     if (entity.wikidata) add(placeKey(entity.wikidata), entity.id);
+    // Finer places also answer to their qualified and spelled-out names.
+    if (entity.kind === 'lake') {
+      const base = entity.name.replace(LAKE_WORD, '');
+      add(placeKey(base), entity.id);
+      add(placeKey(`lake ${base}`), entity.id);
+    }
+    if (entity.kind === 'river') {
+      add(placeKey(`${entity.name} river`), entity.id);
+      add(placeKey(`river ${entity.name}`), entity.id);
+    }
+    if ((entity.kind === 'city' || entity.kind === 'admin1') && entity.country) {
+      const country = entities.get(`country:${entity.country}`);
+      if (country) add(placeKey(`${entity.name} ${country.name}`), entity.id);
+    }
   }
   for (const [alias, id] of Object.entries(ALIASES.aliases)) if (entities.has(id)) add(placeKey(alias), id);
   for (const [alias, ids] of Object.entries(ALIASES.ambiguous)) for (const id of ids) if (entities.has(id)) add(placeKey(alias), id);
@@ -36,7 +59,10 @@ export const buildPlaceIndex = (entities) => {
  */
 export const resolvePlace = (name, {entities, index = buildPlaceIndex(entities)}) => {
   const key = placeKey(name);
-  const ids = index.get(key) ?? [];
+  const matches = index.get(key) ?? [];
+  // Prefer the least specific kind among the matches (see RANK).
+  const best = Math.min(...matches.map((id) => rankOf(entities.get(id))));
+  const ids = matches.filter((id) => rankOf(entities.get(id)) === best);
   if (ids.length === 1) {
     const entity = entities.get(ids[0]);
     return {status: 'resolved', id: entity.id, entity, ...(entity.review ? {review: entity.review} : {})};

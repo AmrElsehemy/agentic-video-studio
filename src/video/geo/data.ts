@@ -6,11 +6,15 @@ import type {ReliefManifest} from './relief';
 // The pinned map data (public/geo/, see docs/geomotion-data.md), loaded once per
 // render tab from the bundle's own static files: no network, no tiles.
 
-export type GeoEntity = {id: string; kind: string; name: string; bbox: [number, number, number, number]; frame?: [number, number, number, number]; label?: [number, number]};
+export type GeoEntity = {id: string; kind: string; name: string; country?: string; bbox: [number, number, number, number]; frame?: [number, number, number, number]; label?: [number, number]};
 export type GeoData = {
   entities: Map<string, GeoEntity>;
   features: Map<string, Feature<Geometry>>;
   countries: Feature<Geometry>[];
+  /** States and provinces, lakes and rivers (Natural Earth), each with a Natural Earth importance `rank` where it has one. */
+  admin1: Feature<Geometry>[];
+  lakes: Feature<Geometry>[];
+  rivers: Feature<Geometry>[];
 };
 
 let loaded: GeoData | undefined;
@@ -27,11 +31,17 @@ export const loadGeoData = () => loading ??= Promise.all([
   fetchJson<FeatureCollection>('countries.geojson'),
   fetchJson<FeatureCollection>('water.geojson'),
   fetchJson<FeatureCollection>('disputed.geojson'),
-]).then(([entities, countries, water, disputed]) => {
+  fetchJson<FeatureCollection>('admin1.geojson'),
+  fetchJson<FeatureCollection>('lakes.geojson'),
+  fetchJson<FeatureCollection>('rivers.geojson'),
+]).then(([entities, countries, water, disputed, admin1, lakes, rivers]) => {
   loaded = {
     entities: new Map(entities.map((entity) => [entity.id, entity])),
-    features: new Map([...countries.features, ...water.features, ...disputed.features].map((feature) => [String(feature.id), feature])),
+    features: new Map([...countries.features, ...water.features, ...disputed.features, ...admin1.features, ...lakes.features, ...rivers.features].map((feature) => [String(feature.id), feature])),
     countries: countries.features,
+    admin1: admin1.features,
+    lakes: lakes.features,
+    rivers: rivers.features,
   };
   return loaded;
 });

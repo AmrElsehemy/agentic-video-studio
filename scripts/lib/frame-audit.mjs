@@ -87,9 +87,13 @@ export const auditFrames = ({manifest, frames, cover}) => {
       if (headline < MIN_COVERAGE) add(where, 'headline', 'blocking', `Headline "${scene.headline}" is not readable on screen (${Math.round(headline * 100)}% of its words found).`);
       const captionText = expected[index];
       const caption = coverage(captionText, frame.text);
-      if (caption < MIN_COVERAGE) add(where, 'caption', 'blocking', `Caption "${captionText}" is not readable on screen (${Math.round(caption * 100)}% of its words found).`);
+      // With word-synced captions the review frame can land before a phrase is spoken, when its words are still dim: a warning, not a block.
+      if (caption < MIN_COVERAGE) add(where, 'caption', scene.words?.length ? 'warning' : 'blocking', `Caption "${captionText}" is not readable on screen (${Math.round(caption * 100)}% of its words found).`);
       // The caption is drawn once, at the bottom; a second copy means two layers both draw it.
-      const sameAsOtherText = [scene.headline, scene.eyebrow ?? '', ...(scene.facts ?? [])].some((text) => words(text).join(' ') === words(captionText).join(' '));
+      // A phrase the caption speaks that another text on screen also contains (the headline, a fact, a map label naming the place) is not the caption drawn twice.
+      const mapTexts = (scene.primitive?.annotations ?? []).map((annotation) => annotation.text).filter(Boolean);
+      const spoken = ` ${words(captionText).join(' ')} `;
+      const sameAsOtherText = [scene.headline, scene.eyebrow ?? '', ...(scene.facts ?? []), ...mapTexts].some((text) => ` ${words(text).join(' ')} `.includes(spoken));
       if (!sameAsOtherText && occurrences(captionText, frame.text) > 1) add(where, 'caption', 'blocking', `Caption "${captionText}" is drawn more than once.`);
     }
     if (frame.gray) {

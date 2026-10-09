@@ -78,6 +78,9 @@ const episodePalette = (draft, show) => {
   return variant;
 };
 
+/** Palette variants that also set how maps are painted (src/video/geo/look.ts): the variant's name is the look's name. */
+export const LOOK_VARIANTS = ['neon', 'atlas', 'terrain'];
+
 export const compileEpisode = (rawDraft, {showId, show = loadShow(showId), geo}) => {
   if (show.id !== showId) throw new Error(`compileEpisode was asked for the ${showId} show but given the ${show.id} profile.`);
   const draft = episodeDraftSchema.parse(rawDraft);
@@ -174,6 +177,7 @@ export const compileEpisode = (rawDraft, {showId, show = loadShow(showId), geo})
     related,
     format: draft.format === 'landscape' ? {width: 1920, height: 1080, fps: 30} : {width: 1080, height: 1920, fps: 30},
     palette: episodePalette(draft, show),
+    ...(LOOK_VARIANTS.includes(draft.paletteVariant) ? {look: draft.paletteVariant} : {}),
     ...(diagram ? {diagram} : {}),
     ...(draft.twinOf ? {twinOf: draft.twinOf} : {}),
     audio: {

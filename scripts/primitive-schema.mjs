@@ -14,8 +14,8 @@ const typeName = z.enum(POKEMON_TYPE_NAMES);
 // (public/geo/entities.json), never by hand-drawn outlines; points may use
 // longitude/latitude. Times are fractions of the scene (0 = start, 1 = end),
 // so choreography follows the scene's narration timing.
-export const GEO_ENTITY_ID = /^(country|water|disputed):[A-Za-z0-9-]+$/;
-const geoEntity = z.string().regex(GEO_ENTITY_ID, 'Use a geo entity id such as "country:GEO" or "water:black-sea"');
+export const GEO_ENTITY_ID = /^(country|water|disputed|admin1|lake|river|city):[A-Za-z0-9-]+$/;
+const geoEntity = z.string().regex(GEO_ENTITY_ID, 'Use a geo entity id such as "country:GEO", "water:black-sea", "river:nile", "lake:lake-baikal", "admin1:USA-3563" or "city:cairo-egy"');
 const point = z.object({lon: z.number().min(-180).max(180), lat: z.number().min(-90).max(90)}).strict();
 const anchor = z.union([geoEntity, point]);
 const bbox = z.tuple([z.number().min(-180).max(180), z.number().min(-90).max(90), z.number().min(-180).max(180), z.number().min(-90).max(90)]);
@@ -72,6 +72,8 @@ export const primitiveSchema = z.discriminatedUnion('kind', [
     // A map scene that follows another continues its camera (one unbroken flight);
     // cut: true starts this scene's camera fresh instead.
     cut: z.boolean().optional(),
+    // Draw the map on a globe (an orthographic projection) that spins between the camera's framings: for openings and closings.
+    globe: z.boolean().optional(),
     // Shaded relief (#91) under the map: mountains and valleys from the pinned Natural Earth raster.
     relief: z.boolean().optional(),
     // A data map (#91): places shaded by a sourced value, with a legend. The Geo Visual Director copies
@@ -82,6 +84,8 @@ export const primitiveSchema = z.discriminatedUnion('kind', [
       values: z.array(z.object({entity: geoEntity, value: z.number()}).strict()).min(2).max(MAX_DATA_PLACES),
       at: moment.default(0),
       legend: z.boolean().default(true),
+      // 'map' shades the places; 'bars' shows a ranked bar chart of the values; 'both' does both.
+      view: z.enum(['map', 'bars', 'both']).default('map'),
     }).strict().optional(),
   }).strict(),
   // An architecture diagram (#120): actions on the episode's persistent canvas.

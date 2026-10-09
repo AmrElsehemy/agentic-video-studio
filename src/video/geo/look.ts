@@ -28,6 +28,10 @@ export type Look = {
   vignette: number;
   /** A slow band of light drifting over the sea (0-1). */
   shimmer: number;
+  /** Lakes' fill, rivers' stroke, and the thin lines between states and provinces (shown only when zoomed in). */
+  water: {lake: string; river: string; admin: string; adminOpacity: number};
+  /** Shaded-relief texture blended over land and sea (0-1); 0 for none. */
+  relief: number;
 };
 
 export const LOOKS: Record<LookName, Look> = {
@@ -43,6 +47,8 @@ export const LOOKS: Record<LookName, Look> = {
     chip: null,
     vignette: 0,
     shimmer: 0,
+    water: {lake: '#0b1a2a', river: '#6fa8dc', admin: '#f6f1e7', adminOpacity: 0.18},
+    relief: 0,
   },
   neon: {
     name: 'neon',
@@ -52,10 +58,12 @@ export const LOOKS: Record<LookName, Look> = {
     border: {color: '#7fb4ff', opacity: 0.5, width: 1.3},
     shadow: {color: '#000010', blur: 18, dy: 12, opacity: 0.75},
     subject: {from: '#ff3d9a', to: '#ffb02e', side: '#a3156b', depth: 9, rim: '#fff3d6', glow: 26},
-    tilt: {degrees: 24, scale: 1.3, originY: 62},
+    tilt: {degrees: 24, scale: 1.1, originY: 0},
     chip: {fill: '#0a1030', opacity: 0.82, text: '#ffffff'},
     vignette: 0.55,
     shimmer: 0.1,
+    water: {lake: '#0b1b4d', river: '#4cc3ff', admin: '#9cc7ff', adminOpacity: 0.3},
+    relief: 0.45,
   },
   atlas: {
     name: 'atlas',
@@ -65,10 +73,12 @@ export const LOOKS: Record<LookName, Look> = {
     border: {color: '#8a6a3a', opacity: 0.55, width: 1.4},
     shadow: {color: '#0c3a52', blur: 14, dy: 9, opacity: 0.45},
     subject: {from: '#ff7a59', to: '#ff4d6d', side: '#b82f4a', depth: 10, rim: '#fff7ea', glow: 10},
-    tilt: {degrees: 22, scale: 1.28, originY: 62},
+    tilt: {degrees: 22, scale: 1.1, originY: 0},
     chip: {fill: '#fff8ea', opacity: 0.94, text: '#1a2b3c'},
     vignette: 0.25,
     shimmer: 0.16,
+    water: {lake: '#58b8d6', river: '#2f8fbf', admin: '#8a6a3a', adminOpacity: 0.4},
+    relief: 0.5,
   },
   terrain: {
     name: 'terrain',
@@ -78,10 +88,12 @@ export const LOOKS: Record<LookName, Look> = {
     border: {color: '#e8f5c8', opacity: 0.4, width: 1.2},
     shadow: {color: '#021010', blur: 16, dy: 10, opacity: 0.7},
     subject: {from: '#ffd166', to: '#ef8a17', side: '#8a4a07', depth: 8, rim: '#fff6d8', glow: 20},
-    tilt: {degrees: 26, scale: 1.32, originY: 64},
+    tilt: {degrees: 26, scale: 1.1, originY: 0},
     chip: {fill: '#08201f', opacity: 0.85, text: '#f7f2dc'},
     vignette: 0.5,
     shimmer: 0.08,
+    water: {lake: '#10424d', river: '#6fe0e8', admin: '#e8f5c8', adminOpacity: 0.25},
+    relief: 0.75,
   },
 };
 
@@ -93,4 +105,32 @@ export const pickByHash = (id: string, count: number) => {
   let hash = 2166136261;
   for (let i = 0; i < id.length; i++) hash = Math.imul(hash ^ id.charCodeAt(i), 16777619);
   return (hash >>> 0) % count;
+};
+
+/** Which lakes and rivers are worth drawing at a zoom (view scale): only the great ones from far, more as the camera closes in. */
+export const maxLakeRank = (scale: number) => (scale < 400 ? 1 : scale < 1200 ? 3 : 5);
+export const maxRiverRank = (scale: number) => (scale < 500 ? 2 : scale < 1500 ? 4 : 6);
+/** How visible state and province lines are at a zoom: none from far, full close up. */
+export const adminVisibility = (scale: number) => Math.max(0, Math.min(1, (scale - 700) / 500));
+
+/** The CSS perspective distance (px) the tilted stage is drawn with. */
+export const PERSPECTIVE = 1500;
+
+/**
+ * Where the tilted stage puts a point of the flat map on screen: the same maths as the CSS transform
+ * `perspective(1500px) rotateX(d) scale(s)` about the stage's transform-origin. Labels are placed
+ * here, in frame space, and drawn upright above the stage, so a tilt can never push one off screen.
+ */
+export const tiltPoint = (look: Look, [x, y]: [number, number], size: {width: number; height: number}): [number, number] => {
+  const {degrees, scale, originY} = look.tilt;
+  if (!degrees) return [x, y];
+  const radians = (degrees * Math.PI) / 180;
+  const ox = size.width / 2;
+  const oy = (size.height * originY) / 100;
+  const dy = scale * (y - oy);
+  const x1 = ox + scale * (x - ox);
+  const y1 = oy + dy * Math.cos(radians);
+  const k = 1 / (1 - (dy * Math.sin(radians)) / PERSPECTIVE);
+  const [qx, qy] = [size.width / 2, size.height / 2];
+  return [qx + (x1 - qx) * k, qy + (y1 - qy) * k];
 };

@@ -51,3 +51,35 @@ describe('map effects', () => {
     });
   });
 });
+
+import {LOOKS, tiltPoint} from '../src/video/geo/look';
+
+describe('tilted stage', () => {
+  const size = {width: 1010, height: 1375};
+  it('leaves a flat look alone', () => {
+    assert.deepEqual(tiltPoint(LOOKS.classic, [123, 456], size), [123, 456]);
+  });
+
+  it('keeps the top-centre fixed when the stage turns about its top edge', () => {
+    const [x, y] = tiltPoint({...LOOKS.atlas, tilt: {degrees: 22, scale: 1, originY: 0}}, [505, 0], size);
+    assert.ok(Math.abs(x - 505) < 1e-9 && Math.abs(y) < 1e-9);
+  });
+
+  it('magnifies the near (bottom) edge and spreads it sideways', () => {
+    const look = {...LOOKS.atlas, tilt: {degrees: 22, scale: 1, originY: 0}};
+    const [topLeft] = tiltPoint(look, [0, 100], size);
+    const [bottomLeft] = tiltPoint(look, [0, 1300], size);
+    assert.ok(bottomLeft < topLeft, 'the bottom-left corner is further out than the top-left');
+    // A point further down lands further down, and not past where it would without the tilt's stretch.
+    const [, y1] = tiltPoint(look, [505, 400], size);
+    const [, y2] = tiltPoint(look, [505, 900], size);
+    assert.ok(y2 > y1);
+  });
+
+  it('puts the centre of the frame where the stage turns', () => {
+    for (const name of ['neon', 'atlas', 'terrain'] as const) {
+      const [x] = tiltPoint(LOOKS[name], [505, 700], size);
+      assert.ok(Math.abs(x - 505) < 1e-6, `${name} stays centred horizontally`);
+    }
+  });
+});

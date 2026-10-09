@@ -51,6 +51,8 @@ if (result.modelError) console.warn(`! the director model failed (${result.model
 for (const {id, why} of result.assigned) console.log(`  ✓ ${id}: ${why}`);
 for (const {id, reason} of result.fallbacks) console.warn(`  ! ${id}: default map (${reason})`);
 for (const {name, areas} of result.review) console.warn(`  ! ${name} has disputed areas (${areas.map((area) => area.name).join(', ')}): record rights.bordersReview before publishing (docs/geomotion-review.md).`);
+for (const {id, places} of result.unseenMentions) console.warn(`  ! ${id}: names ${places.join(', ')} without showing ${places.length > 1 ? 'them' : 'it'}`);
+for (const {id, places} of result.offFrame) console.warn(`  ! ${id}: ${places.join(', ')} ${places.length > 1 ? 'are' : 'is'} highlighted or labelled but cut off by the camera`);
 for (const problem of result.variety.problems) console.warn(`  ! ${problem}`);
 const output = args.includes('--write') ? draftPath : episodeOutPath(root, episodeId, `${episodeId}.geo-directed.json`);
 fs.mkdirSync(path.dirname(output), {recursive: true});

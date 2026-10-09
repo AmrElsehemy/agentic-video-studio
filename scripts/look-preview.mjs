@@ -1,5 +1,6 @@
 // Render stills of an episode's scenes in each map look, to compare art directions without changing
 // the episode. Usage: npm run looks -- <episode-id> [--looks=classic,neon,atlas,terrain] [--scenes=1,2,4] [--voice=none]
+// --globe=1,7 draws those scenes on a globe.
 // Writes out/<show>/<id>/looks/<id>-<look>-scene<N>.png (N counts from 1, taken 72% into the scene).
 import fs from 'node:fs';
 import path from 'node:path';
@@ -21,7 +22,7 @@ const voice = option('voice', 'auto');
 /** The palette each look is designed with; the headline and caption areas wear it too. */
 const PALETTES = {
   neon: {background: '#050818', surface: '#18284f', primary: '#ff3d9a', secondary: '#6c5ce7', ink: '#ffffff'},
-  atlas: {background: '#cfe9f2', surface: '#f4e3b8', primary: '#ff7a59', secondary: '#2a7fa6', ink: '#14263a'},
+  atlas: {background: '#cfe9f2', surface: '#f4e3b8', primary: '#d9482b', secondary: '#2a7fa6', ink: '#14263a'},
   terrain: {background: '#06161c', surface: '#2f5d3c', primary: '#ffd166', secondary: '#10424d', ink: '#f7f2dc'},
 };
 
@@ -34,7 +35,9 @@ const serveUrl = await bundle({entryPoint: path.join(root, 'src', 'index.ts')});
 const browser = await openBrowser('chrome', {browserExecutable: process.env.REMOTION_BROWSER_EXECUTABLE || null});
 try {
   for (const look of looks) {
-    const styled = {...manifest, look, ...(PALETTES[look] ? {palette: PALETTES[look]} : {})};
+    const globes = option('globe', '').split(',').filter(Boolean).map(Number);
+    const withGlobes = globes.length ? {...manifest, scenes: manifest.scenes.map((scene, index) => (globes.includes(index + 1) && scene.primitive?.kind === 'geo-map' ? {...scene, primitive: {...scene.primitive, globe: true}} : scene))} : manifest;
+    const styled = {...withGlobes, look, ...(PALETTES[look] ? {palette: PALETTES[look]} : {})};
     const inputProps = {manifest: styled};
     const composition = await selectComposition({serveUrl, id: 'VerticalEpisode', inputProps, puppeteerInstance: browser});
     for (const number of scenes) {

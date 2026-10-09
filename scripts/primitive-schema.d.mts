@@ -21,8 +21,8 @@ export type GeoAnnotation =
   | {type: 'marker'; anchor: GeoAnchor; text?: string; at: number; until?: number}
   | {type: 'arrow'; from: GeoAnchor; to: GeoAnchor; text?: string; at: number}
   | {type: 'route'; path: GeoAnchor[]; text?: string; at: number; until?: number; marker: boolean; follow: boolean};
-export type GeoMapPrimitive = {kind: 'geo-map'; camera: GeoCameraKey[]; highlights: GeoHighlight[]; annotations: GeoAnnotation[]; dataset: 'natural-earth'; cut?: boolean; relief?: boolean; data?: GeoData};
-export type GeoData = {label: string; unit?: string; values: {entity: GeoEntityId; value: number}[]; at: number; legend: boolean};
+export type GeoMapPrimitive = {kind: 'geo-map'; camera: GeoCameraKey[]; highlights: GeoHighlight[]; annotations: GeoAnnotation[]; dataset: 'natural-earth'; cut?: boolean; globe?: boolean; relief?: boolean; data?: GeoData};
+export type GeoData = {label: string; unit?: string; values: {entity: GeoEntityId; value: number}[]; at: number; legend: boolean; view: 'map' | 'bars' | 'both'};
 /** When a diagram action happens (#120): a fraction of the scene, a spoken word, a chain, or the scene's end. */
 export type DiagramAnchor = number | {word: string; nth: number} | {after: string; delay: number} | 'scene-end';
 type ActionBase = {id?: string; at: DiagramAnchor; dur?: number};

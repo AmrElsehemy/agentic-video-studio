@@ -1,5 +1,5 @@
 import React, {useMemo} from 'react';
-import {geoCentroid, geoGraticule, geoMercator, geoPath, type GeoProjection} from 'd3-geo';
+import {geoCentroid, geoDistance, geoGraticule, geoMercator, geoOrthographic, geoPath, type GeoProjection} from 'd3-geo';
 import {evolvePath} from '@remotion/paths';
 import {Img, interpolate, staticFile} from 'remotion';
 import {paletteMode} from '../../../scripts/lib/palette.mjs';
@@ -12,7 +12,8 @@ import {RELIEF_STRENGTH, reliefPlacements} from './relief';
 import {fitInside, labelBox, resolveLabels, type Box, type Placed} from './labels';
 import {labelScale, pop} from './motion';
 import {COUNT_FRAMES, countUp, flash, MARCH, marchOffset, ripple} from './effects';
-import {lookOf, pickByHash} from './look';
+import {barRows, DataBars, PANEL_FRAMES, panelHeight} from './DataBars';
+import {adminVisibility, lookOf, maxLakeRank, maxRiverRank, pickByHash, tiltPoint} from './look';
 import {blurSamples, shutterFor, viewShift} from './blur';
 import {followView, followWeight, partialRoute, routeLine, routeProgress, type RouteLine} from './route';
 
@@ -22,6 +23,8 @@ import {followView, followWeight, partialRoute, routeLine, routeProgress, type R
 
 const clamp = {extrapolateLeft: 'clamp' as const, extrapolateRight: 'clamp' as const};
 const SIZE: Size = MAP_SIZE;
+/** A globe is at least this big (px): one whole planet across the frame. */
+const GLOBE_RADIUS = 440;
 /** Labels stay this far inside the edges so they never collide with the headline or caption. */
 const SAFE = 48;
 /** Frames an appearing layer takes to fade/draw in. */
@@ -45,6 +48,11 @@ const sameAnchor = (a: GeoAnchor, b: GeoAnchor) => (typeof a === 'string' || typ
 const targetBox = (target: Exclude<GeoMapPrimitive['camera'][number]['target'], 'world'>, data: GeoData): BBox => {
   if (typeof target === 'object') return target.bbox;
   const entity = data.entities.get(target);
+  // A city is a point: frame about 2° × 1.5° around it.
+  if (entity?.kind === 'city') {
+    const [lon, lat] = entity.label ?? [entity.bbox[0], entity.bbox[1]];
+    return [lon - 1, lat - 0.75, lon + 1, lat + 0.75];
+  }
   // A place's camera frame leaves out remote islands (see frameOf in scripts/lib/geo-data.mjs).
   if (entity) return entity.frame ?? entity.bbox;
   const feature = data.features.get(target);
@@ -160,26 +168,46 @@ export const GeoMapVisual: React.FC<GeoMapProps & {blur?: boolean}> = ({blur = t
 const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
   const {data: primitive, scene, manifest, frame, durationInFrames, accent, seams} = props;
   const {data, keys, routes, viewAt} = useCameraPath(props);
-  const relief = useReliefData(Boolean(primitive.relief));
-  if (!data || !keys || (primitive.relief && !relief)) return null;
+  const look = lookOf(manifest.look);
+  const wantsRelief = Boolean(primitive.relief) || look.relief > 0;
+  const relief = useReliefData(wantsRelief);
+  if (!data || !keys || (wantsRelief && !relief)) return null;
 
   const t = durationInFrames > 1 ? frame / (durationInFrames - 1) : 0;
   const view = viewAt(t);
-  const projection: GeoProjection = geoMercator().rotate([-view.lon, 0]).center([0, view.lat]).scale(view.scale).translate([SIZE.width / 2, SIZE.height / 2]);
+  // A ranked bar chart (data view "bars"/"both") takes the bottom of the frame; the map slides up to leave room for it.
+  const barsOn = Boolean(primitive.data && primitive.data.view !== 'map');
+  const barsStart = primitive.data ? primitive.data.at * durationInFrames : 0;
+  const barsPanel = barsOn && primitive.data ? panelHeight(barRows(primitive.data.values.map(({entity, value}) => ({id: entity, name: entity, value, subject: false}))).length) : 0;
+  const barsShift = barsOn ? (barsPanel / 2) * interpolate(frame, [barsStart, barsStart + PANEL_FRAMES], [0, 1], clamp) : 0;
+  // A globe (orthographic) draws the same layers on a sphere that spins to the camera's centre; its radius follows
+  // the camera's zoom but never less than a whole planet filling the frame.
+  const globe = Boolean(primitive.globe);
+  const globeRadius = Math.max(view.scale, GLOBE_RADIUS);
+  const projection: GeoProjection = globe
+    ? geoOrthographic().rotate([-view.lon, -view.lat]).scale(globeRadius).translate([SIZE.width / 2, SIZE.height / 2 - barsShift]).clipAngle(90)
+    : geoMercator().rotate([-view.lon, 0]).center([0, view.lat]).scale(view.scale).translate([SIZE.width / 2, SIZE.height / 2 - barsShift]);
   const path = geoPath(projection);
   const appear = (at: number, frames = APPEAR) => interpolate(frame, [at * durationInFrames, at * durationInFrames + frames], [0, 1], clamp);
   /** Spring progress (motion.ts) of an entrance at `at`: 0 before, a small overshoot, then 1. */
   const springIn = (at: number) => pop(frame, at * durationInFrames, manifest.format.fps);
   /** A marker or label with an `until` fades out, finishing then. */
   const vanish = (until?: number) => (until === undefined ? 1 : interpolate(frame, [until * durationInFrames - APPEAR, until * durationInFrames], [1, 0], clamp));
-  const point = (lonLat: [number, number]) => projection(lonLat) as [number, number];
+  // On a globe a place on the far side is out of sight, so its labels and markers go off screen.
+  const point = (lonLat: [number, number]): [number, number] => (globe && geoDistance([view.lon, view.lat], lonLat) > Math.PI / 2 - 0.02 ? [-9999, -9999] : projection(lonLat) as [number, number]);
   const {palette} = manifest;
-  const look = lookOf(manifest.look);
-  const styled = look.name !== 'classic' && !primitive.relief;
+  const styled = look.name !== 'classic';
+  // On a tilted stage text is placed in screen space (where the tilt puts each point) and drawn upright above the
+  // stage, so it can never be pushed off screen or stretched; `flat` collects those texts.
+  const tilted = styled && look.tilt.degrees > 0 && !globe;
+  const toScreen = (p: [number, number]): [number, number] => (tilted ? tiltPoint(look, p, SIZE) : p);
+  const flat: React.ReactNode[] = [];
+  const bounds = BOUNDS;
+  const keepIn = keepInside;
   // A glow reads as light on a dark map; on a light one (#92) it smudges, so it stays tight and faint there.
   const glow = (radius: number, color: string) => paletteMode(palette) === 'light' ? `drop-shadow(0 0 ${radius * .4}px ${color}66)` : `drop-shadow(0 0 ${radius}px ${color})`;
   // Projecting every country each frame is the render's main cost; skip those whose box is off screen.
-  const onScreen = visibleFilter(projection);
+  const onScreen = globe ? () => true : visibleFilter(projection);
   // When the next scene continues this map, the map stays on screen and only this scene's layers fade out.
   const outro = seams?.out ? interpolate(frame, [Math.max(0, durationInFrames - 8), durationInFrames], [1, 0], clamp) : 1;
   const labels = primitive.annotations.filter((annotation): annotation is Extract<GeoMapPrimitive['annotations'][number], {type: 'label'}> => annotation.type === 'label');
@@ -207,34 +235,41 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
     if (annotation.type === 'arrow' || !annotation.text) return;
     if (annotation.type === 'route') {
       if (t < annotation.at) return;
-      const [hx, hy] = point(routeStates.get(index)!.head);
-      texts.set(index, {box: fitInside(labelBox(hx, hy - ROUTE_LIFT, annotation.text, POINT_LABEL_SIZE), BOUNDS), anchorY: hy, priority: -1, opacity: appear(annotation.at), size: POINT_LABEL_SIZE});
+      const [hx, hy] = toScreen(point(routeStates.get(index)!.head));
+      texts.set(index, {box: fitInside(labelBox(hx, hy - ROUTE_LIFT, annotation.text, POINT_LABEL_SIZE), bounds), anchorY: hy, priority: -1, opacity: appear(annotation.at), size: POINT_LABEL_SIZE});
       return;
     }
     const projected = point(anchorLonLat(annotation.anchor, data));
     if (farOffFrame(projected)) return;
-    const [x, y] = keepInside(projected);
+    const screen = toScreen(projected);
+    const [x, y] = keepIn(screen);
     const size = annotation.type === 'marker' ? POINT_LABEL_SIZE : LABEL_SIZE;
-    texts.set(index, {box: fitInside(labelBox(x, annotation.type === 'marker' ? y - MARKER_LIFT : y, annotation.text, size), BOUNDS), anchorY: projected[1], priority: annotation.at, opacity: appear(annotation.at) * vanish(annotation.until), size});
+    texts.set(index, {box: fitInside(labelBox(x, annotation.type === 'marker' ? y - MARKER_LIFT : y, annotation.text, size), bounds), anchorY: screen[1], priority: annotation.at, opacity: appear(annotation.at) * vanish(annotation.until), size});
   });
   const keyWidth = primitive.data ? legendWidth(valueRange(primitive.data.values.map(({value}) => value)), primitive.data.unit) : LEGEND.width;
   const legendBox: Box | undefined = primitive.data?.legend ? {x: LEGEND.x + keyWidth / 2, y: SIZE.height - SAFE - 112 + 47, halfWidth: keyWidth / 2 + 18, halfHeight: 65} : undefined;
   const placed = [...texts.values(), ...(legendBox ? [{box: legendBox, priority: Infinity, opacity: primitive.data ? appear(primitive.data.at) : 0}] : [])];
-  const resolved = resolveLabels(placed, BOUNDS);
+  const resolved = resolveLabels(placed, bounds);
   const boxes = new Map([...texts.keys()].map((index, order) => [index, resolved.boxes[order]]));
   const fades = new Map([...texts.keys()].map((index, order) => [index, resolved.fades[order]]));
+  /** Text on a tilted stage is drawn upright in the flat layer above it; elsewhere it is drawn in place. */
+  const out = (node: React.ReactNode) => {
+    if (!tilted) return node;
+    flat.push(<React.Fragment key={`flat-${flat.length}`}>{node}</React.Fragment>);
+    return null;
+  };
   const textOf = (index: number, text: string, opacity: number, rise = opacity, scale = 1) => {
     const [item, box] = [texts.get(index), boxes.get(index)];
     if (!item || !box) return null;
     const shown = opacity * (fades.get(index) ?? 1);
     if (styled && look.chip) {
       // A pill behind the text, drawn and scaled with it.
-      return <g transform={`translate(${box.x} ${box.y}) scale(${scale}) translate(${-box.x} ${-box.y})`}>
+      return out(<g transform={`translate(${box.x} ${box.y}) scale(${scale}) translate(${-box.x} ${-box.y})`}>
         <rect x={box.x - box.halfWidth - 10} y={box.y - box.halfHeight - 4} width={2 * box.halfWidth + 20} height={2 * box.halfHeight + 8} rx={box.halfHeight + 4} fill={look.chip.fill} opacity={look.chip.opacity * shown} />
         <Label x={box.x} y={box.y} text={text} opacity={shown} rise={rise} color={look.chip.text} halo={look.chip.fill} size={item.size} />
-      </g>;
+      </g>);
     }
-    return <Label x={box.x} y={box.y} text={text} opacity={shown} rise={rise} scale={scale} color={palette.ink} halo={palette.background} size={item.size} />;
+    return out(<Label x={box.x} y={box.y} text={text} opacity={shown} rise={rise} scale={scale} color={palette.ink} halo={palette.background} size={item.size} />);
   };
 
   const highlights = primitive.highlights.map((highlight, index) => {
@@ -243,12 +278,13 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
       const d = path(feature) ?? '';
       const color = highlight.color ?? accent;
       const disputed = highlight.entity.startsWith('disputed:');
-      if (highlight.style === 'trace') {
+      const isLine = feature.geometry.type === 'LineString' || feature.geometry.type === 'MultiLineString';
+      if (highlight.style === 'trace' || isLine) {
         const progress = interpolate(frame, [highlight.at * durationInFrames, (highlight.at + TRACE_SHARE) * durationInFrames], [0, 1], clamp);
         const {strokeDasharray, strokeDashoffset} = evolvePath(progress, d);
         return <g key={index}>
-          <path d={d} fill={color} opacity={.22 * progress} />
-          <path d={d} fill="none" stroke={color} strokeWidth={7} strokeLinejoin="round" strokeDasharray={strokeDasharray} strokeDashoffset={strokeDashoffset} style={{filter: glow(10, color)}} />
+          {isLine ? null : <path d={d} fill={color} opacity={.22 * progress} />}
+          <path d={d} fill="none" stroke={color} strokeWidth={isLine ? 6 : 7} strokeLinejoin="round" strokeDasharray={strokeDasharray} strokeDashoffset={strokeDashoffset} style={{filter: glow(10, color)}} />
         </g>;
       }
       const shown = appear(highlight.at);
@@ -259,6 +295,26 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
       const ring = disputed ? null : ripple(frame, start);
       const [cx, cy] = ring ? path.centroid(feature) : [NaN, NaN];
       const lit = highlight.style === 'fill' ? Math.min(1, .85 * shown + .15 * flash(frame, start)) : .85 * shown;
+      // A place only a few pixels wide (the Maldives, the Vatican) gets a pulsing ring, so the viewer can find it.
+      // (For a small place of several parts, such as an atoll chain, each small part gets one.)
+      const smallPlace = styled && !disputed && shown > 0 && Math.abs(path.area(feature)) < 2500;
+      const locator = smallPlace ? (() => {
+        const parts = feature.geometry.type === 'MultiPolygon' ? feature.geometry.coordinates.map((coordinates) => ({type: 'Polygon' as const, coordinates})) : [feature.geometry];
+        const pulse = 1 + .18 * Math.sin((frame - start) / 6);
+        const lookColor = look.subject.from;
+        const rings = parts.flatMap((part) => {
+          const [[x0, y0], [x1, y1]] = path.bounds(part);
+          const [lx, ly] = path.centroid(part);
+          return Number.isFinite(lx) && Number.isFinite(x0) && Math.max(x1 - x0, y1 - y0) < 40 && lx > 0 && lx < SIZE.width && ly > 0 && ly < SIZE.height ? [[lx, ly] as const] : [];
+        }).slice(0, 16);
+        return <g opacity={shown}>{rings.map(([lx, ly], ringIndex) => <g key={ringIndex}>
+          <circle cx={lx} cy={ly} r={30 * pulse} fill="none" stroke={lookColor} strokeWidth={5} strokeOpacity={.95} style={{filter: glow(12, lookColor)}} />
+          <circle cx={lx} cy={ly} r={50 * pulse} fill="none" stroke={lookColor} strokeWidth={2.5} strokeOpacity={.45} />
+          <circle cx={lx} cy={ly} r={4} fill={lookColor} />
+        </g>)}</g>;
+      })() : null;
+      // A fill that floods the whole viewport (the camera is inside the place) is only a faint wash with a rim.
+      const floods = styled && Math.abs(path.area(feature)) > 1.3 * SIZE.width * SIZE.height;
       if (styled && highlight.style === 'fill' && !disputed) {
         // A slab: the shape stacked a few px lower in a darker colour, then a gradient face and a bright rim.
         const id = `geo-subject-${index}`;
@@ -267,11 +323,13 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
             <path id={`${id}-shape`} d={d} />
             <linearGradient id={id} x1="0" y1="0" x2="1" y2="1"><stop offset="0" stopColor={look.subject.from} /><stop offset="1" stopColor={look.subject.to} /></linearGradient>
           </defs>
-          {Array.from({length: look.subject.depth}, (_, step) => <use key={step} href={`#${id}-shape`} transform={`translate(0 ${(step + 1) * 1.5 * shown})`} fill={look.subject.side} opacity={shown} />)}
+          {/* Land stands on a slab; water doesn't (a lifted sea makes no sense). */}
+          {Array.from({length: floods || highlight.entity.startsWith('water:') || highlight.entity.startsWith('lake:') ? 0 : look.subject.depth}, (_, step) => <use key={step} href={`#${id}-shape`} transform={`translate(0 ${(step + 1) * 1.5 * shown})`} fill={look.subject.side} opacity={shown} />)}
           <g style={{filter: glow(look.subject.glow * shown, look.subject.from)}}>
-            <use href={`#${id}-shape`} fill={`url(#${id})`} fillOpacity={Math.min(1, shown + .15 * flash(frame, start))} stroke={look.subject.rim} strokeOpacity={.9 * shown} strokeWidth={2.6 * border} strokeLinejoin="round" />
+            <use href={`#${id}-shape`} fill={`url(#${id})`} fillOpacity={floods ? .2 * shown : Math.min(1, shown + .15 * flash(frame, start))} stroke={look.subject.rim} strokeOpacity={.9 * shown} strokeWidth={2.6 * border} strokeLinejoin="round" />
           </g>
           {ring && Number.isFinite(cx) && Number.isFinite(cy) ? <circle cx={cx} cy={cy} r={ring.radius} fill="none" stroke={look.subject.rim} strokeOpacity={ring.opacity * outro} strokeWidth={ring.width} /> : null}
+          {locator}
         </g>;
       }
       return <g key={index}>
@@ -279,6 +337,7 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
           stroke={color} strokeOpacity={shown} strokeWidth={(highlight.style === 'outline' ? 6 : 3) * border} strokeLinejoin="round" style={{filter: glow(14 * shown, color)}} />
         {highlight.style === 'outline' && !disputed && shown > .99 ? <path d={d} fill="none" stroke={palette.ink} strokeOpacity={.5} strokeWidth={2.5} strokeLinejoin="round" strokeDasharray={`${MARCH.dash} ${MARCH.gap}`} strokeDashoffset={marchOffset(frame)} /> : null}
         {ring && Number.isFinite(cx) && Number.isFinite(cy) ? <circle cx={cx} cy={cy} r={ring.radius} fill="none" stroke={color} strokeOpacity={ring.opacity * outro} strokeWidth={ring.width} /> : null}
+        {locator}
       </g>;
     });
   // Routes go underneath, so labels and markers on their stops stay readable.
@@ -310,8 +369,8 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
       }
       if (annotation.type === 'arrow') {
         // Measured from where the anchors are drawn (labels are kept inside the frame).
-        const from = keepInside(point(anchorLonLat(annotation.from, data)));
-        const to = keepInside(point(anchorLonLat(annotation.to, data)));
+        const from = keepIn(point(anchorLonLat(annotation.from, data)));
+        const to = keepIn(point(anchorLonLat(annotation.to, data)));
         // A gentle upward arc (away from the caption) that leaves room at both ends:
         // the start clears any label on its anchor, the end stops short of the target.
         const [dx, dy] = [to[0] - from[0], to[1] - from[1]];
@@ -338,7 +397,7 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
         const progress = interpolate(frame, [annotation.at * durationInFrames, annotation.at * durationInFrames + 20], [0, 1], clamp);
         const {strokeDasharray, strokeDashoffset} = evolvePath(progress, d);
         const angle = Math.atan2(end[1] - control[1], end[0] - control[0]) * 180 / Math.PI;
-        const [lx, ly] = keepInside([control[0], control[1] - 34]);
+        const [lx, ly] = keepIn([control[0], control[1] - 34]);
         return <g key={index}>
           <path d={d} fill="none" stroke={palette.ink} strokeWidth={8} strokeLinecap="round" strokeDasharray={strokeDasharray} strokeDashoffset={strokeDashoffset} />
           <polygon points="0,-16 30,0 0,16" fill={palette.ink} opacity={progress > .95 ? 1 : 0} transform={`translate(${end[0]} ${end[1]}) rotate(${angle})`} />
@@ -347,7 +406,7 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
       }
       const projected = point(anchorLonLat(annotation.anchor, data));
       if (farOffFrame(projected)) return null;
-      const [x, y] = keepInside(projected);
+      const [x, y] = keepIn(projected);
       if (annotation.type === 'marker') {
         const pulse = 1 + .35 * Math.abs(Math.sin((frame - annotation.at * durationInFrames) / 8));
         const grow = springIn(annotation.at);
@@ -375,11 +434,20 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
   const dataFills = primitive.data && dataRange ? primitive.data.values.map(({entity, value}) => {
     const feature = data.features.get(entity);
     if (!feature) throw new Error(`Unknown geo entity ${entity}`);
+    // In a bars view the compared places are tinted to match their bars: the subject lit, the rest muted.
+    if (primitive.data!.view === 'bars') {
+      const subjectPlace = entity === manifest.subject.attributes?.geoEntity;
+      return <path key={`data-${entity}`} d={path(feature) ?? ''} fill={subjectPlace ? (styled ? look.subject.from : accent) : (styled ? look.subject.side : palette.ink)} fillOpacity={dataShown * (subjectPlace ? .9 : .38)} />;
+    }
     return <path key={`data-${entity}`} d={path(feature) ?? ''} fill={accent} fillOpacity={dataShown * shade(value, dataRange)} />;
   }) : null;
-  const legend = primitive.data?.legend && dataRange
+  const legend = primitive.data?.legend && dataRange && primitive.data.view !== 'bars'
     ? <DataLegend label={primitive.data.label} unit={primitive.data.unit} range={dataRange} accent={accent} ink={palette.ink} backdrop={palette.background} opacity={dataShown} />
     : null;
+
+  const bars = barsOn && primitive.data ? <DataBars label={primitive.data.label + (primitive.data.unit && !/per/i.test(primitive.data.label) ? ` (${primitive.data.unit})` : '')}
+    rows={primitive.data.values.map(({entity, value}) => ({id: entity, name: data.entities.get(entity)?.name ?? entity, value, subject: entity === manifest.subject.attributes?.geoEntity}))}
+    frame={frame} startFrame={barsStart} fps={manifest.format.fps} width={SIZE.width} height={SIZE.height} accent={styled ? look.subject.from : accent} ink={styled && look.chip ? look.chip.text : palette.ink} backdrop={styled && look.chip ? look.chip.fill : palette.background} muted={styled ? look.subject.side : palette.ink} /> : null;
 
   const baseLayers = <>
     <defs>
@@ -395,6 +463,52 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
       {data.countries.filter((feature) => onScreen(data.entities.get(String(feature.id))?.bbox)).map((feature) => <path key={String(feature.id)} d={path(feature) ?? ''} fill={palette.surface} stroke={palette.ink} strokeOpacity=".28" strokeWidth={1.2} />)}
     </g>
   </>;
+
+  if (globe) {
+    // A planet in space: stars, an atmosphere, a sea sphere darkening toward its edge, then land and every layer on top.
+    const seaColor = look.name === 'classic' ? '#14304d' : look.sea.center;
+    const spaceColor = look.name === 'classic' ? '#04070d' : look.sea.edge;
+    const centreY = SIZE.height / 2 - barsShift;
+    let seed = 7;
+    const random = () => ((seed = (seed * 1664525 + 1013904223) % 4294967296) / 4294967296);
+    const stars = Array.from({length: 90}, () => ({x: random() * SIZE.width, y: random() * SIZE.height, r: 0.6 + random() * 1.6, o: 0.25 + random() * 0.6}));
+    const atmosphere = look.name === 'classic' ? accent : look.subject.from;
+    const gratPath = path(geoGraticule().step([15, 15])()) ?? '';
+    return <div style={{...frameStyle, background: spaceColor}}>
+      <svg width={SIZE.width} height={SIZE.height} viewBox={`0 0 ${SIZE.width} ${SIZE.height}`} style={{position: 'absolute', inset: 0}}>
+        <defs>
+          <pattern id="geo-hatch" width="14" height="14" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+            <rect width="14" height="14" fill={accent} opacity=".25" />
+            <line x1="0" y1="0" x2="0" y2="14" stroke={accent} strokeWidth="5" />
+          </pattern>
+          <radialGradient id="globe-sea" cx="38%" cy="32%" r="85%"><stop offset="0" stopColor={seaColor} /><stop offset="1" stopColor={spaceColor} /></radialGradient>
+          <radialGradient id="globe-limb" cx="40%" cy="34%" r="75%"><stop offset=".62" stopColor="#000" stopOpacity="0" /><stop offset="1" stopColor="#000" stopOpacity=".62" /></radialGradient>
+        </defs>
+        {stars.map((star, index) => <circle key={index} cx={star.x} cy={star.y} r={star.r} fill="#fff" opacity={star.o} />)}
+        <circle cx={SIZE.width / 2} cy={centreY} r={globeRadius * 1.025} fill="none" stroke={atmosphere} strokeOpacity={.4} strokeWidth={10} style={{filter: glow(26, atmosphere)}} />
+        <circle cx={SIZE.width / 2} cy={centreY} r={globeRadius} fill="url(#globe-sea)" />
+        <path d={gratPath} fill="none" stroke="#ffffff" strokeOpacity={.12} strokeWidth={1.2} />
+        <g>
+          {data.countries.map((feature) => <path key={String(feature.id)} d={path(feature) ?? ''} fill={look.name === 'classic' ? palette.surface : look.land[pickByHash(String(feature.id), look.land.length)]} stroke={look.name === 'classic' ? palette.ink : look.border.color} strokeOpacity={look.name === 'classic' ? .3 : look.border.opacity} strokeWidth={1} strokeLinejoin="round" />)}
+        </g>
+        {adminVisibility(globeRadius) > 0 && styled ? <g fill="none" stroke={look.water.admin} strokeOpacity={look.water.adminOpacity * adminVisibility(globeRadius)} strokeWidth={1}>
+          {data.admin1.map((feature) => <path key={String(feature.id)} d={path(feature) ?? ''} />)}
+        </g> : null}
+        {styled ? <g fill="none" stroke={look.water.river} strokeOpacity={.8} strokeLinecap="round" strokeWidth={1.4}>
+          {data.rivers.filter((feature) => (feature.properties as {rank: number}).rank <= maxRiverRank(globeRadius)).map((feature) => <path key={String(feature.id)} d={path(feature) ?? ''} />)}
+        </g> : null}
+        <circle cx={SIZE.width / 2} cy={centreY} r={globeRadius} fill="url(#globe-limb)" />
+        <g opacity={outro}>
+          {dataFills}
+          {highlights}
+          {annotations}
+          {pointTexts}
+          {legend}
+          {bars}
+        </g>
+      </svg>
+    </div>;
+  }
 
   if (styled) {
     const shimmerX = ((frame * 4) % (SIZE.width * 2.4)) - SIZE.width * 0.7;
@@ -415,17 +529,34 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
       <g filter="url(#geo-land-shadow)">
         {data.countries.filter((feature) => onScreen(data.entities.get(String(feature.id))?.bbox)).map((feature) => <path key={String(feature.id)} d={path(feature) ?? ''} fill={look.land[pickByHash(String(feature.id), look.land.length)]} stroke={look.border.color} strokeOpacity={look.border.opacity} strokeWidth={look.border.width} strokeLinejoin="round" />)}
       </g>
+      {adminVisibility(view.scale) > 0 ? <g fill="none" stroke={look.water.admin} strokeOpacity={look.water.adminOpacity * adminVisibility(view.scale)} strokeWidth={1.1} strokeLinejoin="round">
+        {data.admin1.filter((feature) => onScreen(data.entities.get(String(feature.id))?.bbox)).map((feature) => <path key={String(feature.id)} d={path(feature) ?? ''} />)}
+      </g> : null}
+      <g fill={look.water.lake} stroke={look.border.color} strokeOpacity={.25} strokeWidth={1}>
+        {data.lakes.filter((feature) => (feature.properties as {rank: number}).rank <= maxLakeRank(view.scale) && onScreen(data.entities.get(String(feature.id))?.bbox)).map((feature) => <path key={String(feature.id)} d={path(feature) ?? ''} />)}
+      </g>
+      <g fill="none" stroke={look.water.river} strokeOpacity={.85} strokeLinecap="round" strokeLinejoin="round" strokeWidth={Math.max(1.3, Math.min(3.4, 1 + view.scale / 1800))}>
+        {data.rivers.filter((feature) => (feature.properties as {rank: number}).rank <= maxRiverRank(view.scale) && onScreen(data.entities.get(String(feature.id))?.bbox)).map((feature) => <path key={String(feature.id)} d={path(feature) ?? ''} />)}
+      </g>
       <g opacity={outro}>
         {dataFills}
         {highlights}
-        {annotations}
-        {pointTexts}
-        {legend}
       </g>
     </svg>;
+    const reliefStrength = primitive.relief ? RELIEF_STRENGTH * reliefFade : look.relief;
+    const labelLayer = <svg width={SIZE.width} height={SIZE.height} viewBox={`0 0 ${SIZE.width} ${SIZE.height}`} style={{position: 'absolute', inset: 0}}>
+      <g opacity={outro}>{annotations}</g>
+    </svg>;
     return <div style={{...frameStyle, perspective: 1500, background: look.sea.edge}}>
-      <div style={{position: 'absolute', inset: 0, transform: `rotateX(${look.tilt.degrees}deg) scale(${look.tilt.scale})`, transformOrigin: `50% ${look.tilt.originY}%`}}>{stage}</div>
+      <div style={{position: 'absolute', inset: 0, transform: `rotateX(${look.tilt.degrees}deg) scale(${look.tilt.scale})`, transformOrigin: `50% ${look.tilt.originY}%`, isolation: 'isolate'}}>
+        {stage}
+        {relief && reliefStrength > 0 ? <div style={{position: 'absolute', inset: 0, mixBlendMode: 'soft-light', opacity: reliefStrength}}>
+          {reliefPlacements(relief, view).map((placement) => <Img key={placement.key} src={staticFile(`geo/relief/${placement.file}`)} style={{position: 'absolute', left: placement.left, top: placement.top, width: placement.width, height: placement.height, maxWidth: 'none'}} />)}
+        </div> : null}
+        {labelLayer}
+      </div>
       {look.vignette > 0 ? <div style={{position: 'absolute', inset: 0, background: `radial-gradient(ellipse at 50% 48%, transparent 45%, rgba(0,0,0,${look.vignette}) 100%)`}} /> : null}
+      <svg width={SIZE.width} height={SIZE.height} viewBox={`0 0 ${SIZE.width} ${SIZE.height}`} style={{position: 'absolute', inset: 0}}><g opacity={outro}>{pointTexts}{flat}{legend}{bars}</g></svg>
     </div>;
   }
 
@@ -438,6 +569,7 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
     {annotations}
     {pointTexts}
     {legend}
+    {bars}
     </g>
   </svg>;
   }
@@ -453,7 +585,7 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
       {reliefPlacements(relief, view).map((placement) => <Img key={placement.key} src={staticFile(`geo/relief/${placement.file}`)} style={{position: 'absolute', left: placement.left, top: placement.top, width: placement.width, height: placement.height, maxWidth: 'none'}} />)}
     </div>
     <svg width={SIZE.width} height={SIZE.height} viewBox={`0 0 ${SIZE.width} ${SIZE.height}`} style={{position: 'absolute', inset: 0}}>
-      <g opacity={outro}>{annotations}{pointTexts}{legend}</g>
+      <g opacity={outro}>{annotations}{pointTexts}{legend}{bars}</g>
     </svg>
   </div>;
 };

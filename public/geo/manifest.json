@@ -15,6 +15,22 @@
         "url": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/v5.1.2/geojson/ne_50m_geography_marine_polys.geojson",
         "sha256": "6fe58083e0cc5c7fad9e396970e28a8580bbd8770cfa4d1d7b5a34423e912f97"
       },
+      "admin1": {
+        "url": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/v5.1.2/geojson/ne_50m_admin_1_states_provinces.geojson",
+        "sha256": "69a0e06e640b2d505858ae1cb63034e4677f3000b35a98e16312932b98c426b9"
+      },
+      "lakes": {
+        "url": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/v5.1.2/geojson/ne_10m_lakes.geojson",
+        "sha256": "2d036f53dedec578001c5c30c2959ee7d4eebc1306900fa4367c49929ec8f2d9"
+      },
+      "rivers": {
+        "url": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/v5.1.2/geojson/ne_10m_rivers_lake_centerlines.geojson",
+        "sha256": "bb854a900ecbd3b408df46d5e16e3e0f974ba55993f9d8b5c26e855273c0905a"
+      },
+      "places": {
+        "url": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/v5.1.2/geojson/ne_10m_populated_places_simple.geojson",
+        "sha256": "fd3fa867a320cbd5c5b6bb5bc550afeec2939fb2cef688e508007282a55ac42f"
+      },
       "disputed": {
         "url": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/v5.1.2/geojson/ne_50m_admin_0_breakaway_disputed_areas.geojson",
         "sha256": "e91f0f9518b24355ceec6668f4df874d6f39db7d0bc9ec22d9b14429bfb6be01"
@@ -23,8 +39,8 @@
   },
   "files": {
     "countries.geojson": {
-      "sha256": "61f9aa17fd1db0cf07e58aa7ca555685c438b703ed55df34c91ad7e0e827b065",
-      "bytes": 9122445
+      "sha256": "6da0a5d88242d7280a7e6774fb926753ce150d1cc5bef96e5d59268109e21996",
+      "bytes": 9130801
     },
     "water.geojson": {
       "sha256": "553408996e01341562e307fd3860515de288f24e1546af835073f69e08607164",
@@ -34,9 +50,21 @@
       "sha256": "829e4dd9e3e36853885e5859d704d0b42ffbd130d8eb37248b09e7eda1f9cd1d",
       "bytes": 37167
     },
+    "admin1.geojson": {
+      "sha256": "e3838b90dbde5839bec5d3917b2027d305ce6d2a9d9045cb91721a78852e6efa",
+      "bytes": 1191723
+    },
+    "lakes.geojson": {
+      "sha256": "b22424aca0efa3cd2740f8d978d773b862666d17adaf0217df9528d7a2155c91",
+      "bytes": 1329149
+    },
+    "rivers.geojson": {
+      "sha256": "709ce40d359faae2bd84df3998134b48f204c35d3456aa706faf3d553884a557",
+      "bytes": 1947375
+    },
     "entities.json": {
-      "sha256": "6666f99a9ec72a5b41f1b31484d1506abf53aaf9b11b60b3ce4d9d1839b9d378",
-      "bytes": 70986
+      "sha256": "1decfad2e4436099a37d391db24f6a036791bb0c9cb7a1949306325740db1a52",
+      "bytes": 308871
     }
   }
 }

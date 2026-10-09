@@ -15,9 +15,16 @@ export const NATURAL_EARTH = {
   layers: {
     countries: {file: 'ne_10m_admin_0_countries.geojson', sha256: '239eec57ac17f100a11e2536cffc56752c318b50ae765b0918ff7aab4ce8f255'},
     water: {file: 'ne_50m_geography_marine_polys.geojson', sha256: '6fe58083e0cc5c7fad9e396970e28a8580bbd8770cfa4d1d7b5a34423e912f97'},
+    admin1: {file: 'ne_50m_admin_1_states_provinces.geojson', sha256: '69a0e06e640b2d505858ae1cb63034e4677f3000b35a98e16312932b98c426b9'},
+    lakes: {file: 'ne_10m_lakes.geojson', sha256: '2d036f53dedec578001c5c30c2959ee7d4eebc1306900fa4367c49929ec8f2d9'},
+    rivers: {file: 'ne_10m_rivers_lake_centerlines.geojson', sha256: 'bb854a900ecbd3b408df46d5e16e3e0f974ba55993f9d8b5c26e855273c0905a'},
+    places: {file: 'ne_10m_populated_places_simple.geojson', sha256: 'fd3fa867a320cbd5c5b6bb5bc550afeec2939fb2cef688e508007282a55ac42f'},
     disputed: {file: 'ne_50m_admin_0_breakaway_disputed_areas.geojson', sha256: 'e91f0f9518b24355ceec6668f4df874d6f39db7d0bc9ec22d9b14429bfb6be01'},
   },
 };
+
+/** Mean Earth radius (km), for turning the geometry's area on the unit sphere into km². */
+const EARTH_RADIUS_KM = 6371.0088;
 
 export const sha256 = (data) => crypto.createHash('sha256').update(data).digest('hex');
 
@@ -99,6 +106,9 @@ export const slimCountries = (source) => featureCollection(source.features
       iso3: feature.properties.ISO_A3_EH === '-99' ? null : feature.properties.ISO_A3_EH,
       wikidata: feature.properties.WIKIDATAID ?? null,
       label: [feature.properties.LABEL_X, feature.properties.LABEL_Y],
+      // Natural Earth's own estimates (about 2019); the registry turns them into comparisons.
+      population: feature.properties.POP_EST > 0 ? feature.properties.POP_EST : null,
+      gdp: feature.properties.GDP_MD > 0 ? feature.properties.GDP_MD : null,
     },
     geometry: roundGeometry(feature.geometry, 3),
   }))
@@ -153,7 +163,7 @@ const concerns = (area, countryName) => {
  * disputed area carry `review` notes, so an episode touching them goes to a
  * person before publishing.
  */
-export const buildEntities = ({countries, water, disputed}) => {
+export const buildEntities = ({countries, water, disputed, extra = []}) => {
   const entities = [
     ...countries.features.map((feature) => {
       const bbox = bboxOf(feature.geometry);
@@ -161,6 +171,8 @@ export const buildEntities = ({countries, water, disputed}) => {
       const areas = disputed.features.filter((area) => overlaps(bbox, bboxOf(area.geometry)) && concerns(area, feature.properties.name));
       return {
         id: feature.id, kind: 'country', name: feature.properties.name, iso3: feature.properties.iso3, wikidata: feature.properties.wikidata,
+        // People (Natural Earth POP_EST), area in km² (computed from the pinned geometry) and GDP in millions of US dollars (GDP_MD).
+        ...(feature.properties.population ? {population: feature.properties.population} : {}), areaKm2: Math.round(geoArea(feature.geometry) * EARTH_RADIUS_KM ** 2), ...(feature.properties.gdp ? {gdp: feature.properties.gdp} : {}),
         bbox, ...(crossesAntimeridian(bbox) ? {crossesAntimeridian: true} : {}), ...(frame.join() === bbox.join() ? {} : {frame}), label: feature.properties.label, layer: 'countries',
         ...(areas.length ? {review: areas.map((area) => ({disputed: area.id, name: area.properties.name, note: area.properties.note}))} : {}),
       };
@@ -173,7 +185,7 @@ export const buildEntities = ({countries, water, disputed}) => {
       };
     }),
   ];
-  return entities.sort((a, b) => byText(a.id, b.id));
+  return [...entities, ...extra].sort((a, b) => byText(a.id, b.id));
 };
 
 /** Stable JSON: sorted input, fixed formatting, trailing newline, so assets hash the same on every machine. */

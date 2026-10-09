@@ -3,7 +3,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {describe, it} from 'node:test';
 import {fileURLToPath} from 'node:url';
-import {directGeoVisuals} from '../scripts/lib/geo-director.mjs';
+import {barRows, formatBar, panelHeight} from '../src/video/geo/DataBars';
+import {builtinDatasets, directGeoVisuals, mentionedPlaces, resolveResearchPlaces, shotShows} from '../scripts/lib/geo-director.mjs';
 import {loadGeoData} from '../scripts/lib/geo-primitives.mjs';
 import {mapDirectionProblems, mapVariety} from '../scripts/lib/map-variety.mjs';
 import {publishBlockers} from '../scripts/lib/publish-checks.mjs';
@@ -155,5 +156,117 @@ describe('map direction', () => {
     const worldly = {...manifest, scenes: manifest.scenes.map((scene: any) => ({...scene, primitive: {...scene.primitive, camera: [{target: 'world', at: 0}]}}))};
     assert.ok(mapDirectionProblems(worldly).length > 0);
     assert.ok(!publishBlockers(worldly, geo).some((blocker: string) => /whole-world/.test(blocker)));
+  });
+});
+
+describe('places the director may use', () => {
+  const rich = {draft: read('drafts/geographica/lesotho-enclave.json'), research: read('research/geographica/lesotho-enclave.json')};
+  const nile = (text: string) => mentionedPlaces(text, geo).map((entity: {id: string}) => entity.id).sort();
+
+  it('finds the rivers, lakes, states and cities a text names', () => {
+    assert.deepEqual(nile('The Nile flows north through Cairo and Khartoum.'), ['city:cairo-egy', 'city:khartoum-sdn', 'river:nile']);
+    assert.ok(nile('Russia sold Alaska in 1867.').includes('admin1:USA-3563'));
+    assert.deepEqual(nile('Lake Baikal holds a fifth of the fresh water.'), ['lake:lake-baikal']);
+  });
+
+  it('lets a longer name hide the shorter one inside it, and skips everyday words', () => {
+    assert.deepEqual(nile('The White Nile leaves Lake Victoria.'), ['lake:lake-victoria', 'river:white-nile']);
+    assert.deepEqual(nile('Back then, nobody knew.'), []);
+  });
+
+  it('offers a country its nearby rivers, lakes and cities, capitals and the biggest first, a few of each', () => {
+    const {places} = resolveResearchPlaces(read('research/geographica/nile-flows-north.json'), geo);
+    const kinds = [...places.values()].map((place: {kind: string}) => place.kind);
+    for (const kind of ['river', 'lake', 'city']) assert.ok(kinds.includes(kind), kind);
+    assert.ok(places.has('river:nile') && places.has('city:cairo-egy'));
+    assert.ok(kinds.filter((kind: string) => kind === 'city').length <= 10);
+  });
+
+  it('knows what a shot shows: highlighted, labelled, or framed (not just the whole world)', () => {
+    const place = {id: 'river:nile', bbox: [29, 22, 33, 31] as [number, number, number, number]};
+    const base = {kind: 'geo-map', camera: [{target: 'world', at: 0}], highlights: [], annotations: []} as any;
+    const boxes = new Map<string, [number, number, number, number]>();
+    assert.equal(shotShows(base, place, boxes), false);
+    assert.equal(shotShows({...base, highlights: [{entity: 'river:nile', style: 'trace', at: 0.2}]}, place, boxes), true);
+    assert.equal(shotShows({...base, annotations: [{type: 'label', anchor: 'river:nile', text: 'NILE', at: 0.3}]}, place, boxes), true);
+    assert.equal(shotShows({...base, camera: [{target: {bbox: [20, 15, 40, 35]}, at: 0}]}, place, boxes), true);
+    assert.equal(shotShows({...base, camera: [{target: {bbox: [60, 15, 80, 35]}, at: 0}]}, place, boxes), false);
+  });
+
+  it('asks again when a scene names a place its shot never shows', async () => {
+    const draft = {...rich.draft, scenes: rich.draft.scenes.map(({primitive, ...scene}: any) => scene)};
+    const names = (text: string) => ({...draft, scenes: draft.scenes.map((scene: any, index: number) => (index === 1 ? {...scene, narration: text} : scene))});
+    const monotone = (ids: string[]) => JSON.stringify({scenes: draft.scenes.map((scene: {id: string}, index: number) => ({id: scene.id, camera: [{target: index % 2 ? 'country:LSO' : 'world', at: 0}], highlights: [{entity: ids[index % ids.length], style: index % 3 ? 'fill' : 'outline', at: 0.2}], why: 'x'}))});
+    const calls: any[] = [];
+    const answers = [monotone(['country:LSO', 'country:ZAF']), monotone(['country:LSO', 'country:ZAF'])];
+    const result = await directGeoVisuals({draft: names('Lesotho sits inside South Africa, near Durban.'), research: rich.research, geo, complete: async (prompt: any) => { calls.push(prompt); return answers[Math.min(calls.length - 1, 1)]; }});
+    assert.ok(calls.length >= 2, 'a repair round happened');
+    assert.match(calls[1].messages.at(-1).content, /names Durban/);
+    assert.ok(result.unseenMentions.some((item: {places: string[]}) => item.places.includes('city:durban-zaf')));
+  });
+});
+
+describe('comparison datasets and the globe', () => {
+  const lesotho = {draft: read('drafts/geographica/lesotho-enclave.json'), research: read('research/geographica/lesotho-enclave.json')};
+  const undirected = {...lesotho.draft, scenes: lesotho.draft.scenes.map(({primitive, ...scene}: any) => scene)};
+
+  it('builds population, area and density from the pinned country data', () => {
+    const {places} = resolveResearchPlaces(read('research/geographica/mongolia-empty.json'), geo);
+    const datasets = builtinDatasets(places);
+    assert.deepEqual([...datasets.keys()], ['population', 'area', 'density']);
+    const density = Object.fromEntries(datasets.get('density')!.values.map(({entity, value}: {entity: string; value: number}) => [entity, value]));
+    assert.ok(density['country:MNG'] < 3 && density['country:CHN'] > 100, JSON.stringify(density));
+    // Rounded so they read as estimates.
+    for (const {value} of datasets.get('population')!.values) assert.ok(String(value).replace(/0+$/, '').length <= 4, String(value));
+  });
+
+  it('has no built-in datasets for a single country', () => {
+    const only = new Map([['country:LSO', {id: 'country:LSO', kind: 'country', name: 'Lesotho', population: 2e6, areaKm2: 30000}]]);
+    assert.equal(builtinDatasets(only as any).size, 0);
+  });
+
+  it('keeps a globe on the first and last scene only, and cuts where the projection changes', async () => {
+    const shot = (index: number) => ({camera: [{target: 'world', at: 0}, {target: 'country:LSO', at: 1}], highlights: [{entity: 'country:LSO', style: index % 2 ? 'fill' : 'outline', at: 0.3}], globe: true, why: 'x'});
+    const reply = JSON.stringify({scenes: undirected.scenes.map((scene: {id: string}, index: number) => ({id: scene.id, ...shot(index), camera: [{target: index % 2 ? 'country:ZAF' : 'country:LSO', at: 0}, {target: index % 3 ? 'country:LSO' : 'country:ZAF', at: 1}]}))});
+    const result = await directGeoVisuals({draft: undirected, research: lesotho.research, geo, complete: async () => reply});
+    const scenes = result.draft.scenes;
+    scenes.forEach((scene: any, index: number) => {
+      const edge = index === 0 || index === scenes.length - 1;
+      assert.equal(Boolean(scene.primitive.globe), edge, `scene ${index + 1}`);
+    });
+    // The first scene is a globe and the second is flat, so the second starts with a cut; the last is a globe again, so it cuts too.
+    assert.equal(scenes[1].primitive.cut, true);
+    assert.equal(scenes.at(-1).primitive.cut, true);
+    assert.equal(scenes[2].primitive.cut, undefined);
+  });
+});
+
+describe('bar chart', () => {
+  it('shows the longest bars and always keeps the subject', () => {
+    const rows = [...Array.from({length: 8}, (_, index) => ({id: `r${index}`, name: `R${index}`, value: 100 - index, subject: false})), {id: 's', name: 'S', value: 1, subject: true}];
+    const shown = barRows(rows);
+    assert.equal(shown.length, 5);
+    assert.ok(shown.some((row) => row.subject));
+    assert.deepEqual(shown.slice(0, 4).map((row) => row.id), ['r0', 'r1', 'r2', 'r3']);
+  });
+
+  it('prints big numbers compactly and counts up in the same style', () => {
+    assert.equal(formatBar(1_400_000_000, 1_400_000_000), '1.4B');
+    assert.equal(formatBar(144_000_000, 144_000_000), '144M');
+    assert.equal(formatBar(2.1, 2.1), '2.1');
+    assert.equal(formatBar(8.46, 8.5), '8.5');
+    assert.equal(formatBar(149.6, 150), '150');
+    assert.ok(panelHeight(4) < panelHeight(5));
+  });
+});
+
+describe('mentions that are not countries', () => {
+  const ids = (text: string) => mentionedPlaces(text, geo).map((entity: {id: string}) => entity.id).sort();
+  it('does not read New Guinea as Guinea, or a sea\'s name as the country in it', () => {
+    assert.ok(!ids('Indonesia shares the island of New Guinea.').includes('country:GIN'));
+    assert.ok(ids('Papua New Guinea is a country.').includes('country:PNG'));
+    assert.deepEqual(ids('Ships cross the Gulf of Mexico.'), []);
+    assert.ok(!ids('The Sea of Japan lies to the west.').includes('country:JPN'));
+    assert.deepEqual(ids('Guinea and Guinea-Bissau are neighbours.'), ['country:GIN', 'country:GNB']);
   });
 });
