@@ -40,6 +40,12 @@ An episode uses one projection so the camera flows between scenes (the globe ope
 
 It is only honest in an equal-area projection, so the schema refuses it unless the shot's projection is `albers` or `equal-earth` (and not a globe); the director sets Albers for an episode that uses one, even near the equator. The moving place is an outline-bearing one (country, state or lake); it can land on a country, state, lake or city. The director frames both where the place is and where it lands, and does not also highlight or label the place that is moving. This is the second documented exception to "never move a place", beside plate reconstructions.
 
+## Distance rings
+
+`{"type": "ring", "center": "country:GIB", "radiusKm": 14.2, "text": "14.2 KM"}` draws a true circle of that radius around a place or a named point, growing out from the centre and drawn on the sphere (`geoCircle`), so it is correct in any projection (roundest in azimuthal). Its text sits on the east edge, and is left off while the ring is under about 34 px on screen, so a label never floats over nothing.
+
+The radius is a claim, so the director only draws a ring with a figure the research states. Narration rounds ("14 kilometres" for 14.2), so the check also accepts the whole-number rounding of a research figure. The director frames the whole ring and at most two are drawn in a scene. It suits distances from a place and two shores a short way apart (a ring from one shore that reaches the other).
+
 ## Map layers
 
 Natural Earth (public domain, pinned in `public/geo/manifest.json`) provides, besides the countries and seas:

@@ -45,6 +45,10 @@ const geoAnnotation = z.discriminatedUnion('type', [
   // (millions of years ago), drifting to where they are at age `to` (default today) while the place in `fixed` (default
   // South Africa, so Africa) stays put. The map shows an age counter. Positions come only from the pinned model.
   z.object({type: z.literal('reconstruction'), entities: z.array(geoEntity).min(1).max(2), fixed: geoEntity.default('country:ZAF'), from: z.number().min(1).max(230), to: z.number().min(0).max(230).default(0), at: moment.default(0), until: moment.optional(), text: label.optional()}).strict(),
+  // A distance ring: a true circle of `radiusKm` around `center` (a place or a named point), drawn on the sphere so it is
+  // right in any projection (roundest in azimuthal). It grows from the centre at `at`; its text sits on the ring's east edge.
+  // The radius is a claim, so the director only draws one the research states.
+  z.object({type: z.literal('ring'), center: anchor, radiusKm: z.number().min(0.1).max(20000), text: label.optional(), at: moment.default(0), until: moment.optional()}).strict(),
   // A true-size comparison: a copy of `entity` slides across the map onto `onto` (rotated on the sphere, so its area and
   // shape stay exact) from `at` to `until`, to show how big one place is against another. Only meaningful in an equal-area
   // projection (albers or equal-earth), which the schema requires; the map says the place was moved.

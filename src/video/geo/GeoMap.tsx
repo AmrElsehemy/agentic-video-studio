@@ -1,5 +1,5 @@
 import React, {useMemo} from 'react';
-import {geoCentroid, geoDistance, geoGraticule, geoOrthographic, geoPath, type GeoProjection} from 'd3-geo';
+import {geoCentroid, geoCircle, geoDistance, geoGraticule, geoOrthographic, geoPath, type GeoProjection} from 'd3-geo';
 import {evolvePath} from '@remotion/paths';
 import {Img, interpolate, staticFile} from 'remotion';
 import {paletteMode} from '../../../scripts/lib/palette.mjs';
@@ -16,6 +16,7 @@ import {barRows, DataBars, PANEL_FRAMES, panelHeight} from './DataBars';
 import {TIMELINE_HEIGHT, TimelineStrip} from './TimelineStrip';
 import {reconstruction, rotateGeometry} from '../../../scripts/lib/plates.mjs';
 import {partialRotation, trueSizeRotation} from '../../../scripts/lib/true-size.mjs';
+import {destination, kmToDegrees} from '../../../scripts/lib/geodesy.mjs';
 import {hasSphereOutline, makeProjection, type ProjectionKind} from './projections';
 import {adminVisibility, lookOf, maxLakeRank, maxRiverRank, pickByHash, tiltPoint} from './look';
 import {blurSamples, shutterFor, viewShift} from './blur';
@@ -47,6 +48,10 @@ const slideShare = (annotation: Extract<GeoMapPrimitive['annotations'][number], 
   const raw = Math.max(0, Math.min(1, (t - annotation.at) / Math.max(.05, end - annotation.at)));
   return raw < .5 ? 2 * raw * raw : 1 - (-2 * raw + 2) ** 2 / 2;
 };
+/** Frames a distance ring takes to grow from its centre. */
+const RING_FRAMES = 26;
+/** A ring smaller than this on screen (px of radius) is a dot: its label is left off, so it never floats with nothing to point at. */
+const MIN_RING_LABEL_RADIUS = 34;
 /** The age counter's words. */
 const ageText = (age: number) => (Math.round(age) <= 0 ? 'TODAY' : `${Math.round(age)} MILLION YEARS AGO`);
 
@@ -275,6 +280,18 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
       texts.set(index, {box: fitInside(labelBox(x, y, annotation.text, LABEL_SIZE), bounds), anchorY: screen[1], priority: annotation.at, opacity: appear(annotation.at + LINE_FRAMES / 2 / durationInFrames, 14) * vanish(annotation.until), size: LABEL_SIZE});
       return;
     }
+    if (annotation.type === 'ring') {
+      if (!annotation.text) return;
+      // The text sits on the ring's east edge, while the ring is big enough on screen to be a ring.
+      const ringCentre = anchorLonLat(annotation.center, data);
+      const projected = point(destination(ringCentre, annotation.radiusKm, 90));
+      const [rcx, rcy] = point(ringCentre);
+      if (farOffFrame(projected) || Math.hypot(projected[0] - rcx, projected[1] - rcy) < MIN_RING_LABEL_RADIUS) return;
+      const screen = toScreen(projected);
+      const [x, y] = keepIn(screen);
+      texts.set(index, {box: fitInside(labelBox(x, y, annotation.text, LABEL_SIZE), bounds), anchorY: screen[1], priority: annotation.at, opacity: appear(annotation.at + RING_FRAMES / 2 / durationInFrames, 14) * vanish(annotation.until), size: LABEL_SIZE});
+      return;
+    }
     if (annotation.type === 'timeline' || annotation.type === 'reconstruction' || annotation.type === 'truesize') return;
     if (annotation.type === 'arrow' || !annotation.text) return;
     if (annotation.type === 'route') {
@@ -468,6 +485,24 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
       }
       // A timeline is drawn as the flat strip (see `timeline`), not on the map.
       if (annotation.type === 'timeline') return null;
+      if (annotation.type === 'ring') {
+        if (t < annotation.at) return null;
+        const centre = anchorLonLat(annotation.center, data);
+        const raw = interpolate(frame, [annotation.at * durationInFrames, annotation.at * durationInFrames + RING_FRAMES], [0, 1], clamp);
+        const grow = 1 - (1 - raw) ** 3;
+        if (grow < .01) return null;
+        const circle = geoCircle().center(centre).radius(kmToDegrees(annotation.radiusKm * grow)).precision(1)();
+        const d = path(circle) ?? '';
+        const colour = styled ? look.subject.from : accent;
+        const core = styled ? look.subject.rim : palette.ink;
+        const [cx, cy] = point(centre);
+        return <g key={index} opacity={vanish(annotation.until)}>
+          <path d={d} fill={colour} fillOpacity={.14} />
+          <path d={d} fill="none" stroke={colour} strokeWidth={7} strokeLinejoin="round" style={{filter: glow(12, colour)}} />
+          <path d={d} fill="none" stroke={core} strokeOpacity={.85} strokeWidth={2.4} strokeLinejoin="round" />
+          <circle cx={cx} cy={cy} r={8} fill={core} stroke={colour} strokeWidth={3} />
+        </g>;
+      }
       if (annotation.type === 'truesize') {
         if (t < annotation.at) return null;
         const home = data.features.get(annotation.entity);
@@ -520,6 +555,9 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
     });
   // Label and marker text on top of every route and marker, so none is drawn over.
   const pointTexts = primitive.annotations.map((annotation, index) => {
+    if (annotation.type === 'ring') {
+      return annotation.text ? <React.Fragment key={`text-${index}`}>{textOf(index, annotation.text, appear(annotation.at + RING_FRAMES / 2 / durationInFrames, 14) * vanish(annotation.until))}</React.Fragment> : null;
+    }
     if (annotation.type === 'truesize') {
       // Say that the copy was moved, so the comparison is honest: a chip along the top of the map.
       if (t < annotation.at) return null;

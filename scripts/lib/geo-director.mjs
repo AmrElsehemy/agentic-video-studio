@@ -13,6 +13,7 @@ import {geoProblems, loadGeoData} from './geo-primitives.mjs';
 import {resolvePlaces} from './geo-resolver.mjs';
 import {mapDirectionProblems, mapVariety} from './map-variety.mjs';
 import {reconstruction, rotatePoint} from './plates.mjs';
+import {kmToDegrees} from './geodesy.mjs';
 import {styleGuideSection} from './shows.mjs';
 
 /** Degrees framed around a named point when the camera targets it. */
@@ -27,9 +28,12 @@ const NUMBER_WORDS = {one: 1, two: 2, three: 3, four: 4, five: 5, six: 6, seven:
 /** Small numbers a claim spells out ("ten countries" states 10). */
 const wordNumbers = (text) => [...String(text).toLowerCase().matchAll(/\b(one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve)\b/g)].map((match) => NUMBER_WORDS[match[1]]);
 
-/** Every number the research states: in its claims (digits or small number words), and its datasets' values (#91). */
+/** A figure and the whole number it rounds to: narration rounds ("14 kilometres" for 14.2), and rounding a stated figure is honest. */
+const withRounded = (value) => (Number.isInteger(value) ? [value] : [value, Math.round(value)]);
+
+/** Every number the research states: in its claims (digits or small number words, and what each rounds to), and its datasets' values (#91). */
 export const geoResearchNumbers = (research) => new Set([
-  ...research.claims.flatMap((claim) => [...textNumbers(claim.text), ...wordNumbers(claim.text)]),
+  ...research.claims.flatMap((claim) => [...textNumbers(claim.text), ...wordNumbers(claim.text)].flatMap(withRounded)),
   ...Object.values(research.datasets ?? {}).flatMap((dataset) => Object.values(dataset.values)),
 ]);
 
@@ -242,6 +246,11 @@ export const shotToPrimitive = (shot, {places, research, datasets = new Map()}) 
       if (!stated.has(number)) throw new Error(`${where}: "${annotation.text}" states ${number}, which is not in the research`);
     }
     if (annotation?.type === 'line') return annotation;
+    if (annotation?.type === 'ring') {
+      // The radius is a claim: it must be a number the research states.
+      if (!numbers.has(annotation.radiusKm)) throw new Error(`${where}: the ring's radius ${annotation.radiusKm} km is not a number in the research`);
+      return {...annotation, center: anchor(annotation.center, `${where}.center`)};
+    }
     if (annotation?.type === 'truesize') return {...annotation, entity: placeId(annotation.entity, `${where}.entity`), onto: placeId(annotation.onto, `${where}.onto`)};
     if (annotation?.type === 'reconstruction') {
       const entities = (Array.isArray(annotation.entities) ? annotation.entities : []).map((id, at) => placeId(id, `${where}.entities[${at}]`));
@@ -301,7 +310,7 @@ export const sceneMentions = (scene, places, geo) => mentionedPlaces(`${scene.he
 export const shotShows = (primitive, place, boxes) => {
   const id = place.id;
   if (primitive.highlights.some((highlight) => highlight.entity === id)) return true;
-  if (primitive.annotations.some((annotation) => [annotation.anchor, annotation.from, annotation.to, ...(annotation.path ?? []), ...(annotation.entities ?? []), annotation.entity, annotation.onto].includes(id))) return true;
+  if (primitive.annotations.some((annotation) => [annotation.anchor, annotation.from, annotation.to, annotation.center, ...(annotation.path ?? []), ...(annotation.entities ?? []), annotation.entity, annotation.onto].includes(id))) return true;
   if ((primitive.data?.values ?? []).some(({entity}) => entity === id)) return true;
   const centre = centreOf(place.bbox);
   return primitive.camera.some((key) => {
@@ -347,7 +356,7 @@ export const offFramePlaces = (primitive, places, boxes) => {
     if (place?.bbox && place.bbox[0] <= place.bbox[2] && !overlaps(place.bbox, seenAt(highlight.at ?? 0))) missing.set(place.id, place);
   }
   for (const annotation of primitive.annotations) {
-    for (const id of [annotation.anchor, annotation.from, annotation.to, ...(annotation.path ?? [])]) {
+    for (const id of [annotation.anchor, annotation.from, annotation.to, annotation.center, ...(annotation.path ?? [])]) {
       const place = typeof id === 'string' ? places.get(id) : undefined;
       if (!place?.bbox || place.bbox[0] > place.bbox[2]) continue;
       const point = place.label ?? centreOf(place.bbox);
@@ -375,6 +384,7 @@ export const describeShot = (primitive, places, boxes) => {
     else if (annotation.type === 'arrow') parts.push(`arrow: ${typeof annotation.from === 'string' ? nameOf(annotation.from, places) : 'a point'} → ${typeof annotation.to === 'string' ? nameOf(annotation.to, places) : 'a point'}${annotation.text ? ` "${annotation.text}"` : ''}`);
     else if (annotation.type === 'route') parts.push(`route: ${annotation.path.map((stop) => (typeof stop === 'string' ? nameOf(stop, places) : 'a point')).join(' → ')}`);
     else if (annotation.type === 'line') parts.push(`${annotation.kind} line at ${annotation.degrees}°${annotation.text ? ` "${annotation.text}"` : ''}`);
+    else if (annotation.type === 'ring') parts.push(`distance ring: ${annotation.radiusKm} km around ${typeof annotation.center === 'string' ? nameOf(annotation.center, places) : 'a point'}${annotation.text ? ` "${annotation.text}"` : ''}`);
     else if (annotation.type === 'truesize') parts.push(`true-size comparison: a copy of ${nameOf(annotation.entity, places)} slides onto ${nameOf(annotation.onto, places)} at its real size, with a note that it was moved and a dashed outline of its real position`);
     else if (annotation.type === 'reconstruction') parts.push(`reconstruction: ${annotation.entities.map((id) => nameOf(id, places)).join(', ')} drifting from ${annotation.from} million years ago to ${annotation.to ? `${annotation.to} million years ago` : 'today'}, with ${nameOf(annotation.fixed, places)} held still, an age counter and a dashed outline of the final position`);
     else if (annotation.type === 'timeline') parts.push(`timeline: ${annotation.steps.map((step, index) => `${index === annotation.active ? '[' : ''}${step.label}${index === annotation.active ? ']' : ''}`).join(' · ')}`);
@@ -515,6 +525,25 @@ export const chooseProjection = (place) => {
   return lat <= 30 ? 'mercator' : lat <= 75 ? 'albers' : 'azimuthal';
 };
 
+/** The box a distance ring covers: its centre plus its radius each way (wider in longitude away from the equator). */
+const ringBox = (annotation, places) => {
+  const centre = typeof annotation.center === 'string' ? (places.get(annotation.center)?.label ?? (places.get(annotation.center)?.bbox ? centreOf(places.get(annotation.center).bbox) : null)) : [annotation.center.lon, annotation.center.lat];
+  if (!centre) return null;
+  const half = kmToDegrees(annotation.radiusKm);
+  const wide = half / Math.max(0.2, Math.cos((centre[1] * Math.PI) / 180));
+  return [centre[0] - wide, centre[1] - half, centre[0] + wide, centre[1] + half];
+};
+
+/** The distance rings the camera never frames whole (at least RIVER_FRAMED_SHARE of the ring's box in one framing). */
+export const unframedRings = (primitive, places, boxes) => {
+  const frames = primitive.camera.map((key) => (key.target === 'world' ? 'world' : typeof key.target === 'string' ? boxes.get(key.target) : key.target.bbox));
+  if (frames.includes('world') || frames.some((frame) => !frame || frame[0] > frame[2])) return [];
+  return primitive.annotations.filter((annotation) => annotation.type === 'ring').filter((annotation) => {
+    const box = ringBox(annotation, places);
+    return box && area(box) > 0 && !frames.some((frame) => area(intersection(box, frame)) / area(box) >= RIVER_FRAMED_SHARE);
+  });
+};
+
 /** The shot a scene gets when the model gives none, or an invalid one: the subject, filled and named. */
 export const defaultShot = (subject) => primitiveSchema.parse({
   kind: 'geo-map',
@@ -532,6 +561,7 @@ A shot is JSON:
  "camera": [{"target": T, "at": 0, "padding": 0.15}, ...],   // 1-4 keyframes; at = fraction of the scene, first at 0, then increasing
  "highlights": [{"entity": "<place id>", "style": "fill" | "outline" | "trace", "at": 0.3}],   // up to 4
  "annotations": [{"type": "label" | "marker", "anchor": A, "text": "SHORT CAPS", "at": 0.5, "until": 0.9},
+                 {"type": "ring", "center": A, "radiusKm": 14, "text": "14 KM", "at": 0.3},
                  {"type": "truesize", "entity": "<place id>", "onto": "<place id>", "at": 0.2, "until": 0.6},
                  {"type": "reconstruction", "entities": ["country:MDG"], "fixed": "country:ZAF", "from": 180, "to": 0, "at": 0.1, "until": 0.9},
                  {"type": "timeline", "steps": [{"label": "180 MYA", "detail": "AFRICA"}, ...], "active": 0, "at": 0.3},
@@ -556,6 +586,7 @@ Rules:
 - "globe": true draws the map on a globe that spins between the camera framings: a dramatic opening or closing. Use it on the first scene (a planet turning to the place) and, if it suits, the last; never in between, because the map changes from globe to flat map with a cut.
 - "relief": true adds shaded relief (mountains and valleys) under the map. Use it when the narration is about terrain or altitude: mountains, highlands, plateaus, valleys.
 - "data" shows one of the datasets listed below. Use it when the narration compares places by a number (heights, sizes, populations, how crowded or empty a place is). Name the dataset only; its values come from the research or the map data. "view": "map" shades the places with a legend; "bars" shows a ranked bar chart of them beside the map (the clearest way to compare sizes or populations: use it at least once in an episode that compares places); "both" does both. Frame the places the dataset covers.
+- A "ring" draws a true circle of "radiusKm" around "center" (a place id or a named point), growing out from the centre, with its text on the ring's east edge. Use it when the narration is about a DISTANCE from a place: "within 14 kilometres", "400 kilometres of water", "farthest from the sea", or two shores a short way apart (a ring from one shore that reaches the other shows how close they are). The radius must be a number the research states (it is checked); the text may say it. Frame the whole ring. At most two rings in a scene.
 - A "truesize" copies the place "entity" (a country, state or lake) and slides the copy onto the place "onto" (a country, state, lake or city), rotated on the sphere so its size and shape stay exactly true, to show how big one place is against another. Use it when the narration compares AREA: "as big as", "larger than", "twice the size of", "would cover", "fits inside". The map says the copy was moved and shows where the place really is as a dashed outline. It always uses an equal-area projection (the system sets it). Frame both where the place really is and where it lands, and do not also highlight, label or point at the place that is moving: its home position is wrong while it slides. Use it at most once or twice an episode, on the scenes that are about size.
 - A "reconstruction" shows how a landmass moved: the places in "entities" (one or two) are drawn where a published plate-motion model puts them "from" millions of years ago and drift to where they are "to" (default 0, today), while the place in "fixed" (default country:ZAF, Africa) stays still; an age counter runs on the map and a dashed outline marks where each ends up. Use it whenever the narration says a place split, broke away, drifted, collided or opened: Madagascar leaving Africa, India crossing the ocean, the Atlantic opening. The ages must come from the research (numbers in the text). It works for countries on these plates: Africa, Madagascar, India, Antarctica, Australia, South America, North America (US, Canada), Greenland, Arabia, Europe. Frame the whole journey (where it starts and where it ends) and do not also highlight, label or point at a place that is drifting: its present position is wrong while it moves. A scene can have one reconstruction.
 - A "timeline" shows a strip of 2-4 dated steps along the bottom, with the scene's own step lit ("active", counting from 0). Use it when the story moves through time: a split, a purchase, a construction, a reform. Labels are at most 14 characters and come from the research (every number must be in a claim). Give every scene of the sequence the SAME steps, so the strip reads as one timeline, and light the step the scene is on.
@@ -603,6 +634,7 @@ export const directGeoVisuals = async ({draft, research: rawResearch, complete, 
   const cutOff = (primitive) => offFramePlaces(primitive, places, boxes);
   const unframed = (primitive) => unframedRivers(primitive, places, boxes);
   const journeys = (primitive) => unframedJourneys(primitive, places, boxes, geo);
+  const rings = (primitive) => unframedRings(primitive, places, boxes);
   let shots = new Map();
   let whys = new Map();
   let fallbacks = [];
@@ -656,7 +688,7 @@ export const directGeoVisuals = async ({draft, research: rawResearch, complete, 
         const clutter = draft.scenes.filter((scene) => shots.has(scene.id)).map((scene) => ({id: scene.id, problem: labelClutter(shots.get(scene.id))})).filter((item) => item.problem);
         const stubs = draft.scenes.filter((scene) => shots.has(scene.id)).map((scene) => ({id: scene.id, places: unframed(shots.get(scene.id))})).filter((item) => item.places.length);
         // The rule checks first; once the shots are clean by the rules, a reviewer asks whether they show what is claimed.
-        const drifting = draft.scenes.filter((scene) => shots.has(scene.id)).map((scene) => ({id: scene.id, conflicts: reconstructionConflicts(shots.get(scene.id)).map((id) => nameOf(id, places)), unframed: journeys(shots.get(scene.id)).map((place) => place.name)})).filter((item) => item.conflicts.length || item.unframed.length);
+        const drifting = draft.scenes.filter((scene) => shots.has(scene.id)).map((scene) => ({id: scene.id, conflicts: reconstructionConflicts(shots.get(scene.id)).map((id) => nameOf(id, places)), unframed: journeys(shots.get(scene.id)).map((place) => place.name), rings: rings(shots.get(scene.id)).map((ring) => `${ring.radiusKm} km`)})).filter((item) => item.conflicts.length || item.unframed.length || item.rings.length);
         const rulesClean = !missing.length && !variety.length && !unseen.length && !outside.length && !stubs.length && !clutter.length && !drifting.length;
         weak = rulesClean || round === 0 ? await judgeShots({complete, draft, shots, places, boxes}) : weak;
         if (rulesClean && !weak.length) break;
@@ -665,7 +697,8 @@ export const directGeoVisuals = async ({draft, research: rawResearch, complete, 
           ...missing.filter((id) => !fallbacks.some((item) => item.id === id)).map((id) => `- Scene "${id}" had no shot.`),
           ...unseen.map(({id, places: names}) => `- Scene "${id}" names ${names.map((place) => `${place.name} (${place.id})`).join(', ')} but its shot doesn't show ${names.length > 1 ? 'them' : 'it'}: highlight, label, anchor or frame ${names.length > 1 ? 'each' : 'it'}.`),
           ...outside.map(({id, places: names}) => `- Scene "${id}" highlights or labels ${names.map((place) => `${place.name} (${place.id})`).join(', ')} but its camera never frames ${names.length > 1 ? 'them' : 'it'}, so ${names.length > 1 ? 'they are' : 'it is'} cut off. Frame ${names.length > 1 ? 'them' : 'it'} too: target {"around": [<ids>]} with the subject, or drop the ${names.length > 1 ? 'highlights and labels' : 'highlight or label'}.`),
-          ...drifting.flatMap(({id, conflicts, unframed: lost}) => [
+          ...drifting.flatMap(({id, conflicts, unframed: lost, rings: cut}) => [
+            ...(cut.length ? [`- Scene "${id}" draws a ${cut.join(', ')} ring but its camera never frames the whole ring; frame wide enough to hold it (target {"around": [...]} or a bigger area).`] : []),
             ...(conflicts.length ? [`- Scene "${id}" highlights, labels or points at ${conflicts.join(', ')} while a reconstruction moves it; remove those, the reconstruction already draws it.`] : []),
             ...(lost.length ? [`- Scene "${id}" reconstructs ${lost.join(', ')} but its camera never frames the whole journey from the oldest position to today; use a framing (target {"around": [...]} or a box) that holds both.`] : []),
           ]),
