@@ -11,6 +11,7 @@ import {compileEpisode} from './compiler.mjs';
 import {parseJsonReply} from './fact-verifier.mjs';
 import {geoProblems, loadGeoData} from './geo-primitives.mjs';
 import {resolvePlaces} from './geo-resolver.mjs';
+import {mapDirectionProblems, mapVariety} from './map-variety.mjs';
 import {styleGuideSection} from './shows.mjs';
 
 /** Degrees framed around a named point when the camera targets it. */
@@ -21,9 +22,13 @@ const APPROXIMATE = /\b(APPROX\.?|APPROXIMATE|AREA|NEAR|AROUND|ABOUT)\b|~/i;
 /** Numbers in on-screen text ("8,000", "6000–5800 BC" → 8000, 6000, 5800). */
 export const textNumbers = (text) => [...String(text).matchAll(/\d[\d,]*(?:\.\d+)?/g)].map((match) => Number(match[0].replace(/,/g, '')));
 
-/** Every number the research states: in its claims, and its datasets' values (#91). */
+const NUMBER_WORDS = {one: 1, two: 2, three: 3, four: 4, five: 5, six: 6, seven: 7, eight: 8, nine: 9, ten: 10, eleven: 11, twelve: 12};
+/** Small numbers a claim spells out ("ten countries" states 10). */
+const wordNumbers = (text) => [...String(text).toLowerCase().matchAll(/\b(one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve)\b/g)].map((match) => NUMBER_WORDS[match[1]]);
+
+/** Every number the research states: in its claims (digits or small number words), and its datasets' values (#91). */
 export const geoResearchNumbers = (research) => new Set([
-  ...research.claims.flatMap((claim) => textNumbers(claim.text)),
+  ...research.claims.flatMap((claim) => [...textNumbers(claim.text), ...wordNumbers(claim.text)]),
   ...Object.values(research.datasets ?? {}).flatMap((dataset) => Object.values(dataset.values)),
 ]);
 
@@ -58,6 +63,20 @@ export const resolveResearchPlaces = (research, geo) => {
 
 const boxOf = (entity) => entity.frame ?? entity.bbox;
 
+/** How many times the director may ask the model to fix rejected or repetitive shots. */
+const MAX_REPAIRS = 2;
+
+/** Smallest box (degrees) a camera frames: the camera won't zoom past it, so a tinier place (the Vatican) would fill a speck. */
+const MIN_FRAME = [0.1, 0.075];
+/** A camera target for a place: its id, or a box at least MIN_FRAME across around its centre when the place is tinier than that. */
+const frameTarget = (entity) => {
+  const [west, south, east, north] = boxOf(entity);
+  if (west > east || (east - west >= MIN_FRAME[0] && north - south >= MIN_FRAME[1])) return entity.id;
+  const [lon, lat] = [(west + east) / 2, (south + north) / 2];
+  const [halfWidth, halfHeight] = [Math.max(east - west, MIN_FRAME[0]) / 2, Math.max(north - south, MIN_FRAME[1]) / 2];
+  return {bbox: [lon - halfWidth, lat - halfHeight, lon + halfWidth, lat + halfHeight].map((value) => Math.round(value * 1000) / 1000)};
+};
+
 /** One box around several places; places across the antimeridian can't be combined. */
 const aroundBox = (ids, places) => {
   const boxes = ids.map((id) => boxOf(places.get(id)));
@@ -73,6 +92,7 @@ export const shotToPrimitive = (shot, {places, research, datasets = new Map()}) 
   if (!shot || typeof shot !== 'object') throw new Error('no shot');
   const allowed = [...places.keys()];
   const placeId = (id, where) => {
+    if (typeof id === 'string' && !places.has(id) && research.places[id]) throw new Error(`${where}: "${id}" is a named point, not a place id; only anchors and camera targets take points (write {"place": "${id}"} there)`);
     if (typeof id !== 'string' || !places.has(id)) throw new Error(`${where}: "${id}" isn't one of the episode's places (${allowed.join(', ')})`);
     if (id.startsWith('disputed:') && !where.startsWith('highlights')) throw new Error(`${where}: a disputed area can only be highlighted; frame or label the country`);
     return id;
@@ -82,7 +102,10 @@ export const shotToPrimitive = (shot, {places, research, datasets = new Map()}) 
     if (!place) throw new Error(`${where}: no named point "${ref.place}" in the research (${Object.keys(research.places).join(', ') || 'none'})`);
     return place;
   };
+  // A bare string that is one of the research's named points ("port-said") means {"place": "port-said"}.
+  const asPoint = (ref) => (typeof ref === 'string' && !places.has(ref) && research.places[ref] ? {place: ref} : ref);
   const anchor = (ref, where) => {
+    ref = asPoint(ref);
     if (ref && typeof ref === 'object' && 'place' in ref) {
       const place = point(ref, where);
       return {lon: place.lon, lat: place.lat};
@@ -91,14 +114,17 @@ export const shotToPrimitive = (shot, {places, research, datasets = new Map()}) 
   };
   const camera = (Array.isArray(shot.camera) ? shot.camera : []).map((key, index) => {
     const where = `camera[${index}]`;
-    const {target} = key ?? {};
+    const target = asPoint(key?.target);
     let resolved;
     if (target === 'world') resolved = 'world';
     else if (target && typeof target === 'object' && Array.isArray(target.around)) resolved = {bbox: aroundBox(target.around.map((id, at) => placeId(id, `${where}.around[${at}]`)), places)};
     else if (target && typeof target === 'object' && 'place' in target) {
       const {lon, lat} = point(target, where);
       resolved = {bbox: [lon - POINT_SPAN[0] / 2, lat - POINT_SPAN[1] / 2, lon + POINT_SPAN[0] / 2, lat + POINT_SPAN[1] / 2].map((value) => Math.round(value * 1000) / 1000)};
-    } else resolved = placeId(target, where);
+    } else {
+      resolved = placeId(target, where);
+      if (!resolved.startsWith('disputed:')) resolved = frameTarget(places.get(resolved));
+    }
     return {...key, target: resolved};
   });
   const highlights = (Array.isArray(shot.highlights) ? shot.highlights : []).map((highlight, index) => ({...highlight, entity: placeId(highlight?.entity, `highlights[${index}]`)}));
@@ -139,7 +165,7 @@ export const shotToPrimitive = (shot, {places, research, datasets = new Map()}) 
 /** The shot a scene gets when the model gives none, or an invalid one: the subject, filled and named. */
 export const defaultShot = (subject) => primitiveSchema.parse({
   kind: 'geo-map',
-  camera: [{target: subject.id, at: 0}],
+  camera: [{target: frameTarget(subject), at: 0}],
   highlights: [{entity: subject.id, style: 'fill', at: .15}],
   annotations: [{type: 'label', anchor: subject.id, text: subject.name.toUpperCase().slice(0, 28), at: .4}],
 });
@@ -171,6 +197,8 @@ Rules:
 - "data" shades places by one of the research datasets listed below, with a legend. Use it when the narration compares places by a number (heights, sizes, populations). Name the dataset only; its values come from the research. Frame the places it covers.
 - A route (2-6 stops) draws a journey, trade road, migration or voyage along the shortest path across the globe, with a marker moving along it from "at" to "until". Use it only when the narration describes movement. Frame the whole route in the camera, or set "follow": true to have the camera ride along with the marker (then "until" must be at most 0.85).
 - Labels stay inside the frame, and where two overlap the older one fades. Give a label or marker an "until" when the camera will pull out and crowd it.
+- Every scene must look different from the one before it: change the framing, what is highlighted, or add a layer (data, relief, route, an arrow between two places). Never give two consecutive scenes the same camera and the same highlight. When the narration states a size, a count or a comparison, show it: frame the places being compared together and label each one, or shade them with a dataset.
+- Show what the narration is about while it is being said: the place a scene discusses is highlighted by 0.35 of the scene at the latest, and the camera is already on it (or on the places it is compared with). Open on "world" at most twice in the episode (the first scene and, if it helps, the last), never for a scene whose subject is a single place.
 - Consecutive scenes are one continuous flight: each scene's camera starts where the previous one ended and flies to its first target. Plan the episode as one journey. Add "cut": true only when the story jumps somewhere unrelated.
 
 Reply with a JSON object only: {"scenes": [<shot>, ...]}${styleGuideSection(showId)}`,
@@ -184,31 +212,80 @@ Reply with a JSON object only: {"scenes": [<shot>, ...]}${styleGuideSection(show
  * Returns the directed draft, its manifest and the places needing a borders
  * review before publishing.
  */
-export const directGeoVisuals = async ({draft, research: rawResearch, complete, showId = draft.show?.id ?? 'geographica', geo = loadGeoData()}) => {
+/**
+ * `shotProblems(primitive)` may add checks the renderer knows (a camera that would collapse); the CLI
+ * passes the renderer's own. A shot it flags is rejected with its reasons, so the repair round can fix it.
+ */
+export const directGeoVisuals = async ({draft, research: rawResearch, complete, showId = draft.show?.id ?? 'geographica', geo = loadGeoData(), shotProblems = () => []}) => {
   const research = geoResearchSchema.parse(rawResearch);
   const {subjectId, places, review, datasets} = resolveResearchPlaces(research, geo);
   const subject = places.get(subjectId);
-  const shots = new Map();
-  const assigned = [];
-  const fallbacks = [];
+  let shots = new Map();
+  let whys = new Map();
+  let fallbacks = [];
   let modelError;
+
+  /** The valid shots in a model reply (the first one per scene), and the reasons the others were rejected. */
+  const read = (replyText) => {
+    const reply = parseJsonReply(replyText);
+    const items = Array.isArray(reply) ? reply : Array.isArray(reply?.scenes) ? reply.scenes : [];
+    const valid = new Map();
+    const reasons = [];
+    for (const item of items) {
+      const id = typeof item?.id === 'string' ? item.id : '?';
+      if (!draft.scenes.some((scene) => scene.id === id)) { reasons.push({id, reason: 'no such scene'}); continue; }
+      if (valid.has(id)) continue;
+      try {
+        const primitive = shotToPrimitive(item, {places, research, datasets});
+        const problems = [...geoProblems(primitive, geo), ...shotProblems(primitive)];
+        if (problems.length) throw new Error(problems.join('; '));
+        valid.set(id, {primitive, why: typeof item.why === 'string' ? item.why : ''});
+      } catch (error) {
+        reasons.push({id, reason: error instanceof Error ? error.message : String(error)});
+      }
+    }
+    return {valid, reasons};
+  };
+  const adopt = (valid) => {
+    shots = new Map([...valid].map(([id, {primitive}]) => [id, primitive]));
+    whys = new Map([...valid].map(([id, {why}]) => [id, why]));
+  };
+  /** The shots so far in scene order, the default map standing in for scenes that have none. */
+  const sequence = () => ({scenes: draft.scenes.map((scene) => ({id: scene.id, primitive: shots.get(scene.id) ?? defaultShot(subject)}))});
+
   if (complete) {
     try {
-      const reply = parseJsonReply(await complete(buildGeoDirectorPrompt({draft, research, places, datasets, showId})));
-      const items = Array.isArray(reply) ? reply : Array.isArray(reply?.scenes) ? reply.scenes : [];
-      for (const item of items) {
-        const id = typeof item?.id === 'string' ? item.id : '?';
-        if (!draft.scenes.some((scene) => scene.id === id)) { fallbacks.push({id, reason: 'no such scene'}); continue; }
-        if (shots.has(id)) continue;
-        try {
-          const primitive = shotToPrimitive(item, {places, research, datasets});
-          const problems = geoProblems(primitive, geo);
-          if (problems.length) throw new Error(problems.join('; '));
-          shots.set(id, primitive);
-          assigned.push({id, why: typeof item.why === 'string' ? item.why : ''});
-        } catch (error) {
-          fallbacks.push({id, reason: error instanceof Error ? error.message : String(error)});
+      const prompt = buildGeoDirectorPrompt({draft, research, places, datasets, showId});
+      const first = await complete(prompt);
+      const firstRead = read(first);
+      adopt(firstRead.valid);
+      fallbacks = firstRead.reasons;
+      // Up to MAX_REPAIRS repair rounds: the model sees which shots were rejected, and whether the map
+      // barely changes. Per scene the repaired shot wins when it is valid; otherwise the earlier shot stays.
+      let transcript = [...prompt.messages, {role: 'assistant', content: first}];
+      let latest = firstRead;
+      for (let round = 0; round < MAX_REPAIRS; round++) {
+        const missing = draft.scenes.map((scene) => scene.id).filter((id) => !shots.has(id));
+        const variety = [...mapVariety(sequence()).problems, ...mapDirectionProblems(sequence())];
+        if (!missing.length && !variety.length) break;
+        const notes = [
+          ...fallbacks.map(({id, reason}) => `- Scene "${id}" was rejected: ${reason}`),
+          ...missing.filter((id) => !fallbacks.some((item) => item.id === id)).map((id) => `- Scene "${id}" had no shot.`),
+          ...variety.map((problem) => `- ${problem}`),
+        ];
+        const feedback = `Fix these and reply with the complete {"scenes": [...] } again, one valid shot per scene. Keep the shots that were fine, but change framing, highlights or layers where scenes repeat.\n${notes.join('\n')}`;
+        transcript = [...transcript, {role: 'user', content: feedback}];
+        const reply = await complete({...prompt, messages: transcript});
+        transcript = [...transcript, {role: 'assistant', content: reply}];
+        latest = read(reply);
+        const merged = new Map();
+        for (const scene of draft.scenes) {
+          const earlier = shots.has(scene.id) ? {primitive: shots.get(scene.id), why: whys.get(scene.id)} : undefined;
+          const pick = latest.valid.get(scene.id) ?? earlier;
+          if (pick) merged.set(scene.id, pick);
         }
+        adopt(merged);
+        fallbacks = latest.reasons.filter(({id}) => !shots.has(id));
       }
     } catch (error) {
       modelError = error instanceof Error ? error.message : String(error);
@@ -220,11 +297,12 @@ export const directGeoVisuals = async ({draft, research: rawResearch, complete, 
       shots.set(scene.id, defaultShot(subject));
     }
   }
+  const assigned = draft.scenes.filter((scene) => whys.has(scene.id)).map((scene) => ({id: scene.id, why: whys.get(scene.id)}));
   const directed = {
     ...draft,
     subject: {...draft.subject, attributes: {...draft.subject.attributes, geoEntity: subjectId}},
     scenes: draft.scenes.map((scene) => ({...scene, primitive: shots.get(scene.id)})),
   };
   const {manifest} = compileEpisode(directed, {showId, geo});
-  return {draft: directed, manifest, assigned, fallbacks, review, ...(modelError ? {modelError} : {})};
+  return {draft: directed, manifest, assigned, fallbacks, review, variety: mapVariety(directed), ...(modelError ? {modelError} : {})};
 };

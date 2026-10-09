@@ -31,6 +31,11 @@ describe('geo entity resolver', () => {
     assert.equal(id('USA'), 'country:USA');
     assert.equal(id('Ivory Coast'), 'country:CIV');
     assert.equal(id('Vatican City'), 'country:VAT');
+    // Natural Earth abbreviates these; research writes the full name.
+    assert.equal(id('South Sudan'), 'country:SDS');
+    assert.equal(id('Bosnia and Herzegovina'), 'country:BIH');
+    assert.equal(id('Dominican Republic'), 'country:DOM');
+    assert.equal(id('Saint Vincent and the Grenadines'), 'country:VCT');
   });
 
   it('reports disputed areas that concern a place', () => {
@@ -86,7 +91,7 @@ describe('geo visual director', () => {
     const [world, around, point] = primitive.camera;
     assert.equal(world.target, 'world');
     // The box around Georgia, Armenia and Azerbaijan spans all three countries' frames.
-    assert.deepEqual(around.target, {bbox: [39.978, 38.399, 50.366, 43.57]});
+    assert.deepEqual(around.target, {bbox: [39.986, 38.393, 50.391, 43.576]});
     assert.deepEqual(point.target, {bbox: [43.817, 40.967, 45.817, 42.467]});
     assert.deepEqual((primitive.annotations[0] as {anchor: unknown}).anchor, {lon: 44.8, lat: 41.3});
   });

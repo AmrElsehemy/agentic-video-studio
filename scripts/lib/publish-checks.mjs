@@ -2,6 +2,7 @@
 // exits non-zero; passing them is necessary, not sufficient: a person still
 // approves the release (rights.publicReleaseApproved, releaseStatus "cleared").
 import {geoReferences} from './geo-primitives.mjs';
+import {mapVariety} from './map-variety.mjs';
 
 /**
  * @param manifest a parsed video manifest
@@ -26,6 +27,8 @@ export const publishBlockers = (manifest, geo) => {
   if (maps.length) {
     // Map data must be credited, in the rights (which feed the description).
     if (!rights.assets.some((asset) => asset.kind === 'map-data' && asset.notes)) blockers.push('map-data: Map scenes need a map-data rights entry with its attribution line.');
+    // A map that never changes is not worth publishing: it should have been directed.
+    for (const problem of mapVariety(manifest).problems) blockers.push(`map-variety: ${problem}`);
     // Places with disputed borders or names need a person's recorded decision on how they're shown.
     const flagged = [...new Set(maps.flatMap((scene) => geoReferences(scene.primitive).map(([, id]) => id)))]
       .map((id) => geo.entities.get(id))

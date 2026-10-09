@@ -4,7 +4,7 @@
 // at the show's tempo, and each scene change gets its cue at the scene's start.
 import fs from 'node:fs';
 import path from 'node:path';
-import {planSoundEvents, sceneEnergy} from './sound-design.mjs';
+import {planMapSoundEvents, planSoundEvents, sceneEnergy} from './sound-design.mjs';
 
 const rate = 44100;
 
@@ -44,7 +44,7 @@ export const audioPlan = (manifest) => {
     sceneWindows.push({start: sceneCursor, end: sceneCursor + scene.durationSeconds, energy: sceneEnergy(scene)});
     sceneCursor += scene.durationSeconds;
   }
-  return {duration, sceneWindows, soundEvents: planSoundEvents(manifest.scenes)};
+  return {duration, sceneWindows, soundEvents: planSoundEvents(manifest.scenes), mapEvents: planMapSoundEvents(manifest.scenes)};
 };
 
 /**
@@ -55,7 +55,8 @@ export const audioPlan = (manifest) => {
 export const writeAudioBed = ({root, episodeId, manifest, log = console.log}) => {
   const {bpm, notes} = manifest.audio.bed ?? {bpm: 126, notes: [110, 130.81, 146.83, 164.81, 146.83, 130.81, 98, 130.81]};
   const beatSeconds = 60 / bpm;
-  const {duration, sceneWindows, soundEvents} = audioPlan(manifest);
+  const {duration, sceneWindows, soundEvents: sceneEvents, mapEvents} = audioPlan(manifest);
+  const soundEvents = [...sceneEvents, ...mapEvents];
   const sampleCount = Math.ceil(duration * rate);
 
   const cueSample = (event, time, i) => {
@@ -84,6 +85,40 @@ export const writeAudioBed = ({root, episodeId, manifest, log = console.log}) =>
       const fundamental = Math.sin(2 * Math.PI * 660 * delta);
       const overtone = Math.sin(2 * Math.PI * 990 * delta) * 0.45;
       return (fundamental + overtone) * Math.exp(-delta * 5.5) * 0.42;
+    }
+    // Map cues (planMapSoundEvents): short, soft and bright, so they sit on top of the music without a fight.
+    const gain = event.energy ?? 1;
+    const hiss = (frequencyShift) => Math.sin(i * (12.9898 + frequencyShift) + event.index * 31.7) * 0.7 + Math.sin(i * (0.217 + frequencyShift / 40) + event.index * 7.1) * 0.3;
+    if (event.cue === 'pop' && delta < 0.22) {
+      const attack = 1 - Math.exp(-delta * 700);
+      return (Math.sin(2 * Math.PI * 880 * delta) * 0.5 + Math.sin(2 * Math.PI * 1760 * delta) * 0.16 * Math.exp(-delta * 40)) * attack * Math.exp(-delta * 24) * gain;
+    }
+    if (event.cue === 'swell' && delta < 0.8) {
+      const progress = delta / 0.75;
+      const envelope = progress < 0.6 ? (progress / 0.6) ** 2 : Math.exp(-(progress - 0.6) * 9);
+      // The phase is the integral of the gliding frequency (300 → 560 Hz), so the glide has no clicks.
+      const phase = 2 * Math.PI * (300 * delta + (260 * delta * delta) / (2 * 0.75));
+      const body = (Math.sin(phase) + Math.sin(phase * 1.5) * 0.5 + Math.sin(phase * 2) * 0.25) * envelope * 0.26;
+      const sparkle = delta > 0.42 ? Math.sin(2 * Math.PI * 1318.5 * delta) * Math.exp(-(delta - 0.42) * 13) * 0.2 : 0;
+      return (body + sparkle) * gain;
+    }
+    if (event.cue === 'trace' && delta < 0.9) {
+      const progress = delta / 0.9;
+      return (hiss(progress * 2.5) * Math.sin(Math.PI * progress) ** 2 * 0.3 + Math.sin(2 * Math.PI * (700 + 500 * progress) * delta) * Math.sin(Math.PI * progress) * 0.08) * gain;
+    }
+    if (event.cue === 'sweep' && delta < 0.5) {
+      const progress = delta / 0.5;
+      return (hiss(progress * 4) * Math.sin(Math.PI * progress) ** 1.6 * 0.42 + Math.sin(2 * Math.PI * (160 + 120 * progress) * delta) * Math.sin(Math.PI * progress) * 0.12) * gain;
+    }
+    if (event.cue === 'tick' && delta < 0.08) return Math.sin(2 * Math.PI * 2000 * delta) * Math.exp(-delta * 90) * 0.4 * gain;
+    if (event.cue === 'travel' && delta < 0.14) return (Math.sin(2 * Math.PI * 1400 * delta) * 0.28 + Math.sin(2 * Math.PI * 2800 * delta) * 0.08) * Math.exp(-delta * 55) * gain;
+    if (event.cue === 'rise' && delta < 0.8) {
+      let sum = 0;
+      [523.25, 659.25, 783.99].forEach((note, step) => {
+        const local = delta - step * 0.13;
+        if (local >= 0) sum += (Math.sin(2 * Math.PI * note * local) + Math.sin(2 * Math.PI * note * 2 * local) * 0.25) * Math.exp(-local * 7) * 0.3;
+      });
+      return sum * gain;
     }
     return 0;
   };

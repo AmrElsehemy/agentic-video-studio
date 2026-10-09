@@ -15,11 +15,12 @@ export declare const resolveResearchPlaces: (research: GeoResearch, geo: Geo) =>
 export declare const shotToPrimitive: (shot: unknown, context: {places: Map<string, Place>; research: GeoResearch; datasets?: Map<string, ResolvedDataset>; showId?: string}) => GeoMapPrimitive;
 export declare const defaultShot: (subject: {id: string; name: string}) => GeoMapPrimitive;
 export declare const buildGeoDirectorPrompt: (input: {draft: any; research: GeoResearch; places: Map<string, Place>; datasets?: Map<string, ResolvedDataset>; showId?: string}) => {system: string; messages: {role: 'user'; content: string}[]};
-export declare const directGeoVisuals: (input: {draft: any; research: unknown; complete?: Complete; showId?: string; geo?: Geo}) => Promise<{
+export declare const directGeoVisuals: (input: {draft: any; research: unknown; complete?: Complete; showId?: string; geo?: Geo; shotProblems?: (primitive: GeoMapPrimitive) => string[]}) => Promise<{
   draft: any;
   manifest: any;
   assigned: {id: string; why: string}[];
   fallbacks: {id: string; reason: string}[];
   review: BordersReview[];
+  variety: {scenes: number; distinct: number; repeats: string[]; problems: string[]};
   modelError?: string;
 }>;

@@ -9,7 +9,9 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
+import cameraModule from '../src/video/geo/camera.ts';
 import {directGeoVisuals} from './lib/geo-director.mjs';
+import {loadGeoData} from './lib/geo-primitives.mjs';
 import {createCompletion} from './lib/llm.mjs';
 import {appendProduction, modelEntry} from './lib/production.mjs';
 import {findDraft} from './catalog.mjs';
@@ -34,7 +36,11 @@ const reply = option('reply');
 const complete = reply
   ? async () => fs.readFileSync(path.resolve(reply), 'utf8')
   : createCompletion({role: 'director', provider: option('provider'), onUsage: (usage) => appendProduction(root, showId, episodeId, [modelEntry(usage)])});
+const geo = loadGeoData();
+const boxOf = (target) => (typeof target === 'object' ? target.bbox : geo.entities.get(target).frame ?? geo.entities.get(target).bbox);
 const result = await directGeoVisuals({
+  geo,
+  shotProblems: (primitive) => cameraModule.cameraProblems(primitive.camera, boxOf),
   draft: JSON.parse(fs.readFileSync(draftPath, 'utf8')),
   research: JSON.parse(fs.readFileSync(researchPath, 'utf8')),
   complete,
@@ -45,6 +51,7 @@ if (result.modelError) console.warn(`! the director model failed (${result.model
 for (const {id, why} of result.assigned) console.log(`  ✓ ${id}: ${why}`);
 for (const {id, reason} of result.fallbacks) console.warn(`  ! ${id}: default map (${reason})`);
 for (const {name, areas} of result.review) console.warn(`  ! ${name} has disputed areas (${areas.map((area) => area.name).join(', ')}): record rights.bordersReview before publishing (docs/geomotion-review.md).`);
+for (const problem of result.variety.problems) console.warn(`  ! ${problem}`);
 const output = args.includes('--write') ? draftPath : episodeOutPath(root, episodeId, `${episodeId}.geo-directed.json`);
 fs.mkdirSync(path.dirname(output), {recursive: true});
 fs.writeFileSync(output, `${JSON.stringify(result.draft, null, 2)}\n`);

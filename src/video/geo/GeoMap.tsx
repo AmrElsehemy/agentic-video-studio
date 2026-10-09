@@ -1,5 +1,5 @@
 import React, {useMemo} from 'react';
-import {geoCentroid, geoMercator, geoPath, type GeoProjection} from 'd3-geo';
+import {geoCentroid, geoGraticule, geoMercator, geoPath, type GeoProjection} from 'd3-geo';
 import {evolvePath} from '@remotion/paths';
 import {Img, interpolate, staticFile} from 'remotion';
 import {paletteMode} from '../../../scripts/lib/palette.mjs';
@@ -11,6 +11,8 @@ import {useGeoData, useReliefData, type GeoData} from './data';
 import {RELIEF_STRENGTH, reliefPlacements} from './relief';
 import {fitInside, labelBox, resolveLabels, type Box, type Placed} from './labels';
 import {labelScale, pop} from './motion';
+import {COUNT_FRAMES, countUp, flash, MARCH, marchOffset, ripple} from './effects';
+import {lookOf, pickByHash} from './look';
 import {blurSamples, shutterFor, viewShift} from './blur';
 import {followView, followWeight, partialRoute, routeLine, routeProgress, type RouteLine} from './route';
 
@@ -102,7 +104,7 @@ const farOffFrame = ([x, y]: [number, number]) => x < -OFF_FRAME || x > SIZE.wid
  */
 const Label: React.FC<{x: number; y: number; text: string; opacity: number; color: string; halo: string; size?: number; rise?: number; scale?: number}> = ({x, y, text, opacity, color, halo, size = LABEL_SIZE, rise = opacity, scale = 1}) => {
   const label = <text x={x} y={y + (1 - rise) * 14} textAnchor="middle" dominantBaseline="middle" opacity={opacity}
-    style={{fontFamily: displayFont, fontSize: size, letterSpacing: 3, fill: color, stroke: halo, strokeWidth: 10, paintOrder: 'stroke', strokeLinejoin: 'round'}}>{text}</text>;
+    style={{fontFamily: displayFont, fontSize: size, letterSpacing: 3, fontVariantNumeric: 'tabular-nums', fill: color, stroke: halo, strokeWidth: 10, paintOrder: 'stroke', strokeLinejoin: 'round'}}>{text}</text>;
   return scale === 1 ? label : <g transform={`translate(${x} ${y}) scale(${scale}) translate(${-x} ${-y})`}>{label}</g>;
 };
 
@@ -172,6 +174,8 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
   const vanish = (until?: number) => (until === undefined ? 1 : interpolate(frame, [until * durationInFrames - APPEAR, until * durationInFrames], [1, 0], clamp));
   const point = (lonLat: [number, number]) => projection(lonLat) as [number, number];
   const {palette} = manifest;
+  const look = lookOf(manifest.look);
+  const styled = look.name !== 'classic' && !primitive.relief;
   // A glow reads as light on a dark map; on a light one (#92) it smudges, so it stays tight and faint there.
   const glow = (radius: number, color: string) => paletteMode(palette) === 'light' ? `drop-shadow(0 0 ${radius * .4}px ${color}66)` : `drop-shadow(0 0 ${radius}px ${color})`;
   // Projecting every country each frame is the render's main cost; skip those whose box is off screen.
@@ -221,7 +225,16 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
   const fades = new Map([...texts.keys()].map((index, order) => [index, resolved.fades[order]]));
   const textOf = (index: number, text: string, opacity: number, rise = opacity, scale = 1) => {
     const [item, box] = [texts.get(index), boxes.get(index)];
-    return item && box ? <Label x={box.x} y={box.y} text={text} opacity={opacity * (fades.get(index) ?? 1)} rise={rise} scale={scale} color={palette.ink} halo={palette.background} size={item.size} /> : null;
+    if (!item || !box) return null;
+    const shown = opacity * (fades.get(index) ?? 1);
+    if (styled && look.chip) {
+      // A pill behind the text, drawn and scaled with it.
+      return <g transform={`translate(${box.x} ${box.y}) scale(${scale}) translate(${-box.x} ${-box.y})`}>
+        <rect x={box.x - box.halfWidth - 10} y={box.y - box.halfHeight - 4} width={2 * box.halfWidth + 20} height={2 * box.halfHeight + 8} rx={box.halfHeight + 4} fill={look.chip.fill} opacity={look.chip.opacity * shown} />
+        <Label x={box.x} y={box.y} text={text} opacity={shown} rise={rise} color={look.chip.text} halo={look.chip.fill} size={item.size} />
+      </g>;
+    }
+    return <Label x={box.x} y={box.y} text={text} opacity={shown} rise={rise} scale={scale} color={palette.ink} halo={palette.background} size={item.size} />;
   };
 
   const highlights = primitive.highlights.map((highlight, index) => {
@@ -241,8 +254,32 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
       const shown = appear(highlight.at);
       // The border springs to its width, a touch thicker for a moment, as the place lights up.
       const border = springIn(highlight.at);
-      return <path key={index} d={d} fill={highlight.style === 'fill' ? (disputed ? 'url(#geo-hatch)' : color) : 'none'} fillOpacity={.85 * shown}
-        stroke={color} strokeOpacity={shown} strokeWidth={(highlight.style === 'outline' ? 6 : 3) * border} strokeLinejoin="round" style={{filter: glow(14 * shown, color)}} />;
+      const start = highlight.at * durationInFrames;
+      // A ripple spreads from the place's centre as it lights up (not for hatched disputed areas).
+      const ring = disputed ? null : ripple(frame, start);
+      const [cx, cy] = ring ? path.centroid(feature) : [NaN, NaN];
+      const lit = highlight.style === 'fill' ? Math.min(1, .85 * shown + .15 * flash(frame, start)) : .85 * shown;
+      if (styled && highlight.style === 'fill' && !disputed) {
+        // A slab: the shape stacked a few px lower in a darker colour, then a gradient face and a bright rim.
+        const id = `geo-subject-${index}`;
+        return <g key={index}>
+          <defs>
+            <path id={`${id}-shape`} d={d} />
+            <linearGradient id={id} x1="0" y1="0" x2="1" y2="1"><stop offset="0" stopColor={look.subject.from} /><stop offset="1" stopColor={look.subject.to} /></linearGradient>
+          </defs>
+          {Array.from({length: look.subject.depth}, (_, step) => <use key={step} href={`#${id}-shape`} transform={`translate(0 ${(step + 1) * 1.5 * shown})`} fill={look.subject.side} opacity={shown} />)}
+          <g style={{filter: glow(look.subject.glow * shown, look.subject.from)}}>
+            <use href={`#${id}-shape`} fill={`url(#${id})`} fillOpacity={Math.min(1, shown + .15 * flash(frame, start))} stroke={look.subject.rim} strokeOpacity={.9 * shown} strokeWidth={2.6 * border} strokeLinejoin="round" />
+          </g>
+          {ring && Number.isFinite(cx) && Number.isFinite(cy) ? <circle cx={cx} cy={cy} r={ring.radius} fill="none" stroke={look.subject.rim} strokeOpacity={ring.opacity * outro} strokeWidth={ring.width} /> : null}
+        </g>;
+      }
+      return <g key={index}>
+        <path d={d} fill={highlight.style === 'fill' ? (disputed ? 'url(#geo-hatch)' : color) : 'none'} fillOpacity={lit}
+          stroke={color} strokeOpacity={shown} strokeWidth={(highlight.style === 'outline' ? 6 : 3) * border} strokeLinejoin="round" style={{filter: glow(14 * shown, color)}} />
+        {highlight.style === 'outline' && !disputed && shown > .99 ? <path d={d} fill="none" stroke={palette.ink} strokeOpacity={.5} strokeWidth={2.5} strokeLinejoin="round" strokeDasharray={`${MARCH.dash} ${MARCH.gap}`} strokeDashoffset={marchOffset(frame)} /> : null}
+        {ring && Number.isFinite(cx) && Number.isFinite(cy) ? <circle cx={cx} cy={cy} r={ring.radius} fill="none" stroke={color} strokeOpacity={ring.opacity * outro} strokeWidth={ring.width} /> : null}
+      </g>;
     });
   // Routes go underneath, so labels and markers on their stops stay readable.
   const annotations = primitive.annotations.map((annotation, index) => [annotation, index] as const).sort(([a], [b]) => Number(b.type === 'route') - Number(a.type === 'route')).map(([annotation, index]) => {
@@ -327,7 +364,7 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
     const shown = appear(annotation.at) * vanish(annotation.until);
     // A marker's text sat inside its faded group, so it appears at shown².
     const grow = springIn(annotation.at);
-    return <React.Fragment key={`text-${index}`}>{textOf(index, annotation.text, annotation.type === 'marker' ? shown * shown : shown, grow, labelScale(grow))}</React.Fragment>;
+    return <React.Fragment key={`text-${index}`}>{textOf(index, annotation.type === 'label' ? countUp(annotation.text, appear(annotation.at, COUNT_FRAMES)) : annotation.text, annotation.type === 'marker' ? shown * shown : shown, grow, labelScale(grow))}</React.Fragment>;
   });
   const frameStyle = {position: 'absolute' as const, inset: 0, borderRadius: 36, overflow: 'hidden' as const};
 
@@ -358,6 +395,39 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
       {data.countries.filter((feature) => onScreen(data.entities.get(String(feature.id))?.bbox)).map((feature) => <path key={String(feature.id)} d={path(feature) ?? ''} fill={palette.surface} stroke={palette.ink} strokeOpacity=".28" strokeWidth={1.2} />)}
     </g>
   </>;
+
+  if (styled) {
+    const shimmerX = ((frame * 4) % (SIZE.width * 2.4)) - SIZE.width * 0.7;
+    const gratPath = look.grid.opacity > 0 ? path(geoGraticule().step([look.grid.step, look.grid.step]).extent([[-180, -80], [180, 80]])()) ?? '' : '';
+    const stage = <svg width={SIZE.width} height={SIZE.height} viewBox={`0 0 ${SIZE.width} ${SIZE.height}`} style={{position: 'absolute', inset: 0}}>
+      <defs>
+        <pattern id="geo-hatch" width="14" height="14" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+          <rect width="14" height="14" fill={accent} opacity=".25" />
+          <line x1="0" y1="0" x2="0" y2="14" stroke={accent} strokeWidth="5" />
+        </pattern>
+        <radialGradient id="geo-sea" cx="50%" cy="46%" r="75%"><stop offset="0" stopColor={look.sea.center} /><stop offset="1" stopColor={look.sea.edge} /></radialGradient>
+        <linearGradient id="geo-shimmer" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stopColor="#fff" stopOpacity="0" /><stop offset=".5" stopColor="#fff" stopOpacity="1" /><stop offset="1" stopColor="#fff" stopOpacity="0" /></linearGradient>
+        <filter id="geo-land-shadow" x="-5%" y="-5%" width="110%" height="115%"><feDropShadow dx="0" dy={look.shadow.dy} stdDeviation={look.shadow.blur / 2} floodColor={look.shadow.color} floodOpacity={look.shadow.opacity} /></filter>
+      </defs>
+      <rect width={SIZE.width} height={SIZE.height} fill="url(#geo-sea)" />
+      {look.shimmer > 0 ? <rect x={shimmerX} y={-SIZE.height * 0.2} width={SIZE.width * 0.6} height={SIZE.height * 1.5} fill="url(#geo-shimmer)" opacity={look.shimmer} transform={`rotate(-18 ${shimmerX} 0)`} /> : null}
+      {gratPath ? <path d={gratPath} fill="none" stroke={look.grid.color} strokeOpacity={look.grid.opacity} strokeWidth={1.4} /> : null}
+      <g filter="url(#geo-land-shadow)">
+        {data.countries.filter((feature) => onScreen(data.entities.get(String(feature.id))?.bbox)).map((feature) => <path key={String(feature.id)} d={path(feature) ?? ''} fill={look.land[pickByHash(String(feature.id), look.land.length)]} stroke={look.border.color} strokeOpacity={look.border.opacity} strokeWidth={look.border.width} strokeLinejoin="round" />)}
+      </g>
+      <g opacity={outro}>
+        {dataFills}
+        {highlights}
+        {annotations}
+        {pointTexts}
+        {legend}
+      </g>
+    </svg>;
+    return <div style={{...frameStyle, perspective: 1500, background: look.sea.edge}}>
+      <div style={{position: 'absolute', inset: 0, transform: `rotateX(${look.tilt.degrees}deg) scale(${look.tilt.scale})`, transformOrigin: `50% ${look.tilt.originY}%`}}>{stage}</div>
+      {look.vignette > 0 ? <div style={{position: 'absolute', inset: 0, background: `radial-gradient(ellipse at 50% 48%, transparent 45%, rgba(0,0,0,${look.vignette}) 100%)`}} /> : null}
+    </div>;
+  }
 
   if (!relief) {
     return <svg width={SIZE.width} height={SIZE.height} viewBox={`0 0 ${SIZE.width} ${SIZE.height}`} style={frameStyle}>

@@ -8,14 +8,14 @@ GeoMotion renders geography shorts (first show: Geographica; first episode: Geor
 
 | Question | Decision |
 |---|---|
-| Boundary data | **Natural Earth v5.1.2**, 1:50m Admin 0 countries |
+| Boundary data | **Natural Earth v5.1.2**, 1:10m Admin 0 countries (was 1:50m until the crisp-maps upgrade: about five times the detail, so coasts and borders stay sharp when the camera zooms in) |
 | Water | Natural Earth 1:50m marine polygons (seas, oceans, gulfs…), with names and label data |
 | Disputed areas | Natural Earth 1:50m breakaway/disputed areas, kept as a **separate layer** |
 | License | Public domain. No permission needed; we credit it anyway |
 | Base map | Styled vector land and water drawn from these layers. No raster tiles or satellite imagery |
 | Relief (#91) | Optional shaded relief from Natural Earth's 1:10m **SR_HR** raster (public domain), reprojected to Web Mercator and pinned in `public/geo/relief/` |
 | Projection | **Web Mercator** (`d3-geo` `geoMercator`), rotated so the framed region is centred |
-| Precision | Countries rounded to 3 decimals (about 110 m); water to 2 decimals (about 1.1 km) |
+| Precision | Countries rounded to 3 decimals (about 110 m, finer than the 1:10m source); water to 2 decimals (about 1.1 km) |
 | Storage | Slim, pinned copies committed in `public/geo/`, with SHA-256 checksums in `public/geo/manifest.json` |
 | Network at render time | None. The renderer reads only `public/geo/` |
 
@@ -33,7 +33,7 @@ GeoMotion renders geography shorts (first show: Geographica; first episode: Geor
 
 | Asset | Source and version | License | Obligation | What we do |
 |---|---|---|---|---|
-| `public/geo/countries.geojson` | Natural Earth v5.1.2, `ne_50m_admin_0_countries` | Public domain | None | Credit in the episode description |
+| `public/geo/countries.geojson` | Natural Earth v5.1.2, `ne_10m_admin_0_countries` | Public domain | None | Credit in the episode description |
 | `public/geo/water.geojson` | Natural Earth v5.1.2, `ne_50m_geography_marine_polys` | Public domain | None | Credit in the episode description |
 | `public/geo/disputed.geojson` | Natural Earth v5.1.2, `ne_50m_admin_0_breakaway_disputed_areas` | Public domain | None | Credit in the episode description; editorial review (below) |
 | `public/geo/relief/*.jpg` | Natural Earth `SR_HR` 2.0.0 (1:10m shaded relief, 1 arc-minute), zip SHA-256 `b2619fff…41a5` | Public domain | None | Same Natural Earth credit line |
@@ -51,7 +51,10 @@ Web Mercator, from `d3-geo`, for three reasons:
 
 Known costs and how we handle them:
 - **High latitudes are inflated in world framings.** World-scale shots clip latitude to about −58°…84° and start from a regional frame whenever possible.
-- **Very small places.** At 3 decimals, a country narrower than about 20 km looks blocky at 1080 px. Microstates would need Natural Earth 1:10m for that entity, added deliberately.
+- **Very small places.** Countries now come from the 1:10m set, which is as detailed as Natural Earth gets; a microstate such as the Vatican is still only a few points. The Geo Visual Director frames anything tinier than about 0.1° in a box of at least that size, because the camera won't zoom past it.
+- **Size and speed.** `countries.geojson` is about 9 MB (it was 1.7 MB). The renderer already skips countries that are off screen, and a full golden render takes about 20 seconds.
+- **Disputed areas stay at 1:50m.** Natural Earth has no 1:10m "breakaway" layer, and the ids (`disputed:abkhazia-B35`) are used by drafts and tests, so that layer is unchanged. Its hatching can sit a fraction off the sharper country borders.
+- **More entities.** The 1:10m set adds 16 (Gibraltar, Bir Tawil, Baikonur, the Spratly Islands, Guantanamo Bay and others) and removes none, so every existing id still resolves.
 
 A 3D globe (orthographic) and other projections are out of scope for v1.
 

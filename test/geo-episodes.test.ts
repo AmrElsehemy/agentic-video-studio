@@ -6,7 +6,7 @@ import {fileURLToPath} from 'node:url';
 import {geoPath} from 'd3-geo';
 import {listManifests} from '../scripts/catalog.mjs';
 import {primitiveSchema, type GeoMapPrimitive} from '../scripts/primitive-schema.mjs';
-import {cameraAt, cameraKeys, continuesMap, episodeCameraKeys, lonSpan, MAP_SIZE, mercatorY, worldView, type BBox} from '../src/video/geo/camera';
+import {cameraAt, cameraKeys, cameraProblems, continuesMap, episodeCameraKeys, lonSpan, MAP_SIZE, MIN_SCALE, MIN_TARGET_SHARE, CAMERA_EPSILON as EPSILON, mercatorY, type BBox} from '../src/video/geo/camera';
 
 // Every map scene in the catalog (and the golden fixture), run through the
 // renderer's own camera maths: a view that collapses (the blank map a 0.5
@@ -35,16 +35,6 @@ const shots: {where: string; primitive: GeoMapPrimitive}[] = [
   ...Object.entries(read('test/fixtures/geo-georgia-shots.json').shots).map(([name, shot]) => ({where: `fixture/${name}`, primitive: primitiveSchema.parse(shot) as GeoMapPrimitive})),
 ];
 
-/** The smallest zoom any shot may reach: well below the world framing, which already shows every continent. */
-const MIN_SCALE = worldView(0, MAP_SIZE, .1).scale * .4;
-/**
- * A framed place must fill at least this share of the frame's width or height:
- * the most the schema's largest padding (0.4) leaves. EPSILON absorbs rounding
- * (1 - 2 × 0.4 is 0.19999999999999996 in floating point).
- */
-const MIN_TARGET_SHARE = .2;
-const EPSILON = 1e-9;
-
 describe('map scenes in the catalog', () => {
   it('has map scenes to check', () => {
     assert.ok(shots.length >= 14, `found ${shots.length}`);
@@ -60,20 +50,7 @@ describe('map scenes in the catalog', () => {
 
   for (const {where, primitive} of shots) {
     it(`${where}: the camera never collapses and frames its targets`, () => {
-      const keys = cameraKeys(primitive.camera, boxOf);
-      for (let t = 0; t <= 1.0001; t += .02) {
-        const view = cameraAt(keys, t);
-        assert.ok(Number.isFinite(view.scale) && Number.isFinite(view.lon) && Number.isFinite(view.lat), `t=${t.toFixed(2)}: invalid view ${JSON.stringify(view)}`);
-        assert.ok(view.scale >= MIN_SCALE, `t=${t.toFixed(2)}: zoomed out to scale ${view.scale.toFixed(1)} (min ${MIN_SCALE.toFixed(1)}); the map would be nearly empty`);
-      }
-      primitive.camera.forEach((key, index) => {
-        if (key.target === 'world') return;
-        const [west, south, east, north] = boxOf(key.target);
-        const {scale} = keys[index].view;
-        const width = lonSpan(west, east) * (Math.PI / 180) * scale / MAP_SIZE.width;
-        const height = (mercatorY(north) - mercatorY(south)) * scale / MAP_SIZE.height;
-        assert.ok(Math.max(width, height) >= MIN_TARGET_SHARE - EPSILON, `camera[${index}] frames its target at ${Math.round(Math.max(width, height) * 100)}% of the frame`);
-      });
+      assert.deepEqual(cameraProblems(primitive.camera, boxOf), []);
     });
   }
 });

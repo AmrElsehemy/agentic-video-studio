@@ -58,6 +58,40 @@ export const cameraKeys = (camera: {target: CameraTarget; at: number; padding: n
   }));
 };
 
+/** The smallest zoom any shot may reach: well below the world framing, which already shows every continent. */
+export const MIN_SCALE = worldView(0, MAP_SIZE, .1).scale * .4;
+/**
+ * A framed place must fill at least this share of the frame's width or height: the most the schema's
+ * largest padding (0.4) leaves. CAMERA_EPSILON absorbs rounding (1 - 2 × 0.4 is 0.19999999999999996).
+ */
+export const MIN_TARGET_SHARE = .2;
+export const CAMERA_EPSILON = 1e-9;
+
+/**
+ * What would go wrong if a shot's camera were rendered: a view that collapses (the blank map a 0.5
+ * padding once produced), or a target shrunk to a speck. Empty when the shot is fine. The tests run
+ * every committed shot through this, and the Geo Visual Director rejects shots that fail it.
+ */
+export const cameraProblems = (camera: {target: CameraTarget; at: number; padding: number; ease: 'linear' | 'in-out'}[], boxOf: Parameters<typeof cameraKeys>[1], size: Size = MAP_SIZE): string[] => {
+  const problems: string[] = [];
+  const keys = cameraKeys(camera, boxOf, size);
+  for (let t = 0; t <= 1.0001; t += .02) {
+    const view = cameraAt(keys, t);
+    if (![view.scale, view.lon, view.lat].every(Number.isFinite)) { problems.push(`t=${t.toFixed(2)}: invalid view`); break; }
+    if (view.scale < MIN_SCALE) { problems.push(`t=${t.toFixed(2)}: zoomed out to scale ${view.scale.toFixed(1)} (min ${MIN_SCALE.toFixed(1)}); the map would be nearly empty`); break; }
+  }
+  camera.forEach((key, index) => {
+    if (key.target === 'world') return;
+    const [west, south, east, north] = boxOf(key.target as Exclude<CameraTarget, 'world'>);
+    const {scale} = keys[index].view;
+    const width = lonSpan(west, east) * RAD * scale / size.width;
+    const height = (mercatorY(north) - mercatorY(south)) * scale / size.height;
+    const share = Math.max(width, height);
+    if (share < MIN_TARGET_SHARE - CAMERA_EPSILON) problems.push(`camera[${index}] frames its target at ${Math.round(share * 100)}% of the frame (at least ${MIN_TARGET_SHARE * 100}%)`);
+  });
+  return problems;
+};
+
 /**
  * Continuity (#85): consecutive map scenes are one flight. A scene that
  * continues starts at the previous scene's last view and reaches its own first

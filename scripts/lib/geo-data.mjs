@@ -13,7 +13,7 @@ export const NATURAL_EARTH = {
   attribution: 'Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com.',
   baseUrl: 'https://raw.githubusercontent.com/nvkelso/natural-earth-vector/v5.1.2/geojson',
   layers: {
-    countries: {file: 'ne_50m_admin_0_countries.geojson', sha256: '3e458fc036ad0a66411f2c1e6cac49c5d7bfb81cb1123bc513b22511a2b7fdeb'},
+    countries: {file: 'ne_10m_admin_0_countries.geojson', sha256: '239eec57ac17f100a11e2536cffc56752c318b50ae765b0918ff7aab4ce8f255'},
     water: {file: 'ne_50m_geography_marine_polys.geojson', sha256: '6fe58083e0cc5c7fad9e396970e28a8580bbd8770cfa4d1d7b5a34423e912f97'},
     disputed: {file: 'ne_50m_admin_0_breakaway_disputed_areas.geojson', sha256: 'e91f0f9518b24355ceec6668f4df874d6f39db7d0bc9ec22d9b14429bfb6be01'},
   },

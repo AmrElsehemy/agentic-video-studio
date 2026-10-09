@@ -57,6 +57,8 @@ export const videoSchema = z.object({
   related: z.array(relatedSchema).max(3).default([]),
   format: z.union([z.object({width: z.literal(1080), height: z.literal(1920), fps: z.literal(30)}), z.object({width: z.literal(1920), height: z.literal(1080), fps: z.literal(30)})]),
   palette: paletteSchema,
+  // How map scenes are painted (src/video/geo/look.ts); the classic flat map when absent.
+  look: z.enum(['classic', 'neon', 'atlas', 'terrain']).optional(),
   // An architecture diagram (#120) with its layout, computed when the episode was compiled.
   diagram: z.object({
     spec: z.union([archSpecSchema, diagramSpecSchema]),
