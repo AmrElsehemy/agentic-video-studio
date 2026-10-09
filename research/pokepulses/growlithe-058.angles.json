@@ -1,0 +1,164 @@
+{
+  "episodeId": "growlithe-058",
+  "createdAt": "2026-10-08T20:07:59.171Z",
+  "chosen": {
+    "id": "scent-that-never-fades",
+    "premise": "Growlithe never forgets a scent and can use smell to determine the emotions of living things.",
+    "hook": "Growlithe can remember your scent—and your emotions.",
+    "archetype": "mystery",
+    "evidence": [
+      "pokedexEntries[5].text",
+      "pokedexEntries[6].text"
+    ],
+    "visualIdea": "A scent trail follows different characters while Growlithe labels their emotions and never loses the trail.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 5,
+      "specificity": 5,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 25,
+    "note": "A highly distinctive combination: Growlithe supposedly never forgets a scent and can infer emotions through smell. The evidence directly supports both the premise and the visual hook, though “your emotions” should be framed as detecting emotions rather than reading thoughts."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "scent-that-never-fades",
+          "premise": "Growlithe never forgets a scent and can use smell to determine the emotions of living things.",
+          "hook": "Growlithe can remember your scent—and your emotions.",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[5].text",
+            "pokedexEntries[6].text"
+          ],
+          "visualIdea": "A scent trail follows different characters while Growlithe labels their emotions and never loses the trail.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 25,
+          "note": "A highly distinctive combination: Growlithe supposedly never forgets a scent and can infer emotions through smell. The evidence directly supports both the premise and the visual hook, though “your emotions” should be framed as detecting emotions rather than reading thoughts."
+        },
+        {
+          "id": "waits-for-orders",
+          "premise": "Growlithe can remain completely motionless until its Trainer gives it an order.",
+          "hook": "Growlithe does not move until its Trainer says so.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[9].text"
+          ],
+          "visualIdea": "Show distractions and approaching threats pass by while Growlithe stays frozen, then moves on command.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 4,
+            "support": 4
+          },
+          "total": 21,
+          "note": "Very concrete and visually clear: Growlithe remains motionless until ordered. However, it relies on a single Pokédex entry and could be mistaken for a generic trained-dog behavior."
+        },
+        {
+          "id": "friendly-but-ferocious",
+          "premise": "Growlithe is friendly to people, but barks and bites when anyone invades its territory.",
+          "hook": "Growlithe is friendly—until you cross one invisible line.",
+          "archetype": "comparison",
+          "evidence": [
+            "pokedexEntries[1].text",
+            "pokedexEntries[7].text",
+            "pokedexEntries[14].text"
+          ],
+          "visualIdea": "A cute Growlithe welcomes a Trainer, then instantly switches to a fierce bark when a boundary is crossed.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 3,
+            "surprise": 3,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 20,
+          "note": "The friendly-versus-territorial contradiction is well supported and easy to show, but the basic loyal-dog angle is familiar and could fit several canine Pokémon."
+        },
+        {
+          "id": "fire-stone-finish",
+          "premise": "Growlithe becomes Arcanine when a Fire Stone is used, changing from a Puppy Pokémon into its evolved form.",
+          "hook": "Growlithe’s evolution takes one item: a Fire Stone.",
+          "archetype": "transformation",
+          "evidence": [
+            "evolutionChain[0].name",
+            "evolutionChain[1].name",
+            "evolutionChain[1].method",
+            "evolutionChain[1].evolvesFrom",
+            "category"
+          ],
+          "visualIdea": "A Fire Stone flashes between Growlithe and Arcanine while the two-stage evolution chain assembles on screen.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 3,
+            "surprise": 2,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 20,
+          "note": "The evolution method is concrete and well supported, but Fire Stone evolution is familiar to Pokémon fans and the angle is primarily a basic evolution summary rather than a surprising Growlithe fact."
+        },
+        {
+          "id": "volcanic-patrol-pair",
+          "premise": "Hisui’s Growlithe patrols territory in pairs, with volcanic activity linked to igneous rock in its fur.",
+          "hook": "Why does Hisuian Growlithe have rock in its fur?",
+          "archetype": "mystery",
+          "evidence": [
+            "varieties[0].name",
+            "varieties[0].types"
+          ],
+          "visualIdea": "Two Hisuian Growlithe patrol a volcanic landscape as rock textures gradually appear in their fur.",
+          "generic": true,
+          "scores": {
+            "uniqueness": 2,
+            "surprise": 5,
+            "specificity": 4,
+            "visual": 5,
+            "support": 2
+          },
+          "total": 18,
+          "note": "The premise is unusually specific to Hisuian Growlithe, but the cited evidence only supports the name and typing. The crucial facts about paired patrols and igneous rock in its fur appear in pokedexEntries[18], which is not cited. (Uniqueness capped at 2: its evidence is only fields every Pokémon has.)"
+        },
+        {
+          "id": "small-dog-big-foes",
+          "premise": "Despite its size, Growlithe fearlessly stands up to bigger and stronger opponents to protect its Trainer.",
+          "hook": "Growlithe sees a bigger foe—and charges anyway.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[2].text",
+            "pokedexEntries[3].text",
+            "pokedexEntries[11].text"
+          ],
+          "visualIdea": "Scale Growlithe against increasingly larger opponents as it steps between each threat and its Trainer.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 3,
+            "surprise": 3,
+            "specificity": 3,
+            "visual": 4,
+            "support": 4
+          },
+          "total": 17,
+          "note": "The bravery is supported, but “small” and the escalating opponent scale are not strongly established by the cited entries. It is an appealing character profile rather than a sharply surprising fact."
+        }
+      ],
+      "rejected": [],
+      "request": "None; the scent-memory and emotion-detection angle is strong enough. A stronger alternative would need an equally unusual, directly cited contradiction or rule with a concrete visual payoff."
+    }
+  ]
+}

@@ -1,0 +1,165 @@
+{
+  "episodeId": "weepinbell-070",
+  "createdAt": "2026-10-08T23:34:46.787Z",
+  "chosen": {
+    "id": "sleeping-hook",
+    "premise": "Weepinbell sleeps by hooking its rear onto a tree branch, but restless sleep can leave it waking on the ground.",
+    "hook": "Weepinbell's bedtime routine can literally drop it out of a tree.",
+    "archetype": "profile",
+    "evidence": [
+      "pokedexEntries[5].text",
+      "pokedexEntries[6].text"
+    ],
+    "visualIdea": "Show Weepinbell hooking onto a branch, tossing in sleep, then waking on the ground.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 5,
+      "specificity": 5,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 25,
+    "note": "A uniquely Weepinbell behavior with a built-in comic consequence: it uses its rear hook as a sleeping anchor but can fall out of the tree."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "sleeping-hook",
+          "premise": "Weepinbell sleeps by hooking its rear onto a tree branch, but restless sleep can leave it waking on the ground.",
+          "hook": "Weepinbell's bedtime routine can literally drop it out of a tree.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[5].text",
+            "pokedexEntries[6].text"
+          ],
+          "visualIdea": "Show Weepinbell hooking onto a branch, tossing in sleep, then waking on the ground.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 25,
+          "note": "A uniquely Weepinbell behavior with a built-in comic consequence: it uses its rear hook as a sleeping anchor but can fall out of the tree."
+        },
+        {
+          "id": "acid-within",
+          "premise": "Weepinbell is filled with acid but survives by oozing a neutralizing protective fluid.",
+          "hook": "How does a Pokémon full of acid avoid dissolving itself?",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[2].text",
+            "pokedexEntries[9].text"
+          ],
+          "visualIdea": "Show acid filling Weepinbell, then a contrasting protective-fluid layer preventing it from melting.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 24,
+          "note": "A strong biological contradiction with explicit Pokédex support, though the neutralizing-fluid explanation is less instantly absurd than its sleeping behavior."
+        },
+        {
+          "id": "leaves-before-acid",
+          "premise": "When prey is bigger than its mouth, Weepinbell slices it with sharp leaves before eating every piece.",
+          "hook": "Its mouth is too small? Weepinbell turns its leaves into knives.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[3].text",
+            "pokedexEntries[4].text",
+            "pokedexEntries[7].text"
+          ],
+          "visualIdea": "Compare oversized prey with Weepinbell's mouth, then show its leafy cutters dividing the target.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 23,
+          "note": "Concrete and strongly supported, but the knife-leaves concept overlaps with familiar carnivorous-plant imagery and is less distinctive than the sleeping hook."
+        },
+        {
+          "id": "two-evolution-triggers",
+          "premise": "Weepinbell evolves from Bellsprout at level 21, but reaches Victreebel only through a Leaf Stone.",
+          "hook": "This evolution line changes its rules halfway through.",
+          "archetype": "comparison",
+          "evidence": [
+            "evolutionChain[1].method",
+            "evolutionChain[2].method",
+            "evolutionChain[0].name",
+            "evolutionChain[1].name",
+            "evolutionChain[2].name"
+          ],
+          "visualIdea": "Display the chain as two gates: Bellsprout to Weepinbell at level 21, then Leaf Stone to Victreebel.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 22,
+          "note": "The level-up-to-item contrast is precise and easy to show, but it is an evolution-line mechanic rather than a uniquely memorable Weepinbell behavior."
+        },
+        {
+          "id": "anything-that-moves",
+          "premise": "When hungry, Weepinbell does not limit its diet to prey—it swallows anything that moves and dissolves it inside.",
+          "hook": "When Weepinbell gets hungry, even 'anything' becomes food.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[1].text",
+            "pokedexEntries[11].text"
+          ],
+          "visualIdea": "Show moving objects passing by Weepinbell, followed by a cutaway of strong acid dissolving its catch.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 22,
+          "note": "A strong predatory hook with clear source support, though 'anything that moves' is broad and risks feeling like standard carnivorous-Pokémon lore."
+        },
+        {
+          "id": "three-step-predator",
+          "premise": "Its hunting method escalates from Poison Powder, to Acid, to razor-sharp leaves for prey too large to swallow.",
+          "hook": "Weepinbell has a three-step plan for anything it wants to eat.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[0].text",
+            "pokedexEntries[3].text",
+            "pokedexEntries[5].text"
+          ],
+          "visualIdea": "Animate a numbered attack sequence: powder immobilizes, acid dissolves, leaves slice oversized prey.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 21,
+          "note": "Highly visual and well grounded, but the entries describe different hunting behaviors rather than proving a deliberate three-step sequence."
+        }
+      ],
+      "rejected": [],
+      "request": "None—the sleeping-hook angle is strong enough. A stronger alternative would need an equally specific, source-backed contradiction or absurd behavior with an even clearer visual payoff."
+    }
+  ]
+}

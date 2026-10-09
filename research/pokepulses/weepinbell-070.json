@@ -1,0 +1,157 @@
+{
+  "schemaVersion": 1,
+  "id": "weepinbell-070",
+  "number": 70,
+  "index": "#070",
+  "name": "Weepinbell",
+  "slug": "weepinbell",
+  "category": "Flycatcher Pokémon",
+  "generation": "Generation I",
+  "isLegendary": false,
+  "isMythical": false,
+  "types": [
+    "Grass",
+    "Poison"
+  ],
+  "heightMeters": 1,
+  "weightKg": 6.4,
+  "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/70.png",
+  "pokedexEntries": [
+    {
+      "game": "Red",
+      "text": "It spits out POISONPOWDER to immobilize the enemy and then finishes it with a spray of ACID."
+    },
+    {
+      "game": "Yellow",
+      "text": "When hungry, it swallows anything that moves. Its hapless prey is melted inside by strong acids."
+    },
+    {
+      "game": "Gold",
+      "text": "Even though it is filled with ACID, it does not melt because it also oozes a neutral izing fluid."
+    },
+    {
+      "game": "Silver",
+      "text": "If its prey is bigger than its mouth, it slices up the victim with sharp leaves, then eats every morsel."
+    },
+    {
+      "game": "Crystal",
+      "text": "When it's hungry, it swings its razor-sharp leaves, slicing up any unlucky object nearby for food."
+    },
+    {
+      "game": "Ruby",
+      "text": "WEEPINBELL has a large hook on its rear end. At night, the POKéMON hooks on to a tree branch and goes to sleep. If it moves around in its sleep, it may wake up to find itself on the ground."
+    },
+    {
+      "game": "Emerald",
+      "text": "At night, a WEEPINBELL hangs on to a tree branch with its hooked rear and sleeps. If it moves around in its sleep, it may wake up to find itself on the ground."
+    },
+    {
+      "game": "Firered",
+      "text": "The leafy parts act as cutters for slashing foes. It spits a fluid that dissolves everything."
+    },
+    {
+      "game": "Diamond",
+      "text": "A Pokémon that appears to be a plant. It captures unwary prey by dousing them with a toxic powder."
+    },
+    {
+      "game": "Heartgold",
+      "text": "Even though it is filled with acid, it does not melt because it also oozes a protective fluid."
+    },
+    {
+      "game": "Y",
+      "text": "It spits out Poison Powder to immobilize the enemy and then finishes it with a spray of Acid."
+    },
+    {
+      "game": "Lets Go Pikachu",
+      "text": "When hungry, it swallows anything that moves. Its hapless prey is dissolved by strong acids."
+    }
+  ],
+  "evolutionChain": [
+    {
+      "name": "Bellsprout",
+      "index": "#069",
+      "stage": 1,
+      "types": [
+        "Grass",
+        "Poison"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/69.png",
+      "isSubject": false
+    },
+    {
+      "name": "Weepinbell",
+      "index": "#070",
+      "stage": 2,
+      "evolvesFrom": "Bellsprout",
+      "method": "Level Up, level 21",
+      "types": [
+        "Grass",
+        "Poison"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/70.png",
+      "isSubject": true
+    },
+    {
+      "name": "Victreebel",
+      "index": "#071",
+      "stage": 3,
+      "evolvesFrom": "Weepinbell",
+      "method": "Use Item, Leaf Stone",
+      "types": [
+        "Grass",
+        "Poison"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/71.png",
+      "isSubject": false
+    }
+  ],
+  "varieties": [],
+  "lore": [],
+  "tiers": {
+    "official": [
+      "name",
+      "index",
+      "number",
+      "category",
+      "generation",
+      "isLegendary",
+      "isMythical",
+      "types",
+      "heightMeters",
+      "weightKg",
+      "pokedexEntries",
+      "evolutionChain[].name",
+      "evolutionChain[].index",
+      "evolutionChain[].types",
+      "evolutionChain[].stage",
+      "varieties[].types",
+      "varieties[].heightMeters",
+      "varieties[].weightKg"
+    ],
+    "trusted_secondary": [
+      "evolutionChain[].method",
+      "evolutionChain[].evolvesFrom",
+      "varieties[].name"
+    ],
+    "community": [
+      "lore"
+    ]
+  },
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Weepinbell",
+      "url": "https://www.pokemon.com/us/pokedex/weepinbell",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Weepinbell",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Weepinbell_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Weepinbell",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/70",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

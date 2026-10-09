@@ -1,0 +1,194 @@
+{
+  "id": "mankey-056",
+  "title": "Mankey’s Rage Creates the Loneliness That Fuels It",
+  "storyPattern": "mystery",
+  "numberRelevant": false,
+  "premise": "Mankey’s anger drives everyone away, and their absence makes its rage even worse.",
+  "audiencePromise": "Follow Mankey from group loneliness to a rage loop that keeps feeding itself.",
+  "openLoop": "Why does Mankey’s rage keep making itself worse?",
+  "payoff": "The loop is the horror: Mankey’s rampage creates the loneliness that intensifies its rage.",
+  "targetEmotion": "curiosity",
+  "engagementQuestion": "Which drives Mankey more: loneliness or rage?",
+  "subject": {
+    "name": "Mankey",
+    "category": "Pig Monkey Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/56.png",
+    "identifier": "#056"
+  },
+  "related": [
+    {
+      "name": "Annihilape",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/979.png",
+      "identifier": "#979"
+    },
+    {
+      "name": "Primeape",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/57.png",
+      "identifier": "#057"
+    }
+  ],
+  "palette": {
+    "background": "#17131A",
+    "surface": "#2A202A",
+    "primary": "#D9B38C",
+    "secondary": "#E45757",
+    "ink": "#FFF4E6"
+  },
+  "voice": {
+    "instructions": "Quick, warm, and tense. Sound like a knowledgeable fan revealing a cruel little loop. Stress rage, loneliness, and angrier. Pause briefly before each reveal."
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    },
+    "assets": [
+      {
+        "kind": "Mankey official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/56.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "rage-creates-loneliness",
+      "beat": "hook",
+      "eyebrow": "A SELF-FEEDING RAGE",
+      "headline": "RAGE CREATES LONELINESS",
+      "narration": "Mankey’s rage creates the loneliness fueling it.",
+      "caption": "ANGER MAKES IT WORSE",
+      "accent": "#E45757",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/56.png"
+    },
+    {
+      "id": "treetop-group",
+      "beat": "clue",
+      "eyebrow": "WHERE IT BELONGS",
+      "headline": "IT LIVES WITH A GROUP",
+      "narration": "Mankey lives in treetop groups. Lose sight, and loneliness sparks fury.",
+      "caption": "GROUPS KEEP IT FROM FEELING ALONE",
+      "facts": [
+        "TREETOP GROUPS",
+        "LOSES SIGHT",
+        "LONELINESS"
+      ],
+      "accent": "#D9B38C",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/56.png",
+      "primitive": {
+        "kind": "checklist",
+        "items": [
+          {
+            "label": "LIVES IN GROUPS",
+            "met": true
+          },
+          {
+            "label": "LOSES SIGHT",
+            "met": true
+          },
+          {
+            "label": "LONELINESS",
+            "met": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "sudden-rage",
+      "beat": "escalation",
+      "eyebrow": "THEN IT STARTS",
+      "headline": "RAGE CAN COME SUDDENLY",
+      "narration": "Then Mankey can become enraged spontaneously, without a clear cause.",
+      "caption": "ANGER CAN START SPONTANEOUSLY",
+      "facts": [
+        "SPONTANEOUS RAGE",
+        "NO CLEAR CAUSE"
+      ],
+      "accent": "#E45757",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/56.png"
+    },
+    {
+      "id": "everyone-clears-out",
+      "beat": "reveal",
+      "eyebrow": "THE FIRST REVEAL",
+      "headline": "EVERYONE LEAVES",
+      "narration": "During its rampage, everyone nearby clears out, leaving Mankey alone again.",
+      "caption": "RAMPAGE → EMPTY SPACE",
+      "facts": [
+        "RAMPAGE",
+        "EVERYONE CLEARS OUT",
+        "ALONE AGAIN"
+      ],
+      "accent": "#B879C9",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/56.png",
+      "primitive": {
+        "kind": "checklist",
+        "items": [
+          {
+            "label": "RAMPAGE",
+            "met": true
+          },
+          {
+            "label": "EVERYONE CLEARS OUT",
+            "met": true
+          },
+          {
+            "label": "ALONE AGAIN",
+            "met": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "loneliness-feeds-rage",
+      "beat": "reveal",
+      "eyebrow": "THE LOOP CLOSES",
+      "headline": "LONELINESS FEEDS THE RAGE",
+      "narration": "New loneliness feeds the rage, making Mankey angrier still.",
+      "caption": "ANGER → RAMPAGE → LONELINESS → MORE ANGER",
+      "facts": [
+        "NEW LONELINESS",
+        "ANGRIER STILL"
+      ],
+      "accent": "#E45757",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/56.png"
+    },
+    {
+      "id": "loneliness-or-rage",
+      "beat": "verdict",
+      "eyebrow": "YOUR TAKE",
+      "headline": "WHICH ONE DRIVES IT?",
+      "narration": "Which drives Mankey more: loneliness or rage?",
+      "caption": "LONELINESS OR RAGE?",
+      "accent": "#F2C14E",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/56.png"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Mankey",
+      "url": "https://www.pokemon.com/us/pokedex/mankey",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Mankey",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Mankey_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Mankey",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/56",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

@@ -1,0 +1,173 @@
+{
+  "id": "weepinbell-070",
+  "title": "Weepinbell's Bedtime Routine Can Drop It From a Tree",
+  "storyPattern": "profile",
+  "numberRelevant": false,
+  "premise": "Weepinbell sleeps by hooking its rear onto a branch, but restless sleep may leave it waking on the ground.",
+  "audiencePromise": "See how Weepinbell's odd bedtime hook works, and why sleep can turn its perch into a problem.",
+  "openLoop": "How can a bedtime routine leave Weepinbell waking on the ground?",
+  "payoff": "Its rear hook helps it sleep in a tree, but moving in its sleep may end the night on the ground.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "Would you trust the hook, or sleep on the ground?",
+  "subject": {
+    "name": "Weepinbell",
+    "category": "Flycatcher Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/70.png",
+    "identifier": "#070"
+  },
+  "related": [
+    {
+      "name": "Victreebel",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/71.png",
+      "identifier": "#071"
+    },
+    {
+      "name": "Bellsprout",
+      "relation": "evolves-from",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/69.png",
+      "identifier": "#069"
+    }
+  ],
+  "palette": {
+    "background": "#101A18",
+    "surface": "#1B2A25",
+    "primary": "#B9D94C",
+    "secondary": "#D9A63A",
+    "ink": "#F4F7E8"
+  },
+  "voice": {
+    "instructions": "Speak like a knowledgeable fan sharing a strange fact. Keep the pace quick, warm, and playful. Stress the risk, then soften it with the final counterpoint."
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    },
+    "assets": [
+      {
+        "kind": "Weepinbell official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/70.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "bedtime-drop",
+      "beat": "hook",
+      "eyebrow": "A RISKY BEDTIME",
+      "headline": "BEDTIME CAN DROP IT",
+      "narration": "Weepinbell's bedtime routine can drop it from a tree.",
+      "caption": "ITS SLEEPING SPOT HAS A CATCH",
+      "accent": "#D9A63A",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/70.png"
+    },
+    {
+      "id": "rear-hook",
+      "beat": "evidence",
+      "eyebrow": "THE BUILT-IN HANGER",
+      "headline": "THE REAR HOOK",
+      "narration": "Its rear hook lets it hang from a branch.",
+      "caption": "A STRANGE WAY TO STAY UP",
+      "facts": [
+        "REAR HOOK",
+        "TREE BRANCH"
+      ],
+      "accent": "#B9D94C",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/70.png"
+    },
+    {
+      "id": "nighttime-bed",
+      "beat": "evidence",
+      "eyebrow": "NIGHTTIME ROUTINE",
+      "headline": "THE TREE IS ITS BED",
+      "narration": "Then it uses that strange perch as its nighttime bed.",
+      "caption": "HANG ON, THEN SLEEP",
+      "facts": [
+        "HANGS AT NIGHT",
+        "SLEEPS ON BRANCHES"
+      ],
+      "accent": "#687F55",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/70.png"
+    },
+    {
+      "id": "restless-sleep",
+      "beat": "escalation",
+      "eyebrow": "HERE IS THE PROBLEM",
+      "headline": "SLEEP CAN BREAK THE PLAN",
+      "narration": "If it moves in sleep, it may wake on the ground.",
+      "caption": "ONE RESTLESS NIGHT CHANGES EVERYTHING",
+      "facts": [
+        "MOVES IN SLEEP",
+        "MAY WAKE BELOW"
+      ],
+      "accent": "#D9A63A",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/70.png",
+      "primitive": {
+        "kind": "timeline",
+        "steps": [
+          {
+            "label": "HOOKS ON BRANCH"
+          },
+          {
+            "label": "SLEEPS AT NIGHT"
+          },
+          {
+            "label": "WAKES ON GROUND"
+          }
+        ],
+        "active": 2
+      }
+    },
+    {
+      "id": "not-every-night",
+      "beat": "twist",
+      "eyebrow": "BUT DO NOT OVERSTATE IT",
+      "headline": "MAY, NOT MUST",
+      "narration": "The Pokédex says may, not must, wake up below.",
+      "caption": "THE FALL IS ONLY A POSSIBILITY",
+      "facts": [
+        "MAY HAPPEN",
+        "NOT GUARANTEED"
+      ],
+      "accent": "#8FBF65",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/70.png"
+    },
+    {
+      "id": "trust-the-hook",
+      "beat": "verdict",
+      "eyebrow": "YOUR CALL",
+      "headline": "WHERE WOULD YOU SLEEP?",
+      "narration": "Would you trust the hook, or sleep on the ground?",
+      "caption": "TREE BRANCH OR GROUND?",
+      "accent": "#D9A63A",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/70.png"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Weepinbell",
+      "url": "https://www.pokemon.com/us/pokedex/weepinbell",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Weepinbell",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Weepinbell_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Weepinbell",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/70",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

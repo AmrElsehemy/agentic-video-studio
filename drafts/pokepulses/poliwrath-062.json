@@ -1,0 +1,196 @@
+{
+  "id": "poliwrath-062",
+  "title": "Poliwrath Can Run on Water, But Only Briefly",
+  "storyPattern": "mechanic",
+  "numberRelevant": false,
+  "premise": "Poliwrath can use its developed arms and legs to run across water for a split second.",
+  "audiencePromise": "See how Poliwrath's developed arms and legs let it briefly run across the water's surface.",
+  "openLoop": "How do Poliwrath's developed arms and legs make this brief run possible?",
+  "payoff": "Poliwrath swims powerfully and can run across water for a split second.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "Is this a swimming skill, or a true water-running trick?",
+  "subject": {
+    "name": "Poliwrath",
+    "category": "Tadpole Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/62.png",
+    "identifier": "#062"
+  },
+  "related": [
+    {
+      "name": "Poliwhirl",
+      "relation": "evolves-from",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/61.png",
+      "identifier": "#061"
+    },
+    {
+      "name": "Poliwag",
+      "relation": "evolves-from",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/60.png",
+      "identifier": "#060"
+    },
+    {
+      "name": "Politoed",
+      "relation": "related",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/186.png",
+      "identifier": "#186"
+    }
+  ],
+  "palette": {
+    "background": "#101820",
+    "surface": "#173B4A",
+    "primary": "#4A9B9B",
+    "secondary": "#E7D7B0",
+    "ink": "#F7F4EA"
+  },
+  "voice": {
+    "instructions": "Speak like a knowledgeable fan sharing a strange Pokédex detail. Keep the pace quick, warm, and lightly playful. Stress “run” and “split second.” Pause briefly before the final either-or question."
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    },
+    "assets": [
+      {
+        "kind": "Poliwrath official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/62.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "water-run-hook",
+      "beat": "hook",
+      "eyebrow": "POKÉDEX PUZZLE",
+      "headline": "RUNNING ON WATER?",
+      "narration": "Poliwrath runs on water. Why only briefly?",
+      "caption": "WHY ONLY BRIEFLY?",
+      "accent": "#4A9B9B",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/62.png"
+    },
+    {
+      "id": "developed-limbs",
+      "beat": "evidence",
+      "eyebrow": "ITS SWIMMING STRENGTH",
+      "headline": "A POWERFUL SWIMMER ON LAND",
+      "narration": "It is a powerful swimmer, yet it normally lives on land.",
+      "caption": "BUILT FOR WATER, LIVING ON LAND",
+      "facts": [
+        "POWERFUL SWIMMER",
+        "LIVES ON LAND"
+      ],
+      "accent": "#E7D7B0",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/62.png"
+    },
+    {
+      "id": "split-second-limit",
+      "beat": "escalation",
+      "eyebrow": "THE UNEXPECTED STEP",
+      "headline": "ITS LIMBS RUN TOO",
+      "narration": "Its developed arms and legs can run across water.",
+      "caption": "ARMS AND LEGS RUN",
+      "facts": [
+        "DEVELOPED ARMS",
+        "DEVELOPED LEGS",
+        "RUNS ACROSS WATER"
+      ],
+      "accent": "#D96C5F",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/62.png",
+      "primitive": {
+        "kind": "checklist",
+        "items": [
+          {
+            "label": "DEVELOPED ARMS",
+            "met": true
+          },
+          {
+            "label": "DEVELOPED LEGS",
+            "met": true
+          },
+          {
+            "label": "WATER SURFACE",
+            "met": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "surface-run",
+      "beat": "payoff",
+      "eyebrow": "THE POKÉDEX DETAIL",
+      "headline": "ONE SPLIT-SECOND RUN",
+      "narration": "For one split second, those limbs carry Poliwrath across the surface.",
+      "caption": "ACROSS THE SURFACE",
+      "facts": [
+        "SPLIT SECOND",
+        "WATER SURFACE"
+      ],
+      "accent": "#F2B84B",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/62.png",
+      "primitive": {
+        "kind": "timeline",
+        "steps": [
+          {
+            "label": "SWIMMING",
+            "detail": "POWERFUL SWIMMER"
+          },
+          {
+            "label": "WATER RUN",
+            "detail": "SPLIT SECOND"
+          }
+        ],
+        "active": 1
+      }
+    },
+    {
+      "id": "swimming-to-running",
+      "beat": "payoff",
+      "eyebrow": "WHY IT WORKS",
+      "headline": "SWIMMING STRENGTH, RUNNING STEP",
+      "narration": "Poliwrath swims powerfully and can run across water for a split second.",
+      "caption": "SWIM POWER BECOMES A STEP",
+      "facts": [
+        "POWERFUL SWIMMING",
+        "BRIEF RUNNING"
+      ],
+      "accent": "#4A9B9B",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/62.png"
+    },
+    {
+      "id": "skill-or-trick",
+      "beat": "verdict",
+      "eyebrow": "YOUR VERDICT",
+      "headline": "SWIMMING SKILL OR TRICK?",
+      "narration": "Is this a swimming skill, or a true water-running trick?",
+      "caption": "WHICH ONE IS IT?",
+      "accent": "#D96C5F",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/62.png"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Poliwrath",
+      "url": "https://www.pokemon.com/us/pokedex/poliwrath",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Poliwrath",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Poliwrath_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Poliwrath",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/62",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

@@ -1,0 +1,169 @@
+{
+  "episodeId": "arcanine-059",
+  "createdAt": "2026-10-08T20:11:45.238Z",
+  "chosen": {
+    "id": "fire-fueled-distance",
+    "premise": "Arcanine's internal fire powers a claimed 6,200-mile run through one day and night.",
+    "hook": "What if your body fire was literally your fuel tank?",
+    "archetype": "mechanic",
+    "evidence": [
+      "pokedexEntries[5].text",
+      "pokedexEntries[14].text"
+    ],
+    "visualIdea": "Arcanine's chest glows like a furnace as a route stretches 6,200 miles across a day-night cycle.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 4,
+      "specificity": 5,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 24,
+    "note": "A highly Arcanine-specific mechanic: its internal fire is explicitly described as powering a claimed 6,200-mile run. The distance, day-night span, and furnace visual make a strong short-form premise."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "fire-fueled-distance",
+          "premise": "Arcanine's internal fire powers a claimed 6,200-mile run through one day and night.",
+          "hook": "What if your body fire was literally your fuel tank?",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[5].text",
+            "pokedexEntries[14].text"
+          ],
+          "visualIdea": "Arcanine's chest glows like a furnace as a route stretches 6,200 miles across a day-night cycle.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 24,
+          "note": "A highly Arcanine-specific mechanic: its internal fire is explicitly described as powering a claimed 6,200-mile run. The distance, day-night span, and furnace visual make a strong short-form premise."
+        },
+        {
+          "id": "legendary-but-common",
+          "premise": "Arcanine is called legendary in Pokédex tales, yet one entry says there are way more of them than expected.",
+          "hook": "Arcanine is legendary—but apparently not rare.",
+          "archetype": "mystery",
+          "evidence": [
+            "category",
+            "isLegendary",
+            "pokedexEntries[16].text",
+            "pokedexEntries[1].text"
+          ],
+          "visualIdea": "A single majestic Arcanine gets stamped LEGENDARY, then the frame fills with many Arcanine silhouettes.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 24,
+          "note": "Excellent contradiction between Arcanine's legendary label and the claim that many exist. Support is strong, but 'not rare' is an inference rather than a quantified fact."
+        },
+        {
+          "id": "the-bark-that-bends-knees",
+          "premise": "Arcanine's bark is so majestic that Pokédex text says anyone hearing it cannot help but grovel.",
+          "hook": "Arcanine's bark supposedly makes everyone grovel.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[3].text",
+            "pokedexEntries[11].text"
+          ],
+          "visualIdea": "Arcanine barks once; nearby figures freeze, then dramatically drop to their knees beneath sound-wave graphics.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 23,
+          "note": "The exact bark-to-grovel claim is unusual and directly supported twice. Its main limitation is that the dramatic wording may feel like a gag rather than a deeper reveal."
+        },
+        {
+          "id": "bulk-that-dances",
+          "premise": "Despite its 155-kilogram bulk, Arcanine feints every way and makes foes chase it as if it were dancing.",
+          "hook": "How does a 155-kilogram Pokémon fight like a dancer?",
+          "archetype": "comparison",
+          "evidence": [
+            "weightKg",
+            "pokedexEntries[18].text"
+          ],
+          "visualIdea": "A 155-kilogram weight counter appears as Arcanine smoothly sidesteps snapping flames and leaves an opponent chasing.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 23,
+          "note": "Strong contrast between 155 kilograms and deceptive, dance-like combat movement. The Legends: Arceus entry directly supports the visual, though the comparison is less exclusive to Arcanine than the fire-distance mechanic."
+        },
+        {
+          "id": "stone-powered-evolution",
+          "premise": "Arcanine does not evolve by leveling up: Growlithe becomes it when exposed to a Fire Stone.",
+          "hook": "Arcanine's evolution takes one item—not a single level.",
+          "archetype": "transformation",
+          "evidence": [
+            "evolutionChain[0].name",
+            "evolutionChain[1].name",
+            "evolutionChain[1].evolvesFrom",
+            "evolutionChain[1].method"
+          ],
+          "visualIdea": "Growlithe touches a Fire Stone and transforms instantly into Arcanine, with the item centered between both forms.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 3,
+            "specificity": 5,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 21,
+          "note": "Clear and easy to visualize, but Fire Stone evolution is a familiar Pokémon mechanic and the method is supported by secondary rather than Pokédex text."
+        },
+        {
+          "id": "hisui-heavier-rockier",
+          "premise": "Hisui's Arcanine grows to 2 meters, weighs 168 kilograms, and adds Rock typing to the standard Fire form.",
+          "hook": "Arcanine's regional form gets taller, heavier, and rockier.",
+          "archetype": "comparison",
+          "evidence": [
+            "types",
+            "heightMeters",
+            "weightKg",
+            "varieties[0].name",
+            "varieties[0].types",
+            "varieties[0].heightMeters",
+            "varieties[0].weightKg"
+          ],
+          "visualIdea": "Standard and Hisuian Arcanine stand side by side while height, weight, and Fire/Rock typing animate onto the comparison.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 3,
+            "surprise": 3,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 21,
+          "note": "Factually complete and highly visual, with clean height, weight, and typing comparisons. However, regional-form stat comparisons are a broadly reusable angle."
+        }
+      ],
+      "rejected": [],
+      "request": "Stronger alternatives would need an equally concrete Arcanine-specific contradiction or mechanic, backed by an explicit source and offering a clearer visual payoff than the 6,200-mile fire-fueled run."
+    }
+  ]
+}

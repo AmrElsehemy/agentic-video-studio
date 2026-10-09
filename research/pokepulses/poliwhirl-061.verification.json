@@ -1,0 +1,481 @@
+{
+  "episodeId": "poliwhirl-061",
+  "checkedAt": "2026-10-08T20:46:09.537Z",
+  "claims": [
+    {
+      "id": "c1",
+      "where": "title",
+      "text": "Poliwhirl's Evolution Is a Two-Way Split",
+      "verdict": "supported",
+      "evidence": [
+        "evolutionChain[2].name",
+        "evolutionChain[3].name"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c2",
+      "where": "premise",
+      "text": "Poliwhirl can evolve into two different Pokémon through two completely different choices.",
+      "verdict": "supported",
+      "evidence": [
+        "evolutionChain[2].method",
+        "evolutionChain[3].method"
+      ],
+      "note": "",
+      "tier": "trusted_secondary",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c3",
+      "where": "audiencePromise",
+      "text": "Show how one item or one trade sends Poliwhirl down two sharply different evolution paths.",
+      "verdict": "supported",
+      "evidence": [
+        "evolutionChain[2].method",
+        "evolutionChain[3].method"
+      ],
+      "note": "",
+      "tier": "trusted_secondary",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c4",
+      "where": "openLoop",
+      "text": "Which choice changes Poliwhirl more: the Water Stone or the trade?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c5",
+      "where": "payoff",
+      "text": "The Water Stone creates Water/Fighting Poliwrath, while the Kings Rock trade creates Water-type Politoed.",
+      "verdict": "supported",
+      "evidence": [
+        "evolutionChain[2].method",
+        "evolutionChain[2].name",
+        "evolutionChain[2].types",
+        "evolutionChain[3].method",
+        "evolutionChain[3].name",
+        "evolutionChain[3].types"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c6",
+      "where": "scenes.two-evolution-paths.headline",
+      "text": "TWO EVOLUTIONS. ONE CHOICE.",
+      "verdict": "supported",
+      "evidence": [
+        "evolutionChain[2].name",
+        "evolutionChain[3].name",
+        "evolutionChain[2].method",
+        "evolutionChain[3].method"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c7",
+      "where": "scenes.two-evolution-paths.narration",
+      "text": "Poliwhirl’s evolution splits into two totally different choices.",
+      "verdict": "supported",
+      "evidence": [
+        "evolutionChain[2].method",
+        "evolutionChain[3].method"
+      ],
+      "note": "",
+      "tier": "trusted_secondary",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c8",
+      "where": "scenes.two-evolution-paths.caption",
+      "text": "ONE POLIWHIRL. TWO DESTINATIONS.",
+      "verdict": "supported",
+      "evidence": [
+        "evolutionChain[2].name",
+        "evolutionChain[3].name"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c9",
+      "where": "scenes.two-evolution-paths.eyebrow",
+      "text": "ONE POKÉMON. TWO PATHS.",
+      "verdict": "supported",
+      "evidence": [
+        "evolutionChain[2].name",
+        "evolutionChain[3].name",
+        "evolutionChain[2].method",
+        "evolutionChain[3].method"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c10",
+      "where": "scenes.water-stone-path.headline",
+      "text": "WATER STONE → POLIWRATH",
+      "verdict": "supported",
+      "evidence": [
+        "evolutionChain[2].method",
+        "evolutionChain[2].name"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c11",
+      "where": "scenes.water-stone-path.narration",
+      "text": "Use a Water Stone, and Poliwhirl becomes Poliwrath instead.",
+      "verdict": "supported",
+      "evidence": [
+        "evolutionChain[2].method",
+        "evolutionChain[2].name"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c12",
+      "where": "scenes.water-stone-path.caption",
+      "text": "ITEM USED: WATER STONE",
+      "verdict": "supported",
+      "evidence": [
+        "evolutionChain[2].method"
+      ],
+      "note": "",
+      "tier": "trusted_secondary",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c13",
+      "where": "scenes.water-stone-path.eyebrow",
+      "text": "THE STONE ROUTE",
+      "verdict": "supported",
+      "evidence": [
+        "evolutionChain[2].method"
+      ],
+      "note": "",
+      "tier": "trusted_secondary",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c14",
+      "where": "scenes.water-stone-path.facts[0]",
+      "text": "WATER STONE",
+      "verdict": "supported",
+      "evidence": [
+        "evolutionChain[2].method"
+      ],
+      "note": "",
+      "tier": "trusted_secondary",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c15",
+      "where": "scenes.water-stone-path.facts[1]",
+      "text": "POLIWRATH",
+      "verdict": "supported",
+      "evidence": [
+        "evolutionChain[2].name"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c16",
+      "where": "scenes.kings-rock-path.headline",
+      "text": "KINGS ROCK → POLITOED",
+      "verdict": "supported",
+      "evidence": [
+        "evolutionChain[3].method",
+        "evolutionChain[3].name"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c17",
+      "where": "scenes.kings-rock-path.narration",
+      "text": "Hold a Kings Rock, then trade Poliwhirl into Politoed.",
+      "verdict": "supported",
+      "evidence": [
+        "evolutionChain[3].method",
+        "evolutionChain[3].name"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c18",
+      "where": "scenes.kings-rock-path.caption",
+      "text": "TRADE WHILE HOLDING KINGS ROCK",
+      "verdict": "supported",
+      "evidence": [
+        "evolutionChain[3].method"
+      ],
+      "note": "",
+      "tier": "trusted_secondary",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c19",
+      "where": "scenes.kings-rock-path.eyebrow",
+      "text": "THE TRADE ROUTE",
+      "verdict": "supported",
+      "evidence": [
+        "evolutionChain[3].method"
+      ],
+      "note": "",
+      "tier": "trusted_secondary",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c20",
+      "where": "scenes.kings-rock-path.facts[0]",
+      "text": "KINGS ROCK",
+      "verdict": "supported",
+      "evidence": [
+        "evolutionChain[3].method"
+      ],
+      "note": "",
+      "tier": "trusted_secondary",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c21",
+      "where": "scenes.kings-rock-path.facts[1]",
+      "text": "TRADE",
+      "verdict": "supported",
+      "evidence": [
+        "evolutionChain[3].method"
+      ],
+      "note": "",
+      "tier": "trusted_secondary",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c22",
+      "where": "scenes.kings-rock-path.facts[2]",
+      "text": "POLITOED",
+      "verdict": "supported",
+      "evidence": [
+        "evolutionChain[3].name"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c23",
+      "where": "scenes.typing-splits.headline",
+      "text": "POLIWRATH ADDS FIGHTING",
+      "verdict": "supported",
+      "evidence": [
+        "evolutionChain[2].types"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c24",
+      "where": "scenes.typing-splits.narration",
+      "text": "That choice changes more than its name: Poliwrath gains Fighting typing.",
+      "verdict": "supported",
+      "evidence": [
+        "evolutionChain[2].types"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c25",
+      "where": "scenes.typing-splits.caption",
+      "text": "WATER → WATER + FIGHTING",
+      "verdict": "supported",
+      "evidence": [
+        "evolutionChain[1].types",
+        "evolutionChain[2].types"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c26",
+      "where": "scenes.typing-splits.eyebrow",
+      "text": "THE CHOICE CHANGES TYPING",
+      "verdict": "supported",
+      "evidence": [
+        "evolutionChain[2].types",
+        "evolutionChain[3].types"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c27",
+      "where": "scenes.typing-splits.facts[0]",
+      "text": "POLIWRATH",
+      "verdict": "supported",
+      "evidence": [
+        "evolutionChain[2].name"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c28",
+      "where": "scenes.typing-splits.facts[1]",
+      "text": "WATER",
+      "verdict": "supported",
+      "evidence": [
+        "evolutionChain[2].types"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c29",
+      "where": "scenes.typing-splits.facts[2]",
+      "text": "FIGHTING",
+      "verdict": "supported",
+      "evidence": [
+        "evolutionChain[2].types"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c30",
+      "where": "scenes.politoed-counterpoint.headline",
+      "text": "POLITOED STAYS WATER",
+      "verdict": "supported",
+      "evidence": [
+        "evolutionChain[3].types"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c31",
+      "where": "scenes.politoed-counterpoint.narration",
+      "text": "Poliwrath adds Fighting, but Politoed keeps Water only.",
+      "verdict": "supported",
+      "evidence": [
+        "evolutionChain[2].types",
+        "evolutionChain[3].types"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c32",
+      "where": "scenes.politoed-counterpoint.caption",
+      "text": "POLITOED: WATER",
+      "verdict": "supported",
+      "evidence": [
+        "evolutionChain[3].types"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c33",
+      "where": "scenes.politoed-counterpoint.eyebrow",
+      "text": "THE OTHER SIDE",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c34",
+      "where": "scenes.politoed-counterpoint.facts[0]",
+      "text": "POLIWRATH: WATER/FIGHTING",
+      "verdict": "supported",
+      "evidence": [
+        "evolutionChain[2].types"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c35",
+      "where": "scenes.politoed-counterpoint.facts[1]",
+      "text": "POLITOED: WATER",
+      "verdict": "supported",
+      "evidence": [
+        "evolutionChain[3].types"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c36",
+      "where": "scenes.choose-your-path.headline",
+      "text": "WHICH PATH WINS?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c37",
+      "where": "scenes.choose-your-path.narration",
+      "text": "Which path wins: Water Stone or Kings Rock trade?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c38",
+      "where": "scenes.choose-your-path.caption",
+      "text": "CHOOSE POLIWRATH OR POLITOED",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c39",
+      "where": "scenes.choose-your-path.eyebrow",
+      "text": "YOUR EVOLUTION CHOICE",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    }
+  ],
+  "unsupported": [],
+  "uncertain": []
+}

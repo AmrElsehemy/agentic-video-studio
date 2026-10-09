@@ -1,0 +1,167 @@
+{
+  "episodeId": "machop-066",
+  "createdAt": "2026-10-08T22:13:34.580Z",
+  "chosen": {
+    "id": "child-sized-hundred-people",
+    "premise": "Machop is only 0.8 meters tall yet can hurl 100 adult humans.",
+    "hook": "This child-sized Pokémon can throw one hundred adults.",
+    "archetype": "comparison",
+    "evidence": [
+      "heightMeters",
+      "pokedexEntries[5].text",
+      "pokedexEntries[8].text"
+    ],
+    "visualIdea": "Show Machop beside a height marker, then replace one adult with a crowd of 100 silhouettes.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 5,
+      "specificity": 5,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 25,
+    "note": "A highly specific Machop contradiction: child-sized appearance versus the canon claim that it can hurl 100 adults. The scale comparison is immediately visual and directly supported by height data and multiple Pokédex entries."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "child-sized-hundred-people",
+          "premise": "Machop is only 0.8 meters tall yet can hurl 100 adult humans.",
+          "hook": "This child-sized Pokémon can throw one hundred adults.",
+          "archetype": "comparison",
+          "evidence": [
+            "heightMeters",
+            "pokedexEntries[5].text",
+            "pokedexEntries[8].text"
+          ],
+          "visualIdea": "Show Machop beside a height marker, then replace one adult with a crowd of 100 silhouettes.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 25,
+          "note": "A highly specific Machop contradiction: child-sized appearance versus the canon claim that it can hurl 100 adults. The scale comparison is immediately visual and directly supported by height data and multiple Pokédex entries."
+        },
+        {
+          "id": "never-sore",
+          "premise": "Machop’s muscles never get sore or cramp, no matter how much it trains.",
+          "hook": "Machop has the ultimate training advantage: its muscles never hurt.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[5].text",
+            "pokedexEntries[10].text",
+            "pokedexEntries[12].text"
+          ],
+          "visualIdea": "Loop Machop through increasingly intense workouts while a soreness meter stays at zero.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 4,
+            "support": 5
+          },
+          "total": 24,
+          "note": "A genuinely unusual biological advantage, supported across multiple entries. The soreness meter is visual, though the idea is slightly less instantly dramatic than the 100-adult claim."
+        },
+        {
+          "id": "graveler-barbell",
+          "premise": "Machop builds strength by repeatedly carrying a Graveler like a barbell.",
+          "hook": "Machop’s everyday gym equipment is another Pokémon.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[6].text",
+            "pokedexEntries[9].text",
+            "pokedexEntries[17].text"
+          ],
+          "visualIdea": "Animate Machop lifting a Graveler across mountain reps, ending with its 100-person strength feat.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 24,
+          "note": "Very Machop-specific and easy to animate, with repeated Pokédex support. It is surprising, though familiar fans may already know the Graveler-training image."
+        },
+        {
+          "id": "trade-final-form",
+          "premise": "Machop reaches Machoke at level 28, but Machamp requires a trade after that.",
+          "hook": "Machop’s final evolution needs something training alone can’t provide.",
+          "archetype": "mechanic",
+          "evidence": [
+            "evolutionChain[1].method",
+            "evolutionChain[2].method",
+            "evolutionChain[1].evolvesFrom",
+            "evolutionChain[2].evolvesFrom"
+          ],
+          "visualIdea": "A level counter stops at 28 for Machoke, then a trade window unlocks Machamp.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 22,
+          "note": "A clear, highly visual evolution mechanic, but it is more about the game’s progression system than Machop’s identity. The cited methods are from trusted secondary data rather than the supplied Pokédex entries."
+        },
+        {
+          "id": "makuhita-challenge",
+          "premise": "After training with friends builds its confidence and muscle, Machop challenges Makuhita.",
+          "hook": "Machop’s training arc ends with a very specific rival challenge.",
+          "archetype": "transformation",
+          "evidence": [
+            "pokedexEntries[15].text"
+          ],
+          "visualIdea": "Show Machop training beside friends, gaining confidence, then reveal Makuhita as the final opponent.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 4,
+            "support": 3
+          },
+          "total": 21,
+          "note": "The Makuhita matchup is an excellent obscure detail and very concrete, but it relies on a single entry and does not establish that this is literally the endpoint of Machop’s training arc."
+        },
+        {
+          "id": "all-martial-arts",
+          "premise": "Machop trains in every style of martial arts, even traveling the world to master them.",
+          "hook": "Machop isn’t mastering one fighting style—it wants them all.",
+          "archetype": "walkthrough",
+          "evidence": [
+            "pokedexEntries[0].text",
+            "pokedexEntries[1].text",
+            "pokedexEntries[6].text",
+            "pokedexEntries[9].text"
+          ],
+          "visualIdea": "A map fills with martial-arts icons as Machop moves through each training style.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 3,
+            "specificity": 3,
+            "visual": 4,
+            "support": 4
+          },
+          "total": 18,
+          "note": "The training ambition is supported, but “every style” is broad and the individual martial arts are not named. The map concept risks becoming a generic montage."
+        }
+      ],
+      "rejected": [],
+      "request": "No stronger angle is needed; this premise has the best combination of Machop-specific absurdity, reliable support, and instantly readable visuals."
+    }
+  ]
+}

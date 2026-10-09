@@ -1,0 +1,491 @@
+{
+  "episodeId": "dugtrio-051",
+  "checkedAt": "2026-10-08T19:20:12.332Z",
+  "claims": [
+    {
+      "id": "c1",
+      "where": "title",
+      "text": "Same Height, Double the Weight: Dugtrio's Alolan Twist",
+      "verdict": "supported",
+      "evidence": [
+        "heightMeters",
+        "varieties[0].heightMeters",
+        "weightKg",
+        "varieties[0].weightKg"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c2",
+      "where": "premise",
+      "text": "Compare standard Dugtrio and Dugtrio Alola, which share a height but not a weight.",
+      "verdict": "supported",
+      "evidence": [
+        "heightMeters",
+        "varieties[0].heightMeters",
+        "weightKg",
+        "varieties[0].weightKg",
+        "varieties[0].name"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c3",
+      "where": "audiencePromise",
+      "text": "See how Alolan Dugtrio doubles the weight without growing taller, then adds a second type.",
+      "verdict": "supported",
+      "evidence": [
+        "heightMeters",
+        "varieties[0].heightMeters",
+        "weightKg",
+        "varieties[0].weightKg",
+        "types[0]",
+        "varieties[0].types"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c4",
+      "where": "openLoop",
+      "text": "How can two Dugtrio forms share a height but weigh so differently?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c5",
+      "where": "payoff",
+      "text": "Alolan Dugtrio keeps the same height, doubles the weight, and adds Steel typing.",
+      "verdict": "supported",
+      "evidence": [
+        "heightMeters",
+        "varieties[0].heightMeters",
+        "weightKg",
+        "varieties[0].weightKg",
+        "varieties[0].types"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c6",
+      "where": "scenes.same-height-double-weight.headline",
+      "text": "SAME HEIGHT. DOUBLE WEIGHT.",
+      "verdict": "supported",
+      "evidence": [
+        "heightMeters",
+        "varieties[0].heightMeters",
+        "weightKg",
+        "varieties[0].weightKg"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c7",
+      "where": "scenes.same-height-double-weight.narration",
+      "text": "Same height. Twice the weight.",
+      "verdict": "supported",
+      "evidence": [
+        "heightMeters",
+        "varieties[0].heightMeters",
+        "weightKg",
+        "varieties[0].weightKg"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c8",
+      "where": "scenes.same-height-double-weight.caption",
+      "text": "DUGTRIO'S ALOLAN TWIST",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c9",
+      "where": "scenes.same-height-double-weight.eyebrow",
+      "text": "THE SIZE TRAP",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c10",
+      "where": "scenes.standard-dugtrio-baseline.headline",
+      "text": "THE ORIGINAL MEASUREMENT",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c11",
+      "where": "scenes.standard-dugtrio-baseline.narration",
+      "text": "Standard Dugtrio stands 0.7 meters tall and weighs 33.3 kilograms.",
+      "verdict": "supported",
+      "evidence": [
+        "heightMeters",
+        "weightKg"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c12",
+      "where": "scenes.standard-dugtrio-baseline.caption",
+      "text": "0.7 METERS • 33.3 KILOGRAMS",
+      "verdict": "supported",
+      "evidence": [
+        "heightMeters",
+        "weightKg"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c13",
+      "where": "scenes.standard-dugtrio-baseline.eyebrow",
+      "text": "STANDARD FORM",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c14",
+      "where": "scenes.standard-dugtrio-baseline.facts[0]",
+      "text": "0.7 M TALL",
+      "verdict": "supported",
+      "evidence": [
+        "heightMeters"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c15",
+      "where": "scenes.standard-dugtrio-baseline.facts[1]",
+      "text": "33.3 KG",
+      "verdict": "supported",
+      "evidence": [
+        "weightKg"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c16",
+      "where": "scenes.alolan-dugtrio-comparison.headline",
+      "text": "THE WEIGHT SPIKE",
+      "verdict": "supported",
+      "evidence": [
+        "weightKg",
+        "varieties[0].weightKg"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c17",
+      "where": "scenes.alolan-dugtrio-comparison.narration",
+      "text": "Dugtrio Alola stays 0.7 meters tall, but weighs 66.6 kilograms.",
+      "verdict": "supported",
+      "evidence": [
+        "varieties[0].heightMeters",
+        "varieties[0].weightKg"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c18",
+      "where": "scenes.alolan-dugtrio-comparison.caption",
+      "text": "SAME HEIGHT • 66.6 KILOGRAMS",
+      "verdict": "supported",
+      "evidence": [
+        "varieties[0].heightMeters",
+        "varieties[0].weightKg"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c19",
+      "where": "scenes.alolan-dugtrio-comparison.eyebrow",
+      "text": "ALOLAN FORM",
+      "verdict": "supported",
+      "evidence": [
+        "varieties[0].name"
+      ],
+      "note": "",
+      "tier": "trusted_secondary",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c20",
+      "where": "scenes.alolan-dugtrio-comparison.facts[0]",
+      "text": "0.7 M TALL",
+      "verdict": "supported",
+      "evidence": [
+        "varieties[0].heightMeters"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c21",
+      "where": "scenes.alolan-dugtrio-comparison.facts[1]",
+      "text": "66.6 KG",
+      "verdict": "supported",
+      "evidence": [
+        "varieties[0].weightKg"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c22",
+      "where": "scenes.scale-jumps.headline",
+      "text": "THE NUMBER DOUBLES",
+      "verdict": "supported",
+      "evidence": [
+        "weightKg",
+        "varieties[0].weightKg"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c23",
+      "where": "scenes.scale-jumps.narration",
+      "text": "Same height, but the scale jumps from 33.3 to 66.6.",
+      "verdict": "supported",
+      "evidence": [
+        "heightMeters",
+        "varieties[0].heightMeters",
+        "weightKg",
+        "varieties[0].weightKg"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c24",
+      "where": "scenes.scale-jumps.caption",
+      "text": "33.3 KG → 66.6 KG",
+      "verdict": "supported",
+      "evidence": [
+        "weightKg",
+        "varieties[0].weightKg"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c25",
+      "where": "scenes.scale-jumps.eyebrow",
+      "text": "WATCH THE SCALE",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c26",
+      "where": "scenes.scale-jumps.facts[0]",
+      "text": "SAME HEIGHT",
+      "verdict": "supported",
+      "evidence": [
+        "heightMeters",
+        "varieties[0].heightMeters"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c27",
+      "where": "scenes.scale-jumps.facts[1]",
+      "text": "33.3 KG",
+      "verdict": "supported",
+      "evidence": [
+        "weightKg"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c28",
+      "where": "scenes.scale-jumps.facts[2]",
+      "text": "66.6 KG",
+      "verdict": "supported",
+      "evidence": [
+        "varieties[0].weightKg"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c29",
+      "where": "scenes.steel-type-counterpoint.headline",
+      "text": "A SECOND TYPE APPEARS",
+      "verdict": "supported",
+      "evidence": [
+        "types",
+        "varieties[0].types"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c30",
+      "where": "scenes.steel-type-counterpoint.narration",
+      "text": "Weight isn't the only change: Alolan Dugtrio also gains Steel typing.",
+      "verdict": "supported",
+      "evidence": [
+        "types",
+        "varieties[0].types"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c31",
+      "where": "scenes.steel-type-counterpoint.caption",
+      "text": "GROUND → GROUND + STEEL",
+      "verdict": "supported",
+      "evidence": [
+        "types",
+        "varieties[0].types"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c32",
+      "where": "scenes.steel-type-counterpoint.eyebrow",
+      "text": "NOT THE ONLY CHANGE",
+      "verdict": "supported",
+      "evidence": [
+        "weightKg",
+        "varieties[0].weightKg",
+        "types",
+        "varieties[0].types"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c33",
+      "where": "scenes.steel-type-counterpoint.facts[0]",
+      "text": "GROUND",
+      "verdict": "supported",
+      "evidence": [
+        "types"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c34",
+      "where": "scenes.steel-type-counterpoint.facts[1]",
+      "text": "STEEL",
+      "verdict": "supported",
+      "evidence": [
+        "varieties[0].types"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c35",
+      "where": "scenes.which-version-surprises.headline",
+      "text": "THE SAME-SIZE SURPRISE",
+      "verdict": "uncertain",
+      "evidence": [
+        "heightMeters",
+        "varieties[0].heightMeters"
+      ],
+      "note": "The research supports equal height, but not that the forms are the same overall size; their weights differ.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c36",
+      "where": "scenes.which-version-surprises.narration",
+      "text": "Same size or double weight: which version surprises you more?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c37",
+      "where": "scenes.which-version-surprises.caption",
+      "text": "STANDARD OR ALOLAN?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c38",
+      "where": "scenes.which-version-surprises.eyebrow",
+      "text": "YOUR TAKE",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    }
+  ],
+  "unsupported": [],
+  "uncertain": [
+    {
+      "id": "c35",
+      "where": "scenes.which-version-surprises.headline",
+      "text": "THE SAME-SIZE SURPRISE",
+      "verdict": "uncertain",
+      "evidence": [
+        "heightMeters",
+        "varieties[0].heightMeters"
+      ],
+      "note": "The research supports equal height, but not that the forms are the same overall size; their weights differ.",
+      "tier": "official",
+      "checkedBy": "model"
+    }
+  ]
+}

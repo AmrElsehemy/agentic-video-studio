@@ -1,0 +1,160 @@
+{
+  "episodeId": "primeape-057",
+  "createdAt": "2026-10-08T19:47:46.827Z",
+  "chosen": {
+    "id": "anger-can-kill-it",
+    "premise": "Primeape can become so angry that it dies, yet its face looks peaceful after death.",
+    "hook": "Primeape’s anger can literally kill it.",
+    "archetype": "transformation",
+    "evidence": [
+      "pokedexEntries[10].text"
+    ],
+    "visualIdea": "Primeape’s rage meter fills past maximum, then cuts to its unexpectedly peaceful expression.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 5,
+      "specificity": 5,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 25,
+    "note": "An unusually dark, concrete claim with an excellent reversal: death makes Primeape look peaceful. One official entry fully supports the premise and gives the episode a strong visual arc."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "anger-can-kill-it",
+          "premise": "Primeape can become so angry that it dies, yet its face looks peaceful after death.",
+          "hook": "Primeape’s anger can literally kill it.",
+          "archetype": "transformation",
+          "evidence": [
+            "pokedexEntries[10].text"
+          ],
+          "visualIdea": "Primeape’s rage meter fills past maximum, then cuts to its unexpectedly peaceful expression.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 25,
+          "note": "An unusually dark, concrete claim with an excellent reversal: death makes Primeape look peaceful. One official entry fully supports the premise and gives the episode a strong visual arc."
+        },
+        {
+          "id": "the-chase-gets-worse",
+          "premise": "Seeing Primeape’s eyes angers it, running makes it angrier, and defeating it makes it angrier still.",
+          "hook": "Against Primeape, every possible response makes things worse.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[3].text",
+            "pokedexEntries[9].text"
+          ],
+          "visualIdea": "A branching choice screen shows look, run, or fight—all routes ending with a larger rage meter.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 24,
+          "note": "The escalating decision-tree mechanic is highly specific and strongly supported. It is slightly less surprising than the death premise because Primeape’s relentless pursuit is already well known."
+        },
+        {
+          "id": "calm-only-when-unwatched",
+          "premise": "Primeape only stops being angry when nobody is around, making its peaceful side almost impossible to witness.",
+          "hook": "Primeape has a calm mode—but you can’t watch it happen.",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[1].text",
+            "pokedexEntries[3].text"
+          ],
+          "visualIdea": "A camera approaches a calm Primeape; the instant it notices the lens, its expression flips to rage.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 24,
+          "note": "A strong contradiction built from multiple entries: Primeape has a calm state that observation prevents. The premise is visually clear, though the payoff is less startling than its fatal rage."
+        },
+        {
+          "id": "rage-trades-brain-for-muscle",
+          "premise": "Primeape’s fury boosts blood flow and muscle strength, but makes it much less intelligent.",
+          "hook": "What if getting stronger also made Primeape dumber?",
+          "archetype": "comparison",
+          "evidence": [
+            "pokedexEntries[5].text",
+            "pokedexEntries[6].text"
+          ],
+          "visualIdea": "Split-screen Primeape: its muscles grow as a thought bubble shrinks into confused scribbles.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 4,
+            "support": 5
+          },
+          "total": 22,
+          "note": "A sharply defined biological tradeoff, directly supported by two Pokédex entries. The strength-versus-intelligence contrast is compelling, though the basic rage-power trope is somewhat familiar."
+        },
+        {
+          "id": "evolves-through-a-move",
+          "premise": "Primeape reaches its final evolution not by leveling up, but by using a move.",
+          "hook": "Primeape’s final evolution breaks the usual level-up pattern.",
+          "archetype": "transformation",
+          "evidence": [
+            "evolutionChain[1].method",
+            "evolutionChain[2].method",
+            "evolutionChain[2].name",
+            "evolutionChain[2].types"
+          ],
+          "visualIdea": "Primeape uses a move, then transforms into Annihilape as a Ghost type appears beside Fighting.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 22,
+          "note": "A clear, highly visual evolution mechanic and a useful connection to Annihilape. It is well supported by the supplied evolution data, but the method is from a trusted secondary source rather than an official Pokédex entry."
+        },
+        {
+          "id": "rage-inside-the-pokeball",
+          "premise": "Researchers theorize Primeape may remain angry even while sealed inside a Poké Ball.",
+          "hook": "Primeape might still be furious inside its Poké Ball.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[12].text",
+            "pokedexEntries[13].text"
+          ],
+          "visualIdea": "A Poké Ball sits still while an interior cutaway reveals Primeape raging beside a calm-looking exterior.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 4,
+            "support": 3
+          },
+          "total": 19,
+          "note": "A fun unsettling image, but the key claim is explicitly only a researcher theory. The brain-health entry supports constant rage generally, not that rage continues inside a Poké Ball."
+        }
+      ],
+      "rejected": [],
+      "request": "Not applicable: “anger-can-kill-it” is strong enough to lead the episode. Stronger alternatives would need an equally specific contradiction or consequence, direct support from an official entry, and a visual payoff that is more surprising than Primeape’s rage literally ending in death and peace."
+    }
+  ]
+}

@@ -1,0 +1,558 @@
+{
+  "episodeId": "bellsprout-069",
+  "checkedAt": "2026-10-08T23:19:30.092Z",
+  "claims": [
+    {
+      "id": "c1",
+      "where": "title",
+      "text": "Bellsprout Looks Fragile. Its Mouth Melts Iron.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "The iron-melting fluid is directly supported, but 'looks fragile' is an inference from Bellsprout's thin body rather than a stated fact.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c2",
+      "where": "premise",
+      "text": "Bellsprout's skinny body looks harmless, but its mouth spits fluid that melts even iron.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[6].text"
+      ],
+      "note": "The skinny body and iron-melting fluid are supported, but 'looks harmless' is an interpretive appearance claim.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c3",
+      "where": "audiencePromise",
+      "text": "Contrast Bellsprout's tiny frame with its shocking corrosive power, then reveal its unusual weakness.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[10].text"
+      ],
+      "note": "The contrast and rooted vulnerability are supported, but calling the weakness 'unusual' adds an unsupported characterization.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c4",
+      "where": "openLoop",
+      "text": "How can something this skinny melt iron?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c5",
+      "where": "payoff",
+      "text": "Bellsprout is tiny and flexible, yet its mouth spits corrosive fluid that melts iron.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[10].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c6",
+      "where": "scenes.skinny-flower.headline",
+      "text": "SKINNY FLOWER. IRON MELTER.",
+      "verdict": "supported",
+      "evidence": [
+        "category",
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c7",
+      "where": "scenes.skinny-flower.narration",
+      "text": "This skinny flower can melt iron with its mouth.",
+      "verdict": "supported",
+      "evidence": [
+        "category",
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c8",
+      "where": "scenes.skinny-flower.caption",
+      "text": "SMALL LOOKS. BIG THREAT.",
+      "verdict": "supported",
+      "evidence": [
+        "heightMeters",
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c9",
+      "where": "scenes.skinny-flower.eyebrow",
+      "text": "LOOKS HARMLESS",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "'Looks harmless' is an interpretive appearance claim; the research supports a thin body but does not describe it as harmless-looking.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c10",
+      "where": "scenes.tiny-frame.headline",
+      "text": "BARELY SEVEN-TENTHS TALL",
+      "verdict": "supported",
+      "evidence": [
+        "heightMeters"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c11",
+      "where": "scenes.tiny-frame.narration",
+      "text": "It's barely seven-tenths of a meter tall and weighs four kilos.",
+      "verdict": "supported",
+      "evidence": [
+        "heightMeters",
+        "weightKg"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c12",
+      "where": "scenes.tiny-frame.caption",
+      "text": "TINY AND LIGHT",
+      "verdict": "supported",
+      "evidence": [
+        "heightMeters",
+        "weightKg"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c13",
+      "where": "scenes.tiny-frame.eyebrow",
+      "text": "THE CONTRAST STARTS HERE",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c14",
+      "where": "scenes.tiny-frame.facts[0]",
+      "text": "0.7 METERS",
+      "verdict": "supported",
+      "evidence": [
+        "heightMeters"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c15",
+      "where": "scenes.tiny-frame.facts[1]",
+      "text": "4 KILOS",
+      "verdict": "supported",
+      "evidence": [
+        "weightKg"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c16",
+      "where": "scenes.flexible-defense.headline",
+      "text": "IT BENDS AWAY",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c17",
+      "where": "scenes.flexible-defense.narration",
+      "text": "Yet its thin, flexible body bends and sways away from attacks.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c18",
+      "where": "scenes.flexible-defense.caption",
+      "text": "THIN DOESN'T MEAN STIFF",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c19",
+      "where": "scenes.flexible-defense.eyebrow",
+      "text": "FRAGILE? NOT EXACTLY.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[6].text"
+      ],
+      "note": "Flexibility and the ability to avoid attacks are supported, but 'not fragile' is an interpretive conclusion.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c20",
+      "where": "scenes.flexible-defense.facts[0]",
+      "text": "THIN BODY",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c21",
+      "where": "scenes.flexible-defense.facts[1]",
+      "text": "FLEXIBLE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c22",
+      "where": "scenes.flexible-defense.facts[2]",
+      "text": "BENDS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c23",
+      "where": "scenes.flexible-defense.facts[3]",
+      "text": "SWAYS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c24",
+      "where": "scenes.iron-melting-mouth.headline",
+      "text": "THE MOUTH IS THE WEAPON",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c25",
+      "where": "scenes.iron-melting-mouth.narration",
+      "text": "Then its mouth spits corrosive fluid that melts even iron.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c26",
+      "where": "scenes.iron-melting-mouth.caption",
+      "text": "CORROSIVE FLUID → IRON",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c27",
+      "where": "scenes.iron-melting-mouth.eyebrow",
+      "text": "NOW WATCH ITS MOUTH",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c28",
+      "where": "scenes.iron-melting-mouth.facts[0]",
+      "text": "CORROSIVE FLUID",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c29",
+      "where": "scenes.iron-melting-mouth.facts[1]",
+      "text": "MELTS IRON",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c30",
+      "where": "scenes.rooted-catch.headline",
+      "text": "ROOTED MEANS STUCK",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].text",
+        "pokedexEntries[10].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c31",
+      "where": "scenes.rooted-catch.narration",
+      "text": "But when its roots are planted, it can't escape an enemy.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].text",
+        "pokedexEntries[10].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c32",
+      "where": "scenes.rooted-catch.caption",
+      "text": "POWERFUL, BUT NOT UNTOUCHABLE",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[3].text",
+        "pokedexEntries[10].text",
+        "pokedexEntries[5].text"
+      ],
+      "note": "The research supports corrosive power and vulnerability while rooted, but 'not untouchable' is a broader interpretive characterization.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c33",
+      "where": "scenes.rooted-catch.eyebrow",
+      "text": "BUT THERE'S A CATCH",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c34",
+      "where": "scenes.rooted-catch.facts[0]",
+      "text": "ROOT FEET",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text",
+        "pokedexEntries[3].text",
+        "pokedexEntries[10].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c35",
+      "where": "scenes.rooted-catch.facts[1]",
+      "text": "CAN'T ESCAPE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].text",
+        "pokedexEntries[10].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c36",
+      "where": "scenes.final-choice.headline",
+      "text": "SMALL OR DANGEROUS?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c37",
+      "where": "scenes.final-choice.narration",
+      "text": "Tiny body or iron-melting mouth—which shocks you more?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c38",
+      "where": "scenes.final-choice.caption",
+      "text": "CHOOSE YOUR SURPRISE",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c39",
+      "where": "scenes.final-choice.eyebrow",
+      "text": "WHICH SIDE WINS?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    }
+  ],
+  "unsupported": [],
+  "uncertain": [
+    {
+      "id": "c1",
+      "where": "title",
+      "text": "Bellsprout Looks Fragile. Its Mouth Melts Iron.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "The iron-melting fluid is directly supported, but 'looks fragile' is an inference from Bellsprout's thin body rather than a stated fact.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c2",
+      "where": "premise",
+      "text": "Bellsprout's skinny body looks harmless, but its mouth spits fluid that melts even iron.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[6].text"
+      ],
+      "note": "The skinny body and iron-melting fluid are supported, but 'looks harmless' is an interpretive appearance claim.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c3",
+      "where": "audiencePromise",
+      "text": "Contrast Bellsprout's tiny frame with its shocking corrosive power, then reveal its unusual weakness.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[10].text"
+      ],
+      "note": "The contrast and rooted vulnerability are supported, but calling the weakness 'unusual' adds an unsupported characterization.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c9",
+      "where": "scenes.skinny-flower.eyebrow",
+      "text": "LOOKS HARMLESS",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "'Looks harmless' is an interpretive appearance claim; the research supports a thin body but does not describe it as harmless-looking.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c19",
+      "where": "scenes.flexible-defense.eyebrow",
+      "text": "FRAGILE? NOT EXACTLY.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[6].text"
+      ],
+      "note": "Flexibility and the ability to avoid attacks are supported, but 'not fragile' is an interpretive conclusion.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c32",
+      "where": "scenes.rooted-catch.caption",
+      "text": "POWERFUL, BUT NOT UNTOUCHABLE",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[3].text",
+        "pokedexEntries[10].text",
+        "pokedexEntries[5].text"
+      ],
+      "note": "The research supports corrosive power and vulnerability while rooted, but 'not untouchable' is a broader interpretive characterization.",
+      "tier": "official",
+      "checkedBy": "model"
+    }
+  ]
+}

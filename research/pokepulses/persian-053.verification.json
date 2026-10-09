@@ -1,0 +1,510 @@
+{
+  "episodeId": "persian-053",
+  "checkedAt": "2026-10-08T19:26:36.594Z",
+  "claims": [
+    {
+      "id": "c1",
+      "where": "title",
+      "text": "Persian's Face Has a Built-In Off Switch",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c2",
+      "where": "premise",
+      "text": "Persian senses nearby air movements with six whiskers, but grabbing them makes this vicious Pokémon docile.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[6].text",
+        "pokedexEntries[0].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c3",
+      "where": "audiencePromise",
+      "text": "See how Persian's danger-sensing whiskers become the exact trigger that calms it.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[6].text"
+      ],
+      "note": "The whiskers are documented as sensing air movements and determining what is nearby, but the research does not specifically call them danger-sensing.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c4",
+      "where": "openLoop",
+      "text": "How can a vicious cat become docile through its own whiskers?",
+      "verdict": "supported",
+      "evidence": [
+        "category",
+        "pokedexEntries[0].text",
+        "pokedexEntries[5].text",
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c5",
+      "where": "payoff",
+      "text": "Persian's design turns one face feature into a perfect contradiction: it reads nearby air, then becomes docile when grabbed.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c6",
+      "where": "scenes.face-off-switch.headline",
+      "text": "PERSIAN HAS A FACE OFF SWITCH",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c7",
+      "where": "scenes.face-off-switch.narration",
+      "text": "Persian has an off switch on its face.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c8",
+      "where": "scenes.face-off-switch.caption",
+      "text": "AN OFF SWITCH ON ITS FACE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c9",
+      "where": "scenes.face-off-switch.eyebrow",
+      "text": "HIDDEN WEAKNESS",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[6].text"
+      ],
+      "note": "Grabbing the whiskers makes Persian docile, but the research does not describe this as a weakness.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c10",
+      "where": "scenes.whiskers-scan-air.headline",
+      "text": "SIX WHISKERS READ THE AIR",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c11",
+      "where": "scenes.whiskers-scan-air.narration",
+      "text": "Its six bold whiskers sense nearby air movements around it.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c12",
+      "where": "scenes.whiskers-scan-air.caption",
+      "text": "SIX WHISKERS • AIR MOVEMENTS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c13",
+      "where": "scenes.whiskers-scan-air.eyebrow",
+      "text": "THE SENSORS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c14",
+      "where": "scenes.whiskers-scan-air.facts[0]",
+      "text": "SIX WHISKERS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c15",
+      "where": "scenes.whiskers-scan-air.facts[1]",
+      "text": "AIR MOVEMENTS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c16",
+      "where": "scenes.tail-signals-attack.headline",
+      "text": "TAIL UP MEANS POUNCE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[7].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c17",
+      "where": "scenes.tail-signals-attack.narration",
+      "text": "When its tail rises, Persian signals the attack is coming.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[7].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c18",
+      "where": "scenes.tail-signals-attack.caption",
+      "text": "TAIL UP = POUNCE AND BITE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[7].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c19",
+      "where": "scenes.tail-signals-attack.eyebrow",
+      "text": "DANGER SIGNAL",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[7].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c20",
+      "where": "scenes.tail-signals-attack.facts[0]",
+      "text": "TAIL UP",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[7].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c21",
+      "where": "scenes.tail-signals-attack.facts[1]",
+      "text": "POUNCE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[7].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c22",
+      "where": "scenes.tail-signals-attack.facts[2]",
+      "text": "BITE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[7].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c23",
+      "where": "scenes.grab-the-whiskers.headline",
+      "text": "GRAB THE WHISKERS",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c24",
+      "where": "scenes.grab-the-whiskers.narration",
+      "text": "The Pokédex gives Persian one bizarre calming rule: grab them.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c25",
+      "where": "scenes.grab-the-whiskers.caption",
+      "text": "GRAB THEM. PERSIAN CALMS.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c26",
+      "where": "scenes.grab-the-whiskers.eyebrow",
+      "text": "THE STRANGE RULE",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c27",
+      "where": "scenes.grab-the-whiskers.facts[0]",
+      "text": "GRAB WHISKERS",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c28",
+      "where": "scenes.grab-the-whiskers.facts[1]",
+      "text": "BECOMES DOCILE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c29",
+      "where": "scenes.attack-meets-docility.headline",
+      "text": "THE SENSOR IS THE OFF SWITCH",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c30",
+      "where": "scenes.attack-meets-docility.narration",
+      "text": "The face that reads nearby air carries the strangest calm response.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[6].text"
+      ],
+      "note": "The research supports sensing nearby air and becoming docile when the whiskers are grabbed, but it does not explicitly locate the sensing feature on the face or call it a calm response.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c31",
+      "where": "scenes.attack-meets-docility.caption",
+      "text": "AIR SENSOR → CALM RESPONSE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c32",
+      "where": "scenes.attack-meets-docility.eyebrow",
+      "text": "THE CONTRADICTION",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c33",
+      "where": "scenes.attack-meets-docility.facts[0]",
+      "text": "READS AIR",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c34",
+      "where": "scenes.attack-meets-docility.facts[1]",
+      "text": "CALM RESPONSE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c35",
+      "where": "scenes.risk-or-retreat.headline",
+      "text": "TRICK OR RETREAT?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c36",
+      "where": "scenes.risk-or-retreat.narration",
+      "text": "Would you try the whisker trick, or avoid Persian completely?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c37",
+      "where": "scenes.risk-or-retreat.caption",
+      "text": "TRY IT OR BACK AWAY?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c38",
+      "where": "scenes.risk-or-retreat.eyebrow",
+      "text": "YOUR CALL",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    }
+  ],
+  "unsupported": [],
+  "uncertain": [
+    {
+      "id": "c3",
+      "where": "audiencePromise",
+      "text": "See how Persian's danger-sensing whiskers become the exact trigger that calms it.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[6].text"
+      ],
+      "note": "The whiskers are documented as sensing air movements and determining what is nearby, but the research does not specifically call them danger-sensing.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c9",
+      "where": "scenes.face-off-switch.eyebrow",
+      "text": "HIDDEN WEAKNESS",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[6].text"
+      ],
+      "note": "Grabbing the whiskers makes Persian docile, but the research does not describe this as a weakness.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c30",
+      "where": "scenes.attack-meets-docility.narration",
+      "text": "The face that reads nearby air carries the strangest calm response.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[6].text"
+      ],
+      "note": "The research supports sensing nearby air and becoming docile when the whiskers are grabbed, but it does not explicitly locate the sensing feature on the face or call it a calm response.",
+      "tier": "official",
+      "checkedBy": "model"
+    }
+  ]
+}

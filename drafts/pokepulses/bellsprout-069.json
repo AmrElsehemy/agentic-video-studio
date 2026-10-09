@@ -1,0 +1,171 @@
+{
+  "id": "bellsprout-069",
+  "title": "Bellsprout Looks Fragile. Its Mouth Melts Iron.",
+  "storyPattern": "comparison",
+  "numberRelevant": false,
+  "premise": "Bellsprout's skinny body looks harmless, but its mouth spits fluid that melts even iron.",
+  "audiencePromise": "Contrast Bellsprout's tiny frame with its shocking corrosive power, then reveal its unusual weakness.",
+  "openLoop": "How can something this skinny melt iron?",
+  "payoff": "Bellsprout is tiny and flexible, yet its mouth spits corrosive fluid that melts iron.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "Tiny body or iron-melting mouth—which shocks you more?",
+  "subject": {
+    "name": "Bellsprout",
+    "category": "Flower Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/69.png",
+    "identifier": "#069"
+  },
+  "related": [
+    {
+      "name": "Victreebel",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/71.png",
+      "identifier": "#071"
+    },
+    {
+      "name": "Weepinbell",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/70.png",
+      "identifier": "#070"
+    }
+  ],
+  "palette": {
+    "background": "#101A18",
+    "surface": "#1B2B25",
+    "primary": "#8ACB45",
+    "secondary": "#D6B84C",
+    "ink": "#F4F6E8"
+  },
+  "voice": {
+    "instructions": "Quick, warm, and conversational. Stress the contrast between fragile and dangerous. Pause briefly before the iron reveal."
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    },
+    "assets": [
+      {
+        "kind": "Bellsprout official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/69.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "skinny-flower",
+      "beat": "hook",
+      "eyebrow": "LOOKS HARMLESS",
+      "headline": "SKINNY FLOWER. IRON MELTER.",
+      "narration": "This skinny flower can melt iron with its mouth.",
+      "caption": "SMALL LOOKS. BIG THREAT.",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/69.png"
+    },
+    {
+      "id": "tiny-frame",
+      "beat": "evidence",
+      "eyebrow": "THE CONTRAST STARTS HERE",
+      "headline": "BARELY SEVEN-TENTHS TALL",
+      "narration": "It's barely seven-tenths of a meter tall and weighs four kilos.",
+      "caption": "TINY AND LIGHT",
+      "facts": [
+        "0.7 METERS",
+        "4 KILOS"
+      ],
+      "accent": "#8ACB45",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/69.png"
+    },
+    {
+      "id": "flexible-defense",
+      "beat": "evidence",
+      "eyebrow": "FRAGILE? NOT EXACTLY.",
+      "headline": "IT BENDS AWAY",
+      "narration": "Yet its thin, flexible body bends and sways away from attacks.",
+      "caption": "THIN DOESN'T MEAN STIFF",
+      "facts": [
+        "THIN BODY",
+        "FLEXIBLE",
+        "BENDS",
+        "SWAYS"
+      ],
+      "accent": "#D6B84C",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/69.png"
+    },
+    {
+      "id": "iron-melting-mouth",
+      "beat": "escalation",
+      "eyebrow": "NOW WATCH ITS MOUTH",
+      "headline": "THE MOUTH IS THE WEAPON",
+      "narration": "Then its mouth spits corrosive fluid that melts even iron.",
+      "caption": "CORROSIVE FLUID → IRON",
+      "facts": [
+        "CORROSIVE FLUID",
+        "MELTS IRON"
+      ],
+      "accent": "#D6B84C",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/69.png"
+    },
+    {
+      "id": "rooted-catch",
+      "beat": "twist",
+      "eyebrow": "BUT THERE'S A CATCH",
+      "headline": "ROOTED MEANS STUCK",
+      "narration": "But when its roots are planted, it can't escape an enemy.",
+      "caption": "POWERFUL, BUT NOT UNTOUCHABLE",
+      "facts": [
+        "ROOT FEET",
+        "CAN'T ESCAPE"
+      ],
+      "accent": "#8ACB45",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/69.png",
+      "primitive": {
+        "kind": "checklist",
+        "items": [
+          {
+            "label": "ROOT FEET PLANTED",
+            "met": true
+          },
+          {
+            "label": "CAN ESCAPE",
+            "met": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "final-choice",
+      "beat": "verdict",
+      "eyebrow": "WHICH SIDE WINS?",
+      "headline": "SMALL OR DANGEROUS?",
+      "narration": "Tiny body or iron-melting mouth—which shocks you more?",
+      "caption": "CHOOSE YOUR SURPRISE",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/69.png"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Bellsprout",
+      "url": "https://www.pokemon.com/us/pokedex/bellsprout",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Bellsprout",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Bellsprout_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Bellsprout",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/69",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

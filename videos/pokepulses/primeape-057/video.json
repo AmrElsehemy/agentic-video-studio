@@ -1,0 +1,256 @@
+{
+  "schemaVersion": 2,
+  "id": "primeape-057",
+  "show": {
+    "id": "pokepulses",
+    "name": "PokePulses",
+    "handle": "@PokePulses",
+    "wordmark": {
+      "lead": "POKE",
+      "accent": "PULSES"
+    },
+    "fonts": {
+      "display": "Bebas Neue",
+      "body": "system"
+    }
+  },
+  "title": "Primeape Can Get So Angry, It Dies",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "transformation",
+    "numberRelevant": false,
+    "premise": "Primeape can become so angry that it dies, yet its face looks peaceful afterward.",
+    "audiencePromise": "Watch Primeape’s rage build toward a deathly calm transformation.",
+    "openLoop": "What does Primeape look like when its anger finally ends?",
+    "payoff": "Primeape’s fury can end in death, but its final expression is peaceful.",
+    "targetEmotion": "surprise",
+    "engagementQuestion": "Is that tragic, or somehow peaceful?",
+    "targetSecondsBetweenVisualChanges": 0.62
+  },
+  "subject": {
+    "name": "Primeape",
+    "category": "Pig Monkey Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/57.png",
+    "identifier": "#057"
+  },
+  "related": [
+    {
+      "name": "Annihilape",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/979.png",
+      "identifier": "#979"
+    },
+    {
+      "name": "Mankey",
+      "relation": "evolves-from",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/56.png",
+      "identifier": "#056"
+    }
+  ],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#160D0D",
+    "surface": "#2A1715",
+    "primary": "#D94A32",
+    "secondary": "#F29A38",
+    "ink": "#FFF1D0"
+  },
+  "audio": {
+    "music": "generated/primeape-057-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 126,
+      "notes": [
+        110,
+        130.81,
+        146.83,
+        164.81,
+        146.83,
+        130.81,
+        98,
+        130.81
+      ]
+    },
+    "voice": {
+      "provider": "openai",
+      "model": "gpt-4o-mini-tts",
+      "voice": "marin",
+      "instructions": "Speak like a knowledgeable fan sharing a disturbing surprise. Start sharp, build tension quickly, then slow slightly for the peaceful reveal. Keep the final question playful and genuinely divided.",
+      "speed": 1.12,
+      "output": "generated/primeape-057-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "assets": [
+      {
+        "kind": "Primeape official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/57.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ],
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    }
+  },
+  "scenes": [
+    {
+      "id": "rage-can-kill",
+      "durationSeconds": 3.8,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "POKÉDEX WARNING",
+      "headline": "RAGE CAN KILL PRIMEAPE",
+      "narration": "Primeape can get so angry, it dies.",
+      "caption": "ANGER REACHES THE LIMIT",
+      "visual": "hook",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/57.png",
+      "accent": "#D94A32",
+      "primitive": {
+        "kind": "timeline",
+        "steps": [
+          {
+            "label": "EXTREME ANGER",
+            "detail": "FURY BUILDS"
+          },
+          {
+            "label": "DEATH",
+            "detail": "CAN RESULT"
+          }
+        ],
+        "active": 1
+      }
+    },
+    {
+      "id": "anger-powers-it-up",
+      "durationSeconds": 4.3,
+      "beat": "before",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "THE RAGE BUILDS",
+      "headline": "ANGER MAKES IT STRONGER",
+      "narration": "Its fury boosts its muscles, but dulls its mind.",
+      "caption": "MORE POWER. LESS INTELLIGENCE.",
+      "visual": "gauntlet",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/57.png",
+      "accent": "#F29A38",
+      "facts": [
+        "STRONGER MUSCLES",
+        "LESS INTELLIGENT"
+      ]
+    },
+    {
+      "id": "fury-crosses-the-line",
+      "durationSeconds": 4.2,
+      "beat": "change",
+      "role": "escalation",
+      "shot": "tracking",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "THE FINAL ESCALATION",
+      "headline": "THE RAGE GOES TOO FAR",
+      "narration": "The Pokédex says extreme anger can cause Primeape’s death.",
+      "caption": "ANGER BECOMES FATAL",
+      "visual": "race",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/57.png",
+      "accent": "#A92525",
+      "facts": [
+        "EXTREME ANGER",
+        "DEATH"
+      ]
+    },
+    {
+      "id": "peaceful-expression",
+      "durationSeconds": 4.3,
+      "beat": "reveal",
+      "role": "payoff",
+      "shot": "comparison",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "THE STRANGEST PART",
+      "headline": "THEN ITS FACE GOES PEACEFUL",
+      "narration": "Then comes the strangest part: its face looks peaceful.",
+      "caption": "RAGE ENDS IN CALM",
+      "visual": "advantage",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/57.png",
+      "accent": "#F5D7A0",
+      "primitive": {
+        "kind": "timeline",
+        "steps": [
+          {
+            "label": "FURIOUS FACE",
+            "detail": "ALWAYS RAGING"
+          },
+          {
+            "label": "DEATH",
+            "detail": "FACE LOOKS PEACEFUL"
+          }
+        ],
+        "active": 1
+      }
+    },
+    {
+      "id": "calm-after-death",
+      "durationSeconds": 4.3,
+      "beat": "aftermath",
+      "role": "payoff",
+      "shot": "wide",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "AFTER THE RAGE",
+      "headline": "THE FURY FINALLY STOPS",
+      "narration": "After death, Primeape’s usually furious face looks peaceful instead.",
+      "caption": "NO FURY. JUST CALM.",
+      "visual": "tradeoff",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/57.png",
+      "accent": "#FFF1D0"
+    },
+    {
+      "id": "tragic-or-peaceful",
+      "durationSeconds": 3.8,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "YOUR VERDICT",
+      "headline": "TRAGIC OR PEACEFUL?",
+      "narration": "Is that tragic, or somehow peaceful?",
+      "caption": "WHICH WAY DO YOU SEE IT?",
+      "visual": "cta",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/57.png",
+      "accent": "#F29A38"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Primeape",
+      "url": "https://www.pokemon.com/us/pokedex/primeape"
+    },
+    {
+      "label": "Bulbapedia — Primeape",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Primeape_(Pok%C3%A9mon)"
+    },
+    {
+      "label": "PokéAPI — Primeape",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/57"
+    }
+  ]
+}

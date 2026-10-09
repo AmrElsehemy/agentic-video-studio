@@ -1,0 +1,160 @@
+{
+  "episodeId": "bellsprout-069",
+  "createdAt": "2026-10-08T23:19:21.705Z",
+  "chosen": {
+    "id": "iron-melting-mouth",
+    "premise": "Despite its thin body, Bellsprout spits corrosive fluid from its mouth that melts even iron.",
+    "hook": "This skinny flower can melt iron with its mouth.",
+    "archetype": "comparison",
+    "evidence": [
+      "pokedexEntries[5].text",
+      "heightMeters",
+      "weightKg"
+    ],
+    "visualIdea": "Contrast Bellsprout’s thin silhouette with its mouth dissolving a solid iron block.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 4,
+      "surprise": 5,
+      "specificity": 5,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 24,
+    "note": "The contrast between a delicate, 0.7-meter, 4-kilogram body and fluid that melts iron is instantly striking and fully supported by the Pokédex."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "iron-melting-mouth",
+          "premise": "Despite its thin body, Bellsprout spits corrosive fluid from its mouth that melts even iron.",
+          "hook": "This skinny flower can melt iron with its mouth.",
+          "archetype": "comparison",
+          "evidence": [
+            "pokedexEntries[5].text",
+            "heightMeters",
+            "weightKg"
+          ],
+          "visualIdea": "Contrast Bellsprout’s thin silhouette with its mouth dissolving a solid iron block.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 24,
+          "note": "The contrast between a delicate, 0.7-meter, 4-kilogram body and fluid that melts iron is instantly striking and fully supported by the Pokédex."
+        },
+        {
+          "id": "rooted-tradeoff",
+          "premise": "Bellsprout roots itself to replenish water, but becomes unable to escape an enemy while rooted.",
+          "hook": "Bellsprout’s feet keep it alive—and trap it in place.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[3].text",
+            "pokedexEntries[10].text"
+          ],
+          "visualIdea": "Show roots drinking underground water, then an enemy approaching as Bellsprout struggles to move.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 24,
+          "note": "A highly specific survival tradeoff: its roots provide water but make escape impossible. Strong contradiction with an easy visual sequence."
+        },
+        {
+          "id": "instant-vine-counterattack",
+          "premise": "If Bellsprout notices anything moving, it immediately flings a vine at it.",
+          "hook": "For Bellsprout, movement triggers an instant vine attack.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[4].text"
+          ],
+          "visualIdea": "A tiny moving speck appears, and a vine instantly snaps across the screen toward it.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 23,
+          "note": "A clear trigger-and-response mechanic that can be shown instantly, though it is less surprising than the iron-melting claim."
+        },
+        {
+          "id": "face-of-the-mandrake",
+          "premise": "Bellsprout’s bud resembles a human face, inspiring rumors that it is a legendary mandrake plant.",
+          "hook": "Bellsprout’s face started a legendary-plant rumor.",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[7].text"
+          ],
+          "visualIdea": "Zoom into the bud’s face-like features, then reveal the rumored mandrake connection.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 23,
+          "note": "The human-face resemblance and mandrake rumor are unusually specific to Bellsprout, but the rumor may need extra context to sustain a full short."
+        },
+        {
+          "id": "skinny-but-blinding-fast",
+          "premise": "Bellsprout’s extremely skinny body hides a surprising advantage: blinding speed when catching prey.",
+          "hook": "Bellsprout looks fragile—until it catches something.",
+          "archetype": "comparison",
+          "evidence": [
+            "pokedexEntries[2].text"
+          ],
+          "visualIdea": "Hold on Bellsprout’s thin body, then use a speed streak as it snatches a bug.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 4,
+            "support": 5
+          },
+          "total": 21,
+          "note": "Supported and characterful, but “blindingly fast” is difficult to depict concretely and the premise lacks a stronger contradiction."
+        },
+        {
+          "id": "leaf-stone-finale",
+          "premise": "Bellsprout reaches Weepinbell at level 21, but needs a Leaf Stone to become Victreebel.",
+          "hook": "Bellsprout’s evolution has two completely different requirements.",
+          "archetype": "transformation",
+          "evidence": [
+            "evolutionChain[1].method",
+            "evolutionChain[2].method",
+            "evolutionChain[1].evolvesFrom"
+          ],
+          "visualIdea": "Level counter hits 21 to become Weepinbell, then a Leaf Stone triggers the final evolution.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 3,
+            "surprise": 3,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 21,
+          "note": "Accurate and easy to animate, but evolution requirements are a familiar Pokémon format and not especially surprising."
+        }
+      ],
+      "rejected": [],
+      "request": "N/A—the iron-melting contrast is strong enough. A stronger alternative would need an equally specific, surprising contradiction with direct Pokédex support and a more distinctive visual payoff."
+    }
+  ]
+}

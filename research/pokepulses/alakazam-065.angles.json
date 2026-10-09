@@ -1,0 +1,165 @@
+{
+  "episodeId": "alakazam-065",
+  "createdAt": "2026-10-08T21:55:32.878Z",
+  "chosen": {
+    "id": "one-of-a-kind-spoons",
+    "premise": "Alakazam psychically creates each spoon, and every one is said to be unique in the entire world.",
+    "hook": "Alakazam doesn’t carry ordinary spoons—it makes one-of-one originals.",
+    "archetype": "profile",
+    "evidence": [
+      "pokedexEntries[12].text",
+      "pokedexEntries[16].text",
+      "pokedexEntries[17].text"
+    ],
+    "visualIdea": "Reveal two glowing spoons, label each as a unique original, then show Alakazam gifting one only to someone trusted.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 5,
+      "specificity": 5,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 25,
+    "note": "An unusually specific Alakazam-only rule: its spoons are psychically made, individually unique, and potentially gifted only through deep trust. Every part of the premise is directly supported and highly visual."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "one-of-a-kind-spoons",
+          "premise": "Alakazam psychically creates each spoon, and every one is said to be unique in the entire world.",
+          "hook": "Alakazam doesn’t carry ordinary spoons—it makes one-of-one originals.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[12].text",
+            "pokedexEntries[16].text",
+            "pokedexEntries[17].text"
+          ],
+          "visualIdea": "Reveal two glowing spoons, label each as a unique original, then show Alakazam gifting one only to someone trusted.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 25,
+          "note": "An unusually specific Alakazam-only rule: its spoons are psychically made, individually unique, and potentially gifted only through deep trust. Every part of the premise is directly supported and highly visual."
+        },
+        {
+          "id": "trade-for-genius",
+          "premise": "Alakazam is the final evolution, but Kadabra only reaches it through a trade—not by leveling up.",
+          "hook": "The smartest Pokémon in the room needs another player to evolve.",
+          "archetype": "mechanic",
+          "evidence": [
+            "evolutionChain[1].method",
+            "evolutionChain[2].method",
+            "evolutionChain[2].evolvesFrom"
+          ],
+          "visualIdea": "Show Abra leveling into Kadabra, then a trade screen transforming Kadabra into Alakazam.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 23,
+          "note": "A Pokémon-specific evolution constraint with a clear gameplay rule. The hook is strong, though trade evolution is familiar to many fans."
+        },
+        {
+          "id": "mega-alakazam-shrinks",
+          "premise": "Mega Alakazam becomes shorter at 1.2 meters but keeps exactly the same 48-kilogram weight.",
+          "hook": "Mega Evolution makes Alakazam shorter—but not lighter.",
+          "archetype": "comparison",
+          "evidence": [
+            "heightMeters",
+            "weightKg",
+            "varieties[0].heightMeters",
+            "varieties[0].weightKg"
+          ],
+          "visualIdea": "Place regular and Mega Alakazam side by side with height and weight labels visibly comparing them.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 23,
+          "note": "The exact height-and-weight contradiction is concrete and easy to display. It is compelling, although the comparison depends on the Mega variety data rather than a Pokédex narrative detail."
+        },
+        {
+          "id": "head-that-never-stops-growing",
+          "premise": "Alakazam’s brain grows until death, making its head heavier while its psychic power gets stronger.",
+          "hook": "Alakazam’s biggest weakness is also what makes it stronger.",
+          "archetype": "transformation",
+          "evidence": [
+            "pokedexEntries[5].text",
+            "pokedexEntries[15].text",
+            "pokedexEntries[21].text"
+          ],
+          "visualIdea": "Age Alakazam across stages as its head enlarges, then connect head weight to rising psychic power.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 22,
+          "note": "Highly distinctive lore and excellent visual progression. The cited entries support the growing, heavier head and stronger psychic power, but “biggest weakness” is an interpretation rather than a directly stated fact."
+        },
+        {
+          "id": "brains-over-muscles",
+          "premise": "Alakazam’s muscles are so weak that it uses psychic power just to move its own body.",
+          "hook": "Alakazam is powerful enough to fight—but too weak to move normally.",
+          "archetype": "comparison",
+          "evidence": [
+            "pokedexEntries[7].text",
+            "pokedexEntries[8].text"
+          ],
+          "visualIdea": "Show Alakazam struggling with physical movement before psychic energy lifts and propels its body.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 4,
+            "support": 5
+          },
+          "total": 21,
+          "note": "The contradiction between immense psychic power and physically weak muscles is well supported. The visual is clear, but the idea is slightly less distinctive than the spoon rule."
+        },
+        {
+          "id": "eyes-closed-senses-maxed",
+          "premise": "Closing both eyes heightens Alakazam’s other senses, letting it push its abilities to their extremes.",
+          "hook": "Alakazam gets stronger by closing both eyes.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[2].text"
+          ],
+          "visualIdea": "Animate Alakazam shutting its eyes as surrounding sound, motion, and psychic signals intensify.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 4,
+            "support": 5
+          },
+          "total": 21,
+          "note": "A clean, surprising mechanic directly stated in the Pokédex. The visual can show sensory amplification, but naming or depicting specific heightened senses would go beyond the cited evidence."
+        }
+      ],
+      "rejected": [],
+      "request": "N/A—the selected angle is strong enough. Stronger alternatives would need an equally specific Alakazam-only rule or contradiction, direct multi-entry support, and a visual transformation that can be understood immediately."
+    }
+  ]
+}

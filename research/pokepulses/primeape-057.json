@@ -1,0 +1,162 @@
+{
+  "schemaVersion": 1,
+  "id": "primeape-057",
+  "number": 57,
+  "index": "#057",
+  "name": "Primeape",
+  "slug": "primeape",
+  "category": "Pig Monkey Pokémon",
+  "generation": "Generation I",
+  "isLegendary": false,
+  "isMythical": false,
+  "types": [
+    "Fighting"
+  ],
+  "heightMeters": 1,
+  "weightKg": 32,
+  "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/57.png",
+  "pokedexEntries": [
+    {
+      "game": "Red",
+      "text": "Always furious and tenacious to boot. It will not abandon chasing its quarry until it is caught."
+    },
+    {
+      "game": "Yellow",
+      "text": "It stops being angry only when nobody else is around. To view this moment is very difficult."
+    },
+    {
+      "game": "Gold",
+      "text": "If approached while asleep, it may awaken and angrily give chase in a groggy state of semi-sleep."
+    },
+    {
+      "game": "Silver",
+      "text": "It becomes wildly furious if it even senses someone looking at it. It chases anyone that meets its glare."
+    },
+    {
+      "game": "Crystal",
+      "text": "It will beat up anyone who makes it mad, even if it has to chase them until the end of the world."
+    },
+    {
+      "game": "Ruby",
+      "text": "When PRIMEAPE becomes furious, its blood circulation is boosted. In turn, its muscles are made even stronger. However, it also becomes much less intelligent at the same time."
+    },
+    {
+      "game": "Emerald",
+      "text": "When it becomes furious, its blood circulation becomes more robust, and its muscles are made stronger. But it also becomes much less intelligent."
+    },
+    {
+      "game": "Firered",
+      "text": "It is always outrageously furious. If it gives chase, it will tenaciously track the target no matter how far."
+    },
+    {
+      "game": "Leafgreen",
+      "text": "Always furious and tenacious to boot. It will not abandon chasing its quarry until it catches up."
+    },
+    {
+      "game": "Diamond",
+      "text": "It grows angry if you see its eyes and gets angrier if you run. If you beat it, it gets even madder."
+    },
+    {
+      "game": "Sun",
+      "text": "It has been known to become so angry that it dies as a result. Its face looks peaceful in death, however."
+    },
+    {
+      "game": "Moon",
+      "text": "Some researchers theorize that Primeape remains angry even when inside a Poké Ball."
+    },
+    {
+      "game": "Ultra Sun",
+      "text": "It will never forgive opponents who have angered it. Even after it has beaten them down until they can’t move, it never ever forgives."
+    },
+    {
+      "game": "Ultra Moon",
+      "text": "The blood vessels in its brain are sturdier than those of other Pokémon, so it can stay healthy despite its constant raging."
+    }
+  ],
+  "evolutionChain": [
+    {
+      "name": "Mankey",
+      "index": "#056",
+      "stage": 1,
+      "types": [
+        "Fighting"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/56.png",
+      "isSubject": false
+    },
+    {
+      "name": "Primeape",
+      "index": "#057",
+      "stage": 2,
+      "evolvesFrom": "Mankey",
+      "method": "Level Up, level 28",
+      "types": [
+        "Fighting"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/57.png",
+      "isSubject": true
+    },
+    {
+      "name": "Annihilape",
+      "index": "#979",
+      "stage": 3,
+      "evolvesFrom": "Primeape",
+      "method": "Use Move",
+      "types": [
+        "Fighting",
+        "Ghost"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/979.png",
+      "isSubject": false
+    }
+  ],
+  "varieties": [],
+  "lore": [],
+  "tiers": {
+    "official": [
+      "name",
+      "index",
+      "number",
+      "category",
+      "generation",
+      "isLegendary",
+      "isMythical",
+      "types",
+      "heightMeters",
+      "weightKg",
+      "pokedexEntries",
+      "evolutionChain[].name",
+      "evolutionChain[].index",
+      "evolutionChain[].types",
+      "evolutionChain[].stage",
+      "varieties[].types",
+      "varieties[].heightMeters",
+      "varieties[].weightKg"
+    ],
+    "trusted_secondary": [
+      "evolutionChain[].method",
+      "evolutionChain[].evolvesFrom",
+      "varieties[].name"
+    ],
+    "community": [
+      "lore"
+    ]
+  },
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Primeape",
+      "url": "https://www.pokemon.com/us/pokedex/primeape",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Primeape",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Primeape_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Primeape",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/57",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

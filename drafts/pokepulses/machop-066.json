@@ -1,0 +1,184 @@
+{
+  "id": "machop-066",
+  "title": "Machop Is Child-Sized With Ridiculous Strength",
+  "storyPattern": "comparison",
+  "numberRelevant": false,
+  "premise": "Machop is only 0.8 meters tall, yet official Pokédex entries say it can hurl one hundred adults.",
+  "audiencePromise": "Compare Machop's child-sized frame with its astonishing official strength claim, then test how consistent that claim is.",
+  "openLoop": "How can something this small supposedly throw one hundred grown-ups?",
+  "payoff": "Machop's child-sized design hides a strength fantasy, while another Pokédex entry makes that claim feel surprisingly grounded.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "Is Machop's hundred-adult claim iconic, or does one adult feel more believable?",
+  "subject": {
+    "name": "Machop",
+    "category": "Superpower Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/66.png",
+    "identifier": "#066"
+  },
+  "related": [
+    {
+      "name": "Machamp",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/68.png",
+      "identifier": "#068"
+    },
+    {
+      "name": "Machoke",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/67.png",
+      "identifier": "#067"
+    }
+  ],
+  "palette": {
+    "background": "#101521",
+    "surface": "#1B2433",
+    "primary": "#79C9E8",
+    "secondary": "#EF7F9D",
+    "ink": "#F4F7FB"
+  },
+  "voice": {
+    "instructions": "Sound like a knowledgeable fan telling a friend something wild. Keep the pace quick, warm, and playful. Stress the size contrast and pause before the strength claim."
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    },
+    "assets": [
+      {
+        "kind": "Machop official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/66.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "child-sized-powerhouse",
+      "beat": "hook",
+      "eyebrow": "SMALL BODY",
+      "headline": "CHILD-SIZED. ONE HUNDRED ADULTS.",
+      "narration": "Child-sized Machop can throw one hundred adults.",
+      "caption": "TINY FIGHTER. HUGE CLAIM.",
+      "accent": "#EF7F9D",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/66.png",
+      "primitive": {
+        "kind": "counter",
+        "from": 0,
+        "to": 100,
+        "label": "ADULTS HURLED"
+      }
+    },
+    {
+      "id": "height-marker",
+      "beat": "evidence",
+      "eyebrow": "ONLY 0.8 METERS",
+      "headline": "THE HEIGHT DOESN'T MATCH",
+      "narration": "Machop stands just 0.8 meters tall, about human-child height.",
+      "caption": "0.8 METERS TALL",
+      "facts": [
+        "0.8 METERS",
+        "HUMAN-CHILD SIZE"
+      ],
+      "accent": "#79C9E8",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/66.png",
+      "primitive": {
+        "kind": "counter",
+        "from": 0,
+        "to": 0.8,
+        "label": "HEIGHT IN METERS"
+      }
+    },
+    {
+      "id": "muscle-that-never-sore",
+      "beat": "evidence",
+      "eyebrow": "THE REASON",
+      "headline": "MUSCLES THAT NEVER QUIT",
+      "narration": "Its whole body is muscle, and its muscles never get sore.",
+      "caption": "TRAINING DOESN'T WEAR IT DOWN",
+      "facts": [
+        "WHOLE BODY: MUSCLE",
+        "NEVER GETS SORE"
+      ],
+      "accent": "#EF7F9D",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/66.png"
+    },
+    {
+      "id": "training-the-impossible",
+      "beat": "escalation",
+      "eyebrow": "POWER HAS A SOURCE",
+      "headline": "IT TRAINS WITH GRAVELER",
+      "narration": "That power is built by lifting Graveler every day.",
+      "caption": "DAILY GRAVELER TRAINING",
+      "facts": [
+        "LIFTS GRAVELER",
+        "EVERY DAY"
+      ],
+      "accent": "#79C9E8",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/66.png"
+    },
+    {
+      "id": "smaller-pokedex-claim",
+      "beat": "twist",
+      "eyebrow": "THE COUNTERPOINT",
+      "headline": "THE POKÉDEX SWERVES",
+      "narration": "Then the Pokédex swerves: one entry says one well-built adult.",
+      "caption": "ONE WELL-BUILT ADULT",
+      "facts": [
+        "ONE ADULT",
+        "WELL-BUILT"
+      ],
+      "accent": "#EF7F9D",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/66.png",
+      "primitive": {
+        "kind": "bars",
+        "unit": "ADULTS",
+        "bars": [
+          {
+            "label": "RUBY CLAIM",
+            "value": 100
+          },
+          {
+            "label": "ARCEUS CLAIM",
+            "value": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "official-strength-verdict",
+      "beat": "verdict",
+      "eyebrow": "YOUR CALL",
+      "headline": "A PERFECT SIZE TRAP",
+      "narration": "Machop is a perfect size trap: strength fantasy or overstatement?",
+      "caption": "STRENGTH FANTASY OR OVERSTATEMENT?",
+      "accent": "#79C9E8",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/66.png"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Machop",
+      "url": "https://www.pokemon.com/us/pokedex/machop",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Machop",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Machop_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Machop",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/66",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

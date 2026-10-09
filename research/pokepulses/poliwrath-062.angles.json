@@ -1,0 +1,161 @@
+{
+  "episodeId": "poliwrath-062",
+  "createdAt": "2026-10-08T21:02:38.133Z",
+  "chosen": {
+    "id": "water-surface-sprint",
+    "premise": "Poliwrath can briefly run across the surface of water using its developed arms and legs.",
+    "hook": "Poliwrath can run on water—but only for a split second.",
+    "archetype": "mechanic",
+    "evidence": [
+      "pokedexEntries[4].text"
+    ],
+    "visualIdea": "Use a short stopwatch as Poliwrath takes a few running steps across the water before sinking.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 4,
+      "surprise": 5,
+      "specificity": 5,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 24,
+    "note": "A precise, unusual ability supported by one direct Pokédex entry. The split-second limitation creates a strong visual rule and hook."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "water-surface-sprint",
+          "premise": "Poliwrath can briefly run across the surface of water using its developed arms and legs.",
+          "hook": "Poliwrath can run on water—but only for a split second.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[4].text"
+          ],
+          "visualIdea": "Use a short stopwatch as Poliwrath takes a few running steps across the water before sinking.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 24,
+          "note": "A precise, unusual ability supported by one direct Pokédex entry. The split-second limitation creates a strong visual rule and hook."
+        },
+        {
+          "id": "swimmer-with-a-punch",
+          "premise": "The muscles Poliwrath develops by swimming can punch huge boulders into dust.",
+          "hook": "Poliwrath's swimming muscles can pulverize a huge boulder.",
+          "archetype": "transformation",
+          "evidence": [
+            "pokedexEntries[16].text",
+            "pokedexEntries[18].text"
+          ],
+          "visualIdea": "Track its arms from swimming through water to a square punch that turns a boulder into dust.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 22,
+          "note": "The swimming-to-boulder-dusting connection is directly supported and highly visual, though the transformation is somewhat less unexpected than running on water."
+        },
+        {
+          "id": "muscle-makes-it-heavy",
+          "premise": "Poliwrath has nearly zero body fat, yet all that muscle makes it heavy—and forces its swimming ability to develop.",
+          "hook": "How can being almost entirely muscle make a swimmer better?",
+          "archetype": "comparison",
+          "evidence": [
+            "pokedexEntries[13].text",
+            "weightKg"
+          ],
+          "visualIdea": "Show a near-zero-fat body scan, a heavy weight marker, then muscle-powered swimming.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 4,
+            "support": 5
+          },
+          "total": 21,
+          "note": "A distinctive biological contradiction, and the Moon entry directly supports the body-fat, weight, and swimming link. The 54 kg statistic adds weight but lacks a comparison."
+        },
+        {
+          "id": "two-evolutions-one-poliwhirl",
+          "premise": "Poliwhirl can become Poliwrath with a Water Stone or Politoed by trading while holding a King's Rock.",
+          "hook": "One Poliwhirl has two radically different evolution routes.",
+          "archetype": "mechanic",
+          "evidence": [
+            "evolutionChain[2].evolvesFrom",
+            "evolutionChain[2].method",
+            "evolutionChain[3].evolvesFrom",
+            "evolutionChain[3].method"
+          ],
+          "visualIdea": "Split one Poliwhirl into two paths: Water Stone to Poliwrath, King's Rock trade to Politoed.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 3,
+            "surprise": 3,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 21,
+          "note": "Clear, highly visual evolution mechanic with excellent evidence, but branching evolution paths are not especially unique to Poliwrath."
+        },
+        {
+          "id": "the-land-swimming-champion",
+          "premise": "Poliwrath can cross the Pacific and outrun champion swimmers, but its Pokédex says it normally lives on land.",
+          "hook": "This Pokémon can cross the Pacific—but usually lives on land.",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[2].text",
+            "pokedexEntries[10].text",
+            "pokedexEntries[15].text"
+          ],
+          "visualIdea": "Follow Poliwrath from a land habitat onto an ocean route marked across the Pacific.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 4,
+            "support": 3
+          },
+          "total": 19,
+          "note": "The land-versus-Pacific contradiction is strong, but the cited evidence does not include the entries supporting the champion-swimmer claim, weakening the premise as written."
+        },
+        {
+          "id": "stone-turns-frog-fighter",
+          "premise": "The Water Stone route turns Poliwhirl's Water-only evolution into Poliwrath, adding the Fighting type.",
+          "hook": "This evolution does more than change its look—it adds a whole combat type.",
+          "archetype": "transformation",
+          "evidence": [
+            "evolutionChain[1].types",
+            "evolutionChain[2].method",
+            "evolutionChain[2].types"
+          ],
+          "visualIdea": "Animate Poliwhirl touching a Water Stone, then reveal the new Water/Fighting type combination.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 3,
+            "surprise": 3,
+            "specificity": 4,
+            "visual": 4,
+            "support": 5
+          },
+          "total": 19,
+          "note": "The Water Stone adding Fighting is accurate and easy to show, but type additions during evolution are a familiar Pokémon pattern and the 'frog' framing is not supported by the supplied research."
+        }
+      ],
+      "rejected": []
+    }
+  ]
+}

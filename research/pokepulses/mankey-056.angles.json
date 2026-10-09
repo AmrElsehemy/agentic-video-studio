@@ -1,0 +1,162 @@
+{
+  "episodeId": "mankey-056",
+  "createdAt": "2026-10-08T19:36:45.118Z",
+  "chosen": {
+    "id": "loneliness-rage-loop",
+    "premise": "Mankey gets angry when separated from its group, then gets angrier when its rampage makes everyone leave.",
+    "hook": "Mankey’s rage creates the exact loneliness that fuels it.",
+    "archetype": "mystery",
+    "evidence": [
+      "pokedexEntries[4].text",
+      "pokedexEntries[11].text"
+    ],
+    "visualIdea": "Animate Mankey losing its group, rampaging, watching everyone flee, and becoming even angrier.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 5,
+      "specificity": 5,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 25,
+    "note": "A distinctive self-reinforcing emotional loop: separation causes rage, rage drives everyone away, and loneliness intensifies the rage. Both halves are explicitly supported."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "loneliness-rage-loop",
+          "premise": "Mankey gets angry when separated from its group, then gets angrier when its rampage makes everyone leave.",
+          "hook": "Mankey’s rage creates the exact loneliness that fuels it.",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[4].text",
+            "pokedexEntries[11].text"
+          ],
+          "visualIdea": "Animate Mankey losing its group, rampaging, watching everyone flee, and becoming even angrier.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 25,
+          "note": "A distinctive self-reinforcing emotional loop: separation causes rage, rage drives everyone away, and loneliness intensifies the rage. Both halves are explicitly supported."
+        },
+        {
+          "id": "anger-sleep-cycle",
+          "premise": "Mankey’s rage tires it into sleep, but angry dreams wake it up and restart the rampage.",
+          "hook": "Mankey can literally wake up angry from an angry dream.",
+          "archetype": "transformation",
+          "evidence": [
+            "pokedexEntries[12].text"
+          ],
+          "visualIdea": "Loop between raging, collapsing asleep, dreaming angrily, and jolting awake furious again.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 25,
+          "note": "Highly memorable and unusually specific, with a clean visual loop. It relies on one entry, but that entry directly supports the entire premise."
+        },
+        {
+          "id": "anger-chain-reaction",
+          "premise": "One enraged Mankey can make its entire treetop colony rampage for no reason.",
+          "hook": "Mankey anger is contagious—and silence is almost impossible.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[9].text",
+            "pokedexEntries[14].text"
+          ],
+          "visualIdea": "Show one Mankey flashing red, then anger spreading through a treetop colony like a shockwave.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 23,
+          "note": "A concrete colony-wide mechanic, directly supported by multiple Pokédex entries. Slightly less surprising because contagious group anger is a familiar Mankey trait."
+        },
+        {
+          "id": "instant-rage-warning",
+          "premise": "Mankey visibly shakes and breathes roughly before rage, but the warning arrives too late to escape.",
+          "hook": "Mankey gives you a warning—but not enough time to run.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[5].text",
+            "pokedexEntries[6].text"
+          ],
+          "visualIdea": "Zoom in on shaking fur and rough nasal breathing, then cut instantly to an unstoppable attack.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 23,
+          "note": "The warning-that-is-too-late contradiction is concrete and well supported, though less novel than Mankey’s broader rage-cycle behavior."
+        },
+        {
+          "id": "stress-longevity",
+          "premise": "Mankey’s inability to hold in stress may help it live a long time, despite losing its temper constantly.",
+          "hook": "Mankey’s worst personality trait might be its survival strategy.",
+          "archetype": "comparison",
+          "evidence": [
+            "pokedexEntries[0].text",
+            "pokedexEntries[13].text"
+          ],
+          "visualIdea": "Contrast a calm Pokémon bottling stress with Mankey instantly exploding, then reveal the longevity claim.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 5,
+            "specificity": 4,
+            "visual": 4,
+            "support": 4
+          },
+          "total": 21,
+          "note": "The longevity claim is directly stated, but the survival-strategy framing is an interpretation rather than a firmly established mechanism. It also needs careful wording to avoid implying real-world medical causation."
+        },
+        {
+          "id": "rage-to-ghost",
+          "premise": "Mankey’s evolution path turns its Fighting identity into a Fighting/Ghost final form after a move is used.",
+          "hook": "Mankey’s evolution ends with its rage becoming a Ghost type.",
+          "archetype": "transformation",
+          "evidence": [
+            "evolutionChain[0].name",
+            "evolutionChain[1].name",
+            "evolutionChain[1].method",
+            "evolutionChain[2].name",
+            "evolutionChain[2].method",
+            "evolutionChain[2].types"
+          ],
+          "visualIdea": "Build the chain Mankey to Primeape at level 28, then reveal Annihilape’s new Ghost typing after using a move.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 3,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 3
+          },
+          "total": 20,
+          "note": "The evolution and typing facts are supported, but the claim that rage becomes Ghost typing is thematic interpretation, not something the research establishes."
+        }
+      ],
+      "rejected": []
+    }
+  ]
+}

@@ -1,0 +1,447 @@
+{
+  "episodeId": "poliwrath-062",
+  "checkedAt": "2026-10-08T21:02:45.841Z",
+  "claims": [
+    {
+      "id": "c1",
+      "where": "title",
+      "text": "Poliwrath Can Run on Water, But Only Briefly",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c2",
+      "where": "premise",
+      "text": "Poliwrath can use its developed arms and legs to run across water for a split second.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c3",
+      "where": "audiencePromise",
+      "text": "See how Poliwrath's developed arms and legs let it briefly run across the water's surface.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c4",
+      "where": "openLoop",
+      "text": "How do Poliwrath's developed arms and legs make this brief run possible?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Question only.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c5",
+      "where": "payoff",
+      "text": "Poliwrath swims powerfully and can run across water for a split second.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c6",
+      "where": "scenes.water-run-hook.headline",
+      "text": "RUNNING ON WATER?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Hook question only.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c7",
+      "where": "scenes.water-run-hook.narration",
+      "text": "Poliwrath runs on water. Why only briefly?",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c8",
+      "where": "scenes.water-run-hook.caption",
+      "text": "WHY ONLY BRIEFLY?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Question only.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c9",
+      "where": "scenes.water-run-hook.eyebrow",
+      "text": "POKÉDEX PUZZLE",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Framing phrase only.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c10",
+      "where": "scenes.developed-limbs.headline",
+      "text": "A POWERFUL SWIMMER ON LAND",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[14].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c11",
+      "where": "scenes.developed-limbs.narration",
+      "text": "It is a powerful swimmer, yet it normally lives on land.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[14].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c12",
+      "where": "scenes.developed-limbs.caption",
+      "text": "POWERFUL SWIMMER • LIVES ON LAND",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[14].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c13",
+      "where": "scenes.developed-limbs.eyebrow",
+      "text": "ITS SWIMMING STRENGTH",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Headline fragment without a specific factual assertion.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c14",
+      "where": "scenes.developed-limbs.facts[0]",
+      "text": "POWERFUL SWIMMER",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c15",
+      "where": "scenes.developed-limbs.facts[1]",
+      "text": "LIVES ON LAND",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[14].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c16",
+      "where": "scenes.split-second-limit.headline",
+      "text": "ITS LIMBS RUN TOO",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c17",
+      "where": "scenes.split-second-limit.narration",
+      "text": "Its developed arms and legs can run across water.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c18",
+      "where": "scenes.split-second-limit.caption",
+      "text": "ARMS AND LEGS RUN",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c19",
+      "where": "scenes.split-second-limit.eyebrow",
+      "text": "THE UNEXPECTED STEP",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Framing phrase only.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c20",
+      "where": "scenes.split-second-limit.facts[0]",
+      "text": "DEVELOPED ARMS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c21",
+      "where": "scenes.split-second-limit.facts[1]",
+      "text": "DEVELOPED LEGS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c22",
+      "where": "scenes.split-second-limit.facts[2]",
+      "text": "RUNS ACROSS WATER",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c23",
+      "where": "scenes.surface-run.headline",
+      "text": "ONE SPLIT-SECOND RUN",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c24",
+      "where": "scenes.surface-run.narration",
+      "text": "For one split second, those limbs carry Poliwrath across the surface.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c25",
+      "where": "scenes.surface-run.caption",
+      "text": "ACROSS THE SURFACE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c26",
+      "where": "scenes.surface-run.eyebrow",
+      "text": "THE POKÉDEX DETAIL",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Framing phrase only.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c27",
+      "where": "scenes.surface-run.facts[0]",
+      "text": "SPLIT SECOND",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c28",
+      "where": "scenes.surface-run.facts[1]",
+      "text": "WATER SURFACE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c29",
+      "where": "scenes.swimming-to-running.headline",
+      "text": "SWIMMING STRENGTH, RUNNING STEP",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c30",
+      "where": "scenes.swimming-to-running.narration",
+      "text": "Poliwrath swims powerfully and can run across water for a split second.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c31",
+      "where": "scenes.swimming-to-running.caption",
+      "text": "SWIM POWER BECOMES A STEP",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[4].text"
+      ],
+      "note": "The research supports powerful swimming and brief water-running separately, but does not establish that swimming power becomes or causes the running step.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c32",
+      "where": "scenes.swimming-to-running.eyebrow",
+      "text": "WHY IT WORKS",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Question only.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c33",
+      "where": "scenes.swimming-to-running.facts[0]",
+      "text": "POWERFUL SWIMMING",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c34",
+      "where": "scenes.swimming-to-running.facts[1]",
+      "text": "BRIEF RUNNING",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c35",
+      "where": "scenes.skill-or-trick.headline",
+      "text": "SWIMMING SKILL OR TRICK?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Question only.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c36",
+      "where": "scenes.skill-or-trick.narration",
+      "text": "Is this a swimming skill, or a true water-running trick?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Question only.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c37",
+      "where": "scenes.skill-or-trick.caption",
+      "text": "SKILL OR TRICK?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Question only.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c38",
+      "where": "scenes.skill-or-trick.eyebrow",
+      "text": "YOUR VERDICT",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Framing phrase only.",
+      "checkedBy": "model"
+    }
+  ],
+  "unsupported": [],
+  "uncertain": [
+    {
+      "id": "c31",
+      "where": "scenes.swimming-to-running.caption",
+      "text": "SWIM POWER BECOMES A STEP",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[4].text"
+      ],
+      "note": "The research supports powerful swimming and brief water-running separately, but does not establish that swimming power becomes or causes the running step.",
+      "tier": "official",
+      "checkedBy": "model"
+    }
+  ]
+}

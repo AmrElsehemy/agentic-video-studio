@@ -1,0 +1,243 @@
+{
+  "schemaVersion": 2,
+  "id": "persian-053",
+  "show": {
+    "id": "pokepulses",
+    "name": "PokePulses",
+    "handle": "@PokePulses",
+    "wordmark": {
+      "lead": "POKE",
+      "accent": "PULSES"
+    },
+    "fonts": {
+      "display": "Bebas Neue",
+      "body": "system"
+    }
+  },
+  "title": "Persian's Face Has a Built-In Off Switch",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "mechanic",
+    "numberRelevant": false,
+    "premise": "Persian senses nearby air movements with six whiskers, but grabbing them makes this vicious Pokémon docile.",
+    "audiencePromise": "See how Persian's danger-sensing whiskers become the exact trigger that calms it.",
+    "openLoop": "How can a vicious cat become docile through its own whiskers?",
+    "payoff": "Persian's design turns one face feature into a perfect contradiction: it reads nearby air, then becomes docile when grabbed.",
+    "targetEmotion": "surprise",
+    "engagementQuestion": "Would you try the whisker trick, or avoid Persian completely?",
+    "targetSecondsBetweenVisualChanges": 0.65
+  },
+  "subject": {
+    "name": "Persian",
+    "category": "Classy Cat Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/53.png",
+    "identifier": "#053"
+  },
+  "related": [
+    {
+      "name": "Meowth",
+      "relation": "evolves-from",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/52.png",
+      "identifier": "#052"
+    },
+    {
+      "name": "Perrserker",
+      "relation": "related",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/863.png",
+      "identifier": "#863"
+    },
+    {
+      "name": "Persian Alola",
+      "relation": "form",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10108.png",
+      "identifier": "#053"
+    }
+  ],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#17131F",
+    "surface": "#282033",
+    "primary": "#A879D6",
+    "secondary": "#E6C98A",
+    "ink": "#FFF7EA"
+  },
+  "audio": {
+    "music": "generated/persian-053-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 126,
+      "notes": [
+        110,
+        130.81,
+        146.83,
+        164.81,
+        146.83,
+        130.81,
+        98,
+        130.81
+      ]
+    },
+    "voice": {
+      "provider": "openai",
+      "model": "gpt-4o-mini-tts",
+      "voice": "marin",
+      "instructions": "Sound like a knowledgeable fan telling a friend something wild. Keep the pace quick, warm, and playful. Stress the contradiction between Persian's vicious nature and its docile whisker response. Pause briefly before each reveal.",
+      "speed": 1.12,
+      "output": "generated/persian-053-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "assets": [
+      {
+        "kind": "Persian official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/53.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ],
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    }
+  },
+  "scenes": [
+    {
+      "id": "face-off-switch",
+      "durationSeconds": 3.8,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "HIDDEN WEAKNESS",
+      "headline": "PERSIAN HAS A FACE OFF SWITCH",
+      "narration": "Persian has an off switch on its face.",
+      "caption": "AN OFF SWITCH ON ITS FACE",
+      "visual": "hook",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/53.png",
+      "accent": "#A879D6"
+    },
+    {
+      "id": "whiskers-scan-air",
+      "durationSeconds": 4.7,
+      "beat": "evidence",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "THE SENSORS",
+      "headline": "SIX WHISKERS READ THE AIR",
+      "narration": "Its six bold whiskers sense nearby air movements around it.",
+      "caption": "IT FEELS THE AIR MOVE",
+      "visual": "gauntlet",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/53.png",
+      "accent": "#E6C98A",
+      "facts": [
+        "SIX WHISKERS",
+        "AIR MOVEMENTS"
+      ]
+    },
+    {
+      "id": "tail-signals-attack",
+      "durationSeconds": 4.8,
+      "beat": "escalation",
+      "role": "escalation",
+      "shot": "comparison",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "DANGER SIGNAL",
+      "headline": "TAIL UP MEANS POUNCE",
+      "narration": "When its tail rises, Persian signals the attack is coming.",
+      "caption": "TAIL UP = POUNCE AND BITE",
+      "visual": "advantage",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/53.png",
+      "accent": "#D95770",
+      "facts": [
+        "TAIL UP",
+        "POUNCE",
+        "BITE"
+      ]
+    },
+    {
+      "id": "grab-the-whiskers",
+      "durationSeconds": 4.8,
+      "beat": "payoff",
+      "role": "payoff",
+      "shot": "tracking",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "THE STRANGE RULE",
+      "headline": "GRAB THE WHISKERS",
+      "narration": "The Pokédex gives Persian one bizarre calming rule: grab them.",
+      "caption": "GRAB THEM. PERSIAN CALMS.",
+      "visual": "race",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/53.png",
+      "accent": "#73D6B5",
+      "facts": [
+        "GRAB WHISKERS",
+        "BECOMES DOCILE"
+      ]
+    },
+    {
+      "id": "attack-meets-docility",
+      "durationSeconds": 5.1,
+      "beat": "payoff",
+      "role": "payoff",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "THE CONTRADICTION",
+      "headline": "THE SENSOR IS THE OFF SWITCH",
+      "narration": "The face that reads nearby air carries the strangest calm response.",
+      "caption": "AIR SENSOR → CALM RESPONSE",
+      "visual": "tradeoff",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/53.png",
+      "accent": "#F0A05A",
+      "facts": [
+        "READS AIR",
+        "CALM RESPONSE"
+      ]
+    },
+    {
+      "id": "risk-or-retreat",
+      "durationSeconds": 4.8,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "YOUR CALL",
+      "headline": "TRICK OR RETREAT?",
+      "narration": "Would you try the whisker trick, or avoid Persian completely?",
+      "caption": "TRY IT OR BACK AWAY?",
+      "visual": "cta",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/53.png",
+      "accent": "#A879D6"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Persian",
+      "url": "https://www.pokemon.com/us/pokedex/persian"
+    },
+    {
+      "label": "Bulbapedia — Persian",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Persian_(Pok%C3%A9mon)"
+    },
+    {
+      "label": "PokéAPI — Persian",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/53"
+    }
+  ]
+}

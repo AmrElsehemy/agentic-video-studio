@@ -1,0 +1,460 @@
+{
+  "episodeId": "machop-066",
+  "checkedAt": "2026-10-08T22:13:42.404Z",
+  "claims": [
+    {
+      "id": "c1",
+      "where": "title",
+      "text": "Machop Is Child-Sized With Ridiculous Strength",
+      "verdict": "supported",
+      "evidence": [
+        "heightMeters",
+        "pokedexEntries[8].text",
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c2",
+      "where": "premise",
+      "text": "Machop is only 0.8 meters tall, yet official Pokédex entries say it can hurl one hundred adults.",
+      "verdict": "supported",
+      "evidence": [
+        "heightMeters",
+        "pokedexEntries[5].text",
+        "pokedexEntries[8].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c3",
+      "where": "audiencePromise",
+      "text": "Compare Machop's child-sized frame with its astonishing official strength claim, then test how consistent that claim is.",
+      "verdict": "supported",
+      "evidence": [
+        "heightMeters",
+        "pokedexEntries[5].text",
+        "pokedexEntries[8].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c4",
+      "where": "openLoop",
+      "text": "How can something this small supposedly throw one hundred grown-ups?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "This is a question rather than a factual assertion.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c5",
+      "where": "payoff",
+      "text": "Machop's child-sized design hides a strength fantasy, while another Pokédex entry makes that claim feel surprisingly grounded.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[14].text"
+      ],
+      "note": "The entries support the strength claim and say its strength comes from lifting Graveler, but calling this a 'strength fantasy' and saying it feels 'grounded' is interpretive.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c6",
+      "where": "scenes.child-sized-powerhouse.headline",
+      "text": "CHILD-SIZED. ONE HUNDRED ADULTS.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[8].text",
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c7",
+      "where": "scenes.child-sized-powerhouse.narration",
+      "text": "Child-sized Machop can throw one hundred adults.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[8].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c8",
+      "where": "scenes.child-sized-powerhouse.caption",
+      "text": "TINY FIGHTER. HUGE CLAIM.",
+      "verdict": "supported",
+      "evidence": [
+        "types[0]",
+        "heightMeters",
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c9",
+      "where": "scenes.child-sized-powerhouse.eyebrow",
+      "text": "SMALL BODY",
+      "verdict": "supported",
+      "evidence": [
+        "heightMeters",
+        "pokedexEntries[8].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c10",
+      "where": "scenes.height-marker.headline",
+      "text": "THE HEIGHT DOESN'T MATCH",
+      "verdict": "supported",
+      "evidence": [
+        "heightMeters",
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c11",
+      "where": "scenes.height-marker.narration",
+      "text": "Machop stands just 0.8 meters tall, about human-child height.",
+      "verdict": "supported",
+      "evidence": [
+        "heightMeters",
+        "pokedexEntries[8].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c12",
+      "where": "scenes.height-marker.caption",
+      "text": "0.8 METERS TALL",
+      "verdict": "supported",
+      "evidence": [
+        "heightMeters"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c13",
+      "where": "scenes.height-marker.eyebrow",
+      "text": "ONLY 0.8 METERS",
+      "verdict": "supported",
+      "evidence": [
+        "heightMeters"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c14",
+      "where": "scenes.height-marker.facts[0]",
+      "text": "0.8 METERS",
+      "verdict": "supported",
+      "evidence": [
+        "heightMeters"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c15",
+      "where": "scenes.height-marker.facts[1]",
+      "text": "HUMAN-CHILD SIZE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[8].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c16",
+      "where": "scenes.muscle-that-never-sore.headline",
+      "text": "MUSCLES THAT NEVER QUIT",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[10].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c17",
+      "where": "scenes.muscle-that-never-sore.narration",
+      "text": "Its whole body is muscle, and its muscles never get sore.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[8].text",
+        "pokedexEntries[10].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c18",
+      "where": "scenes.muscle-that-never-sore.caption",
+      "text": "TRAINING DOESN'T WEAR IT DOWN",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[10].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c19",
+      "where": "scenes.muscle-that-never-sore.eyebrow",
+      "text": "THE REASON",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "This is a framing label rather than a factual assertion.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c20",
+      "where": "scenes.muscle-that-never-sore.facts[0]",
+      "text": "WHOLE BODY: MUSCLE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[8].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c21",
+      "where": "scenes.muscle-that-never-sore.facts[1]",
+      "text": "NEVER GETS SORE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[10].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c22",
+      "where": "scenes.training-the-impossible.headline",
+      "text": "IT TRAINS WITH GRAVELER",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[14].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c23",
+      "where": "scenes.training-the-impossible.narration",
+      "text": "That power is built by lifting Graveler every day.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[14].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c24",
+      "where": "scenes.training-the-impossible.caption",
+      "text": "DAILY GRAVELER TRAINING",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[14].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c25",
+      "where": "scenes.training-the-impossible.eyebrow",
+      "text": "POWER HAS A SOURCE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[14].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c26",
+      "where": "scenes.training-the-impossible.facts[0]",
+      "text": "LIFTS GRAVELER",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[14].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c27",
+      "where": "scenes.training-the-impossible.facts[1]",
+      "text": "EVERY DAY",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[14].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c28",
+      "where": "scenes.smaller-pokedex-claim.headline",
+      "text": "THE POKÉDEX SWERVES",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "This is a rhetorical headline.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c29",
+      "where": "scenes.smaller-pokedex-claim.narration",
+      "text": "Then the Pokédex swerves: one entry says one well-built adult.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[17].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c30",
+      "where": "scenes.smaller-pokedex-claim.caption",
+      "text": "ONE WELL-BUILT ADULT",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[17].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c31",
+      "where": "scenes.smaller-pokedex-claim.eyebrow",
+      "text": "THE COUNTERPOINT",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "This is a framing label rather than a factual assertion.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c32",
+      "where": "scenes.smaller-pokedex-claim.facts[0]",
+      "text": "ONE ADULT",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[17].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c33",
+      "where": "scenes.smaller-pokedex-claim.facts[1]",
+      "text": "WELL-BUILT",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[17].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c34",
+      "where": "scenes.official-strength-verdict.headline",
+      "text": "A PERFECT SIZE TRAP",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "This is a rhetorical metaphor rather than a factual assertion.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c35",
+      "where": "scenes.official-strength-verdict.narration",
+      "text": "Machop is a perfect size trap: strength fantasy or overstatement?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "This is interpretive framing followed by a question, not a factual assertion.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c36",
+      "where": "scenes.official-strength-verdict.caption",
+      "text": "STRENGTH FANTASY OR OVERSTATEMENT?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "This is a question rather than a factual assertion.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c37",
+      "where": "scenes.official-strength-verdict.eyebrow",
+      "text": "YOUR CALL",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "This is a call for audience judgment rather than a factual assertion.",
+      "checkedBy": "model"
+    }
+  ],
+  "unsupported": [],
+  "uncertain": [
+    {
+      "id": "c5",
+      "where": "payoff",
+      "text": "Machop's child-sized design hides a strength fantasy, while another Pokédex entry makes that claim feel surprisingly grounded.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[14].text"
+      ],
+      "note": "The entries support the strength claim and say its strength comes from lifting Graveler, but calling this a 'strength fantasy' and saying it feels 'grounded' is interpretive.",
+      "tier": "official",
+      "checkedBy": "model"
+    }
+  ]
+}

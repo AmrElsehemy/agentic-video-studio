@@ -1,0 +1,284 @@
+{
+  "schemaVersion": 2,
+  "id": "poliwag-060",
+  "show": {
+    "id": "pokepulses",
+    "name": "PokePulses",
+    "handle": "@PokePulses",
+    "wordmark": {
+      "lead": "POKE",
+      "accent": "PULSES"
+    },
+    "fonts": {
+      "display": "Bebas Neue",
+      "body": "system"
+    }
+  },
+  "title": "Poliwag’s Lips Work Like Suction Cups",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "mechanic",
+    "numberRelevant": false,
+    "premise": "In fast-flowing rivers, Poliwag clings to rocks because its thick lips act like suction cups.",
+    "audiencePromise": "See why Poliwag switches from swimming to gripping a rock in fast-flowing water.",
+    "openLoop": "If swimming is easier, why cling to a rock?",
+    "payoff": "Its thick lips act like a suction cup, letting Poliwag cling to a rock in fast-flowing water.",
+    "targetEmotion": "surprise",
+    "engagementQuestion": "Better river move: suction-cup lips or swimming?",
+    "targetSecondsBetweenVisualChanges": 0.65
+  },
+  "subject": {
+    "name": "Poliwag",
+    "category": "Tadpole Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/60.png",
+    "identifier": "#060"
+  },
+  "related": [
+    {
+      "name": "Poliwrath",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/62.png",
+      "identifier": "#062"
+    },
+    {
+      "name": "Politoed",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/186.png",
+      "identifier": "#186"
+    },
+    {
+      "name": "Poliwhirl",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/61.png",
+      "identifier": "#061"
+    }
+  ],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#07151A",
+    "surface": "#102B30",
+    "primary": "#55C7D1",
+    "secondary": "#DCEFF0",
+    "ink": "#F5FFFF"
+  },
+  "audio": {
+    "music": "generated/poliwag-060-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 126,
+      "notes": [
+        110,
+        130.81,
+        146.83,
+        164.81,
+        146.83,
+        130.81,
+        98,
+        130.81
+      ]
+    },
+    "voice": {
+      "provider": "openai",
+      "model": "gpt-4o-mini-tts",
+      "voice": "marin",
+      "instructions": "Speak quickly, warmly, and clearly. Sound like a knowledgeable fan sharing one strange fact. Emphasize swims, fast rivers, thick lips, and suction cup. Build tension before the grip reveal. End with a playful, genuine choice.",
+      "speed": 1.12,
+      "output": "generated/poliwag-060-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "assets": [
+      {
+        "kind": "Poliwag official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/60.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ],
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    }
+  },
+  "scenes": [
+    {
+      "id": "fast-river-grip",
+      "durationSeconds": 4.3,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "FAST-FLOWING WATER",
+      "headline": "FAST WATER, TIGHT GRIP",
+      "narration": "Poliwag swims well, yet fast rivers make it cling.",
+      "caption": "SWIMMING ISN’T THE WHOLE STORY",
+      "visual": "hook",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/60.png",
+      "accent": "#55C7D1",
+      "facts": [
+        "SWIMMING",
+        "FAST-FLOWING RIVERS",
+        "CLINGING"
+      ]
+    },
+    {
+      "id": "swimming-over-walking",
+      "durationSeconds": 4.3,
+      "beat": "evidence",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "POLIWAG’S EASIER MOVE",
+      "headline": "SWIMMING BEATS WALKING",
+      "narration": "For Poliwag, swimming is easier than walking on land.",
+      "caption": "SWIMMING IS EASIER",
+      "visual": "gauntlet",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/60.png",
+      "accent": "#73D7E0",
+      "facts": [
+        "SWIMMING",
+        "WALKING"
+      ]
+    },
+    {
+      "id": "rock-cling-rule",
+      "durationSeconds": 4.4,
+      "beat": "escalation",
+      "role": "escalation",
+      "shot": "comparison",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "IN FAST-FLOWING RIVERS",
+      "headline": "THE MOUTH BECOMES THE GRIP",
+      "narration": "In fast-flowing rivers, Poliwag clings to a rock instead.",
+      "caption": "FIND A ROCK. HOLD ON.",
+      "visual": "advantage",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/60.png",
+      "accent": "#B4F1F3",
+      "facts": [
+        "FAST-FLOWING RIVER",
+        "ROCK",
+        "CLING"
+      ],
+      "primitive": {
+        "kind": "checklist",
+        "items": [
+          {
+            "label": "FAST-FLOWING RIVER",
+            "met": true
+          },
+          {
+            "label": "ROCK",
+            "met": true
+          },
+          {
+            "label": "CLINGING",
+            "met": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "suction-cup-lips",
+      "durationSeconds": 4.7,
+      "beat": "payoff",
+      "role": "payoff",
+      "shot": "tracking",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "THE STRANGE MECHANIC",
+      "headline": "LIPS LIKE A SUCTION CUP",
+      "narration": "Thick lips act like a suction cup against that rock.",
+      "caption": "THICK LIPS. SUCTION-CUP GRIP.",
+      "visual": "race",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/60.png",
+      "accent": "#DCEFF0",
+      "facts": [
+        "THICK LIPS",
+        "SUCTION CUP",
+        "ROCK"
+      ],
+      "primitive": {
+        "kind": "checklist",
+        "items": [
+          {
+            "label": "THICK LIPS",
+            "met": true
+          },
+          {
+            "label": "SUCTION CUP",
+            "met": true
+          },
+          {
+            "label": "ROCK",
+            "met": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "current-keeps-flowing",
+      "durationSeconds": 5.2,
+      "beat": "payoff",
+      "role": "payoff",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "THE RESULT",
+      "headline": "THE CURRENT KEEPS FLOWING",
+      "narration": "The current keeps flowing, but Poliwag keeps clinging to the rock.",
+      "caption": "CURRENT MOVES. POLIWAG CLINGS.",
+      "visual": "tradeoff",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/60.png",
+      "accent": "#55C7D1",
+      "facts": [
+        "CURRENT",
+        "CLINGING",
+        "ROCK"
+      ]
+    },
+    {
+      "id": "choose-the-grip",
+      "durationSeconds": 3.8,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "YOUR RIVER MOVE",
+      "headline": "WHICH WOULD YOU CHOOSE?",
+      "narration": "Better river move: suction-cup lips or swimming?",
+      "caption": "SUCTION-CUP LIPS OR SWIMMING?",
+      "visual": "cta",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/60.png",
+      "accent": "#73D7E0"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Poliwag",
+      "url": "https://www.pokemon.com/us/pokedex/poliwag"
+    },
+    {
+      "label": "Bulbapedia — Poliwag",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Poliwag_(Pok%C3%A9mon)"
+    },
+    {
+      "label": "PokéAPI — Poliwag",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/60"
+    }
+  ]
+}

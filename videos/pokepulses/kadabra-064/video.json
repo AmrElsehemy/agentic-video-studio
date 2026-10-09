@@ -1,0 +1,249 @@
+{
+  "schemaVersion": 2,
+  "id": "kadabra-064",
+  "show": {
+    "id": "pokepulses",
+    "name": "PokePulses",
+    "handle": "@PokePulses",
+    "wordmark": {
+      "lead": "POKE",
+      "accent": "PULSES"
+    },
+    "fonts": {
+      "display": "Bebas Neue",
+      "body": "system"
+    }
+  },
+  "title": "Kadabra’s Silver Spoon Has One Psychic Job",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "mechanic",
+    "numberRelevant": false,
+    "premise": "Kadabra’s silver spoon amplifies its alpha waves, while losing it halves its psychic power.",
+    "audiencePromise": "See why Kadabra needs silver, why gold fails, and what the spoon really does.",
+    "openLoop": "Why would a spoon change Kadabra’s psychic power?",
+    "payoff": "The spoon is functional equipment: silver amplifies Kadabra’s power, while gold apparently does nothing.",
+    "targetEmotion": "surprise",
+    "engagementQuestion": "Essential psychic tool, or just the strangest accessory?",
+    "targetSecondsBetweenVisualChanges": 0.65
+  },
+  "subject": {
+    "name": "Kadabra",
+    "category": "Psi Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/64.png",
+    "identifier": "#064"
+  },
+  "related": [
+    {
+      "name": "Alakazam",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/65.png",
+      "identifier": "#065"
+    },
+    {
+      "name": "Abra",
+      "relation": "evolves-from",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/63.png",
+      "identifier": "#063"
+    }
+  ],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#111322",
+    "surface": "#242640",
+    "primary": "#BFC7D5",
+    "secondary": "#8B7CFF",
+    "ink": "#F6F7FB"
+  },
+  "audio": {
+    "music": "generated/kadabra-064-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 126,
+      "notes": [
+        110,
+        130.81,
+        146.83,
+        164.81,
+        146.83,
+        130.81,
+        98,
+        130.81
+      ]
+    },
+    "voice": {
+      "provider": "openai",
+      "model": "gpt-4o-mini-tts",
+      "voice": "marin",
+      "instructions": "Speak like a knowledgeable fan sharing a strange detail. Keep the pace quick, warm, and playful. Stress silver, half, and gold. Pause briefly before each reveal. Do not sound like a documentary narrator.",
+      "speed": 1.12,
+      "output": "generated/kadabra-064-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "assets": [
+      {
+        "kind": "Kadabra official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/64.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ],
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    }
+  },
+  "scenes": [
+    {
+      "id": "silver-spoon-job",
+      "durationSeconds": 3.8,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "KADABRA’S SECRET",
+      "headline": "ONE VERY SPECIFIC JOB",
+      "narration": "Kadabra’s silver spoon has one very specific job.",
+      "caption": "THIS SPOON ISN’T DECORATION",
+      "visual": "hook",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/64.png",
+      "accent": "#BFC7D5"
+    },
+    {
+      "id": "alpha-wave-amplifier",
+      "durationSeconds": 3.8,
+      "beat": "evidence",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "WHAT IT AMPLIFIES",
+      "headline": "MORE ALPHA WAVES",
+      "narration": "It amplifies the alpha waves in Kadabra’s brain.",
+      "caption": "SILVER SPOON → AMPLIFIED ALPHA WAVES",
+      "visual": "gauntlet",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/64.png",
+      "accent": "#8B7CFF",
+      "facts": [
+        "SILVER SPOON",
+        "ALPHA WAVES"
+      ]
+    },
+    {
+      "id": "power-cut-in-half",
+      "durationSeconds": 5.2,
+      "beat": "escalation",
+      "role": "escalation",
+      "shot": "comparison",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "REMOVE THE SPOON",
+      "headline": "HALF THE PSYCHIC POWER",
+      "narration": "Without its silver spoon, Kadabra’s psychic power is cut in half.",
+      "caption": "SPOON REMOVED: HALF POWER",
+      "visual": "advantage",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/64.png",
+      "accent": "#FF6685",
+      "facts": [
+        "PSYCHIC POWER",
+        "HALVED WITHOUT SILVER"
+      ]
+    },
+    {
+      "id": "focus-before-release",
+      "durationSeconds": 5.2,
+      "beat": "payoff",
+      "role": "payoff",
+      "shot": "tracking",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "BEFORE IT LETS LOOSE",
+      "headline": "SILVER HELPS IT FOCUS",
+      "narration": "It stares at silver to focus, then releases more alpha waves.",
+      "caption": "FOCUS FIRST. POWER NEXT.",
+      "visual": "race",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/64.png",
+      "accent": "#BFC7D5",
+      "facts": [
+        "FOCUS",
+        "MORE ALPHA WAVES"
+      ]
+    },
+    {
+      "id": "gold-spoon-fails",
+      "durationSeconds": 5.3,
+      "beat": "payoff",
+      "role": "payoff",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "THE WEIRD CATCH",
+      "headline": "GOLD DOESN’T WORK",
+      "narration": "And gold? The Pokédex says it’s no good for this job.",
+      "caption": "GOLD SPOON: NO GOOD",
+      "visual": "tradeoff",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/64.png",
+      "accent": "#D6A84F",
+      "facts": [
+        "GOLD",
+        "APPARENTLY NO GOOD"
+      ],
+      "primitive": {
+        "kind": "checklist",
+        "items": [
+          {
+            "label": "SILVER SPOON",
+            "met": true
+          },
+          {
+            "label": "GOLD SPOON",
+            "met": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "essential-or-accessory",
+      "durationSeconds": 3.9,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "YOUR CALL",
+      "headline": "TOOL OR ACCESSORY?",
+      "narration": "Essential psychic tool, or just the strangest accessory?",
+      "caption": "ESSENTIAL TOOL OR STRANGE ACCESSORY?",
+      "visual": "cta",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/64.png",
+      "accent": "#8B7CFF"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Kadabra",
+      "url": "https://www.pokemon.com/us/pokedex/kadabra"
+    },
+    {
+      "label": "Bulbapedia — Kadabra",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Kadabra_(Pok%C3%A9mon)"
+    },
+    {
+      "label": "PokéAPI — Kadabra",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/64"
+    }
+  ]
+}

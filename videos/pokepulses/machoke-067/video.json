@@ -1,0 +1,262 @@
+{
+  "schemaVersion": 2,
+  "id": "machoke-067",
+  "show": {
+    "id": "pokepulses",
+    "name": "PokePulses",
+    "handle": "@PokePulses",
+    "wordmark": {
+      "lead": "POKE",
+      "accent": "PULSES"
+    },
+    "fonts": {
+      "display": "Bebas Neue",
+      "body": "system"
+    }
+  },
+  "title": "Machoke Removes Its Belt Only for a Truly Mighty Enemy",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "transformation",
+    "numberRelevant": false,
+    "premise": "Machoke's power-save belt controls its dangerous energy, but a mighty enemy can trigger its removal.",
+    "audiencePromise": "See why Machoke keeps its belt on, and what happens when a truly mighty enemy makes it come off.",
+    "openLoop": "What kind of enemy makes Machoke unleash everything?",
+    "payoff": "The belt comes off only against a truly mighty enemy, releasing Machoke's full power.",
+    "targetEmotion": "surprise",
+    "engagementQuestion": "Is removing it courage, or a last resort?",
+    "targetSecondsBetweenVisualChanges": 0.62
+  },
+  "subject": {
+    "name": "Machoke",
+    "category": "Superpower Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/67.png",
+    "identifier": "#067"
+  },
+  "related": [
+    {
+      "name": "Machamp",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/68.png",
+      "identifier": "#068"
+    },
+    {
+      "name": "Machop",
+      "relation": "evolves-from",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/66.png",
+      "identifier": "#066"
+    }
+  ],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#101218",
+    "surface": "#1B2029",
+    "primary": "#D8B08C",
+    "secondary": "#6B4E42",
+    "ink": "#F5F1E8"
+  },
+  "audio": {
+    "music": "generated/machoke-067-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 126,
+      "notes": [
+        110,
+        130.81,
+        146.83,
+        164.81,
+        146.83,
+        130.81,
+        98,
+        130.81
+      ]
+    },
+    "voice": {
+      "provider": "openai",
+      "model": "gpt-4o-mini-tts",
+      "voice": "marin",
+      "instructions": "Sound like a knowledgeable fan sharing a dangerous secret. Start tight and curious, build pressure through the belt removal, then land the final question with a playful pause. Keep the pace quick but clear.",
+      "speed": 1.12,
+      "output": "generated/machoke-067-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "assets": [
+      {
+        "kind": "Machoke official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/67.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ],
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    }
+  },
+  "scenes": [
+    {
+      "id": "mighty-enemy",
+      "durationSeconds": 3.8,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "THE RESTRAINT",
+      "headline": "MIGHTY ENEMY? BELT OFF.",
+      "narration": "Machoke removes its belt only for mighty enemies.",
+      "caption": "THE BELT COMES OFF ONLY WHEN IT COUNTS",
+      "visual": "hook",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/67.png",
+      "accent": "#C94F4F"
+    },
+    {
+      "id": "power-under-control",
+      "durationSeconds": 4.8,
+      "beat": "before",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "BEFORE",
+      "headline": "POWER UNDER CONTROL",
+      "narration": "The belt suppresses energy, keeping its dangerous power under control.",
+      "caption": "POWER-SAVE BELT: ENERGY RESTRAINED",
+      "visual": "gauntlet",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/67.png",
+      "accent": "#6B4E42",
+      "facts": [
+        "POWER-SAVE BELT",
+        "ENERGY SUPPRESSED"
+      ],
+      "primitive": {
+        "kind": "checklist",
+        "items": [
+          {
+            "label": "BELT ON",
+            "met": true
+          },
+          {
+            "label": "POWER SUPPRESSED",
+            "met": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "belt-removal",
+      "durationSeconds": 5.2,
+      "beat": "change",
+      "role": "escalation",
+      "shot": "tracking",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "THE TRIGGER",
+      "headline": "THE BELT COMES OFF",
+      "narration": "But against a truly mighty enemy, Machoke takes the belt off.",
+      "caption": "FACING A TRULY MIGHTY ENEMY",
+      "visual": "race",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/67.png",
+      "accent": "#D8B08C",
+      "facts": [
+        "TRULY MIGHTY ENEMY",
+        "BELT REMOVED"
+      ],
+      "primitive": {
+        "kind": "checklist",
+        "items": [
+          {
+            "label": "MIGHTY ENEMY",
+            "met": true
+          },
+          {
+            "label": "BELT REMOVED",
+            "met": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "full-power-release",
+      "durationSeconds": 4.8,
+      "beat": "reveal",
+      "role": "payoff",
+      "shot": "comparison",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "FULL POWER",
+      "headline": "RESTRAINT: GONE",
+      "narration": "The moment it comes off, Machoke unleashes its full power.",
+      "caption": "FULL POWER UNLEASHED",
+      "visual": "advantage",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/67.png",
+      "accent": "#E85D4A",
+      "facts": [
+        "FULL POWER",
+        "RESTRAINT RELEASED"
+      ]
+    },
+    {
+      "id": "dangerous-belt",
+      "durationSeconds": 5.1,
+      "beat": "aftermath",
+      "role": "payoff",
+      "shot": "wide",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "AFTERMATH",
+      "headline": "NOT JUST A BELT",
+      "narration": "So the belt stays on until the threat is truly mighty.",
+      "caption": "THIS IS A POWER LOCK",
+      "visual": "tradeoff",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/67.png",
+      "accent": "#F0C36A",
+      "facts": [
+        "DANGEROUS POWER",
+        "BELT STAYS ON"
+      ]
+    },
+    {
+      "id": "last-resort",
+      "durationSeconds": 3.9,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "YOUR CALL",
+      "headline": "COURAGE OR LAST RESORT?",
+      "narration": "Is removing it courage, or a last resort?",
+      "caption": "WOULD YOU TAKE THE BELT OFF?",
+      "visual": "cta",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/67.png",
+      "accent": "#C94F4F"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Machoke",
+      "url": "https://www.pokemon.com/us/pokedex/machoke"
+    },
+    {
+      "label": "Bulbapedia — Machoke",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Machoke_(Pok%C3%A9mon)"
+    },
+    {
+      "label": "PokéAPI — Machoke",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/67"
+    }
+  ]
+}

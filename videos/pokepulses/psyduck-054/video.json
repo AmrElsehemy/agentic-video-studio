@@ -1,0 +1,253 @@
+{
+  "schemaVersion": 2,
+  "id": "psyduck-054",
+  "show": {
+    "id": "pokepulses",
+    "name": "PokePulses",
+    "handle": "@PokePulses",
+    "wordmark": {
+      "lead": "POKE",
+      "accent": "PULSES"
+    },
+    "fonts": {
+      "display": "Bebas Neue",
+      "body": "system"
+    }
+  },
+  "title": "Psyduck's Headache Makes Its Brain Go 10×",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "comparison",
+    "numberRelevant": false,
+    "premise": "A Psyduck headache makes its brain cells ten times more active, but the resulting power may be uncontrolled.",
+    "audiencePromise": "See the sharp contrast between Psyduck's usual brain activity and its headache state.",
+    "openLoop": "What does ten-times brain activity actually do to Psyduck?",
+    "payoff": "Headaches activate Psyduck's brain and strengthen its psychic power, but it may use that power without meaning to.",
+    "targetEmotion": "surprise",
+    "engagementQuestion": "Is ten-times brain activity a superpower, or a nightmare?",
+    "targetSecondsBetweenVisualChanges": 0.7
+  },
+  "subject": {
+    "name": "Psyduck",
+    "category": "Duck Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/54.png",
+    "identifier": "#054"
+  },
+  "related": [
+    {
+      "name": "Golduck",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/55.png",
+      "identifier": "#055"
+    }
+  ],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#101820",
+    "surface": "#1B2A32",
+    "primary": "#F5C84C",
+    "secondary": "#4AA8C5",
+    "ink": "#F7F4E9"
+  },
+  "audio": {
+    "music": "generated/psyduck-054-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 126,
+      "notes": [
+        110,
+        130.81,
+        146.83,
+        164.81,
+        146.83,
+        130.81,
+        98,
+        130.81
+      ]
+    },
+    "voice": {
+      "provider": "openai",
+      "model": "gpt-4o-mini-tts",
+      "voice": "marin",
+      "instructions": "Quick, warm, and conversational. Stress ten times, inactive, and without meaning to. Build from surprise into concern, then pause before the final choice.",
+      "speed": 1.12,
+      "output": "generated/psyduck-054-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "assets": [
+      {
+        "kind": "Psyduck official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/54.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ],
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    }
+  },
+  "scenes": [
+    {
+      "id": "headache-brain",
+      "durationSeconds": 4.2,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "comparison",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "THE HEADACHE EFFECT",
+      "headline": "HEADACHE: 10× BRAIN ACTIVITY",
+      "narration": "A headache makes Psyduck's brain work ten times harder.",
+      "caption": "HEADACHE = 10× MORE ACTIVE",
+      "visual": "hook",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/54.png",
+      "accent": "#F5C84C",
+      "facts": [
+        "HEADACHE",
+        "10× ACTIVITY"
+      ],
+      "primitive": {
+        "kind": "counter",
+        "from": 1,
+        "to": 10,
+        "label": "BRAIN ACTIVITY"
+      }
+    },
+    {
+      "id": "usually-inactive",
+      "durationSeconds": 4.2,
+      "beat": "evidence",
+      "role": "evidence",
+      "shot": "wide",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "THE NORMAL STATE",
+      "headline": "BRAIN CELLS ARE USUALLY INACTIVE",
+      "narration": "Psyduck's brain cells are usually inactive before headaches strike.",
+      "caption": "USUALLY INACTIVE",
+      "visual": "gauntlet",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/54.png",
+      "accent": "#4AA8C5",
+      "facts": [
+        "BRAIN CELLS",
+        "USUALLY INACTIVE"
+      ]
+    },
+    {
+      "id": "ten-times-active",
+      "durationSeconds": 4.8,
+      "beat": "evidence",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "THE HEADACHE STATE",
+      "headline": "THEN EVERYTHING LIGHTS UP",
+      "narration": "During a headache, those cells become ten times more active.",
+      "caption": "10× MORE ACTIVE",
+      "visual": "advantage",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/54.png",
+      "accent": "#F5C84C",
+      "facts": [
+        "HEADACHE",
+        "10× MORE ACTIVE"
+      ]
+    },
+    {
+      "id": "power-grows",
+      "durationSeconds": 5.6,
+      "beat": "escalation",
+      "role": "escalation",
+      "shot": "tracking",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "PAIN BUILDS POWER",
+      "headline": "MORE PAIN. STRONGER PSYCHIC POWER.",
+      "narration": "As the pain grows, its mysterious psychic power can grow stronger too.",
+      "caption": "PAIN ↑  PSYCHOKINESIS ↑",
+      "visual": "race",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/54.png",
+      "accent": "#D97856",
+      "facts": [
+        "MORE PAIN",
+        "STRONGER POWER"
+      ]
+    },
+    {
+      "id": "power-without-control",
+      "durationSeconds": 5.2,
+      "beat": "twist",
+      "role": "twist",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "THE CATCH",
+      "headline": "POWER WITHOUT CONTROL",
+      "narration": "But it may use that power without meaning to, then forget.",
+      "caption": "NO INTENT. NO MEMORY.",
+      "visual": "tradeoff",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/54.png",
+      "accent": "#B86BCE",
+      "facts": [
+        "WITHOUT MEANING TO",
+        "CANNOT REMEMBER"
+      ],
+      "primitive": {
+        "kind": "checklist",
+        "items": [
+          {
+            "label": "INTENDED POWER",
+            "met": false
+          },
+          {
+            "label": "REMEMBERS USING IT",
+            "met": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "superpower-or-nightmare",
+      "durationSeconds": 4.4,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "YOUR VERDICT",
+      "headline": "SUPERRPOWER OR NIGHTMARE?",
+      "narration": "Is ten-times brain activity a superpower, or a nightmare?",
+      "caption": "SUPERPOWER OR NIGHTMARE?",
+      "visual": "cta",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/54.png",
+      "accent": "#F5C84C"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Psyduck",
+      "url": "https://www.pokemon.com/us/pokedex/psyduck"
+    },
+    {
+      "label": "Bulbapedia — Psyduck",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Psyduck_(Pok%C3%A9mon)"
+    },
+    {
+      "label": "PokéAPI — Psyduck",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/54"
+    }
+  ]
+}

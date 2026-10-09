@@ -1,0 +1,459 @@
+{
+  "episodeId": "meowth-052",
+  "checkedAt": "2026-10-08T19:23:22.890Z",
+  "claims": [
+    {
+      "id": "c1",
+      "where": "title",
+      "text": "Meowth Can't Stop Picking Up Shiny Things, and Its Coin Shines",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c2",
+      "where": "premise",
+      "text": "When Meowth sees a shiny object, the gold coin on its head shines too.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c3",
+      "where": "audiencePromise",
+      "text": "Show why shiny objects trigger Meowth's coin and eyes to shine.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[4].text",
+        "pokedexEntries[9].text",
+        "pokedexEntries[1].text"
+      ],
+      "note": "The research supports the reactions to shiny objects, but does not explain why they occur or explicitly establish that the objects trigger them.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c4",
+      "where": "openLoop",
+      "text": "What else happens when Meowth spots something shiny?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c5",
+      "where": "payoff",
+      "text": "One shiny sight connects Meowth's coin, glittering eyes, and picking habit.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[4].text",
+        "pokedexEntries[9].text"
+      ],
+      "note": "The three reactions are each supported, but the research does not state that one shiny sight simultaneously connects all three.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c6",
+      "where": "scenes.coin-shines-at-shiny-objects.headline",
+      "text": "IT CANNOT STOP",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c7",
+      "where": "scenes.coin-shines-at-shiny-objects.narration",
+      "text": "Meowth can't stop. Its coin shines at shiny objects.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c8",
+      "where": "scenes.coin-shines-at-shiny-objects.caption",
+      "text": "SHINY OBJECTS TRIGGER THE COIN",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c9",
+      "where": "scenes.coin-shines-at-shiny-objects.eyebrow",
+      "text": "THE SHINY PROBLEM",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c10",
+      "where": "scenes.nightly-loose-change-search.headline",
+      "text": "LOOSE CHANGE CALLS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text",
+        "pokedexEntries[13].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c11",
+      "where": "scenes.nightly-loose-change-search.narration",
+      "text": "At night, Meowth searches streets for dropped loose change.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c12",
+      "where": "scenes.nightly-loose-change-search.caption",
+      "text": "IT SEARCHES AT NIGHT",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text",
+        "pokedexEntries[13].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c13",
+      "where": "scenes.nightly-loose-change-search.eyebrow",
+      "text": "THE NIGHTLY SEARCH",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c14",
+      "where": "scenes.nightly-loose-change-search.facts[0]",
+      "text": "ACTIVE AT NIGHT",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[13].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c15",
+      "where": "scenes.nightly-loose-change-search.facts[1]",
+      "text": "DROPPED LOOSE CHANGE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c16",
+      "where": "scenes.gold-coin-shines.headline",
+      "text": "THE COIN LIGHTS UP",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c17",
+      "where": "scenes.gold-coin-shines.narration",
+      "text": "See a shiny object, and the gold coin on its head shines.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c18",
+      "where": "scenes.gold-coin-shines.caption",
+      "text": "SHINY OBJECT → SHINING COIN",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c19",
+      "where": "scenes.gold-coin-shines.eyebrow",
+      "text": "SPOTTING SHINE",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c20",
+      "where": "scenes.gold-coin-shines.facts[0]",
+      "text": "SEES SHINY OBJECT",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c21",
+      "where": "scenes.gold-coin-shines.facts[1]",
+      "text": "GOLD COIN SHINES",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c22",
+      "where": "scenes.eyes-glitter-too.headline",
+      "text": "ITS EYES JOIN IN",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c23",
+      "where": "scenes.eyes-glitter-too.narration",
+      "text": "When Meowth spots shine, its eyes glitter brightly too.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[9].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c24",
+      "where": "scenes.eyes-glitter-too.caption",
+      "text": "THE EYES GLITTER TOO",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[9].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c25",
+      "where": "scenes.eyes-glitter-too.eyebrow",
+      "text": "ANOTHER REACTION",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c26",
+      "where": "scenes.eyes-glitter-too.facts[0]",
+      "text": "EYES GLITTER",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[9].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c27",
+      "where": "scenes.eyes-glitter-too.facts[1]",
+      "text": "SHINY OBJECT SPOTTED",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[9].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c28",
+      "where": "scenes.picking-habit-continues.headline",
+      "text": "PICKUP IS UNSTOPPABLE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[17].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c29",
+      "where": "scenes.picking-habit-continues.narration",
+      "text": "It can't stop itself from picking shiny things up.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[16].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c30",
+      "where": "scenes.picking-habit-continues.caption",
+      "text": "IT CANNOT STOP PICKING THEM UP",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[16].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c31",
+      "where": "scenes.picking-habit-continues.eyebrow",
+      "text": "THE HABIT CONTINUES",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c32",
+      "where": "scenes.picking-habit-continues.facts[0]",
+      "text": "CANNOT STOP",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c33",
+      "where": "scenes.picking-habit-continues.facts[1]",
+      "text": "PICKS UP SHINY THINGS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[16].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c34",
+      "where": "scenes.coin-signal-or-symptom.headline",
+      "text": "SIGNAL OR SYMPTOM?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c35",
+      "where": "scenes.coin-signal-or-symptom.narration",
+      "text": "Coin signal or shiny-object symptom?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c36",
+      "where": "scenes.coin-signal-or-symptom.caption",
+      "text": "WHAT DOES THE COIN MEAN?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c37",
+      "where": "scenes.coin-signal-or-symptom.eyebrow",
+      "text": "YOUR READ",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    }
+  ],
+  "unsupported": [],
+  "uncertain": [
+    {
+      "id": "c3",
+      "where": "audiencePromise",
+      "text": "Show why shiny objects trigger Meowth's coin and eyes to shine.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[4].text",
+        "pokedexEntries[9].text",
+        "pokedexEntries[1].text"
+      ],
+      "note": "The research supports the reactions to shiny objects, but does not explain why they occur or explicitly establish that the objects trigger them.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c5",
+      "where": "payoff",
+      "text": "One shiny sight connects Meowth's coin, glittering eyes, and picking habit.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[4].text",
+        "pokedexEntries[9].text"
+      ],
+      "note": "The three reactions are each supported, but the research does not state that one shiny sight simultaneously connects all three.",
+      "tier": "official",
+      "checkedBy": "model"
+    }
+  ]
+}

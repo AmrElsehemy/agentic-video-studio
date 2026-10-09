@@ -1,0 +1,177 @@
+{
+  "id": "golduck-055",
+  "title": "Golduck Is the Fastest Swimmer When It Matters",
+  "storyPattern": "comparison",
+  "numberRelevant": false,
+  "premise": "Golduck is described as the fastest swimmer among Pokémon, faster than human champions, and capable of rescuing people from wrecked ships.",
+  "audiencePromise": "Compare Golduck with human champions, fast-swimming fish Pokémon, stormy seas, and its own rescue work.",
+  "openLoop": "Is Golduck's speed just a claim, or does it change what swimming means?",
+  "payoff": "Golduck's official profile combines champion-beating speed, storm swimming, endurance, and rescue work.",
+  "targetEmotion": "debate",
+  "engagementQuestion": "Is Golduck the fastest swimmer, or the greatest rescuer?",
+  "subject": {
+    "name": "Golduck",
+    "category": "Duck Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/55.png",
+    "identifier": "#055"
+  },
+  "related": [
+    {
+      "name": "Psyduck",
+      "relation": "evolves-from",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/54.png",
+      "identifier": "#054"
+    }
+  ],
+  "palette": {
+    "background": "#07151B",
+    "surface": "#102B33",
+    "primary": "#4C9FA8",
+    "secondary": "#D95F76",
+    "ink": "#F2F7F5"
+  },
+  "voice": {
+    "instructions": "Quick, warm, and conversational. Stress fastest, champion, stormy, and rescue. Build from racing comparisons into survival stakes. Treat the final choice as a genuine debate."
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    },
+    "assets": [
+      {
+        "kind": "Golduck official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/55.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "fastest-rescuer",
+      "beat": "hook",
+      "eyebrow": "OFFICIAL PROFILE",
+      "headline": "FASTEST AND A RESCUER",
+      "narration": "Golduck: fastest swimmer, rescuer from wrecked ships.",
+      "caption": "FASTEST SWIMMER. SHIPWRECK RESCUER.",
+      "facts": [
+        "FASTEST SWIMMER",
+        "RESCUES PEOPLE"
+      ],
+      "accent": "#4C9FA8",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/55.png"
+    },
+    {
+      "id": "human-champion",
+      "beat": "evidence",
+      "eyebrow": "HUMAN CHALLENGE",
+      "headline": "FASTER THAN ANY CHAMPION",
+      "narration": "Its Pokédex entry puts it ahead of every human swimming champion.",
+      "caption": "GOLDUCK > HUMAN CHAMPION",
+      "facts": [
+        "HUMAN CHAMPION",
+        "SWIMS FASTER"
+      ],
+      "accent": "#D95F76",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/55.png"
+    },
+    {
+      "id": "motionless-fish",
+      "beat": "evidence",
+      "eyebrow": "POKÉMON CHALLENGE",
+      "headline": "FAST FISH STILL STOP",
+      "narration": "Even fast-swimming fish Pokémon can end up completely motionless.",
+      "caption": "FAST FISH: BROUGHT TO A STANDSTILL",
+      "facts": [
+        "FAST FISH",
+        "STANDSTILL"
+      ],
+      "accent": "#4C9FA8",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/55.png"
+    },
+    {
+      "id": "storm-seas",
+      "beat": "escalation",
+      "eyebrow": "ROUGH SEA TEST",
+      "headline": "STORMS DON'T SLOW IT",
+      "narration": "And it keeps swimming effortlessly through rough, stormy seas.",
+      "caption": "ROUGH SEAS. STILL EFFORTLESS.",
+      "facts": [
+        "ROUGH SEAS",
+        "STORMY WATER",
+        "EFFORTLESS SWIMMING"
+      ],
+      "accent": "#D95F76",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/55.png"
+    },
+    {
+      "id": "two-day-swim",
+      "beat": "escalation",
+      "eyebrow": "ENDURANCE TEST",
+      "headline": "IT KEEPS GOING",
+      "narration": "It can even keep swimming for two days straight.",
+      "caption": "TWO DAYS OF SWIMMING",
+      "facts": [
+        "TWO DAYS STRAIGHT",
+        "LONG TAIL"
+      ],
+      "accent": "#E5B95C",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/55.png",
+      "primitive": {
+        "kind": "counter",
+        "from": 0,
+        "to": 2,
+        "label": "DAYS SWIMMING"
+      }
+    },
+    {
+      "id": "graceful-speed",
+      "beat": "twist",
+      "eyebrow": "THE COUNTERPOINT",
+      "headline": "SPEED WITHOUT THE STRUGGLE",
+      "narration": "Yet its entries stress graceful swimming, not just frightening speed.",
+      "caption": "GRACEFUL, NOT JUST FAST",
+      "facts": [
+        "GRACEFUL SWIMMING",
+        "FRIGHTENING SPEED"
+      ],
+      "accent": "#7CC8C2",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/55.png"
+    },
+    {
+      "id": "fastest-or-rescuer",
+      "beat": "verdict",
+      "eyebrow": "YOUR CALL",
+      "headline": "THE ULTIMATE SWIMMER?",
+      "narration": "Champion speed, storm endurance: fastest swimmer, or greatest rescuer?",
+      "caption": "FASTEST SWIMMER OR GREATEST RESCUER?",
+      "accent": "#4C9FA8",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/55.png"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Golduck",
+      "url": "https://www.pokemon.com/us/pokedex/golduck",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Golduck",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Golduck_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Golduck",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/55",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

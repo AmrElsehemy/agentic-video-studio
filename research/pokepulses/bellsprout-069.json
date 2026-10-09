@@ -1,0 +1,157 @@
+{
+  "schemaVersion": 1,
+  "id": "bellsprout-069",
+  "number": 69,
+  "index": "#069",
+  "name": "Bellsprout",
+  "slug": "bellsprout",
+  "category": "Flower Pokémon",
+  "generation": "Generation I",
+  "isLegendary": false,
+  "isMythical": false,
+  "types": [
+    "Grass",
+    "Poison"
+  ],
+  "heightMeters": 0.7,
+  "weightKg": 4,
+  "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/69.png",
+  "pokedexEntries": [
+    {
+      "game": "Red",
+      "text": "A carnivorous POKéMON that traps and eats bugs. It uses its root feet to soak up needed moisture."
+    },
+    {
+      "game": "Yellow",
+      "text": "Prefers hot and humid places. It ensnares tiny insects with its vines and devours them."
+    },
+    {
+      "game": "Gold",
+      "text": "Even though its body is extremely skinny, it is blindingly fast when catching its prey."
+    },
+    {
+      "game": "Silver",
+      "text": "It plants its feet deep underground to replenish wa ter. It can't es cape its enemy while it's rooted."
+    },
+    {
+      "game": "Crystal",
+      "text": "If it notices anything that moves, it immediately flings its vine at the object."
+    },
+    {
+      "game": "Ruby",
+      "text": "BELLSPROUT’s thin and flexible body lets it bend and sway to avoid any attack, however strong it may be. From its mouth, this POKéMON spits a corrosive fluid that melts even iron."
+    },
+    {
+      "game": "Emerald",
+      "text": "A BELLSPROUT’s thin and flexible body lets it bend and sway to avoid any attack, however strong it may be. From its mouth, it leaks a fluid that melts even iron."
+    },
+    {
+      "game": "Firered",
+      "text": "Its bud looks like a human face. Because of the bud, it is rumored to be a type of legendary mandrake plant."
+    },
+    {
+      "game": "Leafgreen",
+      "text": "A carnivorous POKéMON that traps and eats bugs. It appears to use its root feet to replenish moisture."
+    },
+    {
+      "game": "Diamond",
+      "text": "It prefers hot and humid environments. It is quick at capturing prey with its vines."
+    },
+    {
+      "game": "Soulsilver",
+      "text": "It plants its feet deep underground to replenish water. It can’t escape its enemy while it’s rooted."
+    },
+    {
+      "game": "Lets Go Pikachu",
+      "text": "Prefers hot and humid places. It ensnares tiny bugs with its vines and devours them."
+    }
+  ],
+  "evolutionChain": [
+    {
+      "name": "Bellsprout",
+      "index": "#069",
+      "stage": 1,
+      "types": [
+        "Grass",
+        "Poison"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/69.png",
+      "isSubject": true
+    },
+    {
+      "name": "Weepinbell",
+      "index": "#070",
+      "stage": 2,
+      "evolvesFrom": "Bellsprout",
+      "method": "Level Up, level 21",
+      "types": [
+        "Grass",
+        "Poison"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/70.png",
+      "isSubject": false
+    },
+    {
+      "name": "Victreebel",
+      "index": "#071",
+      "stage": 3,
+      "evolvesFrom": "Weepinbell",
+      "method": "Use Item, Leaf Stone",
+      "types": [
+        "Grass",
+        "Poison"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/71.png",
+      "isSubject": false
+    }
+  ],
+  "varieties": [],
+  "lore": [],
+  "tiers": {
+    "official": [
+      "name",
+      "index",
+      "number",
+      "category",
+      "generation",
+      "isLegendary",
+      "isMythical",
+      "types",
+      "heightMeters",
+      "weightKg",
+      "pokedexEntries",
+      "evolutionChain[].name",
+      "evolutionChain[].index",
+      "evolutionChain[].types",
+      "evolutionChain[].stage",
+      "varieties[].types",
+      "varieties[].heightMeters",
+      "varieties[].weightKg"
+    ],
+    "trusted_secondary": [
+      "evolutionChain[].method",
+      "evolutionChain[].evolvesFrom",
+      "varieties[].name"
+    ],
+    "community": [
+      "lore"
+    ]
+  },
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Bellsprout",
+      "url": "https://www.pokemon.com/us/pokedex/bellsprout",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Bellsprout",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Bellsprout_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Bellsprout",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/69",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

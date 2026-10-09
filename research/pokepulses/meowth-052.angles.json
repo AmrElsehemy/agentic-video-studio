@@ -1,0 +1,163 @@
+{
+  "episodeId": "meowth-052",
+  "createdAt": "2026-10-08T19:23:19.481Z",
+  "chosen": {
+    "id": "coin-head-signal",
+    "premise": "When Meowth spots something shiny, the coin on its forehead shines too.",
+    "hook": "Meowth's forehead coin reacts to treasure before it even picks it up.",
+    "archetype": "transformation",
+    "evidence": [
+      "pokedexEntries[4].text",
+      "pokedexEntries[9].text"
+    ],
+    "visualIdea": "A distant sparkle triggers Meowth's forehead coin to flare brightly, linking the two flashes.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 5,
+      "specificity": 5,
+      "visual": 5,
+      "support": 4
+    },
+    "total": 24,
+    "note": "A highly specific, genuinely surprising Meowth detail with an immediate visual payoff. Crystal directly supports the coin shining when Meowth sees something shiny; the second citation adds related sparkle behavior but not the exact coin reaction."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "coin-head-signal",
+          "premise": "When Meowth spots something shiny, the coin on its forehead shines too.",
+          "hook": "Meowth's forehead coin reacts to treasure before it even picks it up.",
+          "archetype": "transformation",
+          "evidence": [
+            "pokedexEntries[4].text",
+            "pokedexEntries[9].text"
+          ],
+          "visualIdea": "A distant sparkle triggers Meowth's forehead coin to flare brightly, linking the two flashes.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 24,
+          "note": "A highly specific, genuinely surprising Meowth detail with an immediate visual payoff. Crystal directly supports the coin shining when Meowth sees something shiny; the second citation adds related sparkle behavior but not the exact coin reaction."
+        },
+        {
+          "id": "silent-claw-heist",
+          "premise": "Meowth retracts its sharp claws so it can sneak around without leaving incriminating footsteps.",
+          "hook": "Meowth has built-in stealth mode—and it hides the evidence in its paws.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[5].text",
+            "pokedexEntries[6].text"
+          ],
+          "visualIdea": "Zoom into claws retracting, then show silent pawprints stopping while Meowth steals a glittering coin.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 22,
+          "note": "The retractable-claw stealth mechanism is concrete and well supported, although the heist framing adds a little inference beyond the Pokédex wording."
+        },
+        {
+          "id": "three-meowth-endpoints",
+          "premise": "At level 28, Meowth can become either Normal-type Persian or Steel-type Perrserker.",
+          "hook": "One level-28 Meowth can lead to two radically different evolutions.",
+          "archetype": "comparison",
+          "evidence": [
+            "evolutionChain[1].method",
+            "evolutionChain[1].types",
+            "evolutionChain[2].method",
+            "evolutionChain[2].types"
+          ],
+          "visualIdea": "A level-28 Meowth branches into Persian and Steel-type Perrserker with type labels flashing.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 2
+          },
+          "total": 21,
+          "note": "The branch is compelling, but the premise is misleading: the data does not establish that one ordinary Meowth can freely become either Persian or Perrserker, and Perrserker is tied to Galarian Meowth."
+        },
+        {
+          "id": "night-shift-coin-hunter",
+          "premise": "Meowth sleeps through the day, then patrols streets at night hunting for loose change.",
+          "hook": "Meowth's job starts when everyone else goes to sleep.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[7].text",
+            "pokedexEntries[12].text",
+            "pokedexEntries[0].text"
+          ],
+          "visualIdea": "Show a day-to-night clock swap, then Meowth prowling glowing streets and collecting coins.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 2,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 20,
+          "note": "Well-supported and easy to stage, but Meowth’s nocturnal coin hunting is familiar to most fans and the job framing is somewhat broad."
+        },
+        {
+          "id": "round-and-shiny-compulsion",
+          "premise": "Meowth cannot resist objects that are both round and shiny—even playing with them until it falls asleep.",
+          "hook": "Meowth doesn't collect treasure; it physically can't stop grabbing it.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[1].text",
+            "pokedexEntries[2].text",
+            "pokedexEntries[16].text"
+          ],
+          "visualIdea": "Coins and shiny circles magnetically pull Meowth across the screen until it collapses asleep.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 3,
+            "specificity": 4,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 20,
+          "note": "Strong visual mechanic, though the evidence mixes separate claims about round objects, shiny objects, and playing until exhaustion rather than proving one exact combined compulsion."
+        },
+        {
+          "id": "shiny-object-rivalry",
+          "premise": "Meowth's love of shiny objects turns into repeated fights with Murkrow over the same prize.",
+          "hook": "Meowth has a natural rival—and they fight over the exact same loot.",
+          "archetype": "comparison",
+          "evidence": [
+            "pokedexEntries[13].text",
+            "pokedexEntries[14].text"
+          ],
+          "visualIdea": "Split the screen between Meowth and Murkrow spotting one shiny object, then clash over it.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 3,
+            "specificity": 4,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 20,
+          "note": "The Meowth-versus-Murkrow conflict is well documented and visually clear, but the rivalry is situational rather than an especially deep Meowth-specific rule."
+        }
+      ],
+      "rejected": []
+    }
+  ]
+}

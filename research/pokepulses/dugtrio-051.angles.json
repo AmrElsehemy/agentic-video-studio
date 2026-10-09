@@ -1,0 +1,172 @@
+{
+  "episodeId": "dugtrio-051",
+  "createdAt": "2026-10-08T19:20:07.542Z",
+  "chosen": {
+    "id": "alola-double-weight",
+    "premise": "Alolan Dugtrio stays 0.7 meters tall but weighs twice as much as standard Dugtrio: 66.6 versus 33.3 kilograms.",
+    "hook": "Alolan Dugtrio is the same height—but exactly twice the weight.",
+    "archetype": "comparison",
+    "evidence": [
+      "weightKg",
+      "heightMeters",
+      "varieties[0].name",
+      "varieties[0].heightMeters",
+      "varieties[0].weightKg",
+      "varieties[0].types"
+    ],
+    "visualIdea": "Place standard and Alolan Dugtrio side by side at equal height, then flash 33.3 kg versus 66.6 kg.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 5,
+      "specificity": 5,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 25,
+    "note": "A precise, surprising comparison unique to the two Dugtrio forms: identical height but exactly double the listed weight. Every key number and comparison is directly supported and easy to show."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "alola-double-weight",
+          "premise": "Alolan Dugtrio stays 0.7 meters tall but weighs twice as much as standard Dugtrio: 66.6 versus 33.3 kilograms.",
+          "hook": "Alolan Dugtrio is the same height—but exactly twice the weight.",
+          "archetype": "comparison",
+          "evidence": [
+            "weightKg",
+            "heightMeters",
+            "varieties[0].name",
+            "varieties[0].heightMeters",
+            "varieties[0].weightKg",
+            "varieties[0].types"
+          ],
+          "visualIdea": "Place standard and Alolan Dugtrio side by side at equal height, then flash 33.3 kg versus 66.6 kg.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 25,
+          "note": "A precise, surprising comparison unique to the two Dugtrio forms: identical height but exactly double the listed weight. Every key number and comparison is directly supported and easy to show."
+        },
+        {
+          "id": "heads-as-digging-gears",
+          "premise": "Dugtrio’s three heads bob separately or alternately, loosening soil and driving the Pokémon through hard ground.",
+          "hook": "Those three heads aren’t decoration—they work like a digging machine.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[2].text",
+            "pokedexEntries[8].text",
+            "pokedexEntries[13].text"
+          ],
+          "visualIdea": "Overlay arrows showing each head bobbing in sequence, turning Dugtrio into a living soil-boring mechanism.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 24,
+          "note": "Multiple entries directly describe the heads bobbing alternately to loosen soil and drive digging. The machine comparison is an effective, concrete visual interpretation."
+        },
+        {
+          "id": "triplets-one-mind",
+          "premise": "Dugtrio’s three heads emerged from one body and think exactly alike, letting them burrow cooperatively.",
+          "hook": "Dugtrio has three heads—but apparently only one mind.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[5].text",
+            "pokedexEntries[6].text",
+            "pokedexEntries[10].text"
+          ],
+          "visualIdea": "Show three Dugtrio heads receiving identical thought bubbles before synchronizing into one digging motion.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 4,
+            "support": 5
+          },
+          "total": 22,
+          "note": "The one-body origin and identical thinking are unusually specific to Dugtrio, though the visual treatment risks feeling abstract and the idea is less immediately measurable."
+        },
+        {
+          "id": "sixty-mph-earthquake",
+          "premise": "Dugtrio can burrow over 60 miles per hour, fast enough for people to mistake its movement for an earthquake.",
+          "hook": "People don’t see Dugtrio coming—they think the ground is shaking.",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[1].text",
+            "pokedexEntries[0].text"
+          ],
+          "visualIdea": "Start with shaking buildings, then race underground to reveal Dugtrio moving at over 60 MPH.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 22,
+          "note": "The speed claim is precise and the reveal structure is strong, but the evidence combines two related explanations for earthquakes rather than establishing one fully consistent mechanism."
+        },
+        {
+          "id": "sixty-mile-earthquake",
+          "premise": "Dugtrio can burrow more than 60 miles underground, deep enough that its digging triggers earthquakes.",
+          "hook": "Dugtrio doesn’t just dig—it can reach 60 miles underground.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[0].text",
+            "pokedexEntries[4].text",
+            "pokedexEntries[14].text"
+          ],
+          "visualIdea": "Animate Dugtrio descending through a 60-mile underground cross-section as the surface shakes.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 21,
+          "note": "The 60-mile depth and earthquake claim are distinctive and highly visual, but the entries vary between depth, distance, and earthquake effects, making the premise slightly less clean."
+        },
+        {
+          "id": "underground-unknown",
+          "premise": "Despite living near farmers and people, no one has ever seen what Dugtrio looks like below ground.",
+          "hook": "Dugtrio is familiar to farmers—but its underground body is still unseen.",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[4].text",
+            "pokedexEntries[11].text",
+            "pokedexEntries[15].text"
+          ],
+          "visualIdea": "Show farmers watching three heads above ground while the camera stops at an opaque underground silhouette.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 4,
+            "support": 3
+          },
+          "total": 19,
+          "note": "The mystery is compelling, but the research says no one has seen the parts concealed underground, which is slightly narrower than claiming no one knows Dugtrio's underground appearance."
+        }
+      ],
+      "rejected": [],
+      "request": "Not applicable: the Alolan Dugtrio weight comparison is strong enough. Stronger alternatives would need an equally precise contradiction or numerical comparison, direct support from the research, and an immediately readable visual payoff."
+    }
+  ]
+}

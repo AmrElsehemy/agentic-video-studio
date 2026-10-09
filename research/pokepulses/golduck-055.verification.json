@@ -1,0 +1,556 @@
+{
+  "episodeId": "golduck-055",
+  "checkedAt": "2026-10-08T19:33:56.795Z",
+  "claims": [
+    {
+      "id": "c1",
+      "where": "title",
+      "text": "Golduck Is the Fastest Swimmer When It Matters",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[6].text",
+        "pokedexEntries[10].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c2",
+      "where": "premise",
+      "text": "Golduck is described as the fastest swimmer among Pokémon, faster than human champions, and capable of rescuing people from wrecked ships.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[6].text",
+        "pokedexEntries[10].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c3",
+      "where": "audiencePromise",
+      "text": "Compare Golduck with human champions, fast-swimming fish Pokémon, stormy seas, and its own rescue work.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[6].text",
+        "pokedexEntries[10].text",
+        "pokedexEntries[18].text",
+        "pokedexEntries[19].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c4",
+      "where": "openLoop",
+      "text": "Is Golduck's speed just a claim, or does it change what swimming means?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Question/open-loop framing only.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c5",
+      "where": "payoff",
+      "text": "Golduck's official profile combines champion-beating speed, storm swimming, endurance, and rescue work.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[6].text",
+        "pokedexEntries[10].text",
+        "pokedexEntries[19].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c6",
+      "where": "scenes.fastest-rescuer.headline",
+      "text": "FASTEST AND A RESCUER",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c7",
+      "where": "scenes.fastest-rescuer.narration",
+      "text": "Golduck: fastest swimmer, rescuer from wrecked ships.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c8",
+      "where": "scenes.fastest-rescuer.caption",
+      "text": "FASTEST SWIMMER. SHIPWRECK RESCUER.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c9",
+      "where": "scenes.fastest-rescuer.eyebrow",
+      "text": "OFFICIAL PROFILE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c10",
+      "where": "scenes.fastest-rescuer.facts[0]",
+      "text": "FASTEST SWIMMER",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[6].text",
+        "pokedexEntries[10].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c11",
+      "where": "scenes.fastest-rescuer.facts[1]",
+      "text": "RESCUES PEOPLE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c12",
+      "where": "scenes.human-champion.headline",
+      "text": "FASTER THAN ANY CHAMPION",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[10].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c13",
+      "where": "scenes.human-champion.narration",
+      "text": "Its Pokédex entry puts it ahead of every human swimming champion.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[10].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c14",
+      "where": "scenes.human-champion.caption",
+      "text": "GOLDUCK > HUMAN CHAMPION",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[10].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c15",
+      "where": "scenes.human-champion.eyebrow",
+      "text": "HUMAN CHALLENGE",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Framing label only.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c16",
+      "where": "scenes.human-champion.facts[0]",
+      "text": "HUMAN CHAMPION",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[10].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c17",
+      "where": "scenes.human-champion.facts[1]",
+      "text": "SWIMS FASTER",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[10].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c18",
+      "where": "scenes.motionless-fish.headline",
+      "text": "FAST FISH STILL STOP",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[18].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c19",
+      "where": "scenes.motionless-fish.narration",
+      "text": "Even fast-swimming fish Pokémon can end up completely motionless.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[18].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c20",
+      "where": "scenes.motionless-fish.caption",
+      "text": "FAST FISH: BROUGHT TO A STANDSTILL",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[18].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c21",
+      "where": "scenes.motionless-fish.eyebrow",
+      "text": "POKÉMON CHALLENGE",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Framing label only.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c22",
+      "where": "scenes.motionless-fish.facts[0]",
+      "text": "FAST FISH",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[18].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c23",
+      "where": "scenes.motionless-fish.facts[1]",
+      "text": "STANDSTILL",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[18].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c24",
+      "where": "scenes.storm-seas.headline",
+      "text": "STORMS DON'T SLOW IT",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c25",
+      "where": "scenes.storm-seas.narration",
+      "text": "And it keeps swimming effortlessly through rough, stormy seas.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c26",
+      "where": "scenes.storm-seas.caption",
+      "text": "ROUGH SEAS. STILL EFFORTLESS.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c27",
+      "where": "scenes.storm-seas.eyebrow",
+      "text": "ROUGH SEA TEST",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Framing label only.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c28",
+      "where": "scenes.storm-seas.facts[0]",
+      "text": "ROUGH SEAS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[6].text",
+        "pokedexEntries[23].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c29",
+      "where": "scenes.storm-seas.facts[1]",
+      "text": "STORMY WATER",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c30",
+      "where": "scenes.storm-seas.facts[2]",
+      "text": "EFFORTLESS SWIMMING",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c31",
+      "where": "scenes.two-day-swim.headline",
+      "text": "IT KEEPS GOING",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[19].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c32",
+      "where": "scenes.two-day-swim.narration",
+      "text": "It can even keep swimming for two days straight.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[19].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c33",
+      "where": "scenes.two-day-swim.caption",
+      "text": "TWO DAYS OF SWIMMING",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[19].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c34",
+      "where": "scenes.two-day-swim.eyebrow",
+      "text": "ENDURANCE TEST",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Framing label only.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c35",
+      "where": "scenes.two-day-swim.facts[0]",
+      "text": "TWO DAYS STRAIGHT",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[19].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c36",
+      "where": "scenes.two-day-swim.facts[1]",
+      "text": "LONG TAIL",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[19].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c37",
+      "where": "scenes.graceful-speed.headline",
+      "text": "SPEED WITHOUT THE STRUGGLE",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[4].text",
+        "pokedexEntries[5].text"
+      ],
+      "note": "Graceful swimming and high speed are supported, but the research does not establish that it occurs without struggle.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c38",
+      "where": "scenes.graceful-speed.narration",
+      "text": "Yet its entries stress graceful swimming, not just frightening speed.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text",
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c39",
+      "where": "scenes.graceful-speed.caption",
+      "text": "GRACEFUL, NOT JUST FAST",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text",
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c40",
+      "where": "scenes.graceful-speed.eyebrow",
+      "text": "THE COUNTERPOINT",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Framing label only.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c41",
+      "where": "scenes.graceful-speed.facts[0]",
+      "text": "GRACEFUL SWIMMING",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c42",
+      "where": "scenes.graceful-speed.facts[1]",
+      "text": "FRIGHTENING SPEED",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c43",
+      "where": "scenes.fastest-or-rescuer.headline",
+      "text": "THE ULTIMATE SWIMMER?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Question/hook framing only.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c44",
+      "where": "scenes.fastest-or-rescuer.narration",
+      "text": "Champion speed, storm endurance: fastest swimmer, or greatest rescuer?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Rhetorical question framing; it does not assert a factual conclusion.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c45",
+      "where": "scenes.fastest-or-rescuer.caption",
+      "text": "FASTEST SWIMMER OR GREATEST RESCUER?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Question framing only.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c46",
+      "where": "scenes.fastest-or-rescuer.eyebrow",
+      "text": "YOUR CALL",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Audience prompt only.",
+      "checkedBy": "model"
+    }
+  ],
+  "unsupported": [],
+  "uncertain": [
+    {
+      "id": "c37",
+      "where": "scenes.graceful-speed.headline",
+      "text": "SPEED WITHOUT THE STRUGGLE",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[4].text",
+        "pokedexEntries[5].text"
+      ],
+      "note": "Graceful swimming and high speed are supported, but the research does not establish that it occurs without struggle.",
+      "tier": "official",
+      "checkedBy": "model"
+    }
+  ]
+}

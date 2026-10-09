@@ -1,0 +1,170 @@
+{
+  "episodeId": "persian-053",
+  "createdAt": "2026-10-08T19:26:31.094Z",
+  "chosen": {
+    "id": "whisker-off-switch",
+    "premise": "Persian's six whiskers sense nearby air movements—but grabbing them makes this vicious Pokémon docile.",
+    "hook": "Persian has a built-in off switch, and it's attached to its face.",
+    "archetype": "mechanic",
+    "evidence": [
+      "pokedexEntries[6].text",
+      "pokedexEntries[7].text"
+    ],
+    "visualIdea": "Show six whiskers scanning rippling air, then a hand grabs them and Persian instantly relaxes.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 5,
+      "specificity": 5,
+      "visual": 5,
+      "support": 3
+    },
+    "total": 23,
+    "note": "The whisker-based sensory function and docility trigger are highly distinctive and visual. However, the second cited entry is about the raised-tail warning, not the whisker effect; the hook also overstates the result as an instant switch."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "whisker-off-switch",
+          "premise": "Persian's six whiskers sense nearby air movements—but grabbing them makes this vicious Pokémon docile.",
+          "hook": "Persian has a built-in off switch, and it's attached to its face.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[6].text",
+            "pokedexEntries[7].text"
+          ],
+          "visualIdea": "Show six whiskers scanning rippling air, then a hand grabs them and Persian instantly relaxes.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 3
+          },
+          "total": 23,
+          "note": "The whisker-based sensory function and docility trigger are highly distinctive and visual. However, the second cited entry is about the raised-tail warning, not the whisker effect; the hook also overstates the result as an instant switch."
+        },
+        {
+          "id": "one-meowth-two-fates",
+          "premise": "At level 28, Meowth can become either elegant Persian or Steel-type Perrserker.",
+          "hook": "At level 28, Meowth reaches a fork in the road.",
+          "archetype": "comparison",
+          "evidence": [
+            "evolutionChain[1].method",
+            "evolutionChain[1].evolvesFrom",
+            "evolutionChain[1].types",
+            "evolutionChain[2].method",
+            "evolutionChain[2].evolvesFrom",
+            "evolutionChain[2].types"
+          ],
+          "visualIdea": "A level-28 Meowth splits into two paths: refined Persian and Steel-type Perrserker.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 23,
+          "note": "The level-28 fork, including Persian versus Steel-type Perrserker, is concrete and well supported. It is slightly less exclusive because the premise centers on Meowth's branching evolution rather than Persian alone."
+        },
+        {
+          "id": "jewel-worth-the-risk",
+          "premise": "Persian's forehead jewel is admired for its size, draws hunters, and is mostly the same material as Alolan Persian's.",
+          "hook": "Persian's forehead jewel is famous enough to attract hunters.",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[9].text",
+            "pokedexEntries[12].text",
+            "pokedexEntries[11].text"
+          ],
+          "visualIdea": "Zoom into the jewel, reveal fans debating its size, then hunters targeting it and its Alolan counterpart.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 4,
+            "support": 5
+          },
+          "total": 21,
+          "note": "The jewel's fan attention, hunter interest, and material link to Alolan Persian are well supported. The premise combines several related facts, so it is slightly less sharply focused than the best mechanic angles."
+        },
+        {
+          "id": "alolan-size-swap",
+          "premise": "Alolan Persian is only 0.1 meters taller and 1 kilogram heavier, but changes from Normal to Dark type.",
+          "hook": "Persian's regional change is tiny in size but major in type.",
+          "archetype": "comparison",
+          "evidence": [
+            "types[0]",
+            "heightMeters",
+            "weightKg",
+            "varieties[0].types",
+            "varieties[0].heightMeters",
+            "varieties[0].weightKg"
+          ],
+          "visualIdea": "Place both forms side by side with +0.1 m and +1 kg counters, then flip Normal to Dark.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 3,
+            "surprise": 3,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 21,
+          "note": "The measurements and type change create a clean visual comparison and are fully supported, but regional-form stat comparisons are a common Pokémon angle and the numerical differences are not especially surprising."
+        },
+        {
+          "id": "tail-before-pounce",
+          "premise": "When Persian raises its tail straight up, it is signaling that a bite and pounce are about to happen.",
+          "hook": "If Persian's tail goes up, you have one second to panic.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[8].text"
+          ],
+          "visualIdea": "Persian's tail slowly rises as warning text appears, then the scene snaps into a pounce.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 2
+          },
+          "total": 20,
+          "note": "A clear, memorable warning signal with strong animation potential, but the cited evidence is mismatched: the tail behavior appears in entry 7, not entry 8. 'One second' is unsupported."
+        },
+        {
+          "id": "elegance-with-teeth",
+          "premise": "Persian looks refined and walks silently, yet it may scratch, bite, or tear apart prey on a whim.",
+          "hook": "Persian's elegance is not proof that it's safe to touch.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[3].text",
+            "pokedexEntries[4].text",
+            "pokedexEntries[2].text",
+            "pokedexEntries[8].text"
+          ],
+          "visualIdea": "Cut from a graceful silent walk to claws, a raised tail, and a sudden attack.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 3,
+            "surprise": 3,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 20,
+          "note": "The refined-versus-barbaric contradiction is well supported and easy to show, but the broad 'beautiful yet dangerous' angle can fit several feline or predator Pokémon."
+        }
+      ],
+      "rejected": [],
+      "request": "Strengthen the winning angle by citing the Ruby and Emerald entries specifically, and soften 'off switch' or 'instantly' to 'can make it docile.' If developing alternatives, stronger angles would need one tightly focused contradiction or mechanic, exact evidence alignment, and a more surprising payoff than a general danger profile or routine regional-form comparison."
+    }
+  ]
+}

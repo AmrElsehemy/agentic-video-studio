@@ -1,0 +1,469 @@
+{
+  "episodeId": "poliwag-060",
+  "checkedAt": "2026-10-08T20:24:35.035Z",
+  "claims": [
+    {
+      "id": "c1",
+      "where": "title",
+      "text": "Poliwag’s Lips Work Like Suction Cups",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[16].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c2",
+      "where": "premise",
+      "text": "In fast-flowing rivers, Poliwag clings to rocks because its thick lips act like suction cups.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[16].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c3",
+      "where": "audiencePromise",
+      "text": "See why Poliwag switches from swimming to gripping a rock in fast-flowing water.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[15].text",
+        "pokedexEntries[16].text"
+      ],
+      "note": "The research supports that swimming is easier and that Poliwag clings to rocks in fast-flowing water, but it does not explicitly state that Poliwag switches from swimming to gripping.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c4",
+      "where": "openLoop",
+      "text": "If swimming is easier, why cling to a rock?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c5",
+      "where": "payoff",
+      "text": "Its thick lips act like a suction cup, letting Poliwag cling to a rock in fast-flowing water.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[16].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c6",
+      "where": "scenes.fast-river-grip.headline",
+      "text": "FAST WATER, TIGHT GRIP",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[16].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c7",
+      "where": "scenes.fast-river-grip.narration",
+      "text": "Poliwag swims well, yet fast rivers make it cling.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[16].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c8",
+      "where": "scenes.fast-river-grip.caption",
+      "text": "SWIMMING ISN’T THE WHOLE STORY",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[15].text",
+        "pokedexEntries[16].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c9",
+      "where": "scenes.fast-river-grip.eyebrow",
+      "text": "FAST-FLOWING WATER",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c10",
+      "where": "scenes.fast-river-grip.facts[0]",
+      "text": "SWIMMING",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c11",
+      "where": "scenes.fast-river-grip.facts[1]",
+      "text": "FAST-FLOWING RIVERS",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c12",
+      "where": "scenes.fast-river-grip.facts[2]",
+      "text": "CLINGING",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c13",
+      "where": "scenes.swimming-over-walking.headline",
+      "text": "SWIMMING BEATS WALKING",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[15].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c14",
+      "where": "scenes.swimming-over-walking.narration",
+      "text": "For Poliwag, swimming is easier than walking on land.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[15].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c15",
+      "where": "scenes.swimming-over-walking.caption",
+      "text": "SWIMMING IS EASIER",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[15].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c16",
+      "where": "scenes.swimming-over-walking.eyebrow",
+      "text": "POLIWAG’S EASIER MOVE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[15].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c17",
+      "where": "scenes.swimming-over-walking.facts[0]",
+      "text": "SWIMMING",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c18",
+      "where": "scenes.swimming-over-walking.facts[1]",
+      "text": "WALKING",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c19",
+      "where": "scenes.rock-cling-rule.headline",
+      "text": "THE MOUTH BECOMES THE GRIP",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[16].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c20",
+      "where": "scenes.rock-cling-rule.narration",
+      "text": "In fast-flowing rivers, Poliwag clings to a rock instead.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[16].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c21",
+      "where": "scenes.rock-cling-rule.caption",
+      "text": "FIND A ROCK. HOLD ON.",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c22",
+      "where": "scenes.rock-cling-rule.eyebrow",
+      "text": "IN FAST-FLOWING RIVERS",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c23",
+      "where": "scenes.rock-cling-rule.facts[0]",
+      "text": "FAST-FLOWING RIVER",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c24",
+      "where": "scenes.rock-cling-rule.facts[1]",
+      "text": "ROCK",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c25",
+      "where": "scenes.rock-cling-rule.facts[2]",
+      "text": "CLING",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c26",
+      "where": "scenes.suction-cup-lips.headline",
+      "text": "LIPS LIKE A SUCTION CUP",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[16].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c27",
+      "where": "scenes.suction-cup-lips.narration",
+      "text": "Thick lips act like a suction cup against that rock.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[16].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c28",
+      "where": "scenes.suction-cup-lips.caption",
+      "text": "THICK LIPS. SUCTION-CUP GRIP.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[16].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c29",
+      "where": "scenes.suction-cup-lips.eyebrow",
+      "text": "THE STRANGE MECHANIC",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c30",
+      "where": "scenes.suction-cup-lips.facts[0]",
+      "text": "THICK LIPS",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c31",
+      "where": "scenes.suction-cup-lips.facts[1]",
+      "text": "SUCTION CUP",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c32",
+      "where": "scenes.suction-cup-lips.facts[2]",
+      "text": "ROCK",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c33",
+      "where": "scenes.current-keeps-flowing.headline",
+      "text": "THE CURRENT KEEPS FLOWING",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[16].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c34",
+      "where": "scenes.current-keeps-flowing.narration",
+      "text": "The current keeps flowing, but Poliwag keeps clinging to the rock.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[16].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c35",
+      "where": "scenes.current-keeps-flowing.caption",
+      "text": "CURRENT MOVES. POLIWAG CLINGS.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[16].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c36",
+      "where": "scenes.current-keeps-flowing.eyebrow",
+      "text": "THE RESULT",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c37",
+      "where": "scenes.current-keeps-flowing.facts[0]",
+      "text": "CURRENT",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c38",
+      "where": "scenes.current-keeps-flowing.facts[1]",
+      "text": "CLINGING",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c39",
+      "where": "scenes.current-keeps-flowing.facts[2]",
+      "text": "ROCK",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c40",
+      "where": "scenes.choose-the-grip.headline",
+      "text": "WHICH WOULD YOU CHOOSE?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c41",
+      "where": "scenes.choose-the-grip.narration",
+      "text": "Better river move: suction-cup lips or swimming?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c42",
+      "where": "scenes.choose-the-grip.caption",
+      "text": "SUCTION-CUP LIPS OR SWIMMING?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c43",
+      "where": "scenes.choose-the-grip.eyebrow",
+      "text": "YOUR RIVER MOVE",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    }
+  ],
+  "unsupported": [],
+  "uncertain": [
+    {
+      "id": "c3",
+      "where": "audiencePromise",
+      "text": "See why Poliwag switches from swimming to gripping a rock in fast-flowing water.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[15].text",
+        "pokedexEntries[16].text"
+      ],
+      "note": "The research supports that swimming is easier and that Poliwag clings to rocks in fast-flowing water, but it does not explicitly state that Poliwag switches from swimming to gripping.",
+      "tier": "official",
+      "checkedBy": "model"
+    }
+  ]
+}

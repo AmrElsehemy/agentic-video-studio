@@ -1,0 +1,552 @@
+{
+  "episodeId": "machamp-068",
+  "checkedAt": "2026-10-08T22:59:19.364Z",
+  "claims": [
+    {
+      "id": "c1",
+      "where": "title",
+      "text": "Machamp's Four Arms Are Its Greatest Strength and Weakness",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[6].text",
+        "pokedexEntries[5].text"
+      ],
+      "note": "The research supports four arms as a major combat advantage and says delicate work causes the arms to tangle, but it does not establish that these are Machamp's greatest strength and weakness.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c2",
+      "where": "premise",
+      "text": "Machamp's four arms make it overwhelming in combat, but create a surprising weakness during delicate work.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[6].text",
+        "pokedexEntries[5].text",
+        "pokedexEntries[11].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c3",
+      "where": "audiencePromise",
+      "text": "See why Machamp's extra arms dominate fights, then backfire when precision matters.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text",
+        "pokedexEntries[6].text",
+        "pokedexEntries[11].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c4",
+      "where": "openLoop",
+      "text": "How can Machamp's greatest combat advantage become a weakness?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c5",
+      "where": "payoff",
+      "text": "Four arms give Machamp combat supremacy, but careful finger work makes those same arms tangle.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[17].text",
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c6",
+      "where": "scenes.strength-becomes-weakness.headline",
+      "text": "POWER BECOMES A PROBLEM",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[11].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c7",
+      "where": "scenes.strength-becomes-weakness.narration",
+      "text": "Machamp's greatest strength is its worst weakness.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[6].text",
+        "pokedexEntries[5].text"
+      ],
+      "note": "The underlying strength-versus-weakness contrast is supported, but the research does not establish that either is Machamp's greatest or worst.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c8",
+      "where": "scenes.strength-becomes-weakness.caption",
+      "text": "FOUR ARMS. TWO VERY DIFFERENT RESULTS.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[6].text",
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c9",
+      "where": "scenes.strength-becomes-weakness.eyebrow",
+      "text": "THE FOUR-ARM CATCH",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c10",
+      "where": "scenes.combat-from-every-angle.headline",
+      "text": "NO SAFE ANGLE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text",
+        "pokedexEntries[12].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c11",
+      "where": "scenes.combat-from-every-angle.narration",
+      "text": "Four arms let Machamp punch and chop from every angle.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text",
+        "pokedexEntries[12].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c12",
+      "where": "scenes.combat-from-every-angle.caption",
+      "text": "ATTACKS FROM ALL ANGLES",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c13",
+      "where": "scenes.combat-from-every-angle.eyebrow",
+      "text": "IN A FIGHT",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c14",
+      "where": "scenes.combat-from-every-angle.facts[0]",
+      "text": "FOUR ARMS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c15",
+      "where": "scenes.combat-from-every-angle.facts[1]",
+      "text": "PUNCHES",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text",
+        "pokedexEntries[2].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c16",
+      "where": "scenes.combat-from-every-angle.facts[2]",
+      "text": "CHOPS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c17",
+      "where": "scenes.combat-from-every-angle.facts[3]",
+      "text": "ALL ANGLES",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c18",
+      "where": "scenes.arms-overwhelm-foes.headline",
+      "text": "GRABBED, THEN FINISHED",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[15].text",
+        "pokedexEntries[6].text"
+      ],
+      "note": "The research supports grabbing opponents and making the battle all but over, but 'finished' implies a more definite outcome.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c19",
+      "where": "scenes.arms-overwhelm-foes.narration",
+      "text": "It can grab a foe with all four arms, nearly ending the battle.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c20",
+      "where": "scenes.arms-overwhelm-foes.caption",
+      "text": "THE MACHAMP SPECIAL",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[15].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c21",
+      "where": "scenes.arms-overwhelm-foes.eyebrow",
+      "text": "THE OPPONENT'S PROBLEM",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c22",
+      "where": "scenes.arms-overwhelm-foes.facts[0]",
+      "text": "FOUR-ARM GRIP",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[15].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c23",
+      "where": "scenes.arms-overwhelm-foes.facts[1]",
+      "text": "INTRICATE HOLD",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[15].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c24",
+      "where": "scenes.arms-overwhelm-foes.facts[2]",
+      "text": "BATTLE ALMOST OVER",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c25",
+      "where": "scenes.combat-supremacy.headline",
+      "text": "OFFENSE AND DEFENSE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[17].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c26",
+      "where": "scenes.combat-supremacy.narration",
+      "text": "Attack and defense happen together, giving Machamp close-combat supremacy.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[16].text",
+        "pokedexEntries[17].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c27",
+      "where": "scenes.combat-supremacy.caption",
+      "text": "OFFENSE + DEFENSE AT ONCE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[16].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c28",
+      "where": "scenes.combat-supremacy.eyebrow",
+      "text": "THE ADVANTAGE PEAKS",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[17].text"
+      ],
+      "note": "The research supports combat supremacy, but does not establish that this is the point where Machamp's advantage peaks.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c29",
+      "where": "scenes.combat-supremacy.facts[0]",
+      "text": "ATTACK",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[16].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c30",
+      "where": "scenes.combat-supremacy.facts[1]",
+      "text": "DEFENSE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[16].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c31",
+      "where": "scenes.combat-supremacy.facts[2]",
+      "text": "CLOSE COMBAT",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[17].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c32",
+      "where": "scenes.precision-fails.headline",
+      "text": "PRECISION IS DIFFERENT",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c33",
+      "where": "scenes.precision-fails.narration",
+      "text": "Yet careful finger work is exactly where Machamp struggles.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[11].text",
+        "pokedexEntries[14].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c34",
+      "where": "scenes.precision-fails.caption",
+      "text": "DELICATE WORK GOES WRONG",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[11].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c35",
+      "where": "scenes.precision-fails.eyebrow",
+      "text": "BUT THEN...",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c36",
+      "where": "scenes.precision-fails.facts[0]",
+      "text": "DELICATE WORK",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[11].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c37",
+      "where": "scenes.precision-fails.facts[1]",
+      "text": "CLUMSY FINGERS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[14].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c38",
+      "where": "scenes.precision-fails.facts[2]",
+      "text": "ARMS TANGLE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c39",
+      "where": "scenes.superpower-or-problem.headline",
+      "text": "SUPERPOWER OR PROBLEM?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c40",
+      "where": "scenes.superpower-or-problem.narration",
+      "text": "Are four arms a superpower or a precision problem?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c41",
+      "where": "scenes.superpower-or-problem.caption",
+      "text": "WHAT WOULD YOU RATHER HAVE?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c42",
+      "where": "scenes.superpower-or-problem.eyebrow",
+      "text": "THE REAL TRADE-OFF",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    }
+  ],
+  "unsupported": [],
+  "uncertain": [
+    {
+      "id": "c1",
+      "where": "title",
+      "text": "Machamp's Four Arms Are Its Greatest Strength and Weakness",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[6].text",
+        "pokedexEntries[5].text"
+      ],
+      "note": "The research supports four arms as a major combat advantage and says delicate work causes the arms to tangle, but it does not establish that these are Machamp's greatest strength and weakness.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c7",
+      "where": "scenes.strength-becomes-weakness.narration",
+      "text": "Machamp's greatest strength is its worst weakness.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[6].text",
+        "pokedexEntries[5].text"
+      ],
+      "note": "The underlying strength-versus-weakness contrast is supported, but the research does not establish that either is Machamp's greatest or worst.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c18",
+      "where": "scenes.arms-overwhelm-foes.headline",
+      "text": "GRABBED, THEN FINISHED",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[15].text",
+        "pokedexEntries[6].text"
+      ],
+      "note": "The research supports grabbing opponents and making the battle all but over, but 'finished' implies a more definite outcome.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c28",
+      "where": "scenes.combat-supremacy.eyebrow",
+      "text": "THE ADVANTAGE PEAKS",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[17].text"
+      ],
+      "note": "The research supports combat supremacy, but does not establish that this is the point where Machamp's advantage peaks.",
+      "tier": "official",
+      "checkedBy": "model"
+    }
+  ]
+}

@@ -1,0 +1,169 @@
+{
+  "episodeId": "machamp-068",
+  "createdAt": "2026-10-08T22:59:11.117Z",
+  "chosen": {
+    "id": "four-arm-paradox",
+    "premise": "Machamp dominates combat with four arms, but those same arms get tangled during delicate work.",
+    "hook": "Machamp’s greatest strength becomes its worst weakness.",
+    "archetype": "comparison",
+    "evidence": [
+      "pokedexEntries[6].text",
+      "pokedexEntries[12].text",
+      "pokedexEntries[15].text"
+    ],
+    "visualIdea": "Split screen: Machamp overwhelms a foe on one side, then fumbles a tiny precision task on the other.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 5,
+      "specificity": 4,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 24,
+    "note": "A genuinely character-specific contradiction: the same four arms enable overwhelming combat but cause failures in delicate work. The cited entries directly support both halves."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "four-arm-paradox",
+          "premise": "Machamp dominates combat with four arms, but those same arms get tangled during delicate work.",
+          "hook": "Machamp’s greatest strength becomes its worst weakness.",
+          "archetype": "comparison",
+          "evidence": [
+            "pokedexEntries[6].text",
+            "pokedexEntries[12].text",
+            "pokedexEntries[15].text"
+          ],
+          "visualIdea": "Split screen: Machamp overwhelms a foe on one side, then fumbles a tiny precision task on the other.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 24,
+          "note": "A genuinely character-specific contradiction: the same four arms enable overwhelming combat but cause failures in delicate work. The cited entries directly support both halves."
+        },
+        {
+          "id": "thousand-punches",
+          "premise": "Machamp can launch 1,000 punches in just two seconds.",
+          "hook": "Machamp can throw a thousand punches before you blink twice.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[9].text",
+            "pokedexEntries[10].text"
+          ],
+          "visualIdea": "A two-second timer fills while four arms generate a counter racing from 1 to 1,000.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 23,
+          "note": "A uniquely Machamp-scale statistic with exact timing and a strong counter animation, though the claim is already familiar to many fans."
+        },
+        {
+          "id": "gigantamax-scale",
+          "premise": "Gigantamax Machamp grows from 1.6 to 25 meters and weighs 1,000 kilograms instead of 130.",
+          "hook": "Machamp can grow from a 130-kilogram fighter into a one-ton giant.",
+          "archetype": "transformation",
+          "evidence": [
+            "heightMeters",
+            "weightKg",
+            "varieties[0].name",
+            "varieties[0].heightMeters",
+            "varieties[0].weightKg"
+          ],
+          "visualIdea": "Machamp scales beside a height meter, jumping from 1.6 to 25 meters as its weight changes to 1,000 kilograms.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 23,
+          "note": "Excellent measurable transformation with a dramatic height and weight contrast, though it centers on an alternate form rather than standard Machamp."
+        },
+        {
+          "id": "mountain-one-arm",
+          "premise": "One Machamp arm can move mountains, while all four unleash simultaneous punches.",
+          "hook": "One of Machamp’s arms is already strong enough to move mountains.",
+          "archetype": "comparison",
+          "evidence": [
+            "pokedexEntries[1].text",
+            "pokedexEntries[4].text",
+            "pokedexEntries[17].text"
+          ],
+          "visualIdea": "One arm shoves a mountain aside, then the frame multiplies into four arms attacking and defending together.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 21,
+          "note": "Highly visual and extreme, but “move mountains” is a broad Pokédex hyperbole and the evidence does not establish a precise comparison between one-arm strength and four-arm attacks."
+        },
+        {
+          "id": "before-thought",
+          "premise": "Machamp’s four arms can react faster than it can think, explaining its instant attacks and clumsy precision.",
+          "hook": "Machamp’s arms move faster than its brain can think.",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[4].text",
+            "pokedexEntries[6].text",
+            "pokedexEntries[15].text"
+          ],
+          "visualIdea": "Thought bubbles lag behind four rapidly moving arms, ending with punches landing while Machamp is still deciding.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 4,
+            "support": 3
+          },
+          "total": 20,
+          "note": "The speed-versus-precision contrast is distinctive, but the premise that faster-than-thought arms explain its clumsiness is an interpretation rather than a claim directly made by the entries."
+        },
+        {
+          "id": "trade-to-machamp",
+          "premise": "Machamp evolves from Machoke by trade, but Machoke first requires reaching level 28 from Machop.",
+          "hook": "Machamp’s final evolution is locked behind a trade.",
+          "archetype": "mechanic",
+          "evidence": [
+            "evolutionChain[1].method",
+            "evolutionChain[1].evolvesFrom",
+            "evolutionChain[2].method",
+            "evolutionChain[2].evolvesFrom"
+          ],
+          "visualIdea": "A three-step evolution path appears: Machop, level 28, then a trade window transforms Machoke into Machamp.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 3,
+            "surprise": 2,
+            "specificity": 5,
+            "visual": 4,
+            "support": 5
+          },
+          "total": 19,
+          "note": "Accurate and easy to visualize, but trade evolutions are a familiar Pokémon mechanic and the angle is more about progression than Machamp’s identity."
+        }
+      ],
+      "rejected": [],
+      "request": "Stronger angles would need a more unexpected Machamp-specific contradiction or rule, anchored by an exact official fact and a visual payoff that is clearer than simply showing its strength."
+    }
+  ]
+}

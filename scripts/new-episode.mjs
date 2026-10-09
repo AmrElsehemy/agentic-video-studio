@@ -49,7 +49,9 @@ const fetchJson = async (url, {maxAttempts = 4} = {}) => {
 /** Run a stage as its own process; returns whether it passed. */
 const run = (label, script, scriptArgs) => {
   console.log(`\n▶ ${label}`);
-  const result = spawnSync(process.execPath, [script, ...scriptArgs], {cwd: root, stdio: 'inherit'});
+  // The video critic imports TypeScript (diagram audit), so it needs the tsx loader, as in npm run critic:video.
+  const loader = script.endsWith('video-critic.mjs') ? ['--import', 'tsx'] : [];
+  const result = spawnSync(process.execPath, [...loader, script, ...scriptArgs], {cwd: root, stdio: 'inherit'});
   return result.status === 0;
 };
 

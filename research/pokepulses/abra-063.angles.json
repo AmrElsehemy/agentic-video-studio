@@ -1,0 +1,140 @@
+{
+  "episodeId": "abra-063",
+  "createdAt": "2026-10-08T21:20:58.318Z",
+  "chosen": {
+    "id": "wake-up-panic",
+    "premise": "Abra can teleport safely while asleep, but wakes up panicking because it has no idea where it landed.",
+    "hook": "Abra’s safest escape creates a terrifying morning surprise.",
+    "archetype": "transformation",
+    "evidence": [
+      "pokedexEntries[16].text"
+    ],
+    "visualIdea": "Abra teleports in its sleep, opens its eyes in a strange place, and panics.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 5,
+      "specificity": 5,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 25,
+    "note": "A sharply Abra-specific contradiction: sleeping makes escape possible, but the successful teleport leaves Abra disoriented and panicked on waking. The emotional beat is clear and easy to stage."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "wake-up-panic",
+          "premise": "Abra can teleport safely while asleep, but wakes up panicking because it has no idea where it landed.",
+          "hook": "Abra’s safest escape creates a terrifying morning surprise.",
+          "archetype": "transformation",
+          "evidence": [
+            "pokedexEntries[16].text"
+          ],
+          "visualIdea": "Abra teleports in its sleep, opens its eyes in a strange place, and panics.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 25,
+          "note": "A sharply Abra-specific contradiction: sleeping makes escape possible, but the successful teleport leaves Abra disoriented and panicked on waking. The emotional beat is clear and easy to stage."
+        },
+        {
+          "id": "deep-sleep-distance",
+          "premise": "The deeper Abra sleeps, the farther its unconscious Teleports can carry it.",
+          "hook": "The deeper Abra sleeps, the farther it can accidentally go.",
+          "archetype": "comparison",
+          "evidence": [
+            "pokedexEntries[20].text"
+          ],
+          "visualIdea": "Use a sleep-depth meter as Abra’s teleport distance grows from nearby to far away.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 24,
+          "note": "A precise, surprising rule with an obvious visual meter. It relies on a single Pokédex statement, but that statement directly supports the premise."
+        },
+        {
+          "id": "teleporting-copies",
+          "premise": "When Abra Teleports randomly, observers may see an illusion that it created copies of itself.",
+          "hook": "Abra can look like it multiplied without creating a single copy.",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[3].text",
+            "pokedexEntries[14].text"
+          ],
+          "visualIdea": "Abra blinks unpredictably across the screen until several apparent copies fill the frame.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 23,
+          "note": "The illusion of multiplication is well supported and visually strong, but it is more of a familiar teleportation trick than the uniquely strange sleep-and-panic behavior."
+        },
+        {
+          "id": "dream-powered-psychic",
+          "premise": "Abra’s dreams affect the psychic powers it wields, making sleep part of its power system.",
+          "hook": "For Abra, dreaming is basically training.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[19].text"
+          ],
+          "visualIdea": "Different dream scenes transform into different psychic effects around sleeping Abra.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 22,
+          "note": "Directly supported by the Sword entry and visually adaptable, though the idea is slightly less sharply defined than the strongest behavioral contradictions."
+        },
+        {
+          "id": "hourly-teleporter",
+          "premise": "During its 18-hour sleep, Abra changes location once every hour using Teleport.",
+          "hook": "Abra may wake up 18 places away from where it fell asleep.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[5].text",
+            "pokedexEntries[7].text"
+          ],
+          "visualIdea": "A clock advances hour by hour while sleeping Abra blinks between 18 different locations.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 3
+          },
+          "total": 20,
+          "note": "The hourly relocation is concrete and highly visual, but the hook overreaches: changing location once per hour does not establish 18 distinct destinations or that Abra wakes 18 places away."
+        }
+      ],
+      "rejected": [
+        {
+          "id": "eighteen-hour-escape",
+          "reason": "unknown story shape \"contradiction\""
+        }
+      ],
+      "request": "No stronger angle is required; the chosen premise is already strong. Any alternative would need an equally specific contradiction or rule, direct Pokédex support, and a clearer visual payoff without overstating what the text says."
+    }
+  ]
+}

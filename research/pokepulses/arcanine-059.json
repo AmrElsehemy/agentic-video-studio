@@ -1,0 +1,180 @@
+{
+  "schemaVersion": 1,
+  "id": "arcanine-059",
+  "number": 59,
+  "index": "#059",
+  "name": "Arcanine",
+  "slug": "arcanine",
+  "category": "Legendary Pokémon",
+  "generation": "Generation I",
+  "isLegendary": false,
+  "isMythical": false,
+  "types": [
+    "Fire"
+  ],
+  "heightMeters": 1.9,
+  "weightKg": 155,
+  "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/59.png",
+  "pokedexEntries": [
+    {
+      "game": "Red",
+      "text": "A POKéMON that has been admired since the past for its beauty. It runs agilely as if on wings."
+    },
+    {
+      "game": "Yellow",
+      "text": "A legendary POKé MON in China. Many people are charmed by its grace and beauty while running."
+    },
+    {
+      "game": "Gold",
+      "text": "This legendary Chinese POKEMON is considered magnif icent. Many people are enchanted by its grand mane."
+    },
+    {
+      "game": "Silver",
+      "text": "Its magnificent bark conveys a sense of majesty. Anyone hearing it can't help but grovel before it."
+    },
+    {
+      "game": "Crystal",
+      "text": "An ancient picture scroll shows that people were attracted to its movement as it ran through prairies."
+    },
+    {
+      "game": "Ruby",
+      "text": "ARCANINE is known for its high speed. It is said to be capable of running over 6,200 miles in a single day and night. The fire that blazes wildly within this POKéMON’s body is its source of power."
+    },
+    {
+      "game": "Emerald",
+      "text": "This fleet-footed POKéMON is said to run over 6,200 miles in a single day and night. The fire that blazes wildly within its body is its source of power."
+    },
+    {
+      "game": "Firered",
+      "text": "A POKéMON that is described in Chinese legends. It is said to race at an unbelievable speed."
+    },
+    {
+      "game": "Leafgreen",
+      "text": "A POKéMON that has long been admired for its beauty. It runs agilely as if on wings."
+    },
+    {
+      "game": "Diamond",
+      "text": "Its proud and regal appearance has captured the hearts of people since long ago."
+    },
+    {
+      "game": "Heartgold",
+      "text": "This legendary Chinese Pokémon is considered magnificent. Many people are enchanted by its grand mane."
+    },
+    {
+      "game": "Soulsilver",
+      "text": "Its magnificent bark conveys a sense of majesty. Anyone hearing it can’t help but grovel before it."
+    },
+    {
+      "game": "Black 2",
+      "text": "The sight of it running over 6,200 miles in a single day and night has captivated many people."
+    },
+    {
+      "game": "Sun",
+      "text": "Overflowing with beauty and majesty, this strong Pokémon appears in ancient Eastern folklore."
+    },
+    {
+      "game": "Moon",
+      "text": "The fire burning inside its body serves as the energy to fuel it as it runs great distances. It appears in many legends."
+    },
+    {
+      "game": "Ultra Sun",
+      "text": "Legends tell of its fighting alongside a general and conquering a whole country."
+    },
+    {
+      "game": "Ultra Moon",
+      "text": "There are so many old tales about them that they’re called legendary Pokémon, but there are way more of them around than you’d expect."
+    },
+    {
+      "game": "Lets Go Pikachu",
+      "text": "A legendary Pokémon in the East. Many people are charmed by the grace and beauty of its running."
+    },
+    {
+      "game": "Legends Arceus",
+      "text": "Snaps at its foes with fangs cloaked in blazing flame. Despite its bulk, it deftly feints every which way, leading opponents on a deceptively merry chase as it all but dances around them."
+    }
+  ],
+  "evolutionChain": [
+    {
+      "name": "Growlithe",
+      "index": "#058",
+      "stage": 1,
+      "types": [
+        "Fire"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/58.png",
+      "isSubject": false
+    },
+    {
+      "name": "Arcanine",
+      "index": "#059",
+      "stage": 2,
+      "evolvesFrom": "Growlithe",
+      "method": "Use Item, Fire Stone",
+      "types": [
+        "Fire"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/59.png",
+      "isSubject": true
+    }
+  ],
+  "varieties": [
+    {
+      "name": "Arcanine Hisui",
+      "types": [
+        "Fire",
+        "Rock"
+      ],
+      "heightMeters": 2,
+      "weightKg": 168,
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10230.png"
+    }
+  ],
+  "lore": [],
+  "tiers": {
+    "official": [
+      "name",
+      "index",
+      "number",
+      "category",
+      "generation",
+      "isLegendary",
+      "isMythical",
+      "types",
+      "heightMeters",
+      "weightKg",
+      "pokedexEntries",
+      "evolutionChain[].name",
+      "evolutionChain[].index",
+      "evolutionChain[].types",
+      "evolutionChain[].stage",
+      "varieties[].types",
+      "varieties[].heightMeters",
+      "varieties[].weightKg"
+    ],
+    "trusted_secondary": [
+      "evolutionChain[].method",
+      "evolutionChain[].evolvesFrom",
+      "varieties[].name"
+    ],
+    "community": [
+      "lore"
+    ]
+  },
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Arcanine",
+      "url": "https://www.pokemon.com/us/pokedex/arcanine",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Arcanine",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Arcanine_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Arcanine",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/59",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

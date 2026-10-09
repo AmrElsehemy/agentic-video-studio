@@ -1,0 +1,186 @@
+{
+  "schemaVersion": 1,
+  "id": "poliwag-060",
+  "number": 60,
+  "index": "#060",
+  "name": "Poliwag",
+  "slug": "poliwag",
+  "category": "Tadpole Pokémon",
+  "generation": "Generation I",
+  "isLegendary": false,
+  "isMythical": false,
+  "types": [
+    "Water"
+  ],
+  "heightMeters": 0.6,
+  "weightKg": 12.4,
+  "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/60.png",
+  "pokedexEntries": [
+    {
+      "game": "Red",
+      "text": "Its newly grown legs prevent it from running. It appears to prefer swimming than trying to stand."
+    },
+    {
+      "game": "Yellow",
+      "text": "The direction of the spiral on the belly differs by area. It is more adept at swimming than walking."
+    },
+    {
+      "game": "Gold",
+      "text": "Because it is in ept at walking on its newly grown legs, it always swims around in water."
+    },
+    {
+      "game": "Silver",
+      "text": "The direction of its belly spiral differs by area. The equator is thought to have an effect on this."
+    },
+    {
+      "game": "Crystal",
+      "text": "The swirl on its belly is its insides showing through the skin. It looks clearer after it eats."
+    },
+    {
+      "game": "Ruby",
+      "text": "POLIWAG has a very thin skin. It is possible to see the POKéMON’s spiral innards right through the skin. Despite its thinness, however, the skin is also very flexible. Even sharp fangs bounce right off it."
+    },
+    {
+      "game": "Emerald",
+      "text": "It is possible to see this POKéMON’s spiral innards right through its thin skin. However, the skin is also very flexible. Even sharp fangs bounce right off it."
+    },
+    {
+      "game": "Firered",
+      "text": "Its slick black skin is thin and damp. A part of its internal organs can be seen through the skin as a spiral pattern."
+    },
+    {
+      "game": "Leafgreen",
+      "text": "Its newly grown legs prevent it from walking well. It appears to prefer swimming over walking."
+    },
+    {
+      "game": "Diamond",
+      "text": "Its skin is so thin, its internal organs are visible. It has trouble walking on its newly grown feet."
+    },
+    {
+      "game": "Heartgold",
+      "text": "Because it is inept at walking on its newly grown legs, it always swims around in water."
+    },
+    {
+      "game": "Sun",
+      "text": "The swirl on its belly is its internal organs showing through. If the swirl is tinged white, that means it’s affected by some disease."
+    },
+    {
+      "game": "Moon",
+      "text": "It’s still not very good at walking. Its Trainers should train this Pokémon to walk every day."
+    },
+    {
+      "game": "Ultra Sun",
+      "text": "Despite the danger, it wants to come up on land. So it does its best to waddle along, but when an enemy finds it, it rushes back to the water."
+    },
+    {
+      "game": "Ultra Moon",
+      "text": "The direction of the swirl on their stomachs differs depending on where they live. Poliwag aficionados can tell them apart at a glance."
+    },
+    {
+      "game": "Sword",
+      "text": "For Poliwag, swimming is easier than walking. The swirl pattern on its belly is actually part of the Pokémon’s innards showing through the skin."
+    },
+    {
+      "game": "Shield",
+      "text": "In rivers with fast-flowing water, this Pokémon will cling to a rock by using its thick lips, which act like a suction cup."
+    }
+  ],
+  "evolutionChain": [
+    {
+      "name": "Poliwag",
+      "index": "#060",
+      "stage": 1,
+      "types": [
+        "Water"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/60.png",
+      "isSubject": true
+    },
+    {
+      "name": "Poliwhirl",
+      "index": "#061",
+      "stage": 2,
+      "evolvesFrom": "Poliwag",
+      "method": "Level Up, level 25",
+      "types": [
+        "Water"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/61.png",
+      "isSubject": false
+    },
+    {
+      "name": "Poliwrath",
+      "index": "#062",
+      "stage": 3,
+      "evolvesFrom": "Poliwhirl",
+      "method": "Use Item, Water Stone",
+      "types": [
+        "Water",
+        "Fighting"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/62.png",
+      "isSubject": false
+    },
+    {
+      "name": "Politoed",
+      "index": "#186",
+      "stage": 3,
+      "evolvesFrom": "Poliwhirl",
+      "method": "Trade, holding Kings Rock",
+      "types": [
+        "Water"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/186.png",
+      "isSubject": false
+    }
+  ],
+  "varieties": [],
+  "lore": [],
+  "tiers": {
+    "official": [
+      "name",
+      "index",
+      "number",
+      "category",
+      "generation",
+      "isLegendary",
+      "isMythical",
+      "types",
+      "heightMeters",
+      "weightKg",
+      "pokedexEntries",
+      "evolutionChain[].name",
+      "evolutionChain[].index",
+      "evolutionChain[].types",
+      "evolutionChain[].stage",
+      "varieties[].types",
+      "varieties[].heightMeters",
+      "varieties[].weightKg"
+    ],
+    "trusted_secondary": [
+      "evolutionChain[].method",
+      "evolutionChain[].evolvesFrom",
+      "varieties[].name"
+    ],
+    "community": [
+      "lore"
+    ]
+  },
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Poliwag",
+      "url": "https://www.pokemon.com/us/pokedex/poliwag",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Poliwag",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Poliwag_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Poliwag",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/60",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

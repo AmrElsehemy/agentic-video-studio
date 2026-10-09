@@ -1,0 +1,254 @@
+{
+  "schemaVersion": 2,
+  "id": "abra-063",
+  "show": {
+    "id": "pokepulses",
+    "name": "PokePulses",
+    "handle": "@PokePulses",
+    "wordmark": {
+      "lead": "POKE",
+      "accent": "PULSES"
+    },
+    "fonts": {
+      "display": "Bebas Neue",
+      "body": "system"
+    }
+  },
+  "title": "Abra Escapes Danger Asleep, Then Wakes Panicked",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "transformation",
+    "numberRelevant": false,
+    "premise": "Abra can teleport to safety while asleep, then wakes without knowing where it landed and panics.",
+    "audiencePromise": "See Abra's sleeping escape and the panic that follows when it wakes.",
+    "openLoop": "How can escaping danger make Abra panic?",
+    "payoff": "Abra's escape does its job: danger is avoided, but waking reveals the cost.",
+    "targetEmotion": "surprise",
+    "engagementQuestion": "Would you choose safe sleep or an unknown wake-up?",
+    "targetSecondsBetweenVisualChanges": 0.62
+  },
+  "subject": {
+    "name": "Abra",
+    "category": "Psi Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/63.png",
+    "identifier": "#063"
+  },
+  "related": [
+    {
+      "name": "Alakazam",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/65.png",
+      "identifier": "#065"
+    },
+    {
+      "name": "Kadabra",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/64.png",
+      "identifier": "#064"
+    }
+  ],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#100D1F",
+    "surface": "#211735",
+    "primary": "#D9B3FF",
+    "secondary": "#F3C86B",
+    "ink": "#FFFFFF"
+  },
+  "audio": {
+    "music": "generated/abra-063-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 126,
+      "notes": [
+        110,
+        130.81,
+        146.83,
+        164.81,
+        146.83,
+        130.81,
+        98,
+        130.81
+      ]
+    },
+    "voice": {
+      "provider": "openai",
+      "model": "gpt-4o-mini-tts",
+      "voice": "marin",
+      "instructions": "Quick, warm, and slightly uneasy. Stress safe, unknown, and panic. Use short pauses before each reveal. Sound like a knowledgeable fan sharing a strange fact.",
+      "speed": 1.12,
+      "output": "generated/abra-063-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "assets": [
+      {
+        "kind": "Abra official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/63.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ],
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    }
+  },
+  "scenes": [
+    {
+      "id": "safest-escape",
+      "durationSeconds": 3.8,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "THE SAFE ESCAPE",
+      "headline": "ESCAPES ASLEEP. WAKES PANICKED.",
+      "narration": "Abra escapes danger asleep, then wakes panicked.",
+      "caption": "SAFE ESCAPE. UNKNOWN DESTINATION.",
+      "visual": "hook",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/63.png",
+      "accent": "#F3C86B"
+    },
+    {
+      "id": "danger-approaches",
+      "durationSeconds": 4.8,
+      "beat": "before",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "EIGHTEEN HOURS",
+      "headline": "DANGER FINDS IT ASLEEP",
+      "narration": "Abra sleeps eighteen hours a day, even while danger approaches.",
+      "caption": "ABRA SLEEPS 18 HOURS",
+      "visual": "gauntlet",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/63.png",
+      "accent": "#D9B3FF",
+      "facts": [
+        "SLEEPS 18 HOURS",
+        "DANGER APPROACHES"
+      ],
+      "primitive": {
+        "kind": "counter",
+        "from": 0,
+        "to": 18,
+        "label": "SLEEP HOURS"
+      }
+    },
+    {
+      "id": "destination-unknown",
+      "durationSeconds": 4.3,
+      "beat": "change",
+      "role": "escalation",
+      "shot": "tracking",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "THE TELEPORT",
+      "headline": "SAFETY HAPPENS WITHOUT WAKING",
+      "narration": "Danger triggers a sleeping teleport, sending Abra to safety.",
+      "caption": "DANGER → TELEPORT → SAFETY",
+      "visual": "race",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/63.png",
+      "accent": "#8C6CCF",
+      "facts": [
+        "TELEPORTS ASLEEP",
+        "REACHES SAFETY"
+      ],
+      "primitive": {
+        "kind": "timeline",
+        "steps": [
+          {
+            "label": "SLEEPING"
+          },
+          {
+            "label": "TELEPORTS SAFE"
+          },
+          {
+            "label": "WAKES LOST"
+          }
+        ],
+        "active": 1
+      }
+    },
+    {
+      "id": "opens-its-eyes",
+      "durationSeconds": 4.8,
+      "beat": "reveal",
+      "role": "payoff",
+      "shot": "comparison",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "THE CATCH",
+      "headline": "IT DOESN'T KNOW WHERE IT IS",
+      "narration": "When Abra wakes, it has no idea where it is.",
+      "caption": "WHERE AM I?",
+      "visual": "advantage",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/63.png",
+      "accent": "#F3C86B"
+    },
+    {
+      "id": "safety-becomes-panic",
+      "durationSeconds": 6.1,
+      "beat": "aftermath",
+      "role": "payoff",
+      "shot": "wide",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "THE COST",
+      "headline": "SAFETY ENDS IN PANIC",
+      "narration": "The escape succeeds, yet waking leaves Abra panicked and unsure of its location.",
+      "caption": "ESCAPE SUCCESS. PANIC FOLLOWS.",
+      "visual": "tradeoff",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/63.png",
+      "accent": "#E56B8A",
+      "facts": [
+        "ESCAPE SUCCEEDS",
+        "WAKES UNKNOWN",
+        "PANICS"
+      ]
+    },
+    {
+      "id": "your-choice",
+      "durationSeconds": 4.3,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "YOUR CALL",
+      "headline": "WOULD YOU TAKE THAT DEAL?",
+      "narration": "Would you choose safe sleep or an unknown wake-up?",
+      "caption": "SAFE SLEEP OR UNKNOWN WAKE-UP?",
+      "visual": "cta",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/63.png",
+      "accent": "#D9B3FF"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Abra",
+      "url": "https://www.pokemon.com/us/pokedex/abra"
+    },
+    {
+      "label": "Bulbapedia — Abra",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Abra_(Pok%C3%A9mon)"
+    },
+    {
+      "label": "PokéAPI — Abra",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/63"
+    }
+  ]
+}

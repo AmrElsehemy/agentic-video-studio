@@ -1,0 +1,269 @@
+{
+  "schemaVersion": 2,
+  "id": "dugtrio-051",
+  "show": {
+    "id": "pokepulses",
+    "name": "PokePulses",
+    "handle": "@PokePulses",
+    "wordmark": {
+      "lead": "POKE",
+      "accent": "PULSES"
+    },
+    "fonts": {
+      "display": "Bebas Neue",
+      "body": "system"
+    }
+  },
+  "title": "Same Height, Double the Weight: Dugtrio's Alolan Twist",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "comparison",
+    "numberRelevant": false,
+    "premise": "Compare standard Dugtrio and Dugtrio Alola, which share a height but not a weight.",
+    "audiencePromise": "See how Alolan Dugtrio doubles the weight without growing taller, then adds a second type.",
+    "openLoop": "How can two Dugtrio forms share a height but weigh so differently?",
+    "payoff": "Alolan Dugtrio keeps the same height, doubles the weight, and adds Steel typing.",
+    "targetEmotion": "debate",
+    "engagementQuestion": "Same size or double weight: which version surprises you more?",
+    "targetSecondsBetweenVisualChanges": 0.7
+  },
+  "subject": {
+    "name": "Dugtrio",
+    "category": "Mole Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/51.png",
+    "identifier": "#051"
+  },
+  "related": [
+    {
+      "name": "Diglett",
+      "relation": "evolves-from",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/50.png",
+      "identifier": "#050"
+    },
+    {
+      "name": "Dugtrio Alola",
+      "relation": "form",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10106.png",
+      "identifier": "#051"
+    }
+  ],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#10131A",
+    "surface": "#1B222C",
+    "primary": "#C9A86A",
+    "secondary": "#8C98A8",
+    "ink": "#F4F1E8"
+  },
+  "audio": {
+    "music": "generated/dugtrio-051-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 126,
+      "notes": [
+        110,
+        130.81,
+        146.83,
+        164.81,
+        146.83,
+        130.81,
+        98,
+        130.81
+      ]
+    },
+    "voice": {
+      "provider": "openai",
+      "model": "gpt-4o-mini-tts",
+      "voice": "marin",
+      "instructions": "Quick, warm, and curious. Stress the contrast between same height and double weight. Pause briefly before each number, then land the final choice clearly.",
+      "speed": 1.12,
+      "output": "generated/dugtrio-051-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "assets": [
+      {
+        "kind": "Dugtrio Alola official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10106.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      },
+      {
+        "kind": "Dugtrio official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/51.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ],
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    }
+  },
+  "scenes": [
+    {
+      "id": "same-height-double-weight",
+      "durationSeconds": 3.8,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "comparison",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "THE SIZE TRAP",
+      "headline": "SAME HEIGHT. DOUBLE WEIGHT.",
+      "narration": "Same height. Twice the weight.",
+      "caption": "DUGTRIO'S ALOLAN TWIST",
+      "visual": "hook",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10106.png",
+      "accent": "#C9A86A"
+    },
+    {
+      "id": "standard-dugtrio-baseline",
+      "durationSeconds": 5.9,
+      "beat": "evidence",
+      "role": "evidence",
+      "shot": "wide",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "STANDARD FORM",
+      "headline": "THE ORIGINAL MEASUREMENT",
+      "narration": "Standard Dugtrio stands 0.7 meters tall and weighs 33.3 kilograms.",
+      "caption": "0.7 METERS • 33.3 KILOGRAMS",
+      "visual": "gauntlet",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/51.png",
+      "accent": "#8C98A8",
+      "facts": [
+        "0.7 M TALL",
+        "33.3 KG"
+      ]
+    },
+    {
+      "id": "alolan-dugtrio-comparison",
+      "durationSeconds": 6,
+      "beat": "evidence",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "ALOLAN FORM",
+      "headline": "THE WEIGHT SPIKE",
+      "narration": "Dugtrio Alola stays 0.7 meters tall, but weighs 66.6 kilograms.",
+      "caption": "SAME HEIGHT • 66.6 KILOGRAMS",
+      "visual": "advantage",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10106.png",
+      "accent": "#C9A86A",
+      "facts": [
+        "0.7 M TALL",
+        "66.6 KG"
+      ]
+    },
+    {
+      "id": "scale-jumps",
+      "durationSeconds": 6,
+      "beat": "escalation",
+      "role": "escalation",
+      "shot": "tracking",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "WATCH THE SCALE",
+      "headline": "THE NUMBER DOUBLES",
+      "narration": "Same height, but the scale jumps from 33.3 to 66.6.",
+      "caption": "33.3 KG → 66.6 KG",
+      "visual": "race",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10106.png",
+      "accent": "#E0B85C",
+      "facts": [
+        "SAME HEIGHT",
+        "33.3 KG",
+        "66.6 KG"
+      ],
+      "primitive": {
+        "kind": "bars",
+        "unit": "KG",
+        "bars": [
+          {
+            "label": "DUGTRIO",
+            "value": 33.3
+          },
+          {
+            "label": "ALOLA",
+            "value": 66.6
+          }
+        ]
+      }
+    },
+    {
+      "id": "steel-type-counterpoint",
+      "durationSeconds": 5.2,
+      "beat": "twist",
+      "role": "twist",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "NOT THE ONLY CHANGE",
+      "headline": "A SECOND TYPE APPEARS",
+      "narration": "Weight isn't the only change: Alolan Dugtrio also gains Steel typing.",
+      "caption": "GROUND → GROUND + STEEL",
+      "visual": "tradeoff",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10106.png",
+      "accent": "#AAB4C2",
+      "facts": [
+        "GROUND",
+        "STEEL"
+      ],
+      "primitive": {
+        "kind": "type-shift",
+        "from": [
+          "Ground"
+        ],
+        "to": [
+          "Ground",
+          "Steel"
+        ]
+      }
+    },
+    {
+      "id": "which-version-surprises",
+      "durationSeconds": 4.8,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "YOUR TAKE",
+      "headline": "THE SAME-SIZE SURPRISE",
+      "narration": "Same size or double weight: which version surprises you more?",
+      "caption": "STANDARD OR ALOLAN?",
+      "visual": "cta",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10106.png",
+      "accent": "#C9A86A"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Dugtrio",
+      "url": "https://www.pokemon.com/us/pokedex/dugtrio"
+    },
+    {
+      "label": "Bulbapedia — Dugtrio",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Dugtrio_(Pok%C3%A9mon)"
+    },
+    {
+      "label": "PokéAPI — Dugtrio",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/51"
+    }
+  ]
+}

@@ -1,0 +1,202 @@
+{
+  "id": "poliwhirl-061",
+  "title": "Poliwhirl's Evolution Is a Two-Way Split",
+  "storyPattern": "comparison",
+  "numberRelevant": false,
+  "premise": "Poliwhirl can evolve into two different Pokémon through two completely different choices.",
+  "audiencePromise": "Show how one item or one trade sends Poliwhirl down two sharply different evolution paths.",
+  "openLoop": "Which choice changes Poliwhirl more: the Water Stone or the trade?",
+  "payoff": "The Water Stone creates Water/Fighting Poliwrath, while the Kings Rock trade creates Water-type Politoed.",
+  "targetEmotion": "debate",
+  "engagementQuestion": "Which path wins: Water Stone or Kings Rock trade?",
+  "subject": {
+    "name": "Poliwhirl",
+    "category": "Tadpole Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/61.png",
+    "identifier": "#061"
+  },
+  "related": [
+    {
+      "name": "Poliwrath",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/62.png",
+      "identifier": "#062"
+    },
+    {
+      "name": "Politoed",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/186.png",
+      "identifier": "#186"
+    },
+    {
+      "name": "Poliwag",
+      "relation": "evolves-from",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/60.png",
+      "identifier": "#060"
+    }
+  ],
+  "palette": {
+    "background": "#101820",
+    "surface": "#1B2A34",
+    "primary": "#4FC3F7",
+    "secondary": "#F2C94C",
+    "ink": "#F7FAFC"
+  },
+  "voice": {
+    "instructions": "Speak quickly, warmly, and clearly. Stress the two choices and pause briefly before the final question."
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    },
+    "assets": [
+      {
+        "kind": "Poliwhirl official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/61.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "two-evolution-paths",
+      "beat": "hook",
+      "eyebrow": "ONE POKÉMON. TWO PATHS.",
+      "headline": "TWO EVOLUTIONS. ONE CHOICE.",
+      "narration": "Poliwhirl’s evolution splits into two totally different choices.",
+      "caption": "ONE POLIWHIRL. TWO DESTINATIONS.",
+      "accent": "#4FC3F7",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/61.png"
+    },
+    {
+      "id": "water-stone-path",
+      "beat": "evidence",
+      "eyebrow": "THE STONE ROUTE",
+      "headline": "WATER STONE → POLIWRATH",
+      "narration": "Use a Water Stone, and Poliwhirl becomes Poliwrath instead.",
+      "caption": "ITEM USED: WATER STONE",
+      "facts": [
+        "WATER STONE",
+        "POLIWRATH"
+      ],
+      "accent": "#4FC3F7",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/61.png",
+      "primitive": {
+        "kind": "timeline",
+        "steps": [
+          {
+            "label": "Poliwhirl",
+            "detail": "WATER STONE"
+          },
+          {
+            "label": "Poliwrath"
+          }
+        ],
+        "active": 1
+      }
+    },
+    {
+      "id": "kings-rock-path",
+      "beat": "evidence",
+      "eyebrow": "THE TRADE ROUTE",
+      "headline": "KINGS ROCK → POLITOED",
+      "narration": "Hold a Kings Rock, then trade Poliwhirl into Politoed.",
+      "caption": "TRADE WHILE HOLDING KINGS ROCK",
+      "facts": [
+        "KINGS ROCK",
+        "TRADE",
+        "POLITOED"
+      ],
+      "accent": "#F2C94C",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/61.png",
+      "primitive": {
+        "kind": "checklist",
+        "items": [
+          {
+            "label": "KINGS ROCK",
+            "met": true
+          },
+          {
+            "label": "TRADE",
+            "met": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "typing-splits",
+      "beat": "escalation",
+      "eyebrow": "THE CHOICE CHANGES TYPING",
+      "headline": "POLIWRATH ADDS FIGHTING",
+      "narration": "That choice changes more than its name: Poliwrath gains Fighting typing.",
+      "caption": "WATER → WATER + FIGHTING",
+      "facts": [
+        "POLIWRATH",
+        "WATER",
+        "FIGHTING"
+      ],
+      "accent": "#E76F51",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/61.png",
+      "primitive": {
+        "kind": "type-shift",
+        "from": [
+          "Water"
+        ],
+        "to": [
+          "Water",
+          "Fighting"
+        ]
+      }
+    },
+    {
+      "id": "politoed-counterpoint",
+      "beat": "twist",
+      "eyebrow": "THE OTHER SIDE",
+      "headline": "POLITOED STAYS WATER",
+      "narration": "Poliwrath adds Fighting, but Politoed keeps Water only.",
+      "caption": "POLITOED: WATER",
+      "facts": [
+        "POLIWRATH: WATER/FIGHTING",
+        "POLITOED: WATER"
+      ],
+      "accent": "#8ED1FC",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/61.png"
+    },
+    {
+      "id": "choose-your-path",
+      "beat": "verdict",
+      "eyebrow": "YOUR EVOLUTION CHOICE",
+      "headline": "WHICH PATH WINS?",
+      "narration": "Which path wins: Water Stone or Kings Rock trade?",
+      "caption": "CHOOSE POLIWRATH OR POLITOED",
+      "accent": "#F2C94C",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/61.png"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Poliwhirl",
+      "url": "https://www.pokemon.com/us/pokedex/poliwhirl",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Poliwhirl",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Poliwhirl_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Poliwhirl",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/61",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

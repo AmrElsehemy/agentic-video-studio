@@ -1,0 +1,251 @@
+{
+  "schemaVersion": 2,
+  "id": "alakazam-065",
+  "show": {
+    "id": "pokepulses",
+    "name": "PokePulses",
+    "handle": "@PokePulses",
+    "wordmark": {
+      "lead": "POKE",
+      "accent": "PULSES"
+    },
+    "fonts": {
+      "display": "Bebas Neue",
+      "body": "system"
+    }
+  },
+  "title": "Alakazam's One-of-One Spoons Become Deep-Trust Gifts",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "profile",
+    "numberRelevant": false,
+    "premise": "Alakazam psychically creates unique spoons, then may let someone deeply trusted have one.",
+    "audiencePromise": "Reveal how Alakazam makes each spoon unique, then show why receiving one means deep trust.",
+    "openLoop": "Would Alakazam ever give away a spoon no one else has?",
+    "payoff": "Its spoon becomes a deeply personal gift: one original, shared through trust, for apparently delicious food.",
+    "targetEmotion": "surprise",
+    "engagementQuestion": "Would you treasure it, or use it for delicious meals?",
+    "targetSecondsBetweenVisualChanges": 0.72
+  },
+  "subject": {
+    "name": "Alakazam",
+    "category": "Psi Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/65.png",
+    "identifier": "#065"
+  },
+  "related": [
+    {
+      "name": "Kadabra",
+      "relation": "evolves-from",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/64.png",
+      "identifier": "#064"
+    },
+    {
+      "name": "Abra",
+      "relation": "evolves-from",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/63.png",
+      "identifier": "#063"
+    },
+    {
+      "name": "Alakazam Mega",
+      "relation": "form",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10037.png",
+      "identifier": "#065"
+    }
+  ],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#100D1C",
+    "surface": "#211936",
+    "primary": "#D8B4FF",
+    "secondary": "#F3C96B",
+    "ink": "#FFF8FF"
+  },
+  "audio": {
+    "music": "generated/alakazam-065-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 126,
+      "notes": [
+        110,
+        130.81,
+        146.83,
+        164.81,
+        146.83,
+        130.81,
+        98,
+        130.81
+      ]
+    },
+    "voice": {
+      "provider": "openai",
+      "model": "gpt-4o-mini-tts",
+      "voice": "marin",
+      "instructions": "Quick, warm, and playful. Stress one-of-one and deep trust. Use short pauses before each reveal, then end with a curious either-or question.",
+      "speed": 1.12,
+      "output": "generated/alakazam-065-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "assets": [
+      {
+        "kind": "Alakazam official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/65.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ],
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    }
+  },
+  "scenes": [
+    {
+      "id": "one-of-one-spoons",
+      "durationSeconds": 4.2,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "mystery",
+      "subjectFocus": "hidden",
+      "beatEverySeconds": 0.72,
+      "eyebrow": "A PERSONAL CREATION",
+      "headline": "THE SPOON IS UNIQUE",
+      "narration": "Alakazam makes one-of-one spoons. Giving one requires trust.",
+      "caption": "EVERY SPOON MATTERS",
+      "visual": "hook",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/65.png",
+      "accent": "#F3C96B",
+      "facts": [
+        "ONE-OF-ONE SPOONS",
+        "TRUST REQUIRED"
+      ]
+    },
+    {
+      "id": "psychic-creation",
+      "durationSeconds": 4.7,
+      "beat": "evidence",
+      "role": "evidence",
+      "shot": "tracking",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.72,
+      "eyebrow": "THE POKÉDEX SAYS",
+      "headline": "MADE BY PSYCHIC POWER",
+      "narration": "Its spoons are said to be created by psychic powers.",
+      "caption": "THE SPOON STARTS WITH A PSYCHIC CREATION",
+      "visual": "gauntlet",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/65.png",
+      "accent": "#D8B4FF",
+      "facts": [
+        "PSYCHIC CREATION"
+      ]
+    },
+    {
+      "id": "no-second-original",
+      "durationSeconds": 4.7,
+      "beat": "evidence",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.72,
+      "eyebrow": "EACH ONE IS ORIGINAL",
+      "headline": "ONLY ONE EXISTS",
+      "narration": "Each spoon is the only original of its kind worldwide.",
+      "caption": "NO SECOND ORIGINAL EXISTS",
+      "visual": "advantage",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/65.png",
+      "accent": "#F3C96B",
+      "facts": [
+        "EACH ONE IS ORIGINAL",
+        "ONLY ONE WORLDWIDE"
+      ],
+      "primitive": {
+        "kind": "counter",
+        "from": 0,
+        "to": 1,
+        "label": "ORIGINALS WORLDWIDE"
+      }
+    },
+    {
+      "id": "spoon-changes-hands",
+      "durationSeconds": 3.8,
+      "beat": "escalation",
+      "role": "escalation",
+      "shot": "comparison",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.72,
+      "eyebrow": "THEN IT CAN LEAVE",
+      "headline": "THE SPOON CAN BE SHARED",
+      "narration": "That unique spoon can leave Alakazam's own hands.",
+      "caption": "AN ORIGINAL CAN BECOME SOMEONE ELSE'S",
+      "visual": "race",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/65.png",
+      "accent": "#B993FF",
+      "facts": [
+        "ALAKAZAM CARRIES IT",
+        "SOMEONE ELSE MAY HAVE IT"
+      ]
+    },
+    {
+      "id": "trust-required",
+      "durationSeconds": 5.2,
+      "beat": "twist",
+      "role": "twist",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.72,
+      "eyebrow": "THE CONDITION",
+      "headline": "TRUST COMES FIRST",
+      "narration": "If it trusts someone deeply, it will let them have one.",
+      "caption": "A UNIQUE GIFT FOR DEEP TRUST",
+      "visual": "tradeoff",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/65.png",
+      "accent": "#F3C96B",
+      "facts": [
+        "DEEP TRUST",
+        "ONE SPOON GIFT"
+      ]
+    },
+    {
+      "id": "treasure-or-meal",
+      "durationSeconds": 4.8,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.72,
+      "eyebrow": "WOULD YOU ACCEPT IT?",
+      "headline": "A SPOON WITH MEANING",
+      "narration": "Would you treasure it, or use it for delicious meals?",
+      "caption": "ONE ORIGINAL. GIVEN THROUGH TRUST.",
+      "visual": "cta",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/65.png",
+      "accent": "#D8B4FF"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Alakazam",
+      "url": "https://www.pokemon.com/us/pokedex/alakazam"
+    },
+    {
+      "label": "Bulbapedia — Alakazam",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Alakazam_(Pok%C3%A9mon)"
+    },
+    {
+      "label": "PokéAPI — Alakazam",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/65"
+    }
+  ]
+}

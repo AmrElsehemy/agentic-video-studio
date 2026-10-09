@@ -1,0 +1,172 @@
+{
+  "id": "growlithe-058",
+  "title": "Growlithe Can Remember Your Scent—and Detect Emotions",
+  "storyPattern": "mystery",
+  "numberRelevant": false,
+  "premise": "Growlithe can remember scents forever and use smell to detect emotions in other living things.",
+  "audiencePromise": "Follow one scent from a territory warning to Growlithe's strange ability to detect emotions.",
+  "openLoop": "How does one scent become both a warning and an emotion clue?",
+  "payoff": "One smell can start a defense now, then stay remembered later.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "Would you trust Growlithe, or keep your feelings private?",
+  "subject": {
+    "name": "Growlithe",
+    "category": "Puppy Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/58.png",
+    "identifier": "#058"
+  },
+  "related": [
+    {
+      "name": "Arcanine",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/59.png",
+      "identifier": "#059"
+    },
+    {
+      "name": "Growlithe Hisui",
+      "relation": "form",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10229.png",
+      "identifier": "#058"
+    }
+  ],
+  "palette": {
+    "background": "#160F0B",
+    "surface": "#2A1A13",
+    "primary": "#F26B38",
+    "secondary": "#FFD166",
+    "ink": "#FFF4E6"
+  },
+  "voice": {
+    "instructions": "Quick, warm, and curious. Speak clearly with short pauses before each reveal. Stress scent, emotions, and remember. Keep the final question playful and open."
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    },
+    "assets": [
+      {
+        "kind": "Growlithe official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/58.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "scent-and-emotions",
+      "beat": "hook",
+      "eyebrow": "THE NOSE KNOWS",
+      "headline": "IT SMELLS YOUR EMOTIONS",
+      "narration": "Growlithe can detect emotions—and never forget your scent.",
+      "caption": "A SCENT CAN REVEAL MORE",
+      "accent": "#F26B38",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/58.png"
+    },
+    {
+      "id": "unknown-scent",
+      "beat": "clue",
+      "eyebrow": "FIRST CLUE",
+      "headline": "UNKNOWN SMELL. LOUD RESPONSE.",
+      "narration": "An unknown smell makes Growlithe roar, forcing the intruder out.",
+      "caption": "SMELL DETECTED. TERRITORY DEFENDED.",
+      "facts": [
+        "UNKNOWN SCENT",
+        "ROARS LOUDLY"
+      ],
+      "accent": "#FFD166",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/58.png"
+    },
+    {
+      "id": "emotion-detection",
+      "beat": "escalation",
+      "eyebrow": "THE STRANGER PART",
+      "headline": "SMELL DETECTS EMOTIONS",
+      "narration": "Then smell does something stranger: it detects other living things' emotions.",
+      "caption": "SMELL DETECTS EMOTIONS",
+      "facts": [
+        "DETECTS EMOTIONS",
+        "LIVING THINGS"
+      ],
+      "accent": "#C77DFF",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/58.png"
+    },
+    {
+      "id": "scent-memory",
+      "beat": "reveal",
+      "eyebrow": "FIRST REVEAL",
+      "headline": "THE SCENT NEVER LEAVES",
+      "narration": "Once Growlithe smells something, it will not forget that scent.",
+      "caption": "NO SCENT FORGOTTEN",
+      "facts": [
+        "WON'T FORGET",
+        "REMEMBERS SCENTS"
+      ],
+      "accent": "#4CC9F0",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/58.png"
+    },
+    {
+      "id": "lasting-response",
+      "beat": "reveal",
+      "eyebrow": "THE PAYOFF",
+      "headline": "ONE SMELL. TWO CONSEQUENCES.",
+      "narration": "One smell can start a defense now, then stay remembered later.",
+      "caption": "DEFENSE NOW. MEMORY LATER.",
+      "facts": [
+        "DEFENDS TERRITORY",
+        "REMEMBERS SCENTS"
+      ],
+      "accent": "#E84855",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/58.png",
+      "primitive": {
+        "kind": "timeline",
+        "steps": [
+          {
+            "label": "UNKNOWN SCENT",
+            "detail": "ROARS LOUDLY"
+          },
+          {
+            "label": "SCENT MEMORY",
+            "detail": "WON'T FORGET"
+          }
+        ],
+        "active": 1
+      }
+    },
+    {
+      "id": "trust-the-nose",
+      "beat": "verdict",
+      "eyebrow": "YOUR CALL",
+      "headline": "TRUST THE NOSE?",
+      "narration": "Would you trust Growlithe, or keep your feelings private?",
+      "caption": "TRUST ITS NOSE OR HIDE YOUR FEELINGS?",
+      "accent": "#F4A261",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/58.png"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Growlithe",
+      "url": "https://www.pokemon.com/us/pokedex/growlithe",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Growlithe",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Growlithe_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Growlithe",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/58",
+      "tier": "trusted_secondary"
+    }
+  ]
+}
