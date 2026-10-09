@@ -31,6 +31,7 @@ export const geoReferences = (primitive) => [
     .filter((key) => typeof annotation[key] === 'string')
     .map((key) => [`annotations[${index}].${key}`, annotation[key]])),
   ...(primitive.data?.values ?? []).map(({entity}, index) => [`data.values[${index}].entity`, entity]),
+  ...primitive.annotations.flatMap((annotation, index) => (annotation.type === 'truesize' ? [[`annotations[${index}].entity`, annotation.entity], [`annotations[${index}].onto`, annotation.onto]] : [])),
   ...primitive.annotations.flatMap((annotation, index) => (annotation.type === 'reconstruction' ? [...annotation.entities.map((entity, at) => [`annotations[${index}].entities[${at}]`, entity]), [`annotations[${index}].fixed`, annotation.fixed]] : [])),
   ...primitive.annotations.flatMap((annotation, index) => (annotation.type === 'route' ? annotation.path : [])
     .flatMap((stop, at) => (typeof stop === 'string' ? [[`annotations[${index}].path[${at}]`, stop]] : []))),
@@ -46,13 +47,27 @@ const suggest = (id, entities) => {
 };
 
 /** Problems with a geo-map's places, as actionable messages (empty when it's fine). */
-export const geoProblems = (primitive, geo) => [...geoReferenceProblems(primitive, geo), ...reconstructionProblems(primitive, geo)];
+export const geoProblems = (primitive, geo) => [...geoReferenceProblems(primitive, geo), ...reconstructionProblems(primitive, geo), ...trueSizeProblems(primitive, geo)];
 const geoReferenceProblems = (primitive, {entities, disputed}) => geoReferences(primitive)
   .filter(([, id]) => !(id.startsWith('disputed:') ? disputed.has(id) : entities.has(id)))
   .map(([where, id]) => {
     const close = suggest(id, entities);
     return `${where}: unknown geo entity "${id}"${close.length ? `; did you mean ${close.join(', ')}?` : ''} Ids are listed in public/geo/entities.json (disputed areas in public/geo/disputed.geojson).`;
   });
+
+/** Kinds with an outline that can be copied across the map, and kinds a copy can land on. */
+const COPYABLE = new Set(['country', 'admin1', 'lake']);
+const LANDABLE = new Set(['country', 'admin1', 'lake', 'city']);
+
+/** Problems with a true-size comparison's places: the one that moves needs an outline, the one it lands on a place. */
+export const trueSizeProblems = (primitive, {entities}) => primitive.annotations.flatMap((annotation, index) => {
+  if (annotation.type !== 'truesize') return [];
+  const problems = [];
+  const [moving, target] = [entities.get(annotation.entity), entities.get(annotation.onto)];
+  if (moving && !COPYABLE.has(moving.kind)) problems.push(`annotations[${index}].entity: ${annotation.entity} is a ${moving.kind}, which has no outline to copy; use a country, state or lake`);
+  if (target && !LANDABLE.has(target.kind)) problems.push(`annotations[${index}].onto: ${annotation.onto} is a ${target.kind}; a copy can land on a country, state, lake or city`);
+  return problems;
+});
 
 /** Problems with a plate reconstruction's places: each must ride on a plate the model covers, and the moving ones must differ from the fixed one's plate. */
 export const reconstructionProblems = (primitive, {plates}) => primitive.annotations.flatMap((annotation, index) => {

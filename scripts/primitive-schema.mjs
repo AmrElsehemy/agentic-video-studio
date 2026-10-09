@@ -45,6 +45,10 @@ const geoAnnotation = z.discriminatedUnion('type', [
   // (millions of years ago), drifting to where they are at age `to` (default today) while the place in `fixed` (default
   // South Africa, so Africa) stays put. The map shows an age counter. Positions come only from the pinned model.
   z.object({type: z.literal('reconstruction'), entities: z.array(geoEntity).min(1).max(2), fixed: geoEntity.default('country:ZAF'), from: z.number().min(1).max(230), to: z.number().min(0).max(230).default(0), at: moment.default(0), until: moment.optional(), text: label.optional()}).strict(),
+  // A true-size comparison: a copy of `entity` slides across the map onto `onto` (rotated on the sphere, so its area and
+  // shape stay exact) from `at` to `until`, to show how big one place is against another. Only meaningful in an equal-area
+  // projection (albers or equal-earth), which the schema requires; the map says the place was moved.
+  z.object({type: z.literal('truesize'), entity: geoEntity, onto: geoEntity, text: label.optional(), at: moment.default(0), until: moment.optional()}).strict(),
   // A timeline strip along the bottom of the map: 2-4 dated steps, the scene's own step lit. Its words come from the research
   // (dates, periods, names); show the same steps in every scene of a sequence so the strip reads as one thing.
   z.object({type: z.literal('timeline'), steps: z.array(z.object({label: z.string().min(1).max(14), detail: z.string().min(1).max(14).optional()}).strict()).min(2).max(4), active: z.number().int().min(0).max(3), at: moment.default(0)}).strict(),
@@ -106,6 +110,8 @@ export const primitiveSchema = z.discriminatedUnion('kind', [
 ]).superRefine((primitive, context) => {
   if (primitive.kind === 'geo-map') {
     primitive.annotations.forEach((annotation, index) => {
+      if (annotation.type === 'truesize' && (primitive.globe || !['albers', 'equal-earth'].includes(primitive.projection ?? ''))) context.addIssue({code: 'custom', path: ['annotations', index], message: 'A true-size comparison needs an equal-area projection (projection "albers" or "equal-earth") and no globe, or the copy would look the wrong size'});
+      if (annotation.type === 'truesize' && annotation.entity === annotation.onto) context.addIssue({code: 'custom', path: ['annotations', index, 'onto'], message: 'A place cannot be compared with itself'});
       if (annotation.type === 'reconstruction' && annotation.from <= annotation.to) context.addIssue({code: 'custom', path: ['annotations', index, 'from'], message: `A reconstruction runs forward in time: from (${annotation.from} Ma) must be older than to (${annotation.to} Ma)`});
       if (annotation.type === 'timeline' && annotation.active >= annotation.steps.length) context.addIssue({code: 'custom', path: ['annotations', index, 'active'], message: `active ${annotation.active} is not one of the ${annotation.steps.length} steps`});
       if (annotation.type === 'line' && annotation.kind === 'parallel' && Math.abs(annotation.degrees) > 90) context.addIssue({code: 'custom', path: ['annotations', index, 'degrees'], message: `A parallel runs between -90 and 90 degrees; ${annotation.degrees} is out of range`});

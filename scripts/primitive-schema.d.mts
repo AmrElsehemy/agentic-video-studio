@@ -21,6 +21,7 @@ export type GeoAnnotation =
   | {type: 'marker'; anchor: GeoAnchor; text?: string; at: number; until?: number}
   | {type: 'arrow'; from: GeoAnchor; to: GeoAnchor; text?: string; at: number}
   | {type: 'route'; path: GeoAnchor[]; text?: string; at: number; until?: number; marker: boolean; follow: boolean}
+  | {type: 'truesize'; entity: GeoEntityId; onto: GeoEntityId; text?: string; at: number; until?: number}
   | {type: 'reconstruction'; entities: GeoEntityId[]; fixed: GeoEntityId; from: number; to: number; at: number; until?: number; text?: string}
   | {type: 'timeline'; steps: {label: string; detail?: string}[]; active: number; at: number}
   | {type: 'line'; kind: 'meridian' | 'parallel'; degrees: number; text?: string; at: number; until?: number; reverse: boolean};

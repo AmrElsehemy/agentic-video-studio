@@ -242,6 +242,7 @@ export const shotToPrimitive = (shot, {places, research, datasets = new Map()}) 
       if (!stated.has(number)) throw new Error(`${where}: "${annotation.text}" states ${number}, which is not in the research`);
     }
     if (annotation?.type === 'line') return annotation;
+    if (annotation?.type === 'truesize') return {...annotation, entity: placeId(annotation.entity, `${where}.entity`), onto: placeId(annotation.onto, `${where}.onto`)};
     if (annotation?.type === 'reconstruction') {
       const entities = (Array.isArray(annotation.entities) ? annotation.entities : []).map((id, at) => placeId(id, `${where}.entities[${at}]`));
       return {...annotation, entities, ...(annotation.fixed ? {fixed: placeId(annotation.fixed, `${where}.fixed`)} : {})};
@@ -278,7 +279,9 @@ export const shotToPrimitive = (shot, {places, research, datasets = new Map()}) 
     const view = typeof shot.data === 'object' && ['map', 'bars', 'both'].includes(shot.data.view) ? shot.data.view : 'map';
     data = {...dataset, at: typeof shot.data === 'object' && typeof shot.data.at === 'number' ? shot.data.at : 0, view};
   }
-  const parsed = primitiveSchema.safeParse({kind: 'geo-map', camera, highlights, annotations, ...(shot.cut === true ? {cut: true} : {}), ...(shot.globe === true ? {globe: true} : {}), ...(shot.relief === true ? {relief: true} : {}), ...(data ? {data} : {})});
+  // A comparison is only valid in an equal-area projection; assembly sets the episode's, so judge the shot as if Albers.
+  const comparing = annotations.some((annotation) => annotation.type === 'truesize');
+  const parsed = primitiveSchema.safeParse({kind: 'geo-map', camera, highlights, annotations, ...(comparing ? {projection: 'albers'} : {}), ...(shot.cut === true ? {cut: true} : {}), ...(shot.globe === true ? {globe: true} : {}), ...(shot.relief === true ? {relief: true} : {}), ...(data ? {data} : {})});
   if (!parsed.success) throw new Error(parsed.error.issues.map((issue) => `${issue.path.join('.') || 'shot'}: ${issue.message}`).join('; '));
   return parsed.data;
 };
@@ -298,7 +301,7 @@ export const sceneMentions = (scene, places, geo) => mentionedPlaces(`${scene.he
 export const shotShows = (primitive, place, boxes) => {
   const id = place.id;
   if (primitive.highlights.some((highlight) => highlight.entity === id)) return true;
-  if (primitive.annotations.some((annotation) => [annotation.anchor, annotation.from, annotation.to, ...(annotation.path ?? []), ...(annotation.entities ?? [])].includes(id))) return true;
+  if (primitive.annotations.some((annotation) => [annotation.anchor, annotation.from, annotation.to, ...(annotation.path ?? []), ...(annotation.entities ?? []), annotation.entity, annotation.onto].includes(id))) return true;
   if ((primitive.data?.values ?? []).some(({entity}) => entity === id)) return true;
   const centre = centreOf(place.bbox);
   return primitive.camera.some((key) => {
@@ -372,6 +375,7 @@ export const describeShot = (primitive, places, boxes) => {
     else if (annotation.type === 'arrow') parts.push(`arrow: ${typeof annotation.from === 'string' ? nameOf(annotation.from, places) : 'a point'} → ${typeof annotation.to === 'string' ? nameOf(annotation.to, places) : 'a point'}${annotation.text ? ` "${annotation.text}"` : ''}`);
     else if (annotation.type === 'route') parts.push(`route: ${annotation.path.map((stop) => (typeof stop === 'string' ? nameOf(stop, places) : 'a point')).join(' → ')}`);
     else if (annotation.type === 'line') parts.push(`${annotation.kind} line at ${annotation.degrees}°${annotation.text ? ` "${annotation.text}"` : ''}`);
+    else if (annotation.type === 'truesize') parts.push(`true-size comparison: a copy of ${nameOf(annotation.entity, places)} slides onto ${nameOf(annotation.onto, places)} at its real size, with a note that it was moved and a dashed outline of its real position`);
     else if (annotation.type === 'reconstruction') parts.push(`reconstruction: ${annotation.entities.map((id) => nameOf(id, places)).join(', ')} drifting from ${annotation.from} million years ago to ${annotation.to ? `${annotation.to} million years ago` : 'today'}, with ${nameOf(annotation.fixed, places)} held still, an age counter and a dashed outline of the final position`);
     else if (annotation.type === 'timeline') parts.push(`timeline: ${annotation.steps.map((step, index) => `${index === annotation.active ? '[' : ''}${step.label}${index === annotation.active ? ']' : ''}`).join(' · ')}`);
   }
@@ -425,9 +429,21 @@ const journeyBox = (place, annotation, geo) => {
   return [Math.min(...points.map((p) => p[0])), Math.min(...points.map((p) => p[1])), Math.max(...points.map((p) => p[0])), Math.max(...points.map((p) => p[1]))];
 };
 
+/** The box a true-size copy sweeps: where the place is, and a box of its size centred on where it lands. */
+const slideBox = (place, target) => {
+  if (!place?.bbox || !target?.bbox || place.bbox[0] > place.bbox[2]) return null;
+  // A destination that crosses the antimeridian (the USA) is judged by its label point.
+  const centre = target.label ?? (target.bbox[0] <= target.bbox[2] ? centreOf(target.bbox) : null);
+  if (!centre) return null;
+  const [west, south, east, north] = place.bbox;
+  const [cx, cy] = centre;
+  const [halfWidth, halfHeight] = [(east - west) / 2, (north - south) / 2];
+  return [Math.min(west, cx - halfWidth), Math.min(south, cy - halfHeight), Math.max(east, cx + halfWidth), Math.max(north, cy + halfHeight)];
+};
+
 /** A drifting place must not also be highlighted, labelled or pointed at in the same scene (its present position is wrong while it moves). */
 export const reconstructionConflicts = (primitive) => {
-  const moving = new Set(primitive.annotations.flatMap((annotation) => (annotation.type === 'reconstruction' ? annotation.entities : [])));
+  const moving = new Set(primitive.annotations.flatMap((annotation) => (annotation.type === 'reconstruction' ? annotation.entities : annotation.type === 'truesize' ? [annotation.entity] : [])));
   if (!moving.size) return [];
   const used = new Set([
     ...primitive.highlights.map((highlight) => highlight.entity),
@@ -440,10 +456,10 @@ export const reconstructionConflicts = (primitive) => {
 export const unframedJourneys = (primitive, places, boxes, geo) => {
   const frames = primitive.camera.map((key) => (key.target === 'world' ? 'world' : typeof key.target === 'string' ? boxes.get(key.target) : key.target.bbox));
   if (frames.includes('world') || frames.some((frame) => !frame || frame[0] > frame[2])) return [];
-  return primitive.annotations.flatMap((annotation) => (annotation.type === 'reconstruction' ? annotation.entities.map((id) => ({id, annotation})) : []))
+  return primitive.annotations.flatMap((annotation) => (annotation.type === 'reconstruction' ? annotation.entities.map((id) => ({id, annotation})) : annotation.type === 'truesize' ? [{id: annotation.entity, annotation}] : []))
     .filter(({id, annotation}) => {
       const place = places.get(id);
-      const box = place && journeyBox(place, annotation, geo);
+      const box = place && (annotation.type === 'truesize' ? slideBox(place, places.get(annotation.onto)) : journeyBox(place, annotation, geo));
       return box && area(box) > 0 && !frames.some((frame) => area(intersection(box, frame)) / area(box) >= RIVER_FRAMED_SHARE);
     })
     .map(({id}) => places.get(id));
@@ -516,6 +532,7 @@ A shot is JSON:
  "camera": [{"target": T, "at": 0, "padding": 0.15}, ...],   // 1-4 keyframes; at = fraction of the scene, first at 0, then increasing
  "highlights": [{"entity": "<place id>", "style": "fill" | "outline" | "trace", "at": 0.3}],   // up to 4
  "annotations": [{"type": "label" | "marker", "anchor": A, "text": "SHORT CAPS", "at": 0.5, "until": 0.9},
+                 {"type": "truesize", "entity": "<place id>", "onto": "<place id>", "at": 0.2, "until": 0.6},
                  {"type": "reconstruction", "entities": ["country:MDG"], "fixed": "country:ZAF", "from": 180, "to": 0, "at": 0.1, "until": 0.9},
                  {"type": "timeline", "steps": [{"label": "180 MYA", "detail": "AFRICA"}, ...], "active": 0, "at": 0.3},
                  {"type": "line", "kind": "meridian" | "parallel", "degrees": 0, "text": "0° PRIME MERIDIAN", "at": 0.2},   // until is optional: when it fades out
@@ -539,6 +556,7 @@ Rules:
 - "globe": true draws the map on a globe that spins between the camera framings: a dramatic opening or closing. Use it on the first scene (a planet turning to the place) and, if it suits, the last; never in between, because the map changes from globe to flat map with a cut.
 - "relief": true adds shaded relief (mountains and valleys) under the map. Use it when the narration is about terrain or altitude: mountains, highlands, plateaus, valleys.
 - "data" shows one of the datasets listed below. Use it when the narration compares places by a number (heights, sizes, populations, how crowded or empty a place is). Name the dataset only; its values come from the research or the map data. "view": "map" shades the places with a legend; "bars" shows a ranked bar chart of them beside the map (the clearest way to compare sizes or populations: use it at least once in an episode that compares places); "both" does both. Frame the places the dataset covers.
+- A "truesize" copies the place "entity" (a country, state or lake) and slides the copy onto the place "onto" (a country, state, lake or city), rotated on the sphere so its size and shape stay exactly true, to show how big one place is against another. Use it when the narration compares AREA: "as big as", "larger than", "twice the size of", "would cover", "fits inside". The map says the copy was moved and shows where the place really is as a dashed outline. It always uses an equal-area projection (the system sets it). Frame both where the place really is and where it lands, and do not also highlight, label or point at the place that is moving: its home position is wrong while it slides. Use it at most once or twice an episode, on the scenes that are about size.
 - A "reconstruction" shows how a landmass moved: the places in "entities" (one or two) are drawn where a published plate-motion model puts them "from" millions of years ago and drift to where they are "to" (default 0, today), while the place in "fixed" (default country:ZAF, Africa) stays still; an age counter runs on the map and a dashed outline marks where each ends up. Use it whenever the narration says a place split, broke away, drifted, collided or opened: Madagascar leaving Africa, India crossing the ocean, the Atlantic opening. The ages must come from the research (numbers in the text). It works for countries on these plates: Africa, Madagascar, India, Antarctica, Australia, South America, North America (US, Canada), Greenland, Arabia, Europe. Frame the whole journey (where it starts and where it ends) and do not also highlight, label or point at a place that is drifting: its present position is wrong while it moves. A scene can have one reconstruction.
 - A "timeline" shows a strip of 2-4 dated steps along the bottom, with the scene's own step lit ("active", counting from 0). Use it when the story moves through time: a split, a purchase, a construction, a reform. Labels are at most 14 characters and come from the research (every number must be in a claim). Give every scene of the sequence the SAME steps, so the strip reads as one timeline, and light the step the scene is on.
 - A border between two countries (border:AAA-BBB, the two codes in alphabetical order, such as border:CAN-USA) is listed among the places when both countries are in the episode: highlight it with the style "trace" and the actual border line draws itself along its whole length. Use it whenever the narration is about a border, a frontier or two countries meeting: the line is the picture. Frame the whole border.
@@ -691,7 +709,10 @@ export const directGeoVisuals = async ({draft, research: rawResearch, complete, 
     if (index > 0 && Boolean(shots.get(id).globe) !== Boolean(shots.get(order[index - 1]).globe) && !shots.get(id).cut) shots.set(id, {...shots.get(id), cut: true});
   });
   // One projection for the whole episode (the globe bookends keep theirs); Mercator is left unset, as before.
-  const projection = draft.projection && draft.projection !== 'auto' ? draft.projection : chooseProjection(subject);
+  const chosen = draft.projection && draft.projection !== 'auto' ? draft.projection : chooseProjection(subject);
+  // A true-size comparison is only honest in an equal-area projection, so one forces Albers on an episode that would be Mercator.
+  const comparing = [...shots.values()].some((shot) => shot.annotations.some((annotation) => annotation.type === 'truesize'));
+  const projection = comparing && !['albers', 'equal-earth'].includes(chosen) ? 'albers' : chosen;
   for (const [id, shot] of shots) {
     const {projection: _old, ...rest} = shot;
     shots.set(id, shot.globe || projection === 'mercator' ? rest : {...rest, projection});

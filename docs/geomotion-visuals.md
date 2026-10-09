@@ -34,6 +34,12 @@ An episode uses one projection so the camera flows between scenes (the globe ope
 
 `npm run looks -- <episode> --projection=albers` previews any episode in a projection.
 
+## True-size comparisons
+
+`{"type": "truesize", "entity": "admin1:USA-3563", "onto": "country:USA"}` slides a copy of one place across the map onto another to show how big it is. The copy is rotated on the sphere (`scripts/lib/true-size.mjs`), so its area and shape are exactly true, and it is kept north-up. The place's real position stays on the map as a dashed outline, and a chip says "<PLACE> · SAME SIZE, MOVED", so the viewer is told it moved.
+
+It is only honest in an equal-area projection, so the schema refuses it unless the shot's projection is `albers` or `equal-earth` (and not a globe); the director sets Albers for an episode that uses one, even near the equator. The moving place is an outline-bearing one (country, state or lake); it can land on a country, state, lake or city. The director frames both where the place is and where it lands, and does not also highlight or label the place that is moving. This is the second documented exception to "never move a place", beside plate reconstructions.
+
 ## Map layers
 
 Natural Earth (public domain, pinned in `public/geo/manifest.json`) provides, besides the countries and seas:

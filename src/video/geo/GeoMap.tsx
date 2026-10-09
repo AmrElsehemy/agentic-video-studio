@@ -15,6 +15,7 @@ import {COUNT_FRAMES, countUp, flash, MARCH, marchOffset, ripple} from './effect
 import {barRows, DataBars, PANEL_FRAMES, panelHeight} from './DataBars';
 import {TIMELINE_HEIGHT, TimelineStrip} from './TimelineStrip';
 import {reconstruction, rotateGeometry} from '../../../scripts/lib/plates.mjs';
+import {partialRotation, trueSizeRotation} from '../../../scripts/lib/true-size.mjs';
 import {hasSphereOutline, makeProjection, type ProjectionKind} from './projections';
 import {adminVisibility, lookOf, maxLakeRank, maxRiverRank, pickByHash, tiltPoint} from './look';
 import {blurSamples, shutterFor, viewShift} from './blur';
@@ -39,6 +40,12 @@ const reconstructionAge = (annotation: Extract<GeoMapPrimitive['annotations'][nu
   const raw = Math.max(0, Math.min(1, (t - annotation.at) / Math.max(.05, end - annotation.at)));
   const eased = raw < .5 ? 2 * raw * raw : 1 - (-2 * raw + 2) ** 2 / 2;
   return annotation.from + (annotation.to - annotation.from) * eased;
+};
+/** How far a true-size copy has slid (0-1) `t` of the way through the scene: eased between its start and its end. */
+const slideShare = (annotation: Extract<GeoMapPrimitive['annotations'][number], {type: 'truesize'}>, t: number) => {
+  const end = annotation.until ?? Math.min(1, annotation.at + .5);
+  const raw = Math.max(0, Math.min(1, (t - annotation.at) / Math.max(.05, end - annotation.at)));
+  return raw < .5 ? 2 * raw * raw : 1 - (-2 * raw + 2) ** 2 / 2;
 };
 /** The age counter's words. */
 const ageText = (age: number) => (Math.round(age) <= 0 ? 'TODAY' : `${Math.round(age)} MILLION YEARS AGO`);
@@ -268,7 +275,7 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
       texts.set(index, {box: fitInside(labelBox(x, y, annotation.text, LABEL_SIZE), bounds), anchorY: screen[1], priority: annotation.at, opacity: appear(annotation.at + LINE_FRAMES / 2 / durationInFrames, 14) * vanish(annotation.until), size: LABEL_SIZE});
       return;
     }
-    if (annotation.type === 'timeline' || annotation.type === 'reconstruction') return;
+    if (annotation.type === 'timeline' || annotation.type === 'reconstruction' || annotation.type === 'truesize') return;
     if (annotation.type === 'arrow' || !annotation.text) return;
     if (annotation.type === 'route') {
       if (t < annotation.at) return;
@@ -461,6 +468,22 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
       }
       // A timeline is drawn as the flat strip (see `timeline`), not on the map.
       if (annotation.type === 'timeline') return null;
+      if (annotation.type === 'truesize') {
+        if (t < annotation.at) return null;
+        const home = data.features.get(annotation.entity);
+        const destination = data.features.get(annotation.onto);
+        const destinationPoint = destination ? geoCentroid(destination) : data.entities.get(annotation.onto)?.label;
+        if (!home || !destinationPoint) return null;
+        const q = trueSizeRotation(geoCentroid(home) as [number, number], destinationPoint as [number, number]);
+        const moved = {type: 'Feature' as const, properties: {}, geometry: rotateGeometry(home.geometry as {type: 'Polygon' | 'MultiPolygon'; coordinates: never}, partialRotation(q, slideShare(annotation, t)))};
+        const colour = styled ? look.subject.from : accent;
+        const core = styled ? look.subject.rim : palette.ink;
+        return <g key={index}>
+          {/* Where it really is. */}
+          <path d={path(home) ?? ''} fill="none" stroke={core} strokeOpacity={.55} strokeWidth={3} strokeDasharray="12 9" strokeLinejoin="round" />
+          <path d={path(moved as never) ?? ''} fill={colour} fillOpacity={.62} stroke={core} strokeOpacity={.95} strokeWidth={4} strokeLinejoin="round" style={{filter: glow(12, colour)}} />
+        </g>;
+      }
       if (annotation.type === 'reconstruction') {
         if (t < annotation.at || !data.plates) return null;
         const age = reconstructionAge(annotation, t);
@@ -497,6 +520,19 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
     });
   // Label and marker text on top of every route and marker, so none is drawn over.
   const pointTexts = primitive.annotations.map((annotation, index) => {
+    if (annotation.type === 'truesize') {
+      // Say that the copy was moved, so the comparison is honest: a chip along the top of the map.
+      if (t < annotation.at) return null;
+      const text = `${(data.entities.get(annotation.entity)?.name ?? '').toUpperCase()} · SAME SIZE, MOVED`;
+      const width = text.length * 25 + 60;
+      const [cx, cy] = [SIZE.width / 2, SAFE + 62];
+      const fill = styled && look.chip ? look.chip.fill : palette.background;
+      const ink = styled && look.chip ? look.chip.text : palette.ink;
+      return <React.Fragment key={`truesize-${index}`}>{out(<g opacity={appear(annotation.at, 10)}>
+        <rect x={cx - width / 2} y={cy - 42} width={width} height={84} rx={42} fill={fill} opacity={.9} />
+        <text x={cx} y={cy + 4} textAnchor="middle" dominantBaseline="middle" style={{fontFamily: displayFont, fontSize: 40, letterSpacing: 3, fill: ink}}>{text}</text>
+      </g>)}</React.Fragment>;
+    }
     if (annotation.type === 'reconstruction') {
       // The age counter: a chip along the top of the map, counting down as the landmass drifts home.
       if (t < annotation.at) return null;

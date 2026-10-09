@@ -11,6 +11,7 @@ const viewOf = (primitive) => JSON.stringify({
   relief: Boolean(primitive.relief),
   route: (primitive.annotations ?? []).some((annotation) => annotation.type === 'route'),
   recon: (primitive.annotations ?? []).some((annotation) => annotation.type === 'reconstruction'),
+  truesize: (primitive.annotations ?? []).some((annotation) => annotation.type === 'truesize'),
 });
 
 /** At least this share of consecutive map scenes must differ from the one before... */
