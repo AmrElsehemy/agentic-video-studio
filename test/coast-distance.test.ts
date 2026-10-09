@@ -17,7 +17,7 @@ const continent = {type: 'FeatureCollection', features: [{type: 'Feature', geome
 const at = (lon: number, lat: number) => Math.floor((90 - lat) / CELL) * WIDTH + Math.floor((lon + 180) / CELL);
 
 describe('distance from the sea', () => {
-  const mask = landMask(continent);
+  const mask = landMask(continent as never);
   const sea = openSea(mask);
   const distance = distanceGrid(sea);
 
