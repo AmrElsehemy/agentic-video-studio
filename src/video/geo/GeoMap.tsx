@@ -7,7 +7,7 @@ import {routeUntil, type GeoAnchor, type GeoMapPrimitive} from '../../../scripts
 import type {ShotProps} from '../shots';
 import {displayFont} from '../typography';
 import {cameraAt, cameraKeys, continuesMap, episodeCameraKeys, MAP_SIZE, type BBox, type CameraKey, type Size, type View} from './camera';
-import {useGeoData, useReliefData, type GeoData} from './data';
+import {useElevationData, useGeoData, useReliefData, type GeoData} from './data';
 import {RELIEF_STRENGTH, reliefPlacements} from './relief';
 import {fitInside, labelBox, resolveLabels, type Box, type Placed} from './labels';
 import {labelScale, pop} from './motion';
@@ -35,6 +35,10 @@ const GLOBE_RADIUS = 440;
 const SAFE = 48;
 /** Distance from the sea, nearest to farthest: pale lilac to deep indigo, apart from the warm land and the blue sea of every look. */
 const COAST_RAMP = ['#eadcff', '#c6a6f7', '#9a6fe0', '#6a45b8', '#3a2380'];
+/** Height above the sea, low to high: greens, then tans and browns, then snow. */
+const ELEVATION_RAMP = ['#b9dca0', '#e4e49a', '#f0cf86', '#d9a365', '#b27a55', '#8b5c47', '#f6f1ea'];
+/** A sea-level rise, shallow to deep: from pale blue to a deep one. */
+const FLOOD_RAMP = ['#9ad7ff', '#5db5f5', '#2f8ce8', '#1b63c9', '#12409a', '#0b2a6b'];
 /** Frames an appearing layer takes to fade/draw in. */
 const APPEAR = 12;
 const TRACE_SHARE = .35;
@@ -203,7 +207,9 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
   const mercatorFlat = !primitive.globe && !primitive.morph && (primitive.projection ?? 'mercator') === 'mercator';
   const wantsRelief = mercatorFlat && (Boolean(primitive.relief) || look.relief > 0);
   const relief = useReliefData(wantsRelief);
-  if (!data || !keys || (wantsRelief && !relief)) return null;
+  const wantsElevation = primitive.surface?.kind === 'elevation' || primitive.surface?.kind === 'flood';
+  const elevation = useElevationData(wantsElevation);
+  if (!data || !keys || (wantsRelief && !relief) || (wantsElevation && !elevation)) return null;
 
   const t = durationInFrames > 1 ? frame / (durationInFrames - 1) : 0;
   const view = viewAt(t);
@@ -621,28 +627,44 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
     }
     return <path key={`data-${entity}`} d={path(feature) ?? ''} fill={accent} fillOpacity={dataShown * shade(value, dataRange)} />;
   }) : null;
-  // Distance from the sea: the land, band by band, creeping inland from the coast; clipped to the land so a lake or inland sea stays clear.
+  // A surface (distance from the sea, elevation, a sea-level rise): the land shaded band by band, each band growing
+  // in after the one before; clipped to the land so a lake or inland sea stays clear.
   const surface = primitive.surface;
-  const coastGrow = (index: number) => (surface ? appear(surface.at + index * .06, 18) : 0);
-  const coastBands = surface ? [...data.coastBands].sort((a, b) => (a.properties as {km: number}).km - (b.properties as {km: number}).km) : [];
-  const coastFills = surface ? <g>
-    <clipPath id="coast-land">{data.countries.filter((feature) => onScreen(data.entities.get(String(feature.id))?.bbox)).map((feature) => <path key={String(feature.id)} d={path(feature) ?? ''} />)}</clipPath>
-    <g clipPath="url(#coast-land)">
-      {coastBands.map((band, index) => <path key={`coast-${index}`} d={path(band) ?? ''} fill={COAST_RAMP[Math.min(index, COAST_RAMP.length - 1)]} fillOpacity={coastGrow(index) * .88} />)}
+  const byLevel = (bands: GeoData['coastBands'], key: string) => [...bands].sort((a, b) => (a.properties as Record<string, number>)[key] - (b.properties as Record<string, number>)[key]);
+  const surfaceBands: {feature: GeoData['coastBands'][number]; label: string; color: string}[] = !surface ? [] :
+    surface.kind === 'coast-distance' ? byLevel(data.coastBands, 'km').map((feature, index) => {
+      const km = (feature.properties as {km: number}).km;
+      return {feature, label: km >= 1000 ? `${km / 1000}K` : String(km), color: COAST_RAMP[Math.min(index, COAST_RAMP.length - 1)]};
+    }) :
+    surface.kind === 'elevation' ? byLevel(elevation?.elevation ?? [], 'metres').map((feature, index) => {
+      const metres = (feature.properties as {metres: number}).metres;
+      return {feature, label: metres >= 1000 ? `${metres / 1000}K` : String(metres), color: ELEVATION_RAMP[Math.min(index, ELEVATION_RAMP.length - 1)]};
+    }) :
+    byLevel(elevation?.flood ?? [], 'metres').filter((feature) => (feature.properties as {metres: number}).metres <= surface.rise).map((feature, index) => ({feature, label: `${(feature.properties as {metres: number}).metres}`, color: FLOOD_RAMP[Math.min(index, FLOOD_RAMP.length - 1)]}));
+  const surfaceGrow = (index: number) => (surface ? appear(surface.at + index * (surface.kind === 'flood' ? .09 : .06), 18) : 0);
+  const surfaceFills = surface ? <g>
+    <clipPath id="surface-land">{data.countries.filter((feature) => onScreen(data.entities.get(String(feature.id))?.bbox)).map((feature) => <path key={String(feature.id)} d={path(feature) ?? ''} />)}</clipPath>
+    <g clipPath="url(#surface-land)">
+      {surfaceBands.map((band, index) => <path key={`surface-${index}`} d={path(band.feature) ?? ''} fill={band.color} fillOpacity={surfaceGrow(index) * .88} />)}
     </g>
   </g> : null;
-  const dataFills = <>{valueFills}{coastFills}</>;
-  const coastLegend = surface ? out(<g opacity={outro * appear(surface.at, 12)}>{(() => {
+  const dataFills = <>{valueFills}</>;
+  const surfaceLegend = surface ? out(<g opacity={outro * appear(surface.at, 12)}>{(() => {
     const ink = styled && look.chip ? look.chip.text : palette.ink;
-    const labels = coastBands.map((band) => (band.properties as {km: number}).km);
-    const [x, y, cell] = [SAFE, SIZE.height - SAFE - 150, 96];
+    const flood = surface.kind === 'flood';
+    const title = surface.kind === 'coast-distance' ? 'KM FROM THE SEA' : surface.kind === 'elevation' ? 'HEIGHT ABOVE THE SEA (M)'
+      : `SEA RISES ${surfaceBands.filter((_, index) => surfaceGrow(index) > .5).slice(-1)[0]?.label ?? 0} M`;
+    const foot = flood ? 'LEVEL ALONE · NO DEFENCES · APPROXIMATE' : '';
+    const [x, y, cell] = [SAFE, SIZE.height - SAFE - (foot ? 190 : 150), 96];
+    const width = Math.max(cell * surfaceBands.length, foot ? 600 : title.length * 17) + 36;
     return <>
-      <rect x={x - 18} y={y - 14} width={cell * labels.length + 36} height={140} rx={28} fill={styled && look.chip ? look.chip.fill : palette.background} opacity={.9} />
-      <text x={x} y={y + 22} style={{fontFamily: displayFont, fontSize: 32, letterSpacing: 3, fill: ink}}>KM FROM THE SEA</text>
-      {labels.map((km, index) => <g key={km}>
-        <rect x={x + index * cell} y={y + 42} width={cell - 6} height={24} rx={6} fill={COAST_RAMP[Math.min(index, COAST_RAMP.length - 1)]} opacity={.88} />
-        <text x={x + index * cell + (cell - 6) / 2} y={y + 102} textAnchor="middle" style={{fontFamily: displayFont, fontSize: 30, fill: ink}}>{km >= 1000 ? `${km / 1000}K` : km}</text>
+      <rect x={x - 18} y={y - 14} width={width} height={foot ? 180 : 140} rx={28} fill={styled && look.chip ? look.chip.fill : palette.background} opacity={.9} />
+      <text x={x} y={y + 22} style={{fontFamily: displayFont, fontSize: 32, letterSpacing: 3, fill: ink}}>{title}</text>
+      {surfaceBands.map((band, index) => <g key={index} opacity={flood ? Math.max(.25, surfaceGrow(index)) : 1}>
+        <rect x={x + index * cell} y={y + 42} width={cell - 6} height={24} rx={6} fill={band.color} opacity={.88} />
+        <text x={x + index * cell + (cell - 6) / 2} y={y + 102} textAnchor="middle" style={{fontFamily: displayFont, fontSize: 30, fill: ink}}>{band.label}</text>
       </g>)}
+      {foot ? <text x={x} y={y + 146} style={{fontFamily: displayFont, fontSize: 24, letterSpacing: 2, fill: ink, opacity: .75}}>{foot}</text> : null}
     </>;
   })()}</g>) : null;
   const legend = primitive.data?.legend && dataRange && primitive.data.view !== 'bars' && primitive.data.view !== 'bubbles'
@@ -679,7 +701,7 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
       <text x={SIZE.width / 2} y={SAFE + 64} textAnchor="middle" dominantBaseline="middle" style={{fontFamily: displayFont, fontSize: 40, letterSpacing: 3, fill: styled && look.chip ? look.chip.text : palette.ink}}>{text}</text>
     </>;
   })()}</g>) : null;
-  const bubbleLayer = <>{bubblesOnly}{morphChip}{coastLegend}</>;
+  const bubbleLayer = <>{bubblesOnly}{morphChip}{surfaceLegend}</>;
 
   const timeline = timelineOn && timelineAnnotation ? <TimelineStrip steps={timelineAnnotation.steps} active={timelineAnnotation.active} frame={frame} startFrame={timelineStart} fps={manifest.format.fps} width={SIZE.width} height={SIZE.height}
     accent={styled ? look.subject.from : accent} ink={styled && look.chip ? look.chip.text : palette.ink} backdrop={styled && look.chip ? look.chip.fill : palette.background} muted={styled ? look.subject.side : palette.ink} /> : null;
@@ -737,7 +759,7 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
         <circle cx={SIZE.width / 2} cy={centreY} r={globeRadius} fill="url(#globe-limb)" />
         <g opacity={outro}>
           {dataFills}
-          {highlights}
+          {highlights}{surfaceFills}
           {annotations}
           {pointTexts}
           {legend}
@@ -779,7 +801,7 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
       </g>
       <g opacity={outro}>
         {dataFills}
-        {highlights}
+        {highlights}{surfaceFills}
       </g>
     </svg>;
     const reliefStrength = primitive.relief ? RELIEF_STRENGTH * reliefFade : look.relief;
@@ -804,7 +826,7 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
     {baseLayers}
     <g opacity={outro}>
     {dataFills}
-    {highlights}
+    {highlights}{surfaceFills}
     {annotations}
     {pointTexts}
     {legend}
@@ -819,7 +841,7 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
   return <div style={{...frameStyle, isolation: 'isolate'}}>
     <svg width={SIZE.width} height={SIZE.height} viewBox={`0 0 ${SIZE.width} ${SIZE.height}`} style={{position: 'absolute', inset: 0}}>
     {baseLayers}
-    <g opacity={outro}>{dataFills}{highlights}</g>
+    <g opacity={outro}>{dataFills}{highlights}{surfaceFills}</g>
     </svg>
     <div style={{position: 'absolute', inset: 0, mixBlendMode: 'soft-light', opacity: RELIEF_STRENGTH * reliefFade}}>
       {reliefPlacements(relief, view).map((placement) => <Img key={placement.key} src={staticFile(`geo/relief/${placement.file}`)} style={{position: 'absolute', left: placement.left, top: placement.top, width: placement.width, height: placement.height, maxWidth: 'none'}} />)}

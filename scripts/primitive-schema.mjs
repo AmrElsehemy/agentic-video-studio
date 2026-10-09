@@ -96,7 +96,12 @@ export const primitiveSchema = z.discriminatedUnion('kind', [
     // Flow from Mercator to Equal Earth over the scene, so sizes stretched by Mercator settle to their true area (a world view).
     morph: z.boolean().optional(),
     // Shade the land by how far it is from the sea (bands at 250, 500, 1000, 1500 and 2000 km), creeping inland from `at`.
-    surface: z.object({kind: z.literal('coast-distance'), at: z.number().min(0).max(1)}).strict().optional(),
+    // Elevation (hypsometric bands) and flooding (the land a sea-level rise of `rise` metres would cover) share it.
+    surface: z.discriminatedUnion('kind', [
+      z.object({kind: z.literal('coast-distance'), at: z.number().min(0).max(1)}).strict(),
+      z.object({kind: z.literal('elevation'), at: z.number().min(0).max(1)}).strict(),
+      z.object({kind: z.literal('flood'), at: z.number().min(0).max(1), rise: z.union([z.literal(1), z.literal(2), z.literal(5), z.literal(10), z.literal(20), z.literal(50)])}).strict(),
+    ]).optional(),
     // Draw the map on a globe (an orthographic projection) that spins between the camera's framings: for openings and closings.
     globe: z.boolean().optional(),
     // Shaded relief (#91) under the map: mountains and valleys from the pinned Natural Earth raster.

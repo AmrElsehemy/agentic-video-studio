@@ -10,7 +10,7 @@ const viewOf = (primitive) => JSON.stringify({
   data: primitive.data?.label ?? null,
   relief: Boolean(primitive.relief),
   morph: Boolean(primitive.morph),
-  surface: primitive.surface?.kind ?? null,
+  surface: primitive.surface ? [primitive.surface.kind, primitive.surface.rise ?? null] : null,
   route: (primitive.annotations ?? []).some((annotation) => annotation.type === 'route'),
   recon: (primitive.annotations ?? []).some((annotation) => annotation.type === 'reconstruction'),
   truesize: (primitive.annotations ?? []).some((annotation) => annotation.type === 'truesize'),

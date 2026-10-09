@@ -1,6 +1,6 @@
 // Render stills of an episode's scenes in each map look, to compare art directions without changing
 // the episode. Usage: npm run looks -- <episode-id> [--looks=classic,neon,atlas,terrain] [--scenes=1,2,4] [--voice=none]
-// --dataview=map|bars|both|bubbles changes every data layer's view; --projection=equal-earth|albers|azimuthal draws every flat map scene in that projection; --globe=1,7 draws those scenes on a globe; --surface=2 shades the land by distance from the sea; --morph=2 flows those scenes from Mercator to Equal Earth; --at=0.1,0.5,0.9 takes several moments of each scene (default 0.72).
+// --dataview=map|bars|both|bubbles changes every data layer's view; --projection=equal-earth|albers|azimuthal draws every flat map scene in that projection; --globe=1,7 draws those scenes on a globe; --surface=2 [--surfacekind=coast-distance|elevation|flood --rise=10] shades the land by distance from the sea; --morph=2 flows those scenes from Mercator to Equal Earth; --at=0.1,0.5,0.9 takes several moments of each scene (default 0.72).
 // Writes out/<show>/<id>/looks/<id>-<look>-scene<N>.png (N counts from 1, taken 72% into the scene).
 import fs from 'node:fs';
 import path from 'node:path';
@@ -45,7 +45,7 @@ try {
     const morphs = option('morph', '').split(',').filter(Boolean).map(Number);
     const withMorph = morphs.length ? {...withGlobes, scenes: withGlobes.scenes.map((scene, index) => (morphs.includes(index + 1) && scene.primitive?.kind === 'geo-map' ? {...scene, primitive: {...scene.primitive, morph: true, projection: undefined, globe: false, relief: false}} : scene))} : withGlobes;
     const surfaces = option('surface', '').split(',').filter(Boolean).map(Number);
-    const withSurface = surfaces.length ? {...withMorph, scenes: withMorph.scenes.map((scene, index) => (surfaces.includes(index + 1) && scene.primitive?.kind === 'geo-map' ? {...scene, primitive: {...scene.primitive, surface: {kind: 'coast-distance', at: 0.1}}} : scene))} : withMorph;
+    const withSurface = surfaces.length ? {...withMorph, scenes: withMorph.scenes.map((scene, index) => (surfaces.includes(index + 1) && scene.primitive?.kind === 'geo-map' ? {...scene, primitive: {...scene.primitive, surface: {kind: option('surfacekind', 'coast-distance'), at: 0.1, ...(option('surfacekind') === 'flood' ? {rise: Number(option('rise', '10'))} : {})}}} : scene))} : withMorph;
     const styled = {...withSurface, look, ...(PALETTES[look] ? {palette: PALETTES[look]} : {})};
     const inputProps = {manifest: styled};
     const composition = await selectComposition({serveUrl, id: 'VerticalEpisode', inputProps, puppeteerInstance: browser});

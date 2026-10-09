@@ -49,6 +49,8 @@
     "geo:verify": "node scripts/geo-data.mjs --verify",
     "coast:prepare": "node scripts/coast-distance.mjs",
     "coast:verify": "node scripts/coast-distance.mjs --verify",
+    "elevation:prepare": "node scripts/elevation.mjs",
+    "elevation:verify": "node scripts/elevation.mjs --verify",
     "geo:relief": "node scripts/geo-relief.mjs",
     "geo:golden": "node scripts/geo-golden.mjs",
     "geo:projection": "node --import tsx scripts/geo-projection.mjs",

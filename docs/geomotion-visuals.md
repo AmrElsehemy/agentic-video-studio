@@ -44,6 +44,15 @@ An episode uses one projection so the camera flows between scenes (the globe ope
 
 The data is worked out from the pinned Natural Earth country outlines, with nothing downloaded (`npm run coast:prepare` writes `public/geo/coast-distance.json`; `npm run coast:verify` checks it was made from the outlines in `public/geo/`). The world is laid on a quarter-degree grid, each cell sea or land, and each land cell takes its great-circle distance to the nearest sea cell, good to under 30 km, which is why the bands start at 250 km. "Sea" is the open ocean and the seas that join it; water that does not (the Caspian, the Aral Sea, large lakes) counts as land, and gulfs and estuaries such as the Gulf of Ob count as sea. The shot draws bands, not figures: say a distance only if the research gives one.
 
+## Elevation and sea-level rise
+
+Two more surfaces, from NOAA's ETOPO 2022 60 arc-second model (public domain, credited in `public/geo/elevation.json`), sampled every 0.05 degrees (about 5.5 km). `npm run elevation:prepare` downloads it from NOAA's OPeNDAP server (a few minutes), refuses a grid whose checksum is not the pinned one, and writes `public/geo/elevation.json` (8 MB, loaded only by shots that use it); `npm run elevation:verify` checks the file without the network.
+
+- `"elevation": true` (manifest `"surface": {"kind": "elevation", "at": 0.15}`) shades the land by height above the sea in bands at 200, 500, 1000, 2000, 3000, 4000 and 5000 m (greens, tans, browns, snow), with a key. For highlands, basins, plateaus and mountain walls; not together with `relief`.
+- `"floodRise": 10` (manifest `"surface": {"kind": "flood", "at": 0.15, "rise": 10}`; the rise is one of 1, 2, 5, 10, 20, 50 m) floods the land a rise of that many metres in the sea would cover, level by level in deepening blues, with a count in the key and the note "LEVEL ALONE · NO DEFENCES · APPROXIMATE". It is a bathtub: height alone decides, and only land that the open sea can reach by a path of cells at or below the new level floods, so the Dead Sea basin, below sea level but walled off, stays dry. The rise is a claim, so the director may only use one the research states (it is checked), and it should not claim a population or a date from the picture. At 5.5 km a grid cell is too coarse for small islands (the Maldives are not there at all), so use it for coasts, deltas and plains: the Nile delta, the Netherlands, Bangladesh.
+
+A surface is drawn above the highlights, clipped to the land. One surface (distance, elevation or flood) per shot, and the director uses at most one per episode.
+
 ## True-size comparisons
 
 `{"type": "truesize", "entity": "admin1:USA-3563", "onto": "country:USA"}` slides a copy of one place across the map onto another to show how big it is. The copy is rotated on the sphere (`scripts/lib/true-size.mjs`), so its area and shape are exactly true, and it is kept north-up. The place's real position stays on the map as a dashed outline, and a chip says "<PLACE> · SAME SIZE, MOVED", so the viewer is told it moved.

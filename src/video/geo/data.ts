@@ -90,3 +90,23 @@ export const useReliefData = (enabled: boolean): ReliefManifest | undefined => {
   }, [handle]);
   return data;
 };
+
+/** Elevation bands and sea-level-rise flood bands (scripts/elevation.mjs), one feature per level in `metres`. */
+export type ElevationData = {elevation: Feature<Geometry>[]; flood: Feature<Geometry>[]};
+let elevationData: ElevationData | undefined;
+let elevationLoading: Promise<ElevationData> | undefined;
+const loadElevation = () => elevationLoading ??= fetchJson<ElevationData>('elevation.json').then((result) => (elevationData = result));
+
+/** The elevation data, loaded only for shots that use it (it is large); holds the render until it has. */
+export const useElevationData = (enabled: boolean): ElevationData | undefined => {
+  const [data, setData] = useState(enabled ? elevationData : undefined);
+  const [handle] = useState(() => (enabled && !elevationData ? delayRender('Loading elevation') : undefined));
+  useEffect(() => {
+    if (!handle) return;
+    loadElevation().then((result) => {
+      setData(result);
+      continueRender(handle);
+    }).catch((error) => cancelRender(error));
+  }, [handle]);
+  return data;
+};
