@@ -41,6 +41,10 @@ const geoAnnotation = z.discriminatedUnion('type', [
   // A line of longitude (meridian) or latitude (parallel): the prime meridian, the equator, a tropic, the date line.
   // It comes from the map's own grid, draws itself from `at` (a meridian from north to south, a parallel from west to
   // east, or the other way with reverse), and its text sits where it crosses the middle of the frame.
+  // A plate reconstruction: the places in `entities` drawn where a published plate-motion model puts them at age `from`
+  // (millions of years ago), drifting to where they are at age `to` (default today) while the place in `fixed` (default
+  // South Africa, so Africa) stays put. The map shows an age counter. Positions come only from the pinned model.
+  z.object({type: z.literal('reconstruction'), entities: z.array(geoEntity).min(1).max(2), fixed: geoEntity.default('country:ZAF'), from: z.number().min(1).max(230), to: z.number().min(0).max(230).default(0), at: moment.default(0), until: moment.optional(), text: label.optional()}).strict(),
   // A timeline strip along the bottom of the map: 2-4 dated steps, the scene's own step lit. Its words come from the research
   // (dates, periods, names); show the same steps in every scene of a sequence so the strip reads as one thing.
   z.object({type: z.literal('timeline'), steps: z.array(z.object({label: z.string().min(1).max(14), detail: z.string().min(1).max(14).optional()}).strict()).min(2).max(4), active: z.number().int().min(0).max(3), at: moment.default(0)}).strict(),
@@ -100,6 +104,7 @@ export const primitiveSchema = z.discriminatedUnion('kind', [
 ]).superRefine((primitive, context) => {
   if (primitive.kind === 'geo-map') {
     primitive.annotations.forEach((annotation, index) => {
+      if (annotation.type === 'reconstruction' && annotation.from <= annotation.to) context.addIssue({code: 'custom', path: ['annotations', index, 'from'], message: `A reconstruction runs forward in time: from (${annotation.from} Ma) must be older than to (${annotation.to} Ma)`});
       if (annotation.type === 'timeline' && annotation.active >= annotation.steps.length) context.addIssue({code: 'custom', path: ['annotations', index, 'active'], message: `active ${annotation.active} is not one of the ${annotation.steps.length} steps`});
       if (annotation.type === 'line' && annotation.kind === 'parallel' && Math.abs(annotation.degrees) > 90) context.addIssue({code: 'custom', path: ['annotations', index, 'degrees'], message: `A parallel runs between -90 and 90 degrees; ${annotation.degrees} is out of range`});
     });

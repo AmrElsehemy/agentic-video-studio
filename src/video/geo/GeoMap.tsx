@@ -14,6 +14,7 @@ import {labelScale, pop} from './motion';
 import {COUNT_FRAMES, countUp, flash, MARCH, marchOffset, ripple} from './effects';
 import {barRows, DataBars, PANEL_FRAMES, panelHeight} from './DataBars';
 import {TIMELINE_HEIGHT, TimelineStrip} from './TimelineStrip';
+import {reconstruction, rotateGeometry} from '../../../scripts/lib/plates.mjs';
 import {adminVisibility, lookOf, maxLakeRank, maxRiverRank, pickByHash, tiltPoint} from './look';
 import {blurSamples, shutterFor, viewShift} from './blur';
 import {followView, followWeight, partialRoute, routeLine, routeProgress, type RouteLine} from './route';
@@ -31,6 +32,16 @@ const SAFE = 48;
 /** Frames an appearing layer takes to fade/draw in. */
 const APPEAR = 12;
 const TRACE_SHARE = .35;
+/** How old the reconstruction is `t` of the way through the scene: `from` easing to `to` between its start and its end. */
+const reconstructionAge = (annotation: Extract<GeoMapPrimitive['annotations'][number], {type: 'reconstruction'}>, t: number) => {
+  const end = annotation.until ?? Math.min(1, annotation.at + .8);
+  const raw = Math.max(0, Math.min(1, (t - annotation.at) / Math.max(.05, end - annotation.at)));
+  const eased = raw < .5 ? 2 * raw * raw : 1 - (-2 * raw + 2) ** 2 / 2;
+  return annotation.from + (annotation.to - annotation.from) * eased;
+};
+/** The age counter's words. */
+const ageText = (age: number) => (Math.round(age) <= 0 ? 'TODAY' : `${Math.round(age)} MILLION YEARS AGO`);
+
 /** Frames a meridian or parallel takes to draw itself across the map. */
 const LINE_FRAMES = 40;
 /** Space an arrow leaves around an anchor without a label (at its start; 60% of it before its target). */
@@ -251,7 +262,7 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
       texts.set(index, {box: fitInside(labelBox(x, y, annotation.text, LABEL_SIZE), bounds), anchorY: screen[1], priority: annotation.at, opacity: appear(annotation.at + LINE_FRAMES / 2 / durationInFrames, 14) * vanish(annotation.until), size: LABEL_SIZE});
       return;
     }
-    if (annotation.type === 'timeline') return;
+    if (annotation.type === 'timeline' || annotation.type === 'reconstruction') return;
     if (annotation.type === 'arrow' || !annotation.text) return;
     if (annotation.type === 'route') {
       if (t < annotation.at) return;
@@ -444,6 +455,27 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
       }
       // A timeline is drawn as the flat strip (see `timeline`), not on the map.
       if (annotation.type === 'timeline') return null;
+      if (annotation.type === 'reconstruction') {
+        if (t < annotation.at || !data.plates) return null;
+        const age = reconstructionAge(annotation, t);
+        const fixedPlate = data.plates.entityPlates[annotation.fixed];
+        const colour = styled ? look.subject.from : accent;
+        const core = styled ? look.subject.rim : palette.ink;
+        return <g key={index}>
+          {annotation.entities.map((id) => {
+            const feature = data.features.get(id);
+            const plate = data.plates.entityPlates[id];
+            const q = feature && plate && fixedPlate ? reconstruction(data.plates.table, plate, fixedPlate, age) : null;
+            if (!feature || !q) return null;
+            const moved = {type: 'Feature' as const, properties: {}, geometry: rotateGeometry(feature.geometry as {type: 'Polygon' | 'MultiPolygon'; coordinates: never}, q)};
+            return <g key={id}>
+              {/* Where it ends up, so the drift has a destination. */}
+              <path d={path(feature) ?? ''} fill="none" stroke={core} strokeOpacity={.55} strokeWidth={3} strokeDasharray="12 9" strokeLinejoin="round" />
+              <path d={path(moved as never) ?? ''} fill={colour} fillOpacity={.88} stroke={core} strokeOpacity={.9} strokeWidth={3} strokeLinejoin="round" style={{filter: glow(14, colour)}} />
+            </g>;
+          })}
+        </g>;
+      }
       const projected = point(anchorLonLat(annotation.anchor, data));
       if (farOffFrame(projected)) return null;
       const [x, y] = keepIn(projected);
@@ -459,6 +491,19 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
     });
   // Label and marker text on top of every route and marker, so none is drawn over.
   const pointTexts = primitive.annotations.map((annotation, index) => {
+    if (annotation.type === 'reconstruction') {
+      // The age counter: a chip along the top of the map, counting down as the landmass drifts home.
+      if (t < annotation.at) return null;
+      const text = ageText(reconstructionAge(annotation, t));
+      const width = text.length * 25 + 60;
+      const [cx, cy] = [SIZE.width / 2, SAFE + 62];
+      const fill = styled && look.chip ? look.chip.fill : palette.background;
+      const ink = styled && look.chip ? look.chip.text : palette.ink;
+      return <React.Fragment key={`age-${index}`}>{out(<g opacity={appear(annotation.at, 10)}>
+        <rect x={cx - width / 2} y={cy - 42} width={width} height={84} rx={42} fill={fill} opacity={.9} />
+        <text x={cx} y={cy + 4} textAnchor="middle" dominantBaseline="middle" style={{fontFamily: displayFont, fontSize: 46, letterSpacing: 3, fontVariantNumeric: 'tabular-nums', fill: ink}}>{text}</text>
+      </g>)}</React.Fragment>;
+    }
     if (annotation.type === 'line') {
       return annotation.text ? <React.Fragment key={`text-${index}`}>{textOf(index, annotation.text, appear(annotation.at + LINE_FRAMES / 2 / durationInFrames, 14) * vanish(annotation.until))}</React.Fragment> : null;
     }

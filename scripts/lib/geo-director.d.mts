@@ -20,6 +20,8 @@ export declare const unframedRivers: (primitive: GeoMapPrimitive, places: Map<st
 export declare const describeShot: (primitive: GeoMapPrimitive, places: Map<string, any>, boxes: Map<string, [number, number, number, number]>) => string;
 export declare const judgeShots: (input: {complete: Complete; draft: any; shots: Map<string, GeoMapPrimitive>; places: Map<string, any>; boxes: Map<string, [number, number, number, number]>}) => Promise<{id: string; problem: string; fix: string}[]>;
 export declare const labelClutter: (primitive: GeoMapPrimitive) => string | null;
+export declare const reconstructionConflicts: (primitive: GeoMapPrimitive) => string[];
+export declare const unframedJourneys: (primitive: GeoMapPrimitive, places: Map<string, any>, boxes: Map<string, [number, number, number, number]>, geo: any) => any[];
 export declare const addNearbyPlaces: (places: Map<string, Place>, subjectId: string, geo: Geo) => Map<string, Place>;
 export declare const resolveResearchPlaces: (research: GeoResearch, geo: Geo) => {subjectId: string; places: Map<string, Place>; review: BordersReview[]; datasets: Map<string, ResolvedDataset>};
 export declare const shotToPrimitive: (shot: unknown, context: {places: Map<string, Place>; research: GeoResearch; datasets?: Map<string, ResolvedDataset>; showId?: string}) => GeoMapPrimitive;

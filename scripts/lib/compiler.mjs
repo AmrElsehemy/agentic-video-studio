@@ -5,7 +5,7 @@ import {diagramActionProblems, diagramProblems, wordMatches} from '../diagram-sc
 import {layoutDiagram, layoutProblems} from './diagram-layout.mjs';
 import {archActionProblems, archProblems} from '../diagram-arch-schema.mjs';
 import {VOICE_MODELS, voiceProblems} from '../episode-fields.mjs';
-import {geoProblems, geoRightsAsset, loadGeoData} from './geo-primitives.mjs';
+import {geoProblems, geoRightsAsset, loadGeoData, plateRightsAsset} from './geo-primitives.mjs';
 import {loadShow} from './shows.mjs';
 import {COMPILE_FILL, END_PADDING, estimatedSpeech} from './speech.mjs';
 
@@ -80,6 +80,16 @@ const episodePalette = (draft, show) => {
 
 /** Palette variants that also set how maps are painted (src/video/geo/look.ts): the variant's name is the look's name. */
 export const LOOK_VARIANTS = ['neon', 'atlas', 'terrain'];
+
+/** Map scenes credit the map data they draw, and a reconstruction credits the plate model behind it. */
+const creditedRights = (rights, geoData, scenes) => {
+  if (!geoData) return rights;
+  const assets = [...rights.assets];
+  if (!assets.some((asset) => asset.kind === 'map-data' && !/plate model/.test(asset.owner))) assets.push(geoRightsAsset(geoData));
+  const reconstructs = scenes.some((scene) => scene.primitive?.kind === 'geo-map' && scene.primitive.annotations.some((annotation) => annotation.type === 'reconstruction'));
+  if (reconstructs && geoData.plates && !assets.some((asset) => /plate model/.test(asset.owner))) assets.push(plateRightsAsset(geoData));
+  return assets.length === rights.assets.length ? rights : {...rights, assets};
+};
 
 export const compileEpisode = (rawDraft, {showId, show = loadShow(showId), geo}) => {
   if (show.id !== showId) throw new Error(`compileEpisode was asked for the ${showId} show but given the ${show.id} profile.`);
@@ -193,9 +203,7 @@ export const compileEpisode = (rawDraft, {showId, show = loadShow(showId), geo})
       },
     },
     // Map scenes credit the map data they draw.
-    rights: geoData && !draft.rights.assets.some((asset) => asset.kind === 'map-data')
-      ? {...draft.rights, assets: [...draft.rights.assets, geoRightsAsset(geoData)]}
-      : draft.rights,
+    rights: creditedRights(draft.rights, geoData, scenes),
     scenes,
     sources: draft.sources,
   };

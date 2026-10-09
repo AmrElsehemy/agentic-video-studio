@@ -2,6 +2,7 @@ import {useEffect, useState} from 'react';
 import {cancelRender, continueRender, delayRender, staticFile} from 'remotion';
 import type {Feature, FeatureCollection, Geometry} from 'geojson';
 import type {ReliefManifest} from './relief';
+import type {PlateTable} from '../../../scripts/lib/plates.mjs';
 
 // The pinned map data (public/geo/, see docs/geomotion-data.md), loaded once per
 // render tab from the bundle's own static files: no network, no tiles.
@@ -15,6 +16,8 @@ export type GeoData = {
   admin1: Feature<Geometry>[];
   lakes: Feature<Geometry>[];
   rivers: Feature<Geometry>[];
+  /** Which plate each country rides on, and the plate-motion model's rotations (scripts/plates.mjs). */
+  plates: {entityPlates: Record<string, number>; table: PlateTable};
 };
 
 let loaded: GeoData | undefined;
@@ -34,7 +37,8 @@ export const loadGeoData = () => loading ??= Promise.all([
   fetchJson<FeatureCollection>('admin1.geojson'),
   fetchJson<FeatureCollection>('lakes.geojson'),
   fetchJson<FeatureCollection>('rivers.geojson'),
-]).then(([entities, countries, water, disputed, admin1, lakes, rivers]) => {
+  fetchJson<GeoData['plates']>('plates.json'),
+]).then(([entities, countries, water, disputed, admin1, lakes, rivers, plates]) => {
   loaded = {
     entities: new Map(entities.map((entity) => [entity.id, entity])),
     features: new Map([...countries.features, ...water.features, ...disputed.features, ...admin1.features, ...lakes.features, ...rivers.features].map((feature) => [String(feature.id), feature])),
@@ -42,6 +46,7 @@ export const loadGeoData = () => loading ??= Promise.all([
     admin1: admin1.features,
     lakes: lakes.features,
     rivers: rivers.features,
+    plates,
   };
   return loaded;
 });

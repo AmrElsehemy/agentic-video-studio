@@ -7,8 +7,8 @@ import {geoResearchSchema} from '../scripts/geo-research-schema.mjs';
 import {primitiveSchema} from '../scripts/primitive-schema.mjs';
 import {planMapSoundEvents} from '../scripts/lib/sound-design.mjs';
 import {barRows, formatBar, panelHeight} from '../src/video/geo/DataBars';
-import {builtinDatasets, describeShot, directGeoVisuals, labelClutter, mentionedPlaces, offFramePlaces, resolveResearchPlaces, shotShows, shotToPrimitive, unframedRivers} from '../scripts/lib/geo-director.mjs';
-import {loadGeoData} from '../scripts/lib/geo-primitives.mjs';
+import {builtinDatasets, describeShot, directGeoVisuals, labelClutter, mentionedPlaces, offFramePlaces, reconstructionConflicts, resolveResearchPlaces, shotShows, shotToPrimitive, unframedJourneys, unframedRivers} from '../scripts/lib/geo-director.mjs';
+import {geoProblems, loadGeoData, plateRightsAsset} from '../scripts/lib/geo-primitives.mjs';
 import {mapDirectionProblems, mapVariety} from '../scripts/lib/map-variety.mjs';
 import {publishBlockers} from '../scripts/lib/publish-checks.mjs';
 
@@ -394,5 +394,59 @@ describe('label clutter', () => {
   });
   it('ignores lines, arrows and text-free markers', () => {
     assert.equal(labelClutter(shot([{type: 'marker', anchor: 'country:MDG', at: 0}, {type: 'marker', anchor: 'country:MDG', at: 0}, {type: 'marker', anchor: 'country:MDG', at: 0}, {type: 'line', kind: 'meridian', degrees: 0, at: 0}])), null);
+  });
+});
+
+describe('plate reconstructions in a shot', () => {
+  const geoWithPlates = loadGeoData(root);
+  const base = {kind: 'geo-map', camera: [{target: {bbox: [28, -30, 62, 8]}, at: 0}], highlights: [], annotations: [], dataset: 'natural-earth'};
+  const recon = {type: 'reconstruction', entities: ['country:MDG'], from: 180, at: 0.1, until: 0.9};
+
+  it('accepts one, filling in the defaults, and refuses one that does not run forward in time', () => {
+    const parsed = primitiveSchema.parse({...base, annotations: [recon]}) as any;
+    assert.deepEqual(parsed.annotations[0], {...recon, fixed: 'country:ZAF', to: 0});
+    assert.equal(primitiveSchema.safeParse({...base, annotations: [{...recon, from: 0, to: 0}]}).success, false);
+    assert.equal(primitiveSchema.safeParse({...base, annotations: [{...recon, from: 10, to: 50}]}).success, false);
+  });
+
+  it('checks that every place rides on a plate the model covers, and that they differ from the fixed one', async () => {
+    const problems = (annotation: object) => geoProblems(primitiveSchema.parse({...base, annotations: [annotation]}) as any, geoWithPlates);
+    assert.deepEqual(problems(recon), []);
+    assert.match(problems({...recon, entities: ['country:CHN']})[0], /not on a plate the reconstruction model covers/);
+    assert.match(problems({...recon, entities: ['country:TZA']})[0], /same plate as country:ZAF/);
+  });
+
+  it('lets the director state the ages, and keeps the places it was given', () => {
+    const lesotho = geoResearchSchema.parse(read('research/geographica/lesotho-enclave.json'));
+    const {places, datasets} = resolveResearchPlaces(lesotho, geo);
+    const withMadagascar = new Map(places).set('country:MDG', geo.entities.get('country:MDG') as any);
+    const primitive = shotToPrimitive({camera: [{target: 'world', at: 0}], annotations: [{...recon, text: '180 MYA'}]}, {places: withMadagascar, research: lesotho, datasets});
+    assert.equal((primitive.annotations[0] as any).from, 180);
+    assert.throws(() => shotToPrimitive({camera: [{target: 'world', at: 0}], annotations: [{...recon, text: '90 MYA', entities: ['country:MDG']}]}, {places: withMadagascar, research: lesotho, datasets}), /states 90/);
+  });
+
+  it('does not let a drifting place also be highlighted, labelled or pointed at', () => {
+    const conflicts = (extra: object) => reconstructionConflicts(primitiveSchema.parse({...base, ...extra, annotations: [recon, ...((extra as any).annotations ?? [])]}) as any);
+    assert.deepEqual(conflicts({}), []);
+    assert.deepEqual(conflicts({highlights: [{entity: 'country:MDG', style: 'fill', at: 0.2}]}), ['country:MDG']);
+    assert.deepEqual(conflicts({annotations: [{type: 'label', anchor: 'country:MDG', text: 'MADAGASCAR', at: 0.3}]}), ['country:MDG']);
+    assert.deepEqual(conflicts({highlights: [{entity: 'country:MOZ', style: 'outline', at: 0.2}]}), []);
+  });
+
+  it('asks the camera to hold the whole journey, from the oldest position to today', () => {
+    const places = new Map<string, any>([['country:MDG', geoWithPlates.entities.get('country:MDG') as any], ['country:ZAF', geoWithPlates.entities.get('country:ZAF') as any]]);
+    const boxes = new Map<string, [number, number, number, number]>();
+    const shot = (bbox: number[]) => primitiveSchema.parse({...base, camera: [{target: {bbox}, at: 0}], annotations: [recon]}) as any;
+    assert.equal(unframedJourneys(shot([44, -26, 51, -12]), places, boxes, geoWithPlates).length, 1, 'tight on today\'s Madagascar misses where it started');
+    assert.equal(unframedJourneys(shot([28, -30, 62, 8]), places, boxes, geoWithPlates).length, 0);
+  });
+
+  it('credits the plate model in the episode, and blocks release without the credit', () => {
+    const manifest = read('videos/geographica/lesotho-enclave/video.json');
+    const reconstructing = {...manifest, scenes: manifest.scenes.map((scene: any, index: number) => (index === 0 ? {...scene, primitive: {...scene.primitive, annotations: [...scene.primitive.annotations.slice(0, 3), {...recon, fixed: 'country:ZAF'}]}} : scene))};
+    assert.ok(publishBlockers({...reconstructing, rights: {...manifest.rights, releaseStatus: 'cleared', publicReleaseApproved: true}}, geo).some((blocker: string) => blocker.startsWith('plate-model:')));
+    const credited = {...reconstructing.rights, releaseStatus: 'cleared', publicReleaseApproved: true, assets: [...reconstructing.rights.assets, plateRightsAsset(geoWithPlates)]};
+    assert.ok(!publishBlockers({...reconstructing, rights: credited}, geo).some((blocker: string) => blocker.startsWith('plate-model:')));
+    assert.match(plateRightsAsset(geoWithPlates).notes, /Müller et al\. \(2016\).*CC BY 4\.0/);
   });
 });

@@ -107,6 +107,7 @@ export const slimCountries = (source) => featureCollection(source.features
       wikidata: feature.properties.WIKIDATAID ?? null,
       label: [feature.properties.LABEL_X, feature.properties.LABEL_Y],
       // Natural Earth's own estimates (about 2019); the registry turns them into comparisons.
+      continent: feature.properties.CONTINENT ?? null,
       population: feature.properties.POP_EST > 0 ? feature.properties.POP_EST : null,
       gdp: feature.properties.GDP_MD > 0 ? feature.properties.GDP_MD : null,
     },
@@ -172,6 +173,7 @@ export const buildEntities = ({countries, water, disputed, extra = []}) => {
       return {
         id: feature.id, kind: 'country', name: feature.properties.name, iso3: feature.properties.iso3, wikidata: feature.properties.wikidata,
         // People (Natural Earth POP_EST), area in km² (computed from the pinned geometry) and GDP in millions of US dollars (GDP_MD).
+        ...(feature.properties.continent ? {continent: feature.properties.continent} : {}),
         ...(feature.properties.population ? {population: feature.properties.population} : {}), areaKm2: Math.round(geoArea(feature.geometry) * EARTH_RADIUS_KM ** 2), ...(feature.properties.gdp ? {gdp: feature.properties.gdp} : {}),
         bbox, ...(crossesAntimeridian(bbox) ? {crossesAntimeridian: true} : {}), ...(frame.join() === bbox.join() ? {} : {frame}), label: feature.properties.label, layer: 'countries',
         ...(areas.length ? {review: areas.map((area) => ({disputed: area.id, name: area.properties.name, note: area.properties.note}))} : {}),

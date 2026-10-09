@@ -12,6 +12,7 @@ import {parseJsonReply} from './fact-verifier.mjs';
 import {geoProblems, loadGeoData} from './geo-primitives.mjs';
 import {resolvePlaces} from './geo-resolver.mjs';
 import {mapDirectionProblems, mapVariety} from './map-variety.mjs';
+import {reconstruction, rotatePoint} from './plates.mjs';
 import {styleGuideSection} from './shows.mjs';
 
 /** Degrees framed around a named point when the camera targets it. */
@@ -226,11 +227,17 @@ export const shotToPrimitive = (shot, {places, research, datasets = new Map()}) 
     const where = `annotations[${index}]`;
     // Arrow text is drawn too, so every annotation's numbers are checked.
     // A line's own degrees are a fact of the line (the 0 of "0° prime meridian"), so its text may state them.
-    const stated = annotation?.type === 'line' && typeof annotation.degrees === 'number' ? new Set([...numbers, Math.abs(annotation.degrees)]) : numbers;
+    const stated = annotation?.type === 'line' && typeof annotation.degrees === 'number' ? new Set([...numbers, Math.abs(annotation.degrees)])
+      : annotation?.type === 'reconstruction' ? new Set([...numbers, annotation.from, annotation.to ?? 0])
+        : numbers;
     for (const number of textNumbers(annotation?.text ?? '')) {
       if (!stated.has(number)) throw new Error(`${where}: "${annotation.text}" states ${number}, which is not in the research`);
     }
     if (annotation?.type === 'line') return annotation;
+    if (annotation?.type === 'reconstruction') {
+      const entities = (Array.isArray(annotation.entities) ? annotation.entities : []).map((id, at) => placeId(id, `${where}.entities[${at}]`));
+      return {...annotation, entities, ...(annotation.fixed ? {fixed: placeId(annotation.fixed, `${where}.fixed`)} : {})};
+    }
     if (annotation?.type === 'timeline') {
       // A timeline's words are claims too: every number in a step must be in the research.
       for (const step of Array.isArray(annotation.steps) ? annotation.steps : []) {
@@ -283,7 +290,7 @@ export const sceneMentions = (scene, places, geo) => mentionedPlaces(`${scene.he
 export const shotShows = (primitive, place, boxes) => {
   const id = place.id;
   if (primitive.highlights.some((highlight) => highlight.entity === id)) return true;
-  if (primitive.annotations.some((annotation) => [annotation.anchor, annotation.from, annotation.to, ...(annotation.path ?? [])].includes(id))) return true;
+  if (primitive.annotations.some((annotation) => [annotation.anchor, annotation.from, annotation.to, ...(annotation.path ?? []), ...(annotation.entities ?? [])].includes(id))) return true;
   if ((primitive.data?.values ?? []).some(({entity}) => entity === id)) return true;
   const centre = centreOf(place.bbox);
   return primitive.camera.some((key) => {
@@ -357,6 +364,7 @@ export const describeShot = (primitive, places, boxes) => {
     else if (annotation.type === 'arrow') parts.push(`arrow: ${typeof annotation.from === 'string' ? nameOf(annotation.from, places) : 'a point'} → ${typeof annotation.to === 'string' ? nameOf(annotation.to, places) : 'a point'}${annotation.text ? ` "${annotation.text}"` : ''}`);
     else if (annotation.type === 'route') parts.push(`route: ${annotation.path.map((stop) => (typeof stop === 'string' ? nameOf(stop, places) : 'a point')).join(' → ')}`);
     else if (annotation.type === 'line') parts.push(`${annotation.kind} line at ${annotation.degrees}°${annotation.text ? ` "${annotation.text}"` : ''}`);
+    else if (annotation.type === 'reconstruction') parts.push(`reconstruction: ${annotation.entities.map((id) => nameOf(id, places)).join(', ')} drifting from ${annotation.from} million years ago to ${annotation.to ? `${annotation.to} million years ago` : 'today'}, with ${nameOf(annotation.fixed, places)} held still, an age counter and a dashed outline of the final position`);
     else if (annotation.type === 'timeline') parts.push(`timeline: ${annotation.steps.map((step, index) => `${index === annotation.active ? '[' : ''}${step.label}${index === annotation.active ? ']' : ''}`).join(' · ')}`);
   }
   if (primitive.data) parts.push(`data: ${primitive.data.label} as ${primitive.data.view ?? 'map'} for ${primitive.data.values.map(({entity}) => nameOf(entity, places)).join(', ')}`);
@@ -391,6 +399,46 @@ Do not flag a scene whose job is only to introduce or name a place, to ask the v
   } catch {
     return [];
   }
+};
+
+/** The box a drifting place sweeps: its outline's box at the oldest age, a third of the way, and today. */
+const journeyBox = (place, annotation, geo) => {
+  const plates = geo.plates;
+  const plate = plates?.entityPlates[place.id];
+  const fixed = plates?.entityPlates[annotation.fixed ?? 'country:ZAF'];
+  if (!plate || !fixed || !place.bbox || place.bbox[0] > place.bbox[2]) return null;
+  const [west, south, east, north] = place.bbox;
+  const corners = [[west, south], [east, south], [east, north], [west, north], [(west + east) / 2, (south + north) / 2]];
+  const points = [...corners];
+  for (const age of [annotation.from, annotation.from * 0.67, annotation.from * 0.33]) {
+    const q = reconstruction(plates.table, plate, fixed, age);
+    if (q) points.push(...corners.map((corner) => rotatePoint(q, corner)));
+  }
+  return [Math.min(...points.map((p) => p[0])), Math.min(...points.map((p) => p[1])), Math.max(...points.map((p) => p[0])), Math.max(...points.map((p) => p[1]))];
+};
+
+/** A drifting place must not also be highlighted, labelled or pointed at in the same scene (its present position is wrong while it moves). */
+export const reconstructionConflicts = (primitive) => {
+  const moving = new Set(primitive.annotations.flatMap((annotation) => (annotation.type === 'reconstruction' ? annotation.entities : [])));
+  if (!moving.size) return [];
+  const used = new Set([
+    ...primitive.highlights.map((highlight) => highlight.entity),
+    ...primitive.annotations.flatMap((annotation) => [annotation.anchor, annotation.from, annotation.to, ...(annotation.path ?? [])]).filter((id) => typeof id === 'string'),
+  ]);
+  return [...moving].filter((id) => used.has(id));
+};
+
+/** The drifting places whose whole journey no camera framing holds (at least RIVER_FRAMED_SHARE of its box, in one framing). */
+export const unframedJourneys = (primitive, places, boxes, geo) => {
+  const frames = primitive.camera.map((key) => (key.target === 'world' ? 'world' : typeof key.target === 'string' ? boxes.get(key.target) : key.target.bbox));
+  if (frames.includes('world') || frames.some((frame) => !frame || frame[0] > frame[2])) return [];
+  return primitive.annotations.flatMap((annotation) => (annotation.type === 'reconstruction' ? annotation.entities.map((id) => ({id, annotation})) : []))
+    .filter(({id, annotation}) => {
+      const place = places.get(id);
+      const box = place && journeyBox(place, annotation, geo);
+      return box && area(box) > 0 && !frames.some((frame) => area(intersection(box, frame)) / area(box) >= RIVER_FRAMED_SHARE);
+    })
+    .map(({id}) => places.get(id));
 };
 
 /** Most labels and markers with text one scene may carry, and most on one place. */
@@ -450,6 +498,7 @@ A shot is JSON:
  "camera": [{"target": T, "at": 0, "padding": 0.15}, ...],   // 1-4 keyframes; at = fraction of the scene, first at 0, then increasing
  "highlights": [{"entity": "<place id>", "style": "fill" | "outline" | "trace", "at": 0.3}],   // up to 4
  "annotations": [{"type": "label" | "marker", "anchor": A, "text": "SHORT CAPS", "at": 0.5, "until": 0.9},
+                 {"type": "reconstruction", "entities": ["country:MDG"], "fixed": "country:ZAF", "from": 180, "to": 0, "at": 0.1, "until": 0.9},
                  {"type": "timeline", "steps": [{"label": "180 MYA", "detail": "AFRICA"}, ...], "active": 0, "at": 0.3},
                  {"type": "line", "kind": "meridian" | "parallel", "degrees": 0, "text": "0° PRIME MERIDIAN", "at": 0.2},   // until is optional: when it fades out
                  {"type": "arrow", "from": A, "to": A, "at": 0.7},
@@ -472,6 +521,7 @@ Rules:
 - "globe": true draws the map on a globe that spins between the camera framings: a dramatic opening or closing. Use it on the first scene (a planet turning to the place) and, if it suits, the last; never in between, because the map changes from globe to flat map with a cut.
 - "relief": true adds shaded relief (mountains and valleys) under the map. Use it when the narration is about terrain or altitude: mountains, highlands, plateaus, valleys.
 - "data" shows one of the datasets listed below. Use it when the narration compares places by a number (heights, sizes, populations, how crowded or empty a place is). Name the dataset only; its values come from the research or the map data. "view": "map" shades the places with a legend; "bars" shows a ranked bar chart of them beside the map (the clearest way to compare sizes or populations: use it at least once in an episode that compares places); "both" does both. Frame the places the dataset covers.
+- A "reconstruction" shows how a landmass moved: the places in "entities" (one or two) are drawn where a published plate-motion model puts them "from" millions of years ago and drift to where they are "to" (default 0, today), while the place in "fixed" (default country:ZAF, Africa) stays still; an age counter runs on the map and a dashed outline marks where each ends up. Use it whenever the narration says a place split, broke away, drifted, collided or opened: Madagascar leaving Africa, India crossing the ocean, the Atlantic opening. The ages must come from the research (numbers in the text). It works for countries on these plates: Africa, Madagascar, India, Antarctica, Australia, South America, North America (US, Canada), Greenland, Arabia, Europe. Frame the whole journey (where it starts and where it ends) and do not also highlight, label or point at a place that is drifting: its present position is wrong while it moves. A scene can have one reconstruction.
 - A "timeline" shows a strip of 2-4 dated steps along the bottom, with the scene's own step lit ("active", counting from 0). Use it when the story moves through time: a split, a purchase, a construction, a reform. Labels are at most 14 characters and come from the research (every number must be in a claim). Give every scene of the sequence the SAME steps, so the strip reads as one timeline, and light the step the scene is on.
 - A "line" draws a line of longitude ("meridian") or latitude ("parallel") from the map's grid: use it whenever the story is about one, such as the prime meridian (meridian, 0), the equator (parallel, 0), the tropics (parallel, 23.4 or -23.4), the date line (meridian, 180) or any parallel or meridian the narration names. It draws itself across the map (a meridian from north to south, a parallel from west to east; "reverse": true flips that) and its text sits where it crosses the middle of the frame. Draw the line FIRST, then light up the places it crosses in the order the narration names them. A story about a line must show the line.
 - A route (2-6 stops) draws a journey, trade road, migration or voyage along the shortest path across the globe, with a marker moving along it from "at" to "until". Use it only when the narration describes movement. Frame the whole route in the camera, or set "follow": true to have the camera ride along with the marker (then "until" must be at most 0.85).
@@ -515,6 +565,7 @@ export const directGeoVisuals = async ({draft, research: rawResearch, complete, 
   const unshown = (id, primitive) => (mentions.get(id) ?? []).filter((place) => !shotShows(primitive, place, boxes));
   const cutOff = (primitive) => offFramePlaces(primitive, places, boxes);
   const unframed = (primitive) => unframedRivers(primitive, places, boxes);
+  const journeys = (primitive) => unframedJourneys(primitive, places, boxes, geo);
   let shots = new Map();
   let whys = new Map();
   let fallbacks = [];
@@ -568,7 +619,8 @@ export const directGeoVisuals = async ({draft, research: rawResearch, complete, 
         const clutter = draft.scenes.filter((scene) => shots.has(scene.id)).map((scene) => ({id: scene.id, problem: labelClutter(shots.get(scene.id))})).filter((item) => item.problem);
         const stubs = draft.scenes.filter((scene) => shots.has(scene.id)).map((scene) => ({id: scene.id, places: unframed(shots.get(scene.id))})).filter((item) => item.places.length);
         // The rule checks first; once the shots are clean by the rules, a reviewer asks whether they show what is claimed.
-        const rulesClean = !missing.length && !variety.length && !unseen.length && !outside.length && !stubs.length && !clutter.length;
+        const drifting = draft.scenes.filter((scene) => shots.has(scene.id)).map((scene) => ({id: scene.id, conflicts: reconstructionConflicts(shots.get(scene.id)).map((id) => nameOf(id, places)), unframed: journeys(shots.get(scene.id)).map((place) => place.name)})).filter((item) => item.conflicts.length || item.unframed.length);
+        const rulesClean = !missing.length && !variety.length && !unseen.length && !outside.length && !stubs.length && !clutter.length && !drifting.length;
         weak = rulesClean || round === 0 ? await judgeShots({complete, draft, shots, places, boxes}) : weak;
         if (rulesClean && !weak.length) break;
         const notes = [
@@ -576,6 +628,10 @@ export const directGeoVisuals = async ({draft, research: rawResearch, complete, 
           ...missing.filter((id) => !fallbacks.some((item) => item.id === id)).map((id) => `- Scene "${id}" had no shot.`),
           ...unseen.map(({id, places: names}) => `- Scene "${id}" names ${names.map((place) => `${place.name} (${place.id})`).join(', ')} but its shot doesn't show ${names.length > 1 ? 'them' : 'it'}: highlight, label, anchor or frame ${names.length > 1 ? 'each' : 'it'}.`),
           ...outside.map(({id, places: names}) => `- Scene "${id}" highlights or labels ${names.map((place) => `${place.name} (${place.id})`).join(', ')} but its camera never frames ${names.length > 1 ? 'them' : 'it'}, so ${names.length > 1 ? 'they are' : 'it is'} cut off. Frame ${names.length > 1 ? 'them' : 'it'} too: target {"around": [<ids>]} with the subject, or drop the ${names.length > 1 ? 'highlights and labels' : 'highlight or label'}.`),
+          ...drifting.flatMap(({id, conflicts, unframed: lost}) => [
+            ...(conflicts.length ? [`- Scene "${id}" highlights, labels or points at ${conflicts.join(', ')} while a reconstruction moves it; remove those, the reconstruction already draws it.`] : []),
+            ...(lost.length ? [`- Scene "${id}" reconstructs ${lost.join(', ')} but its camera never frames the whole journey from the oldest position to today; use a framing (target {"around": [...]} or a box) that holds both.`] : []),
+          ]),
           ...clutter.map(({id, problem}) => `- Scene "${id}": ${problem}`),
           ...weak.map(({id, problem, fix}) => `- Scene "${id}" is weak as a picture: ${problem}${fix ? ` ${fix}` : ''}`),
           ...stubs.map(({id, places: rivers}) => `- Scene "${id}" traces ${rivers.map((place) => `${place.name} (${place.id})`).join(', ')} but its camera never frames most of ${rivers.length > 1 ? 'their courses' : 'its course'}, so the river shows as a stub. Give a camera keyframe a target of the river's own id (or {"around": [...]} several) so its whole length is in view, then move on to the part the narration is about.`),

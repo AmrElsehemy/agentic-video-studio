@@ -34,7 +34,7 @@ A place, a border or a route that surprises, told with an animated map in 30 to 
 - Fast camera moves are allowed; they're motion-blurred, but don't chain more than two in a row.
 
 ## Never
-- Draw a border by hand or move a place; everything comes from the pinned map data.
+- Draw a border by hand or move a place; everything comes from the pinned map data. The one exception is a plate reconstruction (`reconstruction` in a shot): a place may be drawn where the pinned plate-motion model (Müller et al. 2016, CC BY 4.0) puts it at an age, drifting to where it is today, with an age counter on screen and the model credited. Nothing else may be moved.
 - Highlight a disputed area on its own, or take a side on it.
 - State a number that isn't in the research.
 - Use real-time or political news as a hook.
