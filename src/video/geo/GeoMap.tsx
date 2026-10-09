@@ -1,5 +1,5 @@
 import React, {useMemo} from 'react';
-import {geoCentroid, geoDistance, geoGraticule, geoMercator, geoOrthographic, geoPath, type GeoProjection} from 'd3-geo';
+import {geoCentroid, geoDistance, geoGraticule, geoOrthographic, geoPath, type GeoProjection} from 'd3-geo';
 import {evolvePath} from '@remotion/paths';
 import {Img, interpolate, staticFile} from 'remotion';
 import {paletteMode} from '../../../scripts/lib/palette.mjs';
@@ -15,6 +15,7 @@ import {COUNT_FRAMES, countUp, flash, MARCH, marchOffset, ripple} from './effect
 import {barRows, DataBars, PANEL_FRAMES, panelHeight} from './DataBars';
 import {TIMELINE_HEIGHT, TimelineStrip} from './TimelineStrip';
 import {reconstruction, rotateGeometry} from '../../../scripts/lib/plates.mjs';
+import {hasSphereOutline, makeProjection, type ProjectionKind} from './projections';
 import {adminVisibility, lookOf, maxLakeRank, maxRiverRank, pickByHash, tiltPoint} from './look';
 import {blurSamples, shutterFor, viewShift} from './blur';
 import {followView, followWeight, partialRoute, routeLine, routeProgress, type RouteLine} from './route';
@@ -183,7 +184,9 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
   const {data: primitive, scene, manifest, frame, durationInFrames, accent, seams} = props;
   const {data, keys, routes, viewAt} = useCameraPath(props);
   const look = lookOf(manifest.look);
-  const wantsRelief = Boolean(primitive.relief) || look.relief > 0;
+  // Relief imagery is stored in Web Mercator, so it only fits a flat Mercator map.
+  const mercatorFlat = !primitive.globe && (primitive.projection ?? 'mercator') === 'mercator';
+  const wantsRelief = mercatorFlat && (Boolean(primitive.relief) || look.relief > 0);
   const relief = useReliefData(wantsRelief);
   if (!data || !keys || (wantsRelief && !relief)) return null;
 
@@ -203,11 +206,14 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
   // A globe (orthographic) draws the same layers on a sphere that spins to the camera's centre; its radius follows
   // the camera's zoom but never less than a whole planet filling the frame.
   const globe = Boolean(primitive.globe);
+  const flatKind: ProjectionKind = primitive.projection ?? 'mercator';
   const globeRadius = Math.max(view.scale, GLOBE_RADIUS);
   const projection: GeoProjection = globe
     ? geoOrthographic().rotate([-view.lon, -view.lat]).scale(globeRadius).translate([SIZE.width / 2, SIZE.height / 2 - barsShift]).clipAngle(90)
-    : geoMercator().rotate([-view.lon, 0]).center([0, view.lat]).scale(view.scale).translate([SIZE.width / 2, SIZE.height / 2 - barsShift]);
+    : makeProjection(flatKind, view, SIZE, barsShift);
   const path = geoPath(projection);
+  // Equal Earth and azimuthal maps are drawn as a shape of their own (an egg, a disc) on a darker ground.
+  const sphereOutline = !globe && hasSphereOutline(flatKind) ? path({type: 'Sphere'}) ?? '' : '';
   const appear = (at: number, frames = APPEAR) => interpolate(frame, [at * durationInFrames, at * durationInFrames + frames], [0, 1], clamp);
   /** Spring progress (motion.ts) of an entrance at `at`: 0 before, a small overshoot, then 1. */
   const springIn = (at: number) => pop(frame, at * durationInFrames, manifest.format.fps);
@@ -549,7 +555,9 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
     </defs>
     {/* Water is the background; land is every country, drawn from the pinned data. */}
     <rect width={SIZE.width} height={SIZE.height} fill={palette.background} />
-    <rect width={SIZE.width} height={SIZE.height} fill={palette.secondary} opacity=".12" />
+    {sphereOutline ? <rect width={SIZE.width} height={SIZE.height} fill="#000" opacity=".5" /> : null}
+    {sphereOutline ? <path d={sphereOutline} fill={palette.background} /> : null}
+    {sphereOutline ? <path d={sphereOutline} fill={palette.secondary} opacity=".12" /> : <rect width={SIZE.width} height={SIZE.height} fill={palette.secondary} opacity=".12" />}
     <g>
       {data.countries.filter((feature) => onScreen(data.entities.get(String(feature.id))?.bbox)).map((feature) => <path key={String(feature.id)} d={path(feature) ?? ''} fill={palette.surface} stroke={palette.ink} strokeOpacity=".28" strokeWidth={1.2} />)}
     </g>
@@ -615,7 +623,8 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
         <linearGradient id="geo-shimmer" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stopColor="#fff" stopOpacity="0" /><stop offset=".5" stopColor="#fff" stopOpacity="1" /><stop offset="1" stopColor="#fff" stopOpacity="0" /></linearGradient>
         <filter id="geo-land-shadow" x="-5%" y="-5%" width="110%" height="115%"><feDropShadow dx="0" dy={look.shadow.dy} stdDeviation={look.shadow.blur / 2} floodColor={look.shadow.color} floodOpacity={look.shadow.opacity} /></filter>
       </defs>
-      <rect width={SIZE.width} height={SIZE.height} fill="url(#geo-sea)" />
+      {sphereOutline ? <rect width={SIZE.width} height={SIZE.height} fill={look.sea.edge} /> : null}
+      {sphereOutline ? <path d={sphereOutline} fill="url(#geo-sea)" /> : <rect width={SIZE.width} height={SIZE.height} fill="url(#geo-sea)" />}
       {look.shimmer > 0 ? <rect x={shimmerX} y={-SIZE.height * 0.2} width={SIZE.width * 0.6} height={SIZE.height * 1.5} fill="url(#geo-shimmer)" opacity={look.shimmer} transform={`rotate(-18 ${shimmerX} 0)`} /> : null}
       {gratPath ? <path d={gratPath} fill="none" stroke={look.grid.color} strokeOpacity={look.grid.opacity} strokeWidth={1.4} /> : null}
       <g filter="url(#geo-land-shadow)">

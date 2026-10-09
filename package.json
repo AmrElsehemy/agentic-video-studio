@@ -49,6 +49,7 @@
     "geo:verify": "node scripts/geo-data.mjs --verify",
     "geo:relief": "node scripts/geo-relief.mjs",
     "geo:golden": "node scripts/geo-golden.mjs",
+    "geo:projection": "node --import tsx scripts/geo-projection.mjs",
     "plates:prepare": "node scripts/plates.mjs",
     "plates:verify": "node scripts/plates.mjs --verify",
     "geo:direct": "node --import tsx scripts/geo-direct.mjs",

@@ -83,6 +83,8 @@ export const primitiveSchema = z.discriminatedUnion('kind', [
     // A map scene that follows another continues its camera (one unbroken flight);
     // cut: true starts this scene's camera fresh instead.
     cut: z.boolean().optional(),
+    // How the map is projected (src/video/geo/projections.ts); Mercator when absent.
+    projection: z.enum(['mercator', 'equal-earth', 'albers', 'azimuthal']).optional(),
     // Draw the map on a globe (an orthographic projection) that spins between the camera's framings: for openings and closings.
     globe: z.boolean().optional(),
     // Shaded relief (#91) under the map: mountains and valleys from the pinned Natural Earth raster.

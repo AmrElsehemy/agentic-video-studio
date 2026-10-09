@@ -43,6 +43,8 @@ export const episodeDraftSchema = z.preprocess(upgradeLegacySubject, z.object({
   format: z.enum(['vertical', 'landscape']).optional(),
   // A palette named in the show profile's paletteVariants, e.g. "light" (#92).
   paletteVariant: z.string().regex(/^[a-z0-9-]+$/).optional(),
+  // How a map episode is projected: "auto" (the default) picks one from where the subject sits (src/video/geo/projections.ts).
+  projection: z.enum(['auto', 'mercator', 'equal-earth', 'albers', 'azimuthal']).optional(),
   // The episode this one retells with a different palette, so the two can be compared (#92).
   twinOf: idSchema.optional(),
   musicVolume: z.number().min(0).max(1).optional(),

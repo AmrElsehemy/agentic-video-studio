@@ -19,6 +19,21 @@ What a styled look adds: a tilted perspective stage with a vignette; a gradient 
 
 `npm run looks -- <episode> [--looks=...] [--scenes=1,3] [--globe=1,7]` renders stills of an episode in each look so they can be compared. The tokens are in `src/video/geo/look.ts`.
 
+## Projections
+
+A shot's `projection` (`src/video/geo/projections.ts`) chooses how the sphere is flattened. The camera still thinks in Mercator views, and `makeProjection` turns the same view into any of these, so every framing carries over.
+
+| Projection | Use it for |
+|---|---|
+| `mercator` (default) | Low latitudes (within 30° of the equator), lines of longitude and routes that should look straight. Inflates the high latitudes |
+| `albers` | Mid and high latitudes (30° to 75°): a conic equal-area map where the USA, Canada, Russia and Kazakhstan keep their true size and shape, and the 49th parallel curves as it does in an atlas |
+| `azimuthal` | Polar views and views around a place, distances true from the centre (a base for distance rings) |
+| `equal-earth` | Whole-world views where areas must be true. At regional zoom the edge of the world shows, so the director never picks it automatically |
+
+An episode uses one projection so the camera flows between scenes (the globe opening and closing keep theirs). The director chooses it from where the subject sits (`chooseProjection`): Mercator up to 30° from the equator, Albers up to 75°, azimuthal beyond. A draft can say `"projection": "mercator" | "albers" | "azimuthal" | "equal-earth" | "auto"` to override. `npm run geo:projection -- <id>... [--write]` applies the rule to a draft that is already directed, without asking the model again; compile afterwards. Shaded relief is Mercator-only (its images are stored in Web Mercator), so conic and azimuthal maps are drawn without it.
+
+`npm run looks -- <episode> --projection=albers` previews any episode in a projection.
+
 ## Map layers
 
 Natural Earth (public domain, pinned in `public/geo/manifest.json`) provides, besides the countries and seas:

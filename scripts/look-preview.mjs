@@ -1,6 +1,6 @@
 // Render stills of an episode's scenes in each map look, to compare art directions without changing
 // the episode. Usage: npm run looks -- <episode-id> [--looks=classic,neon,atlas,terrain] [--scenes=1,2,4] [--voice=none]
-// --globe=1,7 draws those scenes on a globe; --at=0.1,0.5,0.9 takes several moments of each scene (default 0.72).
+// --projection=equal-earth|albers|azimuthal draws every flat map scene in that projection; --globe=1,7 draws those scenes on a globe; --at=0.1,0.5,0.9 takes several moments of each scene (default 0.72).
 // Writes out/<show>/<id>/looks/<id>-<look>-scene<N>.png (N counts from 1, taken 72% into the scene).
 import fs from 'node:fs';
 import path from 'node:path';
@@ -37,7 +37,9 @@ const browser = await openBrowser('chrome', {browserExecutable: process.env.REMO
 try {
   for (const look of looks) {
     const globes = option('globe', '').split(',').filter(Boolean).map(Number);
-    const withGlobes = globes.length ? {...manifest, scenes: manifest.scenes.map((scene, index) => (globes.includes(index + 1) && scene.primitive?.kind === 'geo-map' ? {...scene, primitive: {...scene.primitive, globe: true}} : scene))} : manifest;
+    const projection = option('projection');
+    const withProjection = projection ? {...manifest, scenes: manifest.scenes.map((scene) => (scene.primitive?.kind === 'geo-map' && !scene.primitive.globe ? {...scene, primitive: {...scene.primitive, projection}} : scene))} : manifest;
+    const withGlobes = globes.length ? {...withProjection, scenes: withProjection.scenes.map((scene, index) => (globes.includes(index + 1) && scene.primitive?.kind === 'geo-map' ? {...scene, primitive: {...scene.primitive, globe: true}} : scene))} : withProjection;
     const styled = {...withGlobes, look, ...(PALETTES[look] ? {palette: PALETTES[look]} : {})};
     const inputProps = {manifest: styled};
     const composition = await selectComposition({serveUrl, id: 'VerticalEpisode', inputProps, puppeteerInstance: browser});

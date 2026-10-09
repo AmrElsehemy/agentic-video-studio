@@ -489,6 +489,16 @@ export const unframedRivers = (primitive, places, boxes) => {
     .filter((place) => place?.kind === 'river' && place.bbox && area(place.bbox) > 0 && !frames.some((frame) => area(intersection(place.bbox, frame)) / area(place.bbox) >= RIVER_FRAMED_SHARE));
 };
 
+/**
+ * The projection an episode's maps use, from where its subject sits: Mercator within 30 degrees of the
+ * equator (it is fine there), a conic equal-area map from 30 to 75 degrees (the USA, Canada, Russia keep
+ * their true size and shape), azimuthal beyond. One per episode, so the camera flows between scenes.
+ */
+export const chooseProjection = (place) => {
+  const lat = Math.abs(place?.label?.[1] ?? (place?.bbox ? (place.bbox[1] + place.bbox[3]) / 2 : 0));
+  return lat <= 30 ? 'mercator' : lat <= 75 ? 'albers' : 'azimuthal';
+};
+
 /** The shot a scene gets when the model gives none, or an invalid one: the subject, filled and named. */
 export const defaultShot = (subject) => primitiveSchema.parse({
   kind: 'geo-map',
@@ -680,6 +690,12 @@ export const directGeoVisuals = async ({draft, research: rawResearch, complete, 
   order.forEach((id, index) => {
     if (index > 0 && Boolean(shots.get(id).globe) !== Boolean(shots.get(order[index - 1]).globe) && !shots.get(id).cut) shots.set(id, {...shots.get(id), cut: true});
   });
+  // One projection for the whole episode (the globe bookends keep theirs); Mercator is left unset, as before.
+  const projection = draft.projection && draft.projection !== 'auto' ? draft.projection : chooseProjection(subject);
+  for (const [id, shot] of shots) {
+    const {projection: _old, ...rest} = shot;
+    shots.set(id, shot.globe || projection === 'mercator' ? rest : {...rest, projection});
+  }
   const directed = {
     ...draft,
     subject: {...draft.subject, attributes: {...draft.subject.attributes, geoEntity: subjectId}},
