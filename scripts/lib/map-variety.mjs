@@ -9,6 +9,8 @@ const viewOf = (primitive) => JSON.stringify({
   highlights: (primitive.highlights ?? []).map(({entity, style}) => [entity, style]),
   data: primitive.data?.label ?? null,
   relief: Boolean(primitive.relief),
+  morph: Boolean(primitive.morph),
+  surface: primitive.surface?.kind ?? null,
   route: (primitive.annotations ?? []).some((annotation) => annotation.type === 'route'),
   recon: (primitive.annotations ?? []).some((annotation) => annotation.type === 'reconstruction'),
   truesize: (primitive.annotations ?? []).some((annotation) => annotation.type === 'truesize'),

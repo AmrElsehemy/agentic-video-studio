@@ -38,6 +38,12 @@ An episode uses one projection so the camera flows between scenes (the globe ope
 
 `"morph": true` on a shot makes the map flow from Mercator to Equal Earth during the scene (`makeMorphProjection`: every point is the blend of where the two put it). It holds still for the first fifth of the scene, flows, and settles for the last fifth, so places that Mercator inflates (Greenland, Russia, Canada, Antarctica) shrink to their true size on screen. A chip says what the map is doing: "MERCATOR · SIZES STRETCHED", then "EQUAL EARTH · SIZES TRUE". It is for a wide camera and a scene that says a place is bigger or smaller than it looks; the director keeps at most one per episode, never with a globe, relief or a true-size comparison, and the map cuts in and out of it when the episode uses another projection. `npm run looks -- <episode> --morph=2 --at=0.15,0.5,0.9` previews it.
 
+## Distance from the sea
+
+`"coastDistance": true` on a shot (in the manifest, `"surface": {"kind": "coast-distance", "at": 0.15}`) shades the land by how far it is from the sea: bands at 250, 500, 1000, 1500 and 2000 km that creep inland from the coast one after another, in a lilac-to-indigo ramp that no look's land or sea shares, with a key ("KM FROM THE SEA"). It suits landlocked countries, "farthest from any ocean", steppes and heartlands; the director uses it at most once an episode and never on a globe.
+
+The data is worked out from the pinned Natural Earth country outlines, with nothing downloaded (`npm run coast:prepare` writes `public/geo/coast-distance.json`; `npm run coast:verify` checks it was made from the outlines in `public/geo/`). The world is laid on a quarter-degree grid, each cell sea or land, and each land cell takes its great-circle distance to the nearest sea cell, good to under 30 km, which is why the bands start at 250 km. "Sea" is the open ocean and the seas that join it; water that does not (the Caspian, the Aral Sea, large lakes) counts as land, and gulfs and estuaries such as the Gulf of Ob count as sea. The shot draws bands, not figures: say a distance only if the research gives one.
+
 ## True-size comparisons
 
 `{"type": "truesize", "entity": "admin1:USA-3563", "onto": "country:USA"}` slides a copy of one place across the map onto another to show how big it is. The copy is rotated on the sphere (`scripts/lib/true-size.mjs`), so its area and shape are exactly true, and it is kept north-up. The place's real position stays on the map as a dashed outline, and a chip says "<PLACE> · SAME SIZE, MOVED", so the viewer is told it moved.

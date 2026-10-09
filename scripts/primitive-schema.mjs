@@ -95,6 +95,8 @@ export const primitiveSchema = z.discriminatedUnion('kind', [
     projection: z.enum(['mercator', 'equal-earth', 'albers', 'azimuthal']).optional(),
     // Flow from Mercator to Equal Earth over the scene, so sizes stretched by Mercator settle to their true area (a world view).
     morph: z.boolean().optional(),
+    // Shade the land by how far it is from the sea (bands at 250, 500, 1000, 1500 and 2000 km), creeping inland from `at`.
+    surface: z.object({kind: z.literal('coast-distance'), at: z.number().min(0).max(1)}).strict().optional(),
     // Draw the map on a globe (an orthographic projection) that spins between the camera's framings: for openings and closings.
     globe: z.boolean().optional(),
     // Shaded relief (#91) under the map: mountains and valleys from the pinned Natural Earth raster.

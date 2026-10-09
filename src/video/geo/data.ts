@@ -20,6 +20,8 @@ export type GeoData = {
   borders: Feature<Geometry>[];
   /** Which plate each country rides on, and the plate-motion model's rotations (scripts/plates.mjs). */
   plates: {entityPlates: Record<string, number>; table: PlateTable};
+  /** The land at least 250, 500, 1000, 1500 and 2000 km from the sea (scripts/coast-distance.mjs), one feature per level in `km`. */
+  coastBands: Feature<Geometry>[];
 };
 
 let loaded: GeoData | undefined;
@@ -41,7 +43,8 @@ export const loadGeoData = () => loading ??= Promise.all([
   fetchJson<FeatureCollection>('rivers.geojson'),
   fetchJson<FeatureCollection>('borders.geojson'),
   fetchJson<GeoData['plates']>('plates.json'),
-]).then(([entities, countries, water, disputed, admin1, lakes, rivers, borders, plates]) => {
+  fetchJson<{bands: Feature<Geometry>[]}>('coast-distance.json'),
+]).then(([entities, countries, water, disputed, admin1, lakes, rivers, borders, plates, coast]) => {
   loaded = {
     entities: new Map(entities.map((entity) => [entity.id, entity])),
     features: new Map([...countries.features, ...water.features, ...disputed.features, ...admin1.features, ...lakes.features, ...rivers.features, ...borders.features].map((feature) => [String(feature.id), feature])),
@@ -51,6 +54,7 @@ export const loadGeoData = () => loading ??= Promise.all([
     rivers: rivers.features,
     borders: borders.features,
     plates,
+    coastBands: coast.bands,
   };
   return loaded;
 });

@@ -47,6 +47,8 @@
     "check:render": "node scripts/render-check.mjs",
     "geo:prepare": "node scripts/geo-data.mjs",
     "geo:verify": "node scripts/geo-data.mjs --verify",
+    "coast:prepare": "node scripts/coast-distance.mjs",
+    "coast:verify": "node scripts/coast-distance.mjs --verify",
     "geo:relief": "node scripts/geo-relief.mjs",
     "geo:golden": "node scripts/geo-golden.mjs",
     "geo:projection": "node --import tsx scripts/geo-projection.mjs",
@@ -80,6 +82,7 @@
     "@types/node": "24.3.1",
     "@types/react": "19.1.12",
     "@types/react-dom": "19.1.9",
+    "d3-contour": "^4.0.2",
     "tsx": "4.20.5",
     "typescript": "5.9.2"
   },

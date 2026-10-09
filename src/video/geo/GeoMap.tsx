@@ -33,6 +33,8 @@ const SIZE: Size = MAP_SIZE;
 const GLOBE_RADIUS = 440;
 /** Labels stay this far inside the edges so they never collide with the headline or caption. */
 const SAFE = 48;
+/** Distance from the sea, nearest to farthest: pale lilac to deep indigo, apart from the warm land and the blue sea of every look. */
+const COAST_RAMP = ['#eadcff', '#c6a6f7', '#9a6fe0', '#6a45b8', '#3a2380'];
 /** Frames an appearing layer takes to fade/draw in. */
 const APPEAR = 12;
 const TRACE_SHARE = .35;
@@ -609,7 +611,7 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
   // under the highlights; the legend sits with the labels.
   const dataShown = primitive.data ? appear(primitive.data.at) : 0;
   const dataRange = primitive.data ? valueRange(primitive.data.values.map(({value}) => value)) : undefined;
-  const dataFills = primitive.data && dataRange && primitive.data.view !== 'bubbles' ? primitive.data.values.map(({entity, value}) => {
+  const valueFills = primitive.data && dataRange && primitive.data.view !== 'bubbles' ? primitive.data.values.map(({entity, value}) => {
     const feature = data.features.get(entity);
     if (!feature) throw new Error(`Unknown geo entity ${entity}`);
     // In a bars view the compared places are tinted to match their bars: the subject lit, the rest muted.
@@ -619,6 +621,30 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
     }
     return <path key={`data-${entity}`} d={path(feature) ?? ''} fill={accent} fillOpacity={dataShown * shade(value, dataRange)} />;
   }) : null;
+  // Distance from the sea: the land, band by band, creeping inland from the coast; clipped to the land so a lake or inland sea stays clear.
+  const surface = primitive.surface;
+  const coastGrow = (index: number) => (surface ? appear(surface.at + index * .06, 18) : 0);
+  const coastBands = surface ? [...data.coastBands].sort((a, b) => (a.properties as {km: number}).km - (b.properties as {km: number}).km) : [];
+  const coastFills = surface ? <g>
+    <clipPath id="coast-land">{data.countries.filter((feature) => onScreen(data.entities.get(String(feature.id))?.bbox)).map((feature) => <path key={String(feature.id)} d={path(feature) ?? ''} />)}</clipPath>
+    <g clipPath="url(#coast-land)">
+      {coastBands.map((band, index) => <path key={`coast-${index}`} d={path(band) ?? ''} fill={COAST_RAMP[Math.min(index, COAST_RAMP.length - 1)]} fillOpacity={coastGrow(index) * .88} />)}
+    </g>
+  </g> : null;
+  const dataFills = <>{valueFills}{coastFills}</>;
+  const coastLegend = surface ? out(<g opacity={outro * appear(surface.at, 12)}>{(() => {
+    const ink = styled && look.chip ? look.chip.text : palette.ink;
+    const labels = coastBands.map((band) => (band.properties as {km: number}).km);
+    const [x, y, cell] = [SAFE, SIZE.height - SAFE - 150, 96];
+    return <>
+      <rect x={x - 18} y={y - 14} width={cell * labels.length + 36} height={140} rx={28} fill={styled && look.chip ? look.chip.fill : palette.background} opacity={.9} />
+      <text x={x} y={y + 22} style={{fontFamily: displayFont, fontSize: 32, letterSpacing: 3, fill: ink}}>KM FROM THE SEA</text>
+      {labels.map((km, index) => <g key={km}>
+        <rect x={x + index * cell} y={y + 42} width={cell - 6} height={24} rx={6} fill={COAST_RAMP[Math.min(index, COAST_RAMP.length - 1)]} opacity={.88} />
+        <text x={x + index * cell + (cell - 6) / 2} y={y + 102} textAnchor="middle" style={{fontFamily: displayFont, fontSize: 30, fill: ink}}>{km >= 1000 ? `${km / 1000}K` : km}</text>
+      </g>)}
+    </>;
+  })()}</g>) : null;
   const legend = primitive.data?.legend && dataRange && primitive.data.view !== 'bars' && primitive.data.view !== 'bubbles'
     ? <DataLegend label={primitive.data.label} unit={primitive.data.unit} range={dataRange} accent={accent} ink={palette.ink} backdrop={palette.background} opacity={dataShown} />
     : null;
@@ -653,7 +679,7 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
       <text x={SIZE.width / 2} y={SAFE + 64} textAnchor="middle" dominantBaseline="middle" style={{fontFamily: displayFont, fontSize: 40, letterSpacing: 3, fill: styled && look.chip ? look.chip.text : palette.ink}}>{text}</text>
     </>;
   })()}</g>) : null;
-  const bubbleLayer = <>{bubblesOnly}{morphChip}</>;
+  const bubbleLayer = <>{bubblesOnly}{morphChip}{coastLegend}</>;
 
   const timeline = timelineOn && timelineAnnotation ? <TimelineStrip steps={timelineAnnotation.steps} active={timelineAnnotation.active} frame={frame} startFrame={timelineStart} fps={manifest.format.fps} width={SIZE.width} height={SIZE.height}
     accent={styled ? look.subject.from : accent} ink={styled && look.chip ? look.chip.text : palette.ink} backdrop={styled && look.chip ? look.chip.fill : palette.background} muted={styled ? look.subject.side : palette.ink} /> : null;
