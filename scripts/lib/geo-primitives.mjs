@@ -20,6 +20,8 @@ export const loadGeoData = (root = repoRoot) => {
     manifest: read('manifest.json'),
     // Which plate each country rides on and the pinned plate-motion table (npm run plates:prepare); absent before it is built.
     plates: fs.existsSync(path.join(root, 'public', 'geo', 'plates.json')) ? read('plates.json') : undefined,
+    // The cities with street maps (npm run streets:prepare); absent before it is run.
+    streets: fs.existsSync(path.join(root, 'public', 'geo', 'streets', 'index.json')) ? JSON.parse(fs.readFileSync(path.join(root, 'public', 'geo', 'streets', 'index.json'), 'utf8')) : undefined,
   };
 };
 
@@ -48,7 +50,31 @@ const suggest = (id, entities) => {
 };
 
 /** Problems with a geo-map's places, as actionable messages (empty when it's fine). */
-export const geoProblems = (primitive, geo) => [...geoReferenceProblems(primitive, geo), ...reconstructionProblems(primitive, geo), ...trueSizeProblems(primitive, geo)];
+export const geoProblems = (primitive, geo) => [...geoReferenceProblems(primitive, geo), ...reconstructionProblems(primitive, geo), ...trueSizeProblems(primitive, geo), ...streetsProblems(primitive, geo)];
+
+/** A street map needs the city's data, and a camera that stays inside it (outside it the map would be blank). */
+export const streetsProblems = (primitive, {streets}) => {
+  if (!primitive.streets) return [];
+  const city = streets?.cities?.[primitive.streets.city];
+  if (!city) return [`streets: there is no street data for "${primitive.streets.city}". Run: npm run streets:prepare ${primitive.streets.city}`];
+  const [south, west, north, east] = city.box ?? boxAround(city);
+  return primitive.camera.flatMap((key, index) => {
+    const bbox = key.target?.bbox;
+    if (!bbox) return [`camera[${index}].target: a street map needs a bbox camera inside the city's data`];
+    return bbox[0] < west || bbox[2] > east || bbox[1] < south || bbox[3] > north ? [`camera[${index}].target: the view leaves ${city.name}'s street data, so part of the map would be blank`] : [];
+  });
+};
+const boxAround = ({center: [lon, lat], radiusKm}) => [lat - (radiusKm * 1.45) / 111.32, lon - radiusKm / (111.32 * Math.cos((lat * Math.PI) / 180)), lat + (radiusKm * 1.45) / 111.32, lon + radiusKm / (111.32 * Math.cos((lat * Math.PI) / 180))];
+
+/** The rights entry crediting OpenStreetMap, for a street map. */
+export const osmRightsAsset = ({streets}) => ({
+  kind: 'map-data',
+  sourceUrl: streets.licenseUrl,
+  owner: 'OpenStreetMap contributors',
+  licenseStatus: 'licensed',
+  publicReleaseApproved: true,
+  notes: streets.attribution,
+});
 const geoReferenceProblems = (primitive, {entities, disputed}) => geoReferences(primitive)
   .filter(([, id]) => !(id.startsWith('disputed:') ? disputed.has(id) : entities.has(id)))
   .map(([where, id]) => {

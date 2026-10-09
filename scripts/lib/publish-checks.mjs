@@ -31,6 +31,10 @@ export const publishBlockers = (manifest, geo) => {
     if (maps.some((scene) => scene.primitive.annotations.some((annotation) => annotation.type === 'reconstruction')) && !rights.assets.some((asset) => asset.kind === 'map-data' && /plate model/.test(asset.owner) && asset.notes)) {
       blockers.push('plate-model: A reconstruction needs a rights entry crediting the plate-motion model (kind map-data, owner naming the plate model, with its attribution line).');
     }
+    // A street map is OpenStreetMap data: the licence requires the credit, in the rights (which feed the description).
+    if (maps.some((scene) => scene.primitive.streets) && !rights.assets.some((asset) => asset.kind === 'map-data' && /OpenStreetMap/.test(asset.owner) && asset.notes)) {
+      blockers.push('osm-credit: A street map needs a rights entry crediting OpenStreetMap contributors (kind map-data, owner OpenStreetMap contributors, with its attribution line).');
+    }
     // A map that never changes is not worth publishing: it should have been directed.
     for (const problem of mapVariety(manifest).problems) blockers.push(`map-variety: ${problem}`);
     // Places with disputed borders or names need a person's recorded decision on how they're shown.

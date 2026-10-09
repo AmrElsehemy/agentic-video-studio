@@ -110,3 +110,27 @@ export const useElevationData = (enabled: boolean): ElevationData | undefined =>
   }, [handle]);
   return data;
 };
+
+/** A city's street map (scripts/streets.mjs, © OpenStreetMap contributors): roads by class (major first), rails, water, coast, buildings, all as lon/lat lines and rings. */
+export type StreetsData = {id: string; name: string; center: [number, number]; radiusKm: number; box: [number, number, number, number]; roads: [number, number][][][]; rails: [number, number][][]; water: [number, number][][]; rivers: [number, number][][]; coast: [number, number][][]; buildings: [number, number][][]};
+const streetCache = new Map<string, StreetsData>();
+const streetLoading = new Map<string, Promise<StreetsData>>();
+const loadStreets = (city: string) => {
+  let loading = streetLoading.get(city);
+  if (!loading) streetLoading.set(city, loading = fetchJson<StreetsData>(`streets/${city}.json`).then((result) => {streetCache.set(city, result); return result;}));
+  return loading;
+};
+
+/** A city's street map, loaded only for shots that use it; holds the render until it has. */
+export const useStreetsData = (city: string | undefined): StreetsData | undefined => {
+  const [data, setData] = useState(city ? streetCache.get(city) : undefined);
+  const [handle] = useState(() => (city && !streetCache.has(city) ? delayRender(`Loading streets of ${city}`) : undefined));
+  useEffect(() => {
+    if (!handle || !city) return;
+    loadStreets(city).then((result) => {
+      setData(result);
+      continueRender(handle);
+    }).catch((error) => cancelRender(error));
+  }, [handle, city]);
+  return data;
+};

@@ -96,6 +96,8 @@ export const primitiveSchema = z.discriminatedUnion('kind', [
     // Flow from Mercator to Equal Earth over the scene, so sizes stretched by Mercator settle to their true area (a world view).
     morph: z.boolean().optional(),
     // Shade the land by how far it is from the sea (bands at 250, 500, 1000, 1500 and 2000 km), creeping inland from `at`.
+    // A street map of a city (OpenStreetMap, credited on screen): the camera must frame the city, whose id is in public/geo/streets/.
+    streets: z.object({city: z.string().regex(/^[a-z0-9-]+$/), at: z.number().min(0).max(1)}).strict().optional(),
     // Elevation (hypsometric bands) and flooding (the land a sea-level rise of `rise` metres would cover) share it.
     surface: z.discriminatedUnion('kind', [
       z.object({kind: z.literal('coast-distance'), at: z.number().min(0).max(1)}).strict(),

@@ -26,7 +26,7 @@ export type GeoAnnotation =
   | {type: 'reconstruction'; entities: GeoEntityId[]; fixed: GeoEntityId; from: number; to: number; at: number; until?: number; text?: string}
   | {type: 'timeline'; steps: {label: string; detail?: string}[]; active: number; at: number}
   | {type: 'line'; kind: 'meridian' | 'parallel'; degrees: number; text?: string; at: number; until?: number; reverse: boolean};
-export type GeoMapPrimitive = {kind: 'geo-map'; camera: GeoCameraKey[]; highlights: GeoHighlight[]; annotations: GeoAnnotation[]; dataset: 'natural-earth'; cut?: boolean; projection?: 'mercator' | 'equal-earth' | 'albers' | 'azimuthal'; morph?: boolean; surface?: {kind: 'coast-distance'; at: number} | {kind: 'elevation'; at: number} | {kind: 'flood'; at: number; rise: 1 | 2 | 5 | 10 | 20 | 50}; globe?: boolean; relief?: boolean; data?: GeoData};
+export type GeoMapPrimitive = {kind: 'geo-map'; camera: GeoCameraKey[]; highlights: GeoHighlight[]; annotations: GeoAnnotation[]; dataset: 'natural-earth'; cut?: boolean; projection?: 'mercator' | 'equal-earth' | 'albers' | 'azimuthal'; morph?: boolean; streets?: {city: string; at: number}; surface?: {kind: 'coast-distance'; at: number} | {kind: 'elevation'; at: number} | {kind: 'flood'; at: number; rise: 1 | 2 | 5 | 10 | 20 | 50}; globe?: boolean; relief?: boolean; data?: GeoData};
 export type GeoData = {label: string; unit?: string; values: {entity: GeoEntityId; value: number}[]; at: number; legend: boolean; view: 'map' | 'bars' | 'both' | 'bubbles'};
 /** When a diagram action happens (#120): a fraction of the scene, a spoken word, a chain, or the scene's end. */
 export type DiagramAnchor = number | {word: string; nth: number} | {after: string; delay: number} | 'scene-end';

@@ -7,7 +7,7 @@ import {routeUntil, type GeoAnchor, type GeoMapPrimitive} from '../../../scripts
 import type {ShotProps} from '../shots';
 import {displayFont} from '../typography';
 import {cameraAt, cameraKeys, continuesMap, episodeCameraKeys, MAP_SIZE, type BBox, type CameraKey, type Size, type View} from './camera';
-import {useElevationData, useGeoData, useReliefData, type GeoData} from './data';
+import {useElevationData, useGeoData, useReliefData, useStreetsData, type GeoData} from './data';
 import {RELIEF_STRENGTH, reliefPlacements} from './relief';
 import {fitInside, labelBox, resolveLabels, type Box, type Placed} from './labels';
 import {labelScale, pop} from './motion';
@@ -209,7 +209,8 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
   const relief = useReliefData(wantsRelief);
   const wantsElevation = primitive.surface?.kind === 'elevation' || primitive.surface?.kind === 'flood';
   const elevation = useElevationData(wantsElevation);
-  if (!data || !keys || (wantsRelief && !relief) || (wantsElevation && !elevation)) return null;
+  const streetMap = useStreetsData(primitive.streets?.city);
+  if (!data || !keys || (wantsRelief && !relief) || (wantsElevation && !elevation) || (primitive.streets && !streetMap)) return null;
 
   const t = durationInFrames > 1 ? frame / (durationInFrames - 1) : 0;
   const view = viewAt(t);
@@ -648,6 +649,34 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
       {surfaceBands.map((band, index) => <path key={`surface-${index}`} d={path(band.feature) ?? ''} fill={band.color} fillOpacity={surfaceGrow(index) * .88} />)}
     </g>
   </g> : null;
+  // A street map: the city drawn to scale over a plain ground (the 1:10m country outlines are too coarse to sit under a street plan).
+  const streetLayer = primitive.streets && streetMap ? (() => {
+    const dark = paletteMode(palette) === 'dark';
+    const ink = dark ? {paper: '#0e1a2b', water: '#12304f', building: '#1c2c44', casing: '#06101c', road: '#7fb8ff', rail: '#8fa3bd', coast: '#2c6aa6'}
+      : {paper: '#f1eadb', water: '#a9d3ee', building: '#ddd1b8', casing: '#c4b697', road: '#fffdf7', rail: '#8b8577', coast: '#6aa6cf'};
+    const project = (points: [number, number][]) => points.flatMap((lonLat) => { const p = projection(lonLat); return p ? [p] : []; });
+    const open = (rings: [number, number][][]) => rings.map((points) => { const q = project(points); return q.length > 1 ? `M${q.map(([x, y]) => `${x.toFixed(1)} ${y.toFixed(1)}`).join('L')}` : ''; }).join('');
+    const shut = (rings: [number, number][][]) => rings.map((points) => { const q = project(points); return q.length > 2 ? `M${q.map(([x, y]) => `${x.toFixed(1)} ${y.toFixed(1)}`).join('L')}Z` : ''; }).join('');
+    // Road widths are true to scale (metres), never thinner than a hairline.
+    const pxPerMetre = view.scale / (6371000 * Math.max(.2, Math.cos((view.lat * Math.PI) / 180)));
+    const metres = [20, 16, 13, 10, 8, 6, 3];
+    const shown = appear(primitive.streets.at, 16);
+    const grow = (index: number) => interpolate(frame, [(primitive.streets!.at + .02 + index * .035) * durationInFrames, (primitive.streets!.at + .02 + index * .035) * durationInFrames + 14], [0, 1], clamp);
+    return <g opacity={outro * shown}>
+      <rect x={-SIZE.width} y={-SIZE.height} width={SIZE.width * 3} height={SIZE.height * 3} fill={ink.paper} />
+      <path d={shut(streetMap.water)} fill={ink.water} />
+      <path d={open(streetMap.rivers)} fill="none" stroke={ink.water} strokeWidth={Math.max(2, 30 * pxPerMetre)} strokeLinecap="round" />
+      <path d={open(streetMap.coast)} fill="none" stroke={ink.coast} strokeWidth={2.5} />
+      <path d={shut(streetMap.buildings)} fill={ink.building} opacity={grow(5)} />
+      <path d={open(streetMap.rails)} fill="none" stroke={ink.rail} strokeWidth={Math.max(1.2, 4 * pxPerMetre)} strokeDasharray="10 8" opacity={grow(3)} />
+      {[...streetMap.roads].map((_, index) => streetMap.roads.length - 1 - index).map((index) => <path key={`casing-${index}`} d={open(streetMap.roads[index])} fill="none" stroke={ink.casing} strokeLinecap="round" strokeLinejoin="round" strokeWidth={Math.max(1.6, metres[index] * pxPerMetre + 2.4)} opacity={grow(index) * .9} />)}
+      {[...streetMap.roads].map((_, index) => streetMap.roads.length - 1 - index).map((index) => <path key={`road-${index}`} d={open(streetMap.roads[index])} fill="none" stroke={ink.road} strokeLinecap="round" strokeLinejoin="round" strokeWidth={Math.max(.9, metres[index] * pxPerMetre)} opacity={grow(index)} />)}
+    </g>;
+  })() : null;
+  const streetCredit = primitive.streets ? out(<g opacity={outro * appear(primitive.streets.at, 12)}>
+    <rect x={SIZE.width - SAFE - 470} y={SIZE.height - SAFE - 56} width={470} height={56} rx={28} fill={styled && look.chip ? look.chip.fill : palette.background} opacity={.88} />
+    <text x={SIZE.width - SAFE - 235} y={SIZE.height - SAFE - 26} textAnchor="middle" dominantBaseline="middle" style={{fontFamily: displayFont, fontSize: 26, letterSpacing: 2, fill: styled && look.chip ? look.chip.text : palette.ink}}>© OPENSTREETMAP CONTRIBUTORS</text>
+  </g>) : null;
   const dataFills = <>{valueFills}</>;
   const surfaceLegend = surface ? out(<g opacity={outro * appear(surface.at, 12)}>{(() => {
     const ink = styled && look.chip ? look.chip.text : palette.ink;
@@ -701,7 +730,7 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
       <text x={SIZE.width / 2} y={SAFE + 64} textAnchor="middle" dominantBaseline="middle" style={{fontFamily: displayFont, fontSize: 40, letterSpacing: 3, fill: styled && look.chip ? look.chip.text : palette.ink}}>{text}</text>
     </>;
   })()}</g>) : null;
-  const bubbleLayer = <>{bubblesOnly}{morphChip}{surfaceLegend}</>;
+  const bubbleLayer = <>{bubblesOnly}{morphChip}{surfaceLegend}{streetCredit}</>;
 
   const timeline = timelineOn && timelineAnnotation ? <TimelineStrip steps={timelineAnnotation.steps} active={timelineAnnotation.active} frame={frame} startFrame={timelineStart} fps={manifest.format.fps} width={SIZE.width} height={SIZE.height}
     accent={styled ? look.subject.from : accent} ink={styled && look.chip ? look.chip.text : palette.ink} backdrop={styled && look.chip ? look.chip.fill : palette.background} muted={styled ? look.subject.side : palette.ink} /> : null;
@@ -759,7 +788,7 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
         <circle cx={SIZE.width / 2} cy={centreY} r={globeRadius} fill="url(#globe-limb)" />
         <g opacity={outro}>
           {dataFills}
-          {highlights}{surfaceFills}
+          {highlights}{surfaceFills}{streetLayer}
           {annotations}
           {pointTexts}
           {legend}
@@ -801,7 +830,7 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
       </g>
       <g opacity={outro}>
         {dataFills}
-        {highlights}{surfaceFills}
+        {highlights}{surfaceFills}{streetLayer}
       </g>
     </svg>;
     const reliefStrength = primitive.relief ? RELIEF_STRENGTH * reliefFade : look.relief;
@@ -826,7 +855,7 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
     {baseLayers}
     <g opacity={outro}>
     {dataFills}
-    {highlights}{surfaceFills}
+    {highlights}{surfaceFills}{streetLayer}
     {annotations}
     {pointTexts}
     {legend}
@@ -841,7 +870,7 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
   return <div style={{...frameStyle, isolation: 'isolate'}}>
     <svg width={SIZE.width} height={SIZE.height} viewBox={`0 0 ${SIZE.width} ${SIZE.height}`} style={{position: 'absolute', inset: 0}}>
     {baseLayers}
-    <g opacity={outro}>{dataFills}{highlights}{surfaceFills}</g>
+    <g opacity={outro}>{dataFills}{highlights}{surfaceFills}{streetLayer}</g>
     </svg>
     <div style={{position: 'absolute', inset: 0, mixBlendMode: 'soft-light', opacity: RELIEF_STRENGTH * reliefFade}}>
       {reliefPlacements(relief, view).map((placement) => <Img key={placement.key} src={staticFile(`geo/relief/${placement.file}`)} style={{position: 'absolute', left: placement.left, top: placement.top, width: placement.width, height: placement.height, maxWidth: 'none'}} />)}

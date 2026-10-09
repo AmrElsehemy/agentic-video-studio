@@ -192,7 +192,7 @@ const aroundBox = (ids, places) => {
  * Turn the model's shot (ids, {place}, {around}) into a geo-map primitive, or
  * throw with the reason. Checks places, approximate points and numbers.
  */
-export const shotToPrimitive = (shot, {places, research, datasets = new Map()}) => {
+export const shotToPrimitive = (shot, {places, research, datasets = new Map(), streets = {}}) => {
   if (!shot || typeof shot !== 'object') throw new Error('no shot');
   const allowed = [...places.keys()];
   const placeId = (id, where) => {
@@ -295,9 +295,24 @@ export const shotToPrimitive = (shot, {places, research, datasets = new Map()}) 
   const surface = shot.floodRise !== undefined ? {kind: 'flood', at: 0.15, rise: shot.floodRise}
     : shot.elevation === true ? {kind: 'elevation', at: 0.15}
       : shot.coastDistance === true ? {kind: 'coast-distance', at: 0.15} : undefined;
-  const parsed = primitiveSchema.safeParse({kind: 'geo-map', camera, highlights, annotations, ...(comparing ? {projection: 'albers'} : {}), ...(shot.cut === true ? {cut: true} : {}), ...(shot.globe === true ? {globe: true} : {}), ...(shot.relief === true ? {relief: true} : {}), ...(shot.morph === true ? {morph: true} : {}), ...(surface ? {surface} : {}), ...(data ? {data} : {})});
+  // A street map: the city's own framing replaces the camera, a slow push in from the whole of it to its middle.
+  let streetShot;
+  if (shot.streets !== undefined) {
+    const city = streets[shot.streets];
+    if (!city) throw new Error(`streets: "${shot.streets}" isn't a city with street data (${Object.keys(streets).join(', ') || 'none'})`);
+    if (shot.globe || shot.morph || shot.relief || surface || data) throw new Error('streets: a street map cannot also be a globe, a morph, relief, a surface or a data layer');
+    streetShot = {city: shot.streets, at: 0.05, camera: streetCamera(city.box)};
+  }
+  const parsed = primitiveSchema.safeParse({kind: 'geo-map', camera: streetShot ? streetShot.camera : camera, highlights, annotations, ...(comparing ? {projection: 'albers'} : {}), ...(shot.cut === true ? {cut: true} : {}), ...(shot.globe === true ? {globe: true} : {}), ...(shot.relief === true ? {relief: true} : {}), ...(shot.morph === true ? {morph: true} : {}), ...(surface ? {surface} : {}), ...(streetShot ? {streets: {city: streetShot.city, at: streetShot.at}} : {}), ...(data ? {data} : {})});
   if (!parsed.success) throw new Error(parsed.error.issues.map((issue) => `${issue.path.join('.') || 'shot'}: ${issue.message}`).join('; '));
   return parsed.data;
+};
+
+/** A street map's camera: from nearly the whole of the city's data to about two thirds of it, so the view never runs off the data. */
+export const streetCamera = ([south, west, north, east]) => {
+  const [lon, lat, halfW, halfH] = [(west + east) / 2, (south + north) / 2, (east - west) / 2, (north - south) / 2];
+  const at = (factor) => [lon - halfW * factor, lat - halfH * factor, lon + halfW * factor, lat + halfH * factor].map((value) => Math.round(value * 1e5) / 1e5);
+  return [{target: {bbox: at(.97)}, at: 0, padding: 0, ease: 'linear'}, {target: {bbox: at(.64)}, at: 1, padding: 0, ease: 'in-out'}];
 };
 
 /** The order a scene's mentioned places are taken when it names more than the shot can show. */
@@ -558,7 +573,7 @@ export const defaultShot = (subject) => primitiveSchema.parse({
   annotations: [{type: subject.kind === 'city' ? 'marker' : 'label', anchor: subject.id, text: subject.name.toUpperCase().slice(0, 28), at: .4}],
 });
 
-export const buildGeoDirectorPrompt = ({draft, research, places, datasets, mentions = new Map(), showId = draft.show?.id ?? 'geographica'}) => ({
+export const buildGeoDirectorPrompt = ({draft, research, places, datasets, mentions = new Map(), showId = draft.show?.id ?? 'geographica', streetCities = {}}) => ({
   system: `You are the map director of ${draft.show?.name ?? 'a geography series'}, vertical short videos told with animated maps. Give EVERY scene one map shot that shows what its narration says.
 
 A shot is JSON:
@@ -594,6 +609,7 @@ Rules:
 - Places also include rivers, lakes, states and cities near the episode's subject. A river highlight always draws its course (use "trace"); a lake or state can be filled or outlined like a country; a city is a point: use it for a label, marker, arrow or camera, never a highlight. Prefer a real river, lake, state or city over a vague label when the narration names it or it makes the map clearer.
 - "globe": true draws the map on a globe that spins between the camera framings: a dramatic opening or closing. Use it on the first scene (a planet turning to the place) and, if it suits, the last; never in between, because the map changes from globe to flat map with a cut.
 - "coastDistance": true shades the land by how far it is from the sea, in bands (250, 500, 1000, 1500, 2000 km) that creep inland from the coast, with a key. Use it at most once an episode, on the scene about how far inland a place is: landlocked countries, "farthest from any ocean", deserts and steppes, a heartland. Frame the region wide enough to show its coasts. It says nothing about numbers, so state a distance only if the research gives one.
+- "streets": "<city id>" shows a street map of that city (roads to scale, buildings, water, rails), credited to OpenStreetMap on screen. The system frames the city itself (a slow push in), so give no camera for it. Cities with street data: ${Object.entries(streetCities).map(([id, city]) => `${id} (${city.name})`).join(', ') || 'none'}. Use it at most once an episode, on the scene that is about the city itself: its layout, where a place sits inside it, a street or a river through it. It cannot also be a globe, a morph, relief, a surface or a data layer. Labels, markers and arrows still work on it.
 - "elevation": true shades the land by height above the sea in bands (200 to 5,000 m, greens to snow) with a key. Use it at most once an episode, on the scene about highlands, basins, a plateau, a mountain wall or "how low" a country lies, and frame the region wide enough to read the bands. Do not also set "relief".
 - "floodRise": 10 (one of 1, 2, 5, 10, 20, 50) shows the land that a rise of that many metres in the sea would flood, growing in level by level, with a note that it ignores defences and is approximate. Use it at most once an episode, only when the narration talks about the sea rising or a place being low-lying, and ONLY with a rise the research states (it is checked). It shows land that the open sea can reach by height alone; do not claim a population or a date from it.
 - "morph": true makes the map flow from Mercator to the Equal Earth projection during the scene, so places Mercator inflates (Greenland, Russia, Canada, Antarctica) shrink to their true size on screen. Use it at most once an episode, only on a scene that says a place is bigger or smaller than it looks on the map, and give that scene a wide camera (most of the world). The map says what it is doing. Do not combine it with a globe or a true-size comparison.
@@ -640,6 +656,7 @@ export const directGeoVisuals = async ({draft, research: rawResearch, complete, 
   const subject = places.get(subjectId);
   // Research datasets win over a built-in one with the same key.
   const datasets = new Map([...builtinDatasets(places), ...resolvedResearch.datasets]);
+  const streetCities = geo.streets?.cities ?? {};
   const mentions = new Map(draft.scenes.map((scene) => [scene.id, sceneMentions(scene, places, geo)]));
   const boxes = new Map([...places].map(([id, place]) => [id, boxOf(place)]));
   /** Mentioned places a scene's shot doesn't show, as the repair feedback words them. */
@@ -664,7 +681,7 @@ export const directGeoVisuals = async ({draft, research: rawResearch, complete, 
       if (!draft.scenes.some((scene) => scene.id === id)) { reasons.push({id, reason: 'no such scene'}); continue; }
       if (valid.has(id)) continue;
       try {
-        const primitive = shotToPrimitive(item, {places, research, datasets});
+        const primitive = shotToPrimitive(item, {places, research, datasets, streets: streetCities});
         const problems = [...geoProblems(primitive, geo), ...shotProblems(primitive)];
         if (problems.length) throw new Error(problems.join('; '));
         valid.set(id, {primitive, why: typeof item.why === 'string' ? item.why : ''});
@@ -683,7 +700,7 @@ export const directGeoVisuals = async ({draft, research: rawResearch, complete, 
 
   if (complete) {
     try {
-      const prompt = buildGeoDirectorPrompt({draft, research, places, datasets, mentions, showId});
+      const prompt = buildGeoDirectorPrompt({draft, research, places, datasets, mentions, showId, streetCities});
       const first = await complete(prompt);
       const firstRead = read(first);
       adopt(firstRead.valid);
@@ -766,9 +783,8 @@ export const directGeoVisuals = async ({draft, research: rawResearch, complete, 
     const {projection: _old, ...rest} = shot;
     if (rest.morph && (morphSeen || rest.globe || rest.relief || rest.annotations.some((annotation) => annotation.type === 'truesize'))) delete rest.morph;
     if (rest.morph) morphSeen = true;
-    const wantsSurface = rest.coastDistance || rest.elevation || rest.floodRise !== undefined;
-    if (wantsSurface && (surfaceSeen || rest.globe)) {delete rest.coastDistance; delete rest.elevation; delete rest.floodRise;}
-    else if (wantsSurface) surfaceSeen = true;
+    if (rest.surface && (surfaceSeen || rest.globe)) delete rest.surface;
+    else if (rest.surface) surfaceSeen = true;
     shots.set(id, shot.globe || rest.morph || projection === 'mercator' ? rest : {...rest, projection});
   }
   if (projection !== 'mercator') order.forEach((id, index) => {

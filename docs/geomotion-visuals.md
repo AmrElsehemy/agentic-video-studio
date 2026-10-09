@@ -53,6 +53,12 @@ Two more surfaces, from NOAA's ETOPO 2022 60 arc-second model (public domain, cr
 
 A surface is drawn above the highlights, clipped to the land. One surface (distance, elevation or flood) per shot, and the director uses at most one per episode.
 
+## Street maps
+
+`"streets": "vatican-city"` on a shot draws a street plan of a city: roads to scale (a motorway is drawn about 20 m wide, an alley 3 m, never thinner than a hairline), buildings, water, coast, rails and rivers, on a plain ground in the look's light or dark colours, with "© OPENSTREETMAP CONTRIBUTORS" on screen. Roads grow in major first, then buildings. The 1:10m country outlines are too coarse to sit under a street plan, so the map is replaced, not overlaid. The system frames the city itself (`streetCamera`: a push in from nearly all of the data to two thirds of it, so the view never runs off the data; `geoProblems` rejects a camera that does). A street shot cannot also be a globe, a morph, relief, a surface or a data layer; labels, markers and arrows work as on any map. The director uses at most one per episode, on the scene about the city itself.
+
+The data is OpenStreetMap (© OpenStreetMap contributors, ODbL), fetched once from Overpass and kept in `public/geo/streets/<city>.json` with `index.json` (checksums). Cities are listed in `scripts/lib/streets-cities.json` (id, name, centre, radius in km; the box is TALL, 1.45, times as high as wide for portrait video); `npm run streets:prepare [city...]` fetches them (retrying the Overpass mirrors, which are often busy) and `npm run streets:verify` checks the files without the network. A radius over 2 km takes the main roads only, and one over 4 km no buildings, so a file stays about 1 to 3 MB. Using OpenStreetMap needs the credit in the episode's rights (the compiler adds it), and `publishBlockers` blocks release without it (`osm-credit`). `npm run looks -- <episode> --streets=2:vatican-city` previews a city in scene 2.
+
 ## True-size comparisons
 
 `{"type": "truesize", "entity": "admin1:USA-3563", "onto": "country:USA"}` slides a copy of one place across the map onto another to show how big it is. The copy is rotated on the sphere (`scripts/lib/true-size.mjs`), so its area and shape are exactly true, and it is kept north-up. The place's real position stays on the map as a dashed outline, and a chip says "<PLACE> · SAME SIZE, MOVED", so the viewer is told it moved.
