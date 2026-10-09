@@ -101,3 +101,32 @@ describe('timeline strip', () => {
     assert.equal(markerStep(0, 0), 0);
   });
 });
+
+import {bubbleRadius, MAX_RADIUS, MIN_RADIUS} from '../src/video/geo/Bubbles';
+
+describe('bubbles', () => {
+  it('give the biggest value the biggest circle', () => {
+    assert.equal(bubbleRadius(100, 100), MAX_RADIUS);
+  });
+
+  it('scale by area, so four times the value is twice as wide', () => {
+    const [big, small] = [bubbleRadius(100, 100), bubbleRadius(25, 100)];
+    assert.ok(Math.abs(big / small - 2) < 1e-9);
+    assert.ok(Math.abs(bubbleRadius(9, 100) / big - 0.3) < 1e-9);
+  });
+
+  it('keep a tiny or empty value visible as a dot, and never divide by nothing', () => {
+    assert.equal(bubbleRadius(0.0001, 100), MIN_RADIUS);
+    assert.equal(bubbleRadius(0, 100), MIN_RADIUS);
+    assert.equal(bubbleRadius(5, 0), MIN_RADIUS);
+  });
+
+  it('grow steadily with the value', () => {
+    let last = 0;
+    for (const value of [1, 5, 20, 60, 100]) {
+      const radius = bubbleRadius(value, 100);
+      assert.ok(radius >= last, `${value}`);
+      last = radius;
+    }
+  });
+});

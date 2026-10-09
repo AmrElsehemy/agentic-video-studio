@@ -65,7 +65,7 @@ The director is offered, besides the research's own places, the rivers, lakes, s
 
 For two or more countries among an episode's places the director gets built-in datasets from the pinned data: **population** (Natural Earth's estimate), **area** (computed from the outlines) and **density**. Values are rounded to two or three significant figures and the chart says "Natural Earth, approximate". A research dataset with the same key replaces a built-in one.
 
-A shot's `data` takes a `view`: `map` (shade the places), `bars` (a ranked bar chart beside the map, the subject lit and the other bars muted, the compared countries tinted on the map to match) or `both`. The map slides up as the chart slides in, and the numbers count up row by row. The chart shows the five longest bars and always keeps the subject.
+A shot's `data` takes a `view`: `map` (shade the places), `bars` (a ranked bar chart beside the map, the subject lit and the other bars muted, the compared countries tinted on the map to match), `both`, or `bubbles` (a circle on each place, its area in proportion to its value, the subject lit; the dataset's name sits along the top). Bubbles suit places spread across the map, where you want the comparison to sit on the geography; a label on a place that already has a bubble is left off, since the bubble names and values it. The map slides up as the chart slides in, and the numbers count up row by row. The chart shows the five longest bars and always keeps the subject.
 
 ## The globe
 

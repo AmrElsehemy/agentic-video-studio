@@ -105,8 +105,9 @@ export const primitiveSchema = z.discriminatedUnion('kind', [
       values: z.array(z.object({entity: geoEntity, value: z.number()}).strict()).min(2).max(MAX_DATA_PLACES),
       at: moment.default(0),
       legend: z.boolean().default(true),
-      // 'map' shades the places; 'bars' shows a ranked bar chart of the values; 'both' does both.
-      view: z.enum(['map', 'bars', 'both']).default('map'),
+      // 'map' shades the places; 'bars' shows a ranked bar chart of the values; 'both' does both; 'bubbles' puts a circle
+      // on each place, its area in proportion to its value.
+      view: z.enum(['map', 'bars', 'both', 'bubbles']).default('map'),
     }).strict().optional(),
   }).strict(),
   // An architecture diagram (#120): actions on the episode's persistent canvas.

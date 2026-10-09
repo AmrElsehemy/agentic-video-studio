@@ -13,6 +13,7 @@ import {fitInside, labelBox, resolveLabels, type Box, type Placed} from './label
 import {labelScale, pop} from './motion';
 import {COUNT_FRAMES, countUp, flash, MARCH, marchOffset, ripple} from './effects';
 import {barRows, DataBars, PANEL_FRAMES, panelHeight} from './DataBars';
+import {Bubbles} from './Bubbles';
 import {TIMELINE_HEIGHT, TimelineStrip} from './TimelineStrip';
 import {reconstruction, rotateGeometry} from '../../../scripts/lib/plates.mjs';
 import {partialRotation, trueSizeRotation} from '../../../scripts/lib/true-size.mjs';
@@ -205,7 +206,7 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
   const t = durationInFrames > 1 ? frame / (durationInFrames - 1) : 0;
   const view = viewAt(t);
   // A ranked bar chart (data view "bars"/"both") takes the bottom of the frame; the map slides up to leave room for it.
-  const barsOn = Boolean(primitive.data && primitive.data.view !== 'map');
+  const barsOn = Boolean(primitive.data && (primitive.data.view === 'bars' || primitive.data.view === 'both'));
   const barsStart = primitive.data ? primitive.data.at * durationInFrames : 0;
   const barsPanel = barsOn && primitive.data ? panelHeight(barRows(primitive.data.values.map(({entity, value}) => ({id: entity, name: entity, value, subject: false}))).length) : 0;
   const timelineAnnotation = primitive.annotations.find((annotation): annotation is Extract<GeoMapPrimitive['annotations'][number], {type: 'timeline'}> => annotation.type === 'timeline');
@@ -269,7 +270,10 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
   // Newer labels win (they are what the narration is on now), the legend always does, and a
   // route's moving label gives way to everything.
   const texts = new Map<number, Placed & {size: number}>();
+  // In the bubbles view a circle already names and values each place, so a label on the same place would print over it.
+  const bubblePlaces = new Set(primitive.data?.view === 'bubbles' ? primitive.data.values.map(({entity}) => entity) : []);
   primitive.annotations.forEach((annotation, index) => {
+    if ((annotation.type === 'label' || annotation.type === 'marker') && typeof annotation.anchor === 'string' && bubblePlaces.has(annotation.anchor)) return;
     if (annotation.type === 'line') {
       if (!annotation.text) return;
       // The text sits where the line crosses the middle of the frame.
@@ -588,6 +592,7 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
       return annotation.text ? <React.Fragment key={`text-${index}`}>{textOf(index, annotation.text, appear(annotation.at + LINE_FRAMES / 2 / durationInFrames, 14) * vanish(annotation.until))}</React.Fragment> : null;
     }
     if ((annotation.type !== 'label' && annotation.type !== 'marker') || !annotation.text) return null;
+    if (typeof annotation.anchor === 'string' && bubblePlaces.has(annotation.anchor)) return null;
     const shown = appear(annotation.at) * vanish(annotation.until);
     // A marker's text sat inside its faded group, so it appears at shown².
     const grow = springIn(annotation.at);
@@ -599,7 +604,7 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
   // under the highlights; the legend sits with the labels.
   const dataShown = primitive.data ? appear(primitive.data.at) : 0;
   const dataRange = primitive.data ? valueRange(primitive.data.values.map(({value}) => value)) : undefined;
-  const dataFills = primitive.data && dataRange ? primitive.data.values.map(({entity, value}) => {
+  const dataFills = primitive.data && dataRange && primitive.data.view !== 'bubbles' ? primitive.data.values.map(({entity, value}) => {
     const feature = data.features.get(entity);
     if (!feature) throw new Error(`Unknown geo entity ${entity}`);
     // In a bars view the compared places are tinted to match their bars: the subject lit, the rest muted.
@@ -609,13 +614,31 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
     }
     return <path key={`data-${entity}`} d={path(feature) ?? ''} fill={accent} fillOpacity={dataShown * shade(value, dataRange)} />;
   }) : null;
-  const legend = primitive.data?.legend && dataRange && primitive.data.view !== 'bars'
+  const legend = primitive.data?.legend && dataRange && primitive.data.view !== 'bars' && primitive.data.view !== 'bubbles'
     ? <DataLegend label={primitive.data.label} unit={primitive.data.unit} range={dataRange} accent={accent} ink={palette.ink} backdrop={palette.background} opacity={dataShown} />
     : null;
 
   const bars = barsOn && primitive.data ? <DataBars label={primitive.data.label + (primitive.data.unit && !/per/i.test(primitive.data.label) ? ` (${primitive.data.unit})` : '')}
     rows={primitive.data.values.map(({entity, value}) => ({id: entity, name: data.entities.get(entity)?.name ?? entity, value, subject: entity === manifest.subject.attributes?.geoEntity}))}
     frame={frame} startFrame={barsStart} fps={manifest.format.fps} width={SIZE.width} height={SIZE.height} accent={styled ? look.subject.from : accent} ink={styled && look.chip ? look.chip.text : palette.ink} backdrop={styled && look.chip ? look.chip.fill : palette.background} muted={styled ? look.subject.side : palette.ink} /> : null;
+
+  // Bubbles (data view "bubbles"): a circle on each place sized by its value, placed in screen space and drawn flat.
+  const bubbleItems = primitive.data?.view === 'bubbles' ? primitive.data.values.flatMap(({entity, value}) => {
+    const place = data.entities.get(entity);
+    const feature = data.features.get(entity);
+    const lonLat = (place?.label ?? (feature ? geoCentroid(feature) : undefined)) as [number, number] | undefined;
+    if (!lonLat) return [];
+    const [x, y] = toScreen(point(lonLat));
+    return farOffFrame([x, y]) ? [] : [{id: entity, name: place?.name ?? entity, x, y, value, subject: entity === manifest.subject.attributes?.geoEntity}];
+  }) : [];
+  const bubbleLayer = primitive.data?.view === 'bubbles' && bubbleItems.length ? out(<g opacity={outro}>
+    <Bubbles items={bubbleItems} frame={frame} startFrame={primitive.data.at * durationInFrames} fps={manifest.format.fps}
+      accent={styled ? look.subject.from : accent} ink={styled && look.chip ? look.chip.text : palette.ink} backdrop={styled && look.chip ? look.chip.fill : palette.background} muted={styled ? look.subject.side : palette.ink} />
+    <g opacity={appear(primitive.data.at, 10)}>
+      <rect x={SIZE.width / 2 - (primitive.data.label.length * 13 + 50)} y={SAFE + 20} width={primitive.data.label.length * 26 + 100} height={74} rx={37} fill={styled && look.chip ? look.chip.fill : palette.background} opacity={.9} />
+      <text x={SIZE.width / 2} y={SAFE + 58} textAnchor="middle" dominantBaseline="middle" style={{fontFamily: displayFont, fontSize: 38, letterSpacing: 3, fill: styled && look.chip ? look.chip.text : palette.ink}}>{primitive.data.label.toUpperCase()}</text>
+    </g>
+  </g>) : null;
 
   const timeline = timelineOn && timelineAnnotation ? <TimelineStrip steps={timelineAnnotation.steps} active={timelineAnnotation.active} frame={frame} startFrame={timelineStart} fps={manifest.format.fps} width={SIZE.width} height={SIZE.height}
     accent={styled ? look.subject.from : accent} ink={styled && look.chip ? look.chip.text : palette.ink} backdrop={styled && look.chip ? look.chip.fill : palette.background} muted={styled ? look.subject.side : palette.ink} /> : null;
@@ -678,7 +701,7 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
           {pointTexts}
           {legend}
           {bars}
-          {timeline}
+          {timeline}{bubbleLayer}
         </g>
       </svg>
     </div>;
@@ -731,7 +754,7 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
         {labelLayer}
       </div>
       {look.vignette > 0 ? <div style={{position: 'absolute', inset: 0, background: `radial-gradient(ellipse at 50% 48%, transparent 45%, rgba(0,0,0,${look.vignette}) 100%)`}} /> : null}
-      <svg width={SIZE.width} height={SIZE.height} viewBox={`0 0 ${SIZE.width} ${SIZE.height}`} style={{position: 'absolute', inset: 0}}><g opacity={outro}>{pointTexts}{flat}{legend}{bars}{timeline}</g></svg>
+      <svg width={SIZE.width} height={SIZE.height} viewBox={`0 0 ${SIZE.width} ${SIZE.height}`} style={{position: 'absolute', inset: 0}}><g opacity={outro}>{pointTexts}{flat}{legend}{bars}{timeline}{bubbleLayer}</g></svg>
     </div>;
   }
 
@@ -745,7 +768,7 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
     {pointTexts}
     {legend}
     {bars}
-    {timeline}
+    {timeline}{bubbleLayer}
     </g>
   </svg>;
   }
@@ -761,7 +784,7 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
       {reliefPlacements(relief, view).map((placement) => <Img key={placement.key} src={staticFile(`geo/relief/${placement.file}`)} style={{position: 'absolute', left: placement.left, top: placement.top, width: placement.width, height: placement.height, maxWidth: 'none'}} />)}
     </div>
     <svg width={SIZE.width} height={SIZE.height} viewBox={`0 0 ${SIZE.width} ${SIZE.height}`} style={{position: 'absolute', inset: 0}}>
-      <g opacity={outro}>{annotations}{pointTexts}{legend}{bars}{timeline}</g>
+      <g opacity={outro}>{annotations}{pointTexts}{legend}{bars}{timeline}{bubbleLayer}</g>
     </svg>
   </div>;
 };
