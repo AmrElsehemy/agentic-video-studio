@@ -32,7 +32,10 @@ export type DiagramAction =
   | (ActionBase & {do: 'highlight'; target: string; until?: DiagramAnchor})
   | (ActionBase & {do: 'annotate'; target: string; text: string})
   | (ActionBase & {do: 'flow'; step: string; edges: string[]})
-  | (ActionBase & {do: 'camera'; focus: 'all' | string[]; padding: number});
+  | (ActionBase & {do: 'camera'; focus: 'all' | string[]; padding: number})
+  | (ActionBase & {do: 'dim'; keep: string[]; until?: DiagramAnchor})
+  | (ActionBase & {do: 'pulse'; edge: string; until?: DiagramAnchor})
+  | (ActionBase & {do: 'circle'; target: string; until?: DiagramAnchor});
 export type DiagramPrimitive = {kind: 'diagram'; actions: DiagramAction[]; cut?: boolean};
 export type PrimitiveKind = Primitive['kind'];
 

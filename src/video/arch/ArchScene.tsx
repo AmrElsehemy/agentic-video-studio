@@ -1,13 +1,14 @@
 import {loadFont} from '@remotion/google-fonts/Tinos';
-import {evolvePath} from '@remotion/paths';
+import {evolvePath, getLength, getPointAtLength} from '@remotion/paths';
 import React from 'react';
 import {Img, interpolate, spring, staticFile} from 'remotion';
 import {captionAt} from '../../../scripts/lib/captions.mjs';
 import {LANE_COLORS, type ArchSpec} from '../../../scripts/diagram-arch-schema.mjs';
 import type {ArchitectureDiagram, VideoManifest, VideoScene} from '../../schema';
-import {viewTransform, type Size} from '../canvas/camera';
+import {viewTransform, type Box, type Size} from '../canvas/camera';
+import {dimmed, placeCallout, pulseDots, ringPath, wrapLines} from '../canvas/emphasis';
 import {bodyFont} from '../typography';
-import {archState, dotAt, edgePath, nodeBox, TEXT, type ArchState} from './state';
+import {archBox, archState, dotAt, edgePath, nodeBox, TEXT, type ArchState} from './state';
 
 // Architecture scenes (#120): an existing reference diagram replayed as it
 // was drawn (white page, real icons, dashed boundaries, numbered steps), the
@@ -58,33 +59,72 @@ const Badge: React.FC<{lane: 'read' | 'write'; n?: number; at: [number, number];
   </g>;
 };
 
+/** The red of a hand-drawn ring or a callout's leader on the clean page. */
+export const MARK = '#d13438';
+
+/** A callout card beside a component (annotate), clear of the other parts, with a leader line to it. */
+export const calloutLayout = (spec: ArchSpec, target: string, text: string, size = 15) => {
+  const lines = wrapLines(text, 24);
+  const card = {w: Math.max(...lines.map((line) => line.length)) * size * .55 + 22, h: lines.length * size * 1.3 + 14};
+  const ids = [...spec.nodes.map((node) => node.id), ...spec.steps.map((step) => step.id), ...spec.labels.map((label) => label.id)].filter((id) => id !== target);
+  const obstacles = ids.map((id) => archBox(spec, id)).filter((box): box is Box => Boolean(box));
+  const node = spec.nodes.find((item) => item.id === target)!;
+  // Clear of the whole component (icon, label and tile), not just its icon.
+  return {lines, ...placeCallout(archBox(spec, node.id) ?? nodeBox(node), card, obstacles, {x: 0, y: 0, w: spec.source.width, h: spec.source.height}, 22)};
+};
+
+const Callout: React.FC<{spec: ArchSpec; target: string; text: string; progress: number}> = ({spec, target, text, progress}) => {
+  const {lines, box, anchor} = calloutLayout(spec, target, text);
+  const near: [number, number] = [Math.max(box.x, Math.min(anchor[0], box.x + box.w)), Math.max(box.y, Math.min(anchor[1], box.y + box.h))];
+  const shown = clamp01(progress * 1.6);
+  return <g opacity={shown}>
+    <path d={`M ${near[0]} ${near[1]} L ${anchor[0]} ${anchor[1]}`} stroke={MARK} strokeWidth={1.4} pathLength={1} strokeDasharray={1} strokeDashoffset={1 - clamp01(progress / .6)} />
+    <circle cx={anchor[0]} cy={anchor[1]} r={2.6} fill={MARK} opacity={clamp01((progress - .5) * 5)} />
+    <rect x={box.x} y={box.y} width={box.w} height={box.h} rx={5} fill="#fffdf6" stroke={MARK} strokeWidth={1.2} style={{filter: 'drop-shadow(0 2px 4px #0000001f)'}} />
+    {lines.map((line, i) => <text key={i} x={box.x + 11} y={box.y + 7 + 15 * .95 + i * 15 * 1.3} fill={INK} style={{fontFamily: bodyFont, fontSize: 15, fontWeight: 600}}>{line}</text>)}
+  </g>;
+};
+
 const Picture: React.FC<{spec: ArchSpec; state: ArchState; fps: number; frame: number}> = ({spec, state, fps}) => {
+  const dim = (...ids: string[]) => dimmed(state.dim, ...ids);
   // Pops use the run clock, so a badge settles the same way whatever scene it falls in.
   const pop = (start: number) => spring({frame: Math.round((state.time - start) * fps), fps, config: {damping: 14, stiffness: 190, mass: .7}});
   const fade = (start: number, dur = .35) => clamp01((state.time - start) / dur);
   return <>
     <svg width={spec.source.width} height={spec.source.height} overflow="visible" style={{position: 'absolute', left: 0, top: 0}}>
-      {spec.nodes.filter((node) => node.tile && state.nodes[node.id]).map((node) => <rect key={`tile-${node.id}`} {...node.tile!} width={node.tile!.w} height={node.tile!.h} fill={TILE} opacity={fade(state.nodes[node.id].start)} />)}
+      {spec.nodes.filter((node) => node.tile && state.nodes[node.id]).map((node) => <rect key={`tile-${node.id}`} {...node.tile!} width={node.tile!.w} height={node.tile!.h} fill={TILE} opacity={fade(state.nodes[node.id].start) * dim(node.id)} />)}
       {spec.groups.filter((group) => state.groups[group.id]).map((group) => {
         const {progress, start} = state.groups[group.id];
-        return <g key={group.id}>
+        return <g key={group.id} opacity={dim(group.id)}>
           <rect x={group.box.x} y={group.box.y} width={group.box.w} height={group.box.h} rx={group.style === 'dashed' ? 8 : 0} fill="none" stroke={group.color} strokeWidth={group.style === 'dashed' ? 1.3 : 1} strokeDasharray={group.style === 'dashed' ? '5 4' : '2 3'} opacity={clamp01(progress * 1.4)}
             style={{clipPath: `inset(0 ${100 - progress * 100}% 0 0)`}} />
           {group.label && group.labelAt ? <Lines text={group.label} at={group.labelAt} align="left" opacity={fade(start + .2)} /> : null}
         </g>;
       })}
-      {spec.edges.filter((edge) => state.edges[edge.id]).map((edge) => <Edge key={edge.id} edge={edge} progress={state.edges[edge.id].progress} />)}
+      {spec.edges.filter((edge) => state.edges[edge.id]).map((edge) => <g key={edge.id} opacity={dim(edge.id)}><Edge edge={edge} progress={state.edges[edge.id].progress} /></g>)}
+      {/* Pulses: dots in the route's lane colour streaming along it. */}
+      {state.pulses.map((pulse, i) => {
+        const edge = spec.edges.find((item) => item.id === pulse.edge);
+        if (!edge) return null;
+        const d = edgePath(edge.points);
+        const length = getLength(d);
+        const color = LANE_COLORS[edge.lane];
+        return <g key={`pulse-${i}`} opacity={pulse.level}>{pulseDots(state.time, pulse.start, length, 3, 160).map((share, j) => {
+          const point = getPointAtLength(d, share * length);
+          return point ? <g key={j}><circle cx={point.x} cy={point.y} r={8} fill={color} opacity={.2} /><circle cx={point.x} cy={point.y} r={4.2} fill={color} stroke="#fff" strokeWidth={1.4} /></g> : null;
+        })}</g>;
+      })}
       {/* A plain box or ellipse from the source, drawn with its own colours. */}
       {spec.nodes.filter((node) => node.shape && state.nodes[node.id]).map((node) => {
         const box = nodeBox(node);
         const {kind, fill, stroke, rounded} = node.shape!;
         const p = pop(state.nodes[node.id].start);
         const props = {fill: fill === 'none' ? '#ffffff' : fill, stroke: stroke === 'none' ? 'none' : stroke, strokeWidth: 1.4, opacity: clamp01(p * 1.5), transform: `translate(${node.at[0]} ${node.at[1]}) scale(${.7 + .3 * p}) translate(${-node.at[0]} ${-node.at[1]})`};
-        return kind === 'ellipse' ? <ellipse key={`shape-${node.id}`} cx={node.at[0]} cy={node.at[1]} rx={box.w / 2} ry={box.h / 2} {...props} /> : <rect key={`shape-${node.id}`} x={box.x} y={box.y} width={box.w} height={box.h} rx={rounded ? 8 : 0} {...props} />;
+        return <g key={`shape-${node.id}`} opacity={dim(node.id)}>{kind === 'ellipse' ? <ellipse cx={node.at[0]} cy={node.at[1]} rx={box.w / 2} ry={box.h / 2} {...props} /> : <rect x={box.x} y={box.y} width={box.w} height={box.h} rx={rounded ? 8 : 0} {...props} />}</g>;
       })}
-      {spec.labels.filter((label) => state.labels[label.id]).map((label) => <Lines key={label.id} text={label.text} at={label.at} opacity={fade(state.labels[label.id].start)} />)}
-      {spec.nodes.filter((node) => state.nodes[node.id]).map((node) => <Lines key={`label-${node.id}`} text={node.label} at={node.labelAt} align={node.align} opacity={fade(state.nodes[node.id].start + .15)} />)}
-      {spec.steps.filter((step) => state.steps[step.id]).map((step) => <g key={step.id}>
+      {spec.labels.filter((label) => state.labels[label.id]).map((label) => <Lines key={label.id} text={label.text} at={label.at} opacity={fade(state.labels[label.id].start) * dim(label.id)} />)}
+      {spec.nodes.filter((node) => state.nodes[node.id]).map((node) => <Lines key={`label-${node.id}`} text={node.label} at={node.labelAt} align={node.align} opacity={fade(state.nodes[node.id].start + .15) * dim(node.id)} />)}
+      {spec.steps.filter((step) => state.steps[step.id]).map((step) => <g key={step.id} opacity={dim(step.id)}>
         <Badge lane={step.lane} n={step.n} at={step.at} pop={pop(state.steps[step.id].start)} />
         <Lines text={step.text} at={step.textAt} opacity={fade(state.steps[step.id].start + .15)} />
       </g>)}
@@ -103,11 +143,20 @@ const Picture: React.FC<{spec: ArchSpec; state: ArchState; fps: number; frame: n
           <circle cx={dot.x} cy={dot.y} r={6.5} fill={color} stroke="#fff" strokeWidth={2} />
         </g>;
       })}
+      {/* Rings (circle): a hand-drawn red loop around the component. */}
+      {state.circles.map((ring) => {
+        const node = spec.nodes.find((item) => item.id === ring.target);
+        if (!node) return null;
+        const d = ringPath(nodeBox(node), ring.target, [34, 26]);
+        const evolved = evolvePath(Math.min(1, ring.progress * 1.05), d);
+        return <path key={`ring-${ring.target}-${ring.start}`} d={d} fill="none" stroke={MARK} strokeWidth={2.6} strokeLinecap="round" opacity={ring.level} strokeDasharray={evolved.strokeDasharray} strokeDashoffset={evolved.strokeDashoffset} />;
+      })}
+      {state.notes.map((note, i) => <Callout key={`note-${i}`} spec={spec} target={note.target} text={note.text} progress={note.progress} />)}
     </svg>
     {spec.nodes.filter((node) => node.icon && state.nodes[node.id]).map((node) => {
       const p = pop(state.nodes[node.id].start);
       const glow = state.nodes[node.id].highlight;
-      return <Img key={`icon-${node.id}`} src={staticFile(`icons/${node.icon}.svg`)} style={{position: 'absolute', left: node.at[0] - node.size / 2, top: node.at[1] - node.size / 2, width: node.size, height: node.size, opacity: clamp01(p * 1.5), transform: `scale(${.55 + .45 * p})`, filter: glow ? `drop-shadow(0 0 ${8 * glow}px #4472c4)` : undefined}} />;
+      return <Img key={`icon-${node.id}`} src={staticFile(`icons/${node.icon}.svg`)} style={{position: 'absolute', left: node.at[0] - node.size / 2, top: node.at[1] - node.size / 2, width: node.size, height: node.size, opacity: clamp01(p * 1.5) * dim(node.id), transform: `scale(${.55 + .45 * p})`, filter: glow ? `drop-shadow(0 0 ${8 * glow}px #4472c4)` : undefined}} />;
     })}
     {spec.groups.filter((group) => group.icon && group.iconAt && state.groups[group.id]).map((group) => <Img key={`gicon-${group.id}`} src={staticFile(`icons/${group.icon}.svg`)} style={{position: 'absolute', left: group.iconAt![0] - 18, top: group.iconAt![1] - 18, width: 36, height: 36, opacity: fade(state.groups[group.id].end - .2)}} />)}
   </>;

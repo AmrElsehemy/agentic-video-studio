@@ -73,7 +73,8 @@ const problemsOf = (spec, scenes) => {
     if (scene.primitive?.kind === 'diagram') {
       const shown = canvasAfter(spec, before);
       scene.primitive.actions.forEach((action, index) => {
-        if ((action.do === 'highlight' || action.do === 'annotate') && !shown.has(action.target)) problems.push(`scene "${scene.id}" action ${index + 1} ${action.do === 'highlight' ? 'highlights' : 'annotates'} "${action.target}" before it is on screen`);
+        if (['highlight', 'annotate', 'circle'].includes(action.do) && !shown.has(action.target)) problems.push(`scene "${scene.id}" action ${index + 1} ${{highlight: 'highlights', annotate: 'annotates', circle: 'circles'}[action.do]} "${action.target}" before it is on screen`);
+        if (action.do === 'pulse' && !shown.has(action.edge)) problems.push(`scene "${scene.id}" action ${index + 1} pulses along "${action.edge}" before it is drawn`);
         if (action.do === 'highlight' && !nodes.has(action.target)) problems.push(`scene "${scene.id}" action ${index + 1} highlights "${action.target}"; only components can be highlighted`);
         if (action.do === 'reveal') {
           shown.add(action.target);
@@ -406,8 +407,11 @@ A scene's actions are JSON:
    {"do": "reveal", "target": "<${arch ? 'component, group or text' : 'node or group'} id>", "at": A},${arch ? '' : '   // a group brings its nodes with it'}
    {"do": "connect", "edge": "<${arch ? 'route' : 'arrow'} id>", "at": A},
    {"do": "highlight", "target": "<${arch ? 'component' : 'node or arrow'} id>", "at": A},${arch ? `
-   {"do": "flow", "step": "<step id>", "edges": ["<route id>", ...], "at": A},   // the step's badge appears and a dot travels the routes in order, drawing them` : `
-   {"do": "annotate", "target": "<node id>", "text": "short side note, max 44 chars", "at": A},   // drawn on notebook pages`}
+   {"do": "flow", "step": "<step id>", "edges": ["<route id>", ...], "at": A},   // the step's badge appears and a dot travels the routes in order, drawing them` : ''}
+   {"do": "annotate", "target": "<${arch ? 'component' : 'node'} id>", "text": "short callout, max 44 chars", "at": A},   // a note beside it with a line to it
+   {"do": "circle", "target": "<${arch ? 'component' : 'node'} id>", "at": A},   // a hand-drawn ring round it: "this one"
+   {"do": "dim", "keep": ["<id>", ...], "at": A, "until": A},   // everything else fades back while the narration is about these
+   {"do": "pulse", "edge": "<${arch ? 'route' : 'arrow'} id>", "at": A, "until": A},   // dots stream along it: data flowing
  ],
  "why": "one sentence"}
 
@@ -424,6 +428,7 @@ Rules:
 - A word anchor must be a word of THIS scene's narration. Use "nth" only when that word is said more than once in the scene; to time two actions off one word, chain the second with "after".
 - Reveal an element on the word that names it; show what the narration talks about, in the order it says it. About one new element per second of narration: leave the rest for later scenes.
 - Start each scene with a camera move framing what it is about, including everything the scene reveals or walks. Pull back to "all" only in the last scene (or when a scene is about the whole picture).
+- Use the emphasis verbs sparingly, where the narration earns them: circle or annotate the one thing a line is about, dim the rest when one part matters, pulse an arrow when data is said to flow along it. Circle, annotate and pulse only what is already on the picture.
 - By the last scene, everything the story needs should be on the picture.
 
 Reply with a JSON object only: {"scenes": [<scene>, ...]}${showId ? styleGuideSection(showId) : ''}`,

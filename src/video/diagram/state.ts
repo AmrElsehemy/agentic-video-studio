@@ -8,6 +8,7 @@ import {resolveActions, type ActionTime} from '../../../scripts/lib/diagram-timi
 import type {DiagramAction, DiagramPrimitive} from '../../../scripts/primitive-schema.mjs';
 import {laidOut, type VideoManifest} from '../../schema';
 import {fitBox, unionBox, viewAt, type Box, type CameraMove, type PlaneView, type Size} from '../canvas/camera';
+import {addEmphasis, noEmphasis, placeCallout, wrapLines, type Emphasis} from '../canvas/emphasis';
 import {continuesMap, MAP_SIZE} from '../geo/camera';
 import {noteBox, titleBox} from '../sketch/plan';
 
@@ -27,7 +28,7 @@ export type CanvasState = {
   camera: PlaneView;
   /** Seconds on the run's clock: the elements' `start`s are on it too. */
   time: number;
-};
+} & Emphasis;
 
 /** Highlights ease in over their action and out over this long once they end. */
 export const HIGHLIGHT_OUT = .35;
@@ -62,6 +63,17 @@ export const elementBox = (layout: Layout, id: string): Box | undefined => {
   return {x: Math.min(...xs), y: Math.min(...ys), w: Math.max(...xs) - Math.min(...xs), h: Math.max(...ys) - Math.min(...ys)};
 };
 
+/** Callout text on the clean canvas. */
+export const CALLOUT = {size: 26, line: 34, chars: 22, gap: 54};
+
+/** Where a clean canvas's callout (annotate) goes: its card beside the node, clear of the others, and its leader's end. */
+export const calloutBox = (layout: Layout, target: string, text: string) => {
+  const lines = wrapLines(text, CALLOUT.chars);
+  const size = {w: Math.max(...lines.map((line) => line.length)) * CALLOUT.size * .52 + 40, h: lines.length * CALLOUT.line + 28};
+  const others = Object.entries(layout.nodes).filter(([id]) => id !== target).map(([, box]) => box);
+  return {lines, ...placeCallout(layout.nodes[target], size, others, {x: 0, y: 0, w: layout.width, h: layout.height}, CALLOUT.gap)};
+};
+
 /** The view a camera action asks for. */
 export const focusView = (layout: Layout, focus: 'all' | string[], padding: number, size: Size = MAP_SIZE, maxScale?: number): PlaneView => {
   const boxes = focus === 'all' ? [{x: 0, y: 0, w: layout.width, h: layout.height}] : focus.map((id) => elementBox(layout, id)).filter((box): box is Box => Boolean(box));
@@ -86,7 +98,7 @@ export const canvasState = (manifest: VideoManifest, index: number, frame: numbe
   const notebook = spec.theme === 'notebook';
   let start = index;
   while (continuesMap(scenes, start)) start--;
-  const state: CanvasState = {nodes: {}, edges: {}, groups: {}, notes: [], title: {progress: 1, start: 0, end: 0}, camera: focusView(layout, 'all', .14, size), time: 0};
+  const state: CanvasState = {nodes: {}, edges: {}, groups: {}, notes: [], title: {progress: 1, start: 0, end: 0}, camera: focusView(layout, 'all', .14, size), time: 0, ...noEmphasis()};
   const moves: CameraMove[] = [];
   // A notebook episode opens on its title, lettered in the first moments, before the camera moves in.
   const title = notebook && start === 0 ? titleBox(spec, layout) : null;
@@ -130,6 +142,10 @@ export const canvasState = (manifest: VideoManifest, index: number, frame: numbe
       } else if (action.do === 'annotate') {
         state.notes.push({target: action.target, text: action.text, progress: ramp(now, time.start, time.end), start: time.start, end: time.end});
         if (notebook) moves.push({view: noteFocus(layout, action.target, action.text, size), start: time.start - FOLLOW_LEAD, end: time.start - FOLLOW_LEAD + FOLLOW_DUR});
+        // On the clean canvas the camera takes in the node and its callout card as the card is written.
+        else if (layout.nodes[action.target]) moves.push({view: fitBox(unionBox([layout.nodes[action.target], calloutBox(layout, action.target, action.text).box]), size, .08), start: time.start - .3, end: time.start + .7});
+      } else if (action.do === 'dim' || action.do === 'pulse' || action.do === 'circle') {
+        addEmphasis(state, action, time, now, sceneEnd);
       } else if (action.do === 'camera' && (!notebook || action.focus === 'all')) {
         moves.push({view: focusView(layout, action.focus, action.padding ?? .14, size), start: time.start, end: time.end});
       }

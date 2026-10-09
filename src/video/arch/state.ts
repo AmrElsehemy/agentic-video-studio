@@ -8,6 +8,7 @@ import type {ArchSpec} from '../../../scripts/diagram-arch-schema.mjs';
 import type {DiagramAction, DiagramPrimitive} from '../../../scripts/primitive-schema.mjs';
 import type {ArchitectureDiagram, VideoManifest} from '../../schema';
 import {fitBox, unionBox, viewAt, type Box, type CameraMove, type PlaneView, type Size} from '../canvas/camera';
+import {addEmphasis, noEmphasis, type Emphasis} from '../canvas/emphasis';
 import {timingTheme} from '../../../scripts/lib/diagram-timing.mjs';
 import {sceneTimes} from '../diagram/state';
 import {continuesMap} from '../geo/camera';
@@ -27,9 +28,11 @@ export type ArchState = {
   steps: Record<string, Reveal>;
   flows: FlowState[];
   legend: Record<'read' | 'write', number>;
+  /** Callouts (annotate), in the order they were written. */
+  notes: {target: string; text: string; progress: number; start: number; end: number}[];
   camera: PlaneView;
   time: number;
-};
+} & Emphasis;
 
 const ramp = (time: number, start: number, end: number) => (end <= start ? (time >= start ? 1 : 0) : Math.max(0, Math.min(1, (time - start) / (end - start))));
 
@@ -98,7 +101,7 @@ export const archState = (manifest: VideoManifest, index: number, frame: number,
   const {scenes} = manifest;
   let start = index;
   while (continuesMap(scenes, start)) start--;
-  const state: ArchState = {nodes: {}, groups: {}, labels: {}, edges: {}, steps: {}, flows: [], legend: {read: 0, write: 0}, camera: archView(spec, 'all', .04, size), time: 0};
+  const state: ArchState = {nodes: {}, groups: {}, labels: {}, edges: {}, steps: {}, flows: [], legend: {read: 0, write: 0}, notes: [], camera: archView(spec, 'all', .04, size), time: 0, ...noEmphasis()};
   const moves: CameraMove[] = [];
   const kinds = {
     node: new Set(spec.nodes.map((item) => item.id)),
@@ -110,7 +113,7 @@ export const archState = (manifest: VideoManifest, index: number, frame: number,
   let offset = 0;
   for (let i = start; i <= index; i++) {
     const scene = scenes[i];
-    const times = sceneTimes(scene, speed, timingTheme(spec)).map((time) => ({start: offset + time.start, end: offset + time.end}));
+    const times = sceneTimes(scene, speed, timingTheme(spec)).map((time) => ({start: offset + time.start, end: offset + time.end, until: time.until === undefined ? undefined : offset + time.until}));
     const now = i === index ? offset + frame / fps : Infinity;
     if (i === index) state.time = now;
     (scene.primitive as DiagramPrimitive).actions.forEach((action: DiagramAction, n) => {
@@ -142,6 +145,10 @@ export const archState = (manifest: VideoManifest, index: number, frame: number,
         if (node) node.highlight = Math.max(node.highlight, ramp(now, time.start, time.end));
       } else if (action.do === 'camera') {
         moves.push({view: archView(spec, action.focus, action.padding ?? .08, size), start: time.start, end: time.start + Math.max(time.end - time.start, 1.1)});
+      } else if (action.do === 'annotate') {
+        state.notes.push({target: action.target, text: action.text, progress: ramp(now, time.start, time.end), start: time.start, end: time.end});
+      } else if (action.do === 'dim' || action.do === 'pulse' || action.do === 'circle') {
+        addEmphasis(state, action, {...time, until: times[n].until}, now, offset + scene.durationSeconds);
       }
     });
     offset += Math.round(scene.durationSeconds * fps) / fps;

@@ -2,11 +2,12 @@ import {evolvePath, getLength, getPointAtLength} from '@remotion/paths';
 import React from 'react';
 import type {DiagramPrimitive} from '../../../scripts/primitive-schema.mjs';
 import {MAP_SIZE} from '../geo/camera';
-import {viewTransform} from '../canvas/camera';
+import {viewTransform, type Box} from '../canvas/camera';
+import {dimmed, pulseDots, ringPath} from '../canvas/emphasis';
 import {laidOut} from '../../schema';
 import type {ShotProps} from '../shots';
 import {bodyFont, displayFont} from '../typography';
-import {canvasState, type Entrance, type Layout} from './state';
+import {CALLOUT, calloutBox, canvasState, type Entrance, type Layout} from './state';
 
 // DiagramCanvas (#124): the episode's diagram, drawn as SVG on a canvas the
 // camera moves over. Every element's look is a function of the canvas state at
@@ -95,6 +96,38 @@ const GroupBox: React.FC<{label: string; box: Layout['groups'][string]; entrance
   </g>;
 };
 
+/** Dots streaming along an edge (pulse), as data flowing. */
+const Pulse: React.FC<{geometry: Layout['edges'][string]; level: number; start: number; time: number; color: string}> = ({geometry, level, start, time, color}) => {
+  const d = edgePath(geometry.points);
+  const length = getLength(d);
+  return <g opacity={level}>
+    {pulseDots(time, start, length).map((share, i) => {
+      const point = getPointAtLength(d, share * length);
+      if (!point) return null;
+      return <g key={i}><circle cx={point.x} cy={point.y} r={16} fill={color} opacity={.25} /><circle cx={point.x} cy={point.y} r={8} fill={color} /></g>;
+    })}
+  </g>;
+};
+
+const Ring: React.FC<{box: Box; id: string; progress: number; level: number; color: string; width?: number}> = ({box, id, progress, level, color, width = 6}) => {
+  const d = ringPath(box, id);
+  const evolved = evolvePath(easeOut(progress), d);
+  return <path d={d} fill="none" stroke={color} strokeWidth={width} strokeLinecap="round" opacity={level} strokeDasharray={evolved.strokeDasharray} strokeDashoffset={evolved.strokeDashoffset} />;
+};
+
+/** A callout (annotate): a card beside its node, clear of the others, with a leader line to it. */
+const Callout: React.FC<{layout: Layout; target: string; text: string; progress: number; palette: Palette}> = ({layout, target, text, progress, palette}) => {
+  const {lines, box, anchor} = calloutBox(layout, target, text);
+  const near: [number, number] = [Math.max(box.x, Math.min(anchor[0], box.x + box.w)), Math.max(box.y, Math.min(anchor[1], box.y + box.h))];
+  const shown = easeOut(progress);
+  return <g opacity={shown}>
+    <path d={`M ${near[0]} ${near[1]} L ${anchor[0]} ${anchor[1]}`} stroke={palette.accent} strokeWidth={3} strokeDasharray="1" pathLength={1} strokeDashoffset={1 - stage(progress, 0, .6)} />
+    <circle cx={anchor[0]} cy={anchor[1]} r={6} fill={palette.accent} opacity={stage(progress, .5, .7)} />
+    <rect x={box.x} y={box.y} width={box.w} height={box.h} rx={14} fill={palette.surface} stroke={palette.accent} strokeWidth={2.5} transform={`translate(0 ${8 * (1 - shown)})`} />
+    {lines.map((line, i) => <text key={i} x={box.x + 20} y={box.y + 44 + i * CALLOUT.line} fill={palette.ink} style={{fontFamily: bodyFont, fontSize: CALLOUT.size, fontWeight: 600}}>{line}</text>)}
+  </g>;
+};
+
 /** A faint dot grid that moves with the camera, so pans and zooms read as movement over a surface. */
 const Grid: React.FC<{layout: Layout; ink: string}> = ({layout, ink}) => <>
   <defs><pattern id="diagram-grid" width={40} height={40} patternUnits="userSpaceOnUse"><circle cx={20} cy={20} r={2} fill={ink} fillOpacity={.13} /></pattern></defs>
@@ -110,12 +143,15 @@ export const DiagramCanvas: React.FC<ShotProps & {data: DiagramPrimitive}> = ({s
   return <div style={{position: 'absolute', inset: 0, overflow: 'hidden', WebkitMaskImage: 'linear-gradient(transparent 0, #000 48px, #000 calc(100% - 48px), transparent 100%)'}}>
     <svg width={layout.width} height={layout.height} overflow="visible" style={{position: 'absolute', left: 0, top: 0, transformOrigin: '0 0', transform: viewTransform(state.camera, MAP_SIZE)}}>
       <Grid layout={layout} ink={palette.ink} />
-      {spec.groups.filter((group) => state.groups[group.id] && layout.groups[group.id]).map((group) => <GroupBox key={group.id} label={group.label} box={layout.groups[group.id]} entrance={state.groups[group.id]} palette={palette} />)}
+      {spec.groups.filter((group) => state.groups[group.id] && layout.groups[group.id]).map((group) => <g key={group.id} opacity={dimmed(state.dim, group.id)}><GroupBox label={group.label} box={layout.groups[group.id]} entrance={state.groups[group.id]} palette={palette} /></g>)}
       {spec.edges.filter((edge) => state.edges[edge.id]).sort((a, b) => state.edges[a.id].start - state.edges[b.id].start)
-        .map((edge) => <Edge key={edge.id} edge={edge} geometry={layout.edges[edge.id]} state={state.edges[edge.id]} time={state.time} palette={palette} />)}
+        .map((edge) => <g key={edge.id} opacity={dimmed(state.dim, edge.id, ...(state.dim.keep.has(edge.from) && state.dim.keep.has(edge.to) ? [edge.from] : []))}><Edge edge={edge} geometry={layout.edges[edge.id]} state={state.edges[edge.id]} time={state.time} palette={palette} /></g>)}
+      {state.pulses.filter((pulse) => layout.edges[pulse.edge]).map((pulse, i) => <Pulse key={`pulse-${i}`} geometry={layout.edges[pulse.edge]} level={pulse.level} start={pulse.start} time={state.time} color={palette.accent} />)}
       {/* Later arrivals draw on top, so a new node is never hidden under an older one. */}
       {spec.nodes.filter((node) => state.nodes[node.id]).sort((a, b) => state.nodes[a.id].start - state.nodes[b.id].start)
-        .map((node) => <NodeBox key={node.id} node={node} box={layout.nodes[node.id]} entrance={state.nodes[node.id]} palette={palette} />)}
+        .map((node) => <g key={node.id} opacity={dimmed(state.dim, node.id, ...(node.group ? [node.group] : []))}><NodeBox node={node} box={layout.nodes[node.id]} entrance={state.nodes[node.id]} palette={palette} /></g>)}
+      {state.circles.filter((ring) => layout.nodes[ring.target]).map((ring) => <Ring key={`ring-${ring.target}-${ring.start}`} box={layout.nodes[ring.target]} id={ring.target} progress={ring.progress} level={ring.level} color={palette.accent} />)}
+      {state.notes.filter((note) => layout.nodes[note.target]).map((note, i) => <Callout key={`note-${i}`} layout={layout} target={note.target} text={note.text} progress={note.progress} palette={palette} />)}
     </svg>
   </div>;
 };

@@ -1,0 +1,36 @@
+{
+  "description": "Golden frames for the diagram vocabulary (#131): each verb added to the last scene of an episode in each look, captured once it has landed. npm run diagram:golden",
+  "looks": {
+    "clean": {"draft": "under-the-hood/how-avs-works", "theme": "clean", "scene": "check"},
+    "notebook": {"draft": "under-the-hood/how-avs-works", "scene": "check"},
+    "arch": {"draft": "under-the-hood/url-shortener", "scene": "verdict"},
+    "arch-sketch": {"draft": "under-the-hood/azure-cache-aside-sketch", "scene": "verdict"}
+  },
+  "verbs": {
+    "dim": {
+      "clean": {"do": "dim", "keep": ["remotion", "qa"], "at": 0.1},
+      "notebook": {"do": "dim", "keep": ["remotion", "qa"], "at": 0.1},
+      "arch": {"do": "dim", "keep": ["api", "redis", "r3"], "at": 0.1},
+      "arch-sketch": {"do": "dim", "keep": ["app", "redis", "pe-redis"], "at": 0.1}
+    },
+    "pulse": {
+      "clean": {"do": "pulse", "edge": "e8", "at": 0.1},
+      "notebook": {"do": "pulse", "edge": "e8", "at": 0.1},
+      "arch": {"do": "pulse", "edge": "e-queue-wh", "at": 0.1},
+      "arch-sketch": {"do": "pulse", "edge": "read-cache", "at": 0.1}
+    },
+    "circle": {
+      "clean": {"do": "circle", "target": "qa", "at": 0.1},
+      "notebook": {"do": "circle", "target": "qa", "at": 0.1},
+      "arch": {"do": "circle", "target": "redis", "at": 0.1},
+      "arch-sketch": {"do": "circle", "target": "redis", "at": 0.1}
+    },
+    "callout": {
+      "clean": {"do": "annotate", "target": "qa", "text": "blocks a render that fails a check", "at": 0.1},
+      "notebook": {"do": "annotate", "target": "qa", "text": "blocks a bad render", "at": 0.1},
+      "arch": {"do": "annotate", "target": "redis", "text": "most redirects end here", "at": 0.1},
+      "arch-sketch": {"do": "annotate", "target": "redis", "text": "hit: no database call", "at": 0.1}
+    }
+  },
+  "capture": 0.72
+}

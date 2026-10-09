@@ -28,6 +28,7 @@ jobs:
       episodes: ${{ steps.select.outputs.episodes }}
       frames: ${{ steps.select.outputs.frames }}
       geo: ${{ steps.select.outputs.geo }}
+      diagram: ${{ steps.select.outputs.diagram }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -162,11 +163,11 @@ jobs:
             out/*-render-check.json
           if-no-files-found: warn
 
-  # GeoMotion: render the map golden shots and compare them with test/golden/geo/.
+  # GeoMotion and diagrams: render the golden shots and compare them with test/golden/geo/ and test/golden/diagram/.
   geo-golden:
     runs-on: ubuntu-latest
     needs: validate
-    if: needs.validate.outputs.geo == 'true'
+    if: needs.validate.outputs.geo == 'true' || needs.validate.outputs.diagram == 'true'
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -182,12 +183,17 @@ jobs:
           key: remotion-browser-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
       - name: Install FFmpeg for frame comparison
         run: sudo apt-get update && sudo apt-get install --yes --no-install-recommends ffmpeg
-      - run: npm run geo:golden
+      - if: needs.validate.outputs.geo == 'true'
+        run: npm run geo:golden
+      - if: always() && needs.validate.outputs.diagram == 'true'
+        run: npm run diagram:golden
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: geo-golden
-          path: out/geo-golden/*.png
+          path: |
+            out/geo-golden/*.png
+            out/diagram-golden/*.png
           if-no-files-found: warn
 
   # Full MP4s: episodes whose own files changed, one audio/encoding smoke test,

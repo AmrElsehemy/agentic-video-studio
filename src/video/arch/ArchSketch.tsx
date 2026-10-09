@@ -1,9 +1,12 @@
+import {getLength, getPointAtLength} from '@remotion/paths';
 import React, {useEffect, useState} from 'react';
 import {continueRender, delayRender, interpolate, staticFile} from 'remotion';
 import type {ArchSpec} from '../../../scripts/diagram-arch-schema.mjs';
 import type {ArchitectureDiagram, VideoManifest, VideoScene} from '../../schema';
 import {viewTransform} from '../canvas/camera';
-import {arrowHead, cached, generator, INK, partProgress, pathParts, roughStrokes, seedOf, text, type Part, type Plan} from '../sketch/plan';
+import {dimmed, pulseDots, ringPath} from '../canvas/emphasis';
+import {calloutLayout} from './ArchScene';
+import {arrowHead, cached, CIRCLE_RED, generator, INK, partProgress, pathParts, roughStrokes, seedOf, text, type Part, type Plan} from '../sketch/plan';
 import {DESK, DOTS, LETTERING, NotebookCaption, PAPER, PlanView, Pen, penState, STRIP, type Drawn} from '../sketch/SketchPage';
 import {archState, edgePath, nodeBox, type ArchState} from './state';
 
@@ -115,6 +118,21 @@ const flowPlan = (spec: ArchSpec, step: string, edges: string[], lane: 'read' | 
   return {parts: pathParts(ds, 1, {stroke: MARKER[lane], width: 15, marker: true, opacity: .32})};
 });
 
+/** A ring (circle): a loop of red marker round the component, drawn by the pen. */
+const ringPlan = (spec: ArchSpec, id: string): Plan => cached(`arch-ring:${id}`, () => {
+  const node = spec.nodes.find((item) => item.id === id)!;
+  return {parts: pathParts([ringPath(nodeBox(node), id, [34, 26])], 1, {stroke: CIRCLE_RED, width: 3.6, marker: true})};
+});
+
+/** A callout (annotate): handwritten lines beside the component, and a quick arrow back to it. */
+const notePlan = (spec: ArchSpec, id: string, value: string): Plan => cached(`arch-note:${id}:${value}`, () => {
+  const {lines, box, anchor} = calloutLayout(spec, id, value, LABEL);
+  const lettered = lines.flatMap((line, i) => lettering(line, [box.x + 6, box.y + 10 + i * LINE * 1.15], .7 / lines.length, 'left', '#4a4642'));
+  const from: [number, number] = [Math.max(box.x, Math.min(anchor[0], box.x + box.w)), Math.max(box.y, Math.min(anchor[1], box.y + box.h))];
+  const d = `M ${from[0]} ${from[1]} Q ${(from[0] + anchor[0]) / 2} ${Math.min(from[1], anchor[1]) - 18} ${anchor[0]} ${anchor[1]}`;
+  return {parts: [...lettered, ...pathParts(roughStrokes(d, seedOf(`arch-note-${id}`), {strokeWidth: 2, roughness: .6}).slice(0, 1), .2, {stroke: '#4a4642', width: 2}), ...pathParts(arrowHead(d, seedOf(`arch-note-head-${id}`), .4), .1, {stroke: '#4a4642', width: 2})]};
+});
+
 /** Holds the render until the icons have loaded, so a frame never shows a blank where an icon will be. */
 const useIcons = (hrefs: string[]) => {
   const [handle] = useState(() => delayRender('Loading architecture icons'));
@@ -157,6 +175,9 @@ const Page: React.FC<{spec: ArchSpec; state: ArchState; fps: number}> = ({spec, 
   // The legend is lettered as its lane's first step starts.
   const legendStart = (lane: 'read' | 'write') => Math.min(...state.flows.filter((flow) => flow.lane === lane).map((flow) => flow.start));
   for (const item of legend) add(legendPlan(spec, item.lane), {progress: Math.min(1, Math.max(0, (state.time - legendStart(item.lane)) / .9)), start: legendStart(item.lane), end: legendStart(item.lane) + .9});
+  for (const ring of state.circles) if (spec.nodes.some((node) => node.id === ring.target)) add(ringPlan(spec, ring.target), ring);
+  for (const note of state.notes) if (spec.nodes.some((node) => node.id === note.target)) add(notePlan(spec, note.target, note.text), note);
+  const dim = (...ids: string[]) => dimmed(state.dim, ...ids);
   const pen = penState(drawn, state.time, fps);
   const progressOf = (plan: Plan) => drawn.find((item) => item.plan === plan)?.progress ?? 0;
   const {width, height} = spec.source;
@@ -172,18 +193,32 @@ const Page: React.FC<{spec: ArchSpec; state: ArchState; fps: number}> = ({spec, 
     <rect x={-MARGIN} y={-MARGIN} width={width + MARGIN * 2} height={height + MARGIN * 2} fill={PAPER} />
     <rect x={-MARGIN + 20} y={-MARGIN + 20} width={width + MARGIN * 2 - 40} height={height + MARGIN * 2 - 40} fill="url(#arch-dots)" />
     <rect x={-MARGIN} y={-MARGIN} width={width + MARGIN * 2} height={height + MARGIN * 2} filter="url(#arch-grain)" />
-    {groups.map((group) => <PlanView key={group.id} plan={groupPlan(spec, group.id)} progress={state.groups[group.id].progress} id={`ag-${group.id}`} />)}
+    {groups.map((group) => <g key={group.id} opacity={dim(group.id)}><PlanView plan={groupPlan(spec, group.id)} progress={state.groups[group.id].progress} id={`ag-${group.id}`} /></g>)}
     {flows.map((flow, i) => <PlanView key={`f-${i}`} plan={flowPlan(spec, flow.step, flow.edges, flow.lane)} progress={flow.progress} id={`af-${flow.step}`} />)}
-    {edges.map((edge) => <PlanView key={edge.id} plan={edgePlan(spec, edge.id)} progress={state.edges[edge.id].progress} id={`ae-${edge.id}`} />)}
+    {edges.map((edge) => <g key={edge.id} opacity={dim(edge.id)}><PlanView plan={edgePlan(spec, edge.id)} progress={state.edges[edge.id].progress} id={`ae-${edge.id}`} /></g>)}
+    {/* Pulses: marker dots in the lane's colour, running along the route. */}
+    {state.pulses.map((pulse, i) => {
+      const edge = spec.edges.find((item) => item.id === pulse.edge);
+      if (!edge) return null;
+      const d = edgeD(edge.points);
+      const length = getLength(d);
+      const color = edge.lane === 'read' || edge.lane === 'write' ? MARKER[edge.lane] : CIRCLE_RED;
+      return <g key={`pulse-${i}`} opacity={pulse.level} style={{mixBlendMode: 'multiply'}}>{pulseDots(state.time, pulse.start, length, 3, 160).map((share, j) => {
+        const point = getPointAtLength(d, share * length);
+        return point ? <circle key={j} cx={point.x} cy={point.y} r={7.5} fill={color} opacity={.95} /> : null;
+      })}</g>;
+    })}
     {nodes.map((node) => {
       const plan = nodePlan(spec, node.id);
-      return <g key={node.id}>
+      return <g key={node.id} opacity={dim(node.id)}>
         <PlanView plan={plan} progress={state.nodes[node.id].progress} id={`an-${node.id}`} />
         <IconView plan={plan} progress={state.nodes[node.id].progress} id={`ai-${node.id}`} />
       </g>;
     })}
-    {steps.map((step) => <PlanView key={step.id} plan={stepPlan(spec, step.id)} progress={progressOf(stepPlan(spec, step.id))} id={`as-${step.id}`} />)}
-    {labels.map((label) => <PlanView key={label.id} plan={labelPlan(spec, label.id)} progress={state.labels[label.id].progress} id={`al-${label.id}`} />)}
+    {steps.map((step) => <g key={step.id} opacity={dim(step.id)}><PlanView plan={stepPlan(spec, step.id)} progress={progressOf(stepPlan(spec, step.id))} id={`as-${step.id}`} /></g>)}
+    {labels.map((label) => <g key={label.id} opacity={dim(label.id)}><PlanView plan={labelPlan(spec, label.id)} progress={state.labels[label.id].progress} id={`al-${label.id}`} /></g>)}
+    {state.circles.filter((ring) => spec.nodes.some((node) => node.id === ring.target)).map((ring) => <g key={`ring-${ring.target}-${ring.start}`} opacity={ring.level}><PlanView plan={ringPlan(spec, ring.target)} progress={ring.progress} id={`ar-${ring.target}`} /></g>)}
+    {state.notes.filter((note) => spec.nodes.some((node) => node.id === note.target)).map((note, i) => <PlanView key={`note-${i}`} plan={notePlan(spec, note.target, note.text)} progress={note.progress} id={`anote-${i}`} />)}
     {legend.map((item) => <PlanView key={item.lane} plan={legendPlan(spec, item.lane)} progress={progressOf(legendPlan(spec, item.lane))} id={`alg-${item.lane}`} />)}
     {pen ? <g transform={`translate(${pen.x + pen.lift * 40} ${pen.y + pen.lift * 60}) scale(.42)`} opacity={1 - pen.lift}><Pen marker={pen.marker} /></g> : null}
   </svg>;

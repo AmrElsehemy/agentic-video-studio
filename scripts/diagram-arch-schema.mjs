@@ -110,10 +110,12 @@ export const archActionProblems = (spec, scenes, wordMatches) => {
     const earlier = new Set();
     scene.primitive.actions.forEach((action, index) => {
       const where = `scene "${scene.id}" action ${index + 1}`;
-      const targets = action.do === 'flow' ? [action.step, ...action.edges] : action.do === 'connect' ? [action.edge] : action.do === 'camera' ? (action.focus === 'all' ? [] : action.focus) : [action.target];
+      const targets = action.do === 'flow' ? [action.step, ...action.edges] : action.do === 'connect' || action.do === 'pulse' ? [action.edge] : action.do === 'camera' ? (action.focus === 'all' ? [] : action.focus) : action.do === 'dim' ? action.keep : [action.target];
       for (const target of targets) if (!ids.has(target)) problems.push(`${where} (${action.do}) names "${target}", which isn't in the diagram`);
       if (action.do === 'flow' && !steps.has(action.step)) problems.push(`${where} flows step "${action.step}", which isn't a step`);
       if (action.do === 'flow') for (const edge of action.edges) if (!edges.has(edge)) problems.push(`${where} sends its dot along "${edge}", which isn't an edge`);
+      if (action.do === 'pulse' && !edges.has(action.edge)) problems.push(`${where} pulses along "${action.edge}", which isn't an edge`);
+      if ((action.do === 'circle' || action.do === 'annotate') && !spec.nodes.some((node) => node.id === action.target)) problems.push(`${where} ${action.do === 'circle' ? 'circles' : 'annotates'} "${action.target}", which isn't a component`);
       for (const anchor of [action.at, action.until].filter(Boolean)) {
         if (typeof anchor === 'object' && 'word' in anchor && tokens.filter((token) => wordMatches(token, anchor.word)).length < (anchor.nth ?? 1)) problems.push(`${where} waits for "${anchor.word}", which the narration doesn't say: "${scene.narration}"`);
         if (typeof anchor === 'object' && 'after' in anchor && !earlier.has(anchor.after)) problems.push(`${where} follows "${anchor.after}", which isn't an earlier action in this scene`);
