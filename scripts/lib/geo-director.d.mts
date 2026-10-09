@@ -16,6 +16,7 @@ export declare const sceneMentions: (scene: {headline?: string; narration?: stri
 export declare const shotShows: (primitive: GeoMapPrimitive, place: {id: string; bbox: [number, number, number, number]}, boxes: Map<string, [number, number, number, number]>) => boolean;
 export declare const builtinDatasets: (places: Map<string, Place>) => Map<string, ResolvedDataset>;
 export declare const offFramePlaces: (primitive: GeoMapPrimitive, places: Map<string, any>, boxes: Map<string, [number, number, number, number]>) => any[];
+export declare const unframedRivers: (primitive: GeoMapPrimitive, places: Map<string, any>, boxes: Map<string, [number, number, number, number]>) => any[];
 export declare const addNearbyPlaces: (places: Map<string, Place>, subjectId: string, geo: Geo) => Map<string, Place>;
 export declare const resolveResearchPlaces: (research: GeoResearch, geo: Geo) => {subjectId: string; places: Map<string, Place>; review: BordersReview[]; datasets: Map<string, ResolvedDataset>};
 export declare const shotToPrimitive: (shot: unknown, context: {places: Map<string, Place>; research: GeoResearch; datasets?: Map<string, ResolvedDataset>; showId?: string}) => GeoMapPrimitive;

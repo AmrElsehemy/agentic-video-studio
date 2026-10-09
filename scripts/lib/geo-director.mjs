@@ -309,6 +309,24 @@ export const offFramePlaces = (primitive, places, boxes) => {
   return [...missing.values()];
 };
 
+/** A traced river must have at least this share of its box inside one camera framing. */
+const RIVER_FRAMED_SHARE = 0.6;
+const area = ([west, south, east, north]) => Math.max(0, east - west) * Math.max(0, north - south);
+const intersection = ([w1, s1, e1, n1], [w2, s2, e2, n2]) => [Math.max(w1, w2), Math.max(s1, s2), Math.min(e1, e2), Math.min(n1, n2)];
+
+/**
+ * The traced rivers whose course the camera never frames: a river draws on over its length, so some
+ * framing must hold most of it (a camera parked on one spot shows a river as a short stub, or nothing).
+ * A camera that starts on the whole world frames everything, and boxes across the antimeridian are not judged.
+ */
+export const unframedRivers = (primitive, places, boxes) => {
+  const frames = primitive.camera.map((key) => (key.target === 'world' ? 'world' : typeof key.target === 'string' ? boxes.get(key.target) : key.target.bbox));
+  if (frames.includes('world') || frames.some((frame) => !frame || frame[0] > frame[2])) return [];
+  return primitive.highlights
+    .map((highlight) => places.get(highlight.entity))
+    .filter((place) => place?.kind === 'river' && place.bbox && area(place.bbox) > 0 && !frames.some((frame) => area(intersection(place.bbox, frame)) / area(place.bbox) >= RIVER_FRAMED_SHARE));
+};
+
 /** The shot a scene gets when the model gives none, or an invalid one: the subject, filled and named. */
 export const defaultShot = (subject) => primitiveSchema.parse({
   kind: 'geo-map',
@@ -350,6 +368,8 @@ Rules:
 - Labels stay inside the frame, and where two overlap the older one fades. Give a label or marker an "until" when the camera will pull out and crowd it.
 - Every scene must look different from the one before it: change the framing, what is highlighted, or add a layer (data, relief, route, an arrow between two places). Never give two consecutive scenes the same camera and the same highlight. When the narration states a size, a count or a comparison, show it: frame the places being compared together and label each one, or shade them with a dataset.
 - A scene's "names" are places its text mentions. Show every one of them in that scene's shot: highlight it, label it, point an arrow at it, or frame it with the camera.
+- A river's pieces carry its name (the Nile's pieces are the Nile, the White Nile, the Blue Nile, the Victoria Nile, the Albert Nile; the main "Nile" feature is only the northern stretch). When the narration is about the whole river, trace every piece listed.
+- When a scene traces a river, hold a camera framing on the river's own id for part of the scene so its whole course is visible as it draws; never leave the camera parked on one spot while a long river draws.
 - Show what the narration is about while it is being said: the place a scene discusses is highlighted by 0.35 of the scene at the latest, and the camera is already on it (or on the places it is compared with). Open on "world" at most twice in the episode (the first scene and, if it helps, the last), never for a scene whose subject is a single place.
 - Consecutive scenes are one continuous flight: each scene's camera starts where the previous one ended and flies to its first target. Plan the episode as one journey. Add "cut": true only when the story jumps somewhere unrelated.
 
@@ -383,6 +403,7 @@ export const directGeoVisuals = async ({draft, research: rawResearch, complete, 
   /** Mentioned places a scene's shot doesn't show, as the repair feedback words them. */
   const unshown = (id, primitive) => (mentions.get(id) ?? []).filter((place) => !shotShows(primitive, place, boxes));
   const cutOff = (primitive) => offFramePlaces(primitive, places, boxes);
+  const unframed = (primitive) => unframedRivers(primitive, places, boxes);
   let shots = new Map();
   let whys = new Map();
   let fallbacks = [];
@@ -432,12 +453,14 @@ export const directGeoVisuals = async ({draft, research: rawResearch, complete, 
         const variety = [...mapVariety(sequence()).problems, ...mapDirectionProblems(sequence())];
         const unseen = draft.scenes.filter((scene) => shots.has(scene.id)).map((scene) => ({id: scene.id, places: unshown(scene.id, shots.get(scene.id))})).filter((item) => item.places.length);
         const outside = draft.scenes.filter((scene) => shots.has(scene.id)).map((scene) => ({id: scene.id, places: cutOff(shots.get(scene.id))})).filter((item) => item.places.length);
-        if (!missing.length && !variety.length && !unseen.length && !outside.length) break;
+        const stubs = draft.scenes.filter((scene) => shots.has(scene.id)).map((scene) => ({id: scene.id, places: unframed(shots.get(scene.id))})).filter((item) => item.places.length);
+        if (!missing.length && !variety.length && !unseen.length && !outside.length && !stubs.length) break;
         const notes = [
           ...fallbacks.map(({id, reason}) => `- Scene "${id}" was rejected: ${reason}`),
           ...missing.filter((id) => !fallbacks.some((item) => item.id === id)).map((id) => `- Scene "${id}" had no shot.`),
           ...unseen.map(({id, places: names}) => `- Scene "${id}" names ${names.map((place) => `${place.name} (${place.id})`).join(', ')} but its shot doesn't show ${names.length > 1 ? 'them' : 'it'}: highlight, label, anchor or frame ${names.length > 1 ? 'each' : 'it'}.`),
           ...outside.map(({id, places: names}) => `- Scene "${id}" highlights or labels ${names.map((place) => `${place.name} (${place.id})`).join(', ')} but its camera never frames ${names.length > 1 ? 'them' : 'it'}, so ${names.length > 1 ? 'they are' : 'it is'} cut off. Frame ${names.length > 1 ? 'them' : 'it'} too: target {"around": [<ids>]} with the subject, or drop the ${names.length > 1 ? 'highlights and labels' : 'highlight or label'}.`),
+          ...stubs.map(({id, places: rivers}) => `- Scene "${id}" traces ${rivers.map((place) => `${place.name} (${place.id})`).join(', ')} but its camera never frames most of ${rivers.length > 1 ? 'their courses' : 'its course'}, so the river shows as a stub. Give a camera keyframe a target of the river's own id (or {"around": [...]} several) so its whole length is in view, then move on to the part the narration is about.`),
           ...variety.map((problem) => `- ${problem}`),
         ];
         const feedback = `Fix these and reply with the complete {"scenes": [...] } again, one valid shot per scene. Keep the shots that were fine, but change framing, highlights or layers where scenes repeat.\n${notes.join('\n')}`;

@@ -4,7 +4,7 @@ import path from 'node:path';
 import {describe, it} from 'node:test';
 import {fileURLToPath} from 'node:url';
 import {barRows, formatBar, panelHeight} from '../src/video/geo/DataBars';
-import {builtinDatasets, directGeoVisuals, mentionedPlaces, resolveResearchPlaces, shotShows} from '../scripts/lib/geo-director.mjs';
+import {builtinDatasets, directGeoVisuals, mentionedPlaces, resolveResearchPlaces, shotShows, unframedRivers} from '../scripts/lib/geo-director.mjs';
 import {loadGeoData} from '../scripts/lib/geo-primitives.mjs';
 import {mapDirectionProblems, mapVariety} from '../scripts/lib/map-variety.mjs';
 import {publishBlockers} from '../scripts/lib/publish-checks.mjs';
@@ -268,5 +268,18 @@ describe('mentions that are not countries', () => {
     assert.deepEqual(ids('Ships cross the Gulf of Mexico.'), []);
     assert.ok(!ids('The Sea of Japan lies to the west.').includes('country:JPN'));
     assert.deepEqual(ids('Guinea and Guinea-Bissau are neighbours.'), ['country:GIN', 'country:GNB']);
+  });
+});
+
+describe('traced rivers', () => {
+  const places = new Map<string, any>([['river:nile', {id: 'river:nile', kind: 'river', name: 'Nile', bbox: [30, 15, 34, 30]}]]);
+  const boxes = new Map<string, [number, number, number, number]>();
+  const shotWith = (camera: object[]) => ({kind: 'geo-map', camera, highlights: [{entity: 'river:nile', style: 'trace', at: 0.2}], annotations: []}) as any;
+  it('asks for a framing that holds most of the river', () => {
+    assert.equal(unframedRivers(shotWith([{target: {bbox: [31.5, 14.7, 33.5, 16.2]}, at: 0}, {target: {bbox: [-2, 22, 37, 44]}, at: 1}]), places, boxes).length, 1);
+    assert.equal(unframedRivers(shotWith([{target: {bbox: [28, 12, 36, 32]}, at: 0}, {target: {bbox: [30, 29, 32, 32]}, at: 1}]), places, boxes).length, 0);
+  });
+  it('leaves a camera that starts on the world alone', () => {
+    assert.equal(unframedRivers(shotWith([{target: 'world', at: 0}, {target: {bbox: [31.5, 14.7, 33.5, 16.2]}, at: 1}]), places, boxes).length, 0);
   });
 });
