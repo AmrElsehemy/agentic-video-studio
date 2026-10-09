@@ -1,7 +1,7 @@
 // Direct a diagram episode (#129): every scene gets the actions that show what
 // its narration says, timed to its words, chosen by the director model from the
 // elements the diagram defines.
-//   npm run diagram:direct -- azure-cache-aside             ask the model, write out/<id>.diagram-directed.json
+//   npm run diagram:direct -- azure-cache-aside             ask the model, write out/<show>/<id>/<id>.diagram-directed.json
 //   npm run diagram:direct -- azure-cache-aside --write     replace the draft's actions
 //   npm run diagram:direct -- azure-cache-aside --reply=f   use a saved reply instead of a model
 //   npm run diagram:direct -- azure-cache-aside --offline   no model: every scene gets the fallback
@@ -15,6 +15,7 @@ import {directDiagram} from './lib/diagram-director.mjs';
 import {createCompletion} from './lib/llm.mjs';
 import {appendProduction, modelEntry} from './lib/production.mjs';
 import {findDraft} from './catalog.mjs';
+import {episodeOutPath} from './lib/out.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const args = process.argv.slice(2);
@@ -50,7 +51,7 @@ for (const {id, why, repairs = []} of result.assigned) {
   for (const repair of repairs) console.log(`      repaired ${repair}`);
 }
 for (const {id, reason} of result.fallbacks) console.warn(`  ! ${id}: fallback (${reason})`);
-const output = args.includes('--write') ? draftPath : path.join(root, 'out', `${episodeId}.diagram-directed.json`);
+const output = args.includes('--write') ? draftPath : episodeOutPath(root, episodeId, `${episodeId}.diagram-directed.json`);
 fs.mkdirSync(path.dirname(output), {recursive: true});
 fs.writeFileSync(output, `${JSON.stringify(result.draft, null, 2)}\n`);
 console.log(`✓ ${result.assigned.length}/${result.draft.scenes.length} scenes directed by the model; wrote ${path.relative(root, output)}`);

@@ -145,7 +145,7 @@ export const runNewEpisode = async ({number, root = repoRoot, showId = 'pokepuls
   }
   if (!result && best?.creative) {
     // Never throw the work away: keep the closest draft for a person to finish.
-    const bestPath = path.join(root, 'out', `${research.id}.best-attempt.json`);
+    const bestPath = path.join(root, 'out', showId, research.id, `${research.id}.best-attempt.json`);
     writeJson(bestPath, {
       episodeId: research.id,
       createdAt: new Date().toISOString(),
@@ -156,7 +156,7 @@ export const runNewEpisode = async ({number, root = repoRoot, showId = 'pokepuls
       draft: best.draft ?? null,
       reply: best.creative,
     });
-    log(`↳ closest draft${best.score !== undefined ? ` (creative ${best.score}/100, ${best.factProblems} unsupported line${best.factProblems === 1 ? '' : 's'})` : ''} saved to out/${research.id}.best-attempt.json. Fix the listed problems in its "draft", save it as drafts/${showId}/${research.id}.json and run: npm run episode:compile -- ${research.id}`);
+    log(`↳ closest draft${best.score !== undefined ? ` (creative ${best.score}/100, ${best.factProblems} unsupported line${best.factProblems === 1 ? '' : 's'})` : ''} saved to out/${showId}/${research.id}/${research.id}.best-attempt.json. Fix the listed problems in its "draft", save it as drafts/${showId}/${research.id}.json and run: npm run episode:compile -- ${research.id}`);
   }
   if (!result) throw writerError;
 

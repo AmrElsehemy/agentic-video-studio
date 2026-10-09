@@ -1,6 +1,6 @@
 // Direct the maps of a geography draft (#74): every scene gets a geo-map shot
 // chosen by the director model from the places and points its research names.
-//   npm run geo:direct -- lesotho-enclave             ask the model, write out/<id>.geo-directed.json
+//   npm run geo:direct -- lesotho-enclave             ask the model, write out/<show>/<id>/<id>.geo-directed.json
 //   npm run geo:direct -- lesotho-enclave --write     replace the draft's shots
 //   npm run geo:direct -- lesotho-enclave --reply=f   use a saved reply instead of a model
 //   --research=<file>  research other than research/<show>/<id>.json (the show is the draft's folder)
@@ -13,6 +13,7 @@ import {directGeoVisuals} from './lib/geo-director.mjs';
 import {createCompletion} from './lib/llm.mjs';
 import {appendProduction, modelEntry} from './lib/production.mjs';
 import {findDraft} from './catalog.mjs';
+import {episodeOutPath} from './lib/out.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const args = process.argv.slice(2);
@@ -44,7 +45,7 @@ if (result.modelError) console.warn(`! the director model failed (${result.model
 for (const {id, why} of result.assigned) console.log(`  ✓ ${id}: ${why}`);
 for (const {id, reason} of result.fallbacks) console.warn(`  ! ${id}: default map (${reason})`);
 for (const {name, areas} of result.review) console.warn(`  ! ${name} has disputed areas (${areas.map((area) => area.name).join(', ')}): record rights.bordersReview before publishing (docs/geomotion-review.md).`);
-const output = args.includes('--write') ? draftPath : path.join(root, 'out', `${episodeId}.geo-directed.json`);
+const output = args.includes('--write') ? draftPath : episodeOutPath(root, episodeId, `${episodeId}.geo-directed.json`);
 fs.mkdirSync(path.dirname(output), {recursive: true});
 fs.writeFileSync(output, `${JSON.stringify(result.draft, null, 2)}\n`);
 console.log(`✓ ${result.assigned.length}/${result.draft.scenes.length} scenes directed; wrote ${path.relative(root, output)}`);

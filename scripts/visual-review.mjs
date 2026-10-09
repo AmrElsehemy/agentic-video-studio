@@ -10,7 +10,7 @@
 //   --strict=<show,...>     shows that must stay pixel-identical (default: pokepulses)
 //   --allow-change          report changes in strict shows without failing
 //   --no-render             rebuild the page from the last run's frames
-//   --reuse-head            use the working tree's frames already in out/<id>-frames/ (CI: the
+//   --reuse-head            use the working tree's frames already in out/<show>/<id>/<id>-frames/ (CI: the
 //                           frame-check step just rendered them); only missing episodes are rendered
 //   --no-strips             skip the scene-change strips (CI: nothing map-related changed)
 // Writes out/visual-review/index.html (open it, or publish it for review) and
@@ -22,6 +22,7 @@ import {bundle} from '@remotion/bundler';
 import {openBrowser, renderStill, selectComposition} from '@remotion/renderer';
 import {episodeIds, findManifest, repoRoot as root, resolveEpisodeId} from './catalog.mjs';
 import {renderDifference} from './lib/render-check.mjs';
+import {episodeOutPathOrLegacy} from './lib/out.mjs';
 
 const args = process.argv.slice(2);
 const option = (name) => args.find((arg) => arg.startsWith(`--${name}=`))?.slice(name.length + 3);
@@ -53,7 +54,7 @@ const run = (command, commandArgs, options = {}) => {
 
 /** Render review frames + cover for `ids` in `dir`, and copy them to out/visual-review/<side>/<id>/. */
 const renderSide = (dir, side, ids, {reuse = false} = {}) => {
-  const reused = reuse ? ids.filter((id) => fs.existsSync(path.join(dir, 'out', `${id}-frames`)) && fs.existsSync(path.join(dir, 'out', `${id}-cover.png`))) : [];
+  const reused = reuse ? ids.filter((id) => fs.existsSync(episodeOutPathOrLegacy(dir, id, `${id}-frames`)) && fs.existsSync(episodeOutPathOrLegacy(dir, id, `${id}-cover.png`))) : [];
   if (reused.length) console.log(`▶ reusing ${reused.length} episode(s) already rendered in the working tree`);
   copyFrames(dir, side, reused);
   ids = ids.filter((id) => !reused.includes(id));
@@ -68,9 +69,9 @@ const copyFrames = (dir, side, ids) => {
   for (const id of ids) {
     const target = path.join(outDir, side, id);
     fs.mkdirSync(target, {recursive: true});
-    const frames = path.join(dir, 'out', `${id}-frames`);
+    const frames = episodeOutPathOrLegacy(dir, id, `${id}-frames`);
     if (fs.existsSync(frames)) for (const file of fs.readdirSync(frames)) fs.copyFileSync(path.join(frames, file), path.join(target, file));
-    const cover = path.join(dir, 'out', `${id}-cover.png`);
+    const cover = episodeOutPathOrLegacy(dir, id, `${id}-cover.png`);
     if (fs.existsSync(cover)) fs.copyFileSync(cover, path.join(target, 'cover.png'));
   }
 };
@@ -91,8 +92,8 @@ const mapSeams = (manifest) => {
 
 /** Render the frames around every map scene change, from the props frame-check wrote in `dir`. */
 const renderStrips = async (dir, side, ids) => {
-  const withSeams = ids.filter((id) => fs.existsSync(path.join(dir, 'out', `${id}.props.json`)))
-    .map((id) => ({id, manifest: JSON.parse(fs.readFileSync(path.join(dir, 'out', `${id}.props.json`), 'utf8')).manifest}))
+  const withSeams = ids.filter((id) => fs.existsSync(episodeOutPathOrLegacy(dir, id, `${id}.props.json`)))
+    .map((id) => ({id, manifest: JSON.parse(fs.readFileSync(episodeOutPathOrLegacy(dir, id, `${id}.props.json`), 'utf8')).manifest}))
     .filter(({manifest}) => mapSeams(manifest).length);
   if (!withSeams.length) return;
   console.log(`▶ rendering scene-change strips at ${side === 'base' ? base : 'the working tree'}`);

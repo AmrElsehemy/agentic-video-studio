@@ -47,7 +47,7 @@ npm run geo:direct -- lesotho-enclave --write            # replace the draft's m
 npm run geo:direct -- lesotho-enclave --reply=<file>     # replay a saved reply (tests, reviews, offline)
 ```
 
-Without `--write`, the result goes to `out/<id>.geo-directed.json`. Review it with `npm run frames -- <id>`.
+Without `--write`, the result goes to `out/<show>/<id>/<id>.geo-directed.json`. Review it with `npm run frames -- <id>`.
 
 ## Tests
 

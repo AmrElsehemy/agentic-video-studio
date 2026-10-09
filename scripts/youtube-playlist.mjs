@@ -9,6 +9,7 @@ import {findManifest, resolveEpisodeId} from './catalog.mjs';
 import {loadShow} from './lib/shows.mjs';
 import {analyticsPath, readAnalytics} from './lib/analytics.mjs';
 import {addToPlaylist, assertShowChannel, channelOf, getAccessToken, playlistVideoIds} from './lib/youtube.mjs';
+import {episodeOutPath} from './lib/out.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const args = process.argv.slice(2);
@@ -26,7 +27,7 @@ const episodes = targets.map((target) => {
   if (!episodeId) throw new Error(`No episode matches "${target}".`);
   const {manifestPath} = findManifest(episodeId);
   const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
-  const receiptPath = path.join(root, 'out', `${episodeId}-youtube.json`);
+  const receiptPath = episodeOutPath(root, episodeId, `${episodeId}-youtube.json`);
   const videoId = (fs.existsSync(receiptPath) ? JSON.parse(fs.readFileSync(receiptPath, 'utf8')).youtubeId : undefined)
     ?? readAnalytics(analyticsPath(root, manifest.show.id, episodeId))?.videoId;
   return {episodeId, show: loadShow(manifest.show.id), videoId};

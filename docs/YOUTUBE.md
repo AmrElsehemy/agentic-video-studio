@@ -88,7 +88,7 @@ npm run youtube:playlist -- 10-20
 A successful upload writes:
 
 ```text
-out/<episode-id>-youtube.json
+out/<show>/<episode-id>/<episode-id>-youtube.json
 ```
 
 The receipt contains the YouTube video ID, URL, upload timestamp, privacy request, schedule, and title.

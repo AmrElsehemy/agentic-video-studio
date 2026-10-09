@@ -1,6 +1,6 @@
 // Write the script of an architecture walkthrough (#128) from its diagram, then
 // time the picture to it with the Diagram Director (#129).
-//   npm run diagram:write -- url-shortener                   write out/<id>.walkthrough.json
+//   npm run diagram:write -- url-shortener                   write out/<show>/<id>/<id>.walkthrough.json
 //   npm run diagram:write -- url-shortener --write           replace the draft's script and actions
 //   --notes=<file>     facts the diagram doesn't show, and their sources: {"facts": [...], "sources": [{"label", "url"}]}
 //   --save-replies=<dir>  keep each model's replies (writer, critic, director), e.g. as test fixtures
@@ -14,6 +14,7 @@ import {createCompletion} from './lib/llm.mjs';
 import {appendProduction, modelEntry} from './lib/production.mjs';
 import {writeWalkthrough} from './lib/walkthrough-writer.mjs';
 import {findDraft} from './catalog.mjs';
+import {episodeOutPath} from './lib/out.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const args = process.argv.slice(2);
@@ -63,7 +64,7 @@ const result = await writeWalkthrough({
 for (const scene of result.draft.scenes) console.log(`  ${scene.id.padEnd(12)} ${scene.narration}`);
 console.log(`✓ engagement ${result.audit.score}/100; story ${result.review.score ?? 'not judged'}/100${result.belowBar ? ' (below the bar: review it)' : ''}; ${result.direction.assigned.length}/${result.draft.scenes.length} scenes directed by the model`);
 for (const {id, reason} of result.direction.fallbacks) console.warn(`  ! ${id}: fallback actions (${reason})`);
-const output = args.includes('--write') ? draftPath : path.join(root, 'out', `${episodeId}.walkthrough.json`);
+const output = args.includes('--write') ? draftPath : episodeOutPath(root, episodeId, `${episodeId}.walkthrough.json`);
 fs.mkdirSync(path.dirname(output), {recursive: true});
 fs.writeFileSync(output, `${JSON.stringify(result.draft, null, 2)}\n`);
 console.log(`✓ wrote ${path.relative(root, output)}`);

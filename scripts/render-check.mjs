@@ -7,11 +7,11 @@
 //   1. scans every 8th frame at low resolution to find the busiest 24
 //      consecutive frames inside one scene, and the most sudden steps;
 //   2. renders 24 consecutive frames around each at half size, writes
-//      out/<id>-strip.png (one block per window) and fails on a single-frame
+//      out/<show>/<id>/<id>-strip.png (one block per window) and fails on a single-frame
 //      jump between neighbours (intended reveals aside);
 //   3. renders a few frames twice, in opposite orders, and fails unless the
 //      pixels match (anti-aliasing noise in a few pixels aside).
-// Writes out/<id>-render-check.json and exits non-zero when any episode fails.
+// Writes out/<show>/<id>/<id>-render-check.json and exits non-zero when any episode fails.
 import {spawnSync} from 'node:child_process';
 import fs from 'node:fs';
 import os from 'node:os';
@@ -22,6 +22,7 @@ import {repoRoot as root, resolveEpisodeId} from './catalog.mjs';
 import {busiestWindow, determinismFrames, findJumps, neighbourDifferences, renderDifference, STRIP_LENGTH, suddenWindows} from './lib/render-check.mjs';
 import {intendedCuts} from './lib/reveals.mjs';
 import {prepareRenderProps} from './lib/render-props.mjs';
+import {episodeOutPath} from './lib/out.mjs';
 
 const args = process.argv.slice(2);
 const ids = args.filter((arg) => !arg.startsWith('--')).map((arg) => resolveEpisodeId(arg));
@@ -51,7 +52,7 @@ const failed = [];
 try {
   for (const {id, manifest} of prepared) {
     const started = Date.now();
-    const work = path.join(root, 'out', `${id}-render-check`);
+    const work = episodeOutPath(root, id, `${id}-render-check`);
     fs.rmSync(work, {recursive: true, force: true});
     const inputProps = {manifest};
     const composition = await selectComposition({serveUrl, id: 'VerticalEpisode', inputProps, puppeteerInstance: browser});
@@ -87,7 +88,7 @@ try {
       sheets.push(sheet);
     }
     // One image with a block of 24 frames per window, busiest first.
-    spawnSync('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-y', ...sheets.flatMap((sheet) => ['-i', sheet]), ...(sheets.length > 1 ? ['-filter_complex', `${sheets.map((_, index) => `[${index}]`).join('')}vstack=${sheets.length}`] : []), path.join(root, 'out', `${id}-strip.png`)]);
+    spawnSync('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-y', ...sheets.flatMap((sheet) => ['-i', sheet]), ...(sheets.length > 1 ? ['-filter_complex', `${sheets.map((_, index) => `[${index}]`).join('')}vstack=${sheets.length}`] : []), episodeOutPath(root, id, `${id}-strip.png`)]);
     const jumps = windows.flatMap((item) => item.jumps);
     const reveals = windows.flatMap((item) => item.reveals);
     const range = windows[0].frames;
@@ -116,7 +117,8 @@ try {
       determinism: {frames: rerenders.map(({frame, changedShare, largest}) => ({frame, changedShare: Number(changedShare.toFixed(6)), largest})), unstable},
       ok: !jumps.length && !unstable.length,
     };
-    fs.writeFileSync(path.join(root, 'out', `${id}-render-check.json`), `${JSON.stringify(report, null, 2)}\n`);
+    fs.mkdirSync(episodeOutPath(root, id), {recursive: true});
+    fs.writeFileSync(episodeOutPath(root, id, `${id}-render-check.json`), `${JSON.stringify(report, null, 2)}\n`);
     const largest = Math.max(...windows.flatMap((item) => item.differences));
     console.log(`${report.ok ? '✓' : '✗'} ${id}: ${report.windows.map((item) => `frames ${item.frames.join('–')} (scene ${item.scene}, ${item.why})`).join(', ')}; largest step ${largest.toFixed(2)}, ${jumps.length} jump(s)${reveals.length ? ` (+${reveals.length} intended reveal)` : ''}; ${checkFrames.length - unstable.length}/${checkFrames.length} frames the same when re-rendered (${((Date.now() - started) / 1000).toFixed(0)}s: scan ${(timing.scan / 1000).toFixed(0)}s)`);
     for (const jump of jumps) console.log(`    ${jump.kind} at frames ${jump.frames.join('→')}: change ${jump.difference.toFixed(2)} against ${jump.around.toFixed(2)} around it`);

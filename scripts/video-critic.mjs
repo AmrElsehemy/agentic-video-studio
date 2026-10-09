@@ -1,10 +1,10 @@
 // Video Critic: review a rendered episode frame by frame.
 // Usage: npm run critic:video -- <episode-id> [--vision] [--frames]
 //
-// Needs out/<id>.mp4 (npm run video), or with --frames the review frames from
-// npm run frames, and uses out/<id>-cover.png when present (npm run still). Always runs the deterministic frame audit (OCR with
+// Needs out/<show>/<id>/<id>.mp4 (npm run video), or with --frames the review frames from
+// npm run frames, and uses out/<show>/<id>/<id>-cover.png when present (npm run still). Always runs the deterministic frame audit (OCR with
 // tesseract, plus pixel checks); --vision (or VIDEO_CRITIC_VISION=1) also asks
-// a vision model. Writes out/<id>-video-review.json and exits 1 on any
+// a vision model. Writes out/<show>/<id>/<id>-video-review.json and exits 1 on any
 // blocking issue.
 import {spawnSync} from 'node:child_process';
 import fs from 'node:fs';
@@ -19,6 +19,7 @@ import {appendProduction, modelEntry} from './lib/production.mjs';
 import {framePath, reviewFrames} from './lib/render-props.mjs';
 import {critiqueFrames} from './lib/video-critic.mjs';
 import {resolveEpisodeId} from './catalog.mjs';
+import {episodeOutPath} from './lib/out.mjs';
 
 const {auditDiagram, chapterBox, overviewLabels} = diagramAudit;
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -27,9 +28,9 @@ const episodeId = resolveEpisodeId(args.find((arg) => !arg.startsWith('--')));
 if (!episodeId) throw new Error('Usage: npm run critic:video -- <episode-id> [--vision] [--frames]');
 const fromFrames = args.includes('--frames');
 const vision = args.includes('--vision') || process.env.VIDEO_CRITIC_VISION === '1';
-const videoPath = path.join(root, 'out', `${episodeId}.mp4`);
-const propsPath = path.join(root, 'out', `${episodeId}.props.json`);
-const coverPath = path.join(root, 'out', `${episodeId}-cover.png`);
+const videoPath = episodeOutPath(root, episodeId, `${episodeId}.mp4`);
+const propsPath = episodeOutPath(root, episodeId, `${episodeId}.props.json`);
+const coverPath = episodeOutPath(root, episodeId, `${episodeId}-cover.png`);
 if (fromFrames ? !fs.existsSync(framePath(root, episodeId, 0)) || !fs.existsSync(propsPath) : !fs.existsSync(videoPath) || !fs.existsSync(propsPath)) {
   throw new Error(fromFrames ? `Render the review frames first: npm run frames -- ${episodeId}` : `Render ${episodeId} first: npm run video -- ${episodeId}`);
 }
@@ -126,7 +127,8 @@ try {
   }
 
   const blocking = issues.filter((issue) => issue.severity === 'blocking');
-  const reviewPath = path.join(root, 'out', `${episodeId}-video-review.json`);
+  const reviewPath = episodeOutPath(root, episodeId, `${episodeId}-video-review.json`);
+  fs.mkdirSync(path.dirname(reviewPath), {recursive: true});
   fs.writeFileSync(reviewPath, `${JSON.stringify({episodeId, checkedAt: new Date().toISOString(), ocr: hasTesseract, vision: Boolean(vision && !visionReport?.modelError), issues}, null, 2)}\n`);
   for (const issue of issues) console.log(`${issue.severity === 'blocking' ? '✗' : '⚠'} ${issue.where} [${issue.check}${issue.source === 'vision' ? ', vision' : ''}]: ${issue.message}`);
   console.log(`${blocking.length ? '✗' : '✓'} video critic: ${blocking.length} blocking, ${issues.length - blocking.length} warnings → ${path.relative(root, reviewPath)}`);

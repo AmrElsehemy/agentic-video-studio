@@ -5,6 +5,7 @@ import {findManifest, resolveEpisodeId} from './catalog.mjs';
 import {loadShow} from './lib/shows.mjs';
 import {addToPlaylist, assertShowChannel, channelOf, getAccessToken, youtubeMetadata} from './lib/youtube.mjs';
 import {analyticsPath, linkVideo, readAnalytics, writeAnalytics} from './lib/analytics.mjs';
+import {episodeOutPath} from './lib/out.mjs';
 
 const args = process.argv.slice(2);
 const episodeId = resolveEpisodeId(args.find((arg) => !arg.startsWith('--')));
@@ -28,7 +29,7 @@ const dryRun = has('dry-run');
 
 const {root, manifestPath} = findManifest(episodeId);
 const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
-const videoPath = path.join(root, 'out', `${episodeId}.mp4`);
+const videoPath = episodeOutPath(root, episodeId, `${episodeId}.mp4`);
 if (!fs.existsSync(videoPath)) throw new Error(`Missing rendered video: ${path.relative(root, videoPath)}. Render it first.`);
 
 const requiresPublicReleaseClearance = privacy !== 'private' || Boolean(publishAt);
@@ -101,7 +102,8 @@ const receipt = {
   notifySubscribers,
   title: metadata.snippet.title,
 };
-const receiptPath = path.join(root, 'out', `${episodeId}-youtube.json`);
+const receiptPath = episodeOutPath(root, episodeId, `${episodeId}-youtube.json`);
+fs.mkdirSync(path.dirname(receiptPath), {recursive: true});
 fs.writeFileSync(receiptPath, `${JSON.stringify(receipt, null, 2)}\n`);
 // Link the episode to its video for npm run analytics (committed, unlike the receipt in out/).
 // The upload has already succeeded, so a problem here only warns.

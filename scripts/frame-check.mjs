@@ -12,6 +12,7 @@ import {bundle} from '@remotion/bundler';
 import {openBrowser, renderStill, selectComposition} from '@remotion/renderer';
 import {framePath, prepareRenderProps, reviewFrames} from './lib/render-props.mjs';
 import {resolveEpisodeId} from './catalog.mjs';
+import {episodeOutPath} from './lib/out.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const args = process.argv.slice(2);
@@ -47,8 +48,8 @@ try {
         await renderStill({composition: episode, serveUrl, inputProps, frame: Math.min(frame, episode.durationInFrames - 1), output: framePath(root, episodeId, index), imageFormat: 'png', puppeteerInstance: browser, overwrite: true});
       }
       const cover = await selectComposition({serveUrl, id: 'EpisodeCover', inputProps, puppeteerInstance: browser});
-      await renderStill({composition: cover, serveUrl, inputProps, frame: 0, output: path.join(root, 'out', `${episodeId}-cover.png`), imageFormat: 'png', puppeteerInstance: browser, overwrite: true});
-      console.log(`✓ ${episodeId}: ${frames.length} scene frames + cover in out/${episodeId}-frames/`);
+      await renderStill({composition: cover, serveUrl, inputProps, frame: 0, output: episodeOutPath(root, episodeId, `${episodeId}-cover.png`), imageFormat: 'png', puppeteerInstance: browser, overwrite: true});
+      console.log(`✓ ${episodeId}: ${frames.length} scene frames + cover in ${path.relative(root, path.dirname(framePath(root, episodeId, 0)))}/`);
     } catch (error) {
       console.error(`✗ ${episodeId}: ${error.message}`);
       failed.push(episodeId);

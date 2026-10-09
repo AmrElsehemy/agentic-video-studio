@@ -65,7 +65,7 @@ Consecutive diagram scenes are one canvas, so each scene opens on what the previ
 Once a draft has its diagram and narration, the director writes every scene's actions:
 
 ```
-npm run diagram:direct -- url-shortener            # writes out/url-shortener.diagram-directed.json
+npm run diagram:direct -- url-shortener            # writes out/<show>/url-shortener/url-shortener.diagram-directed.json
 npm run diagram:direct -- url-shortener --write    # replaces the draft's actions
 npm run diagram:direct -- url-shortener --offline  # no model: the fallback for every scene
 ```
@@ -181,7 +181,7 @@ Its narration is placeholder text built from the step labels. Have the writer re
 ### Writing the script
 
 ```
-npm run diagram:write -- my-system                      # writes out/my-system.walkthrough.json
+npm run diagram:write -- my-system                      # writes out/<show>/my-system/my-system.walkthrough.json
 npm run diagram:write -- my-system --write              # replaces the draft's script and actions
 npm run diagram:write -- my-system --notes=notes.json   # adds facts the diagram doesn't show
 ```

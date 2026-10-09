@@ -12,6 +12,7 @@ import path from 'node:path';
 import {findDraft, listManifests} from '../catalog.mjs';
 import {compileEpisode, serializeManifest} from './compiler.mjs';
 import {voiceInputHash} from './voice-lock.mjs';
+import {episodeOutPath} from './out.mjs';
 
 export const STAGES = ['compile', 'lint', 'preview', 'approve', 'voice', 'render'];
 export const PIPELINE_VOICES = ['none', 'local', 'openai', 'elevenlabs'];
@@ -180,7 +181,7 @@ export const episodeStages = ({root, episodeId, voice = 'none', exec = execStep(
     {
       name: 'preview',
       inputs: () => ({manifest: manifestHash(), code: hashFiles(root, RENDER_CODE)}),
-      outputs: () => [path.join(root, 'out', `${episodeId}-frames`, '00.png')],
+      outputs: () => [episodeOutPath(root, episodeId, `${episodeId}-frames`, '00.png')],
       run: () => exec('review frames (no voice)', process.execPath, ['scripts/frame-check.mjs', episodeId, '--voice=none']),
     },
     {
@@ -188,7 +189,7 @@ export const episodeStages = ({root, episodeId, voice = 'none', exec = execStep(
       inputs: () => (PAID_VOICES.includes(voice) ? {manifest: manifestHash()} : {skip: `not needed for ${voice === 'none' ? 'a render without narration' : 'local voice'}`}),
       gate: (hash, lock) => (lock.approvals?.[hash]
         ? null
-        : `paid voice needs a person to approve this version. Review out/${episodeId}-frames/ (npm run sheet -- ${episodeId} --frames), then run: npm run pipeline -- ${episodeId} --voice=${voice} --approve`),
+        : `paid voice needs a person to approve this version. Review the ${episodeId}-frames/ folder under out/ (npm run sheet -- ${episodeId} --frames), then run: npm run pipeline -- ${episodeId} --voice=${voice} --approve`),
     },
     {
       name: 'voice',
@@ -199,7 +200,7 @@ export const episodeStages = ({root, episodeId, voice = 'none', exec = execStep(
     {
       name: 'render',
       inputs: () => ({manifest: manifestHash(), voice, narration: voice === 'none' ? null : hashFiles(root, [path.relative(root, timingFile)]), code: hashFiles(root, [...RENDER_CODE, 'scripts/render.mjs', 'scripts/qa.mjs'])}),
-      outputs: () => [path.join(root, 'out', `${episodeId}.mp4`)],
+      outputs: () => [episodeOutPath(root, episodeId, `${episodeId}.mp4`)],
       run: () => exec('render + media QA', process.execPath, ['scripts/render.mjs', episodeId, `--voice=${voice}`]),
     },
   ];

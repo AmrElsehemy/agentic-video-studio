@@ -183,9 +183,9 @@ describe('episode:new writer budget', () => {
     await assert.rejects(runNewEpisode({number: 888, root: dir, fetchJson, complete, ideate, verify: verifierRejecting(/.+/), critique: critic(2).complete, direct: null, maxAttempts: 2, maxWriterCalls: 3, log: (line: string) => logs.push(line)}));
     assert.equal(writerCalls.length, 3, 'never more writer calls than the budget');
     assert.ok(logs.some((line) => /writer budget spent \(3 calls\)/.test(line)), logs.join('\n'));
-    const saved = JSON.parse(fs.readFileSync(path.join(dir, 'out/zacian-888.best-attempt.json'), 'utf8'));
+    const saved = JSON.parse(fs.readFileSync(path.join(dir, 'out/pokepulses/zacian-888/zacian-888.best-attempt.json'), 'utf8'));
     assert.ok(saved.unsupportedLines > 4, 'no draft could pass on facts');
     assert.ok(saved.draft.scenes.length > 0);
-    assert.ok(logs.some((line) => line.includes('out/zacian-888.best-attempt.json')));
+    assert.ok(logs.some((line) => line.includes('out/pokepulses/zacian-888/zacian-888.best-attempt.json')));
   });
 });

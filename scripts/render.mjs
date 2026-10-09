@@ -4,6 +4,7 @@ import {fileURLToPath} from 'node:url';
 import {appendProduction} from './lib/production.mjs';
 import {prepareRenderProps} from './lib/render-props.mjs';
 import {resolveEpisodeId} from './catalog.mjs';
+import {episodeOutPath} from './lib/out.mjs';
 
 const args = process.argv.slice(2);
 const episodeId = resolveEpisodeId(args.find((arg) => !arg.startsWith('--')) ?? 'bulbasaur-001');
@@ -24,7 +25,7 @@ try {
   console.error(error.message);
   process.exit(1);
 }
-const outputPath = path.join(root, 'out', `${episodeId}.mp4`);
+const outputPath = episodeOutPath(root, episodeId, `${episodeId}.mp4`);
 
 const renderArgs = ['remotion', 'render', 'src/index.ts', 'VerticalEpisode', outputPath, `--props=${propsPath}`, '--codec=h264', '--crf=18', '--pixel-format=yuv420p'];
 if (process.env.REMOTION_BROWSER_EXECUTABLE) renderArgs.push(`--browser-executable=${process.env.REMOTION_BROWSER_EXECUTABLE}`);

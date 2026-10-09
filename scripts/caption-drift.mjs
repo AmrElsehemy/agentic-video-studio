@@ -12,6 +12,7 @@ import {captionDrift, MAX_DRIFT, timelineWords} from './lib/caption-drift.mjs';
 import {withWordCaptions} from './lib/captions.mjs';
 import {prepareRenderProps} from './lib/render-props.mjs';
 import {narrationProvider} from './lib/voice-lock.mjs';
+import {episodeOutPath} from './lib/out.mjs';
 
 const args = process.argv.slice(2);
 const episodeId = resolveEpisodeId(args.find((arg) => !arg.startsWith('--')));
@@ -40,7 +41,8 @@ else {
 
 const result = captionDrift(timelineWords(manifest), reference);
 const ms = (seconds) => `${Math.round(seconds * 1000)} ms`;
-const reportPath = path.join(root, 'out', `${episodeId}-caption-drift.json`);
+const reportPath = episodeOutPath(root, episodeId, `${episodeId}-caption-drift.json`);
+fs.mkdirSync(path.dirname(reportPath), {recursive: true});
 fs.writeFileSync(reportPath, `${JSON.stringify({timing, ...result}, null, 2)}\n`);
 for (const word of result.words.filter((item) => Math.abs(item.drift) > MAX_DRIFT)) console.log(`  ${word.scene}: "${word.text}" ${word.drift > 0 ? 'late' : 'early'} by ${ms(Math.abs(word.drift))}`);
 console.log(`${result.pass ? '✓' : '✗'} ${episodeId} (${timing} word times): ${result.words.length} words, median ${ms(result.median)}, 90% within ${ms(result.p90)}, worst ${ms(result.max)} (target: 90% within ${ms(MAX_DRIFT)}) → ${path.relative(root, reportPath)}`);

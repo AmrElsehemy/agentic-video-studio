@@ -66,6 +66,6 @@ describe('review frames', () => {
   });
 
   it('writes frames where the critic and contact sheet read them', () => {
-    assert.equal(path.relative(root, framePath(root, 'mew-151', 3)), path.join('out', 'mew-151-frames', '03.png'));
+    assert.equal(path.relative(root, framePath(root, 'mew-151', 3)), path.join('out', 'pokepulses', 'mew-151', 'mew-151-frames', '03.png'));
   });
 });

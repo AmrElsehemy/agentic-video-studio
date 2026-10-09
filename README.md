@@ -9,7 +9,7 @@ npm install
 npm run video -- bulbasaur-001
 ```
 
-The command validates the episode, renders a 1080×1920 H.264 MP4, and writes it to `out/bulbasaur-001.mp4`.
+The command validates the episode, renders a 1080×1920 H.264 MP4, and writes it to `out/pokepulses/bulbasaur-001/bulbasaur-001.mp4`.
 
 Useful commands:
 
@@ -49,7 +49,7 @@ brew install ffmpeg tesseract   # Linux: sudo apt-get install ffmpeg tesseract-o
 2. **Look at an episode** (no keys):
    ```bash
    npm run studio                          # Remotion Studio, with a built-in preview episode
-   npm run video -- gimmighoul-999         # out/gimmighoul-999.mp4 (music bed, no narration)
+   npm run video -- gimmighoul-999         # out/pokepulses/gimmighoul-999/gimmighoul-999.mp4 (music bed, no narration)
    npm run still -- gimmighoul-999         # the cover
    npm run sheet -- gimmighoul-999         # one frame per scene, tiled
    npm run critic:video -- gimmighoul-999  # OCR/pixel review of the render
@@ -86,7 +86,7 @@ Every other command takes an episode by its id (`charmander-004`) or just its Po
 1. **Research** — fetches the Pokémon's species, types, size, Pokédex entries, evolution line and alternate forms from PokéAPI into `research/<show>/<id>.json`, with sources. Reused on later runs; `--refresh-research` refetches. Every field has a **source tier** (`tiers` in the file): `official` (Pokédex text, types, sizes: stated plainly), `trusted_secondary` (PokéAPI-derived evolution conditions and form names: stated precisely) and `community` (the `lore` list, for fan theories and trivia you add by hand with a source: only ever stated hedged, e.g. "some fans believe…").
 2. **Find the angle** — an **Angle Generator** proposes about six candidate ideas, each with a hook, a story shape and evidence pointers into the research; an **Angle Critic** scores them 1–5 on uniqueness to this Pokémon, surprise, specificity, visual potential and factual support. An angle that rests only on fields every Pokémon has (type, category, generation) can't score above 2 for uniqueness, so "Gimmighoul needs 999 coins" beats "Gimmighoul is a Ghost type". Below 16/25 the critic asks for a second round. Candidates, scores and the choice are saved in `research/<show>/<id>.angles.json`.
 3. **Write** — a writer agent (Claude or OpenAI) builds the episode around the chosen angle and its story shape, writing the creative draft from the research only, following [DIRECTING.md](DIRECTING.md) and learning from the curated winners in [creative-references/](creative-references/README.md) for that shape. Identity, artwork URLs, rights and sources are filled in from the research, never by the model.
-4. **Check and revise** — the draft goes through the schema, the compiler (beats, hook and scene timing), the production audit (80+ required) and a number check, then the **Fact Verifier**: every headline, narration line, caption and fact gets a verdict (supported / unsupported / uncertain) with evidence pointers into the research (e.g. `types[0]`, `pokedexEntries[1].text`). Each verdict also reports the tier of its evidence, and a claim resting only on `community` lore is unsupported unless the text hedges it. The report is saved as `research/<show>/<id>.verification.json`; uncertain lines are listed for review. Alongside it, a **creative critic** judges the story itself (hook, specificity, tension, escalation, surprise, variety, payoff, question; see [DIRECTING.md](DIRECTING.md#checking-it)) and aims for 70/100; the review is saved as `research/<show>/<id>.creative.json`. Facts and story are judged together on every draft that passes production, so one revision fixes both instead of trading one for the other. Facts are a hard gate; the story is not, because a model's taste score is noisy and rewriting towards it doesn't converge: the story gets one revision, then the best-scoring draft whose facts pass is kept and flagged **below the bar** in the log and in `creative.json`, for you to review (publishing needs your release approval anyway). `--strict-story` makes the story a hard gate again. Once the story is settled and only a few lines (up to 4) are unsupported, the writer rewrites just those lines and they are patched in, rather than rewriting the episode. Fallback angles are tried only when no draft passes on facts. `episode:new` allows 4 writer calls per angle and 10 in total across fallback angles; if none passes, the closest draft and its remaining problems are saved to `out/<id>.best-attempt.json` to finish by hand (save it as `drafts/<show>/<id>.json`, then `npm run episode:compile -- <id>`).
+4. **Check and revise** — the draft goes through the schema, the compiler (beats, hook and scene timing), the production audit (80+ required) and a number check, then the **Fact Verifier**: every headline, narration line, caption and fact gets a verdict (supported / unsupported / uncertain) with evidence pointers into the research (e.g. `types[0]`, `pokedexEntries[1].text`). Each verdict also reports the tier of its evidence, and a claim resting only on `community` lore is unsupported unless the text hedges it. The report is saved as `research/<show>/<id>.verification.json`; uncertain lines are listed for review. Alongside it, a **creative critic** judges the story itself (hook, specificity, tension, escalation, surprise, variety, payoff, question; see [DIRECTING.md](DIRECTING.md#checking-it)) and aims for 70/100; the review is saved as `research/<show>/<id>.creative.json`. Facts and story are judged together on every draft that passes production, so one revision fixes both instead of trading one for the other. Facts are a hard gate; the story is not, because a model's taste score is noisy and rewriting towards it doesn't converge: the story gets one revision, then the best-scoring draft whose facts pass is kept and flagged **below the bar** in the log and in `creative.json`, for you to review (publishing needs your release approval anyway). `--strict-story` makes the story a hard gate again. Once the story is settled and only a few lines (up to 4) are unsupported, the writer rewrites just those lines and they are patched in, rather than rewriting the episode. Fallback angles are tried only when no draft passes on facts. `episode:new` allows 4 writer calls per angle and 10 in total across fallback angles; if none passes, the closest draft and its remaining problems are saved to `out/<show>/<id>/<id>.best-attempt.json` to finish by hand (save it as `drafts/<show>/<id>.json`, then `npm run episode:compile -- <id>`).
 5. **Direct the visuals** — a **Visual Director** reads the finished draft and gives the scenes whose idea can be *shown* a semantic visual primitive with its data (see below). Every number and type it uses must be in the research; anything else is rejected and logged, and those scenes keep their story shape's shot.
 6. **Save** — `drafts/<show>/<id>.json` and the compiled `videos/<show>/<id>/video.json`, then the fast certification. Review the draft before paying for voice.
 
@@ -145,10 +145,10 @@ Each stage records the hash of its inputs in `build/<id>/lock.json` when it succ
 |---|---|---|
 | compile | draft → `videos/<show>/<id>/video.json` (skipped for hand-written manifests) | the draft, show profile, compiler or map ids change |
 | lint | schema, engagement audit, voice timing preflight, `tsc` | the manifest or any source file changes |
-| preview | review frames in `out/<id>-frames/` (no voice) | the manifest or render code changes |
+| preview | review frames in `out/<show>/<id>/<id>-frames/` (no voice) | the manifest or render code changes |
 | approve | a gate for paid voice: waits until a person approves this manifest | the manifest changes |
 | voice | `--voice=local` or `--voice=openai` narration (per-scene cache) | narration or voice settings change |
-| render | full render + media QA → `out/<id>.mp4` | the manifest, narration or render code changes |
+| render | full render + media QA → `out/<show>/<id>/<id>.mp4` | the manifest, narration or render code changes |
 
 ```bash
 npm run pipeline -- lesotho-enclave                           # every stage, rendered without narration
@@ -217,7 +217,7 @@ One frame per scene can't show a camera snap, a label that flickers for a single
 - **Checks motion frame by frame.** It renders those frames at half size and fails on a single-frame jump: a step far larger than the steps either side of it. Smooth motion passes, however fast. Intended reveals (a silhouette snapping to artwork, timed in `scripts/lib/reveals.mjs`) and scene exit fades are expected.
 - **Checks determinism.** It renders a few frames twice, in opposite orders, and fails if they differ by more than anti-aliasing noise. Randomness, wall-clock time and leftover state all show up here.
 
-It writes `out/<id>-strip.png`, one block of 24 frames per window, and `out/<id>-render-check.json`. CI runs it on the golden set beside the frame check, and on every changed episode after its full render.
+It writes `out/<show>/<id>/<id>-strip.png`, one block of 24 frames per window, and `out/<show>/<id>/<id>-render-check.json`. CI runs it on the golden set beside the frame check, and on every changed episode after its full render.
 
 ## Video critic
 
@@ -226,7 +226,7 @@ It writes `out/<id>-strip.png`, one block of 24 frames per window, and `out/<id>
 - **Frame audit** (always, deterministic): OCR (tesseract, on the header, visual area and caption bands) checks every scene's headline and caption are readable, the caption is drawn once, and the cover's title is this episode's hook headline. Pixel statistics catch blank frames and flag consecutive scenes that look the same.
 - **Vision critic** (`--vision`, or `VIDEO_CRITIC_VISION=1`; in CI the repository variable `VIDEO_CRITIC_VISION=1` plus a model key secret): a vision model reviews the frames and cover against what each scene should show: legibility, overlap (including faint backdrop words hidden behind artwork), visible artwork, platform safe areas, variety and whether each frame expresses its beat.
 
-The review is saved as `out/<id>-video-review.json`.
+The review is saved as `out/<show>/<id>/<id>-video-review.json`.
 
 ## Voice workflow
 
@@ -256,7 +256,7 @@ npm run captions:align -- silk-road             # add exact word times to an exi
 npm run captions:drift -- silk-road --estimated # how far the estimate would be off
 ```
 
-`captions:drift` measures caption timing against the aligner and writes a per-word report to `out/<id>-caption-drift.json`. The target (#86) is 90% of words lighting up within 150 ms of being spoken; aligned captions meet it by construction, and the estimate reached a median of 60 ms (90% within 277 ms) on the Silk Road.
+`captions:drift` measures caption timing against the aligner and writes a per-word report to `out/<show>/<id>/<id>-caption-drift.json`. The target (#86) is 90% of words lighting up within 150 ms of being spoken; aligned captions meet it by construction, and the estimate reached a median of 60 ms (90% within 277 ms) on the Silk Road.
 
 ### Choosing a narrator (ElevenLabs listening test, #102)
 
@@ -286,7 +286,7 @@ The second show, [`shows/geographica.json`](shows/geographica.json), tells geogr
 The second episode, `lesotho-enclave` ("The Country Completely Surrounded by Another Country"), was directed by the **Geo Visual Director**. Its map shots contain no hand-written coordinates:
 
 ```bash
-npm run geo:direct -- lesotho-enclave            # the director model writes out/lesotho-enclave.geo-directed.json
+npm run geo:direct -- lesotho-enclave            # the director model writes out/geographica/lesotho-enclave/lesotho-enclave.geo-directed.json
 npm run geo:direct -- lesotho-enclave --write    # replace the draft's map shots
 npm run geo:direct -- lesotho-enclave --reply=test/fixtures/geo-director/lesotho-enclave.reply.json --write   # replay a saved reply
 ```
@@ -299,7 +299,8 @@ The research names places ("South Africa", "Vatican City"), which are resolved t
 src/                         reusable rendering engine
 scripts/                     render, validation and QA commands
 videos/pokepulses/<episode>/ episode manifest and owned/licensed assets
-out/                         generated media (gitignored)
+out/<show>/<episode>/        generated media (gitignored): video, cover, frames, reviews, upload receipt
+                             (npm run out:organize moves older flat files here)
 ```
 
 ## Editorial and rights policy

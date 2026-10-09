@@ -24,10 +24,10 @@ const project = () => {
     steps.push(label);
     if (failing.has(label)) throw new Error(`${label} broke`);
     const draft = fs.readFileSync(path.join(root, 'drafts', 'geographica', `${ID}.json`), 'utf8');
-    if (args.includes('scripts/frame-check.mjs')) write(path.join(root, 'out', `${ID}-frames`, '00.png'), 'frame');
+    if (args.includes('scripts/frame-check.mjs')) write(path.join(root, 'out', 'geographica', ID, `${ID}-frames`, '00.png'), 'frame');
     const provider = args.find((arg) => arg.startsWith('--provider='))?.slice(11);
     if (provider) write(path.join(root, 'public', 'generated', `${ID}-${provider}-timing.json`), JSON.stringify({narration: JSON.parse(draft).scenes.map((scene: {narration: string}) => scene.narration)}));
-    if (args.includes('scripts/render.mjs')) write(path.join(root, 'out', `${ID}.mp4`), 'mp4');
+    if (args.includes('scripts/render.mjs')) write(path.join(root, 'out', 'geographica', ID, `${ID}.mp4`), 'mp4');
   };
   const lock = readLock(path.join(root, 'build', ID, 'lock.json'));
   const run = async (options: {voice?: string; until?: string; force?: string[]; dryRun?: boolean} = {}) => {
@@ -90,7 +90,7 @@ describe('stage pipeline', () => {
   it('re-runs a stage whose output was deleted, or that is forced', async () => {
     const {root, run} = project();
     await run();
-    fs.rmSync(path.join(root, 'out', `${ID}.mp4`));
+    fs.rmSync(path.join(root, 'out', 'geographica', ID, `${ID}.mp4`));
     assert.deepEqual((await run()).ran, ['render']);
     assert.deepEqual((await run({force: ['preview']})).ran, ['preview']);
   });

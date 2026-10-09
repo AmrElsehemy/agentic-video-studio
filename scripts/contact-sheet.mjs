@@ -1,5 +1,5 @@
 // One mid-scene frame per scene from a rendered episode, tiled into
-// out/<id>-contact-sheet.png so a whole episode can be reviewed at a glance.
+// out/<show>/<id>/<id>-contact-sheet.png so a whole episode can be reviewed at a glance.
 // Run after `npm run video -- <id>`, or after `npm run frames -- <id>` with
 // --frames; uses the timing that render applied.
 import {spawnSync} from 'node:child_process';
@@ -9,14 +9,15 @@ import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {framePath, reviewFrames} from './lib/render-props.mjs';
 import {resolveEpisodeId} from './catalog.mjs';
+import {episodeOutPath} from './lib/out.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const args = process.argv.slice(2);
 const episodeId = resolveEpisodeId(args.find((arg) => !arg.startsWith('--')));
 const fromFrames = args.includes('--frames');
 if (!episodeId) throw new Error('Usage: npm run sheet -- <episode-id> [--frames]');
-const videoPath = path.join(root, 'out', `${episodeId}.mp4`);
-const propsPath = path.join(root, 'out', `${episodeId}.props.json`);
+const videoPath = episodeOutPath(root, episodeId, `${episodeId}.mp4`);
+const propsPath = episodeOutPath(root, episodeId, `${episodeId}.props.json`);
 if (fromFrames ? !fs.existsSync(framePath(root, episodeId, 0)) || !fs.existsSync(propsPath) : !fs.existsSync(videoPath) || !fs.existsSync(propsPath)) {
   throw new Error(fromFrames ? `Render the review frames first: npm run frames -- ${episodeId}` : `Render ${episodeId} first: npm run video -- ${episodeId}`);
 }
@@ -43,7 +44,8 @@ try {
   // Every tile has the same size, so positions are plain pixel offsets.
   const tileHeight = Math.round((TILE_WIDTH * manifest.format.height) / manifest.format.width / 2) * 2;
   const layout = frames.map((_, index) => `${(index % PER_ROW) * TILE_WIDTH}_${Math.floor(index / PER_ROW) * tileHeight}`).join('|');
-  const outputPath = path.join(root, 'out', `${episodeId}-contact-sheet.png`);
+  const outputPath = episodeOutPath(root, episodeId, `${episodeId}-contact-sheet.png`);
+  fs.mkdirSync(path.dirname(outputPath), {recursive: true});
   const inputs = frames.flatMap((frame) => ['-i', frame]);
   // xstack needs at least two inputs; a single scene is copied as is.
   if (frames.length === 1) fs.copyFileSync(frames[0], outputPath);

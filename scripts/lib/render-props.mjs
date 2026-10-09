@@ -9,6 +9,7 @@ import {snapToBeats} from './beats.mjs';
 import {withWordCaptions} from './captions.mjs';
 import {withDiagramTimes} from './diagram-timing.mjs';
 import {narrationProvider, voiceStaleReason} from './voice-lock.mjs';
+import {episodeOutPath} from './out.mjs';
 
 // "paid" is the show's narration track, whichever service reads it; "openai" and "elevenlabs" name it too (#102).
 export const VOICES = ['auto', 'paid', 'openai', 'elevenlabs', 'local', 'none'];
@@ -41,7 +42,7 @@ export const enforceSubjectOnlyArtwork = (manifest) => {
 };
 
 /**
- * Build out/<id>.props.json. Throws when the only narration is stale, so a
+ * Build out/<show>/<id>/<id>.props.json. Throws when the only narration is stale, so a
  * render can never pair a script with audio recorded for an older one.
  * @param {string} episodeId
  * Shows that caption word by word get timed words from the narration track;
@@ -52,7 +53,7 @@ export const prepareRenderProps = (episodeId, {voice: requestedVoice = 'auto', c
   if (!VOICES.includes(requestedVoice)) throw new Error(`Unsupported voice selection: ${requestedVoice}`);
   const {root, manifestPath} = findManifest(episodeId);
   const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
-  const propsPath = path.join(root, 'out', `${episodeId}.props.json`);
+  const propsPath = episodeOutPath(root, episodeId, `${episodeId}.props.json`);
   fs.mkdirSync(path.dirname(propsPath), {recursive: true});
 
   if (manifest.show?.id === 'pokepulses') {
@@ -141,4 +142,4 @@ export const reviewFrames = (manifest) => {
 };
 
 /** Where the frame check writes an episode's review frames. */
-export const framePath = (root, episodeId, index) => path.join(root, 'out', `${episodeId}-frames`, `${String(index).padStart(2, '0')}.png`);
+export const framePath = (root, episodeId, index) => episodeOutPath(root, episodeId, `${episodeId}-frames`, `${String(index).padStart(2, '0')}.png`);

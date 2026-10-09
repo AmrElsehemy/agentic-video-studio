@@ -2,12 +2,13 @@ import {spawnSync} from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 import {findManifest, resolveEpisodeId} from './catalog.mjs';
+import {episodeOutPath} from './lib/out.mjs';
 
 const episodeId = resolveEpisodeId(process.argv[2] ?? 'bulbasaur-001');
 const {root, manifestPath} = findManifest(episodeId);
 const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
-const propsPath = path.join(root, 'out', `${episodeId}.props.json`);
-const outputPath = path.join(root, 'out', `${episodeId}-cover.png`);
+const propsPath = episodeOutPath(root, episodeId, `${episodeId}.props.json`);
+const outputPath = episodeOutPath(root, episodeId, `${episodeId}-cover.png`);
 fs.mkdirSync(path.dirname(outputPath), {recursive: true});
 fs.writeFileSync(propsPath, JSON.stringify({manifest}, null, 2));
 const assets = spawnSync(process.execPath, ['scripts/generate-audio.mjs', episodeId], {cwd: root, stdio: 'inherit'});
