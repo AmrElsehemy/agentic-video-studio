@@ -76,7 +76,7 @@ describe('the surface shot field', () => {
   const base = {kind: 'geo-map', camera: [{target: 'world', at: 0}], highlights: [], annotations: [], dataset: 'natural-earth'};
   it('takes coast-distance and a start time', () => {
     assert.ok(primitiveSchema.safeParse({...base, surface: {kind: 'coast-distance', at: .15}}).success);
-    assert.ok(!primitiveSchema.safeParse({...base, surface: {kind: 'elevation', at: .15}}).success);
+    assert.ok(!primitiveSchema.safeParse({...base, surface: {kind: 'rainfall', at: .15}}).success);
     assert.ok(!primitiveSchema.safeParse({...base, surface: {kind: 'coast-distance', at: 2}}).success);
   });
 });
