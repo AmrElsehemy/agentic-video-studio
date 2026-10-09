@@ -18,6 +18,7 @@ export const NATURAL_EARTH = {
     admin1: {file: 'ne_50m_admin_1_states_provinces.geojson', sha256: '69a0e06e640b2d505858ae1cb63034e4677f3000b35a98e16312932b98c426b9'},
     lakes: {file: 'ne_10m_lakes.geojson', sha256: '2d036f53dedec578001c5c30c2959ee7d4eebc1306900fa4367c49929ec8f2d9'},
     rivers: {file: 'ne_10m_rivers_lake_centerlines.geojson', sha256: 'bb854a900ecbd3b408df46d5e16e3e0f974ba55993f9d8b5c26e855273c0905a'},
+    borders: {file: 'ne_10m_admin_0_boundary_lines_land.geojson', sha256: '74d9c16229c095fde65943a9919e337682f044bcebccb120764f38edf3b70f4a'},
     places: {file: 'ne_10m_populated_places_simple.geojson', sha256: 'fd3fa867a320cbd5c5b6bb5bc550afeec2939fb2cef688e508007282a55ac42f'},
     disputed: {file: 'ne_50m_admin_0_breakaway_disputed_areas.geojson', sha256: 'e91f0f9518b24355ceec6668f4df874d6f39db7d0bc9ec22d9b14429bfb6be01'},
   },

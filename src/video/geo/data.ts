@@ -16,6 +16,8 @@ export type GeoData = {
   admin1: Feature<Geometry>[];
   lakes: Feature<Geometry>[];
   rivers: Feature<Geometry>[];
+  /** Land borders between two countries (a line each). */
+  borders: Feature<Geometry>[];
   /** Which plate each country rides on, and the plate-motion model's rotations (scripts/plates.mjs). */
   plates: {entityPlates: Record<string, number>; table: PlateTable};
 };
@@ -37,15 +39,17 @@ export const loadGeoData = () => loading ??= Promise.all([
   fetchJson<FeatureCollection>('admin1.geojson'),
   fetchJson<FeatureCollection>('lakes.geojson'),
   fetchJson<FeatureCollection>('rivers.geojson'),
+  fetchJson<FeatureCollection>('borders.geojson'),
   fetchJson<GeoData['plates']>('plates.json'),
-]).then(([entities, countries, water, disputed, admin1, lakes, rivers, plates]) => {
+]).then(([entities, countries, water, disputed, admin1, lakes, rivers, borders, plates]) => {
   loaded = {
     entities: new Map(entities.map((entity) => [entity.id, entity])),
-    features: new Map([...countries.features, ...water.features, ...disputed.features, ...admin1.features, ...lakes.features, ...rivers.features].map((feature) => [String(feature.id), feature])),
+    features: new Map([...countries.features, ...water.features, ...disputed.features, ...admin1.features, ...lakes.features, ...rivers.features, ...borders.features].map((feature) => [String(feature.id), feature])),
     countries: countries.features,
     admin1: admin1.features,
     lakes: lakes.features,
     rivers: rivers.features,
+    borders: borders.features,
     plates,
   };
   return loaded;

@@ -14,8 +14,8 @@ const typeName = z.enum(POKEMON_TYPE_NAMES);
 // (public/geo/entities.json), never by hand-drawn outlines; points may use
 // longitude/latitude. Times are fractions of the scene (0 = start, 1 = end),
 // so choreography follows the scene's narration timing.
-export const GEO_ENTITY_ID = /^(country|water|disputed|admin1|lake|river|city):[A-Za-z0-9-]+$/;
-const geoEntity = z.string().regex(GEO_ENTITY_ID, 'Use a geo entity id such as "country:GEO", "water:black-sea", "river:nile", "lake:lake-baikal", "admin1:USA-3563" or "city:cairo-egy"');
+export const GEO_ENTITY_ID = /^(country|water|disputed|admin1|lake|river|border|city):[A-Za-z0-9-]+$/;
+const geoEntity = z.string().regex(GEO_ENTITY_ID, 'Use a geo entity id such as "country:GEO", "water:black-sea", "river:nile", "border:CAN-USA", "lake:lake-baikal", "admin1:USA-3563" or "city:cairo-egy"');
 const point = z.object({lon: z.number().min(-180).max(180), lat: z.number().min(-90).max(90)}).strict();
 const anchor = z.union([geoEntity, point]);
 const bbox = z.tuple([z.number().min(-180).max(180), z.number().min(-90).max(90), z.number().min(-180).max(180), z.number().min(-90).max(90)]);

@@ -135,12 +135,20 @@ const inside = ([lon, lat], [west, south, east, north]) => lat >= south && lat <
  * States only when their country is one of the research's.
  */
 export const addNearbyPlaces = (places, subjectId, geo) => {
+  const added = new Map();
+  // The land border between each pair of the episode's countries, from the pinned boundary lines (independent of the box below).
+  const countryIds = [...places.values()].filter((place) => place.kind === 'country').map((place) => place.id.slice('country:'.length));
+  for (let i = 0; i < countryIds.length; i++) {
+    for (let j = i + 1; j < countryIds.length; j++) {
+      const id = `border:${[countryIds[i], countryIds[j]].sort().join('-')}`;
+      if (geo.entities.has(id) && !places.has(id)) added.set(id, geo.entities.get(id));
+    }
+  }
   const anchors = [...places.values()].filter((place) => place.bbox && (place.kind === 'country' || place.kind === 'admin1'));
-  if (!anchors.length || anchors.some((place) => place.bbox[0] > place.bbox[2])) return places;
+  if (!anchors.length || anchors.some((place) => place.bbox[0] > place.bbox[2])) return new Map([...places, ...added]);
   const box = [Math.min(...anchors.map((p) => p.bbox[0])), Math.min(...anchors.map((p) => p.bbox[1])), Math.max(...anchors.map((p) => p.bbox[2])), Math.max(...anchors.map((p) => p.bbox[3]))];
   const countries = new Set(anchors.filter((place) => place.kind === 'country').map((place) => place.id.slice('country:'.length)));
   const importance = (entity) => (entity.kind === 'city' ? [entity.capital ? 0 : 1, -(entity.population ?? 0)] : [entity.rank ?? 9, 0]);
-  const added = new Map();
   for (const [kind, limit] of Object.entries(NEARBY_LIMITS)) {
     const found = [...geo.entities.values()]
       .filter((entity) => entity.kind === kind && !places.has(entity.id) && inside(centreOf(entity.bbox), box) && (kind !== 'admin1' || countries.has(entity.country)))
@@ -523,6 +531,7 @@ Rules:
 - "data" shows one of the datasets listed below. Use it when the narration compares places by a number (heights, sizes, populations, how crowded or empty a place is). Name the dataset only; its values come from the research or the map data. "view": "map" shades the places with a legend; "bars" shows a ranked bar chart of them beside the map (the clearest way to compare sizes or populations: use it at least once in an episode that compares places); "both" does both. Frame the places the dataset covers.
 - A "reconstruction" shows how a landmass moved: the places in "entities" (one or two) are drawn where a published plate-motion model puts them "from" millions of years ago and drift to where they are "to" (default 0, today), while the place in "fixed" (default country:ZAF, Africa) stays still; an age counter runs on the map and a dashed outline marks where each ends up. Use it whenever the narration says a place split, broke away, drifted, collided or opened: Madagascar leaving Africa, India crossing the ocean, the Atlantic opening. The ages must come from the research (numbers in the text). It works for countries on these plates: Africa, Madagascar, India, Antarctica, Australia, South America, North America (US, Canada), Greenland, Arabia, Europe. Frame the whole journey (where it starts and where it ends) and do not also highlight, label or point at a place that is drifting: its present position is wrong while it moves. A scene can have one reconstruction.
 - A "timeline" shows a strip of 2-4 dated steps along the bottom, with the scene's own step lit ("active", counting from 0). Use it when the story moves through time: a split, a purchase, a construction, a reform. Labels are at most 14 characters and come from the research (every number must be in a claim). Give every scene of the sequence the SAME steps, so the strip reads as one timeline, and light the step the scene is on.
+- A border between two countries (border:AAA-BBB, the two codes in alphabetical order, such as border:CAN-USA) is listed among the places when both countries are in the episode: highlight it with the style "trace" and the actual border line draws itself along its whole length. Use it whenever the narration is about a border, a frontier or two countries meeting: the line is the picture. Frame the whole border.
 - A "line" draws a line of longitude ("meridian") or latitude ("parallel") from the map's grid: use it whenever the story is about one, such as the prime meridian (meridian, 0), the equator (parallel, 0), the tropics (parallel, 23.4 or -23.4), the date line (meridian, 180) or any parallel or meridian the narration names. It draws itself across the map (a meridian from north to south, a parallel from west to east; "reverse": true flips that) and its text sits where it crosses the middle of the frame. Draw the line FIRST, then light up the places it crosses in the order the narration names them. A story about a line must show the line.
 - A route (2-6 stops) draws a journey, trade road, migration or voyage along the shortest path across the globe, with a marker moving along it from "at" to "until". Use it only when the narration describes movement. Frame the whole route in the camera, or set "follow": true to have the camera ride along with the marker (then "until" must be at most 0.85).
 - Labels stay inside the frame, and where two overlap the older one fades. Give a label or marker an "until" when the camera will pull out and crowd it.

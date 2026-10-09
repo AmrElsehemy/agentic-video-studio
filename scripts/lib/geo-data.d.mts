@@ -1,6 +1,6 @@
 export type Geometry = {type: 'Polygon'; coordinates: number[][][]} | {type: 'MultiPolygon'; coordinates: number[][][][]};
 export type BBox = [number, number, number, number];
-export type GeoEntity = {id: string; kind: string; name: string; iso3?: string | null; wikidata?: string | null; bbox: BBox; crossesAntimeridian?: true; frame?: BBox; label?: [number, number]; country?: string; continent?: string; population?: number; areaKm2?: number; gdp?: number; capital?: true; population?: number; rank?: number; layer: 'countries' | 'water' | 'admin1' | 'lakes' | 'rivers' | 'places'; review?: {disputed: string; name: string; note: string | null}[]};
+export type GeoEntity = {id: string; kind: string; name: string; iso3?: string | null; wikidata?: string | null; bbox: BBox; crossesAntimeridian?: true; frame?: BBox; label?: [number, number]; country?: string; countries?: string[]; continent?: string; population?: number; areaKm2?: number; gdp?: number; capital?: true; population?: number; rank?: number; layer: 'countries' | 'water' | 'admin1' | 'lakes' | 'rivers' | 'borders' | 'places'; review?: {disputed: string; name: string; note: string | null}[]};
 type Feature = {type: 'Feature'; id?: string; properties: Record<string, unknown>; geometry: Geometry};
 type Collection = {type: 'FeatureCollection'; features: Feature[]};
 

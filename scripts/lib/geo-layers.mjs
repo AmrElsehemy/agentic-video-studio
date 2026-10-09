@@ -85,6 +85,29 @@ export const slimRivers = (source) => {
   return featureCollection(withIds(kept, 'river').map(({id, properties, geometry}) => ({type: 'Feature', id, properties, geometry})));
 };
 
+/**
+ * Land borders between two countries, each pair joined into one feature (a MultiLineString): id
+ * "border:<code>-<code>" with the two ISO-style codes in alphabetical order (border:CAN-USA). Only lines
+ * Natural Earth tags with a country on each side are kept.
+ */
+export const slimBorders = (source) => {
+  const byPair = new Map();
+  for (const feature of source.features) {
+    const {ADM0_A3_L: left, ADM0_A3_R: right, ADM0_LEFT: leftName, ADM0_RIGHT: rightName} = feature.properties;
+    if (!left || !right || left === right || !feature.geometry) continue;
+    const [a, b] = [left, right].sort();
+    const entry = byPair.get(`${a}-${b}`) ?? {codes: [a, b], names: left === a ? [leftName, rightName] : [rightName, leftName], parts: []};
+    entry.parts.push(...lineParts(feature.geometry).map((part) => roundLine(part, 3)).filter((part) => part.length > 1));
+    byPair.set(`${a}-${b}`, entry);
+  }
+  return featureCollection([...byPair].filter(([, entry]) => entry.parts.length).map(([key, entry]) => ({
+    type: 'Feature',
+    id: `border:${key}`,
+    properties: {name: `${entry.names[0]}–${entry.names[1]} border`, countries: entry.codes},
+    geometry: {type: 'MultiLineString', coordinates: entry.parts},
+  })).sort((a, b) => byText(a.id, b.id)));
+};
+
 /** Capitals and cities of at least MIN_CITY_POPULATION, as {id "city:<slug>-<country>", name, lon, lat, …}. */
 export const slimCities = (source) => {
   const kept = source.features
@@ -104,7 +127,8 @@ export const slimCities = (source) => {
 };
 
 /** Registry entries for the new layers; cities are points, so their box is the point itself. */
-export const layerEntities = ({admin1 = featureCollection([]), lakes = featureCollection([]), rivers = featureCollection([]), cities = []}) => [
+export const layerEntities = ({admin1 = featureCollection([]), lakes = featureCollection([]), rivers = featureCollection([]), borders = featureCollection([]), cities = []}) => [
+  ...borders.features.map((feature) => ({id: feature.id, kind: 'border', name: feature.properties.name, countries: feature.properties.countries, bbox: bboxOf({type: 'Polygon', coordinates: [feature.geometry.coordinates.flat()]}), layer: 'borders'})),
   ...admin1.features.map((feature) => {
     const bbox = bboxOf(feature.geometry);
     return {id: feature.id, kind: 'admin1', name: feature.properties.name, country: feature.properties.country, bbox, layer: 'admin1'};

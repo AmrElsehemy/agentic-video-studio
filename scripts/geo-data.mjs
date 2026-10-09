@@ -9,13 +9,13 @@ import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {fetchWithReason} from './lib/net.mjs';
 import {NATURAL_EARTH, buildEntities, serialize, sha256, slimCountries, slimDisputed, slimWater} from './lib/geo-data.mjs';
-import {layerEntities, slimAdmin1, slimCities, slimLakes, slimRivers} from './lib/geo-layers.mjs';
+import {layerEntities, slimAdmin1, slimBorders, slimCities, slimLakes, slimRivers} from './lib/geo-layers.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const outDir = path.join(root, 'public', 'geo');
 const args = process.argv.slice(2);
 const from = args.find((arg) => arg.startsWith('--from='))?.slice('--from='.length);
-const OUTPUTS = ['countries.geojson', 'water.geojson', 'disputed.geojson', 'admin1.geojson', 'lakes.geojson', 'rivers.geojson', 'entities.json'];
+const OUTPUTS = ['countries.geojson', 'water.geojson', 'disputed.geojson', 'admin1.geojson', 'lakes.geojson', 'rivers.geojson', 'borders.geojson', 'entities.json'];
 
 const verify = () => {
   const manifestPath = path.join(outDir, 'manifest.json');
@@ -68,9 +68,10 @@ const prepare = async () => {
   const admin1 = slimAdmin1(await readSource('admin1'));
   const lakes = slimLakes(await readSource('lakes'));
   const rivers = slimRivers(await readSource('rivers'));
+  const borders = slimBorders(await readSource('borders'));
   const cities = slimCities(await readSource('places'));
-  const entities = buildEntities({countries, water, disputed, extra: layerEntities({admin1, lakes, rivers, cities})});
-  const contents = {'countries.geojson': countries, 'water.geojson': water, 'disputed.geojson': disputed, 'admin1.geojson': admin1, 'lakes.geojson': lakes, 'rivers.geojson': rivers, 'entities.json': entities};
+  const entities = buildEntities({countries, water, disputed, extra: layerEntities({admin1, lakes, rivers, borders, cities})});
+  const contents = {'countries.geojson': countries, 'water.geojson': water, 'disputed.geojson': disputed, 'admin1.geojson': admin1, 'lakes.geojson': lakes, 'rivers.geojson': rivers, 'borders.geojson': borders, 'entities.json': entities};
   fs.mkdirSync(outDir, {recursive: true});
   const files = {};
   for (const file of OUTPUTS) {
@@ -83,7 +84,7 @@ const prepare = async () => {
   fs.writeFileSync(path.join(outDir, 'manifest.json'), `${JSON.stringify(manifest, null, 2)}\n`);
   const review = entities.filter((entity) => entity.review);
   console.log(`✓ public/geo: ${countries.features.length} countries, ${water.features.length} bodies of water, ${disputed.features.length} disputed areas (${Object.values(files).reduce((sum, file) => sum + file.bytes, 0)} bytes)`);
-  console.log(`  + ${admin1.features.length} states and provinces, ${lakes.features.length} lakes, ${rivers.features.length} rivers, ${cities.length} cities`);
+  console.log(`  + ${admin1.features.length} states and provinces, ${lakes.features.length} lakes, ${rivers.features.length} rivers, ${borders.features.length} borders, ${cities.length} cities`);
   console.log(`  ${review.length} countries flagged for editorial review of disputed areas: ${review.map((entity) => entity.name).join(', ')}`);
 };
 
