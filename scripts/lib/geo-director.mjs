@@ -225,8 +225,20 @@ export const shotToPrimitive = (shot, {places, research, datasets = new Map()}) 
   const annotations = (Array.isArray(shot.annotations) ? shot.annotations : []).map((annotation, index) => {
     const where = `annotations[${index}]`;
     // Arrow text is drawn too, so every annotation's numbers are checked.
+    // A line's own degrees are a fact of the line (the 0 of "0° prime meridian"), so its text may state them.
+    const stated = annotation?.type === 'line' && typeof annotation.degrees === 'number' ? new Set([...numbers, Math.abs(annotation.degrees)]) : numbers;
     for (const number of textNumbers(annotation?.text ?? '')) {
-      if (!numbers.has(number)) throw new Error(`${where}: "${annotation.text}" states ${number}, which is not in the research`);
+      if (!stated.has(number)) throw new Error(`${where}: "${annotation.text}" states ${number}, which is not in the research`);
+    }
+    if (annotation?.type === 'line') return annotation;
+    if (annotation?.type === 'timeline') {
+      // A timeline's words are claims too: every number in a step must be in the research.
+      for (const step of Array.isArray(annotation.steps) ? annotation.steps : []) {
+        for (const number of textNumbers(`${step?.label ?? ''} ${step?.detail ?? ''}`)) {
+          if (!numbers.has(number)) throw new Error(`${where}: the step "${step.label}" states ${number}, which is not in the research`);
+        }
+      }
+      return annotation;
     }
     if (annotation?.type === 'arrow') return {...annotation, from: anchor(annotation.from, `${where}.from`), to: anchor(annotation.to, `${where}.to`)};
     if (annotation?.type === 'route') {
@@ -284,29 +296,123 @@ export const shotShows = (primitive, place, boxes) => {
 const overlaps = ([w1, s1, e1, n1], [w2, s2, e2, n2]) => s1 <= n2 && s2 <= n1 && w1 <= e2 && w2 <= e1;
 const grow = ([west, south, east, north], share) => [west - (east - west) * share, south - (north - south) * share, east + (east - west) * share, north + (north - south) * share];
 
+const WORLD_BOX = [-180, -60, 180, 80];
+
+/** The camera's framing (a box) `t` of the way through the scene: the keyframes' boxes blended linearly (an approximation of the real flight). */
+const frameAt = (keys, frames, t) => {
+  const last = keys.length - 1;
+  if (t <= keys[0].at) return frames[0];
+  if (t >= keys[last].at) return frames[last];
+  const next = keys.findIndex((key) => key.at >= t);
+  const share = (t - keys[next - 1].at) / (keys[next].at - keys[next - 1].at);
+  return frames[next - 1].map((value, index) => value + (frames[next][index] - value) * share);
+};
+
+/** How soon after a highlight or label starts the camera must have it in frame (a share of the scene). */
+const FRAMED_BY = 0.15;
+
 /**
- * The places a shot highlights or labels that its camera never frames: a highlight must overlap one
- * of the camera's framings, and a label's point must sit inside one (with a little margin). A shot
- * whose camera starts on the whole world frames everything, and boxes across the antimeridian are
- * not judged.
+ * The places a shot highlights or labels that its camera does not have in frame when they appear (a
+ * little after): a highlight must overlap the camera's framing then, and a label's point must sit inside
+ * it (with a little margin). Judged at the time each layer starts, not just at the end of the flight, so a
+ * camera that only reaches India in the last frame doesn't excuse an arrow to India that appears at the
+ * start. Boxes across the antimeridian are not judged.
  */
 export const offFramePlaces = (primitive, places, boxes) => {
-  const frames = primitive.camera.map((key) => (key.target === 'world' ? 'world' : typeof key.target === 'string' ? boxes.get(key.target) : key.target.bbox));
-  if (frames.includes('world') || frames.some((frame) => !frame || frame[0] > frame[2])) return [];
+  const keys = primitive.camera;
+  const frames = keys.map((key) => (key.target === 'world' ? WORLD_BOX : typeof key.target === 'string' ? boxes.get(key.target) : key.target.bbox));
+  if (frames.some((frame) => !frame || frame[0] > frame[2])) return [];
   const missing = new Map();
+  const seenAt = (at) => frameAt(keys, frames, Math.min(1, at + FRAMED_BY));
   for (const highlight of primitive.highlights) {
     const place = places.get(highlight.entity);
-    if (place?.bbox && place.bbox[0] <= place.bbox[2] && !frames.some((frame) => overlaps(place.bbox, frame))) missing.set(place.id, place);
+    if (place?.bbox && place.bbox[0] <= place.bbox[2] && !overlaps(place.bbox, seenAt(highlight.at ?? 0))) missing.set(place.id, place);
   }
   for (const annotation of primitive.annotations) {
     for (const id of [annotation.anchor, annotation.from, annotation.to, ...(annotation.path ?? [])]) {
       const place = typeof id === 'string' ? places.get(id) : undefined;
       if (!place?.bbox || place.bbox[0] > place.bbox[2]) continue;
       const point = place.label ?? centreOf(place.bbox);
-      if (!frames.some((frame) => inside(point, grow(frame, 0.1)))) missing.set(place.id, place);
+      if (!inside(point, grow(seenAt(annotation.at ?? 0), 0.1))) missing.set(place.id, place);
     }
   }
   return [...missing.values()];
+};
+
+const nameOf = (id, places) => places.get(id)?.name ?? id;
+const inBox = (place, box) => place?.bbox && place.bbox[0] <= place.bbox[2] && box[0] <= box[2] && overlaps(place.bbox, box);
+
+/** A plain-language account of a shot, for a reviewer: what the camera frames, what is lit, drawn and written. */
+export const describeShot = (primitive, places, boxes) => {
+  const framing = primitive.camera.map((key) => {
+    if (key.target === 'world') return 'the whole world';
+    const box = typeof key.target === 'string' ? boxes.get(key.target) : key.target.bbox;
+    const named = typeof key.target === 'string' ? nameOf(key.target, places) : [...places.values()].filter((place) => place.kind !== 'city' && inBox(place, box)).slice(0, 6).map((place) => place.name).join(', ');
+    return `${named || 'an area'}${key.at ? ` (from ${Math.round(key.at * 100)}% of the scene)` : ''}`;
+  });
+  const parts = [`camera: ${framing.join(' → ')}${primitive.globe ? ' (on a globe)' : ''}`];
+  if (primitive.highlights.length) parts.push(`lit: ${primitive.highlights.map((highlight) => `${nameOf(highlight.entity, places)} (${highlight.style})`).join(', ')}`);
+  for (const annotation of primitive.annotations) {
+    if (annotation.type === 'label' || annotation.type === 'marker') parts.push(`${annotation.type}: "${annotation.text ?? ''}" on ${nameOf(annotation.anchor?.place ?? annotation.anchor, places)}`);
+    else if (annotation.type === 'arrow') parts.push(`arrow: ${typeof annotation.from === 'string' ? nameOf(annotation.from, places) : 'a point'} → ${typeof annotation.to === 'string' ? nameOf(annotation.to, places) : 'a point'}${annotation.text ? ` "${annotation.text}"` : ''}`);
+    else if (annotation.type === 'route') parts.push(`route: ${annotation.path.map((stop) => (typeof stop === 'string' ? nameOf(stop, places) : 'a point')).join(' → ')}`);
+    else if (annotation.type === 'line') parts.push(`${annotation.kind} line at ${annotation.degrees}°${annotation.text ? ` "${annotation.text}"` : ''}`);
+    else if (annotation.type === 'timeline') parts.push(`timeline: ${annotation.steps.map((step, index) => `${index === annotation.active ? '[' : ''}${step.label}${index === annotation.active ? ']' : ''}`).join(' · ')}`);
+  }
+  if (primitive.data) parts.push(`data: ${primitive.data.label} as ${primitive.data.view ?? 'map'} for ${primitive.data.values.map(({entity}) => nameOf(entity, places)).join(', ')}`);
+  return parts.join('; ');
+};
+
+/**
+ * A second opinion on the shots: does each scene's picture show what its narration claims? Returns the
+ * scenes it finds weak, each with the problem and a fix the shot options can make. A reviewer that fails
+ * or answers badly changes nothing (an empty list).
+ */
+export const judgeShots = async ({complete, draft, shots, places, boxes}) => {
+  try {
+    const scenes = draft.scenes.filter((scene) => shots.has(scene.id)).map((scene) => ({id: scene.id, headline: scene.headline, narration: scene.narration, shot: describeShot(shots.get(scene.id), places, boxes)}));
+    const reply = parseJsonReply(await complete({
+      system: `You review the map shots of a short explainer video. For each scene decide whether the shot SHOWS what the narration claims. The viewer has only the picture and the words.
+
+Flag a scene (ok: false) when, for example:
+- the narration is about a line (a meridian, the equator, a border) or says "one line crosses ..." and no line is drawn;
+- it compares sizes, populations or distances and nothing shows the comparison;
+- it moves through time (dates, "then", "years ago") and nothing shows the sequence;
+- it names a place, a river or a lake that is not lit, labelled or framed;
+- the shot only lights up the subject and writes its name, when the narration says something more specific;
+- the camera does the same zoom on the same thing as the scene before, with nothing new.
+
+Do not flag a scene whose job is only to introduce or name a place, to ask the viewer a closing question, or whose shot already shows its claim. The fixes you suggest must be possible with these options: highlight (fill, outline, trace), label, marker, arrow, route, a line of longitude or latitude, a timeline strip, a data layer (map shading or ranked bars), a globe, and the camera framing. Reply with JSON only: {"scenes": [{"id": "<scene id>", "ok": true | false, "problem": "<one sentence>", "fix": "<one sentence>"}]}`,
+      messages: [{role: 'user', content: `Episode: ${draft.title ?? ''}\n\n${JSON.stringify(scenes, null, 2)}`}],
+    }));
+    const items = Array.isArray(reply) ? reply : Array.isArray(reply?.scenes) ? reply.scenes : [];
+    return items.filter((item) => item && item.ok === false && typeof item.id === 'string' && shots.has(item.id) && typeof item.problem === 'string')
+      .map((item) => ({id: item.id, problem: item.problem, fix: typeof item.fix === 'string' ? item.fix : ''}));
+  } catch {
+    return [];
+  }
+};
+
+/** Most labels and markers with text one scene may carry, and most on one place. */
+const MAX_LABELS = 3;
+const MAX_LABELS_PER_PLACE = 2;
+
+/**
+ * Text piled on a map: more than MAX_LABELS labels and markers in a scene, or more than
+ * MAX_LABELS_PER_PLACE on one place (they print over each other and nobody can read them).
+ * Returns what is wrong, as a sentence, or null.
+ */
+export const labelClutter = (primitive) => {
+  const texts = primitive.annotations.filter((annotation) => (annotation.type === 'label' || annotation.type === 'marker') && annotation.text);
+  const perPlace = new Map();
+  for (const annotation of texts) {
+    const key = typeof annotation.anchor === 'string' ? annotation.anchor : `${annotation.anchor.lon},${annotation.anchor.lat}`;
+    perPlace.set(key, (perPlace.get(key) ?? 0) + 1);
+  }
+  const crowded = [...perPlace].filter(([, count]) => count > MAX_LABELS_PER_PLACE).map(([key]) => key);
+  if (crowded.length) return `${crowded.length > 1 ? 'Places' : 'The place'} ${crowded.join(', ')} carr${crowded.length > 1 ? 'y' : 'ies'} more than ${MAX_LABELS_PER_PLACE} labels, which print over each other. Keep at most ${MAX_LABELS_PER_PLACE} per place.`;
+  if (texts.length > MAX_LABELS) return `${texts.length} labels and markers is too many; keep at most ${MAX_LABELS} so they can be read.`;
+  return null;
 };
 
 /** A traced river must have at least this share of its box inside one camera framing. */
@@ -343,7 +449,9 @@ A shot is JSON:
 {"id": "<scene id>",
  "camera": [{"target": T, "at": 0, "padding": 0.15}, ...],   // 1-4 keyframes; at = fraction of the scene, first at 0, then increasing
  "highlights": [{"entity": "<place id>", "style": "fill" | "outline" | "trace", "at": 0.3}],   // up to 4
- "annotations": [{"type": "label" | "marker", "anchor": A, "text": "SHORT CAPS", "at": 0.5, "until": 0.9},   // until is optional: when it fades out
+ "annotations": [{"type": "label" | "marker", "anchor": A, "text": "SHORT CAPS", "at": 0.5, "until": 0.9},
+                 {"type": "timeline", "steps": [{"label": "180 MYA", "detail": "AFRICA"}, ...], "active": 0, "at": 0.3},
+                 {"type": "line", "kind": "meridian" | "parallel", "degrees": 0, "text": "0° PRIME MERIDIAN", "at": 0.2},   // until is optional: when it fades out
                  {"type": "arrow", "from": A, "to": A, "at": 0.7},
                  {"type": "route", "path": [A, A, ...], "text": "SHORT CAPS", "at": 0.2, "until": 0.8, "follow": false}],   // up to 4 in all
  "globe": false,   // optional: draw the map on a spinning globe
@@ -364,17 +472,20 @@ Rules:
 - "globe": true draws the map on a globe that spins between the camera framings: a dramatic opening or closing. Use it on the first scene (a planet turning to the place) and, if it suits, the last; never in between, because the map changes from globe to flat map with a cut.
 - "relief": true adds shaded relief (mountains and valleys) under the map. Use it when the narration is about terrain or altitude: mountains, highlands, plateaus, valleys.
 - "data" shows one of the datasets listed below. Use it when the narration compares places by a number (heights, sizes, populations, how crowded or empty a place is). Name the dataset only; its values come from the research or the map data. "view": "map" shades the places with a legend; "bars" shows a ranked bar chart of them beside the map (the clearest way to compare sizes or populations: use it at least once in an episode that compares places); "both" does both. Frame the places the dataset covers.
+- A "timeline" shows a strip of 2-4 dated steps along the bottom, with the scene's own step lit ("active", counting from 0). Use it when the story moves through time: a split, a purchase, a construction, a reform. Labels are at most 14 characters and come from the research (every number must be in a claim). Give every scene of the sequence the SAME steps, so the strip reads as one timeline, and light the step the scene is on.
+- A "line" draws a line of longitude ("meridian") or latitude ("parallel") from the map's grid: use it whenever the story is about one, such as the prime meridian (meridian, 0), the equator (parallel, 0), the tropics (parallel, 23.4 or -23.4), the date line (meridian, 180) or any parallel or meridian the narration names. It draws itself across the map (a meridian from north to south, a parallel from west to east; "reverse": true flips that) and its text sits where it crosses the middle of the frame. Draw the line FIRST, then light up the places it crosses in the order the narration names them. A story about a line must show the line.
 - A route (2-6 stops) draws a journey, trade road, migration or voyage along the shortest path across the globe, with a marker moving along it from "at" to "until". Use it only when the narration describes movement. Frame the whole route in the camera, or set "follow": true to have the camera ride along with the marker (then "until" must be at most 0.85).
 - Labels stay inside the frame, and where two overlap the older one fades. Give a label or marker an "until" when the camera will pull out and crowd it.
 - Every scene must look different from the one before it: change the framing, what is highlighted, or add a layer (data, relief, route, an arrow between two places). Never give two consecutive scenes the same camera and the same highlight. When the narration states a size, a count or a comparison, show it: frame the places being compared together and label each one, or shade them with a dataset.
 - A scene's "names" are places its text mentions. Show every one of them in that scene's shot: highlight it, label it, point an arrow at it, or frame it with the camera.
 - A river's pieces carry its name (the Nile's pieces are the Nile, the White Nile, the Blue Nile, the Victoria Nile, the Albert Nile; the main "Nile" feature is only the northern stretch). When the narration is about the whole river, trace every piece listed.
 - When a scene traces a river, hold a camera framing on the river's own id for part of the scene so its whole course is visible as it draws; never leave the camera parked on one spot while a long river draws.
+- Keep text sparse: at most 3 labels and markers in a scene, and at most 2 on the same place. Text that overlaps is unreadable, so prefer one clear label plus the picture to four small ones.
 - Show what the narration is about while it is being said: the place a scene discusses is highlighted by 0.35 of the scene at the latest, and the camera is already on it (or on the places it is compared with). Open on "world" at most twice in the episode (the first scene and, if it helps, the last), never for a scene whose subject is a single place.
 - Consecutive scenes are one continuous flight: each scene's camera starts where the previous one ended and flies to its first target. Plan the episode as one journey. Add "cut": true only when the story jumps somewhere unrelated.
 
 Reply with a JSON object only: {"scenes": [<shot>, ...]}${styleGuideSection(showId)}`,
-  messages: [{role: 'user', content: `${datasets?.size ? `Datasets (key: label, places):\n${[...datasets.entries()].map(([key, dataset]) => `- ${key}: ${dataset.label}${dataset.unit ? ` (${dataset.unit})` : ''}, ${dataset.values.map(({entity}) => entity).join(', ')}`).join('\n')}\n\n` : ''}Places (id: name, kind):\n${[...places.values()].map((place) => `- ${place.id}: ${place.name}, ${place.kind}`).join('\n')}\n\nNamed points:\n${Object.entries(research.places).map(([key, place]) => `- ${key}${place.approximate ? ' (APPROXIMATE)' : ''}${place.note ? `: ${place.note}` : ''}`).join('\n') || '- none'}\n\nResearch claims:\n${research.claims.map((claim) => `- ${claim.text}`).join('\n')}\n\nScenes:\n${JSON.stringify(draft.scenes.map((scene) => ({id: scene.id, headline: scene.headline, narration: scene.narration, caption: scene.caption, ...(mentions.get(scene.id)?.length ? {names: mentions.get(scene.id).map((place) => `${place.name} (${place.id})`)} : {})})), null, 2)}`}],
+  messages: [{role: 'user', content: `Episode: ${draft.title ?? ''}${draft.premise ? `\nPremise: ${draft.premise}` : ''}\n\n${datasets?.size ? `Datasets (key: label, places):\n${[...datasets.entries()].map(([key, dataset]) => `- ${key}: ${dataset.label}${dataset.unit ? ` (${dataset.unit})` : ''}, ${dataset.values.map(({entity}) => entity).join(', ')}`).join('\n')}\n\n` : ''}Places (id: name, kind):\n${[...places.values()].map((place) => `- ${place.id}: ${place.name}, ${place.kind}`).join('\n')}\n\nNamed points:\n${Object.entries(research.places).map(([key, place]) => `- ${key}${place.approximate ? ' (APPROXIMATE)' : ''}${place.note ? `: ${place.note}` : ''}`).join('\n') || '- none'}\n\nResearch claims:\n${research.claims.map((claim) => `- ${claim.text}`).join('\n')}\n\nScenes:\n${JSON.stringify(draft.scenes.map((scene) => ({id: scene.id, headline: scene.headline, narration: scene.narration, caption: scene.caption, ...(mentions.get(scene.id)?.length ? {names: mentions.get(scene.id).map((place) => `${place.name} (${place.id})`)} : {})})), null, 2)}`}],
 });
 
 /**
@@ -447,19 +558,26 @@ export const directGeoVisuals = async ({draft, research: rawResearch, complete, 
       // Up to MAX_REPAIRS repair rounds: the model sees which shots were rejected, and whether the map
       // barely changes. Per scene the repaired shot wins when it is valid; otherwise the earlier shot stays.
       let transcript = [...prompt.messages, {role: 'assistant', content: first}];
+      let weak = [];
       let latest = firstRead;
       for (let round = 0; round < MAX_REPAIRS; round++) {
         const missing = draft.scenes.map((scene) => scene.id).filter((id) => !shots.has(id));
         const variety = [...mapVariety(sequence()).problems, ...mapDirectionProblems(sequence())];
         const unseen = draft.scenes.filter((scene) => shots.has(scene.id)).map((scene) => ({id: scene.id, places: unshown(scene.id, shots.get(scene.id))})).filter((item) => item.places.length);
         const outside = draft.scenes.filter((scene) => shots.has(scene.id)).map((scene) => ({id: scene.id, places: cutOff(shots.get(scene.id))})).filter((item) => item.places.length);
+        const clutter = draft.scenes.filter((scene) => shots.has(scene.id)).map((scene) => ({id: scene.id, problem: labelClutter(shots.get(scene.id))})).filter((item) => item.problem);
         const stubs = draft.scenes.filter((scene) => shots.has(scene.id)).map((scene) => ({id: scene.id, places: unframed(shots.get(scene.id))})).filter((item) => item.places.length);
-        if (!missing.length && !variety.length && !unseen.length && !outside.length && !stubs.length) break;
+        // The rule checks first; once the shots are clean by the rules, a reviewer asks whether they show what is claimed.
+        const rulesClean = !missing.length && !variety.length && !unseen.length && !outside.length && !stubs.length && !clutter.length;
+        weak = rulesClean || round === 0 ? await judgeShots({complete, draft, shots, places, boxes}) : weak;
+        if (rulesClean && !weak.length) break;
         const notes = [
           ...fallbacks.map(({id, reason}) => `- Scene "${id}" was rejected: ${reason}`),
           ...missing.filter((id) => !fallbacks.some((item) => item.id === id)).map((id) => `- Scene "${id}" had no shot.`),
           ...unseen.map(({id, places: names}) => `- Scene "${id}" names ${names.map((place) => `${place.name} (${place.id})`).join(', ')} but its shot doesn't show ${names.length > 1 ? 'them' : 'it'}: highlight, label, anchor or frame ${names.length > 1 ? 'each' : 'it'}.`),
           ...outside.map(({id, places: names}) => `- Scene "${id}" highlights or labels ${names.map((place) => `${place.name} (${place.id})`).join(', ')} but its camera never frames ${names.length > 1 ? 'them' : 'it'}, so ${names.length > 1 ? 'they are' : 'it is'} cut off. Frame ${names.length > 1 ? 'them' : 'it'} too: target {"around": [<ids>]} with the subject, or drop the ${names.length > 1 ? 'highlights and labels' : 'highlight or label'}.`),
+          ...clutter.map(({id, problem}) => `- Scene "${id}": ${problem}`),
+          ...weak.map(({id, problem, fix}) => `- Scene "${id}" is weak as a picture: ${problem}${fix ? ` ${fix}` : ''}`),
           ...stubs.map(({id, places: rivers}) => `- Scene "${id}" traces ${rivers.map((place) => `${place.name} (${place.id})`).join(', ')} but its camera never frames most of ${rivers.length > 1 ? 'their courses' : 'its course'}, so the river shows as a stub. Give a camera keyframe a target of the river's own id (or {"around": [...]} several) so its whole length is in view, then move on to the part the narration is about.`),
           ...variety.map((problem) => `- ${problem}`),
         ];
@@ -503,7 +621,8 @@ export const directGeoVisuals = async ({draft, research: rawResearch, complete, 
     scenes: draft.scenes.map((scene) => ({...scene, primitive: shots.get(scene.id)})),
   };
   const {manifest} = compileEpisode(directed, {showId, geo});
+  const weakShots = complete && !modelError ? await judgeShots({complete, draft, shots, places, boxes}) : [];
   const unseenMentions = draft.scenes.map((scene) => ({id: scene.id, places: unshown(scene.id, shots.get(scene.id)).map((place) => place.id)})).filter((item) => item.places.length);
   const offFrame = draft.scenes.map((scene) => ({id: scene.id, places: cutOff(shots.get(scene.id)).map((place) => place.id)})).filter((item) => item.places.length);
-  return {draft: directed, manifest, assigned, fallbacks, review, variety: mapVariety(directed), unseenMentions, offFrame, ...(modelError ? {modelError} : {})};
+  return {draft: directed, manifest, assigned, fallbacks, review, variety: mapVariety(directed), unseenMentions, offFrame, weakShots, ...(modelError ? {modelError} : {})};
 };

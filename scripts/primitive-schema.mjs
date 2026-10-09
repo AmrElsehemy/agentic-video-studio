@@ -38,6 +38,13 @@ const geoAnnotation = z.discriminatedUnion('type', [
   // great circles (computed, never hand-drawn), with a marker at its head. follow: the
   // camera's centre tracks the marker, easing back to the keyframes before the scene ends.
   z.object({type: z.literal('route'), path: z.array(anchor).min(2).max(6), text: label.optional(), at: moment.default(0), until: moment.optional(), marker: z.boolean().default(true), follow: z.boolean().default(false)}).strict(),
+  // A line of longitude (meridian) or latitude (parallel): the prime meridian, the equator, a tropic, the date line.
+  // It comes from the map's own grid, draws itself from `at` (a meridian from north to south, a parallel from west to
+  // east, or the other way with reverse), and its text sits where it crosses the middle of the frame.
+  // A timeline strip along the bottom of the map: 2-4 dated steps, the scene's own step lit. Its words come from the research
+  // (dates, periods, names); show the same steps in every scene of a sequence so the strip reads as one thing.
+  z.object({type: z.literal('timeline'), steps: z.array(z.object({label: z.string().min(1).max(14), detail: z.string().min(1).max(14).optional()}).strict()).min(2).max(4), active: z.number().int().min(0).max(3), at: moment.default(0)}).strict(),
+  z.object({type: z.literal('line'), kind: z.enum(['meridian', 'parallel']), degrees: z.number().min(-180).max(180), text: label.optional(), at: moment.default(0), until: moment.optional(), reverse: z.boolean().default(false)}).strict(),
 ]);
 
 /** Places a data map (#91) can shade: enough for every country, so a world dataset fits. */
@@ -92,6 +99,10 @@ export const primitiveSchema = z.discriminatedUnion('kind', [
   z.object(diagramPrimitiveFields).strict(),
 ]).superRefine((primitive, context) => {
   if (primitive.kind === 'geo-map') {
+    primitive.annotations.forEach((annotation, index) => {
+      if (annotation.type === 'timeline' && annotation.active >= annotation.steps.length) context.addIssue({code: 'custom', path: ['annotations', index, 'active'], message: `active ${annotation.active} is not one of the ${annotation.steps.length} steps`});
+      if (annotation.type === 'line' && annotation.kind === 'parallel' && Math.abs(annotation.degrees) > 90) context.addIssue({code: 'custom', path: ['annotations', index, 'degrees'], message: `A parallel runs between -90 and 90 degrees; ${annotation.degrees} is out of range`});
+    });
     // Keyframes start at the beginning of the scene and move forward in time.
     if (primitive.camera[0].at !== 0) context.addIssue({code: 'custom', path: ['camera', 0, 'at'], message: 'The first camera keyframe must be at 0 (the start of the scene)'});
     primitive.camera.forEach((key, index) => {

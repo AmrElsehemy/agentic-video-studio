@@ -72,6 +72,8 @@ const mapCuesOf = (primitive, durationSeconds) => {
   for (const annotation of primitive.annotations ?? []) {
     if (annotation.type === 'label' || annotation.type === 'marker') cues.push({offset: annotation.at, cue: 'pop', gain: 0.9});
     else if (annotation.type === 'arrow') cues.push({offset: annotation.at, cue: 'tick', gain: 1});
+    else if (annotation.type === 'line') cues.push({offset: annotation.at, cue: 'trace', gain: 1});
+    else if (annotation.type === 'timeline') cues.push({offset: annotation.at, cue: 'rise', gain: 0.8});
     else if (annotation.type === 'route') {
       const end = Math.min(annotation.until ?? annotation.at + 0.4, 1);
       const ticks = Math.min(TRAVEL_TICKS, Math.max(1, Math.floor(((end - annotation.at) * durationSeconds) / TRAVEL_STEP)));

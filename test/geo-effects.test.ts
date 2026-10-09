@@ -83,3 +83,21 @@ describe('tilted stage', () => {
     }
   });
 });
+
+import {markerStep, stepX} from '../src/video/geo/TimelineStrip';
+
+describe('timeline strip', () => {
+  it('spreads the steps evenly from edge to edge', () => {
+    assert.equal(stepX(0, 3, 100, 900), 100);
+    assert.equal(stepX(1, 3, 100, 900), 500);
+    assert.equal(stepX(2, 3, 100, 900), 900);
+    assert.equal(stepX(0, 1, 100, 900), 500);
+  });
+
+  it('moves the marker from the step before to the active one as the scene starts', () => {
+    assert.equal(markerStep(2, 0), 1);
+    assert.ok(markerStep(2, 8) > 1 && markerStep(2, 8) < 2);
+    assert.equal(markerStep(2, 60), 2);
+    assert.equal(markerStep(0, 0), 0);
+  });
+});

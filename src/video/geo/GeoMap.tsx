@@ -13,6 +13,7 @@ import {fitInside, labelBox, resolveLabels, type Box, type Placed} from './label
 import {labelScale, pop} from './motion';
 import {COUNT_FRAMES, countUp, flash, MARCH, marchOffset, ripple} from './effects';
 import {barRows, DataBars, PANEL_FRAMES, panelHeight} from './DataBars';
+import {TIMELINE_HEIGHT, TimelineStrip} from './TimelineStrip';
 import {adminVisibility, lookOf, maxLakeRank, maxRiverRank, pickByHash, tiltPoint} from './look';
 import {blurSamples, shutterFor, viewShift} from './blur';
 import {followView, followWeight, partialRoute, routeLine, routeProgress, type RouteLine} from './route';
@@ -30,6 +31,8 @@ const SAFE = 48;
 /** Frames an appearing layer takes to fade/draw in. */
 const APPEAR = 12;
 const TRACE_SHARE = .35;
+/** Frames a meridian or parallel takes to draw itself across the map. */
+const LINE_FRAMES = 40;
 /** Space an arrow leaves around an anchor without a label (at its start; 60% of it before its target). */
 const ARROW_GAP = 60;
 const LABEL_SIZE = 46;
@@ -179,7 +182,13 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
   const barsOn = Boolean(primitive.data && primitive.data.view !== 'map');
   const barsStart = primitive.data ? primitive.data.at * durationInFrames : 0;
   const barsPanel = barsOn && primitive.data ? panelHeight(barRows(primitive.data.values.map(({entity, value}) => ({id: entity, name: entity, value, subject: false}))).length) : 0;
-  const barsShift = barsOn ? (barsPanel / 2) * interpolate(frame, [barsStart, barsStart + PANEL_FRAMES], [0, 1], clamp) : 0;
+  const timelineAnnotation = primitive.annotations.find((annotation): annotation is Extract<GeoMapPrimitive['annotations'][number], {type: 'timeline'}> => annotation.type === 'timeline');
+  const timelineStart = timelineAnnotation ? timelineAnnotation.at * durationInFrames : 0;
+  const timelineOn = Boolean(timelineAnnotation) && !barsOn;
+  const barsShift = Math.max(
+    barsOn ? (barsPanel / 2) * interpolate(frame, [barsStart, barsStart + PANEL_FRAMES], [0, 1], clamp) : 0,
+    timelineOn ? (TIMELINE_HEIGHT / 2) * interpolate(frame, [timelineStart, timelineStart + 12], [0, 1], clamp) : 0,
+  );
   // A globe (orthographic) draws the same layers on a sphere that spins to the camera's centre; its radius follows
   // the camera's zoom but never less than a whole planet filling the frame.
   const globe = Boolean(primitive.globe);
@@ -232,6 +241,17 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
   // route's moving label gives way to everything.
   const texts = new Map<number, Placed & {size: number}>();
   primitive.annotations.forEach((annotation, index) => {
+    if (annotation.type === 'line') {
+      if (!annotation.text) return;
+      // The text sits where the line crosses the middle of the frame.
+      const projected = point(annotation.kind === 'meridian' ? [annotation.degrees, view.lat] : [view.lon, annotation.degrees]);
+      if (farOffFrame(projected)) return;
+      const screen = toScreen(projected);
+      const [x, y] = keepIn(screen);
+      texts.set(index, {box: fitInside(labelBox(x, y, annotation.text, LABEL_SIZE), bounds), anchorY: screen[1], priority: annotation.at, opacity: appear(annotation.at + LINE_FRAMES / 2 / durationInFrames, 14) * vanish(annotation.until), size: LABEL_SIZE});
+      return;
+    }
+    if (annotation.type === 'timeline') return;
     if (annotation.type === 'arrow' || !annotation.text) return;
     if (annotation.type === 'route') {
       if (t < annotation.at) return;
@@ -343,6 +363,24 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
   // Routes go underneath, so labels and markers on their stops stay readable.
   const annotations = primitive.annotations.map((annotation, index) => [annotation, index] as const).sort(([a], [b]) => Number(b.type === 'route') - Number(a.type === 'route')).map(([annotation, index]) => {
       const shown = appear(annotation.at) * (annotation.type === 'marker' || annotation.type === 'label' ? vanish(annotation.until) : 1);
+      if (annotation.type === 'line') {
+        if (t < annotation.at) return null;
+        // Sampled along the grid line; north to south (west to east for a parallel) unless reversed.
+        const coordinates: [number, number][] = annotation.kind === 'meridian'
+          ? Array.from({length: 86}, (_, step) => [annotation.degrees, annotation.reverse ? -85 + step * 2 : 85 - step * 2] as [number, number])
+          : Array.from({length: 91}, (_, step) => [annotation.reverse ? 180 - step * 4 : -180 + step * 4, annotation.degrees] as [number, number]);
+        const d = path({type: 'LineString', coordinates}) ?? '';
+        if (!d) return null;
+        const progress = interpolate(frame, [annotation.at * durationInFrames, annotation.at * durationInFrames + LINE_FRAMES], [0, 1], clamp);
+        const {strokeDasharray, strokeDashoffset} = evolvePath(progress, d);
+        const colour = styled ? look.subject.from : accent;
+        const core = styled ? look.subject.rim : palette.ink;
+        return <g key={index} opacity={vanish(annotation.until)}>
+          <path d={d} fill="none" stroke={colour} strokeOpacity={.28} strokeWidth={22} strokeLinecap="round" strokeDasharray={strokeDasharray} strokeDashoffset={strokeDashoffset} />
+          <path d={d} fill="none" stroke={colour} strokeWidth={8} strokeLinecap="round" strokeDasharray={strokeDasharray} strokeDashoffset={strokeDashoffset} style={{filter: glow(12, colour)}} />
+          <path d={d} fill="none" stroke={core} strokeOpacity={.85} strokeWidth={2.4} strokeLinecap="round" strokeDasharray={strokeDasharray} strokeDashoffset={strokeDashoffset} />
+        </g>;
+      }
       if (annotation.type === 'route') {
         if (t < annotation.at) return null;
         const {line, progress, points, head} = routeStates.get(index)!;
@@ -404,6 +442,8 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
           {annotation.text ? <Label x={lx} y={ly} text={annotation.text} opacity={progress} color={palette.ink} halo={palette.background} size={36} /> : null}
         </g>;
       }
+      // A timeline is drawn as the flat strip (see `timeline`), not on the map.
+      if (annotation.type === 'timeline') return null;
       const projected = point(anchorLonLat(annotation.anchor, data));
       if (farOffFrame(projected)) return null;
       const [x, y] = keepIn(projected);
@@ -419,6 +459,9 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
     });
   // Label and marker text on top of every route and marker, so none is drawn over.
   const pointTexts = primitive.annotations.map((annotation, index) => {
+    if (annotation.type === 'line') {
+      return annotation.text ? <React.Fragment key={`text-${index}`}>{textOf(index, annotation.text, appear(annotation.at + LINE_FRAMES / 2 / durationInFrames, 14) * vanish(annotation.until))}</React.Fragment> : null;
+    }
     if ((annotation.type !== 'label' && annotation.type !== 'marker') || !annotation.text) return null;
     const shown = appear(annotation.at) * vanish(annotation.until);
     // A marker's text sat inside its faded group, so it appears at shown².
@@ -448,6 +491,9 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
   const bars = barsOn && primitive.data ? <DataBars label={primitive.data.label + (primitive.data.unit && !/per/i.test(primitive.data.label) ? ` (${primitive.data.unit})` : '')}
     rows={primitive.data.values.map(({entity, value}) => ({id: entity, name: data.entities.get(entity)?.name ?? entity, value, subject: entity === manifest.subject.attributes?.geoEntity}))}
     frame={frame} startFrame={barsStart} fps={manifest.format.fps} width={SIZE.width} height={SIZE.height} accent={styled ? look.subject.from : accent} ink={styled && look.chip ? look.chip.text : palette.ink} backdrop={styled && look.chip ? look.chip.fill : palette.background} muted={styled ? look.subject.side : palette.ink} /> : null;
+
+  const timeline = timelineOn && timelineAnnotation ? <TimelineStrip steps={timelineAnnotation.steps} active={timelineAnnotation.active} frame={frame} startFrame={timelineStart} fps={manifest.format.fps} width={SIZE.width} height={SIZE.height}
+    accent={styled ? look.subject.from : accent} ink={styled && look.chip ? look.chip.text : palette.ink} backdrop={styled && look.chip ? look.chip.fill : palette.background} muted={styled ? look.subject.side : palette.ink} /> : null;
 
   const baseLayers = <>
     <defs>
@@ -505,6 +551,7 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
           {pointTexts}
           {legend}
           {bars}
+          {timeline}
         </g>
       </svg>
     </div>;
@@ -556,7 +603,7 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
         {labelLayer}
       </div>
       {look.vignette > 0 ? <div style={{position: 'absolute', inset: 0, background: `radial-gradient(ellipse at 50% 48%, transparent 45%, rgba(0,0,0,${look.vignette}) 100%)`}} /> : null}
-      <svg width={SIZE.width} height={SIZE.height} viewBox={`0 0 ${SIZE.width} ${SIZE.height}`} style={{position: 'absolute', inset: 0}}><g opacity={outro}>{pointTexts}{flat}{legend}{bars}</g></svg>
+      <svg width={SIZE.width} height={SIZE.height} viewBox={`0 0 ${SIZE.width} ${SIZE.height}`} style={{position: 'absolute', inset: 0}}><g opacity={outro}>{pointTexts}{flat}{legend}{bars}{timeline}</g></svg>
     </div>;
   }
 
@@ -570,6 +617,7 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
     {pointTexts}
     {legend}
     {bars}
+    {timeline}
     </g>
   </svg>;
   }
@@ -585,7 +633,7 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
       {reliefPlacements(relief, view).map((placement) => <Img key={placement.key} src={staticFile(`geo/relief/${placement.file}`)} style={{position: 'absolute', left: placement.left, top: placement.top, width: placement.width, height: placement.height, maxWidth: 'none'}} />)}
     </div>
     <svg width={SIZE.width} height={SIZE.height} viewBox={`0 0 ${SIZE.width} ${SIZE.height}`} style={{position: 'absolute', inset: 0}}>
-      <g opacity={outro}>{annotations}{pointTexts}{legend}{bars}</g>
+      <g opacity={outro}>{annotations}{pointTexts}{legend}{bars}{timeline}</g>
     </svg>
   </div>;
 };

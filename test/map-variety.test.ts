@@ -3,8 +3,11 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {describe, it} from 'node:test';
 import {fileURLToPath} from 'node:url';
+import {geoResearchSchema} from '../scripts/geo-research-schema.mjs';
+import {primitiveSchema} from '../scripts/primitive-schema.mjs';
+import {planMapSoundEvents} from '../scripts/lib/sound-design.mjs';
 import {barRows, formatBar, panelHeight} from '../src/video/geo/DataBars';
-import {builtinDatasets, directGeoVisuals, mentionedPlaces, resolveResearchPlaces, shotShows, unframedRivers} from '../scripts/lib/geo-director.mjs';
+import {builtinDatasets, describeShot, directGeoVisuals, labelClutter, mentionedPlaces, offFramePlaces, resolveResearchPlaces, shotShows, shotToPrimitive, unframedRivers} from '../scripts/lib/geo-director.mjs';
 import {loadGeoData} from '../scripts/lib/geo-primitives.mjs';
 import {mapDirectionProblems, mapVariety} from '../scripts/lib/map-variety.mjs';
 import {publishBlockers} from '../scripts/lib/publish-checks.mjs';
@@ -20,6 +23,9 @@ const shot = (target: string, highlight = target, extra: object = {}) => ({
   annotations: [],
   ...extra,
 });
+/** Calls from the shot reviewer are answered "nothing weak" so tests can count the director's own calls. */
+const isReviewer = (prompt: any) => /review the map shots/.test(prompt.system);
+const directorOnly = (complete: (prompt: any) => Promise<string>) => async (prompt: any) => (isReviewer(prompt) ? JSON.stringify({scenes: []}) : complete(prompt));
 const scenesOf = (shots: object[]) => ({scenes: shots.map((primitive, index) => ({id: `s${index + 1}`, primitive}))});
 
 describe('map variety', () => {
@@ -80,10 +86,10 @@ describe('geo director repair round', () => {
 
   it('asks again when the first answer is a slideshow, and keeps the better answer', async () => {
     const calls: any[] = [];
-    const complete = async (prompt: any) => {
+    const complete = directorOnly(async (prompt: any) => {
       calls.push(prompt);
       return calls.length === 1 ? monotone : good;
-    };
+    });
     const result = await directGeoVisuals({draft: undirected, research: lesotho.research, geo, complete});
     assert.equal(calls.length, 2);
     assert.match(calls[1].messages.at(-1).content, /barely changes/);
@@ -95,18 +101,18 @@ describe('geo director repair round', () => {
   it('asks a second time when the first repair is still a slideshow, then stops', async () => {
     const answers = [monotone, monotone, good];
     let calls = 0;
-    const result = await directGeoVisuals({draft: undirected, research: lesotho.research, geo, complete: async () => answers[calls++] ?? monotone});
+    const result = await directGeoVisuals({draft: undirected, research: lesotho.research, geo, complete: directorOnly(async () => answers[calls++] ?? monotone)});
     assert.equal(calls, 3, 'one answer and at most two repairs');
     assert.deepEqual(result.variety.problems, []);
 
     calls = 0;
-    await directGeoVisuals({draft: undirected, research: lesotho.research, geo, complete: async () => { calls++; return monotone; }});
+    await directGeoVisuals({draft: undirected, research: lesotho.research, geo, complete: directorOnly(async () => { calls++; return monotone; })});
     assert.equal(calls, 3, 'never more than two repairs');
   });
 
   it('does not ask again when the first answer is already fine', async () => {
     let calls = 0;
-    const result = await directGeoVisuals({draft: undirected, research: lesotho.research, geo, complete: async () => { calls++; return good; }});
+    const result = await directGeoVisuals({draft: undirected, research: lesotho.research, geo, complete: directorOnly(async () => { calls++; return good; })});
     assert.equal(calls, 1);
     assert.deepEqual(result.variety.problems, []);
   });
@@ -199,7 +205,7 @@ describe('places the director may use', () => {
     const monotone = (ids: string[]) => JSON.stringify({scenes: draft.scenes.map((scene: {id: string}, index: number) => ({id: scene.id, camera: [{target: index % 2 ? 'country:LSO' : 'world', at: 0}], highlights: [{entity: ids[index % ids.length], style: index % 3 ? 'fill' : 'outline', at: 0.2}], why: 'x'}))});
     const calls: any[] = [];
     const answers = [monotone(['country:LSO', 'country:ZAF']), monotone(['country:LSO', 'country:ZAF'])];
-    const result = await directGeoVisuals({draft: names('Lesotho sits inside South Africa, near Durban.'), research: rich.research, geo, complete: async (prompt: any) => { calls.push(prompt); return answers[Math.min(calls.length - 1, 1)]; }});
+    const result = await directGeoVisuals({draft: names('Lesotho sits inside South Africa, near Durban.'), research: rich.research, geo, complete: directorOnly(async (prompt: any) => { calls.push(prompt); return answers[Math.min(calls.length - 1, 1)]; })});
     assert.ok(calls.length >= 2, 'a repair round happened');
     assert.match(calls[1].messages.at(-1).content, /names Durban/);
     assert.ok(result.unseenMentions.some((item: {places: string[]}) => item.places.includes('city:durban-zaf')));
@@ -281,5 +287,112 @@ describe('traced rivers', () => {
   });
   it('leaves a camera that starts on the world alone', () => {
     assert.equal(unframedRivers(shotWith([{target: 'world', at: 0}, {target: {bbox: [31.5, 14.7, 33.5, 16.2]}, at: 1}]), places, boxes).length, 0);
+  });
+});
+
+describe('grid lines', () => {
+  const base = {kind: 'geo-map', camera: [{target: 'world', at: 0}], highlights: [], annotations: [], dataset: 'natural-earth'};
+  it('accepts a meridian and a parallel, and refuses a parallel past the poles', () => {
+    assert.equal(primitiveSchema.safeParse({...base, annotations: [{type: 'line', kind: 'meridian', degrees: 0, text: '0° PRIME MERIDIAN', at: 0.2}]}).success, true);
+    assert.equal(primitiveSchema.safeParse({...base, annotations: [{type: 'line', kind: 'parallel', degrees: 23.4}]}).success, true);
+    assert.equal(primitiveSchema.safeParse({...base, annotations: [{type: 'line', kind: 'parallel', degrees: 120}]}).success, false);
+    assert.equal(primitiveSchema.safeParse({...base, annotations: [{type: 'line', kind: 'meridian', degrees: 200}]}).success, false);
+  });
+
+  it('lets a line state its own degrees, and the director keeps the line', () => {
+    const lesotho = {draft: read('drafts/geographica/lesotho-enclave.json'), research: read('research/geographica/lesotho-enclave.json')};
+    const research = geoResearchSchema.parse(lesotho.research);
+    const {places, datasets} = resolveResearchPlaces(research, geo);
+    const shot = {camera: [{target: 'world', at: 0}], annotations: [{type: 'line', kind: 'meridian', degrees: 0, text: '0° PRIME MERIDIAN', at: 0.2}]};
+    const primitive = shotToPrimitive(shot, {places, research, datasets});
+    assert.deepEqual(primitive.annotations[0], {type: 'line', kind: 'meridian', degrees: 0, text: '0° PRIME MERIDIAN', at: 0.2, reverse: false});
+    // Some other number is still refused.
+    assert.throws(() => shotToPrimitive({...shot, annotations: [{...shot.annotations[0], text: '37° LINE'}]}, {places, research, datasets}), /states 37/);
+  });
+
+  it('sounds like a trace', () => {
+    const events = planMapSoundEvents([{id: 'a', beat: 'hook', durationSeconds: 5, primitive: {...base, annotations: [{type: 'line', kind: 'meridian', degrees: 0, at: 0.4}]}} as any]);
+    assert.deepEqual(events.map((event) => event.cue), ['trace']);
+  });
+});
+
+describe('places in frame when they appear', () => {
+  const places = new Map<string, any>([
+    ['country:MDG', {id: 'country:MDG', kind: 'country', name: 'Madagascar', bbox: [43, -26, 51, -12], label: [46.7, -19.4]}],
+    ['country:IND', {id: 'country:IND', kind: 'country', name: 'India', bbox: [68, 7, 97, 36], label: [78.5, 22.5]}],
+  ]);
+  const boxes = new Map<string, [number, number, number, number]>();
+  const shot = (camera: object[], annotations: object[]) => ({kind: 'geo-map', camera, highlights: [], annotations}) as any;
+
+  it('flags a label the camera has not reached yet when it appears', () => {
+    const slow = shot([{target: {bbox: [40, -28, 54, -10]}, at: 0}, {target: {bbox: [40, -28, 100, 38]}, at: 1}], [{type: 'label', anchor: 'country:IND', text: 'INDIA', at: 0.2}]);
+    assert.deepEqual(offFramePlaces(slow, places, boxes).map((place: any) => place.id), ['country:IND']);
+  });
+
+  it('accepts it once the camera has moved there in time', () => {
+    const early = shot([{target: {bbox: [40, -28, 54, -10]}, at: 0}, {target: {bbox: [40, -28, 100, 38]}, at: 0.2}], [{type: 'label', anchor: 'country:IND', text: 'INDIA', at: 0.5}]);
+    assert.deepEqual(offFramePlaces(early, places, boxes), []);
+  });
+
+  it('counts a world framing as showing everything', () => {
+    assert.deepEqual(offFramePlaces(shot([{target: 'world', at: 0}], [{type: 'label', anchor: 'country:IND', text: 'INDIA', at: 0.1}]), places, boxes), []);
+  });
+});
+
+
+describe('the shot reviewer', () => {
+  const lesotho = {draft: read('drafts/geographica/lesotho-enclave.json'), research: read('research/geographica/lesotho-enclave.json')};
+  const undirected = {...lesotho.draft, scenes: lesotho.draft.scenes.map(({primitive, ...scene}: any) => scene)};
+  const good = fs.readFileSync(path.join(root, 'test/fixtures/geo-director/lesotho-enclave.reply.json'), 'utf8');
+
+  it('sends a scene it finds weak back for another try, with its problem and fix', async () => {
+    const calls: any[] = [];
+    const firstId = undirected.scenes[1].id;
+    let judged = 0;
+    const complete = async (prompt: any) => {
+      calls.push(prompt);
+      if (isReviewer(prompt)) return JSON.stringify({scenes: judged++ === 0 ? [{id: firstId, ok: false, problem: 'It never shows the border.', fix: 'Trace the border.'}] : []});
+      return good;
+    };
+    const result = await directGeoVisuals({draft: undirected, research: lesotho.research, geo, complete});
+    const retry = calls.find((prompt) => !isReviewer(prompt) && prompt.messages.length > 1);
+    assert.ok(retry, 'the director was asked again');
+    assert.match(retry.messages.at(-1).content, new RegExp(`Scene "${firstId}" is weak as a picture: It never shows the border\\. Trace the border\\.`));
+    assert.deepEqual(result.fallbacks, []);
+  });
+
+  it('describes a shot in words a reviewer can judge', () => {
+    const places = new Map<string, any>([['country:LSO', {id: 'country:LSO', kind: 'country', name: 'Lesotho', bbox: [27, -31, 30, -28]}]]);
+    const shot = {kind: 'geo-map', camera: [{target: 'country:LSO', at: 0}], highlights: [{entity: 'country:LSO', style: 'fill', at: 0.2}],
+      annotations: [{type: 'label', anchor: 'country:LSO', text: 'LESOTHO', at: 0.3}, {type: 'line', kind: 'meridian', degrees: 0, text: 'PRIME MERIDIAN', at: 0.4}, {type: 'timeline', steps: [{label: '1867'}, {label: 'TODAY'}], active: 0, at: 0.5}]} as any;
+    const text = describeShot(shot, places, new Map([['country:LSO', [27, -31, 30, -28]]]));
+    assert.match(text, /camera: Lesotho/);
+    assert.match(text, /lit: Lesotho \(fill\)/);
+    assert.match(text, /label: "LESOTHO" on Lesotho/);
+    assert.match(text, /meridian line at 0° "PRIME MERIDIAN"/);
+    assert.match(text, /timeline: \[1867\] · TODAY/);
+  });
+
+  it('changes nothing when the reviewer fails or answers nonsense', async () => {
+    const answers = [good, 'not json', good];
+    const result = await directGeoVisuals({draft: undirected, research: lesotho.research, geo, complete: async (prompt: any) => (isReviewer(prompt) ? 'oops, not json' : good)});
+    assert.deepEqual(result.fallbacks, []);
+    assert.deepEqual(result.weakShots, []);
+    assert.ok(answers.length > 0);
+  });
+});
+
+describe('label clutter', () => {
+  const label = (anchor: string, text: string) => ({type: 'label', anchor, text, at: 0.3});
+  const shot = (annotations: object[]) => ({kind: 'geo-map', camera: [{target: 'world', at: 0}], highlights: [], annotations}) as any;
+  it('allows a few labels spread over places', () => {
+    assert.equal(labelClutter(shot([label('country:MDG', 'MADAGASCAR'), label('country:MOZ', 'AFRICA'), label('country:IND', 'INDIA')])), null);
+  });
+  it('flags labels piled on one place, and too many in a scene', () => {
+    assert.match(labelClutter(shot([label('country:MDG', 'A'), label('country:MDG', 'B'), label('country:MDG', 'C')]))!, /country:MDG carries more than 2 labels/);
+    assert.match(labelClutter(shot([label('country:MDG', 'A'), label('country:MOZ', 'B'), label('country:IND', 'C'), label('country:TZA', 'D')]))!, /4 labels and markers is too many/);
+  });
+  it('ignores lines, arrows and text-free markers', () => {
+    assert.equal(labelClutter(shot([{type: 'marker', anchor: 'country:MDG', at: 0}, {type: 'marker', anchor: 'country:MDG', at: 0}, {type: 'marker', anchor: 'country:MDG', at: 0}, {type: 'line', kind: 'meridian', degrees: 0, at: 0}])), null);
   });
 });

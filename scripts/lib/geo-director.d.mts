@@ -17,6 +17,9 @@ export declare const shotShows: (primitive: GeoMapPrimitive, place: {id: string;
 export declare const builtinDatasets: (places: Map<string, Place>) => Map<string, ResolvedDataset>;
 export declare const offFramePlaces: (primitive: GeoMapPrimitive, places: Map<string, any>, boxes: Map<string, [number, number, number, number]>) => any[];
 export declare const unframedRivers: (primitive: GeoMapPrimitive, places: Map<string, any>, boxes: Map<string, [number, number, number, number]>) => any[];
+export declare const describeShot: (primitive: GeoMapPrimitive, places: Map<string, any>, boxes: Map<string, [number, number, number, number]>) => string;
+export declare const judgeShots: (input: {complete: Complete; draft: any; shots: Map<string, GeoMapPrimitive>; places: Map<string, any>; boxes: Map<string, [number, number, number, number]>}) => Promise<{id: string; problem: string; fix: string}[]>;
+export declare const labelClutter: (primitive: GeoMapPrimitive) => string | null;
 export declare const addNearbyPlaces: (places: Map<string, Place>, subjectId: string, geo: Geo) => Map<string, Place>;
 export declare const resolveResearchPlaces: (research: GeoResearch, geo: Geo) => {subjectId: string; places: Map<string, Place>; review: BordersReview[]; datasets: Map<string, ResolvedDataset>};
 export declare const shotToPrimitive: (shot: unknown, context: {places: Map<string, Place>; research: GeoResearch; datasets?: Map<string, ResolvedDataset>; showId?: string}) => GeoMapPrimitive;
@@ -31,5 +34,6 @@ export declare const directGeoVisuals: (input: {draft: any; research: unknown; c
   variety: {scenes: number; distinct: number; repeats: string[]; problems: string[]};
   unseenMentions: {id: string; places: string[]}[];
   offFrame: {id: string; places: string[]}[];
+  weakShots: {id: string; problem: string; fix: string}[];
   modelError?: string;
 }>;
