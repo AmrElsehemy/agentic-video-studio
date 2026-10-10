@@ -81,7 +81,8 @@ describe('map variety', () => {
 describe('geo director repair round', () => {
   const lesotho = {draft: read('drafts/geographica/lesotho-enclave.json'), research: read('research/geographica/lesotho-enclave.json')};
   const undirected = {...lesotho.draft, scenes: lesotho.draft.scenes.map(({primitive, ...scene}: any) => scene)};
-  const good = fs.readFileSync(path.join(root, 'test/fixtures/geo-director/lesotho-enclave.reply.json'), 'utf8');
+  // The saved Lesotho reply plus a line, relief and a distance-from-sea surface, so it clears the devices check too.
+  const good = fs.readFileSync(path.join(root, 'test/fixtures/geo-director/lesotho-enclave.devices.reply.json'), 'utf8');
   const monotone = JSON.stringify({scenes: undirected.scenes.map((scene: {id: string}) => ({id: scene.id, camera: [{target: 'country:LSO', at: 0}], highlights: [{entity: 'country:LSO', style: 'fill', at: 0.2}], why: 'same'}))});
 
   it('asks again when the first answer is a slideshow, and keeps the better answer', async () => {
