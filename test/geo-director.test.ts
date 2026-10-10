@@ -4,7 +4,7 @@ import path from 'node:path';
 import {describe, it} from 'node:test';
 import {fileURLToPath} from 'node:url';
 import {geoResearchSchema, type GeoResearch} from '../scripts/geo-research-schema.mjs';
-import {directGeoVisuals, resolveResearchPlaces, shotToPrimitive, textNumbers} from '../scripts/lib/geo-director.mjs';
+import {directGeoVisuals, labelProblems, resolveResearchPlaces, shotToPrimitive, textNumbers} from '../scripts/lib/geo-director.mjs';
 import {loadGeoData} from '../scripts/lib/geo-primitives.mjs';
 import {placeKey, resolvePlace, resolvePlaces} from '../scripts/lib/geo-resolver.mjs';
 
@@ -162,5 +162,29 @@ describe('geo visual director', () => {
     const failing = await directGeoVisuals({draft: undirected(lesotho.draft), research: lesotho.research, geo, complete: async () => 'no json here'});
     assert.match(failing.modelError ?? '', /JSON/);
     assert.equal(failing.draft.scenes.length, 7);
+  });
+});
+
+describe('what a label says', () => {
+  const place = (id: string, name: string, kind = 'country') => [id, {id, kind, name, bbox: [0, 0, 1, 1]}] as const;
+  const places = new Map([place('country:EGY', 'Egypt'), place('country:ESP', 'Spain'), place('country:CAN', 'Canada'), place('country:MDV', 'Maldives'), place('water:red-sea', 'Red Sea', 'water')]) as never;
+  const problem = (anchor: string | object, text: string, type = 'marker') => labelProblems({annotations: [{type, anchor, text, at: 0.2}]} as never, places, geo);
+
+  it('refuses a placeholder word, which says nothing', () => {
+    for (const text of ['ENDPOINT', 'Start', 'HERE', 'SAILING']) assert.match(problem('country:CAN', text)!, /says nothing/, text);
+  });
+
+  it('refuses a sea named on a country, which prints on land', () => {
+    assert.match(problem('country:EGY', 'RED SEA')!, /anchored on Egypt, so it prints on land/);
+    assert.match(problem('country:ESP', 'ATLANTIC GATE')!, /prints on land/);
+  });
+
+  it('accepts a sea on the sea or a point in it, and a true statement about a sea on land', () => {
+    assert.equal(problem('water:red-sea', 'RED SEA'), null);
+    assert.equal(problem({lon: 35.6, lat: 24}, 'RED SEA'), null);
+    assert.equal(problem('country:MDV', '90,000 KM² SEA'), null);
+    assert.equal(problem('country:MDV', '2.4 M ABOVE SEA'), null);
+    assert.equal(problem('country:EGY', 'EGYPT'), null);
+    assert.equal(problem('country:ESP', 'SPAIN · EUROPE'), null);
   });
 });

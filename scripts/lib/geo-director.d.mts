@@ -42,3 +42,4 @@ export declare const directGeoVisuals: (input: {draft: any; research: unknown; c
   weakShots: {id: string; problem: string; fix: string}[];
   modelError?: string;
 }>;
+export declare const labelProblems: (primitive: any, places: Map<string, any>, geo?: any) => string | null;

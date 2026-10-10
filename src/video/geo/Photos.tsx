@@ -80,6 +80,7 @@ export const PhotoCard: React.FC<{
     <clipPath id={clip}><rect x={x} y={y} width={PHOTO_WIDTH} height={PHOTO_HEIGHT} rx={14} /></clipPath>
     <rect x={x - FRAME} y={y - FRAME} width={PHOTO_WIDTH + 2 * FRAME} height={PHOTO_HEIGHT + 2 * FRAME + 34} rx={22} fill="#fffdf8" style={{filter: 'drop-shadow(0 18px 28px rgba(0,0,0,.38))'}} />
     <image href={photo.href} x={x - (w - PHOTO_WIDTH) / 2 + drift} y={y - (h - PHOTO_HEIGHT) / 2} width={w} height={h} preserveAspectRatio="none" clipPath={`url(#${clip})`} />
+    {photo.caption ? <text x={0} y={y + PHOTO_HEIGHT + 30} textAnchor="middle" dominantBaseline="middle" style={{fontFamily: displayFont, fontSize: 28, letterSpacing: 2, fill: '#1b2230'}}>{photo.caption.toUpperCase()}</text> : null}
     <rect x={x + 20} y={y + PHOTO_HEIGHT - 28} width={creditWidth} height={44} rx={22} fill={backdrop} opacity={0.82} />
     <text x={x + 20 + creditWidth / 2} y={y + PHOTO_HEIGHT - 6} textAnchor="middle" dominantBaseline="middle" style={{fontFamily: displayFont, fontSize: 22, letterSpacing: 2, fill: ink}}>{credit}</text>
   </g>;

@@ -278,7 +278,7 @@ export const shotToPrimitive = (shot, {places, research, datasets = new Map(), s
       return {...annotation, path: annotation.path.map((ref, at) => anchor(ref, `${where}.path[${at}]`))};
     }
     const ref = annotation?.anchor;
-    if (ref && typeof ref === 'object' && research.places[ref.place]?.approximate && !APPROXIMATE.test(annotation.text ?? '')) {
+    if (ref && typeof ref === 'object' && research.places[ref.place]?.approximate && !APPROXIMATE.test(annotation.text ?? '') && !/\?\s*$/.test(annotation.text ?? '')) {
       throw new Error(`${where}: "${ref.place}" is an approximate point, so its text must say so (e.g. "${String(annotation.text ?? '').slice(0, 18)} (APPROX.)")`);
     }
     return {...annotation, anchor: anchor(ref, where)};
@@ -526,6 +526,42 @@ const MAX_LABELS_PER_PLACE = 2;
  * MAX_LABELS_PER_PLACE on one place (they print over each other and nobody can read them).
  * Returns what is wrong, as a sentence, or null.
  */
+/** Words that mean water, for a text that names a sea. */
+const SEA_WORD = /\b(ATLANTIC|PACIFIC|MEDITERRANEAN|BLACK SEA|RED SEA|CASPIAN|BALTIC|INDIAN OCEAN|ARCTIC|OCEAN|SEA|GULF|STRAIT)\b/;
+
+/** Words that say nothing: a label or marker of only these is a placeholder, not information. */
+const PLACEHOLDER_TEXTS = new Set(['ENDPOINT', 'END POINT', 'END', 'START', 'POINT', 'HERE', 'PLACE', 'MARKER', 'LABEL', 'LOCATION', 'AREA', 'REGION', 'ZONE', 'SPOT', 'SAILING', 'TEXT', 'TBD']);
+
+/**
+ * Problems with what a label or marker says, as a sentence for the repair round, or null:
+ * a placeholder word ("ENDPOINT"), or text that names a different place from the one it sits on
+ * ("RED SEA" anchored on Egypt prints on Egypt, not on the sea).
+ */
+export const labelProblems = (primitive, places, geo) => {
+  const problems = [];
+  for (const annotation of primitive.annotations) {
+    if ((annotation.type !== 'label' && annotation.type !== 'marker') || !annotation.text) continue;
+    const text = annotation.text.replace(/\(.*?\)/g, ' ').replace(/[^\p{L}\p{N}\s]/gu, ' ').replace(/\s+/g, ' ').trim().toUpperCase();
+    if (PLACEHOLDER_TEXTS.has(text)) {
+      problems.push(`"${annotation.text}" says nothing; give the label real information from the research or leave it out.`);
+      continue;
+    }
+    if (typeof annotation.anchor !== 'string' || !geo) continue;
+    const anchored = places.get(annotation.anchor);
+    const names = mentionedPlaces(annotation.text, geo).filter((entity) => entity.id !== annotation.anchor && places.has(entity.id));
+    // A sea or an ocean named on a country or city is printed on the land: it needs the sea's own anchor or a point in the water.
+    const sea = /\d|ABOVE|BELOW|RIDGE|COAST|LEVEL|FROM|NEAR/.test(text) ? undefined : SEA_WORD.exec(text)?.[0];
+    if (sea && anchored && ['country', 'admin1', 'city'].includes(anchored.kind) && !text.includes(anchored.name.toUpperCase().split(/[,/(]/)[0].trim())) {
+      problems.push(`"${annotation.text}" names the ${sea.toLowerCase()} but is anchored on ${anchored.name}, so it prints on land; anchor it on the water's own id (or a point in the water: {"place": ...}).`);
+      continue;
+    }
+    // The text names other places and not the one it sits on: it is printed in the wrong place.
+    const namesAnchor = anchored && text.includes(anchored.name.toUpperCase().replace(/\(.*?\)/g, '').trim().split(/[,/]/)[0]);
+    if (names.length && !namesAnchor) problems.push(`"${annotation.text}" is anchored on ${anchored?.name ?? annotation.anchor} but names ${names.map((entity) => entity.name).join(', ')}; anchor it on ${names.length > 1 ? 'one of them' : names[0].id}, or on a point {"place": ...} where it belongs.`);
+  }
+  return problems.length ? problems.join(' ') : null;
+};
+
 export const labelClutter = (primitive) => {
   const texts = primitive.annotations.filter((annotation) => (annotation.type === 'label' || annotation.type === 'marker') && annotation.text);
   const perPlace = new Map();
@@ -742,10 +778,11 @@ export const directGeoVisuals = async ({draft, research: rawResearch, complete, 
         const unseen = draft.scenes.filter((scene) => shots.has(scene.id)).map((scene) => ({id: scene.id, places: unshown(scene.id, shots.get(scene.id))})).filter((item) => item.places.length);
         const outside = draft.scenes.filter((scene) => shots.has(scene.id)).map((scene) => ({id: scene.id, places: cutOff(shots.get(scene.id))})).filter((item) => item.places.length);
         const clutter = draft.scenes.filter((scene) => shots.has(scene.id)).map((scene) => ({id: scene.id, problem: labelClutter(shots.get(scene.id))})).filter((item) => item.problem);
+        const misleading = draft.scenes.filter((scene) => shots.has(scene.id)).map((scene) => ({id: scene.id, problem: labelProblems(shots.get(scene.id), places, geo)})).filter((item) => item.problem);
         const stubs = draft.scenes.filter((scene) => shots.has(scene.id)).map((scene) => ({id: scene.id, places: unframed(shots.get(scene.id))})).filter((item) => item.places.length);
         // The rule checks first; once the shots are clean by the rules, a reviewer asks whether they show what is claimed.
         const drifting = draft.scenes.filter((scene) => shots.has(scene.id)).map((scene) => ({id: scene.id, conflicts: reconstructionConflicts(shots.get(scene.id)).map((id) => nameOf(id, places)), unframed: journeys(shots.get(scene.id)).map((place) => place.name), rings: rings(shots.get(scene.id)).map((ring) => `${ring.radiusKm} km`)})).filter((item) => item.conflicts.length || item.unframed.length || item.rings.length);
-        const rulesClean = !missing.length && !variety.length && !unseen.length && !outside.length && !stubs.length && !clutter.length && !drifting.length;
+        const rulesClean = !missing.length && !variety.length && !unseen.length && !outside.length && !stubs.length && !clutter.length && !misleading.length && !drifting.length;
         weak = rulesClean || round === 0 ? await judgeShots({complete, draft, shots, places, boxes}) : weak;
         if (rulesClean && !weak.length) break;
         const notes = [
@@ -759,6 +796,7 @@ export const directGeoVisuals = async ({draft, research: rawResearch, complete, 
             ...(lost.length ? [`- Scene "${id}" reconstructs ${lost.join(', ')} but its camera never frames the whole journey from the oldest position to today; use a framing (target {"around": [...]} or a box) that holds both.`] : []),
           ]),
           ...clutter.map(({id, problem}) => `- Scene "${id}": ${problem}`),
+          ...misleading.map(({id, problem}) => `- Scene "${id}": ${problem}`),
           ...weak.map(({id, problem, fix}) => `- Scene "${id}" is weak as a picture: ${problem}${fix ? ` ${fix}` : ''}`),
           ...stubs.map(({id, places: rivers}) => `- Scene "${id}" traces ${rivers.map((place) => `${place.name} (${place.id})`).join(', ')} but its camera never frames most of ${rivers.length > 1 ? 'their courses' : 'its course'}, so the river shows as a stub. Give a camera keyframe a target of the river's own id (or {"around": [...]} several) so its whole length is in view, then move on to the part the narration is about.`),
           ...variety.map((problem) => `- ${problem}`),
