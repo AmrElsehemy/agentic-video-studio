@@ -102,7 +102,30 @@ All effects are pure functions of the frame: a ripple ring where a place lights 
 
 ## Sound
 
-Map scenes get their own cues on top of the scene-change cue (`scripts/lib/sound-design.mjs`, `planMapSoundEvents`): a swell when a place lights up, a hiss while an outline traces, a pop for a label or marker, a tick for an arrow, ticks along a followed route, a rising arpeggio for a data layer, a sweep for a camera that changes target. Cues are thinned to 0.14 s apart and capped at six per scene, and they move with a scene that narration stretched.
+Every map scene gets cues on top of the scene-change cue (`scripts/lib/sound-design.mjs`, `planMapSoundEvents`): a swell when a place lights up, a hiss while an outline traces, a pop for a label or marker, a tick for an arrow, ticks along a followed route, a rising arpeggio for a data layer, a sweep for a camera that changes target. Cues are thinned to 0.14 s apart and capped at six per scene, and they move with a scene that narration stretched.
+
+### Scores and ambience
+
+The music bed used to be one electro-pop loop for every episode. An episode now opts into a **score** (`"score"` in its draft, set on the manifest as `audio.bed.score`; `scripts/lib/score.mjs`), a stereo piece written for the mood and arranged for the story. Everything is synthesised, so there is nothing to license. Episodes without a score keep the old loop, so published episodes are unchanged.
+
+| Score | Feel |
+|---|---|
+| `wonder` | Major add9 chords, bells, a light pulse; discovery |
+| `epic` | Minor, big pads, half-time kicks and claps, chord stabs; scale and history |
+| `tension` | Phrygian, a pulsing bass, sparse ticks; borders and disputes |
+| `calm` | Slow arpeggios over maj7 pads, a shaker; places, lakes, space |
+| `quirky` | Bouncy marimba-like plucks and bass; oddities |
+| `pulse` | Four-on-the-floor electro, 16th plucks; systems and machines |
+
+Layers join by each scene's intensity (`intensityOf`, from its beat): 0 pad, 1 adds bass and arpeggio, 2 adds drums, 3 (reveal, twist, payoff) adds everything and a bell phrase. A noise **riser** leads into a scene that comes in at 3 from a quieter one, so the reveal is felt before it lands. Chords change every two bars; a small stereo reverb sits on the pads, plucks and bells. The tempo is the score's, so beat-snapped map reveals follow it.
+
+**Ambience** sits under a scene that has a place to hear: `sea`, `wind`, `city`, `jungle`, `desert`, `ice`, `space` (a map shot's `ambience`, which the director sets; absent, a street map is a city, a flood the sea, and elevation or distance-from-sea wind). Each kind is synthesised noise and event textures (waves breathing, gusts, passing cars, birdsong, insects), fading across scene edges, so consecutive scenes in one setting run on.
+
+**Ducking:** the music and ambience drop by 6 dB while the narration speaks (from the narration's measured speech and pauses) and come back in its pauses.
+
+## Flags
+
+`"flags": true` on a map shot puts each country's flag beside it (`src/video/geo/Flags.tsx`, flag-icons, MIT): above its label, on its bar (the label shortens to fit), as a faint fill in a large bubble or a small badge over a small one, and, when a border is highlighted, a chip along the top naming both countries with their flags. A place with no flag of its own (Bir Tawil, buffer zones, Antarctic claims) gets none. `npm run flags:prepare` writes `public/flags/` from Natural Earth's codes, so a country only gets the flag of its own ISO code; `npm run flags:verify` checks the files. The compiler adds the flag-icons credit to an episode's rights when a shot uses flags. The director uses them on about a third of an episode's scenes, those about countries as countries. `npm run looks -- <episode> --flags=1` previews them.
 
 ## Checks
 

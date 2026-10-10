@@ -130,3 +130,13 @@ export const geoRightsAsset = ({manifest}) => ({
   publicReleaseApproved: true,
   notes: manifest.source.attribution,
 });
+
+/** The rights entry crediting the flag set. */
+export const flagRightsAsset = () => ({
+  kind: 'map-data',
+  sourceUrl: 'https://github.com/lipis/flag-icons/blob/main/LICENSE',
+  owner: 'flag-icons',
+  licenseStatus: 'licensed',
+  publicReleaseApproved: true,
+  notes: 'Flags: flag-icons (MIT).',
+});

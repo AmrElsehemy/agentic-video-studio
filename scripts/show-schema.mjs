@@ -3,6 +3,7 @@
 // and embeds the result in the manifest, so the renderer and audio read
 // branding only from the manifest.
 import {z} from 'zod';
+import {SCORE_NAMES} from './lib/score.mjs';
 import {reviewSchema, VOICE_MODELS, VOICE_PROVIDERS, voiceProblems} from './episode-fields.mjs';
 
 /** Fonts the renderer can load (Google Fonts bundled with Remotion). */
@@ -17,7 +18,8 @@ export const fontsSchema = z.object({display: z.enum(DISPLAY_FONTS), body: z.enu
 /** How scenes caption their narration: one static line, or the words as they are spoken (#86). */
 export const captionsSchema = z.object({mode: z.enum(['static', 'words'])}).strict();
 /** The generated music bed: tempo and a repeating bass line (Hz). */
-export const musicBedSchema = z.object({bpm: z.number().min(60).max(180), notes: z.array(z.number().min(30).max(1000)).min(1).max(16)}).strict();
+// `score` opts an episode into the stereo score and ambience of scripts/lib/score.mjs (the compiler sets it from the draft).
+export const musicBedSchema = z.object({bpm: z.number().min(60).max(180), notes: z.array(z.number().min(30).max(1000)).min(1).max(16), score: z.enum(SCORE_NAMES).optional()}).strict();
 
 export const showSchema = z.object({
   id: z.string().regex(/^[a-z0-9-]+$/),

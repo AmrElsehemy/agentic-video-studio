@@ -96,6 +96,10 @@ export const primitiveSchema = z.discriminatedUnion('kind', [
     // Flow from Mercator to Equal Earth over the scene, so sizes stretched by Mercator settle to their true area (a world view).
     morph: z.boolean().optional(),
     // Shade the land by how far it is from the sea (bands at 250, 500, 1000, 1500 and 2000 km), creeping inland from `at`.
+    // What the scene sounds like under the music: the sea, wind, a city (scripts/lib/score.mjs). Absent, a street map is a city and a flood the sea.
+    ambience: z.enum(['sea', 'wind', 'city', 'jungle', 'desert', 'ice', 'space', 'none']).optional(),
+    // Flags beside countries: on their labels, bar-chart rows, bubbles and a border's two countries. A country with no flag of its own has none.
+    flags: z.boolean().optional(),
     // A street map of a city (OpenStreetMap, credited on screen): the camera must frame the city, whose id is in public/geo/streets/.
     streets: z.object({city: z.string().regex(/^[a-z0-9-]+$/), at: z.number().min(0).max(1)}).strict().optional(),
     // Elevation (hypsometric bands) and flooding (the land a sea-level rise of `rise` metres would cover) share it.

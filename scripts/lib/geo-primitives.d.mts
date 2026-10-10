@@ -11,3 +11,4 @@ export declare const plateRightsAsset: (geo: any) => {kind: string; sourceUrl: s
 export declare const geoRightsAsset: (data: Pick<GeoData, 'manifest'>) => {kind: string; sourceUrl: string; owner: string; licenseStatus: 'public-domain'; publicReleaseApproved: true; notes: string};
 export declare const streetsProblems: (primitive: any, geo: any) => string[];
 export declare const osmRightsAsset: (geo: any) => {kind: string; sourceUrl: string; owner: string; licenseStatus: string; publicReleaseApproved: boolean; notes: string};
+export declare const flagRightsAsset: () => {kind: string; sourceUrl: string; owner: string; licenseStatus: string; publicReleaseApproved: boolean; notes: string};

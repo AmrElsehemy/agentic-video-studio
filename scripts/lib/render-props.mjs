@@ -114,7 +114,7 @@ export const prepareRenderProps = (episodeId, {voice: requestedVoice = 'auto', c
 
   // Music and sound effects follow this manifest's scene lengths, which narration timing may have
   // stretched, so the cues land on the scene changes the render actually has.
-  writeAudioBed({root, episodeId, manifest, log});
+  writeAudioBed({root, episodeId, manifest, speech: fresh?.timing.speech, log});
 
   // Runtime-only mix overrides: keep compiled manifests stable while making the
   // rendered short clearly audible on phone speakers.

@@ -2,7 +2,7 @@ import type {z} from 'zod';
 
 export type Wordmark = {lead: string; accent: string};
 export type ShowFonts = {display: string; body: string};
-export type MusicBed = {bpm: number; notes: number[]};
+export type MusicBed = {bpm: number; notes: number[]; score?: "wonder" | "epic" | "tension" | "calm" | "quirky" | "pulse"};
 
 export declare const DISPLAY_FONTS: string[];
 export declare const BODY_FONTS: string[];

@@ -7,6 +7,7 @@ import {routeUntil, type GeoAnchor, type GeoMapPrimitive} from '../../../scripts
 import type {ShotProps} from '../shots';
 import {displayFont} from '../typography';
 import {cameraAt, cameraKeys, continuesMap, episodeCameraKeys, MAP_SIZE, type BBox, type CameraKey, type Size, type View} from './camera';
+import {FlagBadge, shortCountryName, useFlags} from './Flags';
 import {useElevationData, useGeoData, useReliefData, useStreetsData, type GeoData} from './data';
 import {RELIEF_STRENGTH, reliefPlacements} from './relief';
 import {fitInside, labelBox, resolveLabels, type Box, type Placed} from './labels';
@@ -210,7 +211,14 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
   const wantsElevation = primitive.surface?.kind === 'elevation' || primitive.surface?.kind === 'flood';
   const elevation = useElevationData(wantsElevation);
   const streetMap = useStreetsData(primitive.streets?.city);
-  if (!data || !keys || (wantsRelief && !relief) || (wantsElevation && !elevation) || (primitive.streets && !streetMap)) return null;
+  // The countries a flag may go beside: highlighted, labelled, in a dataset, or either side of a highlighted border.
+  const flagEntities = [
+    ...primitive.highlights.map((highlight) => highlight.entity),
+    ...primitive.annotations.flatMap((annotation) => ((annotation.type === 'label' || annotation.type === 'marker') && typeof annotation.anchor === 'string' ? [annotation.anchor] : [])),
+    ...(primitive.data?.values.map(({entity}) => entity) ?? []),
+  ].flatMap((id) => (id.startsWith('border:') ? id.slice('border:'.length).split('-').map((code) => `country:${code}`) : [id]));
+  const flags = useFlags(flagEntities, Boolean(primitive.flags));
+  if (!data || !keys || (wantsRelief && !relief) || (wantsElevation && !elevation) || (primitive.streets && !streetMap) || !flags) return null;
 
   const t = durationInFrames > 1 ? frame / (durationInFrames - 1) : 0;
   const view = viewAt(t);
@@ -610,7 +618,11 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
     const shown = appear(annotation.at) * vanish(annotation.until);
     // A marker's text sat inside its faded group, so it appears at shown².
     const grow = springIn(annotation.at);
-    return <React.Fragment key={`text-${index}`}>{textOf(index, annotation.type === 'label' ? countUp(annotation.text, appear(annotation.at, COUNT_FRAMES)) : annotation.text, annotation.type === 'marker' ? shown * shown : shown, grow, labelScale(grow))}</React.Fragment>;
+    // A country's flag rides above its label, popping in with it.
+    const flagHref = annotation.type === 'label' && typeof annotation.anchor === 'string' ? flags.href(annotation.anchor) : undefined;
+    const flagBox = flagHref ? boxes.get(index) : undefined;
+    const flagBadge = flagHref && flagBox ? out(<FlagBadge id={String(annotation.anchor)} href={flagHref} x={flagBox.x} y={flagBox.y - flagBox.halfHeight - 36} width={64} opacity={shown * (fades.get(index) ?? 1)} />) : null;
+    return <React.Fragment key={`text-${index}`}>{textOf(index, annotation.type === 'label' ? countUp(annotation.text, appear(annotation.at, COUNT_FRAMES)) : annotation.text, annotation.type === 'marker' ? shown * shown : shown, grow, labelScale(grow))}{flagBadge}</React.Fragment>;
   });
   const frameStyle = {position: 'absolute' as const, inset: 0, borderRadius: 36, overflow: 'hidden' as const};
 
@@ -701,7 +713,7 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
     : null;
 
   const bars = barsOn && primitive.data ? <DataBars label={primitive.data.label + (primitive.data.unit && !/per/i.test(primitive.data.label) ? ` (${primitive.data.unit})` : '')}
-    rows={primitive.data.values.map(({entity, value}) => ({id: entity, name: data.entities.get(entity)?.name ?? entity, value, subject: entity === manifest.subject.attributes?.geoEntity}))}
+    rows={primitive.data.values.map(({entity, value}) => ({id: entity, name: data.entities.get(entity)?.name ?? entity, value, subject: entity === manifest.subject.attributes?.geoEntity, flag: flags.href(entity)}))}
     frame={frame} startFrame={barsStart} fps={manifest.format.fps} width={SIZE.width} height={SIZE.height} accent={styled ? look.subject.from : accent} ink={styled && look.chip ? look.chip.text : palette.ink} backdrop={styled && look.chip ? look.chip.fill : palette.background} muted={styled ? look.subject.side : palette.ink} /> : null;
 
   // Bubbles (data view "bubbles"): a circle on each place sized by its value, placed in screen space and drawn flat.
@@ -711,7 +723,7 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
     const lonLat = (place?.label ?? (feature ? geoCentroid(feature) : undefined)) as [number, number] | undefined;
     if (!lonLat) return [];
     const [x, y] = toScreen(point(lonLat));
-    return farOffFrame([x, y]) ? [] : [{id: entity, name: place?.name ?? entity, x, y, value, subject: entity === manifest.subject.attributes?.geoEntity}];
+    return farOffFrame([x, y]) ? [] : [{id: entity, name: place?.name ?? entity, x, y, value, subject: entity === manifest.subject.attributes?.geoEntity, flag: flags.href(entity)}];
   }) : [];
   const bubblesOnly = primitive.data?.view === 'bubbles' && bubbleItems.length ? out(<g opacity={outro}>
     <Bubbles items={bubbleItems} frame={frame} startFrame={primitive.data.at * durationInFrames} fps={manifest.format.fps}
@@ -730,7 +742,24 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
       <text x={SIZE.width / 2} y={SAFE + 64} textAnchor="middle" dominantBaseline="middle" style={{fontFamily: displayFont, fontSize: 40, letterSpacing: 3, fill: styled && look.chip ? look.chip.text : palette.ink}}>{text}</text>
     </>;
   })()}</g>) : null;
-  const bubbleLayer = <>{bubblesOnly}{morphChip}{surfaceLegend}{streetCredit}</>;
+  // A highlighted border names both countries, each with its flag, along the top.
+  const borderEntity = primitive.flags ? primitive.highlights.map((highlight) => data.entities.get(highlight.entity)).find((entity) => entity?.kind === 'border') : undefined;
+  const borderSides = borderEntity ? ((borderEntity as unknown as {countries?: string[]}).countries ?? []).map((code) => ({id: `country:${code}`, name: data.entities.get(`country:${code}`)?.name ?? code, flag: flags.href(`country:${code}`)})) : [];
+  const borderStart = borderEntity ? primitive.highlights.find((highlight) => highlight.entity === borderEntity.id)!.at : 0;
+  const flagChip = borderSides.length === 2 && borderSides.every((side) => side.flag) ? out(<g opacity={outro * appear(borderStart, 12)}>{(() => {
+    const [a, b] = borderSides.map((side) => ({...side, text: shortCountryName(side.name).toUpperCase().slice(0, 18)}));
+    const width = (a.text.length + b.text.length) * 25 + 300;
+    const [cx, cy] = [SIZE.width / 2, SAFE + 62];
+    const ink = styled && look.chip ? look.chip.text : palette.ink;
+    return <>
+      <rect x={cx - width / 2} y={cy - 46} width={width} height={92} rx={46} fill={styled && look.chip ? look.chip.fill : palette.background} opacity={.92} />
+      <FlagBadge id={a.id} href={a.flag!} x={cx - width / 2 + 62} y={cy} width={70} />
+      <text x={cx - width / 2 + 112} y={cy + 4} dominantBaseline="middle" style={{fontFamily: displayFont, fontSize: 36, letterSpacing: 3, fill: ink}}>{a.text}</text>
+      <text x={cx + width / 2 - 112} y={cy + 4} textAnchor="end" dominantBaseline="middle" style={{fontFamily: displayFont, fontSize: 36, letterSpacing: 3, fill: ink}}>{b.text}</text>
+      <FlagBadge id={b.id} href={b.flag!} x={cx + width / 2 - 62} y={cy} width={70} />
+    </>;
+  })()}</g>) : null;
+  const bubbleLayer = <>{bubblesOnly}{morphChip}{surfaceLegend}{streetCredit}{flagChip}</>;
 
   const timeline = timelineOn && timelineAnnotation ? <TimelineStrip steps={timelineAnnotation.steps} active={timelineAnnotation.active} frame={frame} startFrame={timelineStart} fps={manifest.format.fps} width={SIZE.width} height={SIZE.height}
     accent={styled ? look.subject.from : accent} ink={styled && look.chip ? look.chip.text : palette.ink} backdrop={styled && look.chip ? look.chip.fill : palette.background} muted={styled ? look.subject.side : palette.ink} /> : null;

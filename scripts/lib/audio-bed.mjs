@@ -5,6 +5,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import {planMapSoundEvents, planSoundEvents, sceneEnergy} from './sound-design.mjs';
+import {renderBed} from './score.mjs';
 
 const rate = 44100;
 
@@ -35,6 +36,34 @@ const writeMonoWav = (samples, output, targetPeak) => {
   return {sourcePeak: peak, gain};
 };
 
+/** A 16-bit stereo WAV, scaled so its loudest sample reaches `targetPeak`. */
+const writeStereoWav = (left, right, output, targetPeak) => {
+  let peak = 0;
+  for (let i = 0; i < left.length; i++) peak = Math.max(peak, Math.abs(left[i]), Math.abs(right[i]));
+  const gain = peak > 0 ? targetPeak / peak : 1;
+  const dataSize = left.length * 4;
+  const wav = Buffer.alloc(44 + dataSize);
+  wav.write('RIFF', 0);
+  wav.writeUInt32LE(36 + dataSize, 4);
+  wav.write('WAVEfmt ', 8);
+  wav.writeUInt32LE(16, 16);
+  wav.writeUInt16LE(1, 20);
+  wav.writeUInt16LE(2, 22);
+  wav.writeUInt32LE(rate, 24);
+  wav.writeUInt32LE(rate * 4, 28);
+  wav.writeUInt16LE(4, 32);
+  wav.writeUInt16LE(16, 34);
+  wav.write('data', 36);
+  wav.writeUInt32LE(dataSize, 40);
+  for (let i = 0; i < left.length; i++) {
+    wav.writeInt16LE(Math.round(Math.max(-1, Math.min(1, left[i] * gain)) * 32767), 44 + i * 4);
+    wav.writeInt16LE(Math.round(Math.max(-1, Math.min(1, right[i] * gain)) * 32767), 46 + i * 4);
+  }
+  fs.mkdirSync(path.dirname(output), {recursive: true});
+  fs.writeFileSync(output, wav);
+  return {sourcePeak: peak, gain};
+};
+
 /** The episode's length and where its scenes and sound cues fall, from its scenes' lengths. */
 export const audioPlan = (manifest) => {
   const duration = manifest.scenes.reduce((sum, scene) => sum + scene.durationSeconds, 0);
@@ -52,12 +81,13 @@ export const audioPlan = (manifest) => {
  * as its scenes. Pass the manifest the render will use, so cues land on its
  * scene changes.
  */
-export const writeAudioBed = ({root, episodeId, manifest, log = console.log}) => {
+export const writeAudioBed = ({root, episodeId, manifest, speech, log = console.log}) => {
   const {bpm, notes} = manifest.audio.bed ?? {bpm: 126, notes: [110, 130.81, 146.83, 164.81, 146.83, 130.81, 98, 130.81]};
   const beatSeconds = 60 / bpm;
   const {duration, sceneWindows, soundEvents: sceneEvents, mapEvents} = audioPlan(manifest);
   const soundEvents = [...sceneEvents, ...mapEvents];
   const sampleCount = Math.ceil(duration * rate);
+  const scored = Boolean(manifest.audio.bed?.score);
 
   const cueSample = (event, time, i) => {
     const delta = time - event.time;
@@ -125,9 +155,15 @@ export const writeAudioBed = ({root, episodeId, manifest, log = console.log}) =>
 
   const musicSamples = new Float32Array(sampleCount);
   const sfxSamples = new Float32Array(sampleCount);
+  // A scored episode (audio.bed.score) gets the stereo score and ambience of scripts/lib/score.mjs, ducked under the narration.
+  const scoredBed = scored ? renderBed({manifest, speech, episodeId}) : undefined;
 
   for (let i = 0; i < sampleCount; i++) {
     const time = i / rate;
+    if (scoredBed) {
+      sfxSamples[i] = soundEvents.reduce((sum, event) => sum + cueSample(event, time, i), 0);
+      continue;
+    }
     const beatIndex = Math.floor(time / beatSeconds);
     const beatPhase = (time % beatSeconds) / beatSeconds;
     const eighthPhase = (time % (beatSeconds / 2)) / (beatSeconds / 2);
@@ -154,10 +190,10 @@ export const writeAudioBed = ({root, episodeId, manifest, log = console.log}) =>
 
   const musicOutput = path.join(root, 'public', 'generated', `${episodeId}-bed.wav`);
   const sfxOutput = path.join(root, 'public', 'generated', `${episodeId}-sfx.wav`);
-  const musicStats = writeMonoWav(musicSamples, musicOutput, 0.92);
+  const musicStats = scoredBed ? writeStereoWav(scoredBed.left, scoredBed.right, musicOutput, 0.92) : writeMonoWav(musicSamples, musicOutput, 0.92);
   const sfxStats = writeMonoWav(sfxSamples, sfxOutput, 0.98);
 
-  log(`✓ music bed: ${path.relative(root, musicOutput)} (${duration.toFixed(1)}s, ${bpm} bpm, gain ${musicStats.gain.toFixed(2)}x)`);
+  log(`✓ music bed: ${path.relative(root, musicOutput)} (${duration.toFixed(1)}s, ${scored ? `${manifest.audio.bed.score} score` : `${bpm} bpm`}, gain ${musicStats.gain.toFixed(2)}x)`);
   log(`✓ sound effects: ${path.relative(root, sfxOutput)} (${soundEvents.length} cues, gain ${sfxStats.gain.toFixed(2)}x)`);
   return {musicOutput, sfxOutput, duration};
 };

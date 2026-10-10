@@ -3,12 +3,13 @@ import {interpolate, spring} from 'remotion';
 import {displayFont} from '../typography';
 import {formatBar} from './DataBars';
 import {POP} from './motion';
+import {FlagBadge} from './Flags';
 
 // A proportional-symbol map layer (data view "bubbles"): a circle on each place, its AREA in proportion to
 // its value (so a place with four times the value has a circle twice as wide), the subject lit and the
 // others muted, the biggest drawn first so small ones stay visible on top. Pure functions of the frame.
 
-export type BubbleItem = {id: string; name: string; x: number; y: number; value: number; subject: boolean};
+export type BubbleItem = {id: string; name: string; x: number; y: number; value: number; subject: boolean; /** The country's flag, when the shot shows flags. */ flag?: string};
 
 /** The biggest circle's radius (px) and the smallest any value gets, so a tiny value is still a visible dot. */
 export const MAX_RADIUS = 118;
@@ -46,6 +47,11 @@ export const Bubbles: React.FC<{
       const shown = formatBar(item.value * reveal, item.value);
       return <g key={item.id} opacity={Math.min(1, reveal * 1.4)}>
         <circle cx={item.x} cy={item.y} r={radius} fill={colour} fillOpacity={item.subject ? 0.85 : 0.5} stroke={item.subject ? ink : colour} strokeOpacity={0.9} strokeWidth={item.subject ? 4 : 3} />
+        {item.flag && inside ? <>
+          <clipPath id={`bubble-${item.id.replace(/[^a-z0-9]/gi, '')}`}><circle cx={item.x} cy={item.y} r={Math.max(0, radius - 3)} /></clipPath>
+          <image href={item.flag} x={item.x - radius * 1.35} y={item.y - radius} width={radius * 2.7} height={radius * 2} preserveAspectRatio="xMidYMid slice" opacity={0.5} clipPath={`url(#bubble-${item.id.replace(/[^a-z0-9]/gi, '')})`} />
+        </> : null}
+        {item.flag && !inside ? <FlagBadge id={item.id} href={item.flag} x={item.x} y={item.y - radius - 96} width={56} /> : null}
         {inside
           ? <text x={item.x} y={item.y} style={{...text, fontSize: 38, fill: ink, stroke: backdrop, strokeWidth: 8, paintOrder: 'stroke'}}>{shown}</text>
           : <g>

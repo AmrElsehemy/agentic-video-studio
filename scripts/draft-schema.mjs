@@ -3,6 +3,7 @@ import {archSpecSchema} from './diagram-arch-schema.mjs';
 import {diagramSpecSchema} from './diagram-schema.mjs';
 import {archetypes} from './archetypes.mjs';
 import {primitiveSchema} from './primitive-schema.mjs';
+import {SCORE_NAMES} from './lib/score.mjs';
 import {fontsSchema, wordmarkSchema} from './show-schema.mjs';
 import {relatedSchema, subjectSchema, upgradeLegacySubject} from './subject-schema.mjs';
 import {idSchema, paletteSchema, pitchLine, rightsSchema, sceneText, sourcesSchema, TARGET_EMOTIONS, VOICE_PROVIDERS, voiceSettings} from './episode-fields.mjs';
@@ -43,6 +44,8 @@ export const episodeDraftSchema = z.preprocess(upgradeLegacySubject, z.object({
   format: z.enum(['vertical', 'landscape']).optional(),
   // A palette named in the show profile's paletteVariants, e.g. "light" (#92).
   paletteVariant: z.string().regex(/^[a-z0-9-]+$/).optional(),
+  // The music the episode gets (scripts/lib/score.mjs): a mood, with a stereo score arranged for its scenes. Absent keeps the show's loop.
+  score: z.enum(SCORE_NAMES).optional(),
   // How a map episode is projected: "auto" (the default) picks one from where the subject sits (src/video/geo/projections.ts).
   projection: z.enum(['auto', 'mercator', 'equal-earth', 'albers', 'azimuthal']).optional(),
   // The episode this one retells with a different palette, so the two can be compared (#92).

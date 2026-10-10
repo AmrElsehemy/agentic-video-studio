@@ -5,7 +5,8 @@ import {diagramActionProblems, diagramProblems, wordMatches} from '../diagram-sc
 import {layoutDiagram, layoutProblems} from './diagram-layout.mjs';
 import {archActionProblems, archProblems} from '../diagram-arch-schema.mjs';
 import {VOICE_MODELS, voiceProblems} from '../episode-fields.mjs';
-import {geoProblems, geoRightsAsset, loadGeoData, osmRightsAsset, plateRightsAsset} from './geo-primitives.mjs';
+import {SCORES} from './score.mjs';
+import {flagRightsAsset, geoProblems, geoRightsAsset, loadGeoData, osmRightsAsset, plateRightsAsset} from './geo-primitives.mjs';
 import {loadShow} from './shows.mjs';
 import {COMPILE_FILL, END_PADDING, estimatedSpeech} from './speech.mjs';
 
@@ -85,11 +86,12 @@ export const LOOK_VARIANTS = ['neon', 'atlas', 'terrain'];
 const creditedRights = (rights, geoData, scenes) => {
   if (!geoData) return rights;
   const assets = [...rights.assets];
-  if (!assets.some((asset) => asset.kind === 'map-data' && !/plate model|OpenStreetMap/.test(asset.owner))) assets.push(geoRightsAsset(geoData));
+  if (!assets.some((asset) => asset.kind === 'map-data' && !/plate model|OpenStreetMap|flag-icons/.test(asset.owner))) assets.push(geoRightsAsset(geoData));
   const reconstructs = scenes.some((scene) => scene.primitive?.kind === 'geo-map' && scene.primitive.annotations.some((annotation) => annotation.type === 'reconstruction'));
   if (reconstructs && geoData.plates && !assets.some((asset) => /plate model/.test(asset.owner))) assets.push(plateRightsAsset(geoData));
   const streetMap = scenes.some((scene) => scene.primitive?.kind === 'geo-map' && scene.primitive.streets);
   if (streetMap && geoData.streets && !assets.some((asset) => /OpenStreetMap/.test(asset.owner))) assets.push(osmRightsAsset(geoData));
+  if (scenes.some((scene) => scene.primitive?.kind === 'geo-map' && scene.primitive.flags) && !assets.some((asset) => /flag-icons/.test(asset.owner))) assets.push(flagRightsAsset());
   return assets.length === rights.assets.length ? rights : {...rights, assets};
 };
 
@@ -195,7 +197,7 @@ export const compileEpisode = (rawDraft, {showId, show = loadShow(showId), geo})
     audio: {
       music: `generated/${episodeId}-bed.wav`,
       musicVolume: draft.musicVolume ?? show.music.volume,
-      bed: {bpm: show.music.bpm, notes: show.music.notes},
+      bed: draft.score ? {bpm: SCORES[draft.score].bpm, notes: show.music.notes, score: draft.score} : {bpm: show.music.bpm, notes: show.music.notes},
       voice: {
         ...episodeVoice(draft, show),
         instructions: draft.voice?.instructions ?? show.voice.instructions,

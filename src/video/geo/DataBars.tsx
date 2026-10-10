@@ -2,12 +2,13 @@ import React from 'react';
 import {interpolate, spring} from 'remotion';
 import {displayFont} from '../typography';
 import {POP} from './motion';
+import {FlagBadge} from './Flags';
 
 // A ranked bar chart for a data layer (view "bars" or "both"): the places a dataset covers, longest
 // bar first, the episode's subject in the accent colour, bars growing and numbers counting up row by
 // row. Pure functions of the frame, so renders stay deterministic.
 
-export type BarRow = {id: string; name: string; value: number; subject: boolean};
+export type BarRow = {id: string; name: string; value: number; subject: boolean; /** The country's flag, when the shot shows flags. */ flag?: string};
 
 const ROW = 80;
 const MAX_ROWS = 5;
@@ -73,7 +74,8 @@ export const DataBars: React.FC<{
       const length = Math.max(8, (row.value / max) * barMax) * Math.max(0, Math.min(1.04, grow));
       const color = row.subject ? accent : muted;
       return <g key={row.id} opacity={frame >= rowStart ? 1 : 0}>
-        <text x={left} y={y + 44} style={{...text, fontSize: 38, fill: row.subject ? accent : ink}}>{row.name.toUpperCase().slice(0, 13)}</text>
+        {row.flag ? <FlagBadge id={row.id} href={row.flag} x={left + 34} y={y + 35} width={66} /> : null}
+        <text x={row.flag ? left + 86 : left} y={y + 44} style={{...text, fontSize: 38, fill: row.subject ? accent : ink}}>{row.name.toUpperCase().slice(0, row.flag ? 9 : 13)}</text>
         <rect x={barStart} y={y + 10} width={length} height={50} rx={25} fill={color} opacity={row.subject ? 1 : 0.8} />
         <text x={barStart + length + 16} y={y + 46} style={{...text, fontSize: 38, fill: row.subject ? accent : ink}}>{formatBar(row.value * progress, row.value)}</text>
       </g>;
