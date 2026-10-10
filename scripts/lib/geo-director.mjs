@@ -11,7 +11,7 @@ import {compileEpisode} from './compiler.mjs';
 import {parseJsonReply} from './fact-verifier.mjs';
 import {geoProblems, loadGeoData} from './geo-primitives.mjs';
 import {resolvePlaces} from './geo-resolver.mjs';
-import {mapDirectionProblems, mapVariety} from './map-variety.mjs';
+import {mapDeviceProblems, mapDirectionProblems, mapVariety} from './map-variety.mjs';
 import {reconstruction, rotatePoint} from './plates.mjs';
 import {kmToDegrees} from './geodesy.mjs';
 import {styleGuideSection} from './shows.mjs';
@@ -714,7 +714,7 @@ export const directGeoVisuals = async ({draft, research: rawResearch, complete, 
       let latest = firstRead;
       for (let round = 0; round < MAX_REPAIRS; round++) {
         const missing = draft.scenes.map((scene) => scene.id).filter((id) => !shots.has(id));
-        const variety = [...mapVariety(sequence()).problems, ...mapDirectionProblems(sequence())];
+        const variety = [...mapVariety(sequence()).problems, ...mapDirectionProblems(sequence()), ...mapDeviceProblems(sequence())];
         const unseen = draft.scenes.filter((scene) => shots.has(scene.id)).map((scene) => ({id: scene.id, places: unshown(scene.id, shots.get(scene.id))})).filter((item) => item.places.length);
         const outside = draft.scenes.filter((scene) => shots.has(scene.id)).map((scene) => ({id: scene.id, places: cutOff(shots.get(scene.id))})).filter((item) => item.places.length);
         const clutter = draft.scenes.filter((scene) => shots.has(scene.id)).map((scene) => ({id: scene.id, problem: labelClutter(shots.get(scene.id))})).filter((item) => item.problem);

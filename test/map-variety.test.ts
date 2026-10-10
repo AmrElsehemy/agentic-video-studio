@@ -450,3 +450,32 @@ describe('plate reconstructions in a shot', () => {
     assert.match(plateRightsAsset(geoWithPlates).notes, /Müller et al\. \(2016\).*CC BY 4\.0/);
   });
 });
+
+describe('map devices', () => {
+  const scene = (primitive: object) => ({id: 's', primitive: {kind: 'geo-map', camera: [], highlights: [], annotations: [], ...primitive}});
+  const lines = [{type: 'line', degrees: 0, at: .1}, {type: 'ring', center: 'country:FRA', radiusKm: 5, at: .1}, {type: 'timeline', steps: [], active: 0, at: .1}];
+
+  it('counts what a scene does beyond highlights and labels', async () => {
+    const {mapDevices} = await import('../scripts/lib/map-variety.mjs');
+    assert.deepEqual([...mapDevices(scene({annotations: [{type: 'label'}, {type: 'arrow'}]}).primitive)], []);
+    assert.deepEqual([...mapDevices(scene({annotations: lines, data: {view: 'bubbles'}, surface: {kind: 'flood'}, morph: true, streets: {city: 'x'}, flags: true, globe: true}).primitive)].sort(), ['data-bubbles', 'flags', 'globe', 'line', 'morph', 'ring', 'streets', 'surface-flood', 'timeline']);
+  });
+
+  it('asks an episode that is all highlights and labels for more, and says which fit', async () => {
+    const {mapDeviceProblems} = await import('../scripts/lib/map-variety.mjs');
+    const plain = {scenes: [scene({globe: true}), ...Array.from({length: 5}, () => scene({annotations: [{type: 'label'}]}))]};
+    const [problem] = mapDeviceProblems(plain);
+    assert.match(problem, /looks like every other episode/);
+    assert.match(problem, /Use at least 3 more/);
+    assert.match(problem, /"truesize"/);
+    assert.match(problem, /Do not add one the narration does not call for/);
+  });
+
+  it('is content with three different devices, not counting the globe or flags', async () => {
+    const {mapDeviceProblems} = await import('../scripts/lib/map-variety.mjs');
+    const filler = Array.from({length: 4}, () => scene({}));
+    assert.deepEqual(mapDeviceProblems({scenes: [scene({globe: true, flags: true}), scene({annotations: lines}), ...filler]}), []);
+    assert.equal(mapDeviceProblems({scenes: [scene({annotations: lines.slice(0, 2)}), scene({globe: true}), ...filler]}).length, 1);
+    assert.deepEqual(mapDeviceProblems({scenes: [scene({}), scene({}), scene({})]}), [], 'a short sketch is not held to it');
+  });
+});

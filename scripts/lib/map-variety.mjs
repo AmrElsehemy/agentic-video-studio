@@ -58,3 +58,37 @@ export const mapDirectionProblems = (manifest) => {
     ? [`Scene${misplaced.length > 1 ? 's' : ''} ${misplaced.join(', ')} open${misplaced.length > 1 ? '' : 's'} on the whole-world view. Only the first and last scene may; open the others on the places they discuss.`]
     : [];
 };
+
+/** The devices a map scene can use beyond highlights and labels: what makes an episode more than a template. */
+export const mapDevices = (primitive) => {
+  const devices = new Set();
+  for (const annotation of primitive.annotations ?? []) {
+    if (['line', 'ring', 'truesize', 'reconstruction', 'timeline', 'route'].includes(annotation.type)) devices.add(annotation.type);
+  }
+  if (primitive.data) devices.add(`data-${primitive.data.view ?? 'map'}`);
+  if (primitive.surface) devices.add(`surface-${primitive.surface.kind}`);
+  for (const key of ['morph', 'streets', 'relief', 'flags']) if (primitive[key]) devices.add(key);
+  if (primitive.globe) devices.add('globe');
+  return devices;
+};
+
+/** An episode of fewer map scenes than this is not checked for devices. */
+export const MIN_SCENES_FOR_DEVICES = 6;
+/** An episode should use at least this many different devices (of its map scenes), or it reads as a template. */
+export const MIN_DEVICES = 4;
+
+/**
+ * Problems with how few different devices an episode's maps use. The director is told which fit, so a repair
+ * round can add them where the narration supports them; a device that does not fit is never forced.
+ */
+export const mapDeviceProblems = (manifest) => {
+  const maps = manifest.scenes.filter((scene) => scene.primitive?.kind === 'geo-map');
+  // Only a full-length episode is held to this; a two- or three-scene sketch has no room for devices.
+  if (maps.length < MIN_SCENES_FOR_DEVICES) return [];
+  const used = new Set();
+  for (const scene of maps) for (const device of mapDevices(scene.primitive)) used.add(device);
+  // The globe bookends and a flag on a label are everywhere; the rest is what gives an episode its own look.
+  const own = [...used].filter((device) => device !== 'globe' && device !== 'flags');
+  if (own.length >= MIN_DEVICES - 1) return [];
+  return [`The episode uses only ${own.length ? own.join(', ') : 'highlights and labels'} as devices, so it looks like every other episode. Use at least ${MIN_DEVICES - 1 - own.length} more where the narration supports it, a different one in each scene: a "line" for a meridian, parallel or latitude; a "ring" for a distance the research states; a "truesize" for an area comparison; a "timeline" for dated steps; a data layer in view "bars" or "bubbles" for a comparison of numbers; "coastDistance" or "elevation" for how far inland or how high; "floodRise" for the sea rising; "morph" for places Mercator inflates; "streets" for a city's layout; "relief" for terrain; a route for a journey. Do not add one the narration does not call for.`];
+};
