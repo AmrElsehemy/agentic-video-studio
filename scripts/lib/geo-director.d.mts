@@ -26,10 +26,10 @@ export declare const chooseProjection: (place: {label?: [number, number]; bbox?:
 export declare const unframedRings: (primitive: GeoMapPrimitive, places: Map<string, any>, boxes: Map<string, [number, number, number, number]>) => any[];
 export declare const addNearbyPlaces: (places: Map<string, Place>, subjectId: string, geo: Geo) => Map<string, Place>;
 export declare const resolveResearchPlaces: (research: GeoResearch, geo: Geo) => {subjectId: string; places: Map<string, Place>; review: BordersReview[]; datasets: Map<string, ResolvedDataset>};
-export declare const shotToPrimitive: (shot: unknown, context: {places: Map<string, Place>; research: GeoResearch; datasets?: Map<string, ResolvedDataset>; showId?: string; streets?: Record<string, {name: string; box: [number, number, number, number]; outlineBox?: [number, number, number, number]}>}) => GeoMapPrimitive;
+export declare const shotToPrimitive: (shot: unknown, context: {places: Map<string, Place>; research: GeoResearch; datasets?: Map<string, ResolvedDataset>; showId?: string; photos?: Record<string, {caption?: string; title?: string}>; streets?: Record<string, {name: string; box: [number, number, number, number]; outlineBox?: [number, number, number, number]}>}) => GeoMapPrimitive;
 export declare const streetCamera: (box: [number, number, number, number], focus?: [number, number, number, number]) => {target: {bbox: [number, number, number, number]}; at: number; padding: number; ease: 'linear' | 'in-out'}[];
 export declare const defaultShot: (subject: {id: string; name: string}) => GeoMapPrimitive;
-export declare const buildGeoDirectorPrompt: (input: {draft: any; research: GeoResearch; places: Map<string, Place>; datasets?: Map<string, ResolvedDataset>; showId?: string; streetCities?: Record<string, {name: string}>}) => {system: string; messages: {role: 'user'; content: string}[]};
+export declare const buildGeoDirectorPrompt: (input: {draft: any; research: GeoResearch; places: Map<string, Place>; datasets?: Map<string, ResolvedDataset>; showId?: string; streetCities?: Record<string, {name: string}>; photos?: Record<string, {caption?: string; title?: string}>}) => {system: string; messages: {role: 'user'; content: string}[]};
 export declare const directGeoVisuals: (input: {draft: any; research: unknown; complete?: Complete; showId?: string; geo?: Geo; shotProblems?: (primitive: GeoMapPrimitive) => string[]}) => Promise<{
   draft: any;
   manifest: any;

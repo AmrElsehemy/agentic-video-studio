@@ -25,6 +25,7 @@ export type GeoAnnotation =
   | {type: 'truesize'; entity: GeoEntityId; onto: GeoEntityId; text?: string; at: number; until?: number}
   | {type: 'reconstruction'; entities: GeoEntityId[]; fixed: GeoEntityId; from: number; to: number; at: number; until?: number; text?: string}
   | {type: 'timeline'; steps: {label: string; detail?: string}[]; active: number; at: number}
+  | {type: 'photo'; photo: string; at: number; until?: number}
   | {type: 'line'; kind: 'meridian' | 'parallel'; degrees: number; text?: string; at: number; until?: number; reverse: boolean};
 export type GeoMapPrimitive = {kind: 'geo-map'; camera: GeoCameraKey[]; highlights: GeoHighlight[]; annotations: GeoAnnotation[]; dataset: 'natural-earth'; cut?: boolean; projection?: 'mercator' | 'equal-earth' | 'albers' | 'azimuthal'; morph?: boolean; flags?: boolean; ambience?: 'sea' | 'wind' | 'city' | 'jungle' | 'desert' | 'ice' | 'space' | 'none'; streets?: {city: string; at: number}; surface?: {kind: 'coast-distance'; at: number} | {kind: 'elevation'; at: number} | {kind: 'flood'; at: number; rise: 1 | 2 | 5 | 10 | 20 | 50}; globe?: boolean; relief?: boolean; data?: GeoData};
 export type GeoData = {label: string; unit?: string; values: {entity: GeoEntityId; value: number}[]; at: number; legend: boolean; view: 'map' | 'bars' | 'both' | 'bubbles'};

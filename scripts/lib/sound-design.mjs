@@ -76,6 +76,7 @@ const mapCuesOf = (primitive, durationSeconds) => {
     else if (annotation.type === 'ring') cues.push({offset: annotation.at, cue: 'swell', gain: 0.9});
     else if (annotation.type === 'truesize') cues.push({offset: annotation.at, cue: 'sweep', gain: 0.9}, {offset: annotation.until ?? Math.min(1, annotation.at + 0.5), cue: 'pop', gain: 1});
     else if (annotation.type === 'reconstruction') cues.push({offset: annotation.at, cue: 'sweep', gain: 0.9}, {offset: annotation.until ?? Math.min(1, annotation.at + 0.8), cue: 'swell', gain: 0.8});
+    else if (annotation.type === 'photo') cues.push({offset: annotation.at, cue: 'sweep', gain: 0.9}, {offset: Math.min(1, annotation.at + 0.06), cue: 'pop', gain: 1});
     else if (annotation.type === 'timeline') cues.push({offset: annotation.at, cue: 'rise', gain: 0.8});
     else if (annotation.type === 'route') {
       const end = Math.min(annotation.until ?? annotation.at + 0.4, 1);

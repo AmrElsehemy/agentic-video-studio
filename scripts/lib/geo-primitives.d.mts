@@ -1,7 +1,7 @@
 import type {GeoMapPrimitive} from '../primitive-schema.mjs';
 import type {GeoEntity} from './geo-data.mjs';
 
-export type GeoData = {entities: Map<string, GeoEntity>; disputed: Set<string>; manifest: {source: {name: string; version: string; licenseUrl: string; attribution: string}}; streets?: {licenseUrl: string; attribution: string; cities: Record<string, {name: string; center: [number, number]; radiusKm: number; box?: [number, number, number, number]; outlineBox?: [number, number, number, number]}>}};
+export type GeoData = {entities: Map<string, GeoEntity>; disputed: Set<string>; manifest: {source: {name: string; version: string; licenseUrl: string; attribution: string}}; photos?: Record<string, {title: string; pageUrl: string; author: string; license: string; kind: string; attribution: string; screenCredit: string; caption?: string}>; streets?: {licenseUrl: string; attribution: string; cities: Record<string, {name: string; center: [number, number]; radiusKm: number; box?: [number, number, number, number]; outlineBox?: [number, number, number, number]}>}};
 export declare const loadGeoData: (root?: string) => GeoData;
 export declare const geoReferences: (primitive: GeoMapPrimitive) => [string, string][];
 export declare const geoProblems: (primitive: GeoMapPrimitive, data: Pick<GeoData, 'entities' | 'disputed'>) => string[];
@@ -12,3 +12,5 @@ export declare const geoRightsAsset: (data: Pick<GeoData, 'manifest'>) => {kind:
 export declare const streetsProblems: (primitive: any, geo: any) => string[];
 export declare const osmRightsAsset: (geo: any) => {kind: string; sourceUrl: string; owner: string; licenseStatus: string; publicReleaseApproved: boolean; notes: string};
 export declare const flagRightsAsset: () => {kind: string; sourceUrl: string; owner: string; licenseStatus: string; publicReleaseApproved: boolean; notes: string};
+export declare const photoProblems: (primitive: any, geo: any) => string[];
+export declare const photoRightsAsset: (slug: string, photo: any) => {kind: string; sourceUrl: string; owner: string; licenseStatus: string; publicReleaseApproved: boolean; notes: string};

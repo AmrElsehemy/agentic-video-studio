@@ -28,6 +28,8 @@ export const episodeDescription = (manifest, show) => {
   // A show can leave out the ownership notice, the credit line and the asset attributions (publishing.credits: false).
   const credits = show?.publishing?.credits !== false;
   const attributions = !credits ? [] : (manifest.rights?.assets ?? []).filter((asset) => asset.kind === 'map-data' && asset.notes).map((asset) => asset.notes);
+  // A photograph's licence asks for its credit (CC BY), so it is always printed, even where a show leaves its other credits out.
+  const photoCredits = (manifest.rights?.assets ?? []).filter((asset) => asset.kind === 'photo' && asset.notes).map((asset) => asset.notes);
   const sources = (manifest.sources ?? []).map((source) => `- ${source.label}: ${source.url}`);
   const hashtags = show?.publishing?.hashtags ?? ['#Shorts'];
   return [
@@ -37,6 +39,7 @@ export const episodeDescription = (manifest, show) => {
     credits ? manifest.rights?.ownershipNotice : undefined,
     credits ? creditLine(manifest) : undefined,
     ...unique(attributions),
+    ...(photoCredits.length ? ['', ...unique(photoCredits)] : []),
     ...(sources.length ? ['', 'Sources:', ...sources] : []),
     '',
     hashtags.join(' '),

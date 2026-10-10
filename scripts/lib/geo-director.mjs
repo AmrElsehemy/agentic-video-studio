@@ -192,7 +192,7 @@ const aroundBox = (ids, places) => {
  * Turn the model's shot (ids, {place}, {around}) into a geo-map primitive, or
  * throw with the reason. Checks places, approximate points and numbers.
  */
-export const shotToPrimitive = (shot, {places, research, datasets = new Map(), streets = {}}) => {
+export const shotToPrimitive = (shot, {places, research, datasets = new Map(), streets = {}, photos = {}}) => {
   if (!shot || typeof shot !== 'object') throw new Error('no shot');
   const allowed = [...places.keys()];
   const placeId = (id, where) => {
@@ -246,6 +246,10 @@ export const shotToPrimitive = (shot, {places, research, datasets = new Map(), s
       if (!stated.has(number)) throw new Error(`${where}: "${annotation.text}" states ${number}, which is not in the research`);
     }
     if (annotation?.type === 'line') return annotation;
+    if (annotation?.type === 'photo') {
+      if (!photos[annotation.photo]) throw new Error(`${where}: "${annotation.photo}" isn't a photo on file (${Object.keys(photos).join(', ') || 'none'})`);
+      return annotation;
+    }
     if (annotation?.type === 'ring') {
       // The radius is a claim: it must be a number the research states.
       if (!numbers.has(annotation.radiusKm)) throw new Error(`${where}: the ring's radius ${annotation.radiusKm} km is not a number in the research`);
@@ -424,6 +428,7 @@ export const describeShot = (primitive, places, boxes) => {
     else if (annotation.type === 'ring') parts.push(`distance ring: ${annotation.radiusKm} km around ${typeof annotation.center === 'string' ? nameOf(annotation.center, places) : 'a point'}${annotation.text ? ` "${annotation.text}"` : ''}`);
     else if (annotation.type === 'truesize') parts.push(`true-size comparison: a copy of ${nameOf(annotation.entity, places)} slides onto ${nameOf(annotation.onto, places)} at its real size, with a note that it was moved and a dashed outline of its real position`);
     else if (annotation.type === 'reconstruction') parts.push(`reconstruction: ${annotation.entities.map((id) => nameOf(id, places)).join(', ')} drifting from ${annotation.from} million years ago to ${annotation.to ? `${annotation.to} million years ago` : 'today'}, with ${nameOf(annotation.fixed, places)} held still, an age counter and a dashed outline of the final position`);
+    else if (annotation.type === 'photo') parts.push(`photo: ${annotation.photo}`);
     else if (annotation.type === 'timeline') parts.push(`timeline: ${annotation.steps.map((step, index) => `${index === annotation.active ? '[' : ''}${step.label}${index === annotation.active ? ']' : ''}`).join(' · ')}`);
   }
   if (primitive.data) parts.push(`data: ${primitive.data.label} as ${primitive.data.view ?? 'map'} for ${primitive.data.values.map(({entity}) => nameOf(entity, places)).join(', ')}`);
@@ -590,7 +595,7 @@ export const defaultShot = (subject) => primitiveSchema.parse({
   annotations: [{type: subject.kind === 'city' ? 'marker' : 'label', anchor: subject.id, text: subject.name.toUpperCase().slice(0, 28), at: .4}],
 });
 
-export const buildGeoDirectorPrompt = ({draft, research, places, datasets, mentions = new Map(), showId = draft.show?.id ?? 'geographica', streetCities = {}}) => ({
+export const buildGeoDirectorPrompt = ({draft, research, places, datasets, mentions = new Map(), showId = draft.show?.id ?? 'geographica', streetCities = {}, photos = {}}) => ({
   system: `You are the map director of ${draft.show?.name ?? 'a geography series'}, vertical short videos told with animated maps. Give EVERY scene one map shot that shows what its narration says.
 
 A shot is JSON:
@@ -601,6 +606,7 @@ A shot is JSON:
                  {"type": "ring", "center": A, "radiusKm": 14, "text": "14 KM", "at": 0.3},
                  {"type": "truesize", "entity": "<place id>", "onto": "<place id>", "at": 0.2, "until": 0.6},
                  {"type": "reconstruction", "entities": ["country:MDG"], "fixed": "country:ZAF", "from": 180, "to": 0, "at": 0.1, "until": 0.9},
+                 {"type": "photo", "photo": "<photo id>", "at": 0.3},
                  {"type": "timeline", "steps": [{"label": "180 MYA", "detail": "AFRICA"}, ...], "active": 0, "at": 0.3},
                  {"type": "line", "kind": "meridian" | "parallel", "degrees": 0, "text": "0° PRIME MERIDIAN", "at": 0.2},   // until is optional: when it fades out
                  {"type": "arrow", "from": A, "to": A, "at": 0.7},
@@ -626,6 +632,7 @@ Rules:
 - Places also include rivers, lakes, states and cities near the episode's subject. A river highlight always draws its course (use "trace"); a lake or state can be filled or outlined like a country; a city is a point: use it for a label, marker, arrow or camera, never a highlight. Prefer a real river, lake, state or city over a vague label when the narration names it or it makes the map clearer.
 - "globe": true draws the map on a globe that spins between the camera framings: a dramatic opening or closing. Use it on the first scene (a planet turning to the place) and, if it suits, the last; never in between, because the map changes from globe to flat map with a cut.
 - "coastDistance": true shades the land by how far it is from the sea, in bands (250, 500, 1000, 1500, 2000 km) that creep inland from the coast, with a key. Use it at most once an episode, on the scene about how far inland a place is: landlocked countries, "farthest from any ocean", deserts and steppes, a heartland. Frame the region wide enough to show its coasts. It says nothing about numbers, so state a distance only if the research gives one.
+- A "photo" annotation shows a real photograph as a card over the map, with its credit on it, from "at" until the scene ends (or "until"). The card takes the lower part of the frame and the map lifts above it, so keep the place the scene is about at the camera's centre. Photos on file (use only these, and only on a scene about what the photo shows): ${Object.entries(photos).map(([id, photo]) => `${id} (${photo.caption || photo.title})`).join('; ') || 'none'}. Use a photo on at most one scene in three, never with a "streets" shot or a data layer in the same scene, and never to illustrate a claim the photo does not show.
 - "flags": true puts each country's flag beside it: above its label, on its bar or bubble, and a border's two countries in a chip. Use it on scenes about countries as countries (a border, a pair or a set of neighbours, a comparison), in about a third of an episode's scenes, not on every one and not on scenes about land, water or a place that is not a country. A place with no flag of its own (a disputed zone) gets none.
 - "ambience" is the sound under the music for the scene: "sea" for coasts, straits, islands and floods; "wind" for steppe, mountains, plateaus and open land; "city" for a city's streets; "jungle" for rainforest; "desert" for deserts; "ice" for polar and frozen places; "space" for a globe or the planet seen whole; "none" for scenes with no setting to hear. Set it on most scenes, so the soundtrack follows the places the story visits; give consecutive scenes in one setting the same ambience, so it continues.
 - "streets": "<city id>" shows a street map of that city (roads to scale, buildings, water, rails), credited to OpenStreetMap on screen. The system frames the city itself (a slow push in), so give no camera for it. Cities with street data: ${Object.entries(streetCities).map(([id, city]) => `${id} (${city.name})`).join(', ') || 'none'}. Use it at most once an episode, on the scene that is about the city itself: its layout, where a place sits inside it, a street or a river through it. It cannot also be a globe, a morph, relief, a surface or a data layer. Labels, markers and arrows still work on it.
@@ -700,7 +707,7 @@ export const directGeoVisuals = async ({draft, research: rawResearch, complete, 
       if (!draft.scenes.some((scene) => scene.id === id)) { reasons.push({id, reason: 'no such scene'}); continue; }
       if (valid.has(id)) continue;
       try {
-        const primitive = shotToPrimitive(item, {places, research, datasets, streets: streetCities});
+        const primitive = shotToPrimitive(item, {places, research, datasets, streets: streetCities, photos: geo.photos ?? {}});
         const problems = [...geoProblems(primitive, geo), ...shotProblems(primitive)];
         if (problems.length) throw new Error(problems.join('; '));
         valid.set(id, {primitive, why: typeof item.why === 'string' ? item.why : ''});
@@ -719,7 +726,7 @@ export const directGeoVisuals = async ({draft, research: rawResearch, complete, 
 
   if (complete) {
     try {
-      const prompt = buildGeoDirectorPrompt({draft, research, places, datasets, mentions, showId, streetCities});
+      const prompt = buildGeoDirectorPrompt({draft, research, places, datasets, mentions, showId, streetCities, photos: geo.photos ?? {}});
       const first = await complete(prompt);
       const firstRead = read(first);
       adopt(firstRead.valid);

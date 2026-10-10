@@ -35,6 +35,11 @@ export const publishBlockers = (manifest, geo) => {
     if (maps.some((scene) => scene.primitive.streets) && !rights.assets.some((asset) => asset.kind === 'map-data' && /OpenStreetMap/.test(asset.owner) && asset.notes)) {
       blockers.push('osm-credit: A street map needs a rights entry crediting OpenStreetMap contributors (kind map-data, owner OpenStreetMap contributors, with its attribution line).');
     }
+    // A photograph is used only with its credit, in the rights (which feed the description) as well as on screen.
+    const photoCount = maps.flatMap((scene) => scene.primitive.annotations.filter((annotation) => annotation.type === 'photo')).length;
+    if (photoCount && rights.assets.filter((asset) => asset.kind === 'photo' && asset.notes).length === 0) {
+      blockers.push('photo-credit: A photograph needs a rights entry (kind photo, owner the photographer, with its attribution line).');
+    }
     // A map that never changes is not worth publishing: it should have been directed.
     for (const problem of mapVariety(manifest).problems) blockers.push(`map-variety: ${problem}`);
     // Places with disputed borders or names need a person's recorded decision on how they're shown.

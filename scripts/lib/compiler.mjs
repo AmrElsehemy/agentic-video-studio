@@ -6,7 +6,7 @@ import {layoutDiagram, layoutProblems} from './diagram-layout.mjs';
 import {archActionProblems, archProblems} from '../diagram-arch-schema.mjs';
 import {VOICE_MODELS, voiceProblems} from '../episode-fields.mjs';
 import {SCORES} from './score.mjs';
-import {flagRightsAsset, geoProblems, geoRightsAsset, loadGeoData, osmRightsAsset, plateRightsAsset} from './geo-primitives.mjs';
+import {photoRightsAsset, flagRightsAsset, geoProblems, geoRightsAsset, loadGeoData, osmRightsAsset, plateRightsAsset} from './geo-primitives.mjs';
 import {loadShow} from './shows.mjs';
 import {COMPILE_FILL, END_PADDING, estimatedSpeech} from './speech.mjs';
 
@@ -92,6 +92,12 @@ const creditedRights = (rights, geoData, scenes) => {
   const streetMap = scenes.some((scene) => scene.primitive?.kind === 'geo-map' && scene.primitive.streets);
   if (streetMap && geoData.streets && !assets.some((asset) => /OpenStreetMap/.test(asset.owner))) assets.push(osmRightsAsset(geoData));
   if (scenes.some((scene) => scene.primitive?.kind === 'geo-map' && scene.primitive.flags) && !assets.some((asset) => /flag-icons/.test(asset.owner))) assets.push(flagRightsAsset());
+  // Each photograph on screen is credited by name, author and licence.
+  const slugs = new Set(scenes.flatMap((scene) => (scene.primitive?.kind === 'geo-map' ? scene.primitive.annotations.flatMap((annotation) => (annotation.type === 'photo' ? [annotation.photo] : [])) : [])));
+  for (const slug of slugs) {
+    const photo = geoData.photos?.[slug];
+    if (photo && !assets.some((asset) => asset.kind === 'photo' && asset.notes === photo.attribution)) assets.push(photoRightsAsset(slug, photo));
+  }
   return assets.length === rights.assets.length ? rights : {...rights, assets};
 };
 

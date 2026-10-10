@@ -20,6 +20,8 @@ export const loadGeoData = (root = repoRoot) => {
     manifest: read('manifest.json'),
     // Which plate each country rides on and the pinned plate-motion table (npm run plates:prepare); absent before it is built.
     plates: fs.existsSync(path.join(root, 'public', 'geo', 'plates.json')) ? read('plates.json') : undefined,
+    // The photographs on file with their credits (npm run photos); absent before one is added.
+    photos: fs.existsSync(path.join(root, 'public', 'photos', 'index.json')) ? JSON.parse(fs.readFileSync(path.join(root, 'public', 'photos', 'index.json'), 'utf8')).photos : undefined,
     // The cities with street maps (npm run streets:prepare); absent before it is run.
     streets: fs.existsSync(path.join(root, 'public', 'geo', 'streets', 'index.json')) ? JSON.parse(fs.readFileSync(path.join(root, 'public', 'geo', 'streets', 'index.json'), 'utf8')) : undefined,
   };
@@ -50,7 +52,16 @@ const suggest = (id, entities) => {
 };
 
 /** Problems with a geo-map's places, as actionable messages (empty when it's fine). */
-export const geoProblems = (primitive, geo) => [...geoReferenceProblems(primitive, geo), ...reconstructionProblems(primitive, geo), ...trueSizeProblems(primitive, geo), ...streetsProblems(primitive, geo)];
+export const geoProblems = (primitive, geo) => [...geoReferenceProblems(primitive, geo), ...reconstructionProblems(primitive, geo), ...trueSizeProblems(primitive, geo), ...streetsProblems(primitive, geo), ...photoProblems(primitive, geo)];
+
+/** A photo annotation needs the photo on file, with a credit and a licence that allows it. */
+export const photoProblems = (primitive, {photos}) => primitive.annotations.flatMap((annotation, index) => {
+  if (annotation.type !== 'photo') return [];
+  const photo = photos?.[annotation.photo];
+  if (!photo) return [`annotations[${index}]: no photo "${annotation.photo}" on file. Add it with: npm run photos -- add ${annotation.photo} "File:..."`];
+  if (!['public-domain', 'attribution'].includes(photo.kind) || !photo.author || !photo.attribution) return [`annotations[${index}]: photo "${annotation.photo}" has no usable licence and credit`];
+  return [];
+});
 
 /** A street map needs the city's data, and a camera that stays inside it (outside it the map would be blank). */
 export const streetsProblems = (primitive, {streets}) => {
@@ -139,4 +150,14 @@ export const flagRightsAsset = () => ({
   licenseStatus: 'licensed',
   publicReleaseApproved: true,
   notes: 'Flags: flag-icons (MIT).',
+});
+
+/** The rights entry crediting one photograph. */
+export const photoRightsAsset = (slug, photo) => ({
+  kind: 'photo',
+  sourceUrl: photo.pageUrl,
+  owner: photo.author,
+  licenseStatus: photo.kind === 'public-domain' ? 'public-domain' : 'licensed',
+  publicReleaseApproved: true,
+  notes: photo.attribution,
 });

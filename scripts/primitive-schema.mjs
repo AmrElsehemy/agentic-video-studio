@@ -56,6 +56,10 @@ const geoAnnotation = z.discriminatedUnion('type', [
   // A timeline strip along the bottom of the map: 2-4 dated steps, the scene's own step lit. Its words come from the research
   // (dates, periods, names); show the same steps in every scene of a sequence so the strip reads as one thing.
   z.object({type: z.literal('timeline'), steps: z.array(z.object({label: z.string().min(1).max(14), detail: z.string().min(1).max(14).optional()}).strict()).min(2).max(4), active: z.number().int().min(0).max(3), at: moment.default(0)}).strict(),
+  // A real photograph (public/photos/, from Wikimedia Commons: public domain, CC0 or CC BY) as a card over the lower part of
+  // the map with its credit on it, from `at` to `until` (default the end of the scene). The map lifts to keep the camera's
+  // centre in view above the card, as it does for a chart.
+  z.object({type: z.literal('photo'), photo: z.string().regex(/^[a-z0-9-]+$/), at: moment.default(0), until: moment.optional()}).strict(),
   z.object({type: z.literal('line'), kind: z.enum(['meridian', 'parallel']), degrees: z.number().min(-180).max(180), text: label.optional(), at: moment.default(0), until: moment.optional(), reverse: z.boolean().default(false)}).strict(),
 ]);
 

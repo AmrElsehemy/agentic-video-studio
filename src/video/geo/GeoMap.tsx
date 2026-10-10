@@ -7,6 +7,7 @@ import {routeUntil, type GeoAnchor, type GeoMapPrimitive} from '../../../scripts
 import type {ShotProps} from '../shots';
 import {displayFont} from '../typography';
 import {cameraAt, cameraKeys, continuesMap, episodeCameraKeys, MAP_SIZE, type BBox, type CameraKey, type Size, type View} from './camera';
+import {PHOTO_CARD, PHOTO_HEIGHT, PhotoCard, usePhotos} from './Photos';
 import {FlagBadge, labelNamesCountry, shortCountryName, useFlags} from './Flags';
 import {useElevationData, useGeoData, useReliefData, useStreetsData, type GeoData} from './data';
 import {RELIEF_STRENGTH, reliefPlacements} from './relief';
@@ -218,7 +219,8 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
     ...(primitive.data?.values.map(({entity}) => entity) ?? []),
   ].flatMap((id) => (id.startsWith('border:') ? id.slice('border:'.length).split('-').map((code) => `country:${code}`) : [id]));
   const flags = useFlags(flagEntities, Boolean(primitive.flags));
-  if (!data || !keys || (wantsRelief && !relief) || (wantsElevation && !elevation) || (primitive.streets && !streetMap) || !flags) return null;
+  const photos = usePhotos(primitive.annotations.flatMap((annotation) => (annotation.type === 'photo' ? [annotation.photo] : [])));
+  if (!photos || !data || !keys || (wantsRelief && !relief) || (wantsElevation && !elevation) || (primitive.streets && !streetMap) || !flags) return null;
 
   const t = durationInFrames > 1 ? frame / (durationInFrames - 1) : 0;
   const view = viewAt(t);
@@ -229,7 +231,13 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
   const timelineAnnotation = primitive.annotations.find((annotation): annotation is Extract<GeoMapPrimitive['annotations'][number], {type: 'timeline'}> => annotation.type === 'timeline');
   const timelineStart = timelineAnnotation ? timelineAnnotation.at * durationInFrames : 0;
   const timelineOn = Boolean(timelineAnnotation) && !barsOn;
+  // A photo card takes the lower part of the frame; the map lifts to keep its centre above it.
+  const photoAnnotation = primitive.annotations.find((annotation): annotation is Extract<GeoMapPrimitive['annotations'][number], {type: 'photo'}> => annotation.type === 'photo');
+  const photoLift = photoAnnotation
+    ? ((PHOTO_CARD + 60) / 2) * interpolate(frame, [photoAnnotation.at * durationInFrames, photoAnnotation.at * durationInFrames + 12, (photoAnnotation.until ?? 1) * durationInFrames - 8, (photoAnnotation.until ?? 1) * durationInFrames], [0, 1, 1, 0], clamp)
+    : 0;
   const barsShift = Math.max(
+    photoLift,
     barsOn ? (barsPanel / 2) * interpolate(frame, [barsStart, barsStart + PANEL_FRAMES], [0, 1], clamp) : 0,
     timelineOn ? (TIMELINE_HEIGHT / 2) * interpolate(frame, [timelineStart, timelineStart + 12], [0, 1], clamp) : 0,
   );
@@ -318,7 +326,7 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
       texts.set(index, {box: fitInside(labelBox(x, y, annotation.text, LABEL_SIZE), bounds), anchorY: screen[1], priority: annotation.at, opacity: appear(annotation.at + RING_FRAMES / 2 / durationInFrames, 14) * vanish(annotation.until), size: LABEL_SIZE});
       return;
     }
-    if (annotation.type === 'timeline' || annotation.type === 'reconstruction' || annotation.type === 'truesize') return;
+    if (annotation.type === 'timeline' || annotation.type === 'reconstruction' || annotation.type === 'truesize' || annotation.type === 'photo') return;
     if (annotation.type === 'arrow' || !annotation.text) return;
     if (annotation.type === 'route') {
       if (t < annotation.at) return;
@@ -510,7 +518,7 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
         </g>;
       }
       // A timeline is drawn as the flat strip (see `timeline`), not on the map.
-      if (annotation.type === 'timeline') return null;
+      if (annotation.type === 'timeline' || annotation.type === 'photo') return null;
       if (annotation.type === 'ring') {
         if (t < annotation.at) return null;
         const centre = anchorLonLat(annotation.center, data);
@@ -766,7 +774,16 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
       <FlagBadge id={b.id} href={b.flag!} x={cx + width / 2 - 62} y={cy} width={70} />
     </>;
   })()}</g>) : null;
-  const bubbleLayer = <>{bubblesOnly}{morphChip}{surfaceLegend}{streetCredit}{flagChip}</>;
+  // Photographs: cards over the map with their credit on them, drawn last so nothing sits on top.
+  const photoCards = primitive.annotations.flatMap((annotation, index) => {
+    if (annotation.type !== 'photo') return [];
+    const photo = photos.get(annotation.photo);
+    if (!photo) throw new Error(`Unknown photo "${annotation.photo}". Add it with: npm run photos -- add ${annotation.photo} "File:..."`);
+    const cy = SIZE.height - SAFE - 20 - 46 - PHOTO_HEIGHT / 2;
+    return [<PhotoCard key={`photo-${index}`} photo={photo} id={annotation.photo} cx={SIZE.width / 2} cy={cy} frame={frame} startFrame={annotation.at * durationInFrames} endFrame={(annotation.until ?? 1) * durationInFrames} fps={manifest.format.fps}
+      ink={styled && look.chip ? look.chip.text : palette.ink} backdrop={styled && look.chip ? look.chip.fill : palette.background} />];
+  });
+  const bubbleLayer = <>{bubblesOnly}{morphChip}{surfaceLegend}{streetCredit}{flagChip}{out(<g opacity={outro}>{photoCards}</g>)}</>;
 
   const timeline = timelineOn && timelineAnnotation ? <TimelineStrip steps={timelineAnnotation.steps} active={timelineAnnotation.active} frame={frame} startFrame={timelineStart} fps={manifest.format.fps} width={SIZE.width} height={SIZE.height}
     accent={styled ? look.subject.from : accent} ink={styled && look.chip ? look.chip.text : palette.ink} backdrop={styled && look.chip ? look.chip.fill : palette.background} muted={styled ? look.subject.side : palette.ink} /> : null;
