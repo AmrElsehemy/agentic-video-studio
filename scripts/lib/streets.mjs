@@ -62,3 +62,21 @@ export const compactStreets = (elements) => {
   }
   return result;
 };
+
+/** The query for a place's national boundary, by its English name (an administrative boundary at admin level 2). */
+export const boundaryQuery = (name) => `[out:json][timeout:60];rel["boundary"="administrative"]["admin_level"="2"]["name:en"="${name.replace(/"/g, '')}"];out geom;`;
+
+/**
+ * The outline of a boundary relation from Overpass, as lines of [lon, lat] (the relation's outer ways, as drawn;
+ * they are stroked, not filled, so they need not be joined), clipped to nothing: the whole boundary.
+ */
+export const boundaryLines = (elements) => elements.flatMap((element) => (element.members ?? [])
+  .filter((member) => member.type === 'way' && member.role === 'outer' && member.geometry?.length > 1)
+  .map((member) => line(member.geometry)));
+
+/** The box (south, west, north, east) around lines of [lon, lat]. */
+export const boxAroundLines = (lines) => {
+  const points = lines.flat();
+  const [lons, lats] = [points.map(([lon]) => lon), points.map(([, lat]) => lat)];
+  return [Math.min(...lats), Math.min(...lons), Math.max(...lats), Math.max(...lons)];
+};

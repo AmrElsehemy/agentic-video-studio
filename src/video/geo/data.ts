@@ -112,7 +112,7 @@ export const useElevationData = (enabled: boolean): ElevationData | undefined =>
 };
 
 /** A city's street map (scripts/streets.mjs, © OpenStreetMap contributors): roads by class (major first), rails, water, coast, buildings, all as lon/lat lines and rings. */
-export type StreetsData = {id: string; name: string; center: [number, number]; radiusKm: number; box: [number, number, number, number]; roads: [number, number][][][]; rails: [number, number][][]; water: [number, number][][]; rivers: [number, number][][]; coast: [number, number][][]; buildings: [number, number][][]};
+export type StreetsData = {id: string; name: string; center: [number, number]; radiusKm: number; box: [number, number, number, number]; roads: [number, number][][][]; rails: [number, number][][]; water: [number, number][][]; rivers: [number, number][][]; coast: [number, number][][]; buildings: [number, number][][]; /** The place's own national boundary, when it has one (the Vatican). */ outline?: [number, number][][]; outlineBox?: [number, number, number, number]};
 const streetCache = new Map<string, StreetsData>();
 const streetLoading = new Map<string, Promise<StreetsData>>();
 const loadStreets = (city: string) => {

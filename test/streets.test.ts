@@ -83,13 +83,13 @@ describe('a street map shot', () => {
   const shot = (extra: object) => ({camera: [{target: 'country:VAT', at: 0}], highlights: [], annotations: [], ...extra});
   const context = {places, research: {claims: [], places: {}}, streets: cities} as never;
 
-  it('frames the city itself, pushing in from nearly all of it to two thirds', () => {
+  it('frames the city itself, pushing in from nearly all of it to the place with its own boundary', () => {
     const primitive = shotToPrimitive(shot({streets: 'vatican-city'}), context);
     assert.deepEqual(primitive.streets, {city: 'vatican-city', at: 0.05});
     assert.equal(primitive.camera.length, 2);
     const [first, second] = primitive.camera.map((key: any) => key.target.bbox);
     assert.ok(second[0] > first[0] && second[2] < first[2] && second[1] > first[1] && second[3] < first[3]);
-    assert.deepEqual(streetCamera(cities['vatican-city'].box!), primitive.camera);
+    assert.deepEqual(streetCamera(cities['vatican-city'].box!, cities['vatican-city'].outlineBox), primitive.camera);
   });
 
   it('only for a city that has street data, and not with a globe or a layer', () => {
@@ -115,12 +115,34 @@ describe('a street map shot', () => {
   });
 
   it('blocks release until OpenStreetMap is credited, and the credit is the licence line', () => {
-    const manifest = read('videos/geographica/vatican-city/video.json');
+    const manifest = read('videos/geographica/lesotho-enclave/video.json');
     const streets = {...manifest, scenes: manifest.scenes.map((scene: any, index: number) => (index === 0 ? {...scene, primitive: {...scene.primitive, ...shotToPrimitive(shot({streets: 'vatican-city'}), context)}} : scene))};
     const cleared = {...streets.rights, releaseStatus: 'cleared', publicReleaseApproved: true};
     assert.ok(publishBlockers({...streets, rights: cleared}, geo).some((blocker: string) => blocker.startsWith('osm-credit:')));
     const credited = {...cleared, assets: [...cleared.assets, osmRightsAsset(geo)]};
     assert.ok(!publishBlockers({...streets, rights: credited}, geo).some((blocker: string) => blocker.startsWith('osm-credit:')));
     assert.match(osmRightsAsset(geo).notes, /© OpenStreetMap contributors \(ODbL\)/);
+  });
+});
+
+describe('street maps and the camera', () => {
+  it('cut between a street plan and a country map, and between two cities, but fly on within one city', async () => {
+    const {continuesMap} = await import('../src/video/geo/camera');
+    const map = (streets?: string) => ({primitive: {kind: 'geo-map', ...(streets ? {streets: {city: streets}} : {})}});
+    assert.equal(continuesMap([map(), map()], 1), true);
+    assert.equal(continuesMap([map(), map('vatican-city')], 1), false);
+    assert.equal(continuesMap([map('vatican-city'), map()], 1), false);
+    assert.equal(continuesMap([map('vatican-city'), map('istanbul')], 1), false);
+    assert.equal(continuesMap([map('vatican-city'), map('vatican-city')], 1), true);
+  });
+
+  it('push in to the place with its own boundary, never beyond the data', () => {
+    const {box, outlineBox} = geo.streets!.cities['vatican-city'] as {box: number[]; outlineBox: number[]};
+    const [, close] = streetCamera(box as never, outlineBox as never);
+    const [w, s, e, n] = close.target.bbox;
+    assert.ok(w >= box[1] && e <= box[3] && s >= box[0] && n <= box[2]);
+    assert.ok(w < outlineBox[1] && e > outlineBox[3] && s < outlineBox[0] && n > outlineBox[2], 'holds the whole boundary');
+    const whole = streetCamera(box as never)[0].target.bbox;
+    assert.ok(e - w < (whole[2] - whole[0]) * 0.8, 'a real push in');
   });
 });

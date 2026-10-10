@@ -99,12 +99,14 @@ export const cameraProblems = (camera: {target: CameraTarget; at: number; paddin
  */
 export const CONTINUE_AT = .35;
 
-type SceneLike = {primitive?: {kind: string; cut?: boolean} | null};
+type SceneLike = {primitive?: {kind: string; cut?: boolean; streets?: {city: string}} | null};
 /** Primitives whose canvas carries on from one scene to the next: maps, and diagrams (#124). */
 export const CONTINUOUS_KINDS = new Set(['geo-map', 'diagram']);
 /** Whether scene `index` continues the map (or diagram) of the scene before it. */
 export const continuesMap = (scenes: SceneLike[], index: number) => index > 0 && index < scenes.length
-  && CONTINUOUS_KINDS.has(scenes[index].primitive?.kind ?? '') && scenes[index].primitive?.kind === scenes[index - 1].primitive?.kind && !scenes[index].primitive?.cut;
+  && CONTINUOUS_KINDS.has(scenes[index].primitive?.kind ?? '') && scenes[index].primitive?.kind === scenes[index - 1].primitive?.kind && !scenes[index].primitive?.cut
+  // A street plan and a country map (or two cities) are different canvases: the change is a cut, not a flight.
+  && (scenes[index].primitive?.streets?.city ?? null) === (scenes[index - 1].primitive?.streets?.city ?? null);
 
 /** A scene's keys, starting from `from` (the previous scene's last view). */
 export const continueKeys = (keys: CameraKey[], from: View): CameraKey[] => {

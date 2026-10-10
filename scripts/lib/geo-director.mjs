@@ -301,18 +301,35 @@ export const shotToPrimitive = (shot, {places, research, datasets = new Map(), s
     const city = streets[shot.streets];
     if (!city) throw new Error(`streets: "${shot.streets}" isn't a city with street data (${Object.keys(streets).join(', ') || 'none'})`);
     if (shot.globe || shot.morph || shot.relief || surface || data) throw new Error('streets: a street map cannot also be a globe, a morph, relief, a surface or a data layer');
-    streetShot = {city: shot.streets, at: 0.05, camera: streetCamera(city.box)};
+    streetShot = {city: shot.streets, at: 0.05, camera: streetCamera(city.box, city.outlineBox)};
   }
   const parsed = primitiveSchema.safeParse({kind: 'geo-map', camera: streetShot ? streetShot.camera : camera, highlights, annotations, ...(comparing ? {projection: 'albers'} : {}), ...(shot.cut === true ? {cut: true} : {}), ...(shot.globe === true ? {globe: true} : {}), ...(shot.relief === true ? {relief: true} : {}), ...(shot.morph === true ? {morph: true} : {}), ...(shot.flags === true ? {flags: true} : {}), ...(['sea', 'wind', 'city', 'jungle', 'desert', 'ice', 'space', 'none'].includes(shot.ambience) ? {ambience: shot.ambience} : {}), ...(surface ? {surface} : {}), ...(streetShot ? {streets: {city: streetShot.city, at: streetShot.at}} : {}), ...(data ? {data} : {})});
   if (!parsed.success) throw new Error(parsed.error.issues.map((issue) => `${issue.path.join('.') || 'shot'}: ${issue.message}`).join('; '));
   return parsed.data;
 };
 
-/** A street map's camera: from nearly the whole of the city's data to about two thirds of it, so the view never runs off the data. */
-export const streetCamera = ([south, west, north, east]) => {
+/**
+ * A street map's camera: from nearly the whole of the city's data to a closer view, so the view never runs off the
+ * data. The closer view is two thirds of the data, or, for a place with its own boundary (the Vatican), a portrait
+ * view of that boundary, so the push-in lands on the place the scene is about.
+ */
+export const streetCamera = ([south, west, north, east], focus) => {
   const [lon, lat, halfW, halfH] = [(west + east) / 2, (south + north) / 2, (east - west) / 2, (north - south) / 2];
-  const at = (factor) => [lon - halfW * factor, lat - halfH * factor, lon + halfW * factor, lat + halfH * factor].map((value) => Math.round(value * 1e5) / 1e5);
-  return [{target: {bbox: at(.97)}, at: 0, padding: 0, ease: 'linear'}, {target: {bbox: at(.64)}, at: 1, padding: 0, ease: 'in-out'}];
+  const round = (value) => Math.round(value * 1e5) / 1e5;
+  const at = (factor) => [lon - halfW * factor, lat - halfH * factor, lon + halfW * factor, lat + halfH * factor].map(round);
+  let close = at(.64);
+  if (focus) {
+    const [fs, fw, fn, fe] = focus;
+    // The frame is 1.36 times as tall as wide on screen, and a degree of latitude is 1/cos(lat) taller than one of longitude.
+    const shape = 1.36 * Math.cos((lat * Math.PI) / 180);
+    // Wide enough to hold the boundary with a margin, in the frame's shape, and never bigger than the data.
+    let width = Math.max(fe - fw, (fn - fs) / shape) * 1.4;
+    width = Math.min(width, 2 * halfW, (2 * halfH) / shape);
+    const height = width * shape;
+    const [cx, cy] = [Math.min(east - width / 2, Math.max(west + width / 2, (fw + fe) / 2)), Math.min(north - height / 2, Math.max(south + height / 2, (fs + fn) / 2))];
+    close = [cx - width / 2, cy - height / 2, cx + width / 2, cy + height / 2].map(round);
+  }
+  return [{target: {bbox: at(.97)}, at: 0, padding: 0, ease: 'linear'}, {target: {bbox: close}, at: 1, padding: 0, ease: 'in-out'}];
 };
 
 /** The order a scene's mentioned places are taken when it names more than the shot can show. */

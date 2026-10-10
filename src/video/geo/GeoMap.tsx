@@ -359,7 +359,7 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
     return out(<Label x={box.x} y={box.y} text={text} opacity={shown} rise={rise} scale={scale} color={palette.ink} halo={palette.background} size={item.size} />);
   };
 
-  const highlights = primitive.highlights.map((highlight, index) => {
+  const highlightsAll = primitive.highlights.map((highlight, index) => {
       const feature = data.features.get(highlight.entity);
       if (!feature) throw new Error(`Unknown geo entity ${highlight.entity}`);
       const d = path(feature) ?? '';
@@ -624,6 +624,8 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
     const flagBadge = flagHref && flagBox ? out(<FlagBadge id={String(annotation.anchor)} href={flagHref} x={flagBox.x} y={flagBox.y - flagBox.halfHeight - 36} width={64} opacity={shown * (fades.get(index) ?? 1)} />) : null;
     return <React.Fragment key={`text-${index}`}>{textOf(index, annotation.type === 'label' ? countUp(annotation.text, appear(annotation.at, COUNT_FRAMES)) : annotation.text, annotation.type === 'marker' ? shown * shown : shown, grow, labelScale(grow))}{flagBadge}</React.Fragment>;
   });
+  // On a street plan the 1:10m country shapes are far off the streets (the Vatican is a 100 m dot), so they are not drawn; the city's own boundary is.
+  const highlights = primitive.streets ? null : highlightsAll;
   const frameStyle = {position: 'absolute' as const, inset: 0, borderRadius: 36, overflow: 'hidden' as const};
 
   // A data map (#91): each place shaded by its sourced value, from faint (lowest) to strong (highest),
@@ -673,6 +675,10 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
     const pxPerMetre = view.scale / (6371000 * Math.max(.2, Math.cos((view.lat * Math.PI) / 180)));
     const metres = [20, 16, 13, 10, 8, 6, 3];
     const shown = appear(primitive.streets.at, 16);
+    // The place's own boundary traces itself once the streets are in, in the episode's accent.
+    const outlineD = streetMap.outline ? open(streetMap.outline) : '';
+    const traced = interpolate(frame, [(primitive.streets.at + .22) * durationInFrames, (primitive.streets.at + .5) * durationInFrames], [0, 1], clamp);
+    const boundary = outlineD ? <path d={outlineD} fill="none" stroke={styled ? look.subject.from : accent} strokeWidth={7} strokeLinejoin="round" strokeLinecap="round" strokeDasharray={evolvePath(traced, outlineD).strokeDasharray} strokeDashoffset={evolvePath(traced, outlineD).strokeDashoffset} style={{filter: glow(12, styled ? look.subject.from : accent)}} /> : null;
     const grow = (index: number) => interpolate(frame, [(primitive.streets!.at + .02 + index * .035) * durationInFrames, (primitive.streets!.at + .02 + index * .035) * durationInFrames + 14], [0, 1], clamp);
     return <g opacity={outro * shown}>
       <rect x={-SIZE.width} y={-SIZE.height} width={SIZE.width * 3} height={SIZE.height * 3} fill={ink.paper} />
@@ -680,6 +686,7 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
       <path d={open(streetMap.rivers)} fill="none" stroke={ink.water} strokeWidth={Math.max(2, 30 * pxPerMetre)} strokeLinecap="round" />
       <path d={open(streetMap.coast)} fill="none" stroke={ink.coast} strokeWidth={2.5} />
       <path d={shut(streetMap.buildings)} fill={ink.building} opacity={grow(5)} />
+      {boundary}
       <path d={open(streetMap.rails)} fill="none" stroke={ink.rail} strokeWidth={Math.max(1.2, 4 * pxPerMetre)} strokeDasharray="10 8" opacity={grow(3)} />
       {[...streetMap.roads].map((_, index) => streetMap.roads.length - 1 - index).map((index) => <path key={`casing-${index}`} d={open(streetMap.roads[index])} fill="none" stroke={ink.casing} strokeLinecap="round" strokeLinejoin="round" strokeWidth={Math.max(1.6, metres[index] * pxPerMetre + 2.4)} opacity={grow(index) * .9} />)}
       {[...streetMap.roads].map((_, index) => streetMap.roads.length - 1 - index).map((index) => <path key={`road-${index}`} d={open(streetMap.roads[index])} fill="none" stroke={ink.road} strokeLinecap="round" strokeLinejoin="round" strokeWidth={Math.max(.9, metres[index] * pxPerMetre)} opacity={grow(index)} />)}
@@ -817,7 +824,7 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
         <circle cx={SIZE.width / 2} cy={centreY} r={globeRadius} fill="url(#globe-limb)" />
         <g opacity={outro}>
           {dataFills}
-          {highlights}{surfaceFills}{streetLayer}
+          {streetLayer}{highlights}{surfaceFills}
           {annotations}
           {pointTexts}
           {legend}
@@ -859,7 +866,7 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
       </g>
       <g opacity={outro}>
         {dataFills}
-        {highlights}{surfaceFills}{streetLayer}
+        {streetLayer}{highlights}{surfaceFills}
       </g>
     </svg>;
     const reliefStrength = primitive.relief ? RELIEF_STRENGTH * reliefFade : look.relief;
@@ -884,7 +891,7 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
     {baseLayers}
     <g opacity={outro}>
     {dataFills}
-    {highlights}{surfaceFills}{streetLayer}
+    {streetLayer}{highlights}{surfaceFills}
     {annotations}
     {pointTexts}
     {legend}
@@ -899,7 +906,7 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
   return <div style={{...frameStyle, isolation: 'isolate'}}>
     <svg width={SIZE.width} height={SIZE.height} viewBox={`0 0 ${SIZE.width} ${SIZE.height}`} style={{position: 'absolute', inset: 0}}>
     {baseLayers}
-    <g opacity={outro}>{dataFills}{highlights}{surfaceFills}{streetLayer}</g>
+    <g opacity={outro}>{dataFills}{streetLayer}{highlights}{surfaceFills}</g>
     </svg>
     <div style={{position: 'absolute', inset: 0, mixBlendMode: 'soft-light', opacity: RELIEF_STRENGTH * reliefFade}}>
       {reliefPlacements(relief, view).map((placement) => <Img key={placement.key} src={staticFile(`geo/relief/${placement.file}`)} style={{position: 'absolute', left: placement.left, top: placement.top, width: placement.width, height: placement.height, maxWidth: 'none'}} />)}
