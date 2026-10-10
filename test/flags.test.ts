@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {describe, it} from 'node:test';
 import {fileURLToPath} from 'node:url';
-import {shortCountryName} from '../src/video/geo/Flags';
+import {labelNamesCountry, shortCountryName} from '../src/video/geo/Flags';
 import {compileEpisode} from '../scripts/lib/compiler.mjs';
 import {shotToPrimitive} from '../scripts/lib/geo-director.mjs';
 import {flagRightsAsset} from '../scripts/lib/geo-primitives.mjs';
@@ -45,6 +45,18 @@ describe('flags', () => {
     assert.equal(shortCountryName('Democratic Republic of the Congo'), 'Democratic Republic');
     assert.equal(shortCountryName('Kingdom of Eswatini'), 'Eswatini');
     assert.equal(shortCountryName('France'), 'France');
+  });
+
+  it('ride only with a label that names the country, never one that merely sits on it', () => {
+    assert.equal(labelNamesCountry('MADAGASCAR', 'Madagascar'), true);
+    assert.equal(labelNamesCountry('UNITED STATES', 'United States of America'), true);
+    assert.equal(labelNamesCountry('KAZAKHSTAN (APPROX.)', 'Kazakhstan'), true);
+    assert.equal(labelNamesCountry('ECUADOR = EQUATOR', 'Ecuador'), true);
+    assert.equal(labelNamesCountry('AFRICA', 'Mozambique'), false);
+    assert.equal(labelNamesCountry('EUROPE CLOSER', 'Iceland'), false);
+    assert.equal(labelNamesCountry('N AMERICA PLATE', 'Greenland'), false);
+    assert.equal(labelNamesCountry('NIGER', 'Nigeria'), false, 'a whole word, not a prefix');
+    assert.equal(labelNamesCountry('44 HECTARES', 'Vatican City'), false);
   });
 
   it('are opt in per shot, and the director passes them through', () => {

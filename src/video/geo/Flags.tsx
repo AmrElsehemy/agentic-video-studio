@@ -56,3 +56,14 @@ export const FlagBadge: React.FC<{href: string; x: number; y: number; width: num
 
 /** A country's name as a chip prints it: the formal tail dropped ("United States of America" is "United States"). */
 export const shortCountryName = (name: string) => name.replace(/ of (America|the .+)$/, '').replace(/^(Republic|Kingdom|Federation) of /, '');
+
+/**
+ * Whether a label names the country it is anchored on, so its flag can ride with it: the label's words contain the
+ * country's name (short or full). "AFRICA" anchored on Mozambique, or "EUROPE CLOSER" on Iceland, is not about that
+ * country, and a flag there would say it was.
+ */
+export const labelNamesCountry = (text: string, name: string) => {
+  const words = (value: string) => value.toUpperCase().replace(/\(.*?\)/g, ' ').replace(/[^A-Z0-9]+/g, ' ').trim();
+  const [label, short, full] = [words(text), words(shortCountryName(name)), words(name)];
+  return [short, full].some((candidate) => candidate.length > 0 && ` ${label} `.includes(` ${candidate} `));
+};

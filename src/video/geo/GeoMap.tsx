@@ -7,7 +7,7 @@ import {routeUntil, type GeoAnchor, type GeoMapPrimitive} from '../../../scripts
 import type {ShotProps} from '../shots';
 import {displayFont} from '../typography';
 import {cameraAt, cameraKeys, continuesMap, episodeCameraKeys, MAP_SIZE, type BBox, type CameraKey, type Size, type View} from './camera';
-import {FlagBadge, shortCountryName, useFlags} from './Flags';
+import {FlagBadge, labelNamesCountry, shortCountryName, useFlags} from './Flags';
 import {useElevationData, useGeoData, useReliefData, useStreetsData, type GeoData} from './data';
 import {RELIEF_STRENGTH, reliefPlacements} from './relief';
 import {fitInside, labelBox, resolveLabels, type Box, type Placed} from './labels';
@@ -619,7 +619,7 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
     // A marker's text sat inside its faded group, so it appears at shown².
     const grow = springIn(annotation.at);
     // A country's flag rides above its label, popping in with it.
-    const flagHref = annotation.type === 'label' && typeof annotation.anchor === 'string' ? flags.href(annotation.anchor) : undefined;
+    const flagHref = annotation.type === 'label' && typeof annotation.anchor === 'string' && labelNamesCountry(annotation.text, data.entities.get(annotation.anchor)?.name ?? '') ? flags.href(annotation.anchor) : undefined;
     const flagBox = flagHref ? boxes.get(index) : undefined;
     const flagBadge = flagHref && flagBox ? out(<FlagBadge id={String(annotation.anchor)} href={flagHref} x={flagBox.x} y={flagBox.y - flagBox.halfHeight - 36} width={64} opacity={shown * (fades.get(index) ?? 1)} />) : null;
     return <React.Fragment key={`text-${index}`}>{textOf(index, annotation.type === 'label' ? countUp(annotation.text, appear(annotation.at, COUNT_FRAMES)) : annotation.text, annotation.type === 'marker' ? shown * shown : shown, grow, labelScale(grow))}{flagBadge}</React.Fragment>;
