@@ -3,6 +3,7 @@
 //   npm run analytics -- record <id> --views=N [--avg-seconds=S --avg-percent=P --likes=N --comments=N --shares=N --subs=N]
 //                                                                                add numbers from YouTube Studio by hand
 //   npm run analytics -- fetch <id>        pull the numbers and retention curve from the YouTube Analytics API
+//   npm run analytics -- live <show>       current views, likes and comments for every upload on the show's channel (no delay)
 //   npm run analytics -- report            every published episode, its numbers and how it was built
 //   npm run analytics -- link-channel <show> [--dry-run]   link every upload on the show's channel to its episode, by title
 // Files live in analytics/<show>/<id>.json and are committed, so the history is kept.
@@ -12,12 +13,12 @@ import {findManifest, listManifests, repoRoot as root, resolveEpisodeId} from '.
 import {addSnapshot, analyticsPath, buildReport, fetchYouTubeSnapshot, linkVideo, MIN_EPISODES_FOR_TRENDS, readAnalytics, writeAnalytics} from './lib/analytics.mjs';
 import {readProduction, summarizeProduction} from './lib/production.mjs';
 import {loadShow} from './lib/shows.mjs';
-import {assertShowChannel, channelOf, getAccessToken, listUploads, matchUploads} from './lib/youtube.mjs';
+import {assertShowChannel, channelOf, getAccessToken, listUploads, liveStats, matchUploads} from './lib/youtube.mjs';
 
 const [command, target, ...rest] = process.argv.slice(2);
 const option = (name) => rest.find((arg) => arg.startsWith(`--${name}=`))?.slice(name.length + 3);
 const usage = () => {
-  console.error('Usage: npm run analytics -- link <id> <video> [--published-at=<ISO>] | record <id> --views=N [...] | fetch <id> | report | link-channel <show> [--dry-run]');
+  console.error('Usage: npm run analytics -- link <id> <video> [--published-at=<ISO>] | record <id> --views=N [...] | fetch <id> | report | link-channel <show> [--dry-run] | live <show>');
   process.exit(1);
 };
 
@@ -137,6 +138,27 @@ if (command === 'link') {
     console.log(`  ✓ ${episodeId} → ${record.url}${rest.includes('--dry-run') ? ' (dry run)' : ''}`);
   }
   for (const video of unmatched) console.log(`  ? "${video.title}" (${video.videoId}) matches no episode title; link it by hand if it's one: npm run analytics -- link <id> ${video.videoId}`);
+} else if (command === 'live') {
+  // The Data API's counts are current; the Analytics reports behind `fetch` run a day or two behind.
+  if (!target) usage();
+  const show = loadShow(target);
+  const accessToken = await getAccessToken(root, {show: show.id});
+  const channel = await channelOf(accessToken);
+  assertShowChannel(show, channel);
+  const uploads = await listUploads(accessToken, channel.uploads);
+  const stats = await liveStats(accessToken, uploads.map((video) => video.videoId));
+  const episodes = listManifests().map((file) => JSON.parse(fs.readFileSync(file, 'utf8'))).filter((manifest) => manifest.show.id === show.id).map((manifest) => ({episodeId: manifest.id, title: manifest.title}));
+  const idOf = new Map(matchUploads(uploads, episodes).matched.map(({episodeId, video}) => [video.videoId, episodeId]));
+  const rows = stats.map((item) => ({episode: idOf.get(item.videoId) ?? '(no episode)', ...item}));
+  const when = (item) => (item.status === 'private' && item.publishAt ? `scheduled ${item.publishAt.slice(0, 10)}` : item.status ?? '');
+  console.log(`${channel.title}: ${rows.length} video(s), live counts at ${new Date().toISOString().slice(0, 16)}Z\n`);
+  console.log('| episode | title | status | views | likes | comments |');
+  console.log('|---|---|---|---|---|---|');
+  for (const row of rows.sort((a, b) => b.views - a.views)) console.log(`| ${row.episode} | ${row.title.replace(/ #\S+/g, '').slice(0, 44)} | ${when(row)} | ${row.views.toLocaleString('en-US')} | ${row.likes} | ${row.comments} |`);
+  const live = rows.filter((row) => row.status === 'public');
+  console.log(`\n${live.length} public: ${live.reduce((sum, row) => sum + row.views, 0).toLocaleString('en-US')} views in total`);
+  fs.mkdirSync(path.join(root, 'out'), {recursive: true});
+  fs.writeFileSync(path.join(root, 'out', `live-${show.id}.json`), `${JSON.stringify({capturedAt: new Date().toISOString(), channel: channel.title, videos: rows}, null, 2)}\n`);
 } else {
   usage();
 }

@@ -124,6 +124,25 @@ export const listUploads = async (accessToken, playlistId, {fetchImpl = fetch} =
   return videos;
 };
 
+/**
+ * Live counts for videos (the Data API, not the Analytics reports, which run a day or two behind):
+ * [{videoId, title, status, publishAt, views, likes, comments}], in the order asked, for up to 50 ids at a time.
+ */
+export const liveStats = async (accessToken, videoIds, {fetchImpl = fetch} = {}) => {
+  const found = new Map();
+  for (let i = 0; i < videoIds.length; i += 50) {
+    const data = await youtubeGet(accessToken, 'videos', {part: 'snippet,statistics,status', id: videoIds.slice(i, i + 50).join(',')}, fetchImpl);
+    for (const item of data.items ?? []) {
+      const counts = item.statistics ?? {};
+      found.set(item.id, {
+        videoId: item.id, title: item.snippet?.title ?? '', status: item.status?.privacyStatus, publishAt: item.status?.publishAt, publishedAt: item.snippet?.publishedAt,
+        views: Number(counts.viewCount ?? 0), likes: Number(counts.likeCount ?? 0), comments: Number(counts.commentCount ?? 0),
+      });
+    }
+  }
+  return videoIds.map((id) => found.get(id)).filter(Boolean);
+};
+
 /** The ids of the videos already in a playlist. */
 export const playlistVideoIds = async (accessToken, playlistId, {fetchImpl = fetch} = {}) => {
   const ids = new Set();
