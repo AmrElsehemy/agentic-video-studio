@@ -367,6 +367,10 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
     return out(<Label x={box.x} y={box.y} text={text} opacity={shown} rise={rise} scale={scale} color={palette.ink} halo={palette.background} size={item.size} />);
   };
 
+  // An outline is thinner and calmer the further out the camera is: at continental zoom a thick glowing line on a fractal coast is noise.
+  const zoomedOut = Math.max(0, Math.min(1, view.scale / 1500));
+  const outlineWidth = 2.6 + 3.4 * zoomedOut;
+  const outlineGlow = 5 + 9 * zoomedOut;
   const highlightsAll = primitive.highlights.map((highlight, index) => {
       const feature = data.features.get(highlight.entity);
       if (!feature) throw new Error(`Unknown geo entity ${highlight.entity}`);
@@ -429,8 +433,8 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
       }
       return <g key={index}>
         <path d={d} fill={highlight.style === 'fill' ? (disputed ? 'url(#geo-hatch)' : color) : 'none'} fillOpacity={lit}
-          stroke={color} strokeOpacity={shown} strokeWidth={(highlight.style === 'outline' ? 6 : 3) * border} strokeLinejoin="round" style={{filter: glow(14 * shown, color)}} />
-        {highlight.style === 'outline' && !disputed && shown > .99 ? <path d={d} fill="none" stroke={palette.ink} strokeOpacity={.5} strokeWidth={2.5} strokeLinejoin="round" strokeDasharray={`${MARCH.dash} ${MARCH.gap}`} strokeDashoffset={marchOffset(frame)} /> : null}
+          stroke={color} strokeOpacity={shown} strokeWidth={(highlight.style === 'outline' ? outlineWidth : 3) * border} strokeLinejoin="round" style={{filter: glow((highlight.style === 'outline' ? outlineGlow : 14) * shown, color)}} />
+        {highlight.style === 'outline' && !disputed && shown > .99 && view.scale > 1200 ? <path d={d} fill="none" stroke={palette.ink} strokeOpacity={.5} strokeWidth={2.5} strokeLinejoin="round" strokeDasharray={`${MARCH.dash} ${MARCH.gap}`} strokeDashoffset={marchOffset(frame)} /> : null}
         {ring && Number.isFinite(cx) && Number.isFinite(cy) ? <circle cx={cx} cy={cy} r={ring.radius} fill="none" stroke={color} strokeOpacity={ring.opacity * outro} strokeWidth={ring.width} /> : null}
         {locator}
       </g>;
