@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {cancelRender, continueRender, delayRender, staticFile} from 'remotion';
 
 // Flags beside the countries they belong to (scripts/flags.mjs: flag-icons, MIT). A shot opts in with
@@ -27,19 +27,25 @@ const preload = (href: string) => new Promise<void>((resolve, reject) => {
 /** The flags of `entities` (map ids), loaded before the frame is drawn; empty when `enabled` is false. */
 export const useFlags = (entities: string[], enabled: boolean): Flags | undefined => {
   const wanted = enabled ? [...new Set(entities)].sort().join(',') : '';
-  const [flags, setFlags] = useState<Flags | undefined>(!enabled ? NO_FLAGS : undefined);
-  const [handle] = useState(() => (enabled ? delayRender('Loading flags') : undefined));
+  const [loaded, setLoaded] = useState<{key: string; flags: Flags} | undefined>(!enabled ? {key: '', flags: NO_FLAGS} : undefined);
+  // The render waits for the flags the shot wants now; a list that grows later (a chart's candidates arrive once its data has) holds it again.
+  const pending = useRef<number | undefined>(undefined);
+  const current = loaded?.key === wanted;
+  if (enabled && !current && pending.current === undefined) pending.current = delayRender('Loading flags');
   useEffect(() => {
     if (!enabled) return;
-    loadIndex().then(async (loaded) => {
-      const hrefs = wanted.split(',').filter(Boolean).flatMap((id) => (loaded.countries[id] ? [[id, staticFile(`flags/${loaded.countries[id]}.svg`)] as const] : []));
+    let cancelled = false;
+    loadIndex().then(async (index) => {
+      const hrefs = wanted.split(',').filter(Boolean).flatMap((id) => (index.countries[id] ? [[id, staticFile(`flags/${index.countries[id]}.svg`)] as const] : []));
       await Promise.all(hrefs.map(([, href]) => preload(href)));
+      if (cancelled) return;
       const byId = new Map(hrefs);
-      setFlags({href: (entity) => byId.get(entity)});
-      if (handle !== undefined) continueRender(handle);
+      setLoaded({key: wanted, flags: {href: (entity) => byId.get(entity)}});
+      if (pending.current !== undefined) { continueRender(pending.current); pending.current = undefined; }
     }).catch((error) => cancelRender(error));
-  }, [wanted, enabled, handle]);
-  return flags;
+    return () => { cancelled = true; };
+  }, [wanted, enabled]);
+  return current ? loaded.flags : undefined;
 };
 
 /** A flag as a small rounded badge centred on (x, y), 4:3, with a thin edge so a white flag shows on a pale map. */

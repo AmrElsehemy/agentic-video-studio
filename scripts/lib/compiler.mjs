@@ -6,7 +6,7 @@ import {layoutDiagram, layoutProblems} from './diagram-layout.mjs';
 import {archActionProblems, archProblems} from '../diagram-arch-schema.mjs';
 import {VOICE_MODELS, voiceProblems} from '../episode-fields.mjs';
 import {SCORES} from './score.mjs';
-import {photoRightsAsset, flagRightsAsset, geoProblems, geoRightsAsset, loadGeoData, osmRightsAsset, plateRightsAsset} from './geo-primitives.mjs';
+import {photoRightsAsset, flagRightsAsset, geoProblems, geoRightsAsset, loadGeoData, osmRightsAsset, plateRightsAsset, seriesRightsAsset} from './geo-primitives.mjs';
 import {loadShow} from './shows.mjs';
 import {COMPILE_FILL, END_PADDING, estimatedSpeech} from './speech.mjs';
 
@@ -86,11 +86,12 @@ export const LOOK_VARIANTS = ['neon', 'atlas', 'terrain'];
 const creditedRights = (rights, geoData, scenes) => {
   if (!geoData) return rights;
   const assets = [...rights.assets];
-  if (!assets.some((asset) => asset.kind === 'map-data' && !/plate model|OpenStreetMap|flag-icons/.test(asset.owner))) assets.push(geoRightsAsset(geoData));
+  if (!assets.some((asset) => asset.kind === 'map-data' && !/plate model|OpenStreetMap|flag-icons|World Bank/.test(asset.owner))) assets.push(geoRightsAsset(geoData));
   const reconstructs = scenes.some((scene) => scene.primitive?.kind === 'geo-map' && scene.primitive.annotations.some((annotation) => annotation.type === 'reconstruction'));
   if (reconstructs && geoData.plates && !assets.some((asset) => /plate model/.test(asset.owner))) assets.push(plateRightsAsset(geoData));
   const streetMap = scenes.some((scene) => scene.primitive?.kind === 'geo-map' && scene.primitive.streets);
   if (streetMap && geoData.streets && !assets.some((asset) => /OpenStreetMap/.test(asset.owner))) assets.push(osmRightsAsset(geoData));
+  if (scenes.some((scene) => scene.primitive?.kind === 'geo-map' && scene.primitive.series) && geoData.series && !assets.some((asset) => /World Bank/.test(asset.owner))) assets.push(seriesRightsAsset(geoData));
   if (scenes.some((scene) => scene.primitive?.kind === 'geo-map' && scene.primitive.flags) && !assets.some((asset) => /flag-icons/.test(asset.owner))) assets.push(flagRightsAsset());
   // Each photograph on screen is credited by name, author and licence.
   const slugs = new Set(scenes.flatMap((scene) => (scene.primitive?.kind === 'geo-map' ? scene.primitive.annotations.flatMap((annotation) => (annotation.type === 'photo' ? [annotation.photo] : [])) : [])));

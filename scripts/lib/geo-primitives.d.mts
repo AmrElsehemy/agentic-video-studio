@@ -14,3 +14,5 @@ export declare const osmRightsAsset: (geo: any) => {kind: string; sourceUrl: str
 export declare const flagRightsAsset: () => {kind: string; sourceUrl: string; owner: string; licenseStatus: string; publicReleaseApproved: boolean; notes: string};
 export declare const photoProblems: (primitive: any, geo: any) => string[];
 export declare const photoRightsAsset: (slug: string, photo: any) => {kind: string; sourceUrl: string; owner: string; licenseStatus: string; publicReleaseApproved: boolean; notes: string};
+export declare const seriesProblems: (primitive: any, geo: any) => string[];
+export declare const seriesRightsAsset: (geo: any) => {kind: string; sourceUrl: string; owner: string; licenseStatus: string; publicReleaseApproved: boolean; notes: string};

@@ -92,6 +92,19 @@ For two or more countries among an episode's places the director gets built-in d
 
 A shot's `data` takes a `view`: `map` (shade the places), `bars` (a ranked bar chart beside the map, the subject lit and the other bars muted, the compared countries tinted on the map to match), `both`, or `bubbles` (a circle on each place, its area in proportion to its value, the subject lit; the dataset's name sits along the top). Bubbles suit places spread across the map, where you want the comparison to sit on the geography; a label on a place that already has a bubble is left off, since the bubble names and values it. The map slides up as the chart slides in, and the numbers count up row by row. The chart shows the five longest bars and always keeps the subject.
 
+## Charts over time
+
+A shot's `series` draws yearly figures for countries over a scene: `{indicator, view, places, from, to, at}`. The numbers are never typed by the model. They come from `public/geo/series.json`, pinned from the World Bank's World Development Indicators (CC BY 4.0) by `npm run series:prepare` and checked by `npm run series:verify`. Four indicators: `population`, `life-expectancy`, `fertility` (children per woman) and `gdp-per-person` (current US$), for about 215 countries from 1960 to the last year most countries have a figure for. A country the World Bank does not list (Taiwan, Kosovo) has no chart; a missing year breaks the line rather than being guessed.
+
+| View | What it draws |
+|---|---|
+| `line` | 1 to 4 countries (`places`) as lines that draw themselves from `from` to `to`, a big year counter, the value and flag at each line's head. Heads that would overprint stack apart with a leader line |
+| `race` | The six highest countries each year as bars; rows slide past one another as ranks change. `places` may name one country to light up (else the episode's subject) |
+
+The chart sits in a panel at the bottom and the map lifts to leave room, as for the bar chart; the two cannot share a scene, nor can a street map, a photo or a timeline strip. The year runs from `from` to `to` between the panel arriving and 90% of the scene, then holds. Rights get a World Bank credit automatically and the publish gate (`series-credit`) blocks an episode whose rights lack one; the chart also prints its source.
+
+`npm run looks -- <episode> --scenes=2 --series=2:population:race:1960:2024:country:IND` (or `--series=2:life-expectancy:line:1960:2023:country:JPN,country:NGA`) renders stills to compare.
+
 ## The globe
 
 `"globe": true` on a shot draws the map on a globe (an orthographic projection) in space, with stars, an atmosphere glow and limb shading, and spins it between the camera's framings. Every other layer works on it. A globe is only for the first and last map scene; where the projection changes, the map cuts.

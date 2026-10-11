@@ -134,3 +134,23 @@ export const useStreetsData = (city: string | undefined): StreetsData | undefine
   }, [handle, city]);
   return data;
 };
+
+/** Yearly figures per country (scripts/series.mjs, World Bank WDI, CC BY 4.0). */
+export type SeriesFile = {attribution: string; firstYear: number; lastYear: number; indicators: Record<string, {name: string; unit: string; decimals: number; years: number[]; countries: Record<string, (number | null)[]>}>};
+let seriesData: SeriesFile | undefined;
+let seriesLoading: Promise<SeriesFile> | undefined;
+const loadSeries = () => seriesLoading ??= fetchJson<SeriesFile>('series.json').then((result) => (seriesData = result));
+
+/** The yearly figures, loaded only for shots that chart them; holds the render until they have. */
+export const useSeriesData = (enabled: boolean): SeriesFile | undefined => {
+  const [data, setData] = useState(enabled ? seriesData : undefined);
+  const [handle] = useState(() => (enabled && !seriesData ? delayRender('Loading yearly figures') : undefined));
+  useEffect(() => {
+    if (!handle) return;
+    loadSeries().then((result) => {
+      setData(result);
+      continueRender(handle);
+    }).catch((error) => cancelRender(error));
+  }, [handle]);
+  return data;
+};

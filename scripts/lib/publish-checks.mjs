@@ -35,6 +35,10 @@ export const publishBlockers = (manifest, geo) => {
     if (maps.some((scene) => scene.primitive.streets) && !rights.assets.some((asset) => asset.kind === 'map-data' && /OpenStreetMap/.test(asset.owner) && asset.notes)) {
       blockers.push('osm-credit: A street map needs a rights entry crediting OpenStreetMap contributors (kind map-data, owner OpenStreetMap contributors, with its attribution line).');
     }
+    // Yearly figures are World Bank data (CC BY 4.0): the credit goes in the rights, which feed the description.
+    if (maps.some((scene) => scene.primitive.series) && !rights.assets.some((asset) => asset.kind === 'map-data' && /World Bank/.test(asset.owner) && asset.notes)) {
+      blockers.push('series-credit: A chart over time needs a rights entry crediting the World Bank (kind map-data, owner World Bank, with its attribution line).');
+    }
     // A photograph is used only with its credit, in the rights (which feed the description) as well as on screen.
     const photoCount = maps.flatMap((scene) => scene.primitive.annotations.filter((annotation) => annotation.type === 'photo')).length;
     if (photoCount && rights.assets.filter((asset) => asset.kind === 'photo' && asset.notes).length === 0) {

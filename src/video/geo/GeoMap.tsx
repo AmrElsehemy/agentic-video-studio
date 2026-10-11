@@ -9,7 +9,8 @@ import {displayFont} from '../typography';
 import {cameraAt, cameraKeys, continuesMap, episodeCameraKeys, MAP_SIZE, type BBox, type CameraKey, type Size, type View} from './camera';
 import {PHOTO_CARD, PHOTO_HEIGHT, PhotoCard, usePhotos} from './Photos';
 import {FlagBadge, labelNamesCountry, shortCountryName, useFlags} from './Flags';
-import {useElevationData, useGeoData, useReliefData, useStreetsData, type GeoData} from './data';
+import {useElevationData, useGeoData, useReliefData, useSeriesData, useStreetsData, type GeoData} from './data';
+import {LineChart, RaceChart, SERIES_PANEL, SERIES_SLIDE_FRAMES, type SeriesPlace} from './SeriesChart';
 import {RELIEF_STRENGTH, reliefPlacements} from './relief';
 import {fitInside, labelBox, resolveLabels, type Box, type Placed} from './labels';
 import {labelScale, pop} from './motion';
@@ -17,6 +18,7 @@ import {COUNT_FRAMES, countUp, flash, MARCH, marchOffset, ripple} from './effect
 import {barRows, DataBars, PANEL_FRAMES, panelHeight} from './DataBars';
 import {Bubbles} from './Bubbles';
 import {TIMELINE_HEIGHT, TimelineStrip} from './TimelineStrip';
+import {raceCandidates} from '../../../scripts/lib/series.mjs';
 import {reconstruction, rotateGeometry} from '../../../scripts/lib/plates.mjs';
 import {partialRotation, trueSizeRotation} from '../../../scripts/lib/true-size.mjs';
 import {destination, kmToDegrees} from '../../../scripts/lib/geodesy.mjs';
@@ -213,14 +215,21 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
   const elevation = useElevationData(wantsElevation);
   const streetMap = useStreetsData(primitive.streets?.city);
   // The countries a flag may go beside: highlighted, labelled, in a dataset, or either side of a highlighted border.
+  const wantsSeries = Boolean(primitive.series);
+  const seriesFile = useSeriesData(wantsSeries);
+  const seriesTable = primitive.series ? seriesFile?.indicators[primitive.series.indicator] : undefined;
+  const seriesSubject = typeof manifest.subject.attributes?.geoEntity === 'string' ? manifest.subject.attributes.geoEntity : undefined;
+  const raceCodes = primitive.series?.view === 'race' && seriesTable ? raceCandidates(seriesTable, primitive.series.from, primitive.series.to, 6) : [];
   const flagEntities = [
+    ...(primitive.series?.places ?? []),
+    ...raceCodes.map((code) => `country:${code}`),
     ...primitive.highlights.map((highlight) => highlight.entity),
     ...primitive.annotations.flatMap((annotation) => ((annotation.type === 'label' || annotation.type === 'marker') && typeof annotation.anchor === 'string' ? [annotation.anchor] : [])),
     ...(primitive.data?.values.map(({entity}) => entity) ?? []),
   ].flatMap((id) => (id.startsWith('border:') ? id.slice('border:'.length).split('-').map((code) => `country:${code}`) : [id]));
   const flags = useFlags(flagEntities, Boolean(primitive.flags));
   const photos = usePhotos(primitive.annotations.flatMap((annotation) => (annotation.type === 'photo' ? [annotation.photo] : [])));
-  if (!photos || !data || !keys || (wantsRelief && !relief) || (wantsElevation && !elevation) || (primitive.streets && !streetMap) || !flags) return null;
+  if (!photos || !data || !keys || (wantsRelief && !relief) || (wantsElevation && !elevation) || (primitive.streets && !streetMap) || (wantsSeries && !seriesTable) || !flags) return null;
 
   const t = durationInFrames > 1 ? frame / (durationInFrames - 1) : 0;
   const view = viewAt(t);
@@ -236,7 +245,9 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
   const photoLift = photoAnnotation
     ? ((PHOTO_CARD + 60) / 2) * interpolate(frame, [photoAnnotation.at * durationInFrames, photoAnnotation.at * durationInFrames + 12, (photoAnnotation.until ?? 1) * durationInFrames - 8, (photoAnnotation.until ?? 1) * durationInFrames], [0, 1, 1, 0], clamp)
     : 0;
+  const seriesStart = primitive.series ? primitive.series.at * durationInFrames : 0;
   const barsShift = Math.max(
+    primitive.series ? (SERIES_PANEL / 2) * interpolate(frame, [seriesStart, seriesStart + SERIES_SLIDE_FRAMES], [0, 1], clamp) : 0,
     photoLift,
     barsOn ? (barsPanel / 2) * interpolate(frame, [barsStart, barsStart + PANEL_FRAMES], [0, 1], clamp) : 0,
     timelineOn ? (TIMELINE_HEIGHT / 2) * interpolate(frame, [timelineStart, timelineStart + 12], [0, 1], clamp) : 0,
@@ -735,6 +746,25 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
     rows={primitive.data.values.map(({entity, value}) => ({id: entity, name: data.entities.get(entity)?.name ?? entity, value, subject: entity === manifest.subject.attributes?.geoEntity, flag: flags.href(entity)}))}
     frame={frame} startFrame={barsStart} fps={manifest.format.fps} width={SIZE.width} height={SIZE.height} accent={styled ? look.subject.from : accent} ink={styled && look.chip ? look.chip.text : palette.ink} backdrop={styled && look.chip ? look.chip.fill : palette.background} muted={styled ? look.subject.side : palette.ink} /> : null;
 
+  // A chart over time: the figures come from the pinned World Bank table, drawn along the bottom as the years run.
+  const seriesChart = (() => {
+    if (!primitive.series || !seriesTable || !seriesFile) return null;
+    const chart = primitive.series;
+    const series = {years: seriesTable.years, countries: seriesTable.countries};
+    const accentColor = styled ? look.subject.from : accent;
+    const style = {accent: accentColor, ink: styled && look.chip ? look.chip.text : palette.ink, backdrop: styled && look.chip ? look.chip.fill : palette.background, muted: styled ? look.subject.side : palette.ink};
+    const common = {indicator: chart.indicator, title: seriesTable.name, unit: seriesTable.unit, decimals: seriesTable.decimals, series, from: chart.from, to: chart.to, frame, startFrame: seriesStart, endFrame: Math.max(seriesStart + SERIES_SLIDE_FRAMES + 30, 0.9 * durationInFrames), width: SIZE.width, height: SIZE.height, style, credit: 'Source: World Bank (CC BY 4.0)'};
+    if (chart.view === 'line') {
+      const colors = [accentColor, '#4cc9f0', '#ffd166', '#95e06c'];
+      const places: SeriesPlace[] = chart.places.map((id, index) => ({id, code: id.slice('country:'.length), name: shortCountryName(data.entities.get(id)?.name ?? id), color: colors[index % colors.length], flag: flags.href(id)}));
+      return <LineChart {...common} places={places} />;
+    }
+    const names = new Map(raceCodes.map((code) => [code, shortCountryName(data.entities.get(`country:${code}`)?.name ?? code)]));
+    const flagByCode = new Map(raceCodes.map((code) => [code, flags.href(`country:${code}`)]));
+    const lit = chart.places[0] ?? seriesSubject;
+    return <RaceChart {...common} places={[]} candidates={raceCodes} names={names} flags={flagByCode} subject={lit?.startsWith('country:') ? lit.slice('country:'.length) : undefined} />;
+  })();
+
   // Bubbles (data view "bubbles"): a circle on each place sized by its value, placed in screen space and drawn flat.
   const bubbleItems = primitive.data?.view === 'bubbles' ? primitive.data.values.flatMap(({entity, value}) => {
     const place = data.entities.get(entity);
@@ -849,7 +879,7 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
           {annotations}
           {pointTexts}
           {legend}
-          {bars}
+          {bars}{seriesChart}
           {timeline}{bubbleLayer}
         </g>
       </svg>
@@ -903,7 +933,7 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
         {labelLayer}
       </div>
       {look.vignette > 0 ? <div style={{position: 'absolute', inset: 0, background: `radial-gradient(ellipse at 50% 48%, transparent 45%, rgba(0,0,0,${look.vignette}) 100%)`}} /> : null}
-      <svg width={SIZE.width} height={SIZE.height} viewBox={`0 0 ${SIZE.width} ${SIZE.height}`} style={{position: 'absolute', inset: 0}}><g opacity={outro}>{pointTexts}{flat}{legend}{bars}{timeline}{bubbleLayer}</g></svg>
+      <svg width={SIZE.width} height={SIZE.height} viewBox={`0 0 ${SIZE.width} ${SIZE.height}`} style={{position: 'absolute', inset: 0}}><g opacity={outro}>{pointTexts}{flat}{legend}{bars}{seriesChart}{timeline}{bubbleLayer}</g></svg>
     </div>;
   }
 
@@ -916,7 +946,7 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
     {annotations}
     {pointTexts}
     {legend}
-    {bars}
+    {bars}{seriesChart}
     {timeline}{bubbleLayer}
     </g>
   </svg>;
@@ -933,7 +963,7 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
       {reliefPlacements(relief, view).map((placement) => <Img key={placement.key} src={staticFile(`geo/relief/${placement.file}`)} style={{position: 'absolute', left: placement.left, top: placement.top, width: placement.width, height: placement.height, maxWidth: 'none'}} />)}
     </div>
     <svg width={SIZE.width} height={SIZE.height} viewBox={`0 0 ${SIZE.width} ${SIZE.height}`} style={{position: 'absolute', inset: 0}}>
-      <g opacity={outro}>{annotations}{pointTexts}{legend}{bars}{timeline}{bubbleLayer}</g>
+      <g opacity={outro}>{annotations}{pointTexts}{legend}{bars}{seriesChart}{timeline}{bubbleLayer}</g>
     </svg>
   </div>;
 };

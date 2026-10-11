@@ -116,6 +116,17 @@ export const primitiveSchema = z.discriminatedUnion('kind', [
     globe: z.boolean().optional(),
     // Shaded relief (#91) under the map: mountains and valleys from the pinned Natural Earth raster.
     relief: z.boolean().optional(),
+    // Yearly figures for countries (World Bank, public/geo/series.json): a line chart that draws itself year by year, or a
+    // ranked race where countries overtake one another. The numbers come from the pinned table, never from the model.
+    series: z.object({
+      indicator: z.enum(['population', 'life-expectancy', 'fertility', 'gdp-per-person']),
+      view: z.enum(['line', 'race']),
+      // line: the countries drawn (1 to 4). race: the country to light up, if any.
+      places: z.array(geoEntity).max(4).default([]),
+      from: z.number().int().min(1960).max(2025),
+      to: z.number().int().min(1960).max(2025),
+      at: moment.default(0.04),
+    }).strict().optional(),
     // A data map (#91): places shaded by a sourced value, with a legend. The Geo Visual Director copies
     // the values from a research dataset; the model never types them.
     data: z.object({
@@ -134,6 +145,13 @@ export const primitiveSchema = z.discriminatedUnion('kind', [
 ]).superRefine((primitive, context) => {
   if (primitive.kind === 'geo-map') {
     if (primitive.morph && (primitive.globe || (primitive.projection ?? 'mercator') !== 'mercator')) context.addIssue({code: 'custom', path: ['morph'], message: 'A morph runs from Mercator to Equal Earth on a flat map: no globe, and no other projection'});
+    if (primitive.series) {
+      if (primitive.series.from === primitive.series.to) context.addIssue({code: 'custom', path: ['series', 'to'], message: 'A chart over time needs different from and to years'});
+      if (primitive.series.view === 'line' && primitive.series.places.length === 0) context.addIssue({code: 'custom', path: ['series', 'places'], message: 'A line chart needs 1 to 4 countries to draw'});
+      if (primitive.series.view === 'race' && primitive.series.places.length > 1) context.addIssue({code: 'custom', path: ['series', 'places'], message: 'A race lights up at most one country'});
+      if (primitive.data && (primitive.data.view === 'bars' || primitive.data.view === 'both')) context.addIssue({code: 'custom', path: ['series'], message: 'A chart over time and a bar chart both want the bottom of the frame: use one'});
+      if (primitive.streets || primitive.annotations.some((annotation) => annotation.type === 'photo' || annotation.type === 'timeline')) context.addIssue({code: 'custom', path: ['series'], message: 'A chart over time cannot share a scene with a street map, a photo or a timeline strip'});
+    }
     primitive.annotations.forEach((annotation, index) => {
       if (annotation.type === 'truesize' && (primitive.globe || !['albers', 'equal-earth'].includes(primitive.projection ?? ''))) context.addIssue({code: 'custom', path: ['annotations', index], message: 'A true-size comparison needs an equal-area projection (projection "albers" or "equal-earth") and no globe, or the copy would look the wrong size'});
       if (annotation.type === 'truesize' && annotation.entity === annotation.onto) context.addIssue({code: 'custom', path: ['annotations', index, 'onto'], message: 'A place cannot be compared with itself'});

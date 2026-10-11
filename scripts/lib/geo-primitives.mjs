@@ -22,6 +22,8 @@ export const loadGeoData = (root = repoRoot) => {
     plates: fs.existsSync(path.join(root, 'public', 'geo', 'plates.json')) ? read('plates.json') : undefined,
     // The photographs on file with their credits (npm run photos); absent before one is added.
     photos: fs.existsSync(path.join(root, 'public', 'photos', 'index.json')) ? JSON.parse(fs.readFileSync(path.join(root, 'public', 'photos', 'index.json'), 'utf8')).photos : undefined,
+    // The yearly World Bank figures (npm run series:prepare); absent before it is run.
+    series: fs.existsSync(path.join(root, 'public', 'geo', 'series.json')) ? read('series.json') : undefined,
     // The cities with street maps (npm run streets:prepare); absent before it is run.
     streets: fs.existsSync(path.join(root, 'public', 'geo', 'streets', 'index.json')) ? JSON.parse(fs.readFileSync(path.join(root, 'public', 'geo', 'streets', 'index.json'), 'utf8')) : undefined,
   };
@@ -52,7 +54,29 @@ const suggest = (id, entities) => {
 };
 
 /** Problems with a geo-map's places, as actionable messages (empty when it's fine). */
-export const geoProblems = (primitive, geo) => [...geoReferenceProblems(primitive, geo), ...reconstructionProblems(primitive, geo), ...trueSizeProblems(primitive, geo), ...streetsProblems(primitive, geo), ...photoProblems(primitive, geo)];
+export const geoProblems = (primitive, geo) => [...geoReferenceProblems(primitive, geo), ...reconstructionProblems(primitive, geo), ...trueSizeProblems(primitive, geo), ...streetsProblems(primitive, geo), ...photoProblems(primitive, geo), ...seriesProblems(primitive, geo)];
+
+/** A chart over time needs the pinned table, years it covers, and for a line a figure for every country drawn. */
+export const seriesProblems = (primitive, {series}) => {
+  const chart = primitive.series;
+  if (!chart) return [];
+  const table = series?.indicators?.[chart.indicator];
+  if (!table) return [`series: there is no yearly data for "${chart.indicator}". Run: npm run series:prepare`];
+  const last = table.years.at(-1);
+  const problems = [];
+  for (const key of ['from', 'to']) if (chart[key] < table.years[0] || chart[key] > last) problems.push(`series.${key}: ${chart[key]} is outside the years we have for ${chart.indicator} (${table.years[0]}–${last})`);
+  chart.places.forEach((id, index) => {
+    const code = id.startsWith('country:') ? id.slice('country:'.length) : undefined;
+    const values = code && table.countries[code];
+    if (!values) problems.push(`series.places[${index}]: the World Bank has no ${chart.indicator} figures for ${id}`);
+    else {
+      const lo = Math.min(chart.from, chart.to) - table.years[0];
+      const hi = Math.max(chart.from, chart.to) - table.years[0];
+      if (values[lo] === null || values[hi] === null) problems.push(`series.places[${index}]: ${id} has no ${chart.indicator} figure for ${values[lo] === null ? Math.min(chart.from, chart.to) : Math.max(chart.from, chart.to)}, so the line would start or stop in mid-air`);
+    }
+  });
+  return problems;
+};
 
 /** A photo annotation needs the photo on file, with a credit and a licence that allows it. */
 export const photoProblems = (primitive, {photos}) => primitive.annotations.flatMap((annotation, index) => {
@@ -140,6 +164,16 @@ export const geoRightsAsset = ({manifest}) => ({
   licenseStatus: 'public-domain',
   publicReleaseApproved: true,
   notes: manifest.source.attribution,
+});
+
+/** The rights entry crediting the World Bank figures behind a chart over time. */
+export const seriesRightsAsset = (geo) => ({
+  kind: 'map-data',
+  sourceUrl: geo.series.url,
+  owner: 'World Bank',
+  licenseStatus: 'licensed',
+  publicReleaseApproved: true,
+  notes: geo.series.attribution,
 });
 
 /** The rights entry crediting the flag set. */

@@ -1,0 +1,11 @@
+export type IndicatorId = 'population' | 'life-expectancy' | 'fertility' | 'gdp-per-person';
+export type Indicator = {code: string; name: string; unit: string; decimals: number};
+export const INDICATORS: Record<IndicatorId, Indicator>;
+export const FIRST_YEAR: number;
+export type Series = {years: number[]; countries: Record<string, (number | null)[]>};
+export const pivot: (rows: {countryiso3code: string; date: string; value: number | null}[], options: {iso3: string[]; firstYear?: number; lastYear: number}) => Series;
+export const lastCompleteYear: (series: Series, share?: number) => number;
+export const valueAt: (series: Series, code: string, year: number) => number | null;
+export const raceCandidates: (series: Series, from: number, to: number, top?: number, exclude?: string[]) => string[];
+export const raceAt: (series: Series, candidates: string[], year: number) => {code: string; value: number; rank: number}[];
+export const niceCeiling: (value: number) => number;
