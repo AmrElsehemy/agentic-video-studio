@@ -1,0 +1,670 @@
+{
+  "schemaVersion": 2,
+  "id": "sahara-size",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica",
+    "wordmark": {
+      "lead": "GEO",
+      "accent": "GRAPHICA"
+    },
+    "fonts": {
+      "display": "Oswald",
+      "body": "Inter"
+    },
+    "captions": {
+      "mode": "words"
+    }
+  },
+  "title": "The Largest Hot Desert on Earth",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "mystery",
+    "numberRelevant": false,
+    "premise": "The Sahara covers 9.2 million km², the largest hot desert on Earth.",
+    "audiencePromise": "See how much of Africa one desert covers.",
+    "openLoop": "How much of a continent can one desert cover?",
+    "payoff": "The Sahara spans 9.2 million km² from the Atlantic to the Red Sea, the largest hot desert on Earth.",
+    "targetEmotion": "surprise",
+    "engagementQuestion": "Could you cross it?",
+    "targetSecondsBetweenVisualChanges": 0.68
+  },
+  "subject": {
+    "name": "Algeria",
+    "category": "Border",
+    "attributes": {
+      "geoEntity": "country:DZA"
+    }
+  },
+  "related": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#cfe9f2",
+    "surface": "#f4e3b8",
+    "primary": "#d9482b",
+    "secondary": "#2a7fa6",
+    "ink": "#14263a"
+  },
+  "look": "atlas",
+  "audio": {
+    "music": "generated/sahara-size-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 100,
+      "notes": [
+        98,
+        116.54,
+        130.81,
+        146.83,
+        130.81,
+        116.54,
+        87.31,
+        98
+      ],
+      "score": "tension"
+    },
+    "voice": {
+      "provider": "elevenlabs",
+      "model": "eleven_v4",
+      "voice": "JBFqnCBsd6RMkjVDRZzb",
+      "instructions": "Warm, curious storyteller walking a friend across a map. Clear and confident, with a sense of discovery on each reveal; slow slightly on dates and place names so they land. Conversational and human, never a documentary announcer, lecture, or neutral TTS. Never imitate a known person or character.",
+      "speed": 1.06,
+      "output": "generated/sahara-size-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      },
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://github.com/lipis/flag-icons/blob/main/LICENSE",
+        "owner": "flag-icons",
+        "licenseStatus": "licensed",
+        "publicReleaseApproved": true,
+        "notes": "Flags: flag-icons (MIT)."
+      },
+      {
+        "kind": "photo",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Erg_chebbi_sunrise.jpg",
+        "owner": "JanSuchy",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Photo: JanSuchy / Wikimedia Commons (Public domain)."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "durationSeconds": 3.8,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "mystery",
+      "subjectFocus": "hidden",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "A MAP MYSTERY",
+      "headline": "HOW BIG IS IT?",
+      "narration": "One desert covers much of North Africa.",
+      "caption": "ONE DESERT, MUCH OF NORTH AFRICA",
+      "visual": "hook",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "world",
+            "at": 0,
+            "padding": 0.35,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -12.264,
+                7.456,
+                36.899,
+                37.094
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.18,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:DZA",
+            "style": "fill",
+            "at": 0.06
+          },
+          {
+            "entity": "country:LBY",
+            "style": "fill",
+            "at": 0.082
+          },
+          {
+            "entity": "country:EGY",
+            "style": "fill",
+            "at": 0.103
+          },
+          {
+            "entity": "country:MLI",
+            "style": "fill",
+            "at": 0.125
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:DZA",
+            "text": "NORTH AFRICA",
+            "at": 0.362
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "space",
+        "globe": true
+      }
+    },
+    {
+      "id": "name",
+      "durationSeconds": 3.8,
+      "beat": "clue",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "MEET IT",
+      "headline": "THE SAHARA",
+      "narration": "It is the Sahara.",
+      "caption": "THE SAHARA",
+      "visual": "gauntlet",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -12.264,
+                7.456,
+                36.899,
+                37.094
+              ]
+            },
+            "at": 0,
+            "padding": 0.18,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                11,
+                23.25,
+                13,
+                24.75
+              ]
+            },
+            "at": 0.82,
+            "padding": 0.22,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:NER",
+            "style": "fill",
+            "at": 0.06
+          },
+          {
+            "entity": "country:TCD",
+            "style": "fill",
+            "at": 0.081
+          },
+          {
+            "entity": "country:DZA",
+            "style": "outline",
+            "at": 0.102
+          },
+          {
+            "entity": "country:LBY",
+            "style": "outline",
+            "at": 0.123
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": {
+              "lon": 12,
+              "lat": 24
+            },
+            "text": "SAHARA (APPROX.)",
+            "at": 0.428
+          }
+        ],
+        "dataset": "natural-earth",
+        "cut": true,
+        "ambience": "desert",
+        "flags": true
+      }
+    },
+    {
+      "id": "area",
+      "durationSeconds": 3.8,
+      "beat": "clue",
+      "role": "evidence",
+      "shot": "wide",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "HOW BIG?",
+      "headline": "9.2 MILLION KM²",
+      "narration": "It covers 9.2 million square kilometres.",
+      "caption": "9,200,000 KM²",
+      "visual": "gauntlet",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                11,
+                23.25,
+                13,
+                24.75
+              ]
+            },
+            "at": 0,
+            "padding": 0.22,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -12.264,
+                7.456,
+                36.899,
+                37.094
+              ]
+            },
+            "at": 0.82,
+            "padding": 0.16,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:DZA",
+            "style": "fill",
+            "at": 0.06
+          },
+          {
+            "entity": "country:LBY",
+            "style": "fill",
+            "at": 0.08
+          },
+          {
+            "entity": "country:MLI",
+            "style": "fill",
+            "at": 0.101
+          },
+          {
+            "entity": "country:NER",
+            "style": "fill",
+            "at": 0.121
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": {
+              "lon": 12,
+              "lat": 24
+            },
+            "text": "SAHARA",
+            "at": 0.132,
+            "until": 0.695
+          },
+          {
+            "type": "label",
+            "anchor": "country:TCD",
+            "text": "9,200,000 KM²",
+            "at": 0.439
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "desert",
+        "flags": true
+      }
+    },
+    {
+      "id": "span",
+      "durationSeconds": 4.4,
+      "beat": "escalation",
+      "role": "escalation",
+      "shot": "tracking",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "WIDE",
+      "headline": "RED SEA TO ATLANTIC",
+      "narration": "It stretches from the Atlantic to the Red Sea.",
+      "caption": "ATLANTIC TO RED SEA",
+      "visual": "advantage",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -12.264,
+                7.456,
+                36.899,
+                37.094
+              ]
+            },
+            "at": 0,
+            "padding": 0.16,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -8.682,
+                18.976,
+                36.899,
+                37.094
+              ]
+            },
+            "at": 0.86,
+            "padding": 0.2,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:DZA",
+            "style": "outline",
+            "at": 0.06
+          },
+          {
+            "entity": "country:EGY",
+            "style": "outline",
+            "at": 0.081
+          }
+        ],
+        "annotations": [
+          {
+            "type": "route",
+            "path": [
+              "country:DZA",
+              "country:LBY",
+              "country:EGY"
+            ],
+            "text": "ATLANTIC TO RED SEA",
+            "at": 0.06,
+            "until": 0.742,
+            "marker": true,
+            "follow": false
+          },
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": -14,
+              "lat": 25.5
+            },
+            "text": "ATLANTIC COAST",
+            "at": 0.291
+          },
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 35.6,
+              "lat": 24
+            },
+            "text": "RED SEA",
+            "at": 0.501
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "desert",
+        "flags": true
+      }
+    },
+    {
+      "id": "record",
+      "durationSeconds": 4,
+      "beat": "reveal",
+      "role": "payoff",
+      "shot": "comparison",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "THE RECORD",
+      "headline": "LARGEST HOT DESERT",
+      "narration": "It is the largest hot desert on Earth.",
+      "caption": "LARGEST HOT DESERT ON EARTH",
+      "visual": "race",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                11,
+                23.25,
+                13,
+                24.75
+              ]
+            },
+            "at": 0,
+            "padding": 0.2,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -8.682,
+                18.976,
+                36.899,
+                37.094
+              ]
+            },
+            "at": 0.9,
+            "padding": 0.2,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:DZA",
+            "style": "outline",
+            "at": 0.22
+          },
+          {
+            "entity": "country:LBY",
+            "style": "outline",
+            "at": 0.24
+          },
+          {
+            "entity": "country:EGY",
+            "style": "outline",
+            "at": 0.26
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": {
+              "lon": 12,
+              "lat": 24
+            },
+            "text": "SAHARA",
+            "at": 0.58
+          },
+          {
+            "type": "label",
+            "anchor": "country:DZA",
+            "text": "LARGEST HOT DESERT",
+            "at": 0.42
+          },
+          {
+            "type": "photo",
+            "photo": "erg-chebbi",
+            "at": 0.08
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "desert",
+        "flags": true
+      }
+    },
+    {
+      "id": "third",
+      "durationSeconds": 4,
+      "beat": "reveal",
+      "role": "payoff",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "OVERALL",
+      "headline": "THIRD-LARGEST OVERALL",
+      "narration": "Only Antarctica and the Arctic deserts are bigger.",
+      "caption": "3RD-LARGEST DESERT OVERALL",
+      "visual": "tradeoff",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "country:DZA",
+            "at": 0,
+            "padding": 0.15,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:DZA",
+            "style": "fill",
+            "at": 0.06
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:DZA",
+            "text": "ALGERIA",
+            "at": 0.307
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "desert"
+      }
+    },
+    {
+      "id": "verdict",
+      "durationSeconds": 3.8,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "YOUR TURN",
+      "headline": "CROSS IT?",
+      "narration": "Could you cross it?",
+      "caption": "COULD YOU CROSS IT?",
+      "visual": "cta",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "world",
+            "at": 0,
+            "padding": 0.3,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -12.264,
+                7.456,
+                36.899,
+                37.094
+              ]
+            },
+            "at": 0.82,
+            "padding": 0.16,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:MLI",
+            "style": "outline",
+            "at": 0.06
+          },
+          {
+            "entity": "country:NER",
+            "style": "outline",
+            "at": 0.08
+          },
+          {
+            "entity": "country:TCD",
+            "style": "outline",
+            "at": 0.101
+          },
+          {
+            "entity": "country:LBY",
+            "style": "fill",
+            "at": 0.121
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": {
+              "lon": 12,
+              "lat": 24
+            },
+            "text": "SAHARA",
+            "at": 0.47
+          },
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 12,
+              "lat": 24
+            },
+            "text": "COULD YOU CROSS IT?",
+            "at": 0.613
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "desert",
+        "flags": true
+      }
+    }
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia: Sahara (revision 1378658315)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Sahara&oldid=1378658315"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ]
+}

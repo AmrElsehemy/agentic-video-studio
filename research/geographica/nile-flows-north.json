@@ -1,0 +1,105 @@
+{
+  "schemaVersion": 1,
+  "id": "nile-flows-north",
+  "subject": "Egypt",
+  "kind": "curated",
+  "note": "Hand-curated research for a Geographica episode about the Nile. Claims are cited to a pinned Wikipedia revision (trusted_secondary). The river is drawn as an approximate route through places named in the article, not traced from map data. Sudan has a flagged area in the map data (Abyei), which this episode does not show, so it needs the borders review before release.",
+  "regions": [
+    "Egypt",
+    "Sudan",
+    "South Sudan",
+    "Uganda",
+    "Ethiopia",
+    "Mediterranean Sea"
+  ],
+  "claims": [
+    {
+      "id": "north",
+      "text": "The Nile is a major north-flowing river in northeast Africa which empties into the Mediterranean Sea.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-nile"
+      ]
+    },
+    {
+      "id": "longest",
+      "text": "At 7,088 kilometres long, it is the longest river in the world.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-nile"
+      ]
+    },
+    {
+      "id": "white",
+      "text": "The White Nile begins near Lake Victoria and flows through Uganda and South Sudan.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-nile"
+      ]
+    },
+    {
+      "id": "blue",
+      "text": "The Blue Nile begins near Lake Tana in Ethiopia and flows into Sudan from the southeast.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-nile"
+      ]
+    },
+    {
+      "id": "khartoum",
+      "text": "The two rivers meet at the Sudanese capital, Khartoum.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-nile"
+      ]
+    },
+    {
+      "id": "eleven",
+      "text": "The Nile’s drainage basin extends across eleven countries.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-nile"
+      ]
+    }
+  ],
+  "places": {
+    "victoria": {
+      "lon": 33,
+      "lat": -1,
+      "source": "wikipedia-nile",
+      "approximate": true,
+      "note": "Lake Victoria, near where the White Nile begins."
+    },
+    "tana": {
+      "lon": 37.3,
+      "lat": 12,
+      "source": "wikipedia-nile",
+      "approximate": true,
+      "note": "Lake Tana, where the Blue Nile begins."
+    },
+    "khartoum": {
+      "lon": 32.56,
+      "lat": 15.5,
+      "source": "wikipedia-nile",
+      "approximate": true,
+      "note": "Khartoum, where the two rivers meet."
+    },
+    "delta": {
+      "lon": 31,
+      "lat": 31.3,
+      "source": "wikipedia-nile",
+      "approximate": true,
+      "note": "Where the Nile empties into the Mediterranean."
+    }
+  },
+  "sources": {
+    "wikipedia-nile": {
+      "label": "Wikipedia: Nile (revision 1368885921)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Nile&oldid=1368885921"
+    },
+    "natural-earth": {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  }
+}

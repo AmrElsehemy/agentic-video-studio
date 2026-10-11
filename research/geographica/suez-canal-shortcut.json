@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "id": "suez-canal-shortcut",
+  "subject": "Egypt",
+  "kind": "curated",
+  "note": "Hand-curated research for a Geographica episode about the Suez Canal. Claims are cited to a pinned Wikipedia revision (trusted_secondary). The canal is drawn as an approximate route between its two ends.",
+  "regions": [
+    "Egypt",
+    "Mediterranean Sea",
+    "Red Sea"
+  ],
+  "claims": [
+    {
+      "id": "canal",
+      "text": "The Suez Canal is an artificial sea-level waterway in Egypt, connecting the Mediterranean Sea to the Red Sea through the Isthmus of Suez and dividing Africa and Asia.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-suez-canal"
+      ]
+    },
+    {
+      "id": "length",
+      "text": "The canal is 193.3 kilometres long and is a key trade route between Europe and Asia.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-suez-canal"
+      ]
+    },
+    {
+      "id": "built",
+      "text": "Construction lasted from 1859 to 1869, and it officially opened on 17 November 1869.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-suez-canal"
+      ]
+    },
+    {
+      "id": "saving",
+      "text": "It reduces the journey distance from the Arabian Sea to London by approximately 8,900 km, avoiding the South Atlantic and southern Indian oceans.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-suez-canal"
+      ]
+    }
+  ],
+  "places": {
+    "port-said": {
+      "lon": 32.3,
+      "lat": 31.26,
+      "source": "wikipedia-suez-canal",
+      "approximate": true,
+      "note": "The Mediterranean end of the canal, at Port Said."
+    },
+    "suez-city": {
+      "lon": 32.55,
+      "lat": 29.97,
+      "source": "wikipedia-suez-canal",
+      "approximate": true,
+      "note": "The Red Sea end of the canal, at Suez."
+    }
+  },
+  "sources": {
+    "wikipedia-suez-canal": {
+      "label": "Wikipedia: Suez Canal (revision 1376188722)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Suez_Canal&oldid=1376188722"
+    },
+    "natural-earth": {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  }
+}

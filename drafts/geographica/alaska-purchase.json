@@ -1,0 +1,443 @@
+{
+  "id": "alaska-purchase",
+  "title": "The U.S. Bought Alaska for Two Cents an Acre",
+  "storyPattern": "mystery",
+  "numberRelevant": false,
+  "premise": "In 1867 the United States bought Alaska from Russia for $7.2 million, two cents an acre.",
+  "audiencePromise": "See the biggest bargain in U.S. map history.",
+  "openLoop": "How much did the U.S. pay for all of Alaska?",
+  "payoff": "The United States paid Russia $7.2 million, about two cents an acre, for 586,412 square miles of Alaska.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "Would you have bought it?",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica"
+  },
+  "subject": {
+    "name": "United States",
+    "category": "Border",
+    "attributes": {
+      "geoEntity": "country:USA"
+    }
+  },
+  "voice": {
+    "provider": "elevenlabs",
+    "voice": "JBFqnCBsd6RMkjVDRZzb"
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "eyebrow": "A MAP MYSTERY",
+      "headline": "BOUGHT FOR CENTS",
+      "narration": "America bought all of this for cents.",
+      "caption": "TWO CENTS AN ACRE",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "world",
+            "at": 0,
+            "padding": 0.15,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -178.195,
+                25.121,
+                -66.977,
+                71.408
+              ]
+            },
+            "at": 0.75,
+            "padding": 0.2,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:USA",
+            "style": "outline",
+            "at": 0.06
+          },
+          {
+            "entity": "admin1:USA-3563",
+            "style": "fill",
+            "at": 0.165
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "admin1:USA-3563",
+            "text": "TWO CENTS AN ACRE",
+            "at": 0.323
+          }
+        ],
+        "dataset": "natural-earth",
+        "globe": true,
+        "ambience": "space"
+      }
+    },
+    {
+      "id": "what",
+      "beat": "clue",
+      "eyebrow": "WHAT?",
+      "headline": "ALASKA",
+      "narration": "It is Alaska, once called Russian America.",
+      "caption": "ALASKA, ONCE RUSSIAN AMERICA",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -178.195,
+                25.121,
+                -66.977,
+                71.408
+              ]
+            },
+            "at": 0,
+            "padding": 0.2,
+            "ease": "in-out"
+          },
+          {
+            "target": "admin1:USA-3563",
+            "at": 0.75,
+            "padding": 0.18,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "admin1:USA-3563",
+            "style": "fill",
+            "at": 0.06
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "admin1:USA-3563",
+            "text": "ALASKA / RUSSIAN AMERICA",
+            "at": 0.217
+          }
+        ],
+        "dataset": "natural-earth",
+        "cut": true,
+        "projection": "albers",
+        "ambience": "ice"
+      }
+    },
+    {
+      "id": "seller",
+      "beat": "clue",
+      "eyebrow": "THE SELLER",
+      "headline": "RUSSIA SOLD IT",
+      "narration": "Russia sold it in 1867.",
+      "caption": "SOLD BY RUSSIA, 1867",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "admin1:USA-3563",
+            "at": 0,
+            "padding": 0.18,
+            "ease": "in-out"
+          },
+          {
+            "target": "country:RUS",
+            "at": 0.75,
+            "padding": 0.15,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:RUS",
+            "style": "fill",
+            "at": 0.06
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:RUS",
+            "text": "RUSSIA · 1867",
+            "at": 0.18
+          }
+        ],
+        "dataset": "natural-earth",
+        "projection": "albers",
+        "ambience": "ice"
+      }
+    },
+    {
+      "id": "why",
+      "beat": "escalation",
+      "eyebrow": "WHY SELL?",
+      "headline": "HARD TO DEFEND",
+      "narration": "After the Crimean War, Russia feared it could not defend it.",
+      "caption": "HARD TO DEFEND IN ANY WAR",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "country:RUS",
+            "at": 0,
+            "padding": 0.15,
+            "ease": "in-out"
+          },
+          {
+            "target": "country:RUS",
+            "at": 0.75,
+            "padding": 0.2,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:RUS",
+            "style": "fill",
+            "at": 0.06
+          },
+          {
+            "entity": "disputed:crimea-B89",
+            "style": "outline",
+            "at": 0.217
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:RUS",
+            "text": "RUSSIA",
+            "at": 0.112
+          }
+        ],
+        "dataset": "natural-earth",
+        "projection": "albers",
+        "ambience": "ice"
+      }
+    },
+    {
+      "id": "price",
+      "beat": "reveal",
+      "eyebrow": "THE PRICE",
+      "headline": "$7.2 MILLION",
+      "narration": "The price: seven point two million dollars.",
+      "caption": "$7.2 MILLION",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "country:RUS",
+            "at": 0,
+            "padding": 0.15,
+            "ease": "in-out"
+          },
+          {
+            "target": "admin1:USA-3563",
+            "at": 0.55,
+            "padding": 0.18,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -178.195,
+                25.121,
+                -66.977,
+                71.408
+              ]
+            },
+            "at": 0.9,
+            "padding": 0.2,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "admin1:USA-3563",
+            "style": "fill",
+            "at": 0.35
+          },
+          {
+            "entity": "country:USA",
+            "style": "outline",
+            "at": 0.5
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "admin1:USA-3563",
+            "text": "$7.2 MILLION",
+            "at": 0.4
+          },
+          {
+            "type": "photo",
+            "photo": "alaska-purchase",
+            "at": 0.08
+          }
+        ],
+        "dataset": "natural-earth",
+        "projection": "albers",
+        "ambience": "ice"
+      }
+    },
+    {
+      "id": "size",
+      "beat": "reveal",
+      "eyebrow": "THE BARGAIN",
+      "headline": "586,412 SQUARE MILES",
+      "narration": "That added 586,412 square miles to the country.",
+      "caption": "+586,412 SQ MI · $0.02 AN ACRE",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -178.195,
+                25.121,
+                -66.977,
+                71.408
+              ]
+            },
+            "at": 0,
+            "padding": 0.2,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -178.195,
+                25.121,
+                -66.977,
+                71.408
+              ]
+            },
+            "at": 0.8,
+            "padding": 0.18,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "admin1:USA-3563",
+            "style": "fill",
+            "at": 0.06
+          },
+          {
+            "entity": "country:USA",
+            "style": "outline",
+            "at": 0.165
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "admin1:USA-3563",
+            "text": "586,412 SQ MI",
+            "at": 0.217
+          },
+          {
+            "type": "label",
+            "anchor": "country:USA",
+            "text": "TWO CENTS AN ACRE",
+            "at": 0.375
+          }
+        ],
+        "dataset": "natural-earth",
+        "projection": "albers",
+        "ambience": "ice"
+      }
+    },
+    {
+      "id": "verdict",
+      "beat": "verdict",
+      "eyebrow": "YOUR TURN",
+      "headline": "SEWARD’S FOLLY?",
+      "narration": "Critics called it Seward’s Folly. Would you have bought it?",
+      "caption": "WOULD YOU HAVE BOUGHT IT?",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "country:USA",
+            "at": 0,
+            "padding": 0.18,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -178.195,
+                25.121,
+                -66.977,
+                71.408
+              ]
+            },
+            "at": 0.7,
+            "padding": 0.2,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "admin1:USA-3563",
+            "style": "outline",
+            "at": 0.06
+          },
+          {
+            "entity": "country:USA",
+            "style": "fill",
+            "at": 0.217
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "admin1:USA-3563",
+            "text": "SEWARD'S FOLLY",
+            "at": 0.27
+          }
+        ],
+        "dataset": "natural-earth",
+        "projection": "albers",
+        "ambience": "ice"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia: Alaska Purchase (revision 1378538835)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Alaska_Purchase&oldid=1378538835"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ],
+  "paletteVariant": "atlas",
+  "score": "epic"
+}

@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "id": "istanbul-two-continents",
+  "subject": "Turkey",
+  "kind": "curated",
+  "note": "Hand-curated research for a Geographica episode about Istanbul. Claims are cited to a pinned Wikipedia revision (trusted_secondary). The Bosphorus is too narrow for the pinned map data to show reliably, so the city is a labelled approximate point.",
+  "regions": [
+    "Turkey",
+    "Black Sea",
+    "Greece",
+    "Bulgaria"
+  ],
+  "claims": [
+    {
+      "id": "two",
+      "text": "Istanbul is a city on two continents; about two-thirds of its population live in Europe and the rest in Asia.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-istanbul"
+      ]
+    },
+    {
+      "id": "bosphorus",
+      "text": "Istanbul straddles the Bosphorus, one of the world’s busiest waterways, in northwestern Turkey.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-istanbul"
+      ]
+    },
+    {
+      "id": "size",
+      "text": "With a population of over 15 million, Istanbul is home to 18% of the population of Turkey.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-istanbul"
+      ]
+    },
+    {
+      "id": "route",
+      "text": "Istanbul’s position holds the only sea route between the Black Sea and the Mediterranean.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-istanbul"
+      ]
+    },
+    {
+      "id": "marmaray",
+      "text": "The lines on the European and Asian sides of the city are connected by the Marmaray Tunnel under the Bosphorus strait.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-istanbul"
+      ]
+    }
+  ],
+  "places": {
+    "istanbul": {
+      "lon": 28.98,
+      "lat": 41.01,
+      "source": "wikipedia-istanbul",
+      "approximate": true,
+      "note": "Istanbul, on the Bosphorus."
+    }
+  },
+  "sources": {
+    "wikipedia-istanbul": {
+      "label": "Wikipedia: Istanbul (revision 1378142171)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Istanbul&oldid=1378142171"
+    },
+    "natural-earth": {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  }
+}

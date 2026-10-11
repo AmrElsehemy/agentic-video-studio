@@ -1,0 +1,470 @@
+{
+  "id": "maldives-lowest",
+  "title": "The Lowest Country on Earth",
+  "storyPattern": "mystery",
+  "numberRelevant": false,
+  "premise": "The Maldives is the lowest country on Earth, with a highest natural point of only 2.4 metres.",
+  "audiencePromise": "See a whole country that barely rises above the waves.",
+  "openLoop": "Which country is lower than a doorway?",
+  "payoff": "The Maldives\u2019 highest natural ground is 2.4 metres, and its average only 1.5 metres, above sea level.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "Would you live this low?",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica"
+  },
+  "subject": {
+    "name": "Maldives",
+    "category": "Border",
+    "attributes": {
+      "geoEntity": "country:MDV"
+    }
+  },
+  "voice": {
+    "provider": "elevenlabs",
+    "voice": "JBFqnCBsd6RMkjVDRZzb"
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "eyebrow": "A MAP MYSTERY",
+      "headline": "THE LOWEST COUNTRY",
+      "narration": "This is the lowest country on Earth.",
+      "caption": "THE LOWEST COUNTRY ON EARTH",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "world",
+            "at": 0,
+            "padding": 0.15,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                73.192,
+                3.978,
+                73.792,
+                4.428
+              ]
+            },
+            "at": 0.65,
+            "padding": 0.35,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:MDV",
+            "style": "fill",
+            "at": 0.06
+          },
+          {
+            "entity": "country:MDV",
+            "style": "outline",
+            "at": 0.228
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:MDV",
+            "text": "LOWEST COUNTRY",
+            "at": 0.396
+          },
+          {
+            "type": "marker",
+            "anchor": "country:MDV",
+            "text": "MALDIVES",
+            "at": 0.564
+          }
+        ],
+        "dataset": "natural-earth",
+        "globe": true,
+        "ambience": "space"
+      }
+    },
+    {
+      "id": "where",
+      "beat": "clue",
+      "eyebrow": "WHERE?",
+      "headline": "THE MALDIVES",
+      "narration": "It is the Maldives, in the Indian Ocean.",
+      "caption": "THE MALDIVES",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                73.192,
+                3.978,
+                73.792,
+                4.428
+              ]
+            },
+            "at": 0,
+            "padding": 0.35,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:MDV",
+            "style": "fill",
+            "at": 0.06
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:MDV",
+            "text": "MALDIVES",
+            "at": 0.165
+          },
+          {
+            "type": "label",
+            "anchor": {
+              "lon": 73.3,
+              "lat": 2.4
+            },
+            "text": "INDIAN OCEAN",
+            "at": 0.428
+          }
+        ],
+        "dataset": "natural-earth",
+        "cut": true,
+        "ambience": "sea"
+      }
+    },
+    {
+      "id": "height",
+      "beat": "clue",
+      "eyebrow": "HOW HIGH?",
+      "headline": "2.4 METRES",
+      "narration": "Its highest natural point is only 2.4 metres.",
+      "caption": "HIGHEST POINT: 2.4 M",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                73.192,
+                3.978,
+                73.792,
+                4.428
+              ]
+            },
+            "at": 0,
+            "padding": 0.3,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:MDV",
+            "style": "outline",
+            "at": 0.06
+          }
+        ],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": "country:MDV",
+            "text": "HIGH POINT",
+            "at": 0.165
+          },
+          {
+            "type": "arrow",
+            "from": "country:MDV",
+            "to": "country:MDV",
+            "at": 0.323
+          },
+          {
+            "type": "label",
+            "anchor": "country:MDV",
+            "text": "2.4 M ABOVE SEA",
+            "at": 0.459
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "sea"
+      }
+    },
+    {
+      "id": "average",
+      "beat": "escalation",
+      "eyebrow": "ON AVERAGE",
+      "headline": "1.5 METRES",
+      "narration": "The average ground level is just 1.5 metres.",
+      "caption": "AVERAGE: 1.5 M",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                73.192,
+                3.978,
+                73.792,
+                4.428
+              ]
+            },
+            "at": 0,
+            "padding": 0.3,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:MDV",
+            "style": "fill",
+            "at": 0.06
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:MDV",
+            "text": "AVERAGE: 1.5 M",
+            "at": 0.217
+          },
+          {
+            "type": "arrow",
+            "from": "country:MDV",
+            "to": "country:MDV",
+            "at": 0.396
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "sea"
+      }
+    },
+    {
+      "id": "coral",
+      "beat": "reveal",
+      "eyebrow": "WHY?",
+      "headline": "ISLANDS OF CORAL",
+      "narration": "Most of its land is coral, rising less than a metre.",
+      "caption": "80%+ CORAL, UNDER 1 M",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                73.192,
+                3.978,
+                73.792,
+                4.428
+              ]
+            },
+            "at": 0,
+            "padding": 0.35,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:MDV",
+            "style": "fill",
+            "at": 0.2
+          },
+          {
+            "entity": "country:MDV",
+            "style": "outline",
+            "at": 0.38
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:MDV",
+            "text": "80%+ CORAL",
+            "at": 0.3
+          },
+          {
+            "type": "marker",
+            "anchor": "country:MDV",
+            "text": "UNDER 1 M",
+            "at": 0.58
+          },
+          {
+            "type": "photo",
+            "photo": "male-aerial",
+            "at": 0.08
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "sea"
+      }
+    },
+    {
+      "id": "spread",
+      "beat": "reveal",
+      "eyebrow": "SPREAD OUT",
+      "headline": "298 KM\u00b2 OF LAND",
+      "narration": "Just 298 square kilometres of land, across 90,000 of sea.",
+      "caption": "298 KM\u00b2 OF LAND, 90,000 KM\u00b2 OF SEA",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                73.192,
+                3.978,
+                73.792,
+                4.428
+              ]
+            },
+            "at": 0,
+            "padding": 0.3,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:MDV",
+            "style": "fill",
+            "at": 0.06
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:MDV",
+            "text": "298 KM\u00b2 LAND",
+            "at": 0.165
+          },
+          {
+            "type": "label",
+            "anchor": "country:MDV",
+            "text": "90,000 KM\u00b2 SEA",
+            "at": 0.459
+          }
+        ],
+        "dataset": "natural-earth",
+        "data": {
+          "label": "Area",
+          "unit": "KM\u00b2",
+          "values": [
+            {
+              "entity": "country:MDV",
+              "value": 109
+            },
+            {
+              "entity": "country:IND",
+              "value": 3160000
+            },
+            {
+              "entity": "country:LKA",
+              "value": 66600
+            }
+          ],
+          "at": 0.217,
+          "legend": true,
+          "view": "bars"
+        },
+        "ambience": "sea"
+      }
+    },
+    {
+      "id": "verdict",
+      "beat": "verdict",
+      "eyebrow": "YOUR TURN",
+      "headline": "LIVE THIS LOW?",
+      "narration": "Would you live this close to the sea?",
+      "caption": "WOULD YOU LIVE THIS LOW?",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                73.4958,
+                4.15635,
+                73.522,
+                4.19425
+              ]
+            },
+            "at": 0,
+            "padding": 0,
+            "ease": "linear"
+          },
+          {
+            "target": {
+              "bbox": [
+                73.4998,
+                4.16293,
+                73.5187,
+                4.18857
+              ]
+            },
+            "at": 1,
+            "padding": 0,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 73.5089,
+              "lat": 4.1753
+            },
+            "text": "MAL\u00c9",
+            "at": 0.06
+          },
+          {
+            "type": "label",
+            "anchor": {
+              "lon": 73.5089,
+              "lat": 4.1695
+            },
+            "text": "CLOSE TO THE SEA",
+            "at": 0.318
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "city",
+        "streets": {
+          "city": "male",
+          "at": 0.05
+        }
+      }
+    }
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia: Maldives (revision 1376437874)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Maldives&oldid=1376437874"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ],
+  "paletteVariant": "atlas",
+  "score": "calm"
+}

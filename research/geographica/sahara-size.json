@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "id": "sahara-size",
+  "subject": "Algeria",
+  "kind": "curated",
+  "note": "Hand-curated research for a Geographica episode about the Sahara. Claims are cited to a pinned Wikipedia revision (trusted_secondary). The desert has no outline in the pinned map data, so it is shown with labelled approximate points and no countries are highlighted as \"the Sahara\".",
+  "regions": [
+    "Algeria",
+    "Libya",
+    "Egypt",
+    "Mali",
+    "Niger",
+    "Chad"
+  ],
+  "claims": [
+    {
+      "id": "largest",
+      "text": "With an area of 9,200,000 square kilometres, the Sahara is the largest hot desert in the world and the third-largest desert overall, smaller only than the deserts of Antarctica and the northern Arctic.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-sahara"
+      ]
+    },
+    {
+      "id": "span",
+      "text": "It stretches from the Red Sea in the east and the Mediterranean in the north to the Atlantic Ocean in the west.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-sahara"
+      ]
+    },
+    {
+      "id": "sahel",
+      "text": "To the south it is bounded by the Sahel, a belt of semi-arid tropical savanna.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-sahara"
+      ]
+    },
+    {
+      "id": "north-africa",
+      "text": "The desert covers much of North Africa, excluding the fertile Mediterranean coast, the Atlas Mountains and the Nile Valley.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-sahara"
+      ]
+    }
+  ],
+  "places": {
+    "sahara": {
+      "lon": 12,
+      "lat": 24,
+      "source": "wikipedia-sahara",
+      "approximate": true,
+      "note": "A point in the central Sahara, to the nearest degree; the desert has no surveyed centre."
+    },
+    "sahel": {
+      "lon": 8,
+      "lat": 14,
+      "source": "wikipedia-sahara",
+      "approximate": true,
+      "note": "A point in the Sahel, along the Sahara’s southern edge."
+    }
+  },
+  "sources": {
+    "wikipedia-sahara": {
+      "label": "Wikipedia: Sahara (revision 1378658315)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Sahara&oldid=1378658315"
+    },
+    "natural-earth": {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  }
+}

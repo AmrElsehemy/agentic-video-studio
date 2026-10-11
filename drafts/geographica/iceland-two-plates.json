@@ -1,0 +1,487 @@
+{
+  "id": "iceland-two-plates",
+  "title": "The Country Split Between Two Continents’ Plates",
+  "storyPattern": "mystery",
+  "numberRelevant": false,
+  "premise": "Iceland sits on the Mid-Atlantic Ridge, so it includes parts of both the European and North American plates.",
+  "audiencePromise": "Find the country that straddles two continents’ plates.",
+  "openLoop": "Which country sits on two continental plates?",
+  "payoff": "Iceland lies on the Mid-Atlantic Ridge and includes parts of both continental plates.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "Would you stand between two plates?",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica"
+  },
+  "subject": {
+    "name": "Iceland",
+    "category": "Border",
+    "attributes": {
+      "geoEntity": "country:ISL"
+    }
+  },
+  "voice": {
+    "provider": "elevenlabs",
+    "voice": "JBFqnCBsd6RMkjVDRZzb"
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "eyebrow": "A MAP MYSTERY",
+      "headline": "ONE ISLAND, TWO PLATES",
+      "narration": "One island sits on two continental plates.",
+      "caption": "ONE ISLAND, TWO PLATES",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "world",
+            "at": 0,
+            "padding": 0.15,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -73.057,
+                59.988,
+                -11.377,
+                83.634
+              ]
+            },
+            "at": 0.72,
+            "padding": 0.3,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:ISL",
+            "style": "fill",
+            "at": 0.06
+          },
+          {
+            "entity": "country:GRL",
+            "style": "outline",
+            "at": 0.116
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:ISL",
+            "text": "EUROPE PLATE",
+            "at": 0.138,
+            "until": 0.396
+          },
+          {
+            "type": "label",
+            "anchor": "country:GRL",
+            "text": "N AMERICA PLATE",
+            "at": 0.396
+          }
+        ],
+        "dataset": "natural-earth",
+        "globe": true,
+        "ambience": "space"
+      }
+    },
+    {
+      "id": "where",
+      "beat": "clue",
+      "eyebrow": "WHERE?",
+      "headline": "MID-ATLANTIC",
+      "narration": "Iceland sits between Europe and North America.",
+      "caption": "BETWEEN EUROPE AND NORTH AMERICA",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "country:ISL",
+            "at": 0,
+            "padding": 0.3,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -73.057,
+                59.988,
+                -11.377,
+                83.634
+              ]
+            },
+            "at": 0.72,
+            "padding": 0.35,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:ISL",
+            "style": "fill",
+            "at": 0.06
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:ISL",
+            "text": "BETWEEN EUROPE / N AMERICA",
+            "at": 0.217
+          }
+        ],
+        "dataset": "natural-earth",
+        "cut": true,
+        "projection": "albers",
+        "ambience": "ice"
+      }
+    },
+    {
+      "id": "ridge",
+      "beat": "clue",
+      "eyebrow": "THE RIDGE",
+      "headline": "THE MID-ATLANTIC RIDGE",
+      "narration": "It rises right on the Mid-Atlantic Ridge.",
+      "caption": "ON THE MID-ATLANTIC RIDGE",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -73.057,
+                59.988,
+                -11.377,
+                83.634
+              ]
+            },
+            "at": 0,
+            "padding": 0.3,
+            "ease": "in-out"
+          },
+          {
+            "target": "country:ISL",
+            "at": 0.72,
+            "padding": 0.22,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:ISL",
+            "style": "outline",
+            "at": 0.2
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:ISL",
+            "text": "MID-ATLANTIC RIDGE",
+            "at": 0.3
+          },
+          {
+            "type": "arrow",
+            "from": "country:ISL",
+            "to": "country:GRL",
+            "at": 0.55
+          },
+          {
+            "type": "photo",
+            "photo": "thingvellir-rift",
+            "at": 0.08
+          }
+        ],
+        "dataset": "natural-earth",
+        "projection": "albers",
+        "ambience": "ice"
+      }
+    },
+    {
+      "id": "plates",
+      "beat": "escalation",
+      "eyebrow": "THE CLUE",
+      "headline": "BOTH PLATES",
+      "narration": "Geologically, it includes parts of both plates.",
+      "caption": "PARTS OF BOTH CONTINENTAL PLATES",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "country:ISL",
+            "at": 0,
+            "padding": 0.18,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -73.057,
+                59.988,
+                -11.377,
+                83.634
+              ]
+            },
+            "at": 0.72,
+            "padding": 0.3,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:ISL",
+            "style": "fill",
+            "at": 0.06
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:ISL",
+            "text": "EUROPE PLATE",
+            "at": 0.06,
+            "until": 0.428
+          },
+          {
+            "type": "label",
+            "anchor": "country:ISL",
+            "text": "N AMERICA PLATE",
+            "at": 0.428
+          }
+        ],
+        "dataset": "natural-earth",
+        "projection": "albers",
+        "ambience": "ice"
+      }
+    },
+    {
+      "id": "closer",
+      "beat": "reveal",
+      "eyebrow": "THE ANSWER",
+      "headline": "CLOSER TO EUROPE",
+      "narration": "It is closer to Europe than to mainland North America.",
+      "caption": "CLOSER TO EUROPE",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -73.057,
+                59.988,
+                -11.377,
+                83.634
+              ]
+            },
+            "at": 0,
+            "padding": 0.35,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -73.057,
+                59.988,
+                -11.377,
+                83.634
+              ]
+            },
+            "at": 0.72,
+            "padding": 0.3,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:ISL",
+            "style": "fill",
+            "at": 0.06
+          },
+          {
+            "entity": "country:GRL",
+            "style": "outline",
+            "at": 0.112
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:ISL",
+            "text": "EUROPE CLOSER",
+            "at": 0.217
+          },
+          {
+            "type": "label",
+            "anchor": "country:GRL",
+            "text": "GREENLAND",
+            "at": 0.217
+          }
+        ],
+        "dataset": "natural-earth",
+        "projection": "albers",
+        "ambience": "ice",
+        "flags": true
+      }
+    },
+    {
+      "id": "people",
+      "beat": "reveal",
+      "eyebrow": "THE PEOPLE",
+      "headline": "EUROPE’S MOST EMPTY",
+      "narration": "It is also Europe’s most sparsely populated country.",
+      "caption": "EUROPE’S MOST SPARSELY POPULATED",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "country:ISL",
+            "at": 0,
+            "padding": 0.28,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -73.057,
+                59.988,
+                -11.377,
+                83.634
+              ]
+            },
+            "at": 0.68,
+            "padding": 0.35,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:ISL",
+            "style": "fill",
+            "at": 0.06
+          },
+          {
+            "entity": "country:GRL",
+            "style": "outline",
+            "at": 0.112
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:ISL",
+            "text": "EUROPE'S MOST SPARSE",
+            "at": 0.165
+          }
+        ],
+        "dataset": "natural-earth",
+        "data": {
+          "label": "People per km²",
+          "unit": "/KM²",
+          "values": [
+            {
+              "entity": "country:ISL",
+              "value": 3.6
+            },
+            {
+              "entity": "country:GRL",
+              "value": 0.026
+            }
+          ],
+          "at": 0.217,
+          "legend": true,
+          "view": "both"
+        },
+        "projection": "albers",
+        "ambience": "ice",
+        "flags": true
+      }
+    },
+    {
+      "id": "verdict",
+      "beat": "verdict",
+      "eyebrow": "YOUR TURN",
+      "headline": "BETWEEN TWO PLATES",
+      "narration": "Would you stand between two plates?",
+      "caption": "WOULD YOU STAND THERE?",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -21.19018,
+                64.21799,
+                -21.06982,
+                64.29381
+              ]
+            },
+            "at": 0,
+            "padding": 0,
+            "ease": "linear"
+          },
+          {
+            "target": {
+              "bbox": [
+                -21.16971,
+                64.23089,
+                -21.09029,
+                64.28091
+              ]
+            },
+            "at": 1,
+            "padding": 0,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": -21.13,
+              "lat": 64.2559
+            },
+            "text": "THINGVELLIR",
+            "at": 0.06
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "wind",
+        "streets": {
+          "city": "thingvellir",
+          "at": 0.05
+        }
+      }
+    }
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia: Iceland (revision 1376004446)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Iceland&oldid=1376004446"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ],
+  "paletteVariant": "atlas",
+  "score": "tension"
+}

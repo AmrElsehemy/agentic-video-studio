@@ -1,0 +1,600 @@
+{
+  "id": "suez-canal-shortcut",
+  "title": "The Ditch That Moved the World’s Shipping",
+  "storyPattern": "mystery",
+  "numberRelevant": false,
+  "premise": "The Suez Canal links the Mediterranean and the Red Sea and cuts about 8,900 km off the trip from the Arabian Sea to London.",
+  "audiencePromise": "See the 193 km ditch that rewrote the shipping map.",
+  "openLoop": "How does a 193 km ditch save ships 8,900 km?",
+  "payoff": "Opened in 1869, the Suez Canal links two seas and cuts about 8,900 km from the Arabian Sea–London route.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "Would you sail around Africa instead?",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica"
+  },
+  "subject": {
+    "name": "Egypt",
+    "category": "Border",
+    "attributes": {
+      "geoEntity": "country:EGY"
+    }
+  },
+  "voice": {
+    "provider": "elevenlabs",
+    "voice": "JBFqnCBsd6RMkjVDRZzb"
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "eyebrow": "A MAP MYSTERY",
+      "headline": "THE SHORTCUT",
+      "narration": "One ditch saves ships 8,900 kilometres.",
+      "caption": "ONE DITCH SAVES 8,900 KM",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "world",
+            "at": 0,
+            "padding": 0.15,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -0.119,
+                12.46,
+                43.49,
+                51.502
+              ]
+            },
+            "at": 0.8,
+            "padding": 0.35,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "river:suez-canal",
+            "style": "trace",
+            "at": 0.172
+          }
+        ],
+        "annotations": [
+          {
+            "type": "route",
+            "path": [
+              {
+                "lon": 32.55,
+                "lat": 29.97
+              },
+              {
+                "lon": 32.3,
+                "lat": 31.26
+              },
+              "city:london-gbr"
+            ],
+            "text": "SUEZ ROUTE",
+            "at": 0.06,
+            "until": 0.676,
+            "marker": true,
+            "follow": false
+          },
+          {
+            "type": "route",
+            "path": [
+              {
+                "lon": 32.55,
+                "lat": 29.97
+              },
+              "water:red-sea",
+              "city:london-gbr"
+            ],
+            "text": "AROUND AFRICA",
+            "at": 0.172,
+            "until": 0.676,
+            "marker": true,
+            "follow": false
+          },
+          {
+            "type": "label",
+            "anchor": "city:london-gbr",
+            "text": "8,900 KM SAVED",
+            "at": 0.586
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "space",
+        "globe": true
+      }
+    },
+    {
+      "id": "where",
+      "beat": "clue",
+      "eyebrow": "WHERE?",
+      "headline": "EGYPT",
+      "narration": "It cuts across Egypt, joining two seas.",
+      "caption": "MEDITERRANEAN TO RED SEA",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -2.09,
+                12.46,
+                43.49,
+                43.83
+              ]
+            },
+            "at": 0,
+            "padding": 0.35,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -2.09,
+                12.46,
+                43.49,
+                43.83
+              ]
+            },
+            "at": 0.75,
+            "padding": 0.25,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:EGY",
+            "style": "fill",
+            "at": 0.06
+          },
+          {
+            "entity": "water:mediterranean-sea",
+            "style": "outline",
+            "at": 0.116
+          },
+          {
+            "entity": "water:red-sea",
+            "style": "outline",
+            "at": 0.284
+          },
+          {
+            "entity": "river:suez-canal",
+            "style": "trace",
+            "at": 0.396
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:EGY",
+            "text": "EGYPT",
+            "at": 0.06
+          },
+          {
+            "type": "label",
+            "anchor": "water:mediterranean-sea",
+            "text": "MEDITERRANEAN SEA",
+            "at": 0.172
+          },
+          {
+            "type": "label",
+            "anchor": "water:red-sea",
+            "text": "RED SEA",
+            "at": 0.396
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "sea",
+        "flags": true,
+        "cut": true
+      }
+    },
+    {
+      "id": "length",
+      "beat": "clue",
+      "eyebrow": "HOW LONG?",
+      "headline": "193 KM",
+      "narration": "The canal is 193 kilometres long.",
+      "caption": "193.3 KM LONG",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                32.138,
+                30.011,
+                32.737,
+                31.273
+              ]
+            },
+            "at": 0,
+            "padding": 0.3,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                32.138,
+                30.011,
+                32.737,
+                31.273
+              ]
+            },
+            "at": 0.7,
+            "padding": 0.2,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "river:suez-canal",
+            "style": "trace",
+            "at": 0.06
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "river:suez-canal",
+            "text": "193.3 KM LONG",
+            "at": 0.375
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "sea"
+      }
+    },
+    {
+      "id": "split",
+      "beat": "escalation",
+      "eyebrow": "THE DIVIDE",
+      "headline": "AFRICA MEETS ASIA",
+      "narration": "It divides Africa from Asia.",
+      "caption": "DIVIDES AFRICA AND ASIA",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -2.09,
+                12.46,
+                43.49,
+                43.83
+              ]
+            },
+            "at": 0,
+            "padding": 0.3,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                24.688,
+                21.994,
+                36.899,
+                31.656
+              ]
+            },
+            "at": 0.75,
+            "padding": 0.25,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "river:suez-canal",
+            "style": "trace",
+            "at": 0.25
+          },
+          {
+            "entity": "country:EGY",
+            "style": "outline",
+            "at": 0.4
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": {
+              "lon": 32.3,
+              "lat": 31.26
+            },
+            "text": "AFRICA",
+            "at": 0.35
+          },
+          {
+            "type": "label",
+            "anchor": {
+              "lon": 32.55,
+              "lat": 29.97
+            },
+            "text": "ASIA",
+            "at": 0.6
+          },
+          {
+            "type": "photo",
+            "photo": "suez-from-orbit",
+            "at": 0.08
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "sea"
+      }
+    },
+    {
+      "id": "built",
+      "beat": "reveal",
+      "eyebrow": "THE BUILD",
+      "headline": "OPENED IN 1869",
+      "narration": "Ten years of digging, and it opened in 1869.",
+      "caption": "OPENED 17 NOVEMBER 1869",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                32.138,
+                30.011,
+                32.737,
+                31.273
+              ]
+            },
+            "at": 0,
+            "padding": 0.25,
+            "ease": "in-out"
+          },
+          {
+            "target": "country:EGY",
+            "at": 0.75,
+            "padding": 0.3,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "river:suez-canal",
+            "style": "trace",
+            "at": 0.06
+          }
+        ],
+        "annotations": [
+          {
+            "type": "timeline",
+            "steps": [
+              {
+                "label": "1859",
+                "detail": "DIGGING BEGINS"
+              },
+              {
+                "label": "1869",
+                "detail": "CANAL FINISHED"
+              },
+              {
+                "label": "17 NOV 1869",
+                "detail": "CANAL OPENS"
+              }
+            ],
+            "active": 2,
+            "at": 0.06
+          },
+          {
+            "type": "label",
+            "anchor": "river:suez-canal",
+            "text": "OPENED 17 NOV 1869",
+            "at": 0.48
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "desert"
+      }
+    },
+    {
+      "id": "saving",
+      "beat": "reveal",
+      "eyebrow": "THE SAVING",
+      "headline": "8,900 KM SHORTER",
+      "narration": "Ships from the Arabian Sea to London save 8,900 kilometres.",
+      "caption": "ARABIAN SEA TO LONDON: −8,900 KM",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -0.119,
+                12.46,
+                43.49,
+                51.502
+              ]
+            },
+            "at": 0,
+            "padding": 0.4,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -0.119,
+                12.46,
+                43.49,
+                51.502
+              ]
+            },
+            "at": 0.8,
+            "padding": 0.35,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "river:suez-canal",
+            "style": "trace",
+            "at": 0.06
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "water:red-sea",
+            "text": "ARABIAN SEA",
+            "at": 0.06
+          },
+          {
+            "type": "route",
+            "path": [
+              "water:red-sea",
+              {
+                "lon": 32.55,
+                "lat": 29.97
+              },
+              {
+                "lon": 32.3,
+                "lat": 31.26
+              },
+              "city:london-gbr"
+            ],
+            "text": "SUEZ ROUTE",
+            "at": 0.116,
+            "until": 0.732,
+            "marker": true,
+            "follow": false
+          },
+          {
+            "type": "route",
+            "path": [
+              "water:red-sea",
+              {
+                "lon": 32.55,
+                "lat": 29.97
+              },
+              "city:london-gbr"
+            ],
+            "text": "AROUND AFRICA",
+            "at": 0.228,
+            "until": 0.732,
+            "marker": true,
+            "follow": false
+          },
+          {
+            "type": "label",
+            "anchor": "city:london-gbr",
+            "text": "8,900 KM SAVED",
+            "at": 0.564
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "sea"
+      }
+    },
+    {
+      "id": "verdict",
+      "beat": "verdict",
+      "eyebrow": "YOUR TURN",
+      "headline": "AROUND AFRICA?",
+      "narration": "Would you sail around Africa instead?",
+      "caption": "AROUND AFRICA INSTEAD?",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "world",
+            "at": 0,
+            "padding": 0.15,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -0.119,
+                21.994,
+                36.899,
+                51.502
+              ]
+            },
+            "at": 0.75,
+            "padding": 0.3,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:EGY",
+            "style": "fill",
+            "at": 0.12
+          },
+          {
+            "entity": "river:suez-canal",
+            "style": "trace",
+            "at": 0.24
+          }
+        ],
+        "annotations": [
+          {
+            "type": "route",
+            "path": [
+              {
+                "lon": 32.55,
+                "lat": 29.97
+              },
+              {
+                "lon": 32.3,
+                "lat": 31.26
+              },
+              "city:london-gbr"
+            ],
+            "text": "CANAL SHORTCUT",
+            "at": 0.06,
+            "until": 0.66,
+            "marker": true,
+            "follow": false
+          },
+          {
+            "type": "label",
+            "anchor": "country:EGY",
+            "text": "AROUND AFRICA?",
+            "at": 0.42
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "sea"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia: Suez Canal (revision 1376188722)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Suez_Canal&oldid=1376188722"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ],
+  "paletteVariant": "atlas",
+  "score": "pulse"
+}

@@ -1,0 +1,623 @@
+{
+  "schemaVersion": 2,
+  "id": "vatican-city",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica",
+    "wordmark": {
+      "lead": "GEO",
+      "accent": "GRAPHICA"
+    },
+    "fonts": {
+      "display": "Oswald",
+      "body": "Inter"
+    },
+    "captions": {
+      "mode": "words"
+    }
+  },
+  "title": "The Smallest Country in the World",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "mystery",
+    "numberRelevant": false,
+    "premise": "Vatican City is the smallest country in the world and sits inside Rome.",
+    "audiencePromise": "Find the smallest country on the map.",
+    "openLoop": "Which country fits inside a city?",
+    "payoff": "Vatican City covers 44 hectares and has fewer than 1,000 people, entirely inside Rome.",
+    "targetEmotion": "surprise",
+    "engagementQuestion": "Could you walk across a country in minutes?",
+    "targetSecondsBetweenVisualChanges": 0.68
+  },
+  "subject": {
+    "name": "Vatican City",
+    "category": "Border",
+    "attributes": {
+      "geoEntity": "country:VAT"
+    }
+  },
+  "related": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#cfe9f2",
+    "surface": "#f4e3b8",
+    "primary": "#d9482b",
+    "secondary": "#2a7fa6",
+    "ink": "#14263a"
+  },
+  "look": "atlas",
+  "audio": {
+    "music": "generated/vatican-city-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 112,
+      "notes": [
+        98,
+        116.54,
+        130.81,
+        146.83,
+        130.81,
+        116.54,
+        87.31,
+        98
+      ],
+      "score": "quirky"
+    },
+    "voice": {
+      "provider": "elevenlabs",
+      "model": "eleven_v4",
+      "voice": "JBFqnCBsd6RMkjVDRZzb",
+      "instructions": "Warm, curious storyteller walking a friend across a map. Clear and confident, with a sense of discovery on each reveal; slow slightly on dates and place names so they land. Conversational and human, never a documentary announcer, lecture, or neutral TTS. Never imitate a known person or character.",
+      "speed": 1.06,
+      "output": "generated/vatican-city-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      },
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.openstreetmap.org/copyright",
+        "owner": "OpenStreetMap contributors",
+        "licenseStatus": "licensed",
+        "publicReleaseApproved": true,
+        "notes": "© OpenStreetMap contributors (ODbL)."
+      },
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://github.com/lipis/flag-icons/blob/main/LICENSE",
+        "owner": "flag-icons",
+        "licenseStatus": "licensed",
+        "publicReleaseApproved": true,
+        "notes": "Flags: flag-icons (MIT)."
+      },
+      {
+        "kind": "photo",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rome,_Vatican,_Italy,_St._Peter%27s_Square.jpg",
+        "owner": "Vyacheslav Argenberg",
+        "licenseStatus": "licensed",
+        "publicReleaseApproved": true,
+        "notes": "Photo: Vyacheslav Argenberg / Wikimedia Commons / CC BY 4.0."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "durationSeconds": 4,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "mystery",
+      "subjectFocus": "hidden",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "A MAP MYSTERY",
+      "headline": "THE SMALLEST COUNTRY",
+      "narration": "This is the smallest country in the world.",
+      "caption": "THE SMALLEST COUNTRY",
+      "visual": "hook",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "world",
+            "at": 0,
+            "padding": 0.2,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                11.5,
+                41.15,
+                13.5,
+                42.65
+              ]
+            },
+            "at": 0.72,
+            "padding": 0.2,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:VAT",
+            "style": "fill",
+            "at": 0.06
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:VAT",
+            "text": "SMALLEST COUNTRY",
+            "at": 0.258
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "space",
+        "flags": true,
+        "globe": true
+      }
+    },
+    {
+      "id": "where",
+      "durationSeconds": 4.4,
+      "beat": "clue",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "WHERE?",
+      "headline": "INSIDE ROME",
+      "narration": "You can find it inside the city of Rome.",
+      "caption": "AN ENCLAVE INSIDE ROME",
+      "visual": "gauntlet",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                12.44052,
+                41.889,
+                12.46628,
+                41.9168
+              ]
+            },
+            "at": 0,
+            "padding": 0,
+            "ease": "linear"
+          },
+          {
+            "target": {
+              "bbox": [
+                12.44327,
+                41.89488,
+                12.46089,
+                41.9127
+              ]
+            },
+            "at": 1,
+            "padding": 0,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:VAT",
+            "style": "outline",
+            "at": 0.06
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "city:rome-ita",
+            "text": "ROME",
+            "at": 0.13
+          },
+          {
+            "type": "label",
+            "anchor": "country:VAT",
+            "text": "VATICAN CITY",
+            "at": 0.34
+          }
+        ],
+        "dataset": "natural-earth",
+        "cut": true,
+        "ambience": "city",
+        "streets": {
+          "city": "vatican-city",
+          "at": 0.05
+        }
+      }
+    },
+    {
+      "id": "enclave",
+      "durationSeconds": 3.8,
+      "beat": "clue",
+      "role": "evidence",
+      "shot": "wide",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "THE SETUP",
+      "headline": "ITALY ALL AROUND",
+      "narration": "Italy surrounds it on every side.",
+      "caption": "SURROUNDED BY ITALY",
+      "visual": "gauntlet",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                6.603,
+                37.919,
+                18.517,
+                47.085
+              ]
+            },
+            "at": 0,
+            "padding": 0.22,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                6.603,
+                37.919,
+                18.517,
+                47.085
+              ]
+            },
+            "at": 0.72,
+            "padding": 0.16,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "border:ITA-VAT",
+            "style": "trace",
+            "at": 0.06
+          },
+          {
+            "entity": "country:ITA",
+            "style": "fill",
+            "at": 0.242
+          },
+          {
+            "entity": "country:VAT",
+            "style": "outline",
+            "at": 0.287
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:ITA",
+            "text": "ITALY",
+            "at": 0.196
+          },
+          {
+            "type": "label",
+            "anchor": "country:VAT",
+            "text": "VATICAN CITY",
+            "at": 0.401
+          }
+        ],
+        "dataset": "natural-earth",
+        "projection": "albers",
+        "ambience": "city",
+        "flags": true
+      }
+    },
+    {
+      "id": "size",
+      "durationSeconds": 3.8,
+      "beat": "escalation",
+      "role": "escalation",
+      "shot": "tracking",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "HOW SMALL?",
+      "headline": "44 HECTARES",
+      "narration": "It covers just 44 hectares.",
+      "caption": "44 HECTARES",
+      "visual": "advantage",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                12.44052,
+                41.889,
+                12.46628,
+                41.9168
+              ]
+            },
+            "at": 0,
+            "padding": 0,
+            "ease": "linear"
+          },
+          {
+            "target": {
+              "bbox": [
+                12.44327,
+                41.89488,
+                12.46089,
+                41.9127
+              ]
+            },
+            "at": 1,
+            "padding": 0,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:VAT",
+            "style": "outline",
+            "at": 0.06
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:VAT",
+            "text": "44 HECTARES",
+            "at": 0.075
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "city",
+        "streets": {
+          "city": "vatican-city",
+          "at": 0.05
+        }
+      }
+    },
+    {
+      "id": "people",
+      "durationSeconds": 5.7,
+      "beat": "reveal",
+      "role": "payoff",
+      "shot": "comparison",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "HOW MANY?",
+      "headline": "UNDER 1,000 PEOPLE",
+      "narration": "About 880 people live there, fewer than in any other country.",
+      "caption": "~882 PEOPLE (2024)",
+      "visual": "race",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                12.453,
+                41.898,
+                12.481,
+                41.904
+              ]
+            },
+            "at": 0,
+            "padding": 0.2,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                12.154,
+                41.679,
+                12.754,
+                42.129
+              ]
+            },
+            "at": 0.72,
+            "padding": 0.18,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:VAT",
+            "style": "outline",
+            "at": 0.3
+          }
+        ],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": "country:VAT",
+            "text": "~882 PEOPLE (2024)",
+            "at": 0.46
+          },
+          {
+            "type": "photo",
+            "photo": "vatican-square",
+            "at": 0.08
+          }
+        ],
+        "dataset": "natural-earth",
+        "projection": "albers",
+        "ambience": "city"
+      }
+    },
+    {
+      "id": "army",
+      "durationSeconds": 5.1,
+      "beat": "reveal",
+      "role": "payoff",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "DEFENCE",
+      "headline": "NO ARMY OF ITS OWN",
+      "narration": "It has no army of its own. Italy defends it.",
+      "caption": "DEFENDED BY ITALY",
+      "visual": "tradeoff",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                6.603,
+                37.919,
+                18.517,
+                47.085
+              ]
+            },
+            "at": 0,
+            "padding": 0.22,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                6.603,
+                37.919,
+                18.517,
+                47.085
+              ]
+            },
+            "at": 0.72,
+            "padding": 0.16,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:ITA",
+            "style": "fill",
+            "at": 0.06
+          },
+          {
+            "entity": "country:VAT",
+            "style": "outline",
+            "at": 0.132
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:ITA",
+            "text": "ITALY",
+            "at": 0.156
+          },
+          {
+            "type": "label",
+            "anchor": "country:VAT",
+            "text": "NO ARMY",
+            "at": 0.3
+          },
+          {
+            "type": "arrow",
+            "from": "country:ITA",
+            "to": "country:VAT",
+            "at": 0.444
+          }
+        ],
+        "dataset": "natural-earth",
+        "projection": "albers",
+        "ambience": "city",
+        "flags": true
+      }
+    },
+    {
+      "id": "verdict",
+      "durationSeconds": 4.4,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "YOUR TURN",
+      "headline": "WALK ACROSS IT?",
+      "narration": "Could you walk across a whole country in minutes?",
+      "caption": "ACROSS A COUNTRY IN MINUTES?",
+      "visual": "cta",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                12.44052,
+                41.889,
+                12.46628,
+                41.9168
+              ]
+            },
+            "at": 0,
+            "padding": 0,
+            "ease": "linear"
+          },
+          {
+            "target": {
+              "bbox": [
+                12.44327,
+                41.89488,
+                12.46089,
+                41.9127
+              ]
+            },
+            "at": 1,
+            "padding": 0,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:VAT",
+            "style": "outline",
+            "at": 0.06
+          }
+        ],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": "country:VAT",
+            "text": "WALK ACROSS IT?",
+            "at": 0.075
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "city",
+        "streets": {
+          "city": "vatican-city",
+          "at": 0.05
+        }
+      }
+    }
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia: Vatican City (revision 1378757908)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Vatican_City&oldid=1378757908"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ]
+}

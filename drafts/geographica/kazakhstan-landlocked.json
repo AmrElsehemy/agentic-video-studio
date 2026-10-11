@@ -1,0 +1,570 @@
+{
+  "id": "kazakhstan-landlocked",
+  "title": "The Biggest Country With No Coast",
+  "storyPattern": "mystery",
+  "numberRelevant": false,
+  "premise": "Kazakhstan is the ninth-largest country in the world and the largest with no coast.",
+  "audiencePromise": "See how big a country can be and still have no sea.",
+  "openLoop": "How big can a country with no coast be?",
+  "payoff": "Kazakhstan is the ninth-largest country on Earth and the largest of the 44 landlocked countries.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "Could you live far from the sea?",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica"
+  },
+  "subject": {
+    "name": "Kazakhstan",
+    "category": "Border",
+    "attributes": {
+      "geoEntity": "country:KAZ"
+    }
+  },
+  "voice": {
+    "provider": "elevenlabs",
+    "voice": "JBFqnCBsd6RMkjVDRZzb"
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "eyebrow": "A MAP MYSTERY",
+      "headline": "NO COAST, NINTH BIGGEST",
+      "narration": "The ninth-biggest country on Earth has no coast.",
+      "caption": "9TH LARGEST, NO COAST",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "world",
+            "at": 0,
+            "padding": 0.15,
+            "ease": "in-out"
+          },
+          {
+            "target": "country:KAZ",
+            "at": 0.85,
+            "padding": 0.3,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:KAZ",
+            "style": "fill",
+            "at": 0.06
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:KAZ",
+            "text": "NINTH-LARGEST",
+            "at": 0.362
+          },
+          {
+            "type": "label",
+            "anchor": "country:KAZ",
+            "text": "NO COAST",
+            "at": 0.564
+          }
+        ],
+        "dataset": "natural-earth",
+        "globe": true,
+        "data": {
+          "label": "Area",
+          "unit": "KM²",
+          "values": [
+            {
+              "entity": "country:KAZ",
+              "value": 2710000
+            },
+            {
+              "entity": "country:RUS",
+              "value": 16900000
+            },
+            {
+              "entity": "country:CHN",
+              "value": 9370000
+            },
+            {
+              "entity": "country:UZB",
+              "value": 447000
+            },
+            {
+              "entity": "country:KGZ",
+              "value": 199000
+            },
+            {
+              "entity": "country:TKM",
+              "value": 470000
+            }
+          ],
+          "at": 0.116,
+          "legend": true,
+          "view": "both"
+        },
+        "ambience": "space"
+      }
+    },
+    {
+      "id": "neighbours",
+      "beat": "clue",
+      "eyebrow": "WHERE?",
+      "headline": "RUSSIA AND CHINA",
+      "narration": "It sits between Russia and China, in Central Asia.",
+      "caption": "BETWEEN RUSSIA AND CHINA",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                27.328,
+                20.238,
+                180,
+                77.738
+              ]
+            },
+            "at": 0,
+            "padding": 0.2,
+            "ease": "in-out"
+          },
+          {
+            "target": "country:KAZ",
+            "at": 0.82,
+            "padding": 0.22,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:KAZ",
+            "style": "fill",
+            "at": 0.06
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:RUS",
+            "text": "RUSSIA",
+            "at": 0.183
+          },
+          {
+            "type": "label",
+            "anchor": "country:CHN",
+            "text": "CHINA",
+            "at": 0.306
+          },
+          {
+            "type": "label",
+            "anchor": "country:KAZ",
+            "text": "CENTRAL ASIA",
+            "at": 0.47
+          }
+        ],
+        "dataset": "natural-earth",
+        "cut": true,
+        "projection": "albers",
+        "ambience": "wind"
+      }
+    },
+    {
+      "id": "landlocked",
+      "beat": "clue",
+      "eyebrow": "THE RULE",
+      "headline": "44 LANDLOCKED COUNTRIES",
+      "narration": "Forty-four countries on Earth have no coast.",
+      "caption": "44 LANDLOCKED COUNTRIES",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "country:KAZ",
+            "at": 0,
+            "padding": 0.28,
+            "ease": "in-out"
+          },
+          {
+            "target": "world",
+            "at": 0.86,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:KAZ",
+            "style": "outline",
+            "at": 0.06
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:KAZ",
+            "text": "44 LANDLOCKED COUNTRIES",
+            "at": 0.501
+          }
+        ],
+        "dataset": "natural-earth",
+        "data": {
+          "label": "Area",
+          "unit": "KM²",
+          "values": [
+            {
+              "entity": "country:KAZ",
+              "value": 2710000
+            },
+            {
+              "entity": "country:RUS",
+              "value": 16900000
+            },
+            {
+              "entity": "country:CHN",
+              "value": 9370000
+            },
+            {
+              "entity": "country:UZB",
+              "value": 447000
+            },
+            {
+              "entity": "country:KGZ",
+              "value": 199000
+            },
+            {
+              "entity": "country:TKM",
+              "value": 470000
+            }
+          ],
+          "at": 0.165,
+          "legend": true,
+          "view": "map"
+        },
+        "projection": "albers",
+        "ambience": "wind"
+      }
+    },
+    {
+      "id": "largest",
+      "beat": "escalation",
+      "eyebrow": "THE RECORD",
+      "headline": "THE LARGEST OF THEM",
+      "narration": "Kazakhstan is the largest of them all.",
+      "caption": "THE LARGEST LANDLOCKED COUNTRY",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "country:KAZ",
+            "at": 0,
+            "padding": 0.28,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                46.478,
+                35.141,
+                87.324,
+                55.435
+              ]
+            },
+            "at": 0.82,
+            "padding": 0.2,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:KAZ",
+            "style": "fill",
+            "at": 0.06
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:KAZ",
+            "text": "KAZAKHSTAN",
+            "at": 0.265
+          },
+          {
+            "type": "label",
+            "anchor": "country:KAZ",
+            "text": "LARGEST LANDLOCKED",
+            "at": 0.47
+          }
+        ],
+        "dataset": "natural-earth",
+        "data": {
+          "label": "Area",
+          "unit": "KM²",
+          "values": [
+            {
+              "entity": "country:KAZ",
+              "value": 2710000
+            },
+            {
+              "entity": "country:RUS",
+              "value": 16900000
+            },
+            {
+              "entity": "country:CHN",
+              "value": 9370000
+            },
+            {
+              "entity": "country:UZB",
+              "value": 447000
+            },
+            {
+              "entity": "country:KGZ",
+              "value": 199000
+            },
+            {
+              "entity": "country:TKM",
+              "value": 470000
+            }
+          ],
+          "at": 0.183,
+          "legend": true,
+          "view": "bars"
+        },
+        "projection": "albers",
+        "ambience": "wind"
+      }
+    },
+    {
+      "id": "empty",
+      "beat": "reveal",
+      "eyebrow": "THE SPACE",
+      "headline": "ROOM TO SPARE",
+      "narration": "Only 20.6 million people live across all that space.",
+      "caption": "20.6 MILLION PEOPLE",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "country:KAZ",
+            "at": 0,
+            "padding": 0.25,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                27.328,
+                20.238,
+                180,
+                77.738
+              ]
+            },
+            "at": 0.78,
+            "padding": 0.18,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:KAZ",
+            "style": "fill",
+            "at": 0.06
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:KAZ",
+            "text": "20.6 MILLION PEOPLE",
+            "at": 0.285
+          }
+        ],
+        "dataset": "natural-earth",
+        "data": {
+          "label": "Population",
+          "unit": "PEOPLE",
+          "values": [
+            {
+              "entity": "country:KAZ",
+              "value": 18500000
+            },
+            {
+              "entity": "country:RUS",
+              "value": 144000000
+            },
+            {
+              "entity": "country:CHN",
+              "value": 1400000000
+            },
+            {
+              "entity": "country:UZB",
+              "value": 33600000
+            },
+            {
+              "entity": "country:KGZ",
+              "value": 6460000
+            },
+            {
+              "entity": "country:TKM",
+              "value": 5940000
+            }
+          ],
+          "at": 0.183,
+          "legend": true,
+          "view": "bars"
+        },
+        "projection": "albers",
+        "ambience": "wind"
+      }
+    },
+    {
+      "id": "terrain",
+      "beat": "reveal",
+      "eyebrow": "THE LAND",
+      "headline": "PLATEAUS AND PLAINS",
+      "narration": "Hilly plateaus and plains cover nearly half of it.",
+      "caption": "NEARLY HALF PLATEAUS AND PLAINS",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "country:KAZ",
+            "at": 0,
+            "padding": 0.2,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                46.478,
+                35.141,
+                87.324,
+                55.435
+              ]
+            },
+            "at": 0.8,
+            "padding": 0.18,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:KAZ",
+            "style": "outline",
+            "at": 0.06
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:KAZ",
+            "text": "PLATEAUS + PLAINS",
+            "at": 0.3
+          },
+          {
+            "type": "label",
+            "anchor": "country:KAZ",
+            "text": "NEARLY HALF",
+            "at": 0.54
+          }
+        ],
+        "dataset": "natural-earth",
+        "surface": {
+          "kind": "elevation",
+          "at": 0.15
+        },
+        "projection": "albers",
+        "ambience": "wind"
+      }
+    },
+    {
+      "id": "verdict",
+      "beat": "verdict",
+      "eyebrow": "YOUR TURN",
+      "headline": "FAR FROM THE SEA",
+      "narration": "Could you live that far from the sea?",
+      "caption": "COULD YOU LIVE THERE?",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "country:KAZ",
+            "at": 0,
+            "padding": 0.25,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                27.328,
+                20.238,
+                180,
+                77.738
+              ]
+            },
+            "at": 0.82,
+            "padding": 0.15,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:KAZ",
+            "style": "fill",
+            "at": 0.06
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:KAZ",
+            "text": "NO COAST",
+            "at": 0.285
+          },
+          {
+            "type": "label",
+            "anchor": "country:KAZ",
+            "text": "LIVE THAT FAR?",
+            "at": 0.593
+          }
+        ],
+        "dataset": "natural-earth",
+        "projection": "albers",
+        "ambience": "wind"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia: Kazakhstan (revision 1378917150)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Kazakhstan&oldid=1378917150"
+    },
+    {
+      "label": "Wikipedia: Landlocked country (revision 1377715267)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Landlocked_country&oldid=1377715267"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ],
+  "paletteVariant": "atlas",
+  "score": "calm"
+}

@@ -1,0 +1,531 @@
+{
+  "id": "istanbul-two-continents",
+  "title": "The City That Sits on Two Continents",
+  "storyPattern": "mystery",
+  "numberRelevant": false,
+  "premise": "Istanbul is a single city split between Europe and Asia by the Bosphorus.",
+  "audiencePromise": "Find the big city that is on two continents at once.",
+  "openLoop": "Which big city sits on two continents?",
+  "payoff": "Istanbul straddles the Bosphorus: two-thirds of its people live in Europe, one-third in Asia.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "Which side would you live on?",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica"
+  },
+  "subject": {
+    "name": "Turkey",
+    "category": "Border",
+    "attributes": {
+      "geoEntity": "country:TUR"
+    }
+  },
+  "voice": {
+    "provider": "elevenlabs",
+    "voice": "JBFqnCBsd6RMkjVDRZzb"
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "eyebrow": "A MAP MYSTERY",
+      "headline": "TWO CONTINENTS",
+      "narration": "One city sits on two continents at once.",
+      "caption": "ONE CITY, TWO CONTINENTS",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "world",
+            "at": 0,
+            "padding": 0.15,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                20,
+                35.82,
+                44.807,
+                42.099
+              ]
+            },
+            "at": 0.8,
+            "padding": 0.2,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:GRC",
+            "style": "fill",
+            "at": 0.06
+          },
+          {
+            "entity": "country:TUR",
+            "style": "outline",
+            "at": 0.189
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:GRC",
+            "text": "EUROPE",
+            "at": 0.099
+          },
+          {
+            "type": "label",
+            "anchor": "country:TUR",
+            "text": "ASIA",
+            "at": 0.28
+          },
+          {
+            "type": "marker",
+            "anchor": "city:istanbul-tur",
+            "text": "ISTANBUL",
+            "at": 0.538
+          }
+        ],
+        "dataset": "natural-earth",
+        "globe": true,
+        "ambience": "space"
+      }
+    },
+    {
+      "id": "where",
+      "beat": "clue",
+      "eyebrow": "WHERE?",
+      "headline": "NORTHWEST TURKEY",
+      "narration": "It is Istanbul, in northwestern Turkey.",
+      "caption": "ISTANBUL, TURKEY",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                26.07,
+                35.82,
+                44.807,
+                42.099
+              ]
+            },
+            "at": 0,
+            "padding": 0.2,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                28.008,
+                40.357,
+                30.008,
+                41.857
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.18,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:TUR",
+            "style": "fill",
+            "at": 0.06
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:TUR",
+            "text": "TURKEY",
+            "at": 0.12,
+            "until": 0.54
+          },
+          {
+            "type": "marker",
+            "anchor": "city:istanbul-tur",
+            "text": "ISTANBUL",
+            "at": 0.6
+          }
+        ],
+        "dataset": "natural-earth",
+        "cut": true,
+        "projection": "albers",
+        "ambience": "city"
+      }
+    },
+    {
+      "id": "bosphorus",
+      "beat": "clue",
+      "eyebrow": "THE DIVIDE",
+      "headline": "THE BOSPHORUS",
+      "narration": "It straddles the Bosphorus, one of the busiest waterways.",
+      "caption": "THE BOSPHORUS",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                28.92066,
+                40.94962,
+                29.03614,
+                41.07598
+              ]
+            },
+            "at": 0,
+            "padding": 0,
+            "ease": "linear"
+          },
+          {
+            "target": {
+              "bbox": [
+                28.9403,
+                40.97112,
+                29.0165,
+                41.05448
+              ]
+            },
+            "at": 1,
+            "padding": 0,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "water:black-sea",
+            "style": "outline",
+            "at": 0.165
+          }
+        ],
+        "annotations": [
+          {
+            "type": "route",
+            "path": [
+              "water:black-sea",
+              {
+                "lon": 28.98,
+                "lat": 41.01
+              }
+            ],
+            "text": "BOSPHORUS (APPROX.)",
+            "at": 0.06,
+            "until": 0.795,
+            "marker": true,
+            "follow": false
+          },
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 28.98,
+              "lat": 41.01
+            },
+            "text": "BUSY WATERWAY",
+            "at": 0.396
+          },
+          {
+            "type": "label",
+            "anchor": "city:istanbul-tur",
+            "text": "ISTANBUL",
+            "at": 0.606
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "city",
+        "streets": {
+          "city": "istanbul",
+          "at": 0.05
+        }
+      }
+    },
+    {
+      "id": "split",
+      "beat": "escalation",
+      "eyebrow": "THE SPLIT",
+      "headline": "TWO-THIRDS EUROPE",
+      "narration": "About two-thirds of its people live in Europe.",
+      "caption": "~2/3 IN EUROPE, 1/3 IN ASIA",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                27.98,
+                40.26,
+                29.98,
+                41.76
+              ]
+            },
+            "at": 0,
+            "padding": 0.14,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                28.008,
+                40.357,
+                30.008,
+                41.857
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.14,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:TUR",
+            "style": "outline",
+            "at": 0.06
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": {
+              "lon": 28.98,
+              "lat": 41.01
+            },
+            "text": "TWO-THIRDS EUROPE",
+            "at": 0.06
+          },
+          {
+            "type": "label",
+            "anchor": "city:istanbul-tur",
+            "text": "REST IN ASIA",
+            "at": 0.318
+          }
+        ],
+        "dataset": "natural-earth",
+        "projection": "albers",
+        "ambience": "city"
+      }
+    },
+    {
+      "id": "size",
+      "beat": "reveal",
+      "eyebrow": "THE SCALE",
+      "headline": "15 MILLION PEOPLE",
+      "narration": "Over fifteen million people live there.",
+      "caption": "15 MILLION+ PEOPLE",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                28.008,
+                40.357,
+                30.008,
+                41.857
+              ]
+            },
+            "at": 0,
+            "padding": 0.16,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                26.07,
+                35.82,
+                44.807,
+                42.099
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.22,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:TUR",
+            "style": "outline",
+            "at": 0.06
+          }
+        ],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": "city:istanbul-tur",
+            "text": "15 MILLION+",
+            "at": 0.06
+          },
+          {
+            "type": "label",
+            "anchor": "country:TUR",
+            "text": "TURKEY",
+            "at": 0.318,
+            "until": 0.642
+          }
+        ],
+        "dataset": "natural-earth",
+        "projection": "albers",
+        "ambience": "city"
+      }
+    },
+    {
+      "id": "route",
+      "beat": "reveal",
+      "eyebrow": "THE GATE",
+      "headline": "THE ONLY SEA ROUTE",
+      "narration": "It holds the only sea route between the Black Sea and the Mediterranean.",
+      "caption": "ONLY BLACK SEA\u2013MED ROUTE",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                27.48,
+                40.92,
+                41.76,
+                47.21
+              ]
+            },
+            "at": 0,
+            "padding": 0.28,
+            "ease": "in-out"
+          },
+          {
+            "target": "water:black-sea",
+            "at": 0.85,
+            "padding": 0.2,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "water:black-sea",
+            "style": "outline",
+            "at": 0.116
+          }
+        ],
+        "annotations": [
+          {
+            "type": "route",
+            "path": [
+              "water:black-sea",
+              {
+                "lon": 28.98,
+                "lat": 41.01
+              }
+            ],
+            "text": "BLACK SEA\u2013MED (APPROX.)",
+            "at": 0.06,
+            "until": 0.732,
+            "marker": true,
+            "follow": false
+          },
+          {
+            "type": "label",
+            "anchor": "water:black-sea",
+            "text": "BLACK SEA",
+            "at": 0.284
+          }
+        ],
+        "dataset": "natural-earth",
+        "projection": "albers",
+        "ambience": "city"
+      }
+    },
+    {
+      "id": "verdict",
+      "beat": "verdict",
+      "eyebrow": "YOUR TURN",
+      "headline": "WHICH SIDE?",
+      "narration": "Which side would you live on?",
+      "caption": "EUROPE OR ASIA?",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                28.92066,
+                40.94962,
+                29.03614,
+                41.07598
+              ]
+            },
+            "at": 0,
+            "padding": 0,
+            "ease": "linear"
+          },
+          {
+            "target": {
+              "bbox": [
+                28.9403,
+                40.97112,
+                29.0165,
+                41.05448
+              ]
+            },
+            "at": 1,
+            "padding": 0,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": "city:istanbul-tur",
+            "text": "ISTANBUL",
+            "at": 0.06
+          },
+          {
+            "type": "label",
+            "anchor": {
+              "lon": 28.98,
+              "lat": 41.01
+            },
+            "text": "EUROPE OR ASIA?",
+            "at": 0.41
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "city",
+        "streets": {
+          "city": "istanbul",
+          "at": 0.05
+        }
+      }
+    }
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia: Istanbul (revision 1378142171)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Istanbul&oldid=1378142171"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ],
+  "paletteVariant": "atlas",
+  "score": "epic"
+}

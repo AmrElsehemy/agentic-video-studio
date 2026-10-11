@@ -1,0 +1,529 @@
+{
+  "id": "mongolia-empty",
+  "title": "The Emptiest Country on Earth",
+  "storyPattern": "mystery",
+  "numberRelevant": false,
+  "premise": "Mongolia is the most sparsely populated sovereign state in the world.",
+  "audiencePromise": "See the biggest empty space on the political map.",
+  "openLoop": "Which country has the fewest people for its size?",
+  "payoff": "Mongolia has 3.5 million people on 1,564,116 km², the most sparsely populated sovereign state.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "Could you live in all that space?",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica"
+  },
+  "subject": {
+    "name": "Mongolia",
+    "category": "Border",
+    "attributes": {
+      "geoEntity": "country:MNG"
+    }
+  },
+  "voice": {
+    "provider": "elevenlabs",
+    "voice": "JBFqnCBsd6RMkjVDRZzb"
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "eyebrow": "A MAP MYSTERY",
+      "headline": "THE EMPTIEST COUNTRY",
+      "narration": "This is the emptiest country on Earth.",
+      "caption": "THE EMPTIEST COUNTRY ON EARTH",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "world",
+            "at": 0,
+            "padding": 0.15,
+            "ease": "in-out"
+          },
+          {
+            "target": "country:MNG",
+            "at": 0.75,
+            "padding": 0.3,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:MNG",
+            "style": "fill",
+            "at": 0.06
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:MNG",
+            "text": "LOWEST DENSITY",
+            "at": 0.428
+          }
+        ],
+        "dataset": "natural-earth",
+        "globe": true,
+        "data": {
+          "label": "People per km²",
+          "unit": "/KM²",
+          "values": [
+            {
+              "entity": "country:MNG",
+              "value": 2.1
+            },
+            {
+              "entity": "country:RUS",
+              "value": 8.5
+            },
+            {
+              "entity": "country:CHN",
+              "value": 150
+            },
+            {
+              "entity": "country:KAZ",
+              "value": 6.8
+            }
+          ],
+          "at": 0.165,
+          "legend": true,
+          "view": "bars"
+        },
+        "ambience": "space"
+      }
+    },
+    {
+      "id": "where",
+      "beat": "clue",
+      "eyebrow": "WHERE?",
+      "headline": "RUSSIA AND CHINA",
+      "narration": "Mongolia sits between Russia and China.",
+      "caption": "BETWEEN RUSSIA AND CHINA",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "country:MNG",
+            "at": 0,
+            "padding": 0.35,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                27.328,
+                20.238,
+                180,
+                77.738
+              ]
+            },
+            "at": 0.7,
+            "padding": 0.2,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:MNG",
+            "style": "fill",
+            "at": 0.06
+          },
+          {
+            "entity": "border:MNG-RUS",
+            "style": "trace",
+            "at": 0.159
+          },
+          {
+            "entity": "border:CHN-MNG",
+            "style": "trace",
+            "at": 0.258
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:RUS",
+            "text": "RUSSIA",
+            "at": 0.356
+          },
+          {
+            "type": "label",
+            "anchor": "country:MNG",
+            "text": "MONGOLIA",
+            "at": 0.356
+          },
+          {
+            "type": "label",
+            "anchor": "country:CHN",
+            "text": "CHINA",
+            "at": 0.356
+          }
+        ],
+        "dataset": "natural-earth",
+        "cut": true,
+        "projection": "albers",
+        "ambience": "wind",
+        "flags": true
+      }
+    },
+    {
+      "id": "size",
+      "beat": "clue",
+      "eyebrow": "HOW BIG?",
+      "headline": "18TH LARGEST",
+      "narration": "It is the eighteenth-largest country in the world.",
+      "caption": "18TH-LARGEST COUNTRY",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "country:MNG",
+            "at": 0,
+            "padding": 0.3,
+            "ease": "in-out"
+          },
+          {
+            "target": "world",
+            "at": 0.75,
+            "padding": 0.15,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:MNG",
+            "style": "fill",
+            "at": 0.06
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:MNG",
+            "text": "18TH LARGEST",
+            "at": 0.291
+          }
+        ],
+        "dataset": "natural-earth",
+        "data": {
+          "label": "Area",
+          "unit": "KM²",
+          "values": [
+            {
+              "entity": "country:MNG",
+              "value": 1560000
+            },
+            {
+              "entity": "country:RUS",
+              "value": 16900000
+            },
+            {
+              "entity": "country:CHN",
+              "value": 9370000
+            },
+            {
+              "entity": "country:KAZ",
+              "value": 2710000
+            }
+          ],
+          "at": 0.165,
+          "legend": true,
+          "view": "bars"
+        },
+        "projection": "albers",
+        "ambience": "wind"
+      }
+    },
+    {
+      "id": "landlocked",
+      "beat": "escalation",
+      "eyebrow": "NO COAST",
+      "headline": "NO COAST AT ALL",
+      "narration": "And it has no coast.",
+      "caption": "2ND-LARGEST LANDLOCKED NATION",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                27.328,
+                20.238,
+                180,
+                77.738
+              ]
+            },
+            "at": 0,
+            "padding": 0.22,
+            "ease": "in-out"
+          },
+          {
+            "target": "country:MNG",
+            "at": 0.7,
+            "padding": 0.3,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "border:MNG-RUS",
+            "style": "trace",
+            "at": 0.06
+          },
+          {
+            "entity": "border:CHN-MNG",
+            "style": "trace",
+            "at": 0.165
+          },
+          {
+            "entity": "country:MNG",
+            "style": "fill",
+            "at": 0.27
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:MNG",
+            "text": "LANDLOCKED",
+            "at": 0.375
+          }
+        ],
+        "dataset": "natural-earth",
+        "projection": "albers",
+        "ambience": "wind",
+        "flags": true
+      }
+    },
+    {
+      "id": "people",
+      "beat": "reveal",
+      "eyebrow": "THE CATCH",
+      "headline": "ONLY 3.5 MILLION PEOPLE",
+      "narration": "Only three and a half million people live there.",
+      "caption": "3.5 MILLION PEOPLE",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                46.478,
+                40.585,
+                119.907,
+                55.435
+              ]
+            },
+            "at": 0,
+            "padding": 0.25,
+            "ease": "in-out"
+          },
+          {
+            "target": "country:MNG",
+            "at": 0.7,
+            "padding": 0.3,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:MNG",
+            "style": "fill",
+            "at": 0.06
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:MNG",
+            "text": "3.5 MILLION PEOPLE",
+            "at": 0.28
+          }
+        ],
+        "dataset": "natural-earth",
+        "data": {
+          "label": "Population",
+          "unit": "PEOPLE",
+          "values": [
+            {
+              "entity": "country:MNG",
+              "value": 3230000
+            },
+            {
+              "entity": "country:RUS",
+              "value": 144000000
+            },
+            {
+              "entity": "country:CHN",
+              "value": 1400000000
+            },
+            {
+              "entity": "country:KAZ",
+              "value": 18500000
+            }
+          ],
+          "at": 0.12,
+          "legend": true,
+          "view": "bars"
+        },
+        "projection": "albers",
+        "ambience": "wind"
+      }
+    },
+    {
+      "id": "sparse",
+      "beat": "reveal",
+      "eyebrow": "THE RECORD",
+      "headline": "MOST SPARSELY POPULATED",
+      "narration": "That makes it the most sparsely populated sovereign state.",
+      "caption": "MOST SPARSELY POPULATED",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "country:MNG",
+            "at": 0,
+            "padding": 0.3,
+            "ease": "in-out"
+          },
+          {
+            "target": "world",
+            "at": 0.75,
+            "padding": 0.15,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:MNG",
+            "style": "outline",
+            "at": 0.06
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:MNG",
+            "text": "LOWEST SOVEREIGN STATE",
+            "at": 0.306
+          }
+        ],
+        "dataset": "natural-earth",
+        "data": {
+          "label": "People per km²",
+          "unit": "/KM²",
+          "values": [
+            {
+              "entity": "country:MNG",
+              "value": 2.1
+            },
+            {
+              "entity": "country:RUS",
+              "value": 8.5
+            },
+            {
+              "entity": "country:CHN",
+              "value": 150
+            },
+            {
+              "entity": "country:KAZ",
+              "value": 6.8
+            }
+          ],
+          "at": 0.132,
+          "legend": true,
+          "view": "bars"
+        },
+        "projection": "albers",
+        "ambience": "wind"
+      }
+    },
+    {
+      "id": "verdict",
+      "beat": "verdict",
+      "eyebrow": "YOUR TURN",
+      "headline": "ROOM TO SPARE",
+      "narration": "It has over 250 sunny days a year. Could you live there?",
+      "caption": "COULD YOU LIVE THERE?",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "country:MNG",
+            "at": 0,
+            "padding": 0.3,
+            "ease": "in-out"
+          },
+          {
+            "target": "country:MNG",
+            "at": 0.7,
+            "padding": 0.3,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:MNG",
+            "style": "fill",
+            "at": 0.06
+          }
+        ],
+        "annotations": [
+          {
+            "type": "timeline",
+            "steps": [
+              {
+                "label": "YEAR",
+                "detail": "MONGOLIA"
+              },
+              {
+                "label": "250+ DAYS",
+                "detail": "SUNNY"
+              }
+            ],
+            "active": 1,
+            "at": 0.234
+          },
+          {
+            "type": "label",
+            "anchor": "country:MNG",
+            "text": "COULD YOU LIVE THERE?",
+            "at": 0.675
+          }
+        ],
+        "dataset": "natural-earth",
+        "projection": "albers",
+        "ambience": "wind"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia: Mongolia (revision 1378451710)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Mongolia&oldid=1378451710"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ],
+  "paletteVariant": "atlas",
+  "score": "epic"
+}

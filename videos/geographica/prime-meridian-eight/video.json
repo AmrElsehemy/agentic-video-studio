@@ -1,0 +1,673 @@
+{
+  "schemaVersion": 2,
+  "id": "prime-meridian-eight",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica",
+    "wordmark": {
+      "lead": "GEO",
+      "accent": "GRAPHICA"
+    },
+    "fonts": {
+      "display": "Oswald",
+      "body": "Inter"
+    },
+    "captions": {
+      "mode": "words"
+    }
+  },
+  "title": "Eight Countries Sit on the Prime Meridian",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "mystery",
+    "numberRelevant": false,
+    "premise": "The prime meridian crosses eight countries, from the UK to Ghana.",
+    "audiencePromise": "Follow the line from Greenwich to West Africa.",
+    "openLoop": "Which eight countries does the prime meridian cross?",
+    "payoff": "The IERS Reference Meridian passes through the UK, France, Spain, Algeria, Mali, Burkina Faso, Togo and Ghana.",
+    "targetEmotion": "surprise",
+    "engagementQuestion": "Did you expect it to reach Africa?",
+    "targetSecondsBetweenVisualChanges": 0.68
+  },
+  "subject": {
+    "name": "Ghana",
+    "category": "Border",
+    "attributes": {
+      "geoEntity": "country:GHA"
+    }
+  },
+  "related": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#cfe9f2",
+    "surface": "#f4e3b8",
+    "primary": "#d9482b",
+    "secondary": "#2a7fa6",
+    "ink": "#14263a"
+  },
+  "look": "atlas",
+  "audio": {
+    "music": "generated/prime-meridian-eight-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 118,
+      "notes": [
+        98,
+        116.54,
+        130.81,
+        146.83,
+        130.81,
+        116.54,
+        87.31,
+        98
+      ],
+      "score": "pulse"
+    },
+    "voice": {
+      "provider": "elevenlabs",
+      "model": "eleven_v4",
+      "voice": "JBFqnCBsd6RMkjVDRZzb",
+      "instructions": "Warm, curious storyteller walking a friend across a map. Clear and confident, with a sense of discovery on each reveal; slow slightly on dates and place names so they land. Conversational and human, never a documentary announcer, lecture, or neutral TTS. Never imitate a known person or character.",
+      "speed": 1.06,
+      "output": "generated/prime-meridian-eight-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      },
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://github.com/lipis/flag-icons/blob/main/LICENSE",
+        "owner": "flag-icons",
+        "licenseStatus": "licensed",
+        "publicReleaseApproved": true,
+        "notes": "Flags: flag-icons (MIT)."
+      },
+      {
+        "kind": "photo",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Royal_Observatory_Greenwich_-_28-Inch_Telescope_Dome_and_Meridian_Building_(8128815256).jpg",
+        "owner": "Elliott Brown from Birmingham, United Kingdom",
+        "licenseStatus": "licensed",
+        "publicReleaseApproved": true,
+        "notes": "Photo: Elliott Brown from Birmingham, United Kingdom / Wikimedia Commons / CC BY 2.0."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "durationSeconds": 3.8,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "mystery",
+      "subjectFocus": "hidden",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "A MAP MYSTERY",
+      "headline": "ZERO DEGREES",
+      "narration": "One line crosses eight countries.",
+      "caption": "ONE LINE, EIGHT COUNTRIES",
+      "visual": "hook",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "world",
+            "at": 0,
+            "padding": 0.15,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -12.264,
+                4.737,
+                11.969,
+                58.677
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.28,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:MLI",
+            "style": "fill",
+            "at": 0.28
+          },
+          {
+            "entity": "country:BFA",
+            "style": "fill",
+            "at": 0.318
+          },
+          {
+            "entity": "country:TGO",
+            "style": "fill",
+            "at": 0.356
+          },
+          {
+            "entity": "country:GHA",
+            "style": "fill",
+            "at": 0.394
+          }
+        ],
+        "annotations": [
+          {
+            "type": "line",
+            "kind": "meridian",
+            "degrees": 0,
+            "text": "PRIME MERIDIAN",
+            "at": 0.06,
+            "reverse": false
+          },
+          {
+            "type": "label",
+            "anchor": "country:GBR",
+            "text": "UK / FRANCE",
+            "at": 0.423
+          },
+          {
+            "type": "label",
+            "anchor": "country:ESP",
+            "text": "SPAIN / ALGERIA",
+            "at": 0.499
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "space",
+        "globe": true
+      }
+    },
+    {
+      "id": "start",
+      "durationSeconds": 4.6,
+      "beat": "clue",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "START HERE",
+      "headline": "THE UK AND FRANCE",
+      "narration": "It starts in the United Kingdom, then crosses France.",
+      "caption": "UK, THEN FRANCE",
+      "visual": "gauntlet",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -6.236,
+                42.326,
+                8.2,
+                58.677
+              ]
+            },
+            "at": 0,
+            "padding": 0.2,
+            "ease": "in-out"
+          },
+          {
+            "target": "country:FRA",
+            "at": 0.8,
+            "padding": 0.18,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:GBR",
+            "style": "fill",
+            "at": 0.2
+          },
+          {
+            "entity": "country:FRA",
+            "style": "fill",
+            "at": 0.45
+          }
+        ],
+        "annotations": [
+          {
+            "type": "line",
+            "kind": "meridian",
+            "degrees": 0,
+            "text": "PRIME MERIDIAN",
+            "at": 0.08,
+            "reverse": false
+          },
+          {
+            "type": "label",
+            "anchor": "country:GBR",
+            "text": "UNITED KINGDOM",
+            "at": 0.22
+          },
+          {
+            "type": "label",
+            "anchor": "country:FRA",
+            "text": "FRANCE",
+            "at": 0.5
+          },
+          {
+            "type": "photo",
+            "photo": "greenwich-observatory",
+            "at": 0.08
+          }
+        ],
+        "dataset": "natural-earth",
+        "cut": true,
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "spain",
+      "durationSeconds": 4.1,
+      "beat": "clue",
+      "role": "evidence",
+      "shot": "wide",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "NEXT",
+      "headline": "SPAIN, THEN ALGERIA",
+      "narration": "Then Spain, and across the sea to Algeria.",
+      "caption": "SPAIN, THEN ALGERIA",
+      "visual": "gauntlet",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "country:FRA",
+            "at": 0,
+            "padding": 0.18,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -9.292,
+                18.976,
+                11.969,
+                43.793
+              ]
+            },
+            "at": 0.82,
+            "padding": 0.2,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:ESP",
+            "style": "fill",
+            "at": 0.25
+          },
+          {
+            "entity": "country:DZA",
+            "style": "fill",
+            "at": 0.55
+          }
+        ],
+        "annotations": [
+          {
+            "type": "line",
+            "kind": "meridian",
+            "degrees": 0,
+            "text": "PRIME MERIDIAN",
+            "at": 0.08,
+            "reverse": false
+          },
+          {
+            "type": "label",
+            "anchor": "country:ESP",
+            "text": "SPAIN",
+            "at": 0.3
+          },
+          {
+            "type": "label",
+            "anchor": "country:DZA",
+            "text": "ALGERIA",
+            "at": 0.6
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "flags": true
+      }
+    },
+    {
+      "id": "sahel",
+      "durationSeconds": 3.8,
+      "beat": "escalation",
+      "role": "escalation",
+      "shot": "tracking",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "SOUTH",
+      "headline": "MALI AND BURKINA FASO",
+      "narration": "On through Mali and Burkina Faso.",
+      "caption": "MALI, THEN BURKINA FASO",
+      "visual": "advantage",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "country:DZA",
+            "at": 0,
+            "padding": 0.18,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -12.264,
+                9.392,
+                4.236,
+                24.995
+              ]
+            },
+            "at": 0.82,
+            "padding": 0.2,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:MLI",
+            "style": "fill",
+            "at": 0.3
+          },
+          {
+            "entity": "country:BFA",
+            "style": "fill",
+            "at": 0.58
+          }
+        ],
+        "annotations": [
+          {
+            "type": "line",
+            "kind": "meridian",
+            "degrees": 0,
+            "text": "PRIME MERIDIAN",
+            "at": 0.08,
+            "reverse": false
+          },
+          {
+            "type": "label",
+            "anchor": "country:MLI",
+            "text": "MALI",
+            "at": 0.32
+          },
+          {
+            "type": "label",
+            "anchor": "country:BFA",
+            "text": "BURKINA FASO",
+            "at": 0.62
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "flags": true
+      }
+    },
+    {
+      "id": "coast",
+      "durationSeconds": 4.4,
+      "beat": "reveal",
+      "role": "payoff",
+      "shot": "comparison",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "THE ANSWER",
+      "headline": "TOGO AND GHANA",
+      "narration": "It ends its land journey in Togo and Ghana.",
+      "caption": "TOGO AND GHANA",
+      "visual": "race",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "country:BFA",
+            "at": 0,
+            "padding": 0.18,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -3.263,
+                4.737,
+                1.782,
+                11.163
+              ]
+            },
+            "at": 0.82,
+            "padding": 0.2,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:TGO",
+            "style": "fill",
+            "at": 0.3
+          },
+          {
+            "entity": "country:GHA",
+            "style": "fill",
+            "at": 0.58
+          }
+        ],
+        "annotations": [
+          {
+            "type": "line",
+            "kind": "meridian",
+            "degrees": 0,
+            "text": "PRIME MERIDIAN",
+            "at": 0.08,
+            "reverse": false
+          },
+          {
+            "type": "label",
+            "anchor": "country:TGO",
+            "text": "TOGO",
+            "at": 0.33
+          },
+          {
+            "type": "label",
+            "anchor": "country:GHA",
+            "text": "GHANA",
+            "at": 0.62
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "flags": true
+      }
+    },
+    {
+      "id": "eight",
+      "durationSeconds": 3.8,
+      "beat": "reveal",
+      "role": "payoff",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "ALL EIGHT",
+      "headline": "THE FULL LIST",
+      "narration": "Eight countries, from the UK to Ghana.",
+      "caption": "8 COUNTRIES",
+      "visual": "tradeoff",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "country:GHA",
+            "at": 0,
+            "padding": 0.2,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -12.264,
+                4.737,
+                11.969,
+                58.677
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.3,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:MLI",
+            "style": "outline",
+            "at": 0.2
+          },
+          {
+            "entity": "country:BFA",
+            "style": "outline",
+            "at": 0.247
+          },
+          {
+            "entity": "country:TGO",
+            "style": "outline",
+            "at": 0.293
+          },
+          {
+            "entity": "country:GHA",
+            "style": "outline",
+            "at": 0.34
+          }
+        ],
+        "annotations": [
+          {
+            "type": "line",
+            "kind": "meridian",
+            "degrees": 0,
+            "text": "PRIME MERIDIAN",
+            "at": 0.06,
+            "reverse": false
+          },
+          {
+            "type": "label",
+            "anchor": "country:GBR",
+            "text": "UK / FRANCE",
+            "at": 0.415
+          },
+          {
+            "type": "label",
+            "anchor": "country:ESP",
+            "text": "SPAIN / ALGERIA",
+            "at": 0.508
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "flags": true
+      }
+    },
+    {
+      "id": "verdict",
+      "durationSeconds": 3.8,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "YOUR TURN",
+      "headline": "NAME THEM ALL",
+      "narration": "Did you expect it to reach Africa?",
+      "caption": "DID YOU EXPECT AFRICA?",
+      "visual": "cta",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "country:GHA",
+            "at": 0,
+            "padding": 0.2,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -5.523,
+                4.737,
+                2.39,
+                15.08
+              ]
+            },
+            "at": 0.8,
+            "padding": 0.22,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:GHA",
+            "style": "fill",
+            "at": 0.28
+          },
+          {
+            "entity": "country:TGO",
+            "style": "outline",
+            "at": 0.38
+          },
+          {
+            "entity": "country:BFA",
+            "style": "outline",
+            "at": 0.48
+          }
+        ],
+        "annotations": [
+          {
+            "type": "line",
+            "kind": "meridian",
+            "degrees": 0,
+            "text": "PRIME MERIDIAN",
+            "at": 0.08,
+            "reverse": false
+          },
+          {
+            "type": "label",
+            "anchor": "country:GHA",
+            "text": "GHANA",
+            "at": 0.32
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "flags": true
+      }
+    }
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia: Prime meridian (revision 1372840008)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Prime_meridian&oldid=1372840008"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ]
+}

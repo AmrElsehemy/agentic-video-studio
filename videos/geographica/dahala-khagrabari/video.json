@@ -1,0 +1,670 @@
+{
+  "schemaVersion": 2,
+  "id": "dahala-khagrabari",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica",
+    "wordmark": {
+      "lead": "GEO",
+      "accent": "GRAPHICA"
+    },
+    "fonts": {
+      "display": "Oswald",
+      "body": "Inter"
+    },
+    "captions": {
+      "mode": "words"
+    }
+  },
+  "title": "A Country Inside a Country Inside a Country",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "mystery",
+    "numberRelevant": false,
+    "premise": "Dahala Khagrabari was an Indian enclave inside a Bangladeshi enclave inside an Indian enclave inside Bangladesh.",
+    "audiencePromise": "Find the strangest enclave there ever was, and why it disappeared.",
+    "openLoop": "How can a country sit inside a country inside a country?",
+    "payoff": "Dahala Khagrabari was the world’s only third-order enclave until India and Bangladesh exchanged their enclaves on 1 August 2015.",
+    "targetEmotion": "surprise",
+    "engagementQuestion": "Would you have kept it?",
+    "targetSecondsBetweenVisualChanges": 0.68
+  },
+  "subject": {
+    "name": "Bangladesh",
+    "category": "Border",
+    "attributes": {
+      "geoEntity": "country:BGD"
+    }
+  },
+  "related": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#cfe9f2",
+    "surface": "#f4e3b8",
+    "primary": "#d9482b",
+    "secondary": "#2a7fa6",
+    "ink": "#14263a"
+  },
+  "look": "atlas",
+  "audio": {
+    "music": "generated/dahala-khagrabari-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 112,
+      "notes": [
+        98,
+        116.54,
+        130.81,
+        146.83,
+        130.81,
+        116.54,
+        87.31,
+        98
+      ],
+      "score": "quirky"
+    },
+    "voice": {
+      "provider": "elevenlabs",
+      "model": "eleven_v4",
+      "voice": "JBFqnCBsd6RMkjVDRZzb",
+      "instructions": "Warm, curious storyteller walking a friend across a map. Clear and confident, with a sense of discovery on each reveal; slow slightly on dates and place names so they land. Conversational and human, never a documentary announcer, lecture, or neutral TTS. Never imitate a known person or character.",
+      "speed": 1.06,
+      "output": "generated/dahala-khagrabari-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      },
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.openstreetmap.org/copyright",
+        "owner": "OpenStreetMap contributors",
+        "licenseStatus": "licensed",
+        "publicReleaseApproved": true,
+        "notes": "© OpenStreetMap contributors (ODbL)."
+      },
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://github.com/lipis/flag-icons/blob/main/LICENSE",
+        "owner": "flag-icons",
+        "licenseStatus": "licensed",
+        "publicReleaseApproved": true,
+        "notes": "Flags: flag-icons (MIT)."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "durationSeconds": 4,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "mystery",
+      "subjectFocus": "hidden",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "A MAP MYSTERY",
+      "headline": "FOUR COUNTRIES DEEP",
+      "narration": "A country inside a country inside a country.",
+      "caption": "A COUNTRY WITHIN A COUNTRY…",
+      "visual": "hook",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "world",
+            "at": 0,
+            "padding": 0.15,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                68.143,
+                8.076,
+                97.362,
+                35.495
+              ]
+            },
+            "at": 0.5,
+            "padding": 0.2,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                68.143,
+                8.076,
+                97.362,
+                35.495
+              ]
+            },
+            "at": 0.9,
+            "padding": 0.08,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:IND",
+            "style": "fill",
+            "at": 0.06
+          },
+          {
+            "entity": "country:BGD",
+            "style": "outline",
+            "at": 0.228
+          },
+          {
+            "entity": "country:IND",
+            "style": "outline",
+            "at": 0.409
+          }
+        ],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 89.4,
+              "lat": 26.3
+            },
+            "text": "NESTED ENCLAVE",
+            "at": 0.538
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "space",
+        "globe": true
+      }
+    },
+    {
+      "id": "where",
+      "durationSeconds": 4.4,
+      "beat": "clue",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "WHERE?",
+      "headline": "INDIA AND BANGLADESH",
+      "narration": "It sat on the border between India and Bangladesh.",
+      "caption": "INDIA–BANGLADESH BORDER",
+      "visual": "gauntlet",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                88.4,
+                25.55,
+                90.4,
+                27.05
+              ]
+            },
+            "at": 0,
+            "padding": 0.15,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                68.143,
+                8.076,
+                97.362,
+                35.495
+              ]
+            },
+            "at": 0.7,
+            "padding": 0.2,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "border:BGD-IND",
+            "style": "trace",
+            "at": 0.06
+          },
+          {
+            "entity": "country:BGD",
+            "style": "fill",
+            "at": 0.228
+          },
+          {
+            "entity": "country:IND",
+            "style": "outline",
+            "at": 0.34
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:BGD",
+            "text": "BANGLADESH",
+            "at": 0.284
+          },
+          {
+            "type": "label",
+            "anchor": "country:IND",
+            "text": "INDIA",
+            "at": 0.396
+          }
+        ],
+        "dataset": "natural-earth",
+        "cut": true,
+        "ambience": "wind",
+        "flags": true
+      }
+    },
+    {
+      "id": "name",
+      "durationSeconds": 4.1,
+      "beat": "clue",
+      "role": "evidence",
+      "shot": "wide",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "MEET IT",
+      "headline": "DAHALA KHAGRABARI",
+      "narration": "It was called Dahala Khagrabari, an Indian enclave.",
+      "caption": "AN INDIAN ENCLAVE",
+      "visual": "gauntlet",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                68.143,
+                8.076,
+                97.362,
+                35.495
+              ]
+            },
+            "at": 0,
+            "padding": 0.2,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                68.143,
+                8.076,
+                97.362,
+                35.495
+              ]
+            },
+            "at": 0.75,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:IND",
+            "style": "outline",
+            "at": 0.06
+          }
+        ],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 89.4,
+              "lat": 26.3
+            },
+            "text": "DAHALA KHAGRABARI (APPROX.)",
+            "at": 0.24
+          },
+          {
+            "type": "label",
+            "anchor": "country:IND",
+            "text": "INDIAN ENCLAVE",
+            "at": 0.36
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "wind"
+      }
+    },
+    {
+      "id": "layers",
+      "durationSeconds": 3.9,
+      "beat": "escalation",
+      "role": "escalation",
+      "shot": "tracking",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "THE CLUE",
+      "headline": "LAYER UPON LAYER",
+      "narration": "India, inside Bangladesh, inside India, inside Bangladesh.",
+      "caption": "FOUR LAYERS OF COUNTRY",
+      "visual": "advantage",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                88.4,
+                25.55,
+                90.4,
+                27.05
+              ]
+            },
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                68.143,
+                8.076,
+                97.362,
+                35.495
+              ]
+            },
+            "at": 0.75,
+            "padding": 0.2,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:IND",
+            "style": "fill",
+            "at": 0.06
+          },
+          {
+            "entity": "country:BGD",
+            "style": "outline",
+            "at": 0.18
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:IND",
+            "text": "INDIA INSIDE",
+            "at": 0.24
+          },
+          {
+            "type": "label",
+            "anchor": "country:BGD",
+            "text": "BANGLADESH OUTSIDE",
+            "at": 0.36
+          },
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 89.4,
+              "lat": 26.3
+            },
+            "text": "FOUR LAYERS",
+            "at": 0.48
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "wind"
+      }
+    },
+    {
+      "id": "only",
+      "durationSeconds": 4.5,
+      "beat": "reveal",
+      "role": "payoff",
+      "shot": "comparison",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "THE ANSWER",
+      "headline": "THE ONLY ONE ON EARTH",
+      "narration": "It was the only third-order enclave in the world.",
+      "caption": "THE ONLY THIRD-ORDER ENCLAVE",
+      "visual": "race",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                88.74453,
+                26.12695,
+                88.77947,
+                26.17245
+              ]
+            },
+            "at": 0,
+            "padding": 0,
+            "ease": "linear"
+          },
+          {
+            "target": {
+              "bbox": [
+                88.75047,
+                26.13469,
+                88.77353,
+                26.16471
+              ]
+            },
+            "at": 1,
+            "padding": 0,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 88.762,
+              "lat": 26.1497
+            },
+            "text": "ONLY THIRD-ORDER ENCLAVE",
+            "at": 0.06
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "wind",
+        "streets": {
+          "city": "dahala-khagrabari",
+          "at": 0.05
+        }
+      }
+    },
+    {
+      "id": "size",
+      "durationSeconds": 4.9,
+      "beat": "reveal",
+      "role": "payoff",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "HOW BIG?",
+      "headline": "ABOUT A FOOTBALL PITCH",
+      "narration": "It covered about as much ground as a football pitch.",
+      "caption": "7,000 M² ~ A FOOTBALL PITCH",
+      "visual": "tradeoff",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                88.74453,
+                26.12695,
+                88.77947,
+                26.17245
+              ]
+            },
+            "at": 0,
+            "padding": 0,
+            "ease": "linear"
+          },
+          {
+            "target": {
+              "bbox": [
+                88.75047,
+                26.13469,
+                88.77353,
+                26.16471
+              ]
+            },
+            "at": 1,
+            "padding": 0,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 88.762,
+              "lat": 26.1497
+            },
+            "text": "7,000 M² PITCH (APPROX.)",
+            "at": 0.06
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "wind",
+        "streets": {
+          "city": "dahala-khagrabari",
+          "at": 0.05
+        }
+      }
+    },
+    {
+      "id": "verdict",
+      "durationSeconds": 5.9,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "IT ENDED IN 2015",
+      "headline": "GONE SINCE 2015",
+      "narration": "In 2015, the enclaves were exchanged. Would you have kept it?",
+      "caption": "EXCHANGED ON 1 AUGUST 2015",
+      "visual": "cta",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                88.4,
+                25.55,
+                90.4,
+                27.05
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                68.143,
+                8.076,
+                97.362,
+                35.495
+              ]
+            },
+            "at": 0.7,
+            "padding": 0.2,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:BGD",
+            "style": "fill",
+            "at": 0.06
+          },
+          {
+            "entity": "country:IND",
+            "style": "outline",
+            "at": 0.36
+          },
+          {
+            "entity": "border:BGD-IND",
+            "style": "trace",
+            "at": 0.6
+          }
+        ],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 89.4,
+              "lat": 26.3
+            },
+            "text": "EXCHANGED, 2015",
+            "at": 0.12
+          },
+          {
+            "type": "timeline",
+            "steps": [
+              {
+                "label": "BEFORE 2015",
+                "detail": "ENCLAVES"
+              },
+              {
+                "label": "1 AUGUST 2015",
+                "detail": "EXCHANGED"
+              },
+              {
+                "label": "AFTER 2015",
+                "detail": "NO ENCLAVE"
+              }
+            ],
+            "active": 1,
+            "at": 0.36
+          },
+          {
+            "type": "label",
+            "anchor": "country:BGD",
+            "text": "BANGLADESH",
+            "at": 0.54
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "wind",
+        "flags": true
+      }
+    }
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia: Dahala Khagrabari (revision 1321013879)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Dahala_Khagrabari&oldid=1321013879"
+    },
+    {
+      "label": "Wikipedia: Enclave and exclave (revision 1374699324)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Enclave_and_exclave&oldid=1374699324"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ]
+}

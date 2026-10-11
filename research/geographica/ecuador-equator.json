@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "id": "ecuador-equator",
+  "subject": "Ecuador",
+  "kind": "curated",
+  "note": "Hand-curated research for a Geographica episode about Ecuador. Claims are cited to a pinned Wikipedia revision (trusted_secondary). The equator is drawn as a route along latitude 0°, which is the line itself.",
+  "regions": [
+    "Ecuador",
+    "Colombia",
+    "Peru"
+  ],
+  "claims": [
+    {
+      "id": "name",
+      "text": "The country’s name means literally \"Equator\" in Spanish, truncated from República del Ecuador, \"Republic of the Equator\".",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-ecuador"
+      ]
+    },
+    {
+      "id": "west",
+      "text": "Ecuador is the westernmost country that lies on the equator.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-ecuador"
+      ]
+    },
+    {
+      "id": "neighbours",
+      "text": "It has 2,010 km of land boundaries: with Colombia in the north (590 km) and with Peru in the east and south (1,420 km).",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-ecuador"
+      ]
+    },
+    {
+      "id": "quito",
+      "text": "Quito, which remained the capital of the Ecuador department and the republic, is located on the equator.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-ecuador"
+      ]
+    },
+    {
+      "id": "daylight",
+      "text": "Because of its location at the equator, Ecuador experiences little variation in daylight hours; sunrise and sunset occur each day at the two six o’clock hours.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-ecuador"
+      ]
+    }
+  ],
+  "places": {
+    "quito": {
+      "lon": -78.5,
+      "lat": -0.2,
+      "source": "wikipedia-ecuador",
+      "approximate": true,
+      "note": "Quito, the capital, close to the equator."
+    }
+  },
+  "sources": {
+    "wikipedia-ecuador": {
+      "label": "Wikipedia: Ecuador (revision 1378037348)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Ecuador&oldid=1378037348"
+    },
+    "natural-earth": {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "id": "mongolia-empty",
+  "subject": "Mongolia",
+  "kind": "curated",
+  "note": "Hand-curated research for a Geographica episode about Mongolia. Claims are cited to a pinned Wikipedia revision (trusted_secondary). The article’s own wording excludes Western Sahara from the \"most sparsely populated sovereign state\" claim, and the episode keeps the \"sovereign state\" wording. China is a flagged country in the map data and is only labelled, not highlighted.",
+  "regions": [
+    "Mongolia",
+    "Russia",
+    "China"
+  ],
+  "claims": [
+    {
+      "id": "landlocked",
+      "text": "Mongolia is a landlocked country in East Asia, bordered by Russia to the north and China to the south.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-mongolia"
+      ]
+    },
+    {
+      "id": "area",
+      "text": "It covers 1,564,116 square kilometres, making it the 18th-largest country in the world and the second-largest landlocked nation after Kazakhstan.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-mongolia"
+      ]
+    },
+    {
+      "id": "sparse",
+      "text": "With a population of 3.5 million, Mongolia is the world’s most sparsely populated sovereign state, excluding Western Sahara.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-mongolia"
+      ]
+    },
+    {
+      "id": "sky",
+      "text": "Mongolia is known as the \"Land of the Eternal Blue Sky\" because it has over 250 sunny days per year.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-mongolia"
+      ]
+    }
+  ],
+  "places": {},
+  "sources": {
+    "wikipedia-mongolia": {
+      "label": "Wikipedia: Mongolia (revision 1378451710)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Mongolia&oldid=1378451710"
+    },
+    "natural-earth": {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  }
+}

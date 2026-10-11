@@ -1,0 +1,617 @@
+{
+  "id": "nile-flows-north",
+  "title": "The Longest River Flows the Wrong Way",
+  "storyPattern": "mystery",
+  "numberRelevant": false,
+  "premise": "The Nile, the longest river in the world, flows north.",
+  "audiencePromise": "Follow the world\u2019s longest river, and see why it runs uphill on the map.",
+  "openLoop": "Why does the longest river in the world flow towards the top of the map?",
+  "payoff": "The Nile is 7,088 km long and flows north from Lake Victoria and Lake Tana to the Mediterranean, through eleven countries\u2019 worth of basin.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "Did you think rivers only flow south?",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica"
+  },
+  "subject": {
+    "name": "Egypt",
+    "category": "Border",
+    "attributes": {
+      "geoEntity": "country:EGY"
+    }
+  },
+  "voice": {
+    "provider": "elevenlabs",
+    "voice": "JBFqnCBsd6RMkjVDRZzb"
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "eyebrow": "A MAP MYSTERY",
+      "headline": "UPHILL ON THE MAP?",
+      "narration": "The longest river on Earth flows north.",
+      "caption": "THE LONGEST RIVER FLOWS NORTH",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "world",
+            "at": 0,
+            "padding": 0.15,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -2.09,
+                6.83,
+                38.526,
+                43.83
+              ]
+            },
+            "at": 0.78,
+            "padding": 0.2,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "river:white-nile",
+            "style": "trace",
+            "at": 0.06
+          },
+          {
+            "entity": "river:blue-nile",
+            "style": "trace",
+            "at": 0.06
+          },
+          {
+            "entity": "river:victoria-nile",
+            "style": "trace",
+            "at": 0.06
+          },
+          {
+            "entity": "river:nile",
+            "style": "trace",
+            "at": 0.06
+          }
+        ],
+        "annotations": [
+          {
+            "type": "arrow",
+            "from": {
+              "lon": 32.56,
+              "lat": 15.5
+            },
+            "to": {
+              "lon": 31,
+              "lat": 31.3
+            },
+            "at": 0.323
+          },
+          {
+            "type": "label",
+            "anchor": {
+              "lon": 31,
+              "lat": 31.3
+            },
+            "text": "NORTH",
+            "at": 0.428
+          }
+        ],
+        "dataset": "natural-earth",
+        "globe": true,
+        "ambience": "space"
+      }
+    },
+    {
+      "id": "long",
+      "beat": "clue",
+      "eyebrow": "HOW LONG?",
+      "headline": "7,088 KM",
+      "narration": "The Nile is 7,088 kilometres long.",
+      "caption": "7,088 KM LONG",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -2.09,
+                0.428,
+                38.526,
+                43.83
+              ]
+            },
+            "at": 0,
+            "padding": 0.25,
+            "ease": "in-out"
+          },
+          {
+            "target": "river:victoria-nile",
+            "at": 0.4,
+            "padding": 0.3,
+            "ease": "in-out"
+          },
+          {
+            "target": "river:nile",
+            "at": 0.82,
+            "padding": 0.25,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "river:nile",
+            "style": "trace",
+            "at": 0.06
+          },
+          {
+            "entity": "river:white-nile",
+            "style": "trace",
+            "at": 0.06
+          },
+          {
+            "entity": "river:blue-nile",
+            "style": "trace",
+            "at": 0.06
+          },
+          {
+            "entity": "river:victoria-nile",
+            "style": "trace",
+            "at": 0.06
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "river:nile",
+            "text": "NILE \u2014 7,088 KM",
+            "at": 0.306
+          }
+        ],
+        "dataset": "natural-earth",
+        "cut": true,
+        "ambience": "sea"
+      }
+    },
+    {
+      "id": "white",
+      "beat": "clue",
+      "eyebrow": "SOURCE ONE",
+      "headline": "THE WHITE NILE",
+      "narration": "The White Nile begins near Lake Victoria.",
+      "caption": "THE WHITE NILE: LAKE VICTORIA",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                24.122,
+                -3.012,
+                35.921,
+                15.635
+              ]
+            },
+            "at": 0,
+            "padding": 0.25,
+            "ease": "in-out"
+          },
+          {
+            "target": "river:white-nile",
+            "at": 0.55,
+            "padding": 0.3,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                32,
+                -1.75,
+                34,
+                -0.25
+              ]
+            },
+            "at": 0.82,
+            "padding": 0.3,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "lake:lake-victoria",
+            "style": "fill",
+            "at": 0.06
+          },
+          {
+            "entity": "river:white-nile",
+            "style": "trace",
+            "at": 0.08
+          },
+          {
+            "entity": "river:victoria-nile",
+            "style": "trace",
+            "at": 0.08
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": {
+              "lon": 33,
+              "lat": -1
+            },
+            "text": "VICTORIA (APPROX.)",
+            "at": 0.265
+          },
+          {
+            "type": "label",
+            "anchor": "river:white-nile",
+            "text": "WHITE NILE",
+            "at": 0.439
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "sea"
+      }
+    },
+    {
+      "id": "blue",
+      "beat": "escalation",
+      "eyebrow": "SOURCE TWO",
+      "headline": "THE BLUE NILE",
+      "narration": "The Blue Nile starts in Ethiopia, at Lake Tana.",
+      "caption": "THE BLUE NILE: LAKE TANA",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                21.809,
+                3.403,
+                47.979,
+                22.227
+              ]
+            },
+            "at": 0,
+            "padding": 0.2,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                36.3,
+                11.25,
+                38.3,
+                12.75
+              ]
+            },
+            "at": 0.82,
+            "padding": 0.3,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:ETH",
+            "style": "fill",
+            "at": 0.06
+          },
+          {
+            "entity": "lake:lake-tana",
+            "style": "fill",
+            "at": 0.08
+          },
+          {
+            "entity": "river:blue-nile",
+            "style": "trace",
+            "at": 0.08
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": {
+              "lon": 37.3,
+              "lat": 12
+            },
+            "text": "LAKE TANA (APPROX.)",
+            "at": 0.265
+          },
+          {
+            "type": "label",
+            "anchor": "river:blue-nile",
+            "text": "BLUE NILE",
+            "at": 0.439
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "sea"
+      }
+    },
+    {
+      "id": "meet",
+      "beat": "reveal",
+      "eyebrow": "THE MEETING",
+      "headline": "THEY MEET AT KHARTOUM",
+      "narration": "The two rivers meet at Khartoum.",
+      "caption": "THEY MEET AT KHARTOUM",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                30.191,
+                6.83,
+                38.526,
+                15.635
+              ]
+            },
+            "at": 0,
+            "padding": 0.22,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                31.56,
+                14.75,
+                33.56,
+                16.25
+              ]
+            },
+            "at": 0.8,
+            "padding": 0.28,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "river:white-nile",
+            "style": "trace",
+            "at": 0.06
+          },
+          {
+            "entity": "river:blue-nile",
+            "style": "trace",
+            "at": 0.06
+          }
+        ],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 32.56,
+              "lat": 15.5
+            },
+            "text": "KHARTOUM (APPROX.)",
+            "at": 0.234
+          },
+          {
+            "type": "arrow",
+            "from": {
+              "lon": 33,
+              "lat": -1
+            },
+            "to": {
+              "lon": 32.56,
+              "lat": 15.5
+            },
+            "at": 0.367
+          },
+          {
+            "type": "arrow",
+            "from": {
+              "lon": 37.3,
+              "lat": 12
+            },
+            "to": {
+              "lon": 32.56,
+              "lat": 15.5
+            },
+            "at": 0.47
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "sea"
+      }
+    },
+    {
+      "id": "sea",
+      "beat": "reveal",
+      "eyebrow": "THE END",
+      "headline": "NORTH TO THE SEA",
+      "narration": "Then it flows north, to the Mediterranean.",
+      "caption": "EMPTIES INTO THE MEDITERRANEAN",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -2.09,
+                15.635,
+                36.19,
+                43.83
+              ]
+            },
+            "at": 0,
+            "padding": 0.25,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -2.09,
+                15.635,
+                36.19,
+                43.83
+              ]
+            },
+            "at": 0.82,
+            "padding": 0.3,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "river:nile",
+            "style": "trace",
+            "at": 0.06
+          },
+          {
+            "entity": "river:damietta-branch",
+            "style": "trace",
+            "at": 0.08
+          },
+          {
+            "entity": "river:rosetta-branch",
+            "style": "trace",
+            "at": 0.08
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "water:mediterranean-sea",
+            "text": "MEDITERRANEAN SEA",
+            "at": 0.265
+          },
+          {
+            "type": "label",
+            "anchor": {
+              "lon": 31,
+              "lat": 31.3
+            },
+            "text": "DELTA (APPROX.)",
+            "at": 0.439
+          },
+          {
+            "type": "arrow",
+            "from": {
+              "lon": 32.56,
+              "lat": 15.5
+            },
+            "to": {
+              "lon": 31,
+              "lat": 31.3
+            },
+            "at": 0.367
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "sea"
+      }
+    },
+    {
+      "id": "verdict",
+      "beat": "verdict",
+      "eyebrow": "YOUR TURN",
+      "headline": "ELEVEN COUNTRIES",
+      "narration": "Its basin spans eleven countries. Did that surprise you?",
+      "caption": "ELEVEN COUNTRIES IN ITS BASIN",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                21.809,
+                -1.475,
+                47.979,
+                31.656
+              ]
+            },
+            "at": 0,
+            "padding": 0.2,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                21.809,
+                -1.475,
+                47.979,
+                31.656
+              ]
+            },
+            "at": 0.82,
+            "padding": 0.25,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:EGY",
+            "style": "fill",
+            "at": 0.06
+          },
+          {
+            "entity": "country:SDN",
+            "style": "fill",
+            "at": 0.06
+          },
+          {
+            "entity": "country:SDS",
+            "style": "fill",
+            "at": 0.06
+          },
+          {
+            "entity": "country:ETH",
+            "style": "fill",
+            "at": 0.06
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "river:nile",
+            "text": "11 COUNTRIES",
+            "at": 0.285
+          },
+          {
+            "type": "label",
+            "anchor": "country:UGA",
+            "text": "NILE BASIN",
+            "at": 0.439
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "sea",
+        "flags": true
+      }
+    }
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia: Nile (revision 1368885921)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Nile&oldid=1368885921"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ],
+  "paletteVariant": "atlas",
+  "score": "epic"
+}

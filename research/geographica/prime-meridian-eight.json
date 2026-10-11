@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "id": "prime-meridian-eight",
+  "subject": "Ghana",
+  "kind": "curated",
+  "note": "Hand-curated research for a Geographica episode about the IERS Reference Meridian. Claims are cited to a pinned Wikipedia revision (trusted_secondary); the eight countries come from the article’s table. The meridian is drawn as a route along longitude 0°, which is the line itself, not a surveyed set of points.",
+  "regions": [
+    "United Kingdom",
+    "France",
+    "Spain",
+    "Algeria",
+    "Mali",
+    "Burkina Faso",
+    "Togo",
+    "Ghana"
+  ],
+  "claims": [
+    {
+      "id": "eight",
+      "text": "Starting at the North Pole and heading south, the IERS Reference Meridian (as of 2016) passes through 8 countries, 4 seas, 3 oceans and 1 channel.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-prime-meridian"
+      ]
+    },
+    {
+      "id": "countries",
+      "text": "The eight countries are the United Kingdom, France, Spain, Algeria, Mali, Burkina Faso, Togo and Ghana.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-prime-meridian"
+      ]
+    },
+    {
+      "id": "iers",
+      "text": "Beginning in 1973, the International Time Bureau and later the IERS changed from optical instruments like the Airy Transit Circle to techniques such as satellite laser ranging, and the IERS Reference Meridian results from them.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-prime-meridian"
+      ]
+    }
+  ],
+  "places": {},
+  "sources": {
+    "wikipedia-prime-meridian": {
+      "label": "Wikipedia: Prime meridian (revision 1372840008)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Prime_meridian&oldid=1372840008"
+    },
+    "natural-earth": {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  }
+}

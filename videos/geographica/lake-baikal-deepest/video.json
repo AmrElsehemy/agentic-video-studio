@@ -1,0 +1,541 @@
+{
+  "schemaVersion": 2,
+  "id": "lake-baikal-deepest",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica",
+    "wordmark": {
+      "lead": "GEO",
+      "accent": "GRAPHICA"
+    },
+    "fonts": {
+      "display": "Oswald",
+      "body": "Inter"
+    },
+    "captions": {
+      "mode": "words"
+    }
+  },
+  "title": "The Lake That Holds Over a Fifth of Fresh Water",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "mystery",
+    "numberRelevant": false,
+    "premise": "Lake Baikal is the deepest lake in the world and holds 22–23% of the planet’s fresh surface water.",
+    "audiencePromise": "Find the lake that holds over a fifth of the world’s fresh surface water.",
+    "openLoop": "Which lake holds over a fifth of the world’s fresh surface water?",
+    "payoff": "Lake Baikal is 1,642 m deep and holds 22–23% of the world’s fresh surface water.",
+    "targetEmotion": "surprise",
+    "engagementQuestion": "Would you swim in it?",
+    "targetSecondsBetweenVisualChanges": 0.68
+  },
+  "subject": {
+    "name": "Russia",
+    "category": "Border",
+    "attributes": {
+      "geoEntity": "country:RUS"
+    }
+  },
+  "related": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#cfe9f2",
+    "surface": "#f4e3b8",
+    "primary": "#d9482b",
+    "secondary": "#2a7fa6",
+    "ink": "#14263a"
+  },
+  "look": "atlas",
+  "audio": {
+    "music": "generated/lake-baikal-deepest-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 72,
+      "notes": [
+        98,
+        116.54,
+        130.81,
+        146.83,
+        130.81,
+        116.54,
+        87.31,
+        98
+      ],
+      "score": "calm"
+    },
+    "voice": {
+      "provider": "elevenlabs",
+      "model": "eleven_v4",
+      "voice": "JBFqnCBsd6RMkjVDRZzb",
+      "instructions": "Warm, curious storyteller walking a friend across a map. Clear and confident, with a sense of discovery on each reveal; slow slightly on dates and place names so they land. Conversational and human, never a documentary announcer, lecture, or neutral TTS. Never imitate a known person or character.",
+      "speed": 1.06,
+      "output": "generated/lake-baikal-deepest-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "durationSeconds": 4.4,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "mystery",
+      "subjectFocus": "hidden",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "A MAP MYSTERY",
+      "headline": "OVER A FIFTH",
+      "narration": "One lake holds over a fifth of fresh water.",
+      "caption": "OVER A FIFTH OF FRESH SURFACE WATER",
+      "visual": "hook",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "world",
+            "at": 0,
+            "padding": 0.2,
+            "ease": "in-out"
+          },
+          {
+            "target": "lake:lake-baikal",
+            "at": 0.75,
+            "padding": 0.35,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "lake:lake-baikal",
+            "style": "fill",
+            "at": 0.06
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "lake:lake-baikal",
+            "text": "22–23% FRESH WATER",
+            "at": 0.318
+          },
+          {
+            "type": "label",
+            "anchor": "lake:lake-baikal",
+            "text": "OF THE WORLD'S SUPPLY",
+            "at": 0.512
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "space",
+        "globe": true
+      }
+    },
+    {
+      "id": "where",
+      "durationSeconds": 3.8,
+      "beat": "clue",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "WHERE?",
+      "headline": "SOUTHERN SIBERIA",
+      "narration": "It lies in southern Siberia, in Russia.",
+      "caption": "LAKE BAIKAL, RUSSIA",
+      "visual": "gauntlet",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "lake:lake-baikal",
+            "at": 0,
+            "padding": 0.35,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                27.328,
+                41.193,
+                180,
+                77.738
+              ]
+            },
+            "at": 0.8,
+            "padding": 0.18,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:RUS",
+            "style": "fill",
+            "at": 0.06
+          },
+          {
+            "entity": "lake:lake-baikal",
+            "style": "outline",
+            "at": 0.217
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:RUS",
+            "text": "RUSSIA",
+            "at": 0.217
+          },
+          {
+            "type": "label",
+            "anchor": "lake:lake-baikal",
+            "text": "LAKE BAIKAL",
+            "at": 0.428
+          }
+        ],
+        "dataset": "natural-earth",
+        "cut": true,
+        "projection": "albers",
+        "ambience": "sea"
+      }
+    },
+    {
+      "id": "deep",
+      "durationSeconds": 5.8,
+      "beat": "clue",
+      "role": "evidence",
+      "shot": "wide",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "HOW DEEP?",
+      "headline": "1,642 METRES",
+      "narration": "It is the deepest lake in the world, 1,642 metres down.",
+      "caption": "DEEPEST LAKE: 1,642 M",
+      "visual": "gauntlet",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                27.328,
+                41.193,
+                180,
+                77.738
+              ]
+            },
+            "at": 0,
+            "padding": 0.18,
+            "ease": "in-out"
+          },
+          {
+            "target": "lake:lake-baikal",
+            "at": 0.8,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "lake:lake-baikal",
+            "style": "fill",
+            "at": 0.06
+          }
+        ],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 108,
+              "lat": 53.5
+            },
+            "text": "DEPTH POINT (APPROX.)",
+            "at": 0.228
+          },
+          {
+            "type": "label",
+            "anchor": "lake:lake-baikal",
+            "text": "1,642 M DEEP",
+            "at": 0.354
+          },
+          {
+            "type": "arrow",
+            "from": {
+              "lon": 108,
+              "lat": 53.5
+            },
+            "to": "lake:lake-baikal",
+            "at": 0.396
+          },
+          {
+            "type": "label",
+            "anchor": "lake:lake-baikal",
+            "text": "DEEPEST LAKE",
+            "at": 0.564
+          }
+        ],
+        "dataset": "natural-earth",
+        "projection": "albers",
+        "ambience": "sea"
+      }
+    },
+    {
+      "id": "size",
+      "durationSeconds": 5,
+      "beat": "escalation",
+      "role": "escalation",
+      "shot": "tracking",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "HOW LONG?",
+      "headline": "636 KM LONG",
+      "narration": "It is 636 kilometres long, but only 79 wide.",
+      "caption": "636 KM LONG, 79 KM WIDE",
+      "visual": "advantage",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "lake:lake-baikal",
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          },
+          {
+            "target": "lake:lake-baikal",
+            "at": 0.8,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "lake:lake-baikal",
+            "style": "outline",
+            "at": 0.06
+          }
+        ],
+        "annotations": [
+          {
+            "type": "ring",
+            "center": "lake:lake-baikal",
+            "radiusKm": 636,
+            "text": "636 KM LONG",
+            "at": 0.172
+          },
+          {
+            "type": "ring",
+            "center": "lake:lake-baikal",
+            "radiusKm": 79,
+            "text": "79 KM WIDE",
+            "at": 0.43
+          }
+        ],
+        "dataset": "natural-earth",
+        "projection": "albers",
+        "ambience": "sea"
+      }
+    },
+    {
+      "id": "belgium",
+      "durationSeconds": 3.8,
+      "beat": "reveal",
+      "role": "payoff",
+      "shot": "comparison",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "FOR SCALE",
+      "headline": "BIGGER THAN BELGIUM",
+      "narration": "Its surface is slightly larger than Belgium.",
+      "caption": "SLIGHTLY LARGER THAN BELGIUM",
+      "visual": "race",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                2.522,
+                49.495,
+                109.961,
+                55.79
+              ]
+            },
+            "at": 0,
+            "padding": 0.2,
+            "ease": "in-out"
+          },
+          {
+            "target": "country:BEL",
+            "at": 0.8,
+            "padding": 0.25,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "truesize",
+            "entity": "lake:lake-baikal",
+            "onto": "country:BEL",
+            "at": 0.06,
+            "until": 0.638
+          },
+          {
+            "type": "label",
+            "anchor": "country:BEL",
+            "text": "BELGIUM",
+            "at": 0.323
+          }
+        ],
+        "dataset": "natural-earth",
+        "projection": "albers",
+        "ambience": "ice"
+      }
+    },
+    {
+      "id": "fresh",
+      "durationSeconds": 6.2,
+      "beat": "reveal",
+      "role": "payoff",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "THE RECORD",
+      "headline": "22–23% OF FRESH WATER",
+      "narration": "It holds 22 to 23 percent of the world’s fresh surface water.",
+      "caption": "22–23% OF FRESH SURFACE WATER",
+      "visual": "tradeoff",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "country:BEL",
+            "at": 0,
+            "padding": 0.25,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                27.328,
+                41.193,
+                180,
+                77.738
+              ]
+            },
+            "at": 0.8,
+            "padding": 0.28,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:RUS",
+            "style": "outline",
+            "at": 0.06
+          },
+          {
+            "entity": "lake:lake-baikal",
+            "style": "fill",
+            "at": 0.165
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "lake:lake-baikal",
+            "text": "22–23% OF FRESH WATER",
+            "at": 0.323
+          },
+          {
+            "type": "label",
+            "anchor": "lake:lake-baikal",
+            "text": "LARGEST BY VOLUME",
+            "at": 0.564
+          }
+        ],
+        "dataset": "natural-earth",
+        "projection": "albers",
+        "ambience": "sea"
+      }
+    },
+    {
+      "id": "verdict",
+      "durationSeconds": 3.8,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "YOUR TURN",
+      "headline": "SWIM IN IT?",
+      "narration": "Would you swim in it?",
+      "caption": "WOULD YOU SWIM IN IT?",
+      "visual": "cta",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "lake:lake-baikal",
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          },
+          {
+            "target": "lake:lake-baikal",
+            "at": 0.8,
+            "padding": 0.18,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "lake:lake-baikal",
+            "style": "outline",
+            "at": 0.06
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "lake:lake-baikal",
+            "text": "WOULD YOU SWIM IN IT?",
+            "at": 0.284
+          }
+        ],
+        "dataset": "natural-earth",
+        "projection": "albers",
+        "ambience": "sea"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia: Lake Baikal (revision 1378674325)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Lake_Baikal&oldid=1378674325"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ]
+}

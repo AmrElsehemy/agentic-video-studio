@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "id": "lake-titicaca-border",
+  "subject": "Peru",
+  "kind": "curated",
+  "note": "Hand-curated research for a Geographica episode about Lake Titicaca. Claims are cited to a pinned Wikipedia revision (trusted_secondary). The lake has no outline in the pinned map data, so it is a labelled approximate point on the Peru–Bolivia border. \"Highest navigable lake\" is how the article puts it: \"often called\", so the episode keeps that hedge.",
+  "regions": [
+    "Peru",
+    "Bolivia"
+  ],
+  "claims": [
+    {
+      "id": "border",
+      "text": "Lake Titicaca is a large lake in the Andes mountains on the border of Bolivia and Peru.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-lake-titicaca"
+      ]
+    },
+    {
+      "id": "highest",
+      "text": "It is often called the highest navigable lake in the world.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-lake-titicaca"
+      ]
+    },
+    {
+      "id": "largest",
+      "text": "Titicaca is the largest lake in South America, both in terms of the volume of water and surface area.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-lake-titicaca"
+      ]
+    },
+    {
+      "id": "sides",
+      "text": "The western part of the lake lies within the Puno Region of Peru, and the eastern side is located in the Bolivian La Paz Department.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-lake-titicaca"
+      ]
+    },
+    {
+      "id": "salt",
+      "text": "It is often listed as a freshwater lake, though its waters are slightly brackish.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-lake-titicaca"
+      ]
+    }
+  ],
+  "places": {
+    "titicaca": {
+      "lon": -69.4,
+      "lat": -15.8,
+      "source": "wikipedia-lake-titicaca",
+      "approximate": true,
+      "note": "Lake Titicaca, on the Peru–Bolivia border, to the nearest tenth of a degree."
+    }
+  },
+  "sources": {
+    "wikipedia-lake-titicaca": {
+      "label": "Wikipedia: Lake Titicaca (revision 1366281262)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Lake_Titicaca&oldid=1366281262"
+    },
+    "natural-earth": {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  }
+}

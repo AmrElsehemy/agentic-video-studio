@@ -1,0 +1,486 @@
+{
+  "id": "lake-titicaca-border",
+  "title": "The Highest Lake You Can Sail On",
+  "storyPattern": "mystery",
+  "numberRelevant": false,
+  "premise": "Lake Titicaca, shared by Peru and Bolivia, is often called the highest navigable lake in the world.",
+  "audiencePromise": "Find the lake that two countries share, high in the Andes.",
+  "openLoop": "Which lake do two countries share high in the Andes?",
+  "payoff": "Lake Titicaca is the largest lake in South America and is often called the highest navigable lake in the world.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "Would you sail across two countries?",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica"
+  },
+  "subject": {
+    "name": "Peru",
+    "category": "Border",
+    "attributes": {
+      "geoEntity": "country:PER"
+    }
+  },
+  "voice": {
+    "provider": "elevenlabs",
+    "voice": "JBFqnCBsd6RMkjVDRZzb"
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "eyebrow": "A MAP MYSTERY",
+      "headline": "SAIL ABOVE THE CLOUDS",
+      "narration": "Ships sail on this lake high in the Andes.",
+      "caption": "A LAKE HIGH IN THE ANDES",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "world",
+            "at": 0,
+            "padding": 0.15,
+            "ease": "in-out"
+          },
+          {
+            "target": "lake:lago-titicaca",
+            "at": 0.8,
+            "padding": 0.08,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "lake:lago-titicaca",
+            "style": "fill",
+            "at": 0.06
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "lake:lago-titicaca",
+            "text": "LAKE TITICACA",
+            "at": 0.228,
+            "until": 0.844
+          },
+          {
+            "type": "label",
+            "anchor": "country:PER",
+            "text": "HIGH ANDES",
+            "at": 0.396,
+            "until": 0.788
+          }
+        ],
+        "dataset": "natural-earth",
+        "globe": true,
+        "relief": true,
+        "ambience": "space"
+      }
+    },
+    {
+      "id": "where",
+      "beat": "clue",
+      "eyebrow": "WHERE?",
+      "headline": "PERU AND BOLIVIA",
+      "narration": "It sits on the border of Peru and Bolivia.",
+      "caption": "THE PERU\u2013BOLIVIA BORDER",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -81.338,
+                -22.897,
+                -57.466,
+                -0.029
+              ]
+            },
+            "at": 0,
+            "padding": 0.2,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -81.338,
+                -22.897,
+                -57.466,
+                -0.029
+              ]
+            },
+            "at": 0.8,
+            "padding": 0.2,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "border:BOL-PER",
+            "style": "trace",
+            "at": 0.06
+          },
+          {
+            "entity": "country:PER",
+            "style": "fill",
+            "at": 0.165
+          },
+          {
+            "entity": "country:BOL",
+            "style": "fill",
+            "at": 0.165
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:PER",
+            "text": "PERU",
+            "at": 0.217,
+            "until": 0.795
+          },
+          {
+            "type": "label",
+            "anchor": "country:BOL",
+            "text": "BOLIVIA",
+            "at": 0.323,
+            "until": 0.795
+          }
+        ],
+        "dataset": "natural-earth",
+        "cut": true,
+        "ambience": "wind",
+        "flags": true
+      }
+    },
+    {
+      "id": "name",
+      "beat": "clue",
+      "eyebrow": "MEET IT",
+      "headline": "LAKE TITICACA",
+      "narration": "It is Lake Titicaca.",
+      "caption": "LAKE TITICACA",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "lake:lago-titicaca",
+            "at": 0,
+            "padding": 0.25,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -70.4,
+                -16.55,
+                -68.4,
+                -15.05
+              ]
+            },
+            "at": 0.8,
+            "padding": 0.18,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "lake:lago-titicaca",
+            "style": "fill",
+            "at": 0.06
+          }
+        ],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": -69.4,
+              "lat": -15.8
+            },
+            "text": "LAKE TITICACA (APPROX.)",
+            "at": 0.228,
+            "until": 0.844
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "sea"
+      }
+    },
+    {
+      "id": "sides",
+      "beat": "escalation",
+      "eyebrow": "TWO SIDES",
+      "headline": "ONE LAKE, TWO COUNTRIES",
+      "narration": "Its west is in Peru, its east in Bolivia.",
+      "caption": "WEST: PERU. EAST: BOLIVIA.",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -81.338,
+                -22.897,
+                -57.466,
+                -0.029
+              ]
+            },
+            "at": 0,
+            "padding": 0.22,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -81.338,
+                -22.897,
+                -57.466,
+                -0.029
+              ]
+            },
+            "at": 0.75,
+            "padding": 0.2,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:PER",
+            "style": "fill",
+            "at": 0.06
+          },
+          {
+            "entity": "country:BOL",
+            "style": "fill",
+            "at": 0.165
+          },
+          {
+            "entity": "lake:lago-titicaca",
+            "style": "outline",
+            "at": 0.217
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:PER",
+            "text": "WEST: PERU",
+            "at": 0.217,
+            "until": 0.795
+          },
+          {
+            "type": "label",
+            "anchor": "country:BOL",
+            "text": "EAST: BOLIVIA",
+            "at": 0.323,
+            "until": 0.795
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "sea",
+        "flags": true
+      }
+    },
+    {
+      "id": "largest",
+      "beat": "reveal",
+      "eyebrow": "THE RECORD",
+      "headline": "SOUTH AMERICA\u2019S LARGEST",
+      "narration": "It is the largest lake in South America.",
+      "caption": "LARGEST LAKE IN SOUTH AMERICA",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "world",
+            "at": 0,
+            "padding": 0.15,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -81.338,
+                -22.897,
+                -57.466,
+                -0.029
+              ]
+            },
+            "at": 0.8,
+            "padding": 0.2,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "lake:lago-titicaca",
+            "style": "fill",
+            "at": 0.06
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": {
+              "lon": -69.4,
+              "lat": -15.8
+            },
+            "text": "LARGEST IN S. AMERICA",
+            "at": 0.3,
+            "until": 0.84
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "sea"
+      }
+    },
+    {
+      "id": "highest",
+      "beat": "reveal",
+      "eyebrow": "THE HEIGHT",
+      "headline": "HIGHEST NAVIGABLE LAKE",
+      "narration": "It is often called the highest navigable lake on Earth.",
+      "caption": "OFTEN CALLED THE HIGHEST",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -81.338,
+                -22.897,
+                -57.466,
+                -0.029
+              ]
+            },
+            "at": 0,
+            "padding": 0.2,
+            "ease": "in-out"
+          },
+          {
+            "target": "lake:lago-titicaca",
+            "at": 0.8,
+            "padding": 0.22,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "lake:lago-titicaca",
+            "style": "fill",
+            "at": 0.06
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": {
+              "lon": -69.4,
+              "lat": -15.8
+            },
+            "text": "HIGHEST NAVIGABLE LAKE",
+            "at": 0.284,
+            "until": 0.844
+          }
+        ],
+        "dataset": "natural-earth",
+        "relief": true,
+        "ambience": "sea"
+      }
+    },
+    {
+      "id": "verdict",
+      "beat": "verdict",
+      "eyebrow": "YOUR TURN",
+      "headline": "SAIL ACROSS?",
+      "narration": "Would you sail across two countries?",
+      "caption": "WOULD YOU SAIL IT?",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "lake:lago-titicaca",
+            "at": 0,
+            "padding": 0.25,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -81.338,
+                -22.897,
+                -57.466,
+                -0.029
+              ]
+            },
+            "at": 0.8,
+            "padding": 0.2,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "lake:lago-titicaca",
+            "style": "fill",
+            "at": 0.06
+          },
+          {
+            "entity": "border:BOL-PER",
+            "style": "trace",
+            "at": 0.165
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": {
+              "lon": -69.4,
+              "lat": -15.8
+            },
+            "text": "WOULD YOU SAIL?",
+            "at": 0.323,
+            "until": 0.848
+          },
+          {
+            "type": "label",
+            "anchor": "border:BOL-PER",
+            "text": "TWO COUNTRIES",
+            "at": 0.428,
+            "until": 0.795
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "sea",
+        "flags": true
+      }
+    }
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia: Lake Titicaca (revision 1366281262)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Lake_Titicaca&oldid=1366281262"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ],
+  "paletteVariant": "atlas",
+  "score": "calm"
+}

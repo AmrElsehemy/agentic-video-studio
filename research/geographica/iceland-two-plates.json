@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "id": "iceland-two-plates",
+  "subject": "Iceland",
+  "kind": "curated",
+  "note": "Hand-curated research for a Geographica episode about Iceland. Claims are cited to a pinned Wikipedia revision (trusted_secondary). The Mid-Atlantic Ridge is not drawn; the episode shows the country and the two continents on either side.",
+  "regions": [
+    "Iceland"
+  ],
+  "claims": [
+    {
+      "id": "ridge",
+      "text": "Iceland is a Nordic island country between the Arctic Ocean and the North Atlantic Ocean, located on the Mid-Atlantic Ridge between Europe and North America.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-iceland"
+      ]
+    },
+    {
+      "id": "plates",
+      "text": "Geologically, the island includes parts of both continental plates.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-iceland"
+      ]
+    },
+    {
+      "id": "europe",
+      "text": "Iceland is Europe’s westernmost and most sparsely populated country.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-iceland"
+      ]
+    },
+    {
+      "id": "closer",
+      "text": "Iceland is closer to continental Europe than to mainland North America, although it is closest to Greenland, an island of North America.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-iceland"
+      ]
+    },
+    {
+      "id": "people",
+      "text": "Its roughly 395,000 residents include about 35% living in the capital Reykjavík.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-iceland"
+      ]
+    }
+  ],
+  "places": {
+    "reykjavik": {
+      "lon": -21.9,
+      "lat": 64.15,
+      "source": "wikipedia-iceland",
+      "approximate": true,
+      "note": "Reykjavík, the capital."
+    }
+  },
+  "sources": {
+    "wikipedia-iceland": {
+      "label": "Wikipedia: Iceland (revision 1376004446)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Iceland&oldid=1376004446"
+    },
+    "natural-earth": {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  }
+}

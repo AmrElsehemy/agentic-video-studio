@@ -1,0 +1,703 @@
+{
+  "schemaVersion": 2,
+  "id": "strait-of-gibraltar",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica",
+    "wordmark": {
+      "lead": "GEO",
+      "accent": "GRAPHICA"
+    },
+    "fonts": {
+      "display": "Oswald",
+      "body": "Inter"
+    },
+    "captions": {
+      "mode": "words"
+    }
+  },
+  "title": "Europe and Africa Are 14 km Apart",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "mystery",
+    "numberRelevant": false,
+    "premise": "Europe and Africa are only 14.2 km apart at the Strait of Gibraltar.",
+    "audiencePromise": "See how close two continents really are.",
+    "openLoop": "How close do two continents get?",
+    "payoff": "At its narrowest, the Strait of Gibraltar is 14.2 km wide and a ferry crosses it in as little as 35 minutes.",
+    "targetEmotion": "surprise",
+    "engagementQuestion": "Would you take the ferry to another continent?",
+    "targetSecondsBetweenVisualChanges": 0.68
+  },
+  "subject": {
+    "name": "Spain",
+    "category": "Border",
+    "attributes": {
+      "geoEntity": "country:ESP"
+    }
+  },
+  "related": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#cfe9f2",
+    "surface": "#f4e3b8",
+    "primary": "#d9482b",
+    "secondary": "#2a7fa6",
+    "ink": "#14263a"
+  },
+  "look": "atlas",
+  "audio": {
+    "music": "generated/strait-of-gibraltar-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 100,
+      "notes": [
+        98,
+        116.54,
+        130.81,
+        146.83,
+        130.81,
+        116.54,
+        87.31,
+        98
+      ],
+      "score": "tension"
+    },
+    "voice": {
+      "provider": "elevenlabs",
+      "model": "eleven_v4",
+      "voice": "JBFqnCBsd6RMkjVDRZzb",
+      "instructions": "Warm, curious storyteller walking a friend across a map. Clear and confident, with a sense of discovery on each reveal; slow slightly on dates and place names so they land. Conversational and human, never a documentary announcer, lecture, or neutral TTS. Never imitate a known person or character.",
+      "speed": 1.06,
+      "output": "generated/strait-of-gibraltar-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "durationSeconds": 3.8,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "mystery",
+      "subjectFocus": "hidden",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "A MAP MYSTERY",
+      "headline": "TWO CONTINENTS",
+      "narration": "Two continents, just a short ferry apart.",
+      "caption": "TWO CONTINENTS, ONE FERRY",
+      "visual": "hook",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -17.014,
+                21.42,
+                3.318,
+                43.793
+              ]
+            },
+            "at": 0,
+            "padding": 0.2,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -6.6,
+                35.2,
+                -4.6,
+                36.7
+              ]
+            },
+            "at": 0.8,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:ESP",
+            "style": "outline",
+            "at": 0.208
+          },
+          {
+            "entity": "country:MAR",
+            "style": "outline",
+            "at": 0.208
+          }
+        ],
+        "annotations": [
+          {
+            "type": "route",
+            "path": [
+              "country:ESP",
+              "country:MAR"
+            ],
+            "text": "FERRY CROSSING",
+            "at": 0.06,
+            "until": 0.801,
+            "marker": true,
+            "follow": false
+          },
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": -5.6,
+              "lat": 35.95
+            },
+            "text": "STRAIT",
+            "at": 0.356
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "space",
+        "globe": true
+      }
+    },
+    {
+      "id": "where",
+      "durationSeconds": 3.8,
+      "beat": "clue",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "WHERE?",
+      "headline": "SPAIN AND MOROCCO",
+      "narration": "Spain in Europe, Morocco in Africa.",
+      "caption": "SPAIN · MOROCCO",
+      "visual": "gauntlet",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -17.014,
+                21.42,
+                3.318,
+                43.793
+              ]
+            },
+            "at": 0,
+            "padding": 0.2,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -17.014,
+                21.42,
+                3.318,
+                43.793
+              ]
+            },
+            "at": 0.9,
+            "padding": 0.2,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:ESP",
+            "style": "fill",
+            "at": 0.06
+          },
+          {
+            "entity": "country:MAR",
+            "style": "fill",
+            "at": 0.172
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:ESP",
+            "text": "SPAIN · EUROPE",
+            "at": 0.172
+          },
+          {
+            "type": "label",
+            "anchor": "country:MAR",
+            "text": "MOROCCO · AFRICA",
+            "at": 0.34
+          }
+        ],
+        "dataset": "natural-earth",
+        "cut": true,
+        "projection": "albers",
+        "ambience": "sea"
+      }
+    },
+    {
+      "id": "name",
+      "durationSeconds": 3.8,
+      "beat": "clue",
+      "role": "evidence",
+      "shot": "wide",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "MEET IT",
+      "headline": "THE STRAIT OF GIBRALTAR",
+      "narration": "Between them lies the Strait of Gibraltar.",
+      "caption": "THE STRAIT OF GIBRALTAR",
+      "visual": "gauntlet",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -17.014,
+                21.42,
+                3.318,
+                43.793
+              ]
+            },
+            "at": 0,
+            "padding": 0.2,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -6.6,
+                35.2,
+                -4.6,
+                36.7
+              ]
+            },
+            "at": 0.75,
+            "padding": 0.18,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:ESP",
+            "style": "outline",
+            "at": 0.06
+          },
+          {
+            "entity": "country:MAR",
+            "style": "outline",
+            "at": 0.06
+          },
+          {
+            "entity": "water:mediterranean-sea",
+            "style": "fill",
+            "at": 0.12
+          }
+        ],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": -5.6,
+              "lat": 35.95
+            },
+            "text": "GIBRALTAR STRAIT (APPROX.)",
+            "at": 0.3
+          }
+        ],
+        "dataset": "natural-earth",
+        "projection": "albers",
+        "ambience": "sea"
+      }
+    },
+    {
+      "id": "narrow",
+      "durationSeconds": 3.8,
+      "beat": "escalation",
+      "role": "escalation",
+      "shot": "tracking",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "HOW NARROW?",
+      "headline": "14.2 KM",
+      "narration": "At its narrowest, only 14 kilometres.",
+      "caption": "14.2 KM AT ITS NARROWEST",
+      "visual": "advantage",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -6.6,
+                35.2,
+                -4.6,
+                36.7
+              ]
+            },
+            "at": 0,
+            "padding": 0.16,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -6.6,
+                35.2,
+                -4.6,
+                36.7
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.16,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:ESP",
+            "style": "outline",
+            "at": 0.06
+          },
+          {
+            "entity": "country:MAR",
+            "style": "outline",
+            "at": 0.06
+          }
+        ],
+        "annotations": [
+          {
+            "type": "route",
+            "path": [
+              "country:ESP",
+              "country:MAR"
+            ],
+            "text": "14.2 KM",
+            "at": 0.06,
+            "until": 0.732,
+            "marker": true,
+            "follow": false
+          },
+          {
+            "type": "marker",
+            "anchor": "country:ESP",
+            "text": "SPAIN",
+            "at": 0.172
+          },
+          {
+            "type": "marker",
+            "anchor": "country:MAR",
+            "text": "MOROCCO",
+            "at": 0.34
+          }
+        ],
+        "dataset": "natural-earth",
+        "projection": "albers",
+        "ambience": "sea"
+      }
+    },
+    {
+      "id": "ferry",
+      "durationSeconds": 4.7,
+      "beat": "reveal",
+      "role": "payoff",
+      "shot": "comparison",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "THE CROSSING",
+      "headline": "35 MINUTES",
+      "narration": "A ferry crosses in as little as 35 minutes.",
+      "caption": "FERRY: AS LITTLE AS 35 MINUTES",
+      "visual": "race",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -6.6,
+                35.2,
+                -4.6,
+                36.7
+              ]
+            },
+            "at": 0,
+            "padding": 0.18,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -17.014,
+                21.42,
+                3.318,
+                43.793
+              ]
+            },
+            "at": 0.75,
+            "padding": 0.2,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:ESP",
+            "style": "fill",
+            "at": 0.208
+          },
+          {
+            "entity": "country:MAR",
+            "style": "fill",
+            "at": 0.208
+          }
+        ],
+        "annotations": [
+          {
+            "type": "route",
+            "path": [
+              "country:ESP",
+              "country:MAR"
+            ],
+            "text": "FERRY",
+            "at": 0.06,
+            "until": 0.752,
+            "marker": true,
+            "follow": true
+          },
+          {
+            "type": "timeline",
+            "steps": [
+              {
+                "label": "DEPART",
+                "detail": "SPAIN"
+              },
+              {
+                "label": "35 MINUTES",
+                "detail": "MOROCCO"
+              }
+            ],
+            "active": 1,
+            "at": 0.356
+          },
+          {
+            "type": "label",
+            "anchor": "country:ESP",
+            "text": "SPAIN",
+            "at": 0.159
+          },
+          {
+            "type": "label",
+            "anchor": "country:MAR",
+            "text": "MOROCCO",
+            "at": 0.307
+          }
+        ],
+        "dataset": "natural-earth",
+        "projection": "albers",
+        "ambience": "sea"
+      }
+    },
+    {
+      "id": "link",
+      "durationSeconds": 3.8,
+      "beat": "reveal",
+      "role": "payoff",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "THE GATE",
+      "headline": "THE ATLANTIC GATE",
+      "narration": "It links the Atlantic to the Mediterranean.",
+      "caption": "ATLANTIC ↔ MEDITERRANEAN",
+      "visual": "tradeoff",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -17.014,
+                21.42,
+                36.19,
+                43.83
+              ]
+            },
+            "at": 0,
+            "padding": 0.38,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -17.014,
+                21.42,
+                36.19,
+                43.83
+              ]
+            },
+            "at": 0.9,
+            "padding": 0.3,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "water:mediterranean-sea",
+            "style": "fill",
+            "at": 0.112
+          },
+          {
+            "entity": "country:ESP",
+            "style": "outline",
+            "at": 0.217
+          },
+          {
+            "entity": "country:MAR",
+            "style": "outline",
+            "at": 0.217
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": {
+              "lon": -7.3,
+              "lat": 36.1
+            },
+            "text": "ATLANTIC",
+            "at": 0.165
+          },
+          {
+            "type": "label",
+            "anchor": "water:mediterranean-sea",
+            "text": "MEDITERRANEAN",
+            "at": 0.375
+          },
+          {
+            "type": "route",
+            "path": [
+              "country:ESP",
+              "country:MAR"
+            ],
+            "text": "ATLANTIC GATE",
+            "at": 0.06,
+            "until": 0.69,
+            "marker": true,
+            "follow": false
+          }
+        ],
+        "dataset": "natural-earth",
+        "projection": "albers",
+        "ambience": "sea"
+      }
+    },
+    {
+      "id": "verdict",
+      "durationSeconds": 4,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "YOUR TURN",
+      "headline": "TAKE THE FERRY?",
+      "narration": "Would you take the ferry to another continent?",
+      "caption": "WOULD YOU CROSS?",
+      "visual": "cta",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -17.014,
+                21.42,
+                3.318,
+                43.793
+              ]
+            },
+            "at": 0,
+            "padding": 0.2,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -17.014,
+                21.42,
+                3.318,
+                43.793
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.2,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:ESP",
+            "style": "fill",
+            "at": 0.06
+          },
+          {
+            "entity": "country:MAR",
+            "style": "fill",
+            "at": 0.06
+          }
+        ],
+        "annotations": [
+          {
+            "type": "arrow",
+            "from": "country:ESP",
+            "to": "country:MAR",
+            "at": 0.284
+          },
+          {
+            "type": "label",
+            "anchor": "country:ESP",
+            "text": "EUROPE",
+            "at": 0.228
+          },
+          {
+            "type": "label",
+            "anchor": "country:MAR",
+            "text": "AFRICA",
+            "at": 0.34
+          }
+        ],
+        "dataset": "natural-earth",
+        "projection": "albers",
+        "ambience": "sea"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia: Strait of Gibraltar (revision 1375073257)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Strait_of_Gibraltar&oldid=1375073257"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ]
+}

@@ -1,0 +1,553 @@
+{
+  "id": "danube-ten-countries",
+  "title": "The River That Touches Ten Countries",
+  "storyPattern": "mystery",
+  "numberRelevant": false,
+  "premise": "The Danube flows through or along the borders of ten countries, more than any river in Europe.",
+  "audiencePromise": "Follow one river across ten countries.",
+  "openLoop": "Which river touches ten countries?",
+  "payoff": "The Danube runs from Germany to the Black Sea, connecting ten European countries and four capitals.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "Can you name all ten?",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica"
+  },
+  "subject": {
+    "name": "Romania",
+    "category": "Border",
+    "attributes": {
+      "geoEntity": "country:ROU"
+    }
+  },
+  "voice": {
+    "provider": "elevenlabs",
+    "voice": "JBFqnCBsd6RMkjVDRZzb"
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "eyebrow": "A MAP MYSTERY",
+      "headline": "TEN COUNTRIES",
+      "narration": "One river touches ten countries.",
+      "caption": "ONE RIVER, TEN COUNTRIES",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "world",
+            "at": 0,
+            "padding": 0.15,
+            "ease": "in-out"
+          },
+          {
+            "target": "river:danube",
+            "at": 0.4,
+            "padding": 0.12,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                5.852,
+                41.238,
+                40.16,
+                54.906
+              ]
+            },
+            "at": 1,
+            "padding": 0.08,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "river:danube",
+            "style": "trace",
+            "at": 0.06
+          },
+          {
+            "entity": "country:DEU",
+            "style": "fill",
+            "at": 0.293
+          },
+          {
+            "entity": "country:HUN",
+            "style": "fill",
+            "at": 0.387
+          },
+          {
+            "entity": "country:ROU",
+            "style": "fill",
+            "at": 0.48
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:DEU",
+            "text": "DE AT SK",
+            "at": 0.48
+          },
+          {
+            "type": "label",
+            "anchor": "country:HUN",
+            "text": "HU HR RS",
+            "at": 0.573
+          },
+          {
+            "type": "label",
+            "anchor": "country:ROU",
+            "text": "RO BG MD UA",
+            "at": 0.667
+          }
+        ],
+        "dataset": "natural-earth",
+        "globe": true,
+        "ambience": "space"
+      }
+    },
+    {
+      "id": "source",
+      "beat": "clue",
+      "eyebrow": "START",
+      "headline": "THE BLACK FOREST",
+      "narration": "It begins in Germany\u2019s Black Forest.",
+      "caption": "STARTS IN GERMANY",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "country:DEU",
+            "at": 0,
+            "padding": 0.18,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                7.5,
+                47.2,
+                9.5,
+                48.7
+              ]
+            },
+            "at": 0.75,
+            "padding": 0.2,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:DEU",
+            "style": "fill",
+            "at": 0.06
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:DEU",
+            "text": "GERMANY",
+            "at": 0.112
+          },
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 8.5,
+              "lat": 47.95
+            },
+            "text": "DONAUESCHINGEN (APPROX.)",
+            "at": 0.428
+          }
+        ],
+        "dataset": "natural-earth",
+        "cut": true,
+        "projection": "albers",
+        "ambience": "city"
+      }
+    },
+    {
+      "id": "capitals",
+      "beat": "clue",
+      "eyebrow": "FOUR CAPITALS",
+      "headline": "FOUR CAPITALS",
+      "narration": "It passes four capitals: Vienna, Bratislava, Budapest and Belgrade.",
+      "caption": "FOUR CAPITALS, ONE RIVER",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                15.37,
+                47.46,
+                17.37,
+                48.96
+              ]
+            },
+            "at": 0,
+            "padding": 0.18,
+            "ease": "in-out"
+          },
+          {
+            "target": "river:danube",
+            "at": 0.35,
+            "padding": 0.14,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                16.365,
+                44.821,
+                20.466,
+                48.202
+              ]
+            },
+            "at": 1,
+            "padding": 0.15,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "river:danube",
+            "style": "trace",
+            "at": 0.06
+          }
+        ],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 16.37,
+              "lat": 48.21
+            },
+            "text": "VIENNA (APPROX.)",
+            "at": 0.232
+          },
+          {
+            "type": "marker",
+            "anchor": "city:bratislava-svk",
+            "text": "BRATISLAVA",
+            "at": 0.404
+          },
+          {
+            "type": "label",
+            "anchor": "river:danube",
+            "text": "BUDAPEST \u00b7 BELGRADE",
+            "at": 0.614
+          }
+        ],
+        "dataset": "natural-earth",
+        "projection": "albers",
+        "ambience": "sea"
+      }
+    },
+    {
+      "id": "length",
+      "beat": "escalation",
+      "eyebrow": "THE SIZE",
+      "headline": "SECOND ONLY TO THE VOLGA",
+      "narration": "At about 2,850 kilometres, only the Volga is longer in Europe.",
+      "caption": "2,850 KM \u00b7 EUROPE\u2019S #2",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "river:danube",
+            "at": 0,
+            "padding": 0.18,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                8.179,
+                43.65,
+                50.176,
+                58.113
+              ]
+            },
+            "at": 1,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "river:danube",
+            "style": "trace",
+            "at": 0.06
+          },
+          {
+            "entity": "river:volga",
+            "style": "trace",
+            "at": 0.136
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "river:danube",
+            "text": "DANUBE \u00b7 2,850 KM",
+            "at": 0.423
+          },
+          {
+            "type": "label",
+            "anchor": "river:volga",
+            "text": "VOLGA \u00b7 LONGER",
+            "at": 0.595
+          }
+        ],
+        "dataset": "natural-earth",
+        "projection": "albers",
+        "ambience": "sea"
+      }
+    },
+    {
+      "id": "ten",
+      "beat": "reveal",
+      "eyebrow": "THE ANSWER",
+      "headline": "WHO IT TOUCHES",
+      "narration": "Germany, Austria, Slovakia, Hungary, Croatia and Serbia.",
+      "caption": "DE \u00b7 AT \u00b7 SK \u00b7 HU \u00b7 HR \u00b7 RS",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                5.852,
+                42.235,
+                22.985,
+                54.906
+              ]
+            },
+            "at": 0,
+            "padding": 0.14,
+            "ease": "in-out"
+          },
+          {
+            "target": "river:danube",
+            "at": 0.65,
+            "padding": 0.18,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "river:danube",
+            "style": "trace",
+            "at": 0.06
+          },
+          {
+            "entity": "country:DEU",
+            "style": "fill",
+            "at": 0.159
+          },
+          {
+            "entity": "country:AUT",
+            "style": "fill",
+            "at": 0.258
+          },
+          {
+            "entity": "country:HUN",
+            "style": "fill",
+            "at": 0.356
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:SVK",
+            "text": "SLOVAKIA",
+            "at": 0.208
+          },
+          {
+            "type": "label",
+            "anchor": "country:HRV",
+            "text": "CROATIA",
+            "at": 0.356
+          },
+          {
+            "type": "label",
+            "anchor": "country:SRB",
+            "text": "SERBIA",
+            "at": 0.485
+          }
+        ],
+        "dataset": "natural-earth",
+        "projection": "albers",
+        "ambience": "sea",
+        "flags": true
+      }
+    },
+    {
+      "id": "rest",
+      "beat": "reveal",
+      "eyebrow": "THE LAST FOUR",
+      "headline": "THEN THE EAST",
+      "narration": "Then Romania, Bulgaria, Moldova and Ukraine.",
+      "caption": "RO \u00b7 BG \u00b7 MD \u00b7 UA",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                20.243,
+                41.238,
+                40.16,
+                52.369
+              ]
+            },
+            "at": 0,
+            "padding": 0.15,
+            "ease": "in-out"
+          },
+          {
+            "target": "river:danube",
+            "at": 0.7,
+            "padding": 0.18,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "river:danube",
+            "style": "trace",
+            "at": 0.06
+          },
+          {
+            "entity": "country:ROU",
+            "style": "fill",
+            "at": 0.184
+          },
+          {
+            "entity": "country:BGR",
+            "style": "fill",
+            "at": 0.28
+          },
+          {
+            "entity": "country:MDA",
+            "style": "fill",
+            "at": 0.375
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:UKR",
+            "text": "UKRAINE",
+            "at": 0.28
+          }
+        ],
+        "dataset": "natural-earth",
+        "projection": "albers",
+        "ambience": "sea",
+        "flags": true
+      }
+    },
+    {
+      "id": "verdict",
+      "beat": "verdict",
+      "eyebrow": "YOUR TURN",
+      "headline": "ALL TEN?",
+      "narration": "It ends in the Black Sea. Can you name all ten?",
+      "caption": "CAN YOU NAME ALL TEN?",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "river:danube",
+            "at": 0,
+            "padding": 0.18,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                8.179,
+                40.92,
+                41.76,
+                49.028
+              ]
+            },
+            "at": 0.7,
+            "padding": 0.16,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "river:danube",
+            "style": "trace",
+            "at": 0.06
+          },
+          {
+            "entity": "water:black-sea",
+            "style": "outline",
+            "at": 0.258
+          }
+        ],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 29.5,
+              "lat": 45.2
+            },
+            "text": "DANUBE DELTA (APPROX.)",
+            "at": 0.386
+          },
+          {
+            "type": "label",
+            "anchor": "water:black-sea",
+            "text": "BLACK SEA",
+            "at": 0.524
+          },
+          {
+            "type": "label",
+            "anchor": "river:danube",
+            "text": "NAME ALL TEN?",
+            "at": 0.683
+          }
+        ],
+        "dataset": "natural-earth",
+        "projection": "albers",
+        "ambience": "sea"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia: Danube (revision 1377235369)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Danube&oldid=1377235369"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ],
+  "paletteVariant": "atlas",
+  "score": "wonder"
+}

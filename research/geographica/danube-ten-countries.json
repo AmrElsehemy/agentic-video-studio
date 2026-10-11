@@ -1,0 +1,117 @@
+{
+  "schemaVersion": 1,
+  "id": "danube-ten-countries",
+  "subject": "Romania",
+  "kind": "curated",
+  "note": "Hand-curated research for a Geographica episode about the Danube. Claims are cited to a pinned Wikipedia revision (trusted_secondary). The river is drawn as a route through cities on its banks, not traced from map data; the city points are approximate. Moldova and Ukraine are flagged countries in the map data (Transnistria, Crimea and others; none shown), so the episode needs the borders review before release.",
+  "regions": [
+    "Germany",
+    "Austria",
+    "Slovakia",
+    "Hungary",
+    "Croatia",
+    "Serbia",
+    "Romania",
+    "Bulgaria",
+    "Moldova",
+    "Ukraine",
+    "Black Sea"
+  ],
+  "claims": [
+    {
+      "id": "ten",
+      "text": "In the 21st century the Danube connects ten European countries, running through their territories or marking a border.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-danube"
+      ]
+    },
+    {
+      "id": "countries",
+      "text": "The Danube originates in Germany and flows through or borders Austria, Slovakia, Hungary, Croatia, Serbia, Romania, Bulgaria, Moldova and Ukraine.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-danube"
+      ]
+    },
+    {
+      "id": "capitals",
+      "text": "It passes through four capital cities: Vienna, Bratislava, Budapest and Belgrade.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-danube"
+      ]
+    },
+    {
+      "id": "length",
+      "text": "The Danube is the second-longest river in Europe after the Volga; it flows southeast for about 2,850 km.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-danube"
+      ]
+    },
+    {
+      "id": "source",
+      "text": "It originates in the town of Donaueschingen, in the Black Forest of Germany, at the confluence of the Brigach and Breg.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-danube"
+      ]
+    },
+    {
+      "id": "delta",
+      "text": "It empties into the Black Sea through the Danube Delta in Romania and Ukraine.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-danube"
+      ]
+    }
+  ],
+  "places": {
+    "donaueschingen": {
+      "lon": 8.5,
+      "lat": 47.95,
+      "source": "wikipedia-danube",
+      "approximate": true,
+      "note": "Donaueschingen, where the Danube begins."
+    },
+    "vienna": {
+      "lon": 16.37,
+      "lat": 48.21,
+      "source": "wikipedia-danube",
+      "approximate": true,
+      "note": "Vienna."
+    },
+    "budapest": {
+      "lon": 19.04,
+      "lat": 47.5,
+      "source": "wikipedia-danube",
+      "approximate": true,
+      "note": "Budapest."
+    },
+    "belgrade": {
+      "lon": 20.46,
+      "lat": 44.82,
+      "source": "wikipedia-danube",
+      "approximate": true,
+      "note": "Belgrade."
+    },
+    "delta": {
+      "lon": 29.5,
+      "lat": 45.2,
+      "source": "wikipedia-danube",
+      "approximate": true,
+      "note": "The Danube Delta, at the Black Sea."
+    }
+  },
+  "sources": {
+    "wikipedia-danube": {
+      "label": "Wikipedia: Danube (revision 1377235369)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Danube&oldid=1377235369"
+    },
+    "natural-earth": {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  }
+}

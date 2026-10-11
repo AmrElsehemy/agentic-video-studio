@@ -1,0 +1,619 @@
+{
+  "schemaVersion": 2,
+  "id": "canada-us-border",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica",
+    "wordmark": {
+      "lead": "GEO",
+      "accent": "GRAPHICA"
+    },
+    "fonts": {
+      "display": "Oswald",
+      "body": "Inter"
+    },
+    "captions": {
+      "mode": "words"
+    }
+  },
+  "title": "The World’s Longest Border Is Just Two Countries",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "mystery",
+    "numberRelevant": false,
+    "premise": "Canada and the United States share the longest international border in the world, 8,891 km.",
+    "audiencePromise": "See the world’s longest border, and how it is really two borders.",
+    "openLoop": "Which two neighbours share the longest border on Earth?",
+    "payoff": "Canada and the United States share an 8,891 km border: 6,416 km in the south and 2,475 km along Alaska.",
+    "targetEmotion": "surprise",
+    "engagementQuestion": "Have you ever crossed it?",
+    "targetSecondsBetweenVisualChanges": 0.68
+  },
+  "subject": {
+    "name": "Canada",
+    "category": "Border",
+    "attributes": {
+      "geoEntity": "country:CAN"
+    }
+  },
+  "related": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#cfe9f2",
+    "surface": "#f4e3b8",
+    "primary": "#d9482b",
+    "secondary": "#2a7fa6",
+    "ink": "#14263a"
+  },
+  "look": "atlas",
+  "audio": {
+    "music": "generated/canada-us-border-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 72,
+      "notes": [
+        98,
+        116.54,
+        130.81,
+        146.83,
+        130.81,
+        116.54,
+        87.31,
+        98
+      ],
+      "score": "calm"
+    },
+    "voice": {
+      "provider": "elevenlabs",
+      "model": "eleven_v4",
+      "voice": "JBFqnCBsd6RMkjVDRZzb",
+      "instructions": "Warm, curious storyteller walking a friend across a map. Clear and confident, with a sense of discovery on each reveal; slow slightly on dates and place names so they land. Conversational and human, never a documentary announcer, lecture, or neutral TTS. Never imitate a known person or character.",
+      "speed": 1.06,
+      "output": "generated/canada-us-border-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      },
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://github.com/lipis/flag-icons/blob/main/LICENSE",
+        "owner": "flag-icons",
+        "licenseStatus": "licensed",
+        "publicReleaseApproved": true,
+        "notes": "Flags: flag-icons (MIT)."
+      },
+      {
+        "kind": "photo",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Peace_arch_Canada-US_border.jpg",
+        "owner": "Abhinaba Basu from Redmond, United States",
+        "licenseStatus": "licensed",
+        "publicReleaseApproved": true,
+        "notes": "Photo: Abhinaba Basu from Redmond, United States / Wikimedia Commons / CC BY 2.0."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "durationSeconds": 4.4,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "mystery",
+      "subjectFocus": "hidden",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "A MAP MYSTERY",
+      "headline": "THE LONGEST BORDER",
+      "narration": "The longest border on Earth has just two countries.",
+      "caption": "THE LONGEST BORDER ON EARTH",
+      "visual": "hook",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "world",
+            "at": 0,
+            "padding": 0.15,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -141.006,
+                25.121,
+                -55.617,
+                72.002
+              ]
+            },
+            "at": 0.78,
+            "padding": 0.2,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "border:CAN-USA",
+            "style": "trace",
+            "at": 0.06
+          },
+          {
+            "entity": "country:CAN",
+            "style": "fill",
+            "at": 0.282
+          },
+          {
+            "entity": "country:USA",
+            "style": "fill",
+            "at": 0.282
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:CAN",
+            "text": "CANADA",
+            "at": 0.344,
+            "until": 0.838
+          },
+          {
+            "type": "label",
+            "anchor": "country:USA",
+            "text": "USA",
+            "at": 0.344,
+            "until": 0.838
+          },
+          {
+            "type": "label",
+            "anchor": "border:CAN-USA",
+            "text": "LONGEST IN THE WORLD",
+            "at": 0.381,
+            "until": 0.838
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "space",
+        "globe": true
+      }
+    },
+    {
+      "id": "who",
+      "durationSeconds": 3.8,
+      "beat": "clue",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "THE PAIR",
+      "headline": "CANADA AND THE USA",
+      "narration": "Canada and the United States.",
+      "caption": "CANADA + THE UNITED STATES",
+      "visual": "gauntlet",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -141.006,
+                25.121,
+                -55.617,
+                72.002
+              ]
+            },
+            "at": 0,
+            "padding": 0.2,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -141.006,
+                25.121,
+                -55.617,
+                72.002
+              ]
+            },
+            "at": 0.8,
+            "padding": 0.15,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:CAN",
+            "style": "fill",
+            "at": 0.06
+          },
+          {
+            "entity": "country:USA",
+            "style": "fill",
+            "at": 0.06
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:CAN",
+            "text": "CANADA",
+            "at": 0.116,
+            "until": 0.844
+          },
+          {
+            "type": "label",
+            "anchor": "country:USA",
+            "text": "UNITED STATES",
+            "at": 0.116,
+            "until": 0.844
+          }
+        ],
+        "dataset": "natural-earth",
+        "cut": true,
+        "projection": "albers",
+        "ambience": "wind",
+        "flags": true
+      }
+    },
+    {
+      "id": "south",
+      "durationSeconds": 4.4,
+      "beat": "clue",
+      "role": "evidence",
+      "shot": "wide",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "THE SOUTHERN LINE",
+      "headline": "6,416 KM",
+      "narration": "Along the south, the border runs 6,416 kilometres.",
+      "caption": "SOUTHERN BORDER: 6,416 KM",
+      "visual": "gauntlet",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -141.006,
+                25.121,
+                -55.617,
+                72.002
+              ]
+            },
+            "at": 0,
+            "padding": 0.18,
+            "ease": "in-out"
+          },
+          {
+            "target": "border:CAN-USA",
+            "at": 0.82,
+            "padding": 0.2,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "border:CAN-USA",
+            "style": "trace",
+            "at": 0.06
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "border:CAN-USA",
+            "text": "SOUTH: 6,416 KM",
+            "at": 0.284,
+            "until": 0.844
+          }
+        ],
+        "dataset": "natural-earth",
+        "projection": "albers",
+        "ambience": "wind",
+        "flags": true
+      }
+    },
+    {
+      "id": "alaska",
+      "durationSeconds": 3.9,
+      "beat": "escalation",
+      "role": "escalation",
+      "shot": "tracking",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "THE SECOND BORDER",
+      "headline": "2,475 KM MORE",
+      "narration": "Another 2,475 kilometres separate Canada from Alaska.",
+      "caption": "ALASKA BORDER: 2,475 KM",
+      "visual": "advantage",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -178.195,
+                41.669,
+                -55.617,
+                72.002
+              ]
+            },
+            "at": 0,
+            "padding": 0.2,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -178.195,
+                41.669,
+                -55.617,
+                72.002
+              ]
+            },
+            "at": 0.8,
+            "padding": 0.15,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "border:CAN-USA",
+            "style": "trace",
+            "at": 0.06
+          },
+          {
+            "entity": "admin1:USA-3563",
+            "style": "fill",
+            "at": 0.172
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "admin1:USA-3563",
+            "text": "ALASKA",
+            "at": 0.228,
+            "until": 0.844
+          },
+          {
+            "type": "label",
+            "anchor": "border:CAN-USA",
+            "text": "2,475 KM",
+            "at": 0.34,
+            "until": 0.844
+          }
+        ],
+        "dataset": "natural-earth",
+        "projection": "albers",
+        "ambience": "wind",
+        "flags": true
+      }
+    },
+    {
+      "id": "total",
+      "durationSeconds": 4.5,
+      "beat": "reveal",
+      "role": "payoff",
+      "shot": "comparison",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "THE TOTAL",
+      "headline": "8,891 KM",
+      "narration": "In all, 8,891 kilometres, coasts and lakes included.",
+      "caption": "8,891 KM IN ALL",
+      "visual": "race",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -141.006,
+                25.121,
+                -55.617,
+                72.002
+              ]
+            },
+            "at": 0,
+            "padding": 0.22,
+            "ease": "in-out"
+          },
+          {
+            "target": "border:CAN-USA",
+            "at": 0.82,
+            "padding": 0.2,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "border:CAN-USA",
+            "style": "trace",
+            "at": 0.06
+          },
+          {
+            "entity": "border:CAN-USA",
+            "style": "trace",
+            "at": 0.428
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "border:CAN-USA",
+            "text": "COASTS + LAKES INCLUDED",
+            "at": 0.291,
+            "until": 0.69
+          },
+          {
+            "type": "label",
+            "anchor": "border:CAN-USA",
+            "text": "8,891 KM TOTAL",
+            "at": 0.585,
+            "until": 0.848
+          }
+        ],
+        "dataset": "natural-earth",
+        "projection": "albers",
+        "ambience": "wind",
+        "flags": true
+      }
+    },
+    {
+      "id": "undefended",
+      "durationSeconds": 4,
+      "beat": "reveal",
+      "role": "payoff",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "A REPUTATION",
+      "headline": "THE “UNDEFENDED” BORDER",
+      "narration": "It is commonly called the longest undefended border.",
+      "caption": "\"THE LONGEST UNDEFENDED BORDER\"",
+      "visual": "tradeoff",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "border:CAN-USA",
+            "at": 0,
+            "padding": 0.2,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -141.006,
+                25.121,
+                -55.617,
+                72.002
+              ]
+            },
+            "at": 0.82,
+            "padding": 0.18,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "border:CAN-USA",
+            "style": "trace",
+            "at": 0.25
+          },
+          {
+            "entity": "country:CAN",
+            "style": "outline",
+            "at": 0.45
+          },
+          {
+            "entity": "country:USA",
+            "style": "outline",
+            "at": 0.45
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "border:CAN-USA",
+            "text": "NOT MILITARIZED",
+            "at": 0.58,
+            "until": 0.95
+          },
+          {
+            "type": "photo",
+            "photo": "peace-arch",
+            "at": 0.08
+          }
+        ],
+        "dataset": "natural-earth",
+        "projection": "albers",
+        "ambience": "wind",
+        "flags": true
+      }
+    },
+    {
+      "id": "verdict",
+      "durationSeconds": 3.8,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "YOUR TURN",
+      "headline": "EVER CROSSED IT?",
+      "narration": "Have you ever crossed it?",
+      "caption": "HAVE YOU CROSSED IT?",
+      "visual": "cta",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -141.006,
+                25.121,
+                -55.617,
+                72.002
+              ]
+            },
+            "at": 0,
+            "padding": 0.2,
+            "ease": "in-out"
+          },
+          {
+            "target": "border:CAN-USA",
+            "at": 0.82,
+            "padding": 0.2,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "border:CAN-USA",
+            "style": "trace",
+            "at": 0.06
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "border:CAN-USA",
+            "text": "EVER CROSSED IT?",
+            "at": 0.362,
+            "until": 0.878
+          }
+        ],
+        "dataset": "natural-earth",
+        "projection": "albers",
+        "ambience": "wind",
+        "flags": true
+      }
+    }
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia: Canada–United States border (revision 1377493585)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Canada–United_States_border&oldid=1377493585"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ]
+}

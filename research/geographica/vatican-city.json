@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "id": "vatican-city",
+  "subject": "Vatican City",
+  "kind": "curated",
+  "note": "Hand-curated research for a Geographica episode about Vatican City. Claims are cited to a pinned Wikipedia revision (trusted_secondary).",
+  "regions": [
+    "Vatican City",
+    "Italy"
+  ],
+  "claims": [
+    {
+      "id": "smallest",
+      "text": "With an area of 44 hectares and a population of about 882 in 2024, Vatican City is the smallest country in the world both by area and by population.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-vatican-city"
+      ]
+    },
+    {
+      "id": "enclave",
+      "text": "It is an enclave within the city of Rome, Italy, and the administrative centre of the Catholic Church.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-vatican-city"
+      ]
+    },
+    {
+      "id": "under1000",
+      "text": "It is the only country in the world with a population of fewer than 1,000 people.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-vatican-city"
+      ]
+    },
+    {
+      "id": "defence",
+      "text": "As an enclave within Italy, its military defence is provided by the Italian Armed Forces; it has no armed forces of its own, although the Swiss Guard is a military corps of the Holy See.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-vatican-city"
+      ]
+    }
+  ],
+  "places": {
+    "rome": {
+      "lon": 12.5,
+      "lat": 41.9,
+      "source": "wikipedia-vatican-city",
+      "approximate": true,
+      "note": "Rome, the city that surrounds Vatican City."
+    }
+  },
+  "sources": {
+    "wikipedia-vatican-city": {
+      "label": "Wikipedia: Vatican City (revision 1378757908)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Vatican_City&oldid=1378757908"
+    },
+    "natural-earth": {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  }
+}

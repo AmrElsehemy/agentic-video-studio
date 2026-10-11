@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 1,
+  "id": "dahala-khagrabari",
+  "subject": "Bangladesh",
+  "kind": "curated",
+  "note": "Hand-curated research for a Geographica episode about Dahala Khagrabari. Claims are cited to a pinned Wikipedia revision (trusted_secondary). The enclave is far too small to draw: it is a marker in Cooch Behar district, placed to the nearest tenth of a degree, and labelled approximate. India is a flagged country in the map data (Kashmir and other areas, none shown), so the episode needs the borders review before release.",
+  "regions": [
+    "India",
+    "Bangladesh"
+  ],
+  "claims": [
+    {
+      "id": "third-order",
+      "text": "Dahala Khagrabari was a piece of India within a piece of Bangladesh within a piece of India within Bangladesh, making it the only third-order enclave (counter-counter enclave) in the world until 1 August 2015, when it was ceded to Bangladesh.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-dahala-khagrabari"
+      ]
+    },
+    {
+      "id": "india",
+      "text": "Dahala Khagrabari (#51) was an Indian enclave on the Bangladesh–India border, belonging to the district of Cooch Behar in West Bengal.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-dahala-khagrabari"
+      ]
+    },
+    {
+      "id": "size",
+      "text": "At 7,000 square metres, approximately the size of an association football field, it was one of the smallest of the India–Bangladesh enclaves.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-dahala-khagrabari"
+      ]
+    },
+    {
+      "id": "swap",
+      "text": "Two-thirds of the then-existing national-level enclaves were extinguished on 1 August 2015, when the governments of India and Bangladesh exchanged them.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-enclave"
+      ]
+    }
+  ],
+  "places": {
+    "cooch-behar": {
+      "lon": 89.4,
+      "lat": 26.3,
+      "source": "wikipedia-dahala-khagrabari",
+      "approximate": true,
+      "note": "Cooch Behar district, West Bengal: the enclave’s district, to the nearest tenth of a degree."
+    }
+  },
+  "sources": {
+    "wikipedia-dahala-khagrabari": {
+      "label": "Wikipedia: Dahala Khagrabari (revision 1321013879)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Dahala_Khagrabari&oldid=1321013879"
+    },
+    "wikipedia-enclave": {
+      "label": "Wikipedia: Enclave and exclave (revision 1374699324)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Enclave_and_exclave&oldid=1374699324"
+    },
+    "natural-earth": {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  }
+}

@@ -1,0 +1,424 @@
+{
+  "id": "ecuador-equator",
+  "title": "The Country Named After a Line",
+  "storyPattern": "mystery",
+  "numberRelevant": false,
+  "premise": "Ecuador is named after the equator that runs through it.",
+  "audiencePromise": "Find the country whose name is a line on the map.",
+  "openLoop": "Which country is named after an imaginary line?",
+  "payoff": "Ecuador means \"Equator\" in Spanish, and it is the westernmost country on that line.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "Would you stand on the equator?",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica"
+  },
+  "subject": {
+    "name": "Ecuador",
+    "category": "Border",
+    "attributes": {
+      "geoEntity": "country:ECU"
+    }
+  },
+  "voice": {
+    "provider": "elevenlabs",
+    "voice": "JBFqnCBsd6RMkjVDRZzb"
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "eyebrow": "A MAP MYSTERY",
+      "headline": "NAMED AFTER A LINE",
+      "narration": "One country is named after a line.",
+      "caption": "NAMED AFTER A LINE",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "country:ECU",
+            "at": 0,
+            "padding": 0.25,
+            "ease": "in-out"
+          },
+          {
+            "target": "country:ECU",
+            "at": 0.85,
+            "padding": 0.18,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:ECU",
+            "style": "fill",
+            "at": 0.136
+          }
+        ],
+        "annotations": [
+          {
+            "type": "line",
+            "kind": "parallel",
+            "degrees": 0,
+            "text": "EQUATOR",
+            "at": 0.06,
+            "reverse": false
+          },
+          {
+            "type": "label",
+            "anchor": "country:ECU",
+            "text": "ECUADOR",
+            "at": 0.28
+          }
+        ],
+        "dataset": "natural-earth",
+        "globe": true,
+        "ambience": "space"
+      }
+    },
+    {
+      "id": "find",
+      "beat": "clue",
+      "eyebrow": "FIND IT",
+      "headline": "THE EQUATOR",
+      "narration": "The equator circles the Earth at zero degrees latitude.",
+      "caption": "THE EQUATOR: 0° LATITUDE",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "world",
+            "at": 0,
+            "padding": 0.08,
+            "ease": "in-out"
+          },
+          {
+            "target": "world",
+            "at": 0.9,
+            "padding": 0.08,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "line",
+            "kind": "parallel",
+            "degrees": 0,
+            "text": "0° LATITUDE",
+            "at": 0.06,
+            "reverse": false
+          }
+        ],
+        "dataset": "natural-earth",
+        "cut": true,
+        "ambience": "jungle"
+      }
+    },
+    {
+      "id": "name",
+      "beat": "clue",
+      "eyebrow": "THE NAME",
+      "headline": "ECUADOR = EQUATOR",
+      "narration": "In Spanish, the country’s name means Equator.",
+      "caption": "ECUADOR MEANS \"EQUATOR\"",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "country:ECU",
+            "at": 0,
+            "padding": 0.2,
+            "ease": "in-out"
+          },
+          {
+            "target": "country:ECU",
+            "at": 0.85,
+            "padding": 0.16,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:ECU",
+            "style": "fill",
+            "at": 0.2
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:ECU",
+            "text": "ECUADOR = EQUATOR",
+            "at": 0.36
+          },
+          {
+            "type": "photo",
+            "photo": "mitad-del-mundo",
+            "at": 0.08
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "jungle"
+      }
+    },
+    {
+      "id": "line",
+      "beat": "escalation",
+      "eyebrow": "THE CLUE",
+      "headline": "THE LINE RUNS THROUGH",
+      "narration": "The line runs straight through the country.",
+      "caption": "THE EQUATOR CROSSES ECUADOR",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "country:ECU",
+            "at": 0,
+            "padding": 0.22,
+            "ease": "in-out"
+          },
+          {
+            "target": "country:ECU",
+            "at": 0.9,
+            "padding": 0.16,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:ECU",
+            "style": "fill",
+            "at": 0.2
+          }
+        ],
+        "annotations": [
+          {
+            "type": "line",
+            "kind": "parallel",
+            "degrees": 0,
+            "text": "EQUATOR",
+            "at": 0.06,
+            "reverse": false
+          },
+          {
+            "type": "label",
+            "anchor": "country:ECU",
+            "text": "ECUADOR",
+            "at": 0.32
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "jungle"
+      }
+    },
+    {
+      "id": "quito",
+      "beat": "reveal",
+      "eyebrow": "THE CAPITAL",
+      "headline": "QUITO, ON THE LINE",
+      "narration": "Its capital, Quito, sits right on the line.",
+      "caption": "QUITO, ON THE EQUATOR",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -78.46974,
+                -0.02021,
+                -78.44186,
+                0.02021
+              ]
+            },
+            "at": 0,
+            "padding": 0,
+            "ease": "linear"
+          },
+          {
+            "target": {
+              "bbox": [
+                -78.465,
+                -0.01334,
+                -78.4466,
+                0.01334
+              ]
+            },
+            "at": 1,
+            "padding": 0,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "line",
+            "kind": "parallel",
+            "degrees": 0,
+            "text": "EQUATOR",
+            "at": 0.06,
+            "reverse": false
+          },
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": -78.4558,
+              "lat": 0
+            },
+            "text": "MITAD DEL MUNDO",
+            "at": 0.375
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "city",
+        "streets": {
+          "city": "quito-equator",
+          "at": 0.05
+        }
+      }
+    },
+    {
+      "id": "west",
+      "beat": "reveal",
+      "eyebrow": "A RECORD",
+      "headline": "WESTERNMOST ON THE LINE",
+      "narration": "It is the westernmost country on the equator.",
+      "caption": "WESTERNMOST ON THE EQUATOR",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "world",
+            "at": 0,
+            "padding": 0.08,
+            "ease": "in-out"
+          },
+          {
+            "target": "world",
+            "at": 0.88,
+            "padding": 0.08,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:ECU",
+            "style": "fill",
+            "at": 0.197
+          }
+        ],
+        "annotations": [
+          {
+            "type": "line",
+            "kind": "parallel",
+            "degrees": 0,
+            "text": "EQUATOR",
+            "at": 0.06,
+            "reverse": false
+          },
+          {
+            "type": "label",
+            "anchor": "country:ECU",
+            "text": "WESTERNMOST",
+            "at": 0.363
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "jungle"
+      }
+    },
+    {
+      "id": "verdict",
+      "beat": "verdict",
+      "eyebrow": "YOUR TURN",
+      "headline": "STAND ON THE LINE?",
+      "narration": "Would you stand on the equator?",
+      "caption": "WOULD YOU STAND ON IT?",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -78.46974,
+                -0.02021,
+                -78.44186,
+                0.02021
+              ]
+            },
+            "at": 0,
+            "padding": 0,
+            "ease": "linear"
+          },
+          {
+            "target": {
+              "bbox": [
+                -78.465,
+                -0.01334,
+                -78.4466,
+                0.01334
+              ]
+            },
+            "at": 1,
+            "padding": 0,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "line",
+            "kind": "parallel",
+            "degrees": 0,
+            "text": "EQUATOR",
+            "at": 0.06,
+            "reverse": false
+          },
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": -78.4558,
+              "lat": 0
+            },
+            "text": "STAND ON IT?",
+            "at": 0.327
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "city",
+        "streets": {
+          "city": "quito-equator",
+          "at": 0.05
+        }
+      }
+    }
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia: Ecuador (revision 1378037348)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Ecuador&oldid=1378037348"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ],
+  "paletteVariant": "atlas",
+  "score": "wonder"
+}

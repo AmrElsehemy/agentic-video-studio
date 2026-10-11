@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "id": "maldives-lowest",
+  "subject": "Maldives",
+  "kind": "curated",
+  "note": "Hand-curated research for a Geographica episode about the Maldives. Claims are cited to a pinned Wikipedia revision (trusted_secondary). The islands are tiny, so the map shows them as small shapes and a labelled point.",
+  "regions": [
+    "Maldives",
+    "India",
+    "Sri Lanka"
+  ],
+  "claims": [
+    {
+      "id": "lowest",
+      "text": "The Maldives is the lowest country in the world, with maximum and average natural ground levels of only 2.4 metres and 1.5 metres above sea level.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-maldives"
+      ]
+    },
+    {
+      "id": "land",
+      "text": "Its land area is only 298 square kilometres, spread over roughly 90,000 square kilometres of the sea.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-maldives"
+      ]
+    },
+    {
+      "id": "coral",
+      "text": "More than 80 per cent of the country’s land is composed of coral islands which rise less than one metre above sea level.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-maldives"
+      ]
+    },
+    {
+      "id": "smallest-asia",
+      "text": "The Maldives is the smallest country in Asia.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-maldives"
+      ]
+    }
+  ],
+  "places": {
+    "male": {
+      "lon": 73.5,
+      "lat": 4.2,
+      "source": "wikipedia-maldives",
+      "approximate": true,
+      "note": "Malé, the capital, to the nearest tenth of a degree."
+    }
+  },
+  "sources": {
+    "wikipedia-maldives": {
+      "label": "Wikipedia: Maldives (revision 1376437874)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Maldives&oldid=1376437874"
+    },
+    "natural-earth": {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  }
+}

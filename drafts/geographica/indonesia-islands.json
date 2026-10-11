@@ -1,0 +1,461 @@
+{
+  "id": "indonesia-islands",
+  "title": "The Country Made of Up to 17,000 Islands",
+  "storyPattern": "mystery",
+  "numberRelevant": false,
+  "premise": "Indonesia is the world\u2019s largest archipelagic state, with 13,000 to 17,000 islands.",
+  "audiencePromise": "See a country that is mostly water, and how many islands it has.",
+  "openLoop": "How many islands make up one country?",
+  "payoff": "Indonesia has between 13,000 and 17,000 islands, and nobody agrees on the exact number.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "Could you name five of them?",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica"
+  },
+  "subject": {
+    "name": "Indonesia",
+    "category": "Border",
+    "attributes": {
+      "geoEntity": "country:IDN"
+    }
+  },
+  "voice": {
+    "provider": "elevenlabs",
+    "voice": "JBFqnCBsd6RMkjVDRZzb"
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "eyebrow": "A MAP MYSTERY",
+      "headline": "HOW MANY ISLANDS?",
+      "narration": "How many islands can one country have?",
+      "caption": "HOW MANY ISLANDS?",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "world",
+            "at": 0,
+            "padding": 0.2,
+            "ease": "in-out"
+          },
+          {
+            "target": "country:IDN",
+            "at": 0.85,
+            "padding": 0.3,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:IDN",
+            "style": "fill",
+            "at": 0.06
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:IDN",
+            "text": "INDONESIA",
+            "at": 0.318
+          }
+        ],
+        "dataset": "natural-earth",
+        "globe": true,
+        "ambience": "space"
+      }
+    },
+    {
+      "id": "where",
+      "beat": "clue",
+      "eyebrow": "THE CLUE",
+      "headline": "INDONESIA",
+      "narration": "Look at Indonesia, between two oceans.",
+      "caption": "BETWEEN TWO OCEANS",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "country:IDN",
+            "at": 0,
+            "padding": 0.3,
+            "ease": "in-out"
+          },
+          {
+            "target": "country:IDN",
+            "at": 0.9,
+            "padding": 0.28,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:IDN",
+            "style": "fill",
+            "at": 0.06
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": {
+              "lon": 99.0,
+              "lat": -6.5
+            },
+            "text": "INDIAN OCEAN",
+            "at": 0.188
+          },
+          {
+            "type": "label",
+            "anchor": {
+              "lon": 136.0,
+              "lat": 5.0
+            },
+            "text": "PACIFIC OCEAN",
+            "at": 0.485
+          }
+        ],
+        "dataset": "natural-earth",
+        "cut": true,
+        "ambience": "sea"
+      }
+    },
+    {
+      "id": "big",
+      "beat": "clue",
+      "eyebrow": "THE BIG ONES",
+      "headline": "SUMATRA, JAVA, SULAWESI",
+      "narration": "The big ones: Sumatra, Java and Sulawesi.",
+      "caption": "SUMATRA \u00b7 JAVA \u00b7 SULAWESI",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                95.207,
+                -7.797,
+                119.873,
+                5.907
+              ]
+            },
+            "at": 0,
+            "padding": 0.3,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                95.207,
+                -7.797,
+                119.873,
+                5.907
+              ]
+            },
+            "at": 0.9,
+            "padding": 0.2,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "admin1:IDN-1136",
+            "style": "outline",
+            "at": 0.06
+          },
+          {
+            "entity": "admin1:IDN-1223",
+            "style": "outline",
+            "at": 0.208
+          },
+          {
+            "entity": "admin1:IDN-1237",
+            "style": "outline",
+            "at": 0.356
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "admin1:IDN-1136",
+            "text": "SUMATRA",
+            "at": 0.109
+          },
+          {
+            "type": "label",
+            "anchor": "admin1:IDN-1223",
+            "text": "JAVA",
+            "at": 0.258
+          },
+          {
+            "type": "label",
+            "anchor": "admin1:IDN-1237",
+            "text": "SULAWESI",
+            "at": 0.406
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "sea"
+      }
+    },
+    {
+      "id": "shared",
+      "beat": "escalation",
+      "eyebrow": "SHARED",
+      "headline": "SHARED ISLANDS",
+      "narration": "It shares Borneo and New Guinea with other countries.",
+      "caption": "PARTS OF BORNEO AND NEW GUINEA",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                108.804,
+                -9.119,
+                140.976,
+                2.028
+              ]
+            },
+            "at": 0,
+            "padding": 0.35,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                108.804,
+                -9.119,
+                140.976,
+                2.028
+              ]
+            },
+            "at": 0.9,
+            "padding": 0.25,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "admin1:IDN-1228",
+            "style": "outline",
+            "at": 0.06
+          },
+          {
+            "entity": "admin1:IDN-1933",
+            "style": "outline",
+            "at": 0.208
+          },
+          {
+            "entity": "admin1:IDN-558",
+            "style": "outline",
+            "at": 0.356
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "admin1:IDN-1228",
+            "text": "BORNEO SHARED",
+            "at": 0.159
+          },
+          {
+            "type": "label",
+            "anchor": "admin1:IDN-1933",
+            "text": "NEW GUINEA SHARED",
+            "at": 0.406
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "sea"
+      }
+    },
+    {
+      "id": "count",
+      "beat": "reveal",
+      "eyebrow": "THE COUNT",
+      "headline": "13,000 TO 17,000",
+      "narration": "Between thirteen and seventeen thousand islands in all.",
+      "caption": "13,000\u201317,000 ISLANDS",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "country:IDN",
+            "at": 0,
+            "padding": 0.25,
+            "ease": "in-out"
+          },
+          {
+            "target": "country:IDN",
+            "at": 0.9,
+            "padding": 0.2,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:IDN",
+            "style": "fill",
+            "at": 0.06
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:IDN",
+            "text": "13,000 ISLANDS",
+            "at": 0.228
+          },
+          {
+            "type": "label",
+            "anchor": "country:IDN",
+            "text": "17,000 ISLANDS",
+            "at": 0.524
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "sea"
+      }
+    },
+    {
+      "id": "record",
+      "beat": "reveal",
+      "eyebrow": "A RECORD",
+      "headline": "A WORLD RECORD",
+      "narration": "That makes it the world\u2019s largest archipelagic state.",
+      "caption": "LARGEST ARCHIPELAGIC STATE",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "world",
+            "at": 0,
+            "padding": 0.35,
+            "ease": "in-out"
+          },
+          {
+            "target": "country:IDN",
+            "at": 0.9,
+            "padding": 0.28,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:IDN",
+            "style": "outline",
+            "at": 0.06
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:IDN",
+            "text": "LARGEST ARCHIPELAGIC STATE",
+            "at": 0.354
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "sea"
+      }
+    },
+    {
+      "id": "verdict",
+      "beat": "verdict",
+      "eyebrow": "YOUR TURN",
+      "headline": "NAME FIVE",
+      "narration": "Could you name five of its islands?",
+      "caption": "CAN YOU NAME FIVE?",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                95.197,
+                -9.106,
+                140.978,
+                5.907
+              ]
+            },
+            "at": 0,
+            "padding": 0.25,
+            "ease": "in-out"
+          },
+          {
+            "target": "country:IDN",
+            "at": 0.82,
+            "padding": 0.3,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "admin1:IDN-1136",
+            "style": "fill",
+            "at": 0.06
+          },
+          {
+            "entity": "admin1:IDN-1223",
+            "style": "fill",
+            "at": 0.159
+          },
+          {
+            "entity": "admin1:IDN-1237",
+            "style": "fill",
+            "at": 0.258
+          },
+          {
+            "entity": "admin1:IDN-1232",
+            "style": "fill",
+            "at": 0.356
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:IDN",
+            "text": "CAN YOU NAME FIVE?",
+            "at": 0.426
+          }
+        ],
+        "dataset": "natural-earth",
+        "globe": true,
+        "cut": true,
+        "ambience": "space"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia: Indonesia (revision 1377822010)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Indonesia&oldid=1377822010"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ],
+  "paletteVariant": "atlas",
+  "score": "wonder"
+}
