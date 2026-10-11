@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "id": "india-passes-china",
+  "subject": "China and India",
+  "kind": "curated",
+  "note": "Hand-curated from the pinned World Bank series (public/geo/series.json, population, total). By the UN Population Division’s own estimate India passed China in 2023; the World Bank’s table, which the chart draws, crosses in 2021, so the episode says \"by the World Bank’s count\".",
+  "regions": [
+    "China",
+    "India"
+  ],
+  "claims": [
+    {
+      "id": "china-led",
+      "text": "In the World Bank’s population table, China had more people than any other country in every year from 1960 to 2020.",
+      "tier": "official",
+      "sources": [
+        "world-bank-population"
+      ]
+    },
+    {
+      "id": "start",
+      "text": "In 1960 China had 667 million people and India 436 million.",
+      "tier": "official",
+      "sources": [
+        "world-bank-population"
+      ]
+    },
+    {
+      "id": "catch-up",
+      "text": "India’s population grew faster than China’s, narrowing the gap year after year.",
+      "tier": "official",
+      "sources": [
+        "world-bank-population"
+      ]
+    },
+    {
+      "id": "pass",
+      "text": "India passed China in the World Bank’s table in 2021.",
+      "tier": "official",
+      "sources": [
+        "world-bank-population"
+      ]
+    },
+    {
+      "id": "peak",
+      "text": "China’s population peaked in 2021 at 1.41 billion and has fallen every year since in the same table.",
+      "tier": "official",
+      "sources": [
+        "world-bank-population"
+      ]
+    }
+  ],
+  "places": {},
+  "sources": {
+    "world-bank-population": {
+      "label": "World Bank, World Development Indicators: Population, total (SP.POP.TOTL), CC BY 4.0",
+      "url": "https://data.worldbank.org/indicator/SP.POP.TOTL"
+    },
+    "natural-earth": {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  }
+}

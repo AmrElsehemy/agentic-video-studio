@@ -9,3 +9,4 @@ export const valueAt: (series: Series, code: string, year: number) => number | n
 export const raceCandidates: (series: Series, from: number, to: number, top?: number, exclude?: string[]) => string[];
 export const raceAt: (series: Series, candidates: string[], year: number) => {code: string; value: number; rank: number}[];
 export const niceCeiling: (value: number) => number;
+export const niceRange: (min: number, max: number) => {low: number; high: number; step: number};

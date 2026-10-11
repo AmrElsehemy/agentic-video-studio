@@ -2,7 +2,7 @@ import React from 'react';
 import {interpolate} from 'remotion';
 import {displayFont} from '../typography';
 import {FlagBadge} from './Flags';
-import {niceCeiling, raceAt, valueAt, type Series} from '../../../scripts/lib/series.mjs';
+import {niceCeiling, niceRange, raceAt, valueAt, type Series} from '../../../scripts/lib/series.mjs';
 
 // Yearly figures drawn over a map scene (shot `series`): a line chart that draws itself year by year, or a ranked
 // race where countries overtake one another. Both read the pinned World Bank table, so every number on screen is
@@ -38,6 +38,9 @@ type Props = {
   places: SeriesPlace[];
   from: number;
   to: number;
+  /** Line only: how the value axis is set, and a year to mark. */
+  axis?: 'zero' | 'fit';
+  mark?: {year: number; text: string};
   frame: number;
   startFrame: number;
   endFrame: number;
@@ -68,19 +71,25 @@ export const LineChart: React.FC<Props> = (props) => {
   const first = Math.min(from, to);
   const last = Math.max(from, to);
   const all = places.flatMap((place) => { const out: number[] = []; for (let y = first; y <= last; y++) { const v = valueAt(series, place.code, y); if (v !== null) out.push(v); } return out; });
-  const max = niceCeiling(Math.max(...all, 1));
-  const low = indicator === 'life-expectancy' ? Math.floor(Math.min(...all) / 10) * 10 : 0;
-  const plot = {left: SAFE + 80, right: width - SAFE - 250, top: 150, bottom: SERIES_PANEL - 86};
+  const fit = props.axis === 'fit';
+  const range = fit ? niceRange(Math.min(...all), Math.max(...all)) : undefined;
+  const max = range ? range.high : niceCeiling(Math.max(...all, 1));
+  const low = range ? range.low : indicator === 'life-expectancy' ? Math.floor(Math.min(...all) / 10) * 10 : 0;
+  const plot = {left: SAFE + 100, right: width - SAFE - 250, top: 150, bottom: SERIES_PANEL - 86};
   const x = (y: number) => plot.left + ((y - first) / Math.max(1, last - first)) * (plot.right - plot.left);
   const y = (v: number) => plot.bottom - ((v - low) / (max - low)) * (plot.bottom - plot.top);
-  const ticks = [0, 0.5, 1].map((share) => low + (max - low) * share);
+  const ticks = range ? Array.from({length: Math.round((range.high - range.low) / range.step) + 1}, (_, i) => range.low + i * range.step) : [0, 0.5, 1].map((share) => low + (max - low) * share);
   const years = [first, Math.round((first + last) / 2), last];
   return <Frame props={props} year={year}>
     {ticks.map((tick) => <g key={tick}>
       <line x1={plot.left} x2={plot.right} y1={y(tick)} y2={y(tick)} stroke={style.ink} strokeWidth={1.5} opacity={0.18} />
-      <text x={plot.left - 12} y={y(tick) + 8} textAnchor="end" style={{...text, fontSize: 24, fill: style.ink, opacity: 0.6}}>{formatFigure(indicator, tick, indicator === 'life-expectancy' ? 0 : decimals)}</text>
+      <text x={plot.left - 12} y={y(tick) + 8} textAnchor="end" style={{...text, fontSize: 24, fill: style.ink, opacity: 0.6}}>{formatFigure(indicator, tick, indicator === 'life-expectancy' && !fit ? 0 : decimals)}</text>
     </g>)}
-    {years.map((label) => <text key={label} x={x(label)} y={plot.bottom + 38} textAnchor="middle" style={{...text, fontSize: 24, fill: style.ink, opacity: 0.6}}>{label}</text>)}
+    {props.mark && year >= props.mark.year ? <g opacity={interpolate(year, [props.mark.year, props.mark.year + 0.5], [0, 1], clamp)}>
+      <line x1={x(props.mark.year)} x2={x(props.mark.year)} y1={plot.top - 6} y2={plot.bottom} stroke={style.accent} strokeWidth={3} strokeDasharray="10 8" />
+      <text x={x(props.mark.year)} y={plot.top - 14} textAnchor="middle" style={{...text, fontSize: 28, fill: style.accent}}>{props.mark.text.toUpperCase()}</text>
+    </g> : null}
+    {years.map((label) => <text key={label} x={x(label)} y={plot.bottom + 46} textAnchor="middle" style={{...text, fontSize: 24, fill: style.ink, opacity: 0.6}}>{label}</text>)}
     {(() => {
       const lines = places.flatMap((place) => {
         let d = '';

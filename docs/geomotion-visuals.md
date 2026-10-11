@@ -101,6 +101,8 @@ A shot's `series` draws yearly figures for countries over a scene: `{indicator, 
 | `line` | 1 to 4 countries (`places`) as lines that draw themselves from `from` to `to`, a big year counter, the value and flag at each line's head. Heads that would overprint stack apart with a leader line |
 | `race` | The six highest countries each year as bars; rows slide past one another as ranks change. `places` may name one country to light up (else the episode's subject) |
 
+A line chart may set `axis: "fit"` to zoom the value axis to the data (to show a turning point; the ticks say what the axis spans, and the default `zero` keeps sizes honest) and `mark: {year, text}` for a dashed line and a short caption once the chart reaches that year.
+
 The chart sits in a panel at the bottom and the map lifts to leave room, as for the bar chart; the two cannot share a scene, nor can a street map, a photo or a timeline strip. The year runs from `from` to `to` between the panel arriving and 90% of the scene, then holds. Rights get a World Bank credit automatically and the publish gate (`series-credit`) blocks an episode whose rights lack one; the chart also prints its source.
 
 `npm run looks -- <episode> --scenes=2 --series=2:population:race:1960:2024:country:IND` (or `--series=2:life-expectancy:line:1960:2023:country:JPN,country:NGA`) renders stills to compare.

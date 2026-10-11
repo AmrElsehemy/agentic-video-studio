@@ -126,6 +126,10 @@ export const primitiveSchema = z.discriminatedUnion('kind', [
       from: z.number().int().min(1960).max(2025),
       to: z.number().int().min(1960).max(2025),
       at: moment.default(0.04),
+      // line only: 'zero' starts the axis at zero (honest sizes); 'fit' zooms to the data, to show a turn. The ticks say which.
+      axis: z.enum(['zero', 'fit']).default('zero'),
+      // line only: a dashed line and a short caption at a year, once the chart reaches it.
+      mark: z.object({year: z.number().int().min(1960).max(2025), text: z.string().min(1).max(14)}).strict().optional(),
     }).strict().optional(),
     // A data map (#91): places shaded by a sourced value, with a legend. The Geo Visual Director copies
     // the values from a research dataset; the model never types them.
@@ -148,6 +152,8 @@ export const primitiveSchema = z.discriminatedUnion('kind', [
     if (primitive.series) {
       if (primitive.series.from === primitive.series.to) context.addIssue({code: 'custom', path: ['series', 'to'], message: 'A chart over time needs different from and to years'});
       if (primitive.series.view === 'line' && primitive.series.places.length === 0) context.addIssue({code: 'custom', path: ['series', 'places'], message: 'A line chart needs 1 to 4 countries to draw'});
+      if (primitive.series.view === 'race' && (primitive.series.mark || primitive.series.axis === 'fit')) context.addIssue({code: 'custom', path: ['series'], message: 'axis and mark belong to a line chart'});
+      if (primitive.series.mark && (primitive.series.mark.year < Math.min(primitive.series.from, primitive.series.to) || primitive.series.mark.year > Math.max(primitive.series.from, primitive.series.to))) context.addIssue({code: 'custom', path: ['series', 'mark', 'year'], message: 'The marked year must fall inside the chart\'s years'});
       if (primitive.series.view === 'race' && primitive.series.places.length > 1) context.addIssue({code: 'custom', path: ['series', 'places'], message: 'A race lights up at most one country'});
       if (primitive.data && (primitive.data.view === 'bars' || primitive.data.view === 'both')) context.addIssue({code: 'custom', path: ['series'], message: 'A chart over time and a bar chart both want the bottom of the frame: use one'});
       if (primitive.streets || primitive.annotations.some((annotation) => annotation.type === 'photo' || annotation.type === 'timeline')) context.addIssue({code: 'custom', path: ['series'], message: 'A chart over time cannot share a scene with a street map, a photo or a timeline strip'});

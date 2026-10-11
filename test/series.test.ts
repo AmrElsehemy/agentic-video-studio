@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {describe, it} from 'node:test';
 import {fileURLToPath} from 'node:url';
-import {lastCompleteYear, niceCeiling, pivot, raceAt, raceCandidates, valueAt} from '../scripts/lib/series.mjs';
+import {lastCompleteYear, niceCeiling, niceRange, pivot, raceAt, raceCandidates, valueAt} from '../scripts/lib/series.mjs';
 import {seriesProblems, seriesRightsAsset} from '../scripts/lib/geo-primitives.mjs';
 import {primitiveSchema} from '../scripts/primitive-schema.mjs';
 import {formatFigure, yearAt} from '../src/video/geo/SeriesChart';
@@ -37,6 +37,13 @@ describe('the yearly table', () => {
     assert.equal(niceCeiling(1.45e9), 2e9);
     assert.equal(niceCeiling(7.2), 10);
     assert.equal(niceCeiling(2.4), 2.5);
+  });
+});
+
+describe('a zoomed axis', () => {
+  it('fits tidy bounds around the data, at whole steps', () => {
+    assert.deepEqual(niceRange(1.26e9, 1.4124e9), {low: 1.25e9, high: 1.45e9, step: 5e7});
+    assert.deepEqual(niceRange(3, 3), {low: 3, high: 4, step: 1});
   });
 });
 
@@ -98,6 +105,14 @@ describe('a chart over time in a shot', () => {
     assert.ok(!primitiveSchema.safeParse(line({to: 1960})).success);
     assert.ok(!primitiveSchema.safeParse(line({places: []})).success, 'a line needs a country');
     assert.ok(!primitiveSchema.safeParse(line({view: 'race', places: ['country:CHN', 'country:IND']})).success, 'a race lights up one');
+  });
+
+  it('marks a year inside its range on a line, and never on a race', () => {
+    assert.ok(primitiveSchema.safeParse(line({axis: 'fit', mark: {year: 2021, text: 'PEAK 2021'}})).success);
+    assert.ok(!primitiveSchema.safeParse(line({mark: {year: 1950, text: 'EARLY'}})).success);
+    assert.ok(!primitiveSchema.safeParse(line({mark: {year: 2030, text: 'LATE'}})).success);
+    assert.ok(!primitiveSchema.safeParse(line({view: 'race', places: [], mark: {year: 2000, text: 'X'}})).success);
+    assert.ok(!primitiveSchema.safeParse(line({view: 'race', places: [], axis: 'fit'})).success);
   });
 
   it('will not share the bottom of the frame with a bar chart, a photo or a street map', () => {

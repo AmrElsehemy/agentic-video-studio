@@ -104,3 +104,11 @@ export function niceCeiling(value) {
   for (const step of [1, 2, 2.5, 5, 10]) if (step * power >= value * 0.999999) return step * power;
   return 10 * power;
 }
+
+/** An axis that fits the data tightly (for a turning point): tidy bounds at whole steps of a tidy size, at most five ticks. */
+export function niceRange(min, max) {
+  const span = max - min;
+  if (!(span > 0)) return {low: Math.floor(min), high: Math.ceil(max) + 1, step: 1};
+  const step = niceCeiling(span / 4);
+  return {low: Math.floor(min / step + 1e-9) * step, high: Math.ceil(max / step - 1e-9) * step, step};
+}

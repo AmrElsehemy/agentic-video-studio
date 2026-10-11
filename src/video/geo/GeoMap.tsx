@@ -753,7 +753,7 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
     const series = {years: seriesTable.years, countries: seriesTable.countries};
     const accentColor = styled ? look.subject.from : accent;
     const style = {accent: accentColor, ink: styled && look.chip ? look.chip.text : palette.ink, backdrop: styled && look.chip ? look.chip.fill : palette.background, muted: styled ? look.subject.side : palette.ink};
-    const common = {indicator: chart.indicator, title: seriesTable.name, unit: seriesTable.unit, decimals: seriesTable.decimals, series, from: chart.from, to: chart.to, frame, startFrame: seriesStart, endFrame: Math.max(seriesStart + SERIES_SLIDE_FRAMES + 30, 0.9 * durationInFrames), width: SIZE.width, height: SIZE.height, style, credit: 'Source: World Bank (CC BY 4.0)'};
+    const common = {indicator: chart.indicator, title: seriesTable.name, unit: seriesTable.unit, decimals: seriesTable.decimals, series, from: chart.from, to: chart.to, axis: chart.axis, mark: chart.mark, frame, startFrame: seriesStart, endFrame: Math.max(seriesStart + SERIES_SLIDE_FRAMES + 30, 0.9 * durationInFrames), width: SIZE.width, height: SIZE.height, style, credit: 'Source: World Bank (CC BY 4.0)'};
     if (chart.view === 'line') {
       const colors = [accentColor, '#4cc9f0', '#ffd166', '#95e06c'];
       const places: SeriesPlace[] = chart.places.map((id, index) => ({id, code: id.slice('country:'.length), name: shortCountryName(data.entities.get(id)?.name ?? id), color: colors[index % colors.length], flag: flags.href(id)}));

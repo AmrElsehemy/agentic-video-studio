@@ -1,0 +1,388 @@
+{
+  "id": "india-passes-china",
+  "title": "The Year China Stopped Being Number One",
+  "storyPattern": "mystery",
+  "numberRelevant": true,
+  "premise": "By the World Bank’s count, India passed China as the most populous country in 2021, the year China’s population peaked.",
+  "audiencePromise": "Watch the population race that China led for 60 years, and the year it ended.",
+  "openLoop": "Which year did China stop being the most populous country?",
+  "payoff": "In 2021, by the World Bank’s figures, India overtook China, whose population peaked that year at 1.41 billion.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "Does having the most people still make a country the biggest?",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica"
+  },
+  "subject": {
+    "name": "China and India",
+    "category": "Border",
+    "attributes": {
+      "geoEntity": "country:CHN"
+    }
+  },
+  "voice": {
+    "provider": "elevenlabs",
+    "voice": "JBFqnCBsd6RMkjVDRZzb"
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "eyebrow": "A POPULATION RACE",
+      "headline": "NUMBER ONE FOR DECADES",
+      "narration": "China led the world in people for decades.",
+      "caption": "CHINA FIRST, 1960 TO 2020",
+      "primitive": {
+        "kind": "geo-map",
+        "dataset": "natural-earth",
+        "highlights": [
+          {
+            "entity": "country:CHN",
+            "style": "fill",
+            "at": 0.06
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:CHN",
+            "text": "CHINA",
+            "at": 0.3
+          }
+        ],
+        "camera": [
+          {
+            "target": "world",
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                60,
+                5,
+                150,
+                55
+              ]
+            },
+            "at": 0.8,
+            "padding": 0.2,
+            "ease": "in-out"
+          }
+        ],
+        "series": {
+          "places": [
+            "country:CHN"
+          ],
+          "at": 0.04,
+          "indicator": "population",
+          "view": "race",
+          "from": 1960,
+          "to": 2020
+        },
+        "ambience": "wind"
+      }
+    },
+    {
+      "id": "start",
+      "beat": "clue",
+      "eyebrow": "1960",
+      "headline": "667 MILLION VS 436 MILLION",
+      "narration": "In 1960, China had 667 million people, and India 436 million.",
+      "caption": "THE GAP IN 1960",
+      "primitive": {
+        "kind": "geo-map",
+        "dataset": "natural-earth",
+        "highlights": [
+          {
+            "entity": "country:CHN",
+            "style": "fill",
+            "at": 0.06
+          },
+          {
+            "entity": "country:IND",
+            "style": "outline",
+            "at": 0.12
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:IND",
+            "text": "INDIA",
+            "at": 0.3
+          }
+        ],
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                60,
+                5,
+                150,
+                55
+              ]
+            },
+            "at": 0,
+            "padding": 0.2,
+            "ease": "in-out"
+          }
+        ],
+        "cut": true,
+        "series": {
+          "places": [
+            "country:CHN",
+            "country:IND"
+          ],
+          "at": 0.04,
+          "indicator": "population",
+          "view": "line",
+          "from": 1960,
+          "to": 1990
+        },
+        "ambience": "city"
+      }
+    },
+    {
+      "id": "closing",
+      "beat": "escalation",
+      "eyebrow": "THE CATCH-UP",
+      "headline": "THE GAP KEEPS SHRINKING",
+      "narration": "India kept growing faster, and the gap kept shrinking.",
+      "caption": "INDIA CLOSES IN",
+      "primitive": {
+        "kind": "geo-map",
+        "dataset": "natural-earth",
+        "highlights": [
+          {
+            "entity": "country:CHN",
+            "style": "fill",
+            "at": 0.06
+          },
+          {
+            "entity": "country:IND",
+            "style": "outline",
+            "at": 0.12
+          }
+        ],
+        "annotations": [],
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                60,
+                5,
+                150,
+                55
+              ]
+            },
+            "at": 0,
+            "padding": 0.2,
+            "ease": "in-out"
+          }
+        ],
+        "cut": false,
+        "series": {
+          "places": [
+            "country:CHN",
+            "country:IND"
+          ],
+          "at": 0.04,
+          "indicator": "population",
+          "view": "line",
+          "from": 1960,
+          "to": 2020
+        },
+        "ambience": "city"
+      }
+    },
+    {
+      "id": "pass",
+      "beat": "reveal",
+      "eyebrow": "2021",
+      "headline": "INDIA PASSES CHINA",
+      "narration": "In 2021, by the World Bank’s count, India took the lead.",
+      "caption": "INDIA TAKES THE LEAD, 2021",
+      "primitive": {
+        "kind": "geo-map",
+        "dataset": "natural-earth",
+        "highlights": [
+          {
+            "entity": "country:IND",
+            "style": "fill",
+            "at": 0.06
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:IND",
+            "text": "NUMBER ONE",
+            "at": 0.55
+          }
+        ],
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                60,
+                5,
+                150,
+                55
+              ]
+            },
+            "at": 0,
+            "padding": 0.2,
+            "ease": "in-out"
+          },
+          {
+            "target": "country:IND",
+            "at": 0.8,
+            "padding": 0.3,
+            "ease": "in-out"
+          }
+        ],
+        "series": {
+          "indicator": "population",
+          "view": "race",
+          "places": [
+            "country:IND"
+          ],
+          "from": 2018,
+          "to": 2024,
+          "at": 0.04,
+          "axis": "zero"
+        },
+        "ambience": "city"
+      }
+    },
+    {
+      "id": "peak",
+      "beat": "reveal",
+      "eyebrow": "THE TURN",
+      "headline": "CHINA PEAKED TOO",
+      "narration": "China peaked that year at 1.41 billion, and has shrunk since.",
+      "caption": "PEAK 2021: 1.41 BILLION",
+      "primitive": {
+        "kind": "geo-map",
+        "dataset": "natural-earth",
+        "highlights": [
+          {
+            "entity": "country:CHN",
+            "style": "fill",
+            "at": 0.06
+          }
+        ],
+        "annotations": [],
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                60,
+                5,
+                150,
+                55
+              ]
+            },
+            "at": 0,
+            "padding": 0.2,
+            "ease": "in-out"
+          },
+          {
+            "target": "country:CHN",
+            "at": 0.8,
+            "padding": 0.3,
+            "ease": "in-out"
+          }
+        ],
+        "series": {
+          "indicator": "population",
+          "view": "line",
+          "places": [
+            "country:CHN"
+          ],
+          "from": 2005,
+          "to": 2024,
+          "at": 0.04,
+          "axis": "fit",
+          "mark": {
+            "year": 2021,
+            "text": "PEAK 2021"
+          }
+        },
+        "ambience": "wind"
+      }
+    },
+    {
+      "id": "verdict",
+      "beat": "verdict",
+      "eyebrow": "YOUR TURN",
+      "headline": "DOES BIGGEST STILL MATTER?",
+      "narration": "Does having the most people still make a country the biggest?",
+      "caption": "MOST PEOPLE, STILL BIGGEST?",
+      "primitive": {
+        "kind": "geo-map",
+        "dataset": "natural-earth",
+        "highlights": [
+          {
+            "entity": "country:CHN",
+            "style": "outline",
+            "at": 0.06
+          },
+          {
+            "entity": "country:IND",
+            "style": "outline",
+            "at": 0.06
+          }
+        ],
+        "annotations": [],
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                60,
+                5,
+                150,
+                55
+              ]
+            },
+            "at": 0,
+            "padding": 0.2,
+            "ease": "in-out"
+          }
+        ],
+        "cut": false,
+        "ambience": "wind"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "label": "World Bank, World Development Indicators: Population, total (SP.POP.TOTL)",
+      "url": "https://data.worldbank.org/indicator/SP.POP.TOTL"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ],
+  "paletteVariant": "neon",
+  "score": "epic"
+}
