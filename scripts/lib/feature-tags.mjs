@@ -17,6 +17,8 @@ export const featureTags = (manifest) => {
     if (primitive.cut) tags.add('cuts');
     for (const annotation of primitive.annotations ?? []) if (ANNOTATIONS[annotation.type]) tags.add(ANNOTATIONS[annotation.type]);
   }
+  if (manifest.framing?.opening === 'bleed') tags.add('opening-bleed');
+  if (manifest.framing?.ending === 'loop') tags.add('ending-loop');
   if (manifest.palette) tags.add(isLight(manifest.palette.background) ? 'light-palette' : 'dark-palette');
   if (manifest.look && manifest.look !== 'classic') tags.add(`look-${manifest.look}`);
   const hook = manifest.scenes[0];

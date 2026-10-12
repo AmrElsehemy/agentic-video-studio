@@ -199,6 +199,7 @@ export const compileEpisode = (rawDraft, {showId, show = loadShow(showId), geo})
     format: draft.format === 'landscape' ? {width: 1920, height: 1080, fps: 30} : {width: 1080, height: 1920, fps: 30},
     palette: episodePalette(draft, show),
     ...(LOOK_VARIANTS.includes(draft.paletteVariant) ? {look: draft.paletteVariant} : {}),
+    ...(draft.framing ? {framing: draft.framing} : {}),
     ...(diagram ? {diagram} : {}),
     ...(draft.twinOf ? {twinOf: draft.twinOf} : {}),
     audio: {

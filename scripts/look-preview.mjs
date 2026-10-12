@@ -1,6 +1,6 @@
 // Render stills of an episode's scenes in each map look, to compare art directions without changing
 // the episode. Usage: npm run looks -- <episode-id> [--looks=classic,neon,atlas,terrain] [--scenes=1,2,4] [--voice=none]
-// --dataview=map|bars|both|bubbles changes every data layer's view; --projection=equal-earth|albers|azimuthal draws every flat map scene in that projection; --globe=1,7 draws those scenes on a globe; --flags=1 puts flags on every map scene; --streets=2:vatican-city draws a street map of that city in scene 2; --series=2:population:race:from:to[:country:IND] or --series=2:life-expectancy:line:1960:2023:country:JPN,country:NGA draws a chart over time in scene 2; --surface=2 [--surfacekind=coast-distance|elevation|flood --rise=10] shades the land by distance from the sea; --morph=2 flows those scenes from Mercator to Equal Earth; --at=0.1,0.5,0.9 takes several moments of each scene (default 0.72).
+// --dataview=map|bars|both|bubbles changes every data layer's view; --projection=equal-earth|albers|azimuthal draws every flat map scene in that projection; --globe=1,7 draws those scenes on a globe; --flags=1 puts flags on every map scene; --streets=2:vatican-city draws a street map of that city in scene 2; --series=2:population:race:from:to[:country:IND] or --series=2:life-expectancy:line:1960:2023:country:JPN,country:NGA draws a chart over time in scene 2; --surface=2 [--surfacekind=coast-distance|elevation|flood --rise=10] shades the land by distance from the sea; --morph=2 flows those scenes from Mercator to Equal Earth; --framing=bleed,loop sets how the episode opens and ends (bleed: first picture fills the frame then settles; loop: the end dissolves into the first frame); --at=0.1,0.5,0.9 takes several moments of each scene (default 0.72).
 // Writes out/<show>/<id>/looks/<id>-<look>-scene<N>.png (N counts from 1, taken 72% into the scene).
 import fs from 'node:fs';
 import path from 'node:path';
@@ -55,7 +55,9 @@ try {
     const [seriesScene, seriesIndicator, seriesView, seriesFrom, seriesTo, seriesPlaces = ''] = option('series', '').split(':').reduce((list, part, index) => (index >= 6 ? [...list.slice(0, 5), `${list[5] ?? ''}${list[5] ? ':' : ''}${part}`] : [...list, part]), []);
     const withSeries = seriesScene ? {...withStreets, scenes: withStreets.scenes.map((scene, index) => (index + 1 === Number(seriesScene) && scene.primitive?.kind === 'geo-map' ? {...scene, primitive: {...scene.primitive, series: {indicator: seriesIndicator, view: seriesView, from: Number(seriesFrom), to: Number(seriesTo), places: seriesPlaces.split(',').filter(Boolean), at: 0.04}}} : scene))} : withStreets;
     const withFlags = option('flags') ? {...withStreets, scenes: withSeries.scenes.map((scene) => (scene.primitive?.kind === 'geo-map' ? {...scene, primitive: {...scene.primitive, flags: true}} : scene))} : withSeries;
-    const styled = {...withFlags, look, ...(PALETTES[look] ? {palette: PALETTES[look]} : {})};
+    const framing = option('framing', '').split(',').filter(Boolean);
+    const withFraming = framing.length ? {...withFlags, framing: {...(framing.includes('bleed') ? {opening: 'bleed'} : {}), ...(framing.includes('loop') ? {ending: 'loop'} : {})}} : withFlags;
+    const styled = {...withFraming, look, ...(PALETTES[look] ? {palette: PALETTES[look]} : {})};
     const inputProps = {manifest: styled};
     const composition = await selectComposition({serveUrl, id: 'VerticalEpisode', inputProps, puppeteerInstance: browser});
     for (const number of scenes) for (const moment of moments) {

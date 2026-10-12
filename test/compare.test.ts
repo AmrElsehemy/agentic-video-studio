@@ -40,3 +40,22 @@ describe('feature tags and comparison', () => {
     assert.equal(appendHistory(appendHistory([], a), {...a, capturedAt: '2026-10-01T10:20:00Z'}).length, 1);
   });
 });
+
+describe('framing', () => {
+  const base = JSON.parse(fs.readFileSync('videos/geographica/india-passes-china/video.json', 'utf8'));
+  it('is tagged so performance can be compared by how an episode opens and ends', () => {
+    const tags = featureTags({...base, framing: {opening: 'bleed', ending: 'loop'}});
+    assert.ok(tags.includes('opening-bleed') && tags.includes('ending-loop'));
+    assert.ok(!featureTags(base).includes('opening-bleed'));
+  });
+});
+
+describe('framing in a compiled episode', () => {
+  it('passes from the draft to the manifest and the schema accepts it', async () => {
+    const {compileEpisode} = await import('../scripts/lib/compiler.mjs');
+    const draft = JSON.parse(fs.readFileSync('drafts/geographica/india-passes-china.json', 'utf8'));
+    const {manifest} = compileEpisode({...draft, framing: {opening: 'bleed', ending: 'loop'}}, {showId: 'geographica'});
+    assert.deepEqual(manifest.framing, {opening: 'bleed', ending: 'loop'});
+    assert.equal(compileEpisode(draft, {showId: 'geographica'}).manifest.framing, undefined);
+  });
+});

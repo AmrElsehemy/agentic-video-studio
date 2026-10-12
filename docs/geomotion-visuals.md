@@ -146,3 +146,12 @@ Layers join by each scene's intensity (`intensityOf`, from its beat): 0 pad, 1 a
 
 - **map-variety** is a release blocker: a map episode where fewer than 60% of consecutive scenes change, or fewer than half the scenes show a distinct view, is not cleared for public release.
 - The director also fixes, in up to two repair rounds: rejected shots, a camera the renderer would collapse, a world view anywhere but the first and last scene, and places a scene names but its shot doesn't show.
+
+## Opening and ending (`framing`)
+
+Optional, per episode (draft field `framing`, copied into the manifest). Both are tagged (`opening-bleed`, `ending-loop`) so `npm run analytics -- compare <show>` can show whether they help.
+
+- `opening: "bleed"`: the first scene's picture starts filling the whole frame and settles into its card over about a second as the headline lands. Default `card`: the picture is in its card from the first frame.
+- `ending: "loop"`: the last 0.4 seconds dissolve into the first frame, so a Short that replays starts where it ended. Skipped when narration is still speaking then. Default `cut`.
+
+Preview without changing an episode: `npm run looks -- <id> --scenes=1 --at=0.02,0.12 --framing=bleed,loop`.

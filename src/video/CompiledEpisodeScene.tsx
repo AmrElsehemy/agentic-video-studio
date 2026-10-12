@@ -1,5 +1,5 @@
 import React from 'react';
-import {AbsoluteFill, interpolate, spring, useCurrentFrame, useVideoConfig} from 'remotion';
+import {AbsoluteFill, Easing, interpolate, spring, useCurrentFrame, useVideoConfig} from 'remotion';
 import {captionAt} from '../../scripts/lib/captions.mjs';
 import type {VideoManifest, VideoScene} from '../schema';
 import {continuesMap} from './geo/camera';
@@ -12,6 +12,9 @@ import {bodyFont, displayFont} from './typography';
 import {Wordmark} from './wordmark';
 
 const clamp = {extrapolateLeft: 'clamp' as const, extrapolateRight: 'clamp' as const};
+
+// How much larger the first picture starts: enough for the card to cover the whole frame.
+const BLEED_SCALE = .42;
 
 type Props = {
   scene: VideoScene;
@@ -37,6 +40,10 @@ export const CompiledEpisodeScene: React.FC<Props> = ({scene, manifest, sceneInd
   const sceneFade = seams.out ? 1 : exit;
   const textFade = seams.out ? exit : 1;
   // The subject's identifier (e.g. a Pokédex number) shows only when the story is actually about it.
+  // Opening 'bleed': the first picture starts filling the frame and settles into its card as the headline lands.
+  const bleed = sceneIndex === 0 && manifest.framing?.opening === 'bleed'
+    ? 1 + BLEED_SCALE * (1 - interpolate(frame, [4, 30], [0, 1], {...clamp, easing: Easing.out(Easing.cubic)}))
+    : 1;
   const identifier = manifest.direction.numberRelevant ? manifest.subject.identifier : undefined;
 
   // An architecture walkthrough (#120) replays its source diagram across the whole frame.
@@ -63,7 +70,7 @@ export const CompiledEpisodeScene: React.FC<Props> = ({scene, manifest, sceneInd
       {HEADLINE_SHOTS.has(scene.shot) && !scene.primitive ? null : <div style={{fontFamily: displayFont, fontSize: 76, lineHeight: .86, letterSpacing: .5, maxWidth: 880}}>{scene.headline}</div>}
     </div>
 
-    <div style={{position: 'absolute', inset: '300px 35px 245px', zIndex: 10, opacity: seams.in ? 1 : enter}}>
+    <div style={{position: 'absolute', inset: '300px 35px 245px', zIndex: 10, opacity: seams.in ? 1 : enter, ...(bleed === 1 ? {} : {transform: `scale(${bleed})`})}}>
       {/* A semantic primitive, when the Visual Director chose one; otherwise the beat's shot. */}
       {scene.primitive
         ? <PrimitiveVisual primitive={scene.primitive} scene={scene} manifest={manifest} frame={frame} durationInFrames={durationInFrames} accent={accent} seams={seams} />
