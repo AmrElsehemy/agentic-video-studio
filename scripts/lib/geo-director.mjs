@@ -14,6 +14,7 @@ import {resolvePlaces} from './geo-resolver.mjs';
 import {mapDeviceProblems, mapDirectionProblems, mapVariety} from './map-variety.mjs';
 import {reconstruction, rotatePoint} from './plates.mjs';
 import {kmToDegrees} from './geodesy.mjs';
+import {seriesDigest, seriesFromShot} from './series-shot.mjs';
 import {styleGuideSection} from './shows.mjs';
 
 /** Degrees framed around a named point when the camera targets it. */
@@ -192,7 +193,7 @@ const aroundBox = (ids, places) => {
  * Turn the model's shot (ids, {place}, {around}) into a geo-map primitive, or
  * throw with the reason. Checks places, approximate points and numbers.
  */
-export const shotToPrimitive = (shot, {places, research, datasets = new Map(), streets = {}, photos = {}}) => {
+export const shotToPrimitive = (shot, {places, research, datasets = new Map(), streets = {}, photos = {}, series}) => {
   if (!shot || typeof shot !== 'object') throw new Error('no shot');
   const allowed = [...places.keys()];
   const placeId = (id, where) => {
@@ -307,7 +308,13 @@ export const shotToPrimitive = (shot, {places, research, datasets = new Map(), s
     if (shot.globe || shot.morph || shot.relief || surface || data) throw new Error('streets: a street map cannot also be a globe, a morph, relief, a surface or a data layer');
     streetShot = {city: shot.streets, at: 0.05, camera: streetCamera(city.box, city.outlineBox)};
   }
-  const parsed = primitiveSchema.safeParse({kind: 'geo-map', camera: streetShot ? streetShot.camera : camera, highlights, annotations, ...(comparing ? {projection: 'albers'} : {}), ...(shot.cut === true ? {cut: true} : {}), ...(shot.globe === true ? {globe: true} : {}), ...(shot.relief === true ? {relief: true} : {}), ...(shot.morph === true ? {morph: true} : {}), ...(shot.flags === true ? {flags: true} : {}), ...(['sea', 'wind', 'city', 'jungle', 'desert', 'ice', 'space', 'none'].includes(shot.ambience) ? {ambience: shot.ambience} : {}), ...(surface ? {surface} : {}), ...(streetShot ? {streets: {city: streetShot.city, at: streetShot.at}} : {}), ...(data ? {data} : {})});
+  // A chart over time: indicator, countries and years come from the pinned World Bank table, never from the model.
+  let seriesShot;
+  if (shot.series !== undefined && shot.series !== null) {
+    if (shot.globe || shot.morph || surface) throw new Error('series: a chart over time cannot also be a globe, a morph or a surface');
+    seriesShot = seriesFromShot(shot.series, {series, placeId});
+  }
+  const parsed = primitiveSchema.safeParse({kind: 'geo-map', camera: streetShot ? streetShot.camera : camera, highlights, annotations, ...(comparing ? {projection: 'albers'} : {}), ...(shot.cut === true ? {cut: true} : {}), ...(shot.globe === true ? {globe: true} : {}), ...(shot.relief === true ? {relief: true} : {}), ...(shot.morph === true ? {morph: true} : {}), ...(shot.flags === true ? {flags: true} : {}), ...(['sea', 'wind', 'city', 'jungle', 'desert', 'ice', 'space', 'none'].includes(shot.ambience) ? {ambience: shot.ambience} : {}), ...(surface ? {surface} : {}), ...(streetShot ? {streets: {city: streetShot.city, at: streetShot.at}} : {}), ...(data ? {data} : {}), ...(seriesShot ? {series: seriesShot} : {})});
   if (!parsed.success) throw new Error(parsed.error.issues.map((issue) => `${issue.path.join('.') || 'shot'}: ${issue.message}`).join('; '));
   return parsed.data;
 };
@@ -431,6 +438,13 @@ export const describeShot = (primitive, places, boxes) => {
     else if (annotation.type === 'photo') parts.push(`photo: ${annotation.photo}`);
     else if (annotation.type === 'timeline') parts.push(`timeline: ${annotation.steps.map((step, index) => `${index === annotation.active ? '[' : ''}${step.label}${index === annotation.active ? ']' : ''}`).join(' · ')}`);
   }
+  if (primitive.series) {
+    const chart = primitive.series;
+    const who = chart.places.map((id) => nameOf(id, places)).join(', ');
+    parts.push(chart.view === 'line'
+      ? `chart over time (World Bank ${chart.indicator}): a line for ${who}, drawn year by year from ${chart.from} to ${chart.to}${chart.axis === 'fit' ? ', axis zoomed to the data' : ', axis from zero'}${chart.mark ? `, with "${chart.mark.text}" marked at ${chart.mark.year}` : ''}`
+      : `chart over time (World Bank ${chart.indicator}): a ranked bar race of the biggest countries from ${chart.from} to ${chart.to}${who ? `, ${who} lit` : ''}, a year counter running`);
+  }
   if (primitive.data) parts.push(`data: ${primitive.data.label} as ${primitive.data.view ?? 'map'} for ${primitive.data.values.map(({entity}) => nameOf(entity, places)).join(', ')}`);
   return parts.join('; ');
 };
@@ -454,7 +468,7 @@ Flag a scene (ok: false) when, for example:
 - the shot only lights up the subject and writes its name, when the narration says something more specific;
 - the camera does the same zoom on the same thing as the scene before, with nothing new.
 
-Do not flag a scene whose job is only to introduce or name a place, to ask the viewer a closing question, or whose shot already shows its claim. The fixes you suggest must be possible with these options: highlight (fill, outline, trace), label, marker, arrow, route, a line of longitude or latitude, a timeline strip, a data layer (map shading or ranked bars), a globe, and the camera framing. Reply with JSON only: {"scenes": [{"id": "<scene id>", "ok": true | false, "problem": "<one sentence>", "fix": "<one sentence>"}]}`,
+Do not flag a scene whose job is only to introduce or name a place, to ask the viewer a closing question, or whose shot already shows its claim. The fixes you suggest must be possible with these options: highlight (fill, outline, trace), label, marker, arrow, route, a line of longitude or latitude, a timeline strip, a chart over time (a line chart or a ranked race of yearly figures), a data layer (map shading or ranked bars), a globe, and the camera framing. Reply with JSON only: {"scenes": [{"id": "<scene id>", "ok": true | false, "problem": "<one sentence>", "fix": "<one sentence>"}]}`,
       messages: [{role: 'user', content: `Episode: ${draft.title ?? ''}\n\n${JSON.stringify(scenes, null, 2)}`}],
     }));
     const items = Array.isArray(reply) ? reply : Array.isArray(reply?.scenes) ? reply.scenes : [];
@@ -631,7 +645,7 @@ export const defaultShot = (subject) => primitiveSchema.parse({
   annotations: [{type: subject.kind === 'city' ? 'marker' : 'label', anchor: subject.id, text: subject.name.toUpperCase().slice(0, 28), at: .4}],
 });
 
-export const buildGeoDirectorPrompt = ({draft, research, places, datasets, mentions = new Map(), showId = draft.show?.id ?? 'geographica', streetCities = {}, photos = {}}) => ({
+export const buildGeoDirectorPrompt = ({draft, research, places, datasets, mentions = new Map(), showId = draft.show?.id ?? 'geographica', streetCities = {}, photos = {}, series}) => ({
   system: `You are the map director of ${draft.show?.name ?? 'a geography series'}, vertical short videos told with animated maps. Give EVERY scene one map shot that shows what its narration says.
 
 A shot is JSON:
@@ -654,6 +668,7 @@ A shot is JSON:
  "floodRise": 5,     // optional: show the land a sea-level rise of 1, 2, 5, 10, 20 or 50 metres would flood
  "morph": false,    // optional: the map flows from Mercator to Equal Earth during the scene, so stretched sizes settle to true
  "data": {"dataset": "<dataset key>", "at": 0.3, "view": "map" | "bars" | "both" | "bubbles"},   // optional: show a dataset: shade the places (map), a ranked bar chart (bars), both, or sized circles on the places (bubbles)
+ "series": {"indicator": "population" | "life-expectancy" | "fertility" | "gdp-per-person", "view": "line" | "race", "from": 1960, "to": 2020, "places": ["country:CHN"], "axis": "fit", "mark": {"year": 2021, "kind": "peak" | "low" | "year"}, "at": 0.04},   // optional: a chart over time, drawn year by year
  "why": "one sentence"}
 
 T (camera target) is "world", a place id, {"around": ["<place id>", ...]} to frame several places together, or {"place": "<point key>"} to frame a named point closely.
@@ -677,6 +692,7 @@ Rules:
 - "morph": true makes the map flow from Mercator to the Equal Earth projection during the scene, so places Mercator inflates (Greenland, Russia, Canada, Antarctica) shrink to their true size on screen. Use it at most once an episode, only on a scene that says a place is bigger or smaller than it looks on the map, and give that scene a wide camera (most of the world). The map says what it is doing. Do not combine it with a globe or a true-size comparison.
 - "relief": true adds shaded relief (mountains and valleys) under the map. Use it when the narration is about terrain or altitude: mountains, highlands, plateaus, valleys.
 - "data" shows one of the datasets listed below. Use it when the narration compares places by a number (heights, sizes, populations, how crowded or empty a place is). Name the dataset only; its values come from the research or the map data. "view": "map" shades the places with a legend; "bars" shows a ranked bar chart of them beside the map (the clearest way to compare sizes or populations: use it at least once in an episode that compares places); "both" does both; "bubbles" puts a circle on each place, its area in proportion to its value, right on the map (good when the places are spread out and you want the comparison to sit on the geography; the bars are better for a ranked list). Frame the places the dataset covers.
+- "series" draws a chart over time under the map from the World Bank's yearly figures (the figures are ours; you choose only the indicator, the countries and the years). "view": "line" draws 1 to 4 countries' lines year by year, "places" being those countries; "race" is a ranked bar race of the biggest countries over the years, "places" holding at most one country to light up. "axis": "fit" zooms a line chart to its data and is honoured only together with a "peak" or "low" mark (the axis ticks say so); everything else starts at zero, the honest choice for sizes. A line chart's "mark" adds a dashed line and caption at a year: kind "peak" or "low" is checked against the data (the year must be the first place's actual highest or lowest in the chart's years), "year" just names the year. Use it when the narration is about how a number CHANGED over time (a population overtaking another, a country peaking, life spans rising), with years that exist in the digest below. When the narration says something peaked or bottomed out, draw that country as the first place with "mark" kind "peak" or "low" at the true year, and zoom ("axis": "fit") only to show such a turn; to compare sizes keep the axis at zero. Never mark the chart's first year, and end the chart at the last year the narration speaks about (it may stop short of the latest data). A race suits "who led, and when someone overtook": light the country the story is about. The countries in "places" must be places of this episode. A chart takes the lower part of the frame and the map lifts above it, so keep the place the scene is about at the camera's centre. At most 3 scenes an episode, one chart per scene, never with a photo, a timeline, a street map, a bar data view, a globe, a morph or a surface in the same scene. Show the same indicator in consecutive chart scenes so the viewer reads the story as one.
 - A "ring" draws a true circle of "radiusKm" around "center" (a place id or a named point), growing out from the centre, with its text on the ring's east edge. Use it when the narration is about a DISTANCE from a place: "within 14 kilometres", "400 kilometres of water", "farthest from the sea", or two shores a short way apart (a ring from one shore that reaches the other shows how close they are). The radius must be a number the research states (it is checked); the text may say it. Frame the whole ring. At most two rings in a scene.
 - A "truesize" copies the place "entity" (a country, state or lake) and slides the copy onto the place "onto" (a country, state, lake or city), rotated on the sphere so its size and shape stay exactly true, to show how big one place is against another. Use it when the narration compares AREA: "as big as", "larger than", "twice the size of", "would cover", "fits inside". The map says the copy was moved and shows where the place really is as a dashed outline. It always uses an equal-area projection (the system sets it). Frame both where the place really is and where it lands, and do not also highlight, label or point at the place that is moving: its home position is wrong while it slides. Use it at most once or twice an episode, on the scenes that are about size.
 - A "reconstruction" shows how a landmass moved: the places in "entities" (one or two) are drawn where a published plate-motion model puts them "from" millions of years ago and drift to where they are "to" (default 0, today), while the place in "fixed" (default country:ZAF, Africa) stays still; an age counter runs on the map and a dashed outline marks where each ends up. Use it whenever the narration says a place split, broke away, drifted, collided or opened: Madagascar leaving Africa, India crossing the ocean, the Atlantic opening. The ages must come from the research (numbers in the text). It works for countries on these plates: Africa, Madagascar, India, Antarctica, Australia, South America, North America (US, Canada), Greenland, Arabia, Europe. Frame the whole journey (where it starts and where it ends) and do not also highlight, label or point at a place that is drifting: its present position is wrong while it moves. A scene can have one reconstruction.
@@ -694,7 +710,7 @@ Rules:
 - Consecutive scenes are one continuous flight: each scene's camera starts where the previous one ended and flies to its first target. Plan the episode as one journey. Add "cut": true only when the story jumps somewhere unrelated.
 
 Reply with a JSON object only: {"scenes": [<shot>, ...]}${styleGuideSection(showId)}`,
-  messages: [{role: 'user', content: `Episode: ${draft.title ?? ''}${draft.premise ? `\nPremise: ${draft.premise}` : ''}\n\n${datasets?.size ? `Datasets (key: label, places):\n${[...datasets.entries()].map(([key, dataset]) => `- ${key}: ${dataset.label}${dataset.unit ? ` (${dataset.unit})` : ''}, ${dataset.values.map(({entity}) => entity).join(', ')}`).join('\n')}\n\n` : ''}Places (id: name, kind):\n${[...places.values()].map((place) => `- ${place.id}: ${place.name}, ${place.kind}`).join('\n')}\n\nNamed points:\n${Object.entries(research.places).map(([key, place]) => `- ${key}${place.approximate ? ' (APPROXIMATE)' : ''}${place.note ? `: ${place.note}` : ''}`).join('\n') || '- none'}\n\nResearch claims:\n${research.claims.map((claim) => `- ${claim.text}`).join('\n')}\n\nScenes:\n${JSON.stringify(draft.scenes.map((scene) => ({id: scene.id, headline: scene.headline, narration: scene.narration, caption: scene.caption, ...(mentions.get(scene.id)?.length ? {names: mentions.get(scene.id).map((place) => `${place.name} (${place.id})`)} : {})})), null, 2)}`}],
+  messages: [{role: 'user', content: `Episode: ${draft.title ?? ''}${draft.premise ? `\nPremise: ${draft.premise}` : ''}\n\n${seriesDigest(series, places) ? `Yearly figures (World Bank) for the episode's countries, for choosing a chart's years:\n${seriesDigest(series, places)}\n\n` : ''}${datasets?.size ? `Datasets (key: label, places):\n${[...datasets.entries()].map(([key, dataset]) => `- ${key}: ${dataset.label}${dataset.unit ? ` (${dataset.unit})` : ''}, ${dataset.values.map(({entity}) => entity).join(', ')}`).join('\n')}\n\n` : ''}Places (id: name, kind):\n${[...places.values()].map((place) => `- ${place.id}: ${place.name}, ${place.kind}`).join('\n')}\n\nNamed points:\n${Object.entries(research.places).map(([key, place]) => `- ${key}${place.approximate ? ' (APPROXIMATE)' : ''}${place.note ? `: ${place.note}` : ''}`).join('\n') || '- none'}\n\nResearch claims:\n${research.claims.map((claim) => `- ${claim.text}`).join('\n')}\n\nScenes:\n${JSON.stringify(draft.scenes.map((scene) => ({id: scene.id, headline: scene.headline, narration: scene.narration, caption: scene.caption, ...(mentions.get(scene.id)?.length ? {names: mentions.get(scene.id).map((place) => `${place.name} (${place.id})`)} : {})})), null, 2)}`}],
 });
 
 /**
@@ -743,7 +759,7 @@ export const directGeoVisuals = async ({draft, research: rawResearch, complete, 
       if (!draft.scenes.some((scene) => scene.id === id)) { reasons.push({id, reason: 'no such scene'}); continue; }
       if (valid.has(id)) continue;
       try {
-        const primitive = shotToPrimitive(item, {places, research, datasets, streets: streetCities, photos: geo.photos ?? {}});
+        const primitive = shotToPrimitive(item, {places, research, datasets, streets: streetCities, photos: geo.photos ?? {}, series: geo.series});
         const problems = [...geoProblems(primitive, geo), ...shotProblems(primitive)];
         if (problems.length) throw new Error(problems.join('; '));
         valid.set(id, {primitive, why: typeof item.why === 'string' ? item.why : ''});
@@ -762,7 +778,7 @@ export const directGeoVisuals = async ({draft, research: rawResearch, complete, 
 
   if (complete) {
     try {
-      const prompt = buildGeoDirectorPrompt({draft, research, places, datasets, mentions, showId, streetCities, photos: geo.photos ?? {}});
+      const prompt = buildGeoDirectorPrompt({draft, research, places, datasets, mentions, showId, streetCities, photos: geo.photos ?? {}, series: geo.series});
       const first = await complete(prompt);
       const firstRead = read(first);
       adopt(firstRead.valid);
@@ -842,11 +858,13 @@ export const directGeoVisuals = async ({draft, research: rawResearch, complete, 
   const projection = comparing && !['albers', 'equal-earth'].includes(chosen) ? 'albers' : chosen;
   // A morph starts in Mercator whatever the episode uses, so only the first one is kept, and it cuts in from a map in another projection.
   let morphSeen = false;
+  let seriesSeen = 0;
   let surfaceSeen = false;
   for (const [id, shot] of shots) {
     const {projection: _old, ...rest} = shot;
     if (rest.morph && (morphSeen || rest.globe || rest.relief || rest.annotations.some((annotation) => annotation.type === 'truesize'))) delete rest.morph;
     if (rest.morph) morphSeen = true;
+    if (rest.series && ++seriesSeen > 3) delete rest.series;
     if (rest.surface && (surfaceSeen || rest.globe)) delete rest.surface;
     else if (rest.surface) surfaceSeen = true;
     shots.set(id, shot.globe || rest.morph || projection === 'mercator' ? rest : {...rest, projection});

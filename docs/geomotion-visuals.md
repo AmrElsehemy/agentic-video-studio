@@ -155,3 +155,14 @@ Optional, per episode (draft field `framing`, copied into the manifest). Both ar
 - `ending: "loop"`: the last 0.4 seconds dissolve into the first frame, so a Short that replays starts where it ended. Skipped when narration is still speaking then. Default `cut`.
 
 Preview without changing an episode: `npm run looks -- <id> --scenes=1 --at=0.02,0.12 --framing=bleed,loop`.
+
+### The director and charts
+
+The geo director may add a `series` to a shot (a line chart or a ranked race). The model picks only the indicator, the countries and the years; the figures come from `public/geo/series.json`. Its prompt carries a digest of that table for the episode's countries (readings, highest and lowest years), so it chooses years that exist. Enforced in code, not just asked:
+
+- the indicator, countries (country places only) and years must exist in the table, with a figure at both ends of a line;
+- a mark's caption is derived (`PEAK 2021`, `LOW 1993` or the bare year), and a peak or low must be the first country's actual extreme in the chart's years;
+- a zoomed axis (`axis: "fit"`) is honoured only with a verified peak or low mark; everything else starts at zero;
+- at most 3 chart scenes an episode; never with a globe, morph or surface, photo, timeline, street map or bar view.
+
+The reviewer pass reads a chart as "numbers over time" when it judges whether a picture shows its narration.
