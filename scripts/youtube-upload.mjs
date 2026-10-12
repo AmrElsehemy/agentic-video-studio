@@ -3,13 +3,14 @@ import path from 'node:path';
 import {spawnSync} from 'node:child_process';
 import {findManifest, resolveEpisodeId} from './catalog.mjs';
 import {loadShow} from './lib/shows.mjs';
-import {addToPlaylist, assertShowChannel, channelOf, getAccessToken, youtubeMetadata} from './lib/youtube.mjs';
+import {addToPlaylist, assertShowChannel, channelOf, getAccessToken, listUploads, liveStats, youtubeMetadata} from './lib/youtube.mjs';
+import {latestTaken, nextSlot} from './lib/schedule.mjs';
 import {analyticsPath, linkVideo, readAnalytics, writeAnalytics} from './lib/analytics.mjs';
 import {episodeOutPath} from './lib/out.mjs';
 
 const args = process.argv.slice(2);
 const episodeId = resolveEpisodeId(args.find((arg) => !arg.startsWith('--')));
-if (!episodeId) throw new Error('Usage: npm run youtube:upload -- <episode-id> [--privacy=private|unlisted|public] [--publish-at=<ISO>] [--made-for-kids=true|false] [--notify-subscribers=true|false] [--dry-run]');
+if (!episodeId) throw new Error('Usage: npm run youtube:upload -- <episode-id> [--privacy=private|unlisted|public] [--publish-at=<ISO>|--now] [--made-for-kids=true|false] [--notify-subscribers=true|false] [--dry-run]');
 
 const valueOf = (name) => args.find((arg) => arg.startsWith(`--${name}=`))?.slice(name.length + 3);
 const has = (name) => args.includes(`--${name}`);
@@ -20,9 +21,10 @@ const boolArg = (name) => {
   return value === 'true';
 };
 
-const privacy = valueOf('privacy') ?? 'private';
+const explicitPrivacy = valueOf('privacy');
+const privacy = explicitPrivacy ?? 'private';
 if (!['private', 'unlisted', 'public'].includes(privacy)) throw new Error(`Unsupported privacy: ${privacy}`);
-const publishAt = valueOf('publish-at');
+let publishAt = valueOf('publish-at');
 const madeForKids = boolArg('made-for-kids');
 const notifySubscribers = boolArg('notify-subscribers') ?? false;
 const dryRun = has('dry-run');
@@ -32,13 +34,25 @@ const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
 const videoPath = episodeOutPath(root, episodeId, `${episodeId}.mp4`);
 if (!fs.existsSync(videoPath)) throw new Error(`Missing rendered video: ${path.relative(root, videoPath)}. Render it first.`);
 
+const show = loadShow(manifest.show.id);
+// The show's cadence: without a time or a privacy of its own, the upload takes the next free daily slot.
+// An access token is only fetched here when scheduling; the upload below reuses it.
+let accessToken;
+if (!publishAt && !explicitPrivacy && show.publishing?.schedule) {
+  accessToken = await getAccessToken(root, {show: show.id});
+  const channel = await channelOf(accessToken);
+  assertShowChannel(show, channel);
+  const uploads = await listUploads(accessToken, channel.uploads);
+  publishAt = nextSlot(show.publishing.schedule, {after: latestTaken(await liveStats(accessToken, uploads.map((video) => video.videoId)))});
+  console.log(`▶ next free slot on ${channel.title}: ${publishAt}`);
+}
+
 const requiresPublicReleaseClearance = privacy !== 'private' || Boolean(publishAt);
 if (requiresPublicReleaseClearance) {
   const preflight = spawnSync(process.execPath, ['--import', 'tsx', 'scripts/preflight-publish.ts', episodeId], {cwd: root, stdio: 'inherit'});
   if (preflight.status !== 0) process.exit(preflight.status ?? 1);
 }
 
-const show = loadShow(manifest.show.id);
 const metadata = youtubeMetadata(manifest, {privacy, publishAt, madeForKids, show});
 const preview = {
   episodeId,
@@ -53,7 +67,7 @@ if (dryRun) {
 }
 
 // The show's own login, and only onto the show's own channel.
-const accessToken = await getAccessToken(root, {show: show.id});
+accessToken ??= await getAccessToken(root, {show: show.id});
 const channel = await channelOf(accessToken);
 assertShowChannel(show, channel);
 console.log(`▶ uploading to ${channel.title} (${channel.id})`);

@@ -47,6 +47,8 @@ export const showSchema = z.object({
     /** Uploads are added to this playlist (the part after list= in its URL). Needs the playlist scope: run youtube:auth again. */
     /** The channel owner's made-for-kids declaration, sent with every upload (--made-for-kids=true|false overrides it). Their determination to make, never guessed. */
     madeForKids: z.boolean().optional(),
+    /** Daily slots (UTC, "HH:MM") uploads are scheduled into when no --publish-at is given: each takes the first free slot after everything already on the channel. */
+    schedule: z.array(z.string().regex(/^([01]\d|2[0-3]):[0-5]\d$/, 'A UTC time like "09:00"')).min(1).max(6).optional(),
     credits: z.boolean().optional(),
     categoryId: z.string().regex(/^\d+$/).optional(),
     playlistId: z.string().regex(/^PL[\w-]{6,}$/, 'A YouTube playlist id, copied in full from the list= part of the playlist URL, e.g. "PLxxxxxxxxxxxx"').optional(),
