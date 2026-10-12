@@ -161,7 +161,7 @@ export const RaceChart: React.FC<Props & {candidates: string[]; names: Map<strin
   return <Frame props={props} year={year}>
     {rows.map((row) => {
       const yy = 130 + row.rank * ROW;
-      const fade = interpolate(row.rank, [RACE_ROWS - 1.2, RACE_ROWS - 0.2], [1, 0], clamp);
+      const fade = interpolate(row.rank, [RACE_ROWS - 0.9, RACE_ROWS - 0.1], [1, 0], clamp);
       const name = names.get(row.code) ?? row.code;
       const flag = flags.get(row.code);
       const isSubject = row.code === subject;
