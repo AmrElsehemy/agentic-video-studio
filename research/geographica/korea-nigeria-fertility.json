@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "id": "korea-nigeria-fertility",
+  "subject": "South Korea",
+  "kind": "curated",
+  "note": "Hand-curated from the pinned World Bank series (public/geo/series.json): fertility rate, total births per woman (SP.DYN.TFRT.IN).",
+  "regions": [
+    "South Korea"
+  ],
+  "claims": [
+    {
+      "id": "y1960",
+      "text": "The World Bank's fertility figure for 1960 was 5.99 children per woman in South Korea and 6.36 in Nigeria: over 5 in both.",
+      "tier": "official",
+      "sources": [
+        "world-bank-fertility"
+      ]
+    },
+    {
+      "id": "y1983",
+      "text": "South Korea's figure fell to 2.06 children per woman in 1983, about 2.",
+      "tier": "official",
+      "sources": [
+        "world-bank-fertility"
+      ]
+    },
+    {
+      "id": "kor2023",
+      "text": "South Korea's figure in 2023 was 0.72 children per woman, below 1.",
+      "tier": "official",
+      "sources": [
+        "world-bank-fertility"
+      ]
+    },
+    {
+      "id": "nga2023",
+      "text": "Nigeria's figure in 2023 was 4.48 children per woman, about 4.5.",
+      "tier": "official",
+      "sources": [
+        "world-bank-fertility"
+      ]
+    },
+    {
+      "id": "kor2010",
+      "text": "South Korea's figure was 1.23 children per woman in 2010.",
+      "tier": "official",
+      "sources": [
+        "world-bank-fertility"
+      ]
+    }
+  ],
+  "places": {},
+  "sources": {
+    "world-bank-fertility": {
+      "label": "World Bank, World Development Indicators: Fertility rate, total (SP.DYN.TFRT.IN), CC BY 4.0",
+      "url": "https://data.worldbank.org/indicator/SP.DYN.TFRT.IN"
+    },
+    "natural-earth": {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  }
+}

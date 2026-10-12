@@ -1,0 +1,532 @@
+{
+  "id": "netherlands-dry",
+  "title": "How a Country Below Sea Level Stays Dry",
+  "storyPattern": "mechanic",
+  "numberRelevant": true,
+  "premise": "26% of the Netherlands lies below sea level, kept dry by dikes and pumps.",
+  "audiencePromise": "See how the land below the sea stays dry.",
+  "openLoop": "How does a country stay dry below the sea?",
+  "payoff": "Dikes hold the sea out and pumps drain the water that gets in.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "Would you live below the level of the sea?",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica"
+  },
+  "subject": {
+    "name": "Netherlands",
+    "category": "Border",
+    "attributes": {
+      "geoEntity": "country:NLD"
+    }
+  },
+  "voice": {
+    "provider": "elevenlabs",
+    "voice": "JBFqnCBsd6RMkjVDRZzb"
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "eyebrow": "NETHERLANDS",
+      "headline": "26% BELOW THE SEA",
+      "narration": "A quarter of this country is below sea level.",
+      "caption": "26% OF ITS AREA IS BELOW SEA LEVEL",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "world",
+            "at": 0,
+            "padding": 0.15,
+            "ease": "in-out"
+          },
+          {
+            "target": "country:NLD",
+            "at": 0.8,
+            "padding": 0.3,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:NLD",
+            "style": "fill",
+            "at": 0.25
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:NLD",
+            "text": "NETHERLANDS",
+            "at": 0.35
+          },
+          {
+            "type": "label",
+            "anchor": "country:NLD",
+            "text": "26% BELOW SEA LEVEL",
+            "at": 0.55
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "sea",
+        "flags": true,
+        "surface": {
+          "kind": "elevation",
+          "at": 0.15
+        },
+        "projection": "albers"
+      }
+    },
+    {
+      "id": "evidence",
+      "beat": "evidence",
+      "eyebrow": "ITS NAME",
+      "headline": "THE LOWER COUNTRIES",
+      "narration": "Its name literally means lower countries.",
+      "caption": "NETHERLANDS = LOWER COUNTRIES",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "country:NLD",
+            "at": 0,
+            "padding": 0.28,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                3.447,
+                50.748,
+                7.199,
+                53.461
+              ]
+            },
+            "at": 0.8,
+            "padding": 0.2,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:NLD",
+            "style": "outline",
+            "at": 0.2
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:NLD",
+            "text": "NETHERLANDS",
+            "at": 0.3
+          },
+          {
+            "type": "label",
+            "anchor": "country:NLD",
+            "text": "LOWER COUNTRIES",
+            "at": 0.55
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "sea",
+        "flags": true,
+        "projection": "albers"
+      }
+    },
+    {
+      "id": "evidence-2",
+      "beat": "evidence",
+      "eyebrow": "THE PEOPLE",
+      "headline": "21% LIVE BELOW",
+      "narration": "About 21 percent of Dutch people live below sea level.",
+      "caption": "21% OF THE POPULATION",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                3.447,
+                50.748,
+                7.199,
+                53.461
+              ]
+            },
+            "at": 0,
+            "padding": 0.25,
+            "ease": "in-out"
+          },
+          {
+            "target": "country:NLD",
+            "at": 0.82,
+            "padding": 0.22,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:NLD",
+            "style": "fill",
+            "at": 0.25
+          },
+          {
+            "entity": "lake:ijsselmeer",
+            "style": "outline",
+            "at": 0.45
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:NLD",
+            "text": "NETHERLANDS",
+            "at": 0.3
+          },
+          {
+            "type": "label",
+            "anchor": "country:NLD",
+            "text": "21% LIVE BELOW",
+            "at": 0.55
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "sea",
+        "flags": true,
+        "projection": "albers"
+      }
+    },
+    {
+      "id": "escalation",
+      "beat": "escalation",
+      "eyebrow": "THE LAND",
+      "headline": "RECLAIMED FROM SEA",
+      "narration": "Most of that land is polder, reclaimed since the 14th century.",
+      "caption": "POLDERS: LAND RECLAIMED FROM THE SEA",
+      "transition": "zoom",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "lake:ijsselmeer",
+            "at": 0,
+            "padding": 0.22,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                3.447,
+                50.748,
+                7.199,
+                53.461
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.2,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "lake:ijsselmeer",
+            "style": "fill",
+            "at": 0.2
+          },
+          {
+            "entity": "river:ijssel",
+            "style": "trace",
+            "at": 0.35
+          },
+          {
+            "entity": "country:NLD",
+            "style": "outline",
+            "at": 0.5
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:NLD",
+            "text": "POLDERS",
+            "at": 0.35
+          },
+          {
+            "type": "label",
+            "anchor": "lake:ijsselmeer",
+            "text": "RECLAIMED LAND",
+            "at": 0.6
+          },
+          {
+            "type": "timeline",
+            "steps": [
+              {
+                "label": "14TH CENTURY",
+                "detail": "RECLAMATION"
+              },
+              {
+                "label": "POLDERS",
+                "detail": "LAND RECLAIMED"
+              },
+              {
+                "label": "TODAY",
+                "detail": "LOW COUNTRIES"
+              }
+            ],
+            "active": 0,
+            "at": 0.45
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "sea",
+        "projection": "albers"
+      }
+    },
+    {
+      "id": "payoff",
+      "beat": "payoff",
+      "eyebrow": "THE SECRET",
+      "headline": "DIKES",
+      "narration": "Dikes hold the sea out.",
+      "caption": "DIKES AROUND EVERY POLDER",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                3.447,
+                50.748,
+                7.199,
+                53.461
+              ]
+            },
+            "at": 0,
+            "padding": 0.25,
+            "ease": "in-out"
+          },
+          {
+            "target": "country:NLD",
+            "at": 0.82,
+            "padding": 0.2,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:NLD",
+            "style": "trace",
+            "at": 0.25
+          },
+          {
+            "entity": "lake:ijsselmeer",
+            "style": "outline",
+            "at": 0.4
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:NLD",
+            "text": "DIKES",
+            "at": 0.35
+          },
+          {
+            "type": "arrow",
+            "from": "lake:ijsselmeer",
+            "to": "country:NLD",
+            "at": 0.55
+          },
+          {
+            "type": "label",
+            "anchor": "lake:ijsselmeer",
+            "text": "SEA HELD OUT",
+            "at": 0.65
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "sea",
+        "projection": "albers"
+      }
+    },
+    {
+      "id": "payoff-5",
+      "beat": "payoff",
+      "eyebrow": "THE OTHER HALF",
+      "headline": "PUMPS",
+      "narration": "And pumps drain whatever gets in.",
+      "caption": "PUMPS DRAIN THE INSIDE",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                5.733,
+                51.959,
+                6.333,
+                52.581
+              ]
+            },
+            "at": 0,
+            "padding": 0.22,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                3.447,
+                50.748,
+                7.199,
+                53.461
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.22,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "lake:ijsselmeer",
+            "style": "fill",
+            "at": 0.2
+          },
+          {
+            "entity": "river:ijssel",
+            "style": "trace",
+            "at": 0.25
+          },
+          {
+            "entity": "river:lek",
+            "style": "trace",
+            "at": 0.4
+          }
+        ],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": "country:NLD",
+            "text": "PUMPS",
+            "at": 0.45
+          },
+          {
+            "type": "marker",
+            "anchor": "lake:ijsselmeer",
+            "text": "LOWLAND WATER",
+            "at": 0.3
+          },
+          {
+            "type": "route",
+            "path": [
+              "country:NLD",
+              "lake:ijsselmeer",
+              "river:ijssel",
+              "river:lek"
+            ],
+            "text": "PUMPED DRAINAGE",
+            "at": 0.45,
+            "until": 0.9,
+            "marker": true,
+            "follow": false
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "sea",
+        "projection": "albers"
+      }
+    },
+    {
+      "id": "verdict",
+      "beat": "verdict",
+      "eyebrow": "YOUR TURN",
+      "headline": "WOULD YOU LIVE HERE?",
+      "narration": "Would you live below the level of the sea?",
+      "caption": "WOULD YOU LIVE BELOW SEA LEVEL?",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "country:NLD",
+            "at": 0,
+            "padding": 0.22,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                3.447,
+                50.748,
+                7.199,
+                53.461
+              ]
+            },
+            "at": 0.78,
+            "padding": 0.25,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:NLD",
+            "style": "outline",
+            "at": 0.25
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:NLD",
+            "text": "BELOW SEA LEVEL",
+            "at": 0.35
+          },
+          {
+            "type": "label",
+            "anchor": "lake:ijsselmeer",
+            "text": "WOULD YOU LIVE HERE?",
+            "at": 0.6
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "sea",
+        "projection": "albers"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia: Netherlands (revision 1379866395)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Netherlands&oldid=1379866395"
+    },
+    {
+      "label": "Wikipedia: Polder (revision 1376711750)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Polder&oldid=1376711750"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ],
+  "paletteVariant": "atlas",
+  "framing": {
+    "opening": "bleed"
+  }
+}

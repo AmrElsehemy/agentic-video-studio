@@ -1,0 +1,598 @@
+{
+  "schemaVersion": 2,
+  "id": "longest-flight",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica",
+    "wordmark": {
+      "lead": "GEO",
+      "accent": "GRAPHICA"
+    },
+    "fonts": {
+      "display": "Oswald",
+      "body": "Inter"
+    },
+    "captions": {
+      "mode": "words"
+    }
+  },
+  "title": "The World's Longest Flight Never Takes the Shortest Path",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "mystery",
+    "numberRelevant": true,
+    "premise": "The longest scheduled non-stop flight, Singapore to New York, covers 15,349 km on the great circle but usually flies about 17,250.",
+    "audiencePromise": "Follow the longest flight on the globe.",
+    "openLoop": "Why does the plane fly farther than the shortest path?",
+    "payoff": "Jet streams make the longer Pacific route faster, so the plane flies about 17,250 km.",
+    "targetEmotion": "surprise",
+    "engagementQuestion": "Could you sit through 18 hours?",
+    "targetSecondsBetweenVisualChanges": 0.68
+  },
+  "subject": {
+    "name": "Singapore",
+    "category": "Border",
+    "attributes": {
+      "geoEntity": "country:SGP"
+    }
+  },
+  "related": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#050818",
+    "surface": "#18284f",
+    "primary": "#ff3d9a",
+    "secondary": "#6c5ce7",
+    "ink": "#ffffff"
+  },
+  "look": "neon",
+  "framing": {
+    "ending": "loop"
+  },
+  "audio": {
+    "music": "generated/longest-flight-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 96,
+      "notes": [
+        98,
+        116.54,
+        130.81,
+        146.83,
+        130.81,
+        116.54,
+        87.31,
+        98
+      ]
+    },
+    "voice": {
+      "provider": "elevenlabs",
+      "model": "eleven_v4",
+      "voice": "JBFqnCBsd6RMkjVDRZzb",
+      "instructions": "Warm, curious storyteller walking a friend across a map. Clear and confident, with a sense of discovery on each reveal; slow slightly on dates and place names so they land. Conversational and human, never a documentary announcer, lecture, or neutral TTS. Never imitate a known person or character.",
+      "speed": 1.06,
+      "output": "generated/longest-flight-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "durationSeconds": 4.4,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "mystery",
+      "subjectFocus": "hidden",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "THE LONGEST FLIGHT",
+      "headline": "NON-STOP, 18+ HOURS",
+      "narration": "This is the longest scheduled flight in the world.",
+      "caption": "SINGAPORE TO NEW YORK, NON-STOP",
+      "visual": "hook",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "world",
+            "at": 0,
+            "padding": 0.15,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -79.763,
+                1.264,
+                104.003,
+                45.005
+              ]
+            },
+            "at": 0.62,
+            "padding": 0.2,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:SGP",
+            "style": "fill",
+            "at": 0.3
+          }
+        ],
+        "annotations": [
+          {
+            "type": "route",
+            "path": [
+              "country:SGP",
+              "admin1:USA-3559"
+            ],
+            "text": "NON-STOP FLIGHT",
+            "at": 0.2,
+            "until": 0.9,
+            "marker": true,
+            "follow": false
+          },
+          {
+            "type": "label",
+            "anchor": "country:SGP",
+            "text": "SINGAPORE",
+            "at": 0.55
+          },
+          {
+            "type": "label",
+            "anchor": "admin1:USA-3559",
+            "text": "NEW YORK",
+            "at": 0.65
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "space",
+        "globe": true
+      }
+    },
+    {
+      "id": "clue",
+      "durationSeconds": 4.1,
+      "beat": "clue",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "THE ROUTE",
+      "headline": "SINGAPORE TO NEW YORK",
+      "narration": "It flies non-stop between Singapore and New York.",
+      "caption": "SINGAPORE CHANGI TO NEW YORK–JFK",
+      "visual": "gauntlet",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -79.763,
+                1.264,
+                104.003,
+                45.005
+              ]
+            },
+            "at": 0,
+            "padding": 0.25,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -79.763,
+                1.264,
+                104.003,
+                45.005
+              ]
+            },
+            "at": 0.72,
+            "padding": 0.2,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:SGP",
+            "style": "fill",
+            "at": 0.18
+          },
+          {
+            "entity": "admin1:USA-3559",
+            "style": "outline",
+            "at": 0.3
+          }
+        ],
+        "annotations": [
+          {
+            "type": "route",
+            "path": [
+              "country:SGP",
+              "admin1:USA-3559"
+            ],
+            "text": "NON-STOP",
+            "at": 0.2,
+            "until": 0.9,
+            "marker": true,
+            "follow": false
+          },
+          {
+            "type": "label",
+            "anchor": "country:SGP",
+            "text": "SINGAPORE",
+            "at": 0.22
+          },
+          {
+            "type": "label",
+            "anchor": "admin1:USA-3559",
+            "text": "NEW YORK",
+            "at": 0.3
+          }
+        ],
+        "dataset": "natural-earth",
+        "cut": true,
+        "ambience": "sea"
+      }
+    },
+    {
+      "id": "escalation",
+      "durationSeconds": 3.8,
+      "beat": "escalation",
+      "role": "escalation",
+      "shot": "tracking",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "THE DISTANCE",
+      "headline": "15,349 KM",
+      "narration": "The shortest path measures 15,349 kilometres.",
+      "caption": "15,349 KM ALONG THE GREAT CIRCLE",
+      "visual": "advantage",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "world",
+            "at": 0,
+            "padding": 0.15,
+            "ease": "in-out"
+          },
+          {
+            "target": "world",
+            "at": 0.7,
+            "padding": 0.15,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:SGP",
+            "style": "outline",
+            "at": 0.18
+          },
+          {
+            "entity": "admin1:USA-3559",
+            "style": "outline",
+            "at": 0.28
+          }
+        ],
+        "annotations": [
+          {
+            "type": "route",
+            "path": [
+              "country:SGP",
+              "admin1:USA-3559"
+            ],
+            "text": "GREAT CIRCLE",
+            "at": 0.18,
+            "until": 0.88,
+            "marker": true,
+            "follow": false
+          },
+          {
+            "type": "label",
+            "anchor": "country:SGP",
+            "text": "SINGAPORE",
+            "at": 0.2
+          },
+          {
+            "type": "label",
+            "anchor": "admin1:USA-3559",
+            "text": "NEW YORK",
+            "at": 0.3
+          },
+          {
+            "type": "ring",
+            "center": "country:SGP",
+            "radiusKm": 15349,
+            "text": "15,349 KM",
+            "at": 0.42
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "sea"
+      },
+      "transition": "wipe"
+    },
+    {
+      "id": "reveal",
+      "durationSeconds": 4.9,
+      "beat": "reveal",
+      "role": "payoff",
+      "shot": "comparison",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "THE PACIFIC",
+      "headline": "17,250 KM FLOWN",
+      "narration": "The plane usually flies 17,250 kilometres, over the Pacific.",
+      "caption": "ABOUT 17,250 KM OVER THE PACIFIC",
+      "visual": "race",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -79.763,
+                1.264,
+                104.003,
+                45.005
+              ]
+            },
+            "at": 0,
+            "padding": 0.25,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -79.763,
+                1.264,
+                104.003,
+                45.005
+              ]
+            },
+            "at": 0.72,
+            "padding": 0.2,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "admin1:USA-3559",
+            "style": "fill",
+            "at": 0.2
+          },
+          {
+            "entity": "country:SGP",
+            "style": "outline",
+            "at": 0.28
+          }
+        ],
+        "annotations": [
+          {
+            "type": "route",
+            "path": [
+              "country:SGP",
+              "admin1:USA-3559"
+            ],
+            "text": "PACIFIC FLIGHT",
+            "at": 0.18,
+            "until": 0.9,
+            "marker": true,
+            "follow": false
+          },
+          {
+            "type": "label",
+            "anchor": "country:SGP",
+            "text": "SINGAPORE",
+            "at": 0.22
+          },
+          {
+            "type": "label",
+            "anchor": "admin1:USA-3559",
+            "text": "NEW YORK",
+            "at": 0.32
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "sea",
+        "figure": {
+          "value": 17250,
+          "unit": "KM",
+          "text": "PACIFIC FLIGHT",
+          "decimals": 0,
+          "at": 0.42
+        }
+      }
+    },
+    {
+      "id": "reveal-4",
+      "durationSeconds": 4.6,
+      "beat": "reveal",
+      "role": "payoff",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "THE WAY HOME",
+      "headline": "A POLAR ROUTE",
+      "narration": "Coming home, it can take a polar route instead.",
+      "caption": "BACK TO SINGAPORE: A POLAR ROUTE",
+      "visual": "tradeoff",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "world",
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "admin1:USA-3559",
+            "style": "outline",
+            "at": 0.2
+          },
+          {
+            "entity": "country:SGP",
+            "style": "fill",
+            "at": 0.3
+          }
+        ],
+        "annotations": [
+          {
+            "type": "route",
+            "path": [
+              "admin1:USA-3559",
+              "country:SGP"
+            ],
+            "text": "POLAR ROUTE",
+            "at": 0.18,
+            "until": 0.9,
+            "marker": true,
+            "follow": false
+          },
+          {
+            "type": "label",
+            "anchor": "admin1:USA-3559",
+            "text": "NEW YORK",
+            "at": 0.22
+          },
+          {
+            "type": "label",
+            "anchor": "country:SGP",
+            "text": "SINGAPORE",
+            "at": 0.32
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "ice"
+      }
+    },
+    {
+      "id": "verdict",
+      "durationSeconds": 3.8,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "YOUR TURN",
+      "headline": "18 HOURS?",
+      "narration": "Could you sit through 18 hours?",
+      "caption": "COULD YOU SIT THROUGH 18 HOURS?",
+      "visual": "cta",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -79.763,
+                1.264,
+                104.003,
+                45.005
+              ]
+            },
+            "at": 0,
+            "padding": 0.25,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -79.763,
+                1.264,
+                104.003,
+                45.005
+              ]
+            },
+            "at": 0.72,
+            "padding": 0.2,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:SGP",
+            "style": "fill",
+            "at": 0.2
+          },
+          {
+            "entity": "admin1:USA-3559",
+            "style": "outline",
+            "at": 0.3
+          }
+        ],
+        "annotations": [
+          {
+            "type": "route",
+            "path": [
+              "country:SGP",
+              "admin1:USA-3559"
+            ],
+            "text": "18-HOUR JOURNEY",
+            "at": 0.2,
+            "until": 0.86,
+            "marker": true,
+            "follow": false
+          },
+          {
+            "type": "label",
+            "anchor": "country:SGP",
+            "text": "SINGAPORE",
+            "at": 0.24
+          },
+          {
+            "type": "label",
+            "anchor": "admin1:USA-3559",
+            "text": "NEW YORK",
+            "at": 0.34
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "sea",
+        "figure": {
+          "value": 18,
+          "unit": "H",
+          "text": "SCHEDULED FLIGHT",
+          "decimals": 0,
+          "at": 0.42
+        }
+      }
+    }
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia: Singapore Airlines Flights 23 and 24 (revision 1373972917)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Singapore_Airlines_Flights_23_and_24&oldid=1373972917"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ]
+}

@@ -1,0 +1,497 @@
+{
+  "id": "lake-superior-austria",
+  "title": "A Lake Almost the Size of a Country",
+  "storyPattern": "comparison",
+  "numberRelevant": true,
+  "premise": "Lake Superior covers about 82,000 km², just under Austria's 83,871 km².",
+  "audiencePromise": "Watch a lake slide onto a country.",
+  "openLoop": "Which country is the same size?",
+  "payoff": "Lake Superior is approximately the size of Austria, and the largest freshwater lake in the world by surface area.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "Would you call that a lake, or a sea?",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica"
+  },
+  "subject": {
+    "name": "Lake Superior",
+    "category": "Border",
+    "attributes": {
+      "geoEntity": "lake:lake-superior"
+    }
+  },
+  "voice": {
+    "provider": "elevenlabs",
+    "voice": "JBFqnCBsd6RMkjVDRZzb"
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "eyebrow": "A LAKE OR A COUNTRY?",
+      "headline": "AS BIG AS A COUNTRY",
+      "narration": "This lake is almost the size of a country.",
+      "caption": "LAKE SUPERIOR: 82,000 KM²",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -92.114,
+                46.379,
+                17.148,
+                49.028
+              ]
+            },
+            "at": 0,
+            "padding": 0.24,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -92.114,
+                46.379,
+                17.148,
+                49.028
+              ]
+            },
+            "at": 0.84,
+            "padding": 0.18,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:AUT",
+            "style": "outline",
+            "at": 0.24
+          },
+          {
+            "entity": "lake:lake-superior",
+            "style": "fill",
+            "at": 0.35
+          }
+        ],
+        "annotations": [
+          {
+            "type": "truesize",
+            "entity": "lake:lake-superior",
+            "onto": "country:AUT",
+            "at": 0.14,
+            "until": 0.88
+          },
+          {
+            "type": "label",
+            "anchor": "lake:lake-superior",
+            "text": "LAKE SUPERIOR",
+            "at": 0.3,
+            "until": 0.9
+          },
+          {
+            "type": "label",
+            "anchor": "country:AUT",
+            "text": "AUSTRIA",
+            "at": 0.42,
+            "until": 0.9
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "sea",
+        "projection": "albers"
+      }
+    },
+    {
+      "id": "evidence",
+      "beat": "evidence",
+      "eyebrow": "THE LAKE",
+      "headline": "82,000 KM²",
+      "narration": "Lake Superior covers about 82,000 square kilometres.",
+      "caption": "LAKE SUPERIOR, NORTH AMERICA",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "lake:lake-superior",
+            "at": 0,
+            "padding": 0.16,
+            "ease": "in-out"
+          },
+          {
+            "target": "lake:lake-superior",
+            "at": 0.76,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "lake:lake-superior",
+            "style": "fill",
+            "at": 0.18
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "lake:lake-superior",
+            "text": "LAKE SUPERIOR",
+            "at": 0.26,
+            "until": 0.9
+          },
+          {
+            "type": "label",
+            "anchor": "lake:lake-superior",
+            "text": "82,000 KM²",
+            "at": 0.46,
+            "until": 0.9
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "sea",
+        "figure": {
+          "value": 82000,
+          "unit": "KM²",
+          "text": "LAKE SUPERIOR",
+          "decimals": 0,
+          "at": 0.4
+        },
+        "projection": "albers"
+      }
+    },
+    {
+      "id": "evidence-2",
+      "beat": "evidence",
+      "eyebrow": "THE COUNTRY",
+      "headline": "AUSTRIA: 83,871 KM²",
+      "narration": "Austria covers 83,871, just a little more.",
+      "caption": "AUSTRIA: 83,871 KM²",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -92.114,
+                46.379,
+                17.148,
+                49.028
+              ]
+            },
+            "at": 0,
+            "padding": 0.22,
+            "ease": "in-out"
+          },
+          {
+            "target": "country:AUT",
+            "at": 0.78,
+            "padding": 0.14,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:AUT",
+            "style": "fill",
+            "at": 0.2
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:AUT",
+            "text": "AUSTRIA",
+            "at": 0.32,
+            "until": 0.9
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "flags": true,
+        "data": {
+          "label": "Area",
+          "unit": "KM²",
+          "values": [
+            {
+              "entity": "country:AUT",
+              "value": 83800
+            },
+            {
+              "entity": "country:CAN",
+              "value": 9890000
+            }
+          ],
+          "at": 0.35,
+          "legend": true,
+          "view": "bars"
+        },
+        "projection": "albers"
+      }
+    },
+    {
+      "id": "evidence-3",
+      "beat": "evidence",
+      "eyebrow": "ONE LAKE, TWO COUNTRIES",
+      "headline": "ON A BORDER",
+      "narration": "And the lake sits on the Canada–U.S. border.",
+      "caption": "CANADA AND THE UNITED STATES",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "lake:lake-superior",
+            "at": 0,
+            "padding": 0.16,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -141.006,
+                41.669,
+                -55.617,
+                72.002
+              ]
+            },
+            "at": 0.8,
+            "padding": 0.2,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "lake:lake-superior",
+            "style": "fill",
+            "at": 0.12
+          },
+          {
+            "entity": "admin1:CAN-682",
+            "style": "fill",
+            "at": 0.35
+          },
+          {
+            "entity": "admin1:USA-3514",
+            "style": "outline",
+            "at": 0.35
+          },
+          {
+            "entity": "admin1:USA-3562",
+            "style": "outline",
+            "at": 0.35
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:CAN",
+            "text": "CANADA",
+            "at": 0.42,
+            "until": 0.9
+          },
+          {
+            "type": "label",
+            "anchor": "lake:lake-superior",
+            "text": "CANADA–U.S. BORDER",
+            "at": 0.55,
+            "until": 0.9
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "flags": true,
+        "projection": "albers"
+      }
+    },
+    {
+      "id": "escalation",
+      "beat": "escalation",
+      "eyebrow": "SIDE BY SIDE",
+      "headline": "NEARLY THE SAME",
+      "narration": "Slide one onto the other, and they nearly match.",
+      "caption": "THE LAKE, AT THE SIZE OF AUSTRIA",
+      "transition": "zoom",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -92.114,
+                46.379,
+                17.148,
+                49.028
+              ]
+            },
+            "at": 0,
+            "padding": 0.22,
+            "ease": "in-out"
+          },
+          {
+            "target": "country:AUT",
+            "at": 0.82,
+            "padding": 0.16,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "truesize",
+            "entity": "lake:lake-superior",
+            "onto": "country:AUT",
+            "at": 0.16,
+            "until": 0.88
+          },
+          {
+            "type": "label",
+            "anchor": "country:AUT",
+            "text": "AUSTRIA",
+            "at": 0.3,
+            "until": 0.9
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "projection": "albers"
+      }
+    },
+    {
+      "id": "twist",
+      "beat": "twist",
+      "eyebrow": "THE RECORD",
+      "headline": "LARGEST FRESHWATER",
+      "narration": "It is the largest freshwater lake in the world.",
+      "caption": "THE WORLD'S LARGEST BY SURFACE AREA",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "lake:lake-superior",
+            "at": 0,
+            "padding": 0.3,
+            "ease": "in-out"
+          },
+          {
+            "target": "world",
+            "at": 0.82,
+            "padding": 0.16,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "lake:lake-superior",
+            "style": "fill",
+            "at": 0.2
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "lake:lake-superior",
+            "text": "LARGEST FRESHWATER LAKE",
+            "at": 0.42,
+            "until": 0.9
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "sea",
+        "data": {
+          "label": "Area",
+          "unit": "KM²",
+          "values": [
+            {
+              "entity": "country:AUT",
+              "value": 83800
+            },
+            {
+              "entity": "country:CAN",
+              "value": 9890000
+            }
+          ],
+          "at": 0.35,
+          "legend": true,
+          "view": "bubbles"
+        },
+        "projection": "albers"
+      }
+    },
+    {
+      "id": "verdict",
+      "beat": "verdict",
+      "eyebrow": "YOUR TURN",
+      "headline": "LAKE OR SEA?",
+      "narration": "Would you call that a lake, or a sea?",
+      "caption": "A LAKE, OR A SEA?",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "world",
+            "at": 0,
+            "padding": 0.2,
+            "ease": "in-out"
+          },
+          {
+            "target": "lake:lake-superior",
+            "at": 0.78,
+            "padding": 0.14,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "lake:lake-superior",
+            "style": "outline",
+            "at": 0.18
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "lake:lake-superior",
+            "text": "LAKE OR SEA?",
+            "at": 0.42,
+            "until": 0.95
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "space",
+        "globe": true,
+        "cut": true
+      }
+    }
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia: Lake Superior (revision 1376960626)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Lake_Superior&oldid=1376960626"
+    },
+    {
+      "label": "Wikipedia: Austria (revision 1379510205)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Austria&oldid=1379510205"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ],
+  "paletteVariant": "atlas"
+}

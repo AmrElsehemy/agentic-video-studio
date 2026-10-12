@@ -1,0 +1,584 @@
+{
+  "schemaVersion": 2,
+  "id": "gibraltar-runway",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica",
+    "wordmark": {
+      "lead": "GEO",
+      "accent": "GRAPHICA"
+    },
+    "fonts": {
+      "display": "Oswald",
+      "body": "Inter"
+    },
+    "captions": {
+      "mode": "words"
+    }
+  },
+  "title": "The Road That Used to Close for Planes",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "profile",
+    "numberRelevant": true,
+    "premise": "In Gibraltar the main road to Spain crosses the airport runway, and used to close whenever a plane came.",
+    "audiencePromise": "See a city where a road meets a runway.",
+    "openLoop": "What happens when a plane lands on a road?",
+    "payoff": "Since March 2023 a tunnel keeps traffic moving while aircraft land and take off.",
+    "targetEmotion": "surprise",
+    "engagementQuestion": "Would you wait for a plane to cross your road?",
+    "targetSecondsBetweenVisualChanges": 0.72
+  },
+  "subject": {
+    "name": "Gibraltar",
+    "category": "Border",
+    "attributes": {
+      "geoEntity": "country:GIB"
+    }
+  },
+  "related": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#0b1a2a",
+    "surface": "#23473d",
+    "primary": "#e4b363",
+    "secondary": "#8c2f39",
+    "ink": "#f6f1e7"
+  },
+  "audio": {
+    "music": "generated/gibraltar-runway-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 96,
+      "notes": [
+        98,
+        116.54,
+        130.81,
+        146.83,
+        130.81,
+        116.54,
+        87.31,
+        98
+      ]
+    },
+    "voice": {
+      "provider": "elevenlabs",
+      "model": "eleven_v4",
+      "voice": "JBFqnCBsd6RMkjVDRZzb",
+      "instructions": "Warm, curious storyteller walking a friend across a map. Clear and confident, with a sense of discovery on each reveal; slow slightly on dates and place names so they land. Conversational and human, never a documentary announcer, lecture, or neutral TTS. Never imitate a known person or character.",
+      "speed": 1.06,
+      "output": "generated/gibraltar-runway-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      },
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.openstreetmap.org/copyright",
+        "owner": "OpenStreetMap contributors",
+        "licenseStatus": "licensed",
+        "publicReleaseApproved": true,
+        "notes": "© OpenStreetMap contributors (ODbL)."
+      },
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://github.com/lipis/flag-icons/blob/main/LICENSE",
+        "owner": "flag-icons",
+        "licenseStatus": "licensed",
+        "publicReleaseApproved": true,
+        "notes": "Flags: flag-icons (MIT)."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "durationSeconds": 4.1,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "mystery",
+      "subjectFocus": "hidden",
+      "beatEverySeconds": 0.72,
+      "eyebrow": "GIBRALTAR",
+      "headline": "ROAD MEETS RUNWAY",
+      "narration": "In Gibraltar, a main road crosses a runway.",
+      "caption": "A MAIN ROAD CROSSES THE RUNWAY",
+      "visual": "hook",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -5.38165,
+                36.10795,
+                -5.32555,
+                36.17365
+              ]
+            },
+            "at": 0,
+            "padding": 0,
+            "ease": "linear"
+          },
+          {
+            "target": {
+              "bbox": [
+                -5.37211,
+                36.11912,
+                -5.33509,
+                36.16248
+              ]
+            },
+            "at": 1,
+            "padding": 0,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:GIB",
+            "style": "fill",
+            "at": 0.2
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:GIB",
+            "text": "GIBRALTAR",
+            "at": 0.15
+          },
+          {
+            "type": "marker",
+            "anchor": "country:GIB",
+            "text": "ROAD CROSSES RUNWAY",
+            "at": 0.45
+          }
+        ],
+        "dataset": "natural-earth",
+        "projection": "albers",
+        "ambience": "sea",
+        "streets": {
+          "city": "gibraltar",
+          "at": 0.05
+        }
+      }
+    },
+    {
+      "id": "evidence",
+      "durationSeconds": 4.9,
+      "beat": "evidence",
+      "role": "evidence",
+      "shot": "tracking",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.72,
+      "eyebrow": "THE ROAD",
+      "headline": "TOWARD SPAIN",
+      "narration": "It is the main road to the border with Spain.",
+      "caption": "WINSTON CHURCHILL AVENUE",
+      "visual": "gauntlet",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -9.292,
+                36.006,
+                3.318,
+                43.793
+              ]
+            },
+            "at": 0,
+            "padding": 0.25,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -9.292,
+                36.006,
+                3.318,
+                43.793
+              ]
+            },
+            "at": 1,
+            "padding": 0.22,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:GIB",
+            "style": "outline",
+            "at": 0.15
+          },
+          {
+            "entity": "country:ESP",
+            "style": "fill",
+            "at": 0.35
+          }
+        ],
+        "annotations": [
+          {
+            "type": "route",
+            "path": [
+              "country:GIB",
+              "country:ESP"
+            ],
+            "text": "ROAD TO SPAIN",
+            "at": 0.2,
+            "until": 0.85,
+            "marker": true,
+            "follow": false
+          },
+          {
+            "type": "label",
+            "anchor": "country:GIB",
+            "text": "WINSTON CHURCHILL AVENUE",
+            "at": 0.25,
+            "until": 0.75
+          },
+          {
+            "type": "label",
+            "anchor": "country:ESP",
+            "text": "SPAIN",
+            "at": 0.65
+          }
+        ],
+        "dataset": "natural-earth",
+        "projection": "albers",
+        "ambience": "sea",
+        "flags": true
+      }
+    },
+    {
+      "id": "evidence-2",
+      "durationSeconds": 4,
+      "beat": "evidence",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.72,
+      "eyebrow": "THE RUNWAY",
+      "headline": "INTO THE SEA",
+      "narration": "And the runway runs out into the sea.",
+      "caption": "A RUNWAY THAT EXTENDS INTO THE SEA",
+      "visual": "advantage",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -9.292,
+                36.006,
+                3.318,
+                43.793
+              ]
+            },
+            "at": 0,
+            "padding": 0.25,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -9.292,
+                36.006,
+                3.318,
+                43.793
+              ]
+            },
+            "at": 1,
+            "padding": 0.3,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:GIB",
+            "style": "outline",
+            "at": 0.2
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:GIB",
+            "text": "RUNWAY",
+            "at": 0.3
+          },
+          {
+            "type": "arrow",
+            "from": "country:GIB",
+            "to": "country:ESP",
+            "at": 0.6
+          }
+        ],
+        "dataset": "natural-earth",
+        "projection": "albers",
+        "ambience": "sea"
+      }
+    },
+    {
+      "id": "escalation",
+      "durationSeconds": 5.9,
+      "beat": "escalation",
+      "role": "escalation",
+      "shot": "comparison",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.72,
+      "eyebrow": "THE RULE",
+      "headline": "STOP FOR PLANES",
+      "narration": "When a plane landed or took off, the road had to close.",
+      "caption": "CLOSED FOR AIRCRAFT MOVEMENTS",
+      "visual": "race",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -5.648,
+                35.901,
+                -5.048,
+                36.351
+              ]
+            },
+            "at": 0,
+            "padding": 0.15,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -5.648,
+                35.901,
+                -5.048,
+                36.351
+              ]
+            },
+            "at": 1,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:GIB",
+            "style": "fill",
+            "at": 0.25
+          }
+        ],
+        "annotations": [
+          {
+            "type": "timeline",
+            "steps": [
+              {
+                "label": "PLANE MOVES",
+                "detail": "AIRCRAFT"
+              },
+              {
+                "label": "ROAD CLOSES",
+                "detail": "TRAFFIC STOPS"
+              }
+            ],
+            "active": 0,
+            "at": 0.3
+          },
+          {
+            "type": "marker",
+            "anchor": "country:GIB",
+            "text": "ROAD CLOSED",
+            "at": 0.62
+          }
+        ],
+        "dataset": "natural-earth",
+        "projection": "albers",
+        "ambience": "sea"
+      },
+      "transition": "flash"
+    },
+    {
+      "id": "twist",
+      "durationSeconds": 4.3,
+      "beat": "twist",
+      "role": "twist",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.72,
+      "eyebrow": "THE FIX",
+      "headline": "A TUNNEL, 2023",
+      "narration": "Since March 2023, a tunnel keeps traffic moving.",
+      "caption": "SINCE MARCH 2023: A TUNNEL",
+      "visual": "tradeoff",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -5.648,
+                35.901,
+                -5.048,
+                36.351
+              ]
+            },
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -9.292,
+                36.006,
+                3.318,
+                43.793
+              ]
+            },
+            "at": 1,
+            "padding": 0.22,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:GIB",
+            "style": "outline",
+            "at": 0.2
+          }
+        ],
+        "annotations": [
+          {
+            "type": "timeline",
+            "steps": [
+              {
+                "label": "PLANE MOVES",
+                "detail": "AIRCRAFT"
+              },
+              {
+                "label": "MARCH 2023",
+                "detail": "TUNNEL OPENS"
+              }
+            ],
+            "active": 1,
+            "at": 0.3
+          },
+          {
+            "type": "label",
+            "anchor": "country:GIB",
+            "text": "TRAFFIC KEEPS MOVING",
+            "at": 0.58
+          }
+        ],
+        "dataset": "natural-earth",
+        "projection": "albers",
+        "ambience": "sea"
+      }
+    },
+    {
+      "id": "verdict",
+      "durationSeconds": 4.9,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.72,
+      "eyebrow": "YOUR TURN",
+      "headline": "WOULD YOU WAIT?",
+      "narration": "Would you wait for a plane to cross your road?",
+      "caption": "WOULD YOU WAIT FOR A PLANE?",
+      "visual": "cta",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -9.292,
+                36.006,
+                3.318,
+                43.793
+              ]
+            },
+            "at": 0,
+            "padding": 0.24,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -9.292,
+                36.006,
+                3.318,
+                43.793
+              ]
+            },
+            "at": 1,
+            "padding": 0.24,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:GIB",
+            "style": "fill",
+            "at": 0.25
+          },
+          {
+            "entity": "country:ESP",
+            "style": "outline",
+            "at": 0.35
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:GIB",
+            "text": "WOULD YOU WAIT?",
+            "at": 0.45
+          },
+          {
+            "type": "label",
+            "anchor": "country:ESP",
+            "text": "SPAIN",
+            "at": 0.55
+          }
+        ],
+        "dataset": "natural-earth",
+        "projection": "albers",
+        "ambience": "sea",
+        "flags": true
+      }
+    }
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia: Gibraltar International Airport (revision 1374894764)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Gibraltar_International_Airport&oldid=1374894764"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ]
+}

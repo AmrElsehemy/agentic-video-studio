@@ -1,0 +1,399 @@
+{
+  "id": "india-was-an-island",
+  "title": "India Was Once an Island",
+  "storyPattern": "transformation",
+  "numberRelevant": true,
+  "premise": "The Indian plate broke away from Gondwana about 100 million years ago and drifted north, carrying Insular India with it.",
+  "audiencePromise": "Watch a subcontinent cross an ocean.",
+  "openLoop": "What happened when the island arrived?",
+  "payoff": "India collided with Asia, raising the Himalaya and the Tibetan Plateau.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "Do you think India is still moving?",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica"
+  },
+  "subject": {
+    "name": "India",
+    "category": "Border",
+    "attributes": {
+      "geoEntity": "country:IND"
+    }
+  },
+  "voice": {
+    "provider": "elevenlabs",
+    "voice": "JBFqnCBsd6RMkjVDRZzb"
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "eyebrow": "INDIA",
+      "headline": "ONCE AN ISLAND",
+      "narration": "India was once an island, drifting across the ocean.",
+      "caption": "INSULAR INDIA",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "world",
+            "at": 0,
+            "padding": 0.15,
+            "ease": "in-out"
+          },
+          {
+            "target": "country:IND",
+            "at": 0.65,
+            "padding": 0.3,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:IND",
+            "style": "fill",
+            "at": 0.35
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:IND",
+            "text": "INSULAR INDIA",
+            "at": 0.68
+          },
+          {
+            "type": "route",
+            "path": [
+              "country:IND",
+              "lake:nam-co"
+            ],
+            "text": "NORTHWARD DRIFT",
+            "at": 0.38,
+            "until": 0.9,
+            "marker": true,
+            "follow": false
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "space",
+        "globe": true
+      }
+    },
+    {
+      "id": "before",
+      "beat": "before",
+      "eyebrow": "100 MILLION YEARS AGO",
+      "headline": "BREAKING AWAY",
+      "narration": "About 100 million years ago, it broke away from Gondwana.",
+      "caption": "IT BROKE AWAY FROM GONDWANA",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "country:IND",
+            "at": 0,
+            "padding": 0.3,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                68.143,
+                8.076,
+                97.362,
+                35.495
+              ]
+            },
+            "at": 0.6,
+            "padding": 0.3,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:IND",
+            "style": "fill",
+            "at": 0.3
+          }
+        ],
+        "annotations": [
+          {
+            "type": "timeline",
+            "steps": [
+              {
+                "label": "100 MYA",
+                "detail": "BREAKAWAY"
+              },
+              {
+                "label": "55 MYA",
+                "detail": "COLLISION"
+              },
+              {
+                "label": "TODAY",
+                "detail": "INDIA"
+              }
+            ],
+            "active": 0,
+            "at": 0.25
+          },
+          {
+            "type": "arrow",
+            "from": "country:IND",
+            "to": "lake:nam-co",
+            "at": 0.65
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "sea",
+        "cut": true
+      }
+    },
+    {
+      "id": "change",
+      "beat": "change",
+      "eyebrow": "THE DRIFT",
+      "headline": "20 CM A YEAR",
+      "narration": "It drifted north at about 20 centimetres a year.",
+      "caption": "NORTH AT ABOUT 20 CM A YEAR",
+      "transition": "zoom",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                10,
+                -45,
+                115,
+                45
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:IND",
+            "style": "fill",
+            "at": 0.1
+          }
+        ],
+        "annotations": [
+          {
+            "type": "reconstruction",
+            "entities": [
+              "country:IND"
+            ],
+            "fixed": "country:ZAF",
+            "from": 100,
+            "to": 0,
+            "at": 0.08,
+            "until": 0.92
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "sea"
+      }
+    },
+    {
+      "id": "reveal",
+      "beat": "reveal",
+      "eyebrow": "55 MILLION YEARS AGO",
+      "headline": "THE COLLISION",
+      "narration": "As early as 55 million years ago, it began colliding with Asia.",
+      "caption": "COLLIDING WITH ASIA",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                55,
+                5,
+                105,
+                45
+              ]
+            },
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:IND",
+            "style": "outline",
+            "at": 0.3
+          }
+        ],
+        "annotations": [
+          {
+            "type": "timeline",
+            "steps": [
+              {
+                "label": "100 MYA",
+                "detail": "BREAKAWAY"
+              },
+              {
+                "label": "55 MYA",
+                "detail": "COLLISION"
+              },
+              {
+                "label": "TODAY",
+                "detail": "INDIA"
+              }
+            ],
+            "active": 1,
+            "at": 0.25
+          },
+          {
+            "type": "arrow",
+            "from": "country:IND",
+            "to": "lake:nam-co",
+            "at": 0.5
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "sea"
+      }
+    },
+    {
+      "id": "aftermath",
+      "beat": "aftermath",
+      "eyebrow": "THE RESULT",
+      "headline": "THE HIMALAYA",
+      "narration": "That collision created the Himalaya and the Tibetan Plateau.",
+      "caption": "THE HIMALAYA AND THE TIBETAN PLATEAU",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                60,
+                5,
+                105,
+                42
+              ]
+            },
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "lake:nam-co",
+            "style": "fill",
+            "at": 0.3
+          },
+          {
+            "entity": "river:brahmaputra",
+            "style": "trace",
+            "at": 0.35
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "lake:nam-co",
+            "text": "TIBETAN PLATEAU",
+            "at": 0.5
+          },
+          {
+            "type": "label",
+            "anchor": "river:brahmaputra",
+            "text": "HIMALAYA",
+            "at": 0.58
+          },
+          {
+            "type": "arrow",
+            "from": "country:IND",
+            "to": "lake:nam-co",
+            "at": 0.42
+          },
+          {
+            "type": "arrow",
+            "from": "lake:nam-co",
+            "to": "country:IND",
+            "at": 0.52
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "wind",
+        "relief": true
+      }
+    },
+    {
+      "id": "verdict",
+      "beat": "verdict",
+      "eyebrow": "YOUR TURN",
+      "headline": "STILL MOVING?",
+      "narration": "Do you think India is still moving?",
+      "caption": "IS INDIA STILL MOVING?",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "country:IND",
+            "at": 0,
+            "padding": 0.3,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:IND",
+            "style": "outline",
+            "at": 0.3
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:IND",
+            "text": "IS INDIA STILL MOVING?",
+            "at": 0.45
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "wind",
+        "flags": true
+      }
+    }
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia: Indian plate (revision 1374890159)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Indian_plate&oldid=1374890159"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ],
+  "paletteVariant": "terrain",
+  "framing": {
+    "opening": "bleed",
+    "ending": "loop"
+  }
+}

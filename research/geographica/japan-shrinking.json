@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "id": "japan-shrinking",
+  "subject": "Japan",
+  "kind": "curated",
+  "note": "Hand-curated from the pinned World Bank series (public/geo/series.json): population (SP.POP.TOTL) and fertility (SP.DYN.TFRT.IN) for Japan. 'Record high' means highest in the World Bank's table, which starts in 1960.",
+  "regions": [
+    "Japan"
+  ],
+  "claims": [
+    {
+      "id": "peak",
+      "text": "In the World Bank's population table, which starts in 1960, Japan's population was highest in 2010, at 128.07 million (about 128 million).",
+      "tier": "official",
+      "sources": [
+        "world-bank-population"
+      ]
+    },
+    {
+      "id": "falling",
+      "text": "Japan's population in the World Bank's table has fallen in every year since 2010.",
+      "tier": "official",
+      "sources": [
+        "world-bank-population"
+      ]
+    },
+    {
+      "id": "y2024",
+      "text": "In 2024 the World Bank's figure for Japan was 123.98 million, about 4 million (4.09 million) fewer than in 2010.",
+      "tier": "official",
+      "sources": [
+        "world-bank-population"
+      ]
+    },
+    {
+      "id": "fertility",
+      "text": "The World Bank's fertility figure for Japan in 2023 was 1.2 children per woman.",
+      "tier": "official",
+      "sources": [
+        "world-bank-fertility"
+      ]
+    }
+  ],
+  "places": {},
+  "sources": {
+    "world-bank-population": {
+      "label": "World Bank, World Development Indicators: Population, total (SP.POP.TOTL), CC BY 4.0",
+      "url": "https://data.worldbank.org/indicator/SP.POP.TOTL"
+    },
+    "world-bank-fertility": {
+      "label": "World Bank, World Development Indicators: Fertility rate, total (SP.DYN.TFRT.IN), CC BY 4.0",
+      "url": "https://data.worldbank.org/indicator/SP.DYN.TFRT.IN"
+    },
+    "natural-earth": {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  }
+}

@@ -1,0 +1,395 @@
+{
+  "id": "japan-shrinking",
+  "title": "Japan Has Shrunk Every Year Since 2010",
+  "storyPattern": "transformation",
+  "numberRelevant": true,
+  "premise": "By the World Bank's count, Japan's population peaked in 2010 and has fallen every year since.",
+  "audiencePromise": "See a whole country get smaller, year by year.",
+  "openLoop": "What does a shrinking country look like?",
+  "payoff": "Japan went from 128.07 million people in 2010 to 123.98 million in 2024, falling every year.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "What happens when a whole country keeps shrinking?",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica"
+  },
+  "subject": {
+    "name": "Japan",
+    "category": "Border",
+    "attributes": {
+      "geoEntity": "country:JPN"
+    }
+  },
+  "voice": {
+    "provider": "elevenlabs",
+    "voice": "JBFqnCBsd6RMkjVDRZzb"
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "eyebrow": "POPULATION",
+      "headline": "JAPAN IS SHRINKING",
+      "narration": "Japan has been getting smaller for years.",
+      "caption": "JAPAN'S POPULATION IS FALLING",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "world",
+            "at": 0,
+            "padding": 0.15,
+            "ease": "in-out"
+          },
+          {
+            "target": "country:JPN",
+            "at": 0.82,
+            "padding": 0.22,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:JPN",
+            "style": "fill",
+            "at": 0.22
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:JPN",
+            "text": "JAPAN",
+            "at": 0.48
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "sea",
+        "flags": true,
+        "projection": "albers"
+      }
+    },
+    {
+      "id": "before",
+      "beat": "before",
+      "eyebrow": "THE PEAK",
+      "headline": "128 MILLION, 2010",
+      "narration": "In 2010, Japan had 128 million people, its record high.",
+      "caption": "THE WORLD BANK'S HIGHEST FIGURE",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "country:JPN",
+            "at": 0,
+            "padding": 0.3,
+            "ease": "in-out"
+          },
+          {
+            "target": "country:JPN",
+            "at": 0.8,
+            "padding": 0.18,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:JPN",
+            "style": "outline",
+            "at": 0.18
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:JPN",
+            "text": "JAPAN",
+            "at": 0.22
+          },
+          {
+            "type": "timeline",
+            "steps": [
+              {
+                "label": "2010",
+                "detail": "PEAK"
+              },
+              {
+                "label": "2024",
+                "detail": "DOWN"
+              },
+              {
+                "label": "2023",
+                "detail": "FERTILITY"
+              }
+            ],
+            "active": 0,
+            "at": 0.3
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "sea",
+        "flags": true,
+        "projection": "albers"
+      }
+    },
+    {
+      "id": "change",
+      "beat": "change",
+      "eyebrow": "SINCE THEN",
+      "headline": "DOWN EVERY YEAR",
+      "narration": "Since then, the count has fallen every single year.",
+      "caption": "FEWER PEOPLE EVERY YEAR SINCE 2010",
+      "transition": "zoom",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                130.862,
+                33.433,
+                145.825,
+                45.52
+              ]
+            },
+            "at": 0,
+            "padding": 0.24,
+            "ease": "in-out"
+          },
+          {
+            "target": "country:JPN",
+            "at": 0.82,
+            "padding": 0.14,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:JPN",
+            "style": "fill",
+            "at": 0.2
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:JPN",
+            "text": "JAPAN",
+            "at": 0.28
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "sea",
+        "series": {
+          "indicator": "population",
+          "view": "line",
+          "places": [
+            "country:JPN"
+          ],
+          "from": 2006,
+          "to": 2024,
+          "at": 0.04,
+          "axis": "fit",
+          "mark": {
+            "year": 2010,
+            "text": "PEAK 2010"
+          }
+        },
+        "projection": "albers"
+      }
+    },
+    {
+      "id": "reveal",
+      "beat": "reveal",
+      "eyebrow": "2024",
+      "headline": "4 MILLION FEWER",
+      "narration": "By 2024, about 4 million fewer people lived there.",
+      "caption": "123.98 MILLION IN 2024",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "country:JPN",
+            "at": 0,
+            "padding": 0.18,
+            "ease": "in-out"
+          },
+          {
+            "target": "country:JPN",
+            "at": 0.78,
+            "padding": 0.27,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:JPN",
+            "style": "outline",
+            "at": 0.16
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:JPN",
+            "text": "JAPAN",
+            "at": 0.2
+          },
+          {
+            "type": "label",
+            "anchor": "country:JPN",
+            "text": "2024: 123.98M",
+            "at": 0.46
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "sea",
+        "figure": {
+          "value": 4.09,
+          "unit": "M",
+          "text": "FEWER THAN 2010",
+          "decimals": 2,
+          "at": 0.3
+        },
+        "projection": "albers"
+      }
+    },
+    {
+      "id": "aftermath",
+      "beat": "aftermath",
+      "eyebrow": "BIRTHS",
+      "headline": "1.2 CHILDREN",
+      "narration": "Women there now have about 1.2 children each, on average.",
+      "caption": "1.2 CHILDREN PER WOMAN, 2023",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "country:JPN",
+            "at": 0,
+            "padding": 0.26,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                130.862,
+                33.433,
+                145.825,
+                45.52
+              ]
+            },
+            "at": 0.8,
+            "padding": 0.2,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:JPN",
+            "style": "fill",
+            "at": 0.18
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:JPN",
+            "text": "JAPAN",
+            "at": 0.2
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "sea",
+        "flags": true,
+        "figure": {
+          "value": 1.2,
+          "unit": "CHILDREN",
+          "text": "PER WOMAN IN 2023",
+          "decimals": 1,
+          "at": 0.3
+        },
+        "projection": "albers"
+      }
+    },
+    {
+      "id": "verdict",
+      "beat": "verdict",
+      "eyebrow": "YOUR TURN",
+      "headline": "WHAT HAPPENS NEXT?",
+      "narration": "What happens when a whole country keeps shrinking?",
+      "caption": "WHAT HAPPENS WHEN A COUNTRY SHRINKS?",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "country:JPN",
+            "at": 0,
+            "padding": 0.2,
+            "ease": "in-out"
+          },
+          {
+            "target": "world",
+            "at": 0.84,
+            "padding": 0.15,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:JPN",
+            "style": "outline",
+            "at": 0.2
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:JPN",
+            "text": "JAPAN",
+            "at": 0.28
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "space",
+        "globe": true,
+        "cut": true
+      }
+    }
+  ],
+  "sources": [
+    {
+      "label": "World Bank, World Development Indicators: Population, total (SP.POP.TOTL)",
+      "url": "https://data.worldbank.org/indicator/SP.POP.TOTL"
+    },
+    {
+      "label": "World Bank, World Development Indicators: Fertility rate, total (SP.DYN.TFRT.IN)",
+      "url": "https://data.worldbank.org/indicator/SP.DYN.TFRT.IN"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ],
+  "paletteVariant": "neon",
+  "framing": {
+    "opening": "bleed",
+    "ending": "loop"
+  }
+}

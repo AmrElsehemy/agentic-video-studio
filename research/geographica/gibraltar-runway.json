@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "id": "gibraltar-runway",
+  "subject": "Gibraltar",
+  "kind": "curated",
+  "note": "Cited to a pinned Wikipedia revision (trusted_secondary): Gibraltar International Airport. The street plan is OpenStreetMap data.",
+  "regions": [
+    "Gibraltar"
+  ],
+  "claims": [
+    {
+      "id": "road",
+      "text": "Winston Churchill Avenue, the main road heading towards the land border with Spain, intersects the airport runway, and in the past had to be closed for aircraft movements.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-gibraltar-airport"
+      ]
+    },
+    {
+      "id": "tunnel",
+      "text": "Since March 2023 there is a tunnel which allows traffic to flow whilst aircraft are landing or taking off.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-gibraltar-airport"
+      ]
+    },
+    {
+      "id": "sea",
+      "text": "In January 2012 Gibraltar was selected as one of the world's scariest airport landings and take-offs by the Daily Telegraph, due to its runway which extends into the sea.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-gibraltar-airport"
+      ]
+    }
+  ],
+  "places": {},
+  "sources": {
+    "wikipedia-gibraltar-airport": {
+      "label": "Wikipedia: Gibraltar International Airport (revision 1374894764)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Gibraltar_International_Airport&oldid=1374894764"
+    },
+    "natural-earth": {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  }
+}

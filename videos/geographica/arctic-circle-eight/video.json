@@ -1,0 +1,707 @@
+{
+  "schemaVersion": 2,
+  "id": "arctic-circle-eight",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica",
+    "wordmark": {
+      "lead": "GEO",
+      "accent": "GRAPHICA"
+    },
+    "fonts": {
+      "display": "Oswald",
+      "body": "Inter"
+    },
+    "captions": {
+      "mode": "words"
+    }
+  },
+  "title": "Eight Countries Reach Inside the Arctic Circle",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "mystery",
+    "numberRelevant": true,
+    "premise": "The land inside the Arctic Circle is divided among eight countries.",
+    "audiencePromise": "Name all eight countries on one line.",
+    "openLoop": "Can you name all eight?",
+    "payoff": "Norway, Sweden, Finland, Russia, the United States, Canada, Denmark (Greenland) and Iceland (Grímsey).",
+    "targetEmotion": "surprise",
+    "engagementQuestion": "Which of the eight surprised you most?",
+    "targetSecondsBetweenVisualChanges": 0.68
+  },
+  "subject": {
+    "name": "Norway",
+    "category": "Border",
+    "attributes": {
+      "geoEntity": "country:NOR"
+    }
+  },
+  "related": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#cfdde6",
+    "surface": "#f3ede0",
+    "primary": "#b4561f",
+    "secondary": "#2c5d7f",
+    "ink": "#1b2730"
+  },
+  "framing": {
+    "ending": "loop",
+    "depth": "tilt"
+  },
+  "audio": {
+    "music": "generated/arctic-circle-eight-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 96,
+      "notes": [
+        98,
+        116.54,
+        130.81,
+        146.83,
+        130.81,
+        116.54,
+        87.31,
+        98
+      ]
+    },
+    "voice": {
+      "provider": "elevenlabs",
+      "model": "eleven_v4",
+      "voice": "JBFqnCBsd6RMkjVDRZzb",
+      "instructions": "Warm, curious storyteller walking a friend across a map. Clear and confident, with a sense of discovery on each reveal; slow slightly on dates and place names so they land. Conversational and human, never a documentary announcer, lecture, or neutral TTS. Never imitate a known person or character.",
+      "speed": 1.06,
+      "output": "generated/arctic-circle-eight-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      },
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://github.com/lipis/flag-icons/blob/main/LICENSE",
+        "owner": "flag-icons",
+        "licenseStatus": "licensed",
+        "publicReleaseApproved": true,
+        "notes": "Flags: flag-icons (MIT)."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "durationSeconds": 4,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "mystery",
+      "subjectFocus": "hidden",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "ONE LINE",
+      "headline": "EIGHT COUNTRIES",
+      "narration": "Eight countries have land inside the Arctic Circle.",
+      "caption": "EIGHT COUNTRIES, ONE CIRCLE",
+      "visual": "hook",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                4.927,
+                41.193,
+                180,
+                77.738
+              ]
+            },
+            "at": 0,
+            "padding": 0.18,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -178.195,
+                41.669,
+                -11.377,
+                83.634
+              ]
+            },
+            "at": 0.58,
+            "padding": 0.18,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:NOR",
+            "style": "fill",
+            "at": 0.2
+          },
+          {
+            "entity": "country:RUS",
+            "style": "fill",
+            "at": 0.2
+          },
+          {
+            "entity": "country:CAN",
+            "style": "fill",
+            "at": 0.62
+          },
+          {
+            "entity": "country:GRL",
+            "style": "fill",
+            "at": 0.62
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:RUS",
+            "text": "EIGHT COUNTRIES",
+            "at": 0.3
+          },
+          {
+            "type": "label",
+            "anchor": "country:CAN",
+            "text": "CANADA",
+            "at": 0.68
+          },
+          {
+            "type": "label",
+            "anchor": "country:GRL",
+            "text": "GREENLAND",
+            "at": 0.78
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "space",
+        "flags": true
+      }
+    },
+    {
+      "id": "clue",
+      "durationSeconds": 4.9,
+      "beat": "clue",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "THE CIRCLE",
+      "headline": "66°34′ NORTH",
+      "narration": "Its latitude is about 66 degrees 34 minutes north.",
+      "caption": "A LINE OF LATITUDE AT 66°34′ N",
+      "visual": "gauntlet",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                4.927,
+                41.193,
+                180,
+                77.738
+              ]
+            },
+            "at": 0,
+            "padding": 0.2,
+            "ease": "in-out"
+          },
+          {
+            "target": "world",
+            "at": 0.8,
+            "padding": 0.2,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:NOR",
+            "style": "outline",
+            "at": 0.3
+          },
+          {
+            "entity": "country:FIN",
+            "style": "outline",
+            "at": 0.3
+          },
+          {
+            "entity": "country:RUS",
+            "style": "outline",
+            "at": 0.3
+          },
+          {
+            "entity": "country:CAN",
+            "style": "outline",
+            "at": 0.3
+          }
+        ],
+        "annotations": [
+          {
+            "type": "line",
+            "kind": "parallel",
+            "degrees": 66.5667,
+            "text": "66°34′ N",
+            "at": 0.15,
+            "reverse": false
+          }
+        ],
+        "dataset": "natural-earth",
+        "cut": true,
+        "projection": "albers",
+        "ambience": "wind"
+      }
+    },
+    {
+      "id": "escalation",
+      "durationSeconds": 4.6,
+      "beat": "escalation",
+      "role": "escalation",
+      "shot": "tracking",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "MIDNIGHT SUN",
+      "headline": "SUN AT MIDNIGHT",
+      "narration": "Inside it, the sun can be seen at midnight.",
+      "caption": "MIDNIGHT SUN, INSIDE THE CIRCLE",
+      "visual": "advantage",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -178.195,
+                41.669,
+                -11.377,
+                83.634
+              ]
+            },
+            "at": 0,
+            "padding": 0.25,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -178.195,
+                41.669,
+                -11.377,
+                83.634
+              ]
+            },
+            "at": 0.78,
+            "padding": 0.2,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:GRL",
+            "style": "fill",
+            "at": 0.3
+          },
+          {
+            "entity": "country:ISL",
+            "style": "fill",
+            "at": 0.3
+          },
+          {
+            "entity": "admin1:USA-3563",
+            "style": "outline",
+            "at": 0.3
+          },
+          {
+            "entity": "country:CAN",
+            "style": "outline",
+            "at": 0.3
+          }
+        ],
+        "annotations": [
+          {
+            "type": "line",
+            "kind": "parallel",
+            "degrees": 66.5667,
+            "text": "66°34′ N",
+            "at": 0.1,
+            "reverse": false
+          },
+          {
+            "type": "label",
+            "anchor": "country:GRL",
+            "text": "MIDNIGHT SUN",
+            "at": 0.5
+          },
+          {
+            "type": "label",
+            "anchor": "country:ISL",
+            "text": "INSIDE THE CIRCLE",
+            "at": 0.64
+          }
+        ],
+        "dataset": "natural-earth",
+        "projection": "albers",
+        "ambience": "ice"
+      }
+    },
+    {
+      "id": "reveal",
+      "durationSeconds": 4.2,
+      "beat": "reveal",
+      "role": "payoff",
+      "shot": "comparison",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "THE NORTH",
+      "headline": "FOUR NORDIC AND RUSSIA",
+      "narration": "Norway, Sweden, Finland and Russia reach across it.",
+      "caption": "NORWAY · SWEDEN · FINLAND · RUSSIA",
+      "visual": "race",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                4.927,
+                41.193,
+                180,
+                77.738
+              ]
+            },
+            "at": 0,
+            "padding": 0.2,
+            "ease": "in-out"
+          },
+          {
+            "target": "country:RUS",
+            "at": 0.8,
+            "padding": 0.3,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:NOR",
+            "style": "fill",
+            "at": 0.25
+          },
+          {
+            "entity": "country:SWE",
+            "style": "fill",
+            "at": 0.25
+          },
+          {
+            "entity": "country:FIN",
+            "style": "fill",
+            "at": 0.25
+          },
+          {
+            "entity": "country:RUS",
+            "style": "fill",
+            "at": 0.25
+          }
+        ],
+        "annotations": [
+          {
+            "type": "line",
+            "kind": "parallel",
+            "degrees": 66.5667,
+            "text": "66°34′ N",
+            "at": 0.12,
+            "reverse": false
+          },
+          {
+            "type": "label",
+            "anchor": "country:NOR",
+            "text": "NORWAY",
+            "at": 0.38
+          },
+          {
+            "type": "label",
+            "anchor": "country:RUS",
+            "text": "RUSSIA",
+            "at": 0.55
+          }
+        ],
+        "dataset": "natural-earth",
+        "projection": "albers",
+        "ambience": "wind",
+        "flags": true
+      },
+      "transition": "wipe"
+    },
+    {
+      "id": "reveal-4",
+      "durationSeconds": 5.2,
+      "beat": "reveal",
+      "role": "payoff",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "THE WEST",
+      "headline": "AMERICA, CANADA, DENMARK",
+      "narration": "So do the United States, Canada, and Denmark, through Greenland.",
+      "caption": "UNITED STATES · CANADA · DENMARK",
+      "visual": "tradeoff",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -178.195,
+                41.669,
+                12.622,
+                83.634
+              ]
+            },
+            "at": 0,
+            "padding": 0.2,
+            "ease": "in-out"
+          },
+          {
+            "target": "country:GRL",
+            "at": 0.8,
+            "padding": 0.25,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "admin1:USA-3563",
+            "style": "fill",
+            "at": 0.25
+          },
+          {
+            "entity": "country:CAN",
+            "style": "fill",
+            "at": 0.25
+          },
+          {
+            "entity": "country:DNK",
+            "style": "outline",
+            "at": 0.25
+          },
+          {
+            "entity": "country:GRL",
+            "style": "fill",
+            "at": 0.25
+          }
+        ],
+        "annotations": [
+          {
+            "type": "line",
+            "kind": "parallel",
+            "degrees": 66.5667,
+            "text": "66°34′ N",
+            "at": 0.12,
+            "reverse": false
+          },
+          {
+            "type": "label",
+            "anchor": "admin1:USA-3563",
+            "text": "ALASKA",
+            "at": 0.4
+          },
+          {
+            "type": "label",
+            "anchor": "country:GRL",
+            "text": "DENMARK THROUGH GREENLAND",
+            "at": 0.58
+          }
+        ],
+        "dataset": "natural-earth",
+        "projection": "albers",
+        "ambience": "ice",
+        "flags": true
+      }
+    },
+    {
+      "id": "reveal-5",
+      "durationSeconds": 4.6,
+      "beat": "reveal",
+      "role": "payoff",
+      "shot": "comparison",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "THE SMALLEST",
+      "headline": "ICELAND'S ISLAND",
+      "narration": "Iceland just touches it, on the island of Grímsey.",
+      "caption": "ICELAND: THE ISLAND OF GRÍMSEY",
+      "visual": "race",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -73.057,
+                57.993,
+                31.077,
+                83.634
+              ]
+            },
+            "at": 0,
+            "padding": 0.2,
+            "ease": "in-out"
+          },
+          {
+            "target": "country:ISL",
+            "at": 0.8,
+            "padding": 0.25,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:ISL",
+            "style": "fill",
+            "at": 0.3
+          },
+          {
+            "entity": "country:GRL",
+            "style": "outline",
+            "at": 0.3
+          },
+          {
+            "entity": "country:NOR",
+            "style": "outline",
+            "at": 0.3
+          }
+        ],
+        "annotations": [
+          {
+            "type": "line",
+            "kind": "parallel",
+            "degrees": 66.5667,
+            "text": "66°34′ N",
+            "at": 0.12,
+            "reverse": false
+          },
+          {
+            "type": "label",
+            "anchor": "country:ISL",
+            "text": "ICELAND",
+            "at": 0.42
+          },
+          {
+            "type": "marker",
+            "anchor": "country:ISL",
+            "text": "GRÍMSEY (APPROX.)",
+            "at": 0.58
+          }
+        ],
+        "dataset": "natural-earth",
+        "projection": "albers",
+        "ambience": "sea",
+        "flags": true
+      }
+    },
+    {
+      "id": "verdict",
+      "durationSeconds": 3.8,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "YOUR TURN",
+      "headline": "WHICH SURPRISED YOU?",
+      "narration": "Which of the eight surprised you most?",
+      "caption": "WHICH ONE SURPRISED YOU?",
+      "visual": "cta",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "country:ISL",
+            "at": 0,
+            "padding": 0.35,
+            "ease": "in-out"
+          },
+          {
+            "target": "world",
+            "at": 0.8,
+            "padding": 0.2,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:ISL",
+            "style": "outline",
+            "at": 0.25
+          },
+          {
+            "entity": "country:FIN",
+            "style": "outline",
+            "at": 0.25
+          },
+          {
+            "entity": "country:CAN",
+            "style": "outline",
+            "at": 0.25
+          },
+          {
+            "entity": "country:RUS",
+            "style": "outline",
+            "at": 0.25
+          }
+        ],
+        "annotations": [
+          {
+            "type": "line",
+            "kind": "parallel",
+            "degrees": 66.5667,
+            "text": "66°34′ N",
+            "at": 0.12,
+            "reverse": false
+          },
+          {
+            "type": "label",
+            "anchor": "country:ISL",
+            "text": "WHICH ONE SURPRISED YOU?",
+            "at": 0.45
+          },
+          {
+            "type": "label",
+            "anchor": "country:RUS",
+            "text": "EIGHT COUNTRIES",
+            "at": 0.65
+          }
+        ],
+        "dataset": "natural-earth",
+        "projection": "albers",
+        "ambience": "space",
+        "flags": true
+      }
+    }
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia: Arctic Circle (revision 1375521305)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Arctic_Circle&oldid=1375521305"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ]
+}

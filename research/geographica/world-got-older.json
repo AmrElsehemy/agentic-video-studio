@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "id": "world-got-older",
+  "subject": "Japan",
+  "kind": "curated",
+  "note": "Hand-curated from the pinned World Bank series (public/geo/series.json): life expectancy at birth (SP.DYN.LE00.IN). Counts are over the countries and territories the table has a figure for in that year (213 in 1960, 214 in 1980, 215 in 2000 and 2022).",
+  "regions": [
+    "Japan"
+  ],
+  "claims": [
+    {
+      "id": "y1960",
+      "text": "In the World Bank's life-expectancy table, 20 of the 213 countries and territories with a 1960 figure had a life expectancy of 70 years or more.",
+      "tier": "official",
+      "sources": [
+        "world-bank-life-expectancy"
+      ]
+    },
+    {
+      "id": "under50",
+      "text": "In 1960, 76 of those 213 had a life expectancy under 50 years.",
+      "tier": "official",
+      "sources": [
+        "world-bank-life-expectancy"
+      ]
+    },
+    {
+      "id": "y1980",
+      "text": "By 1980, 59 of the 214 with a figure had a life expectancy of 70 years or more.",
+      "tier": "official",
+      "sources": [
+        "world-bank-life-expectancy"
+      ]
+    },
+    {
+      "id": "y2022",
+      "text": "By 2022, 150 of the 215 with a figure had a life expectancy of 70 years or more.",
+      "tier": "official",
+      "sources": [
+        "world-bank-life-expectancy"
+      ]
+    },
+    {
+      "id": "japan",
+      "text": "Japan's life expectancy at birth rose from 67.7 years (about 68) in 1960 to 84.0 years (about 84) in 2022.",
+      "tier": "official",
+      "sources": [
+        "world-bank-life-expectancy"
+      ]
+    }
+  ],
+  "places": {},
+  "sources": {
+    "world-bank-life-expectancy": {
+      "label": "World Bank, World Development Indicators: Life expectancy at birth, total (SP.DYN.LE00.IN), CC BY 4.0",
+      "url": "https://data.worldbank.org/indicator/SP.DYN.LE00.IN"
+    },
+    "natural-earth": {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  }
+}

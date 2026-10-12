@@ -1,0 +1,467 @@
+{
+  "id": "german-reunification",
+  "title": "Germany Was Two Countries for Over Four Decades",
+  "storyPattern": "transformation",
+  "numberRelevant": true,
+  "premise": "Germany was divided from 1949 until 3 October 1990, when East Germany joined the Federal Republic.",
+  "audiencePromise": "Three dates that put a country back together.",
+  "openLoop": "Was the result a new country?",
+  "payoff": "On 3 October 1990 East Germany joined the Federal Republic: an enlarged West Germany, not a new state.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "Is today's Germany a new country, or an old one grown?",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica"
+  },
+  "subject": {
+    "name": "Germany",
+    "category": "Border",
+    "attributes": {
+      "geoEntity": "country:DEU"
+    }
+  },
+  "voice": {
+    "provider": "elevenlabs",
+    "voice": "JBFqnCBsd6RMkjVDRZzb"
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "eyebrow": "GERMANY",
+      "headline": "TWO COUNTRIES",
+      "narration": "For over four decades, Germany was two countries.",
+      "caption": "GERMANY WAS DIVIDED, 1949–1990",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "world",
+            "at": 0,
+            "padding": 0.15,
+            "ease": "in-out"
+          },
+          {
+            "target": "country:DEU",
+            "at": 0.84,
+            "padding": 0.2,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:DEU",
+            "style": "outline",
+            "at": 0.3
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:DEU",
+            "text": "TWO GERMAN STATES",
+            "at": 0.5,
+            "until": 1
+          },
+          {
+            "type": "timeline",
+            "steps": [
+              {
+                "label": "1949 DIVIDED",
+                "detail": "TWO STATES"
+              },
+              {
+                "label": "9 NOV 1989",
+                "detail": "WALL FALLS"
+              },
+              {
+                "label": "3 OCT 1990",
+                "detail": "UNITY"
+              }
+            ],
+            "active": 0,
+            "at": 0.32
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "space",
+        "flags": true
+      }
+    },
+    {
+      "id": "before",
+      "beat": "before",
+      "eyebrow": "1949",
+      "headline": "DIVIDED BY THE ALLIES",
+      "narration": "The Allies split it into two states in 1949.",
+      "caption": "TWO STATES, 1949",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "country:DEU",
+            "at": 0,
+            "padding": 0.24,
+            "ease": "in-out"
+          },
+          {
+            "target": "country:DEU",
+            "at": 0.76,
+            "padding": 0.18,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:DEU",
+            "style": "fill",
+            "at": 0.25
+          },
+          {
+            "entity": "country:DEU",
+            "style": "outline",
+            "at": 0.4
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:DEU",
+            "text": "WEST AND EAST",
+            "at": 0.48,
+            "until": 1
+          },
+          {
+            "type": "timeline",
+            "steps": [
+              {
+                "label": "1949 DIVIDED",
+                "detail": "TWO STATES"
+              },
+              {
+                "label": "9 NOV 1989",
+                "detail": "WALL FALLS"
+              },
+              {
+                "label": "3 OCT 1990",
+                "detail": "UNITY"
+              }
+            ],
+            "active": 0,
+            "at": 0.32
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "flags": true,
+        "cut": true,
+        "projection": "albers"
+      }
+    },
+    {
+      "id": "change",
+      "beat": "change",
+      "eyebrow": "9 NOVEMBER 1989",
+      "headline": "THE WALL FALLS",
+      "narration": "On 9 November 1989, the Berlin Wall fell.",
+      "caption": "THE BERLIN WALL FELL, 9 NOV 1989",
+      "transition": "wipe",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "country:DEU",
+            "at": 0,
+            "padding": 0.15,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": "city:berlin-deu",
+            "text": "BERLIN",
+            "at": 0.48,
+            "until": 1
+          },
+          {
+            "type": "label",
+            "anchor": "city:berlin-deu",
+            "text": "WALL FALLS",
+            "at": 0.62,
+            "until": 1
+          },
+          {
+            "type": "timeline",
+            "steps": [
+              {
+                "label": "1949 DIVIDED",
+                "detail": "TWO STATES"
+              },
+              {
+                "label": "9 NOV 1989",
+                "detail": "WALL FALLS"
+              },
+              {
+                "label": "3 OCT 1990",
+                "detail": "UNITY"
+              }
+            ],
+            "active": 1,
+            "at": 0.34
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "city",
+        "projection": "albers"
+      }
+    },
+    {
+      "id": "reveal",
+      "beat": "reveal",
+      "eyebrow": "3 OCTOBER 1990",
+      "headline": "ONE GERMANY",
+      "narration": "On 3 October 1990, East Germany joined the Federal Republic.",
+      "caption": "GERMAN UNITY, 3 OCT 1990",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                12.4,
+                51.774,
+                14.4,
+                53.274
+              ]
+            },
+            "at": 0,
+            "padding": 0.18,
+            "ease": "in-out"
+          },
+          {
+            "target": "country:DEU",
+            "at": 0.78,
+            "padding": 0.2,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:DEU",
+            "style": "fill",
+            "at": 0.3
+          },
+          {
+            "entity": "country:DEU",
+            "style": "outline",
+            "at": 0.42
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:DEU",
+            "text": "EAST JOINS WEST",
+            "at": 0.54,
+            "until": 1
+          },
+          {
+            "type": "timeline",
+            "steps": [
+              {
+                "label": "1949 DIVIDED",
+                "detail": "TWO STATES"
+              },
+              {
+                "label": "9 NOV 1989",
+                "detail": "WALL FALLS"
+              },
+              {
+                "label": "3 OCT 1990",
+                "detail": "UNITY"
+              }
+            ],
+            "active": 2,
+            "at": 0.34
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "flags": true,
+        "projection": "albers"
+      }
+    },
+    {
+      "id": "aftermath",
+      "beat": "aftermath",
+      "eyebrow": "LEGALLY",
+      "headline": "NOT A NEW STATE",
+      "narration": "Legally, it was an enlarged West Germany, not a new country.",
+      "caption": "AN ENLARGED CONTINUATION OF WEST GERMANY",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "country:DEU",
+            "at": 0,
+            "padding": 0.2,
+            "ease": "in-out"
+          },
+          {
+            "target": "country:DEU",
+            "at": 0.76,
+            "padding": 0.3,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:DEU",
+            "style": "outline",
+            "at": 0.3
+          },
+          {
+            "entity": "country:DEU",
+            "style": "fill",
+            "at": 0.58
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:DEU",
+            "text": "WEST CONTINUES",
+            "at": 0.42,
+            "until": 0.72
+          },
+          {
+            "type": "label",
+            "anchor": "country:DEU",
+            "text": "EAST ADDED",
+            "at": 0.76,
+            "until": 1
+          },
+          {
+            "type": "timeline",
+            "steps": [
+              {
+                "label": "1949 DIVIDED",
+                "detail": "TWO STATES"
+              },
+              {
+                "label": "9 NOV 1989",
+                "detail": "WALL FALLS"
+              },
+              {
+                "label": "3 OCT 1990",
+                "detail": "UNITY"
+              }
+            ],
+            "active": 2,
+            "at": 0.34
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "flags": true,
+        "projection": "albers"
+      }
+    },
+    {
+      "id": "verdict",
+      "beat": "verdict",
+      "eyebrow": "YOUR TURN",
+      "headline": "NEW OR OLD?",
+      "narration": "Is today's Germany a new country, or an old one grown?",
+      "caption": "A NEW COUNTRY, OR AN OLD ONE GROWN?",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "country:DEU",
+            "at": 0,
+            "padding": 0.32,
+            "ease": "in-out"
+          },
+          {
+            "target": "country:DEU",
+            "at": 0.78,
+            "padding": 0.22,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:DEU",
+            "style": "fill",
+            "at": 0.3
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:DEU",
+            "text": "NEW OR OLD?",
+            "at": 0.5,
+            "until": 1
+          },
+          {
+            "type": "timeline",
+            "steps": [
+              {
+                "label": "1949 DIVIDED",
+                "detail": "TWO STATES"
+              },
+              {
+                "label": "9 NOV 1989",
+                "detail": "WALL FALLS"
+              },
+              {
+                "label": "3 OCT 1990",
+                "detail": "UNITY"
+              }
+            ],
+            "active": 2,
+            "at": 0.34
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "projection": "albers"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia: German reunification (revision 1375585175)",
+      "url": "https://en.wikipedia.org/w/index.php?title=German_reunification&oldid=1375585175"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ],
+  "paletteVariant": "light",
+  "framing": {
+    "ending": "loop",
+    "depth": "tilt"
+  }
+}

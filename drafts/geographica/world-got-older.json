@@ -1,0 +1,395 @@
+{
+  "id": "world-got-older",
+  "title": "In 1960 Only 20 Countries Lived to 70",
+  "storyPattern": "mystery",
+  "numberRelevant": true,
+  "premise": "In 1960 only 20 countries reached a life expectancy of 70; by 2022, 150 had, by the World Bank's figures.",
+  "audiencePromise": "Watch the whole map change colour as lives get longer.",
+  "openLoop": "How many countries had reached 70 back then?",
+  "payoff": "By 2022, 150 of 215 countries and territories had a life expectancy of 70 or more.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "Which colour is your country on the map?",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica"
+  },
+  "subject": {
+    "name": "Japan",
+    "category": "Border",
+    "attributes": {
+      "geoEntity": "country:JPN"
+    }
+  },
+  "voice": {
+    "provider": "elevenlabs",
+    "voice": "JBFqnCBsd6RMkjVDRZzb"
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "eyebrow": "LIFE EXPECTANCY",
+      "headline": "ONLY 20 REACHED 70",
+      "narration": "In 1960, only 20 countries reached 70.",
+      "caption": "1960: ONLY 20 COUNTRIES AT 70 OR MORE",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "world",
+            "at": 0,
+            "padding": 0.15,
+            "ease": "in-out"
+          },
+          {
+            "target": "world",
+            "at": 0.82,
+            "padding": 0.15,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:JPN",
+            "style": "fill",
+            "at": 0.35
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:JPN",
+            "text": "1960",
+            "at": 0.42
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "space",
+        "flags": true,
+        "globe": true,
+        "figure": {
+          "value": 20,
+          "unit": "COUNTRIES",
+          "text": "AT 70 OR MORE",
+          "decimals": 0,
+          "at": 0.32
+        }
+      }
+    },
+    {
+      "id": "clue",
+      "beat": "clue",
+      "eyebrow": "THE REST",
+      "headline": "SHORT LIVES",
+      "narration": "In 76 places, people lived under 50 years on average.",
+      "caption": "76 PLACES UNDER 50 YEARS, 1960",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                126.998,
+                33.433,
+                145.825,
+                45.52
+              ]
+            },
+            "at": 0,
+            "padding": 0.22,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                126.998,
+                33.433,
+                145.825,
+                45.52
+              ]
+            },
+            "at": 0.84,
+            "padding": 0.3,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:JPN",
+            "style": "outline",
+            "at": 0.3
+          }
+        ],
+        "annotations": [
+          {
+            "type": "timeline",
+            "steps": [
+              {
+                "label": "1960: 20",
+                "detail": "AT 70 OR MORE"
+              },
+              {
+                "label": "1980: 59",
+                "detail": "AT 70 OR MORE"
+              },
+              {
+                "label": "2022: 150",
+                "detail": "AT 70 OR MORE"
+              }
+            ],
+            "active": 0,
+            "at": 0.28
+          },
+          {
+            "type": "label",
+            "anchor": "country:JPN",
+            "text": "UNDER 50 YEARS",
+            "at": 0.48
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "flags": true,
+        "cut": true,
+        "projection": "albers"
+      }
+    },
+    {
+      "id": "escalation",
+      "beat": "escalation",
+      "eyebrow": "1980",
+      "headline": "59 COUNTRIES",
+      "narration": "By 1980, 59 countries had passed 70.",
+      "caption": "1980: 59 COUNTRIES AT 70 OR MORE",
+      "transition": "wipe",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "world",
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "series": {
+          "indicator": "life-expectancy",
+          "view": "line",
+          "places": [
+            "country:JPN",
+            "country:NGA"
+          ],
+          "from": 1960,
+          "to": 1980,
+          "at": 0.04,
+          "axis": "zero",
+          "shade": true
+        }
+      }
+    },
+    {
+      "id": "reveal",
+      "beat": "reveal",
+      "eyebrow": "2022",
+      "headline": "150 COUNTRIES",
+      "narration": "By 2022, it was 150, out of 215.",
+      "caption": "2022: 150 OF 215 COUNTRIES",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "world",
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "series": {
+          "indicator": "life-expectancy",
+          "view": "line",
+          "places": [
+            "country:JPN",
+            "country:NGA"
+          ],
+          "from": 1980,
+          "to": 2022,
+          "at": 0.04,
+          "axis": "zero",
+          "shade": true
+        }
+      }
+    },
+    {
+      "id": "reveal-4",
+      "beat": "reveal",
+      "eyebrow": "JAPAN",
+      "headline": "68 TO 84 YEARS",
+      "narration": "Japan went from 68 years to 84.",
+      "caption": "JAPAN: 67.7 TO 84.0 YEARS",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                130.862,
+                33.433,
+                145.825,
+                45.52
+              ]
+            },
+            "at": 0,
+            "padding": 0.2,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                130.862,
+                33.433,
+                145.825,
+                45.52
+              ]
+            },
+            "at": 0.84,
+            "padding": 0.25,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:JPN",
+            "style": "fill",
+            "at": 0.22
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:JPN",
+            "text": "JAPAN",
+            "at": 0.28
+          },
+          {
+            "type": "label",
+            "anchor": "country:JPN",
+            "text": "67.7 TO 84.0 YEARS",
+            "at": 0.48
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "flags": true,
+        "series": {
+          "indicator": "life-expectancy",
+          "view": "line",
+          "places": [
+            "country:JPN"
+          ],
+          "from": 1960,
+          "to": 2022,
+          "at": 0.05,
+          "axis": "zero",
+          "mark": {
+            "year": 2022,
+            "text": "2022"
+          }
+        },
+        "projection": "albers"
+      }
+    },
+    {
+      "id": "verdict",
+      "beat": "verdict",
+      "eyebrow": "YOUR TURN",
+      "headline": "WHICH COLOUR ARE YOU?",
+      "narration": "Which colour is your country on the map?",
+      "caption": "WHICH COLOUR IS YOUR COUNTRY?",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                130.862,
+                33.433,
+                145.825,
+                45.52
+              ]
+            },
+            "at": 0,
+            "padding": 0.22,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                130.862,
+                33.433,
+                145.825,
+                45.52
+              ]
+            },
+            "at": 0.84,
+            "padding": 0.3,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:JPN",
+            "style": "outline",
+            "at": 0.25
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:JPN",
+            "text": "WHICH COLOUR?",
+            "at": 0.35
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "projection": "albers"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "label": "World Bank, World Development Indicators: Life expectancy at birth, total (SP.DYN.LE00.IN)",
+      "url": "https://data.worldbank.org/indicator/SP.DYN.LE00.IN"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ],
+  "paletteVariant": "terrain",
+  "framing": {
+    "ending": "loop"
+  }
+}

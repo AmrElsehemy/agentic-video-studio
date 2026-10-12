@@ -1,0 +1,428 @@
+{
+  "id": "korea-nigeria-fertility",
+  "title": "Two Countries, Same Families in 1960. Not Anymore.",
+  "storyPattern": "comparison",
+  "numberRelevant": true,
+  "premise": "In 1960 South Korea and Nigeria both averaged over five children per woman; by 2023 South Korea was at 0.72 and Nigeria at 4.48.",
+  "audiencePromise": "Two lines start together and split apart.",
+  "openLoop": "What happened to one of them?",
+  "payoff": "South Korea's fertility figure fell to 0.72 children per woman by 2023; Nigeria's was still 4.48.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "Which curve will your country follow?",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica"
+  },
+  "subject": {
+    "name": "South Korea",
+    "category": "Border",
+    "attributes": {
+      "geoEntity": "country:KOR"
+    }
+  },
+  "voice": {
+    "provider": "elevenlabs",
+    "voice": "JBFqnCBsd6RMkjVDRZzb"
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "eyebrow": "SOUTH KOREA & NIGERIA",
+      "headline": "SAME FAMILY SIZE",
+      "narration": "In 1960, both averaged over 5 children.",
+      "caption": "1960: OVER 5 CHILDREN PER WOMAN IN BOTH",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                2.671,
+                4.272,
+                129.587,
+                38.624
+              ]
+            },
+            "at": 0,
+            "padding": 0.3,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                2.671,
+                4.272,
+                129.587,
+                38.624
+              ]
+            },
+            "at": 1,
+            "padding": 0.2,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:KOR",
+            "style": "fill",
+            "at": 0.2
+          },
+          {
+            "entity": "country:NGA",
+            "style": "fill",
+            "at": 0.35
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:KOR",
+            "text": "SOUTH KOREA 5.99",
+            "at": 0.3
+          },
+          {
+            "type": "label",
+            "anchor": "country:NGA",
+            "text": "NIGERIA 6.36",
+            "at": 0.45
+          },
+          {
+            "type": "timeline",
+            "steps": [
+              {
+                "label": "1960",
+                "detail": "OVER 5"
+              },
+              {
+                "label": "1983",
+                "detail": "KOR 2.06"
+              },
+              {
+                "label": "2010",
+                "detail": "KOR 1.23"
+              },
+              {
+                "label": "2023",
+                "detail": "KOR 0.72"
+              }
+            ],
+            "active": 0,
+            "at": 0.35
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "flags": true,
+        "projection": "albers"
+      }
+    },
+    {
+      "id": "evidence",
+      "beat": "evidence",
+      "eyebrow": "1983",
+      "headline": "KOREA: ABOUT 2",
+      "narration": "By 1983, South Korea had fallen to about 2.",
+      "caption": "SOUTH KOREA, 1983: 2.06 CHILDREN",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "country:KOR",
+            "at": 0,
+            "padding": 0.15,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:KOR",
+            "style": "fill",
+            "at": 0.15
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:KOR",
+            "text": "SOUTH KOREA",
+            "at": 0.4
+          }
+        ],
+        "dataset": "natural-earth",
+        "projection": "albers"
+      }
+    },
+    {
+      "id": "evidence-2",
+      "beat": "evidence",
+      "eyebrow": "2010",
+      "headline": "KOREA: 1.23",
+      "narration": "By 2010, it was 1.23.",
+      "caption": "SOUTH KOREA, 2010: 1.23 CHILDREN",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "country:KOR",
+            "at": 0,
+            "padding": 0.15,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:KOR",
+            "style": "fill",
+            "at": 0.15
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:KOR",
+            "text": "SOUTH KOREA",
+            "at": 0.4
+          }
+        ],
+        "dataset": "natural-earth",
+        "projection": "albers"
+      }
+    },
+    {
+      "id": "escalation",
+      "beat": "escalation",
+      "eyebrow": "2023",
+      "headline": "KOREA: 0.72",
+      "narration": "By 2023, it was 0.72, below one child per woman.",
+      "caption": "SOUTH KOREA, 2023: 0.72",
+      "transition": "wipe",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "country:KOR",
+            "at": 0,
+            "padding": 0.18,
+            "ease": "in-out"
+          },
+          {
+            "target": "country:KOR",
+            "at": 1,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:KOR",
+            "style": "outline",
+            "at": 0.2
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:KOR",
+            "text": "SOUTH KOREA",
+            "at": 0.25
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "flags": true,
+        "series": {
+          "indicator": "fertility",
+          "view": "line",
+          "places": [
+            "country:KOR"
+          ],
+          "from": 1960,
+          "to": 2023,
+          "at": 0.04,
+          "axis": "fit",
+          "mark": {
+            "year": 2023,
+            "text": "LOW 2023"
+          }
+        },
+        "projection": "albers"
+      }
+    },
+    {
+      "id": "twist",
+      "beat": "twist",
+      "eyebrow": "NIGERIA",
+      "headline": "STILL ABOUT 4.5",
+      "narration": "Nigeria, meanwhile, was still near 4.5.",
+      "caption": "NIGERIA, 2023: 4.48 CHILDREN",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "country:NGA",
+            "at": 0,
+            "padding": 0.2,
+            "ease": "in-out"
+          },
+          {
+            "target": "country:NGA",
+            "at": 1,
+            "padding": 0.14,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:NGA",
+            "style": "fill",
+            "at": 0.2
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:NGA",
+            "text": "NIGERIA",
+            "at": 0.3
+          },
+          {
+            "type": "label",
+            "anchor": "country:NGA",
+            "text": "2023: 4.48 CHILDREN",
+            "at": 0.5
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "flags": true,
+        "series": {
+          "indicator": "fertility",
+          "view": "line",
+          "places": [
+            "country:NGA"
+          ],
+          "from": 1960,
+          "to": 2023,
+          "at": 0.04,
+          "axis": "zero",
+          "mark": {
+            "year": 2023,
+            "text": "2023"
+          }
+        },
+        "projection": "albers"
+      }
+    },
+    {
+      "id": "verdict",
+      "beat": "verdict",
+      "eyebrow": "YOUR TURN",
+      "headline": "WHICH CURVE?",
+      "narration": "Which curve will your country follow?",
+      "caption": "WHICH CURVE IS YOUR COUNTRY ON?",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                2.671,
+                4.272,
+                129.587,
+                38.624
+              ]
+            },
+            "at": 0,
+            "padding": 0.3,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                2.671,
+                4.272,
+                129.587,
+                38.624
+              ]
+            },
+            "at": 1,
+            "padding": 0.22,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:KOR",
+            "style": "outline",
+            "at": 0.25
+          },
+          {
+            "entity": "country:NGA",
+            "style": "outline",
+            "at": 0.4
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:KOR",
+            "text": "SOUTH KOREA",
+            "at": 0.3
+          },
+          {
+            "type": "label",
+            "anchor": "country:NGA",
+            "text": "NIGERIA",
+            "at": 0.45
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "flags": true,
+        "series": {
+          "indicator": "fertility",
+          "view": "line",
+          "places": [
+            "country:KOR",
+            "country:NGA"
+          ],
+          "from": 1960,
+          "to": 2023,
+          "at": 0.04,
+          "axis": "zero"
+        },
+        "projection": "albers"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "label": "World Bank, World Development Indicators: Fertility rate, total (SP.DYN.TFRT.IN)",
+      "url": "https://data.worldbank.org/indicator/SP.DYN.TFRT.IN"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ],
+  "framing": {
+    "opening": "bleed"
+  }
+}
