@@ -160,6 +160,7 @@ export const compileEpisode = (rawDraft, {showId, show = loadShow(showId), geo})
       ...(scene.accent ? {accent: scene.accent} : {}),
       ...(scene.facts ? {facts: cleanFacts(scene.facts)} : {}),
       ...(scene.primitive ? {primitive: scene.primitive} : {}),
+      ...(scene.transition ? {transition: scene.transition} : {}),
     };
   });
 

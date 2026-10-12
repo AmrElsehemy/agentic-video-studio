@@ -44,6 +44,10 @@ export const CompiledEpisodeScene: React.FC<Props> = ({scene, manifest, sceneInd
   const bleed = sceneIndex === 0 && manifest.framing?.opening === 'bleed'
     ? 1 + BLEED_SCALE * (1 - interpolate(frame, [4, 30], [0, 1], {...clamp, easing: Easing.out(Easing.cubic)}))
     : 1;
+  // How the scene arrives (scene.transition): a coloured edge sweeping across, a push in through a flash, or a flash on a cut.
+  const arrival = sceneIndex > 0 && !seams.in ? scene.transition : undefined;
+  const arrive = arrival ? interpolate(frame, [0, arrival === 'flash' ? 4 : arrival === 'wipe' ? 13 : 12], [0, 1], {...clamp, easing: arrival === 'wipe' ? Easing.inOut(Easing.quad) : Easing.out(Easing.cubic)}) : 1;
+  const wipeEdge = arrive * (1080 + 360);
   const identifier = manifest.direction.numberRelevant ? manifest.subject.identifier : undefined;
 
   // An architecture walkthrough (#120) replays its source diagram across the whole frame.
@@ -56,7 +60,12 @@ export const CompiledEpisodeScene: React.FC<Props> = ({scene, manifest, sceneInd
     return <AbsoluteFill style={{fontFamily: bodyFont}}><SketchScene scene={scene} manifest={manifest} sceneIndex={sceneIndex} frame={frame} fps={fps} durationInFrames={durationInFrames} fadeOut={!seams.out} /></AbsoluteFill>;
   }
 
-  return <AbsoluteFill style={{overflow: 'hidden', color: manifest.palette.ink, background: `radial-gradient(circle at ${runStart % 2 ? '25%' : '75%'} 38%, ${glow}30 0%, transparent 38%), linear-gradient(160deg, ${manifest.palette.surface}, ${manifest.palette.background} 64%)`, opacity: sceneFade, fontFamily: bodyFont}}>
+  const transitionStyle = arrival === 'wipe' && arrive < 1 ? {clipPath: `polygon(0 0, ${wipeEdge}px 0, ${wipeEdge - 360}px 100%, 0 100%)`}
+    : arrival === 'zoom' && arrive < 1 ? {transform: `scale(${1 + .16 * (1 - arrive)})`} : {};
+  const flash = arrival === 'zoom' || arrival === 'flash' ? interpolate(frame, [0, arrival === 'flash' ? 5 : 8], [arrival === 'flash' ? .7 : .45, 0], clamp) : 0;
+  return <AbsoluteFill style={{overflow: 'hidden', color: manifest.palette.ink, ...transitionStyle, background: `radial-gradient(circle at ${runStart % 2 ? '25%' : '75%'} 38%, ${glow}30 0%, transparent 38%), linear-gradient(160deg, ${manifest.palette.surface}, ${manifest.palette.background} 64%)`, opacity: sceneFade, fontFamily: bodyFont}}>
+    {arrival === 'wipe' && arrive < 1 ? <svg width={1080} height={1920} style={{position: 'absolute', inset: 0, zIndex: 40}}><polygon points={`${wipeEdge - 70},0 ${wipeEdge},0 ${wipeEdge - 360},1920 ${wipeEdge - 430},1920`} fill={accent} opacity={.95} /></svg> : null}
+    {flash > 0 ? <div style={{position: 'absolute', inset: 0, zIndex: 41, background: arrival === 'flash' ? accent : '#fff', opacity: flash}} /> : null}
     <div style={{position: 'absolute', inset: -260, opacity: .055, transform: `rotate(${runFrame * .07 + runStart * 23}deg)`, background: `repeating-conic-gradient(from 0deg, transparent 0deg 20deg, ${glow} 20.4deg 21deg)`}} />
 
     {/* Lightweight brand bug only. No page counters or progress UI: this is a Short, not a slide deck. */}

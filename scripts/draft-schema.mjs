@@ -72,6 +72,8 @@ export const episodeDraftSchema = z.preprocess(upgradeLegacySubject, z.object({
     beatEverySeconds: z.number().positive().max(1.5).optional(),
     // A semantic visual (counter, meter, ...) chosen by the Visual Director; the beat's shot is the fallback.
     primitive: primitiveSchema.optional(),
+    // How the scene arrives: 'wipe', 'zoom' or 'flash' (default: the usual fade). Ignored on the first scene and across a continuing map.
+    transition: z.enum(['wipe', 'zoom', 'flash']).optional(),
   })).min(3).max(12),
   sources: sourcesSchema,
 }));

@@ -17,6 +17,8 @@ export const sceneSchema = z.object({
   beatEverySeconds: z.number().positive().max(1.5),
   visual: z.enum(['hook', 'gauntlet', 'advantage', 'race', 'tradeoff', 'cta']),
   primitive: primitiveSchema.optional(),
+  // How this scene arrives (not on the first scene, and not across a continuing map): 'wipe' sweeps a coloured edge across, 'zoom' pushes in through a flash, 'flash' is a hard cut on a flash.
+  transition: z.enum(['wipe', 'zoom', 'flash']).optional(),
   // Word-synced captions (#86): added at render time from the narration track, never stored in the manifest.
   words: z.array(z.object({text: z.string(), start: z.number(), end: z.number()})).optional(),
   // When each diagram action happens, in seconds from the scene start (#125): set in the render props.

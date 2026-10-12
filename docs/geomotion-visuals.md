@@ -166,3 +166,9 @@ The geo director may add a `series` to a shot (a line chart or a ranked race). T
 - at most 3 chart scenes an episode; never with a globe, morph or surface, photo, timeline, street map or bar view.
 
 The reviewer pass reads a chart as "numbers over time" when it judges whether a picture shows its narration.
+
+## Shaded maps, big numbers, transitions
+
+- **`series.shade: true`** colours every country on screen by the chart's indicator in the year the chart is showing (purple low, gold high, key in the panel). One scale for the whole chart (2nd to 98th percentile, ends marked "+" or "or less"; money on a log scale), so a colour means the same in every frame. Life expectancy, fertility and GDP per person only: a population would only paint the big countries. Countries without a figure stay unshaded. Not with a data layer, surface or globe.
+- **`figure: {value, unit, text, at}`** rolls one number up over the lower map. The director may only use a value the research states. Not with a chart over time, street map, bar view, photo or timeline.
+- **Scene `transition: "wipe" | "zoom" | "flash"`** is how a scene arrives (a coloured edge sweeping across, a push in through a flash, a flash on a hard cut). Ignored on the first scene and across a continuing map. Preview: `npm run looks -- <id> --scenes=3 --at=0.03,0.07,0.11 --transition=3:wipe`.
