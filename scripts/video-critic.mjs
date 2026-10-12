@@ -6,6 +6,7 @@
 // tesseract, plus pixel checks); --vision (or VIDEO_CRITIC_VISION=1) also asks
 // a vision model. Writes out/<show>/<id>/<id>-video-review.json and exits 1 on any
 // blocking issue.
+import './lib/load-secrets.mjs';
 import {spawnSync} from 'node:child_process';
 import fs from 'node:fs';
 import os from 'node:os';

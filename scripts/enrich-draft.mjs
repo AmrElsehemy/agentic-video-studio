@@ -1,5 +1,6 @@
 // Give directed drafts their score, ambience and flags (scripts/lib/enrich.mjs), from scripts/lib/episode-sound.json.
 //   npm run episode:enrich -- <episode id>... [--write]
+import './lib/load-secrets.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';

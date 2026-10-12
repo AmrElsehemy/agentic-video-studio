@@ -1,6 +1,7 @@
 // Give a directed map episode the projection its subject calls for, without asking the model again.
 //   npm run geo:projection -- <episode-id>... [--write] [--projection=auto|mercator|equal-earth|albers|azimuthal]
 // Without --write it only says what it would do. Compile afterwards (npm run episode:compile -- <id>).
+import './lib/load-secrets.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';

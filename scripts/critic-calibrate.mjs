@@ -1,6 +1,7 @@
 // Calibrate the creative critic: curated references should pass, and known
 // weaker drafts (default: Swablu) should score below every reference.
 // Usage: npm run critic:calibrate -- [baseline-episode-id ...]
+import './lib/load-secrets.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';

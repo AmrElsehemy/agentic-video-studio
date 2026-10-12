@@ -6,6 +6,7 @@
 // Writes out/voice-audition/<id>/{A,B,...}.mp3 and key.json (which letter is
 // which voice: open it only after choosing). Each ElevenLabs read costs about
 // as many credits as the narration has characters (~450 for an episode).
+import './lib/load-secrets.mjs';
 import crypto from 'node:crypto';
 import {spawnSync} from 'node:child_process';
 import fs from 'node:fs';

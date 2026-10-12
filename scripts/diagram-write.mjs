@@ -7,6 +7,7 @@
 //   --attempts=<n>     revisions allowed (default 3)
 // The diagram (and the notes) are the only facts the script may state. Start
 // from an imported diagram: npm run diagram:import -- <file.drawio> --id <id>.
+import './lib/load-secrets.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';

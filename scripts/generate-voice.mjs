@@ -1,3 +1,4 @@
+import './lib/load-secrets.mjs';
 import {spawnSync} from 'node:child_process';
 import crypto from 'node:crypto';
 import fs from 'node:fs';

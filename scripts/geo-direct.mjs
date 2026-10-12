@@ -6,6 +6,7 @@
 //   --research=<file>  research other than research/<show>/<id>.json (the show is the draft's folder)
 //   --provider=<name>  the director's provider (default: DIRECTOR_* / CHECKER_* / WRITER_* settings)
 // Shots that break a rule fall back to a plain map of the subject and are listed.
+import './lib/load-secrets.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';

@@ -7,6 +7,7 @@
 //   npm run pipeline -- <id> --force=render           re-run a stage (comma-separated) even if unchanged
 //   npm run pipeline -- <id> --dry-run                show what would run
 // Research and drafting are npm run episode:new; publishing is npm run youtube:upload.
+import './lib/load-secrets.mjs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {findManifest, resolveEpisodeId} from './catalog.mjs';

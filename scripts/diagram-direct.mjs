@@ -8,6 +8,7 @@
 //   --provider=<name>  the director's provider (default: DIRECTOR_* / CHECKER_* / WRITER_* settings)
 //   --save-reply=<file>  keep the model's reply, e.g. as a test fixture
 // Scenes whose actions break a rule get the deterministic fallback and are listed.
+import './lib/load-secrets.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
