@@ -10,3 +10,5 @@ export const raceCandidates: (series: Series, from: number, to: number, top?: nu
 export const raceAt: (series: Series, candidates: string[], year: number) => {code: string; value: number; rank: number}[];
 export const niceCeiling: (value: number) => number;
 export const niceRange: (min: number, max: number) => {low: number; high: number; step: number};
+export const SHADEABLE: IndicatorId[];
+export const shadeScale: (series: Series, indicator: string, from: number, to: number) => {low: number; high: number; log: boolean; t: (value: number) => number; clippedHigh: boolean; clippedLow: boolean};

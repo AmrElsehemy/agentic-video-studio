@@ -9,6 +9,17 @@ import {niceCeiling, niceRange, raceAt, valueAt, type Series} from '../../../scr
 // sourced; pure functions of the frame, so renders stay deterministic.
 
 export type SeriesPlace = {id: string; code: string; name: string; color: string; flag?: string};
+/** The colour ramp of a shaded map, low to high; the chart's key and the map's fills share it. */
+export const SHADE_RAMP = ['#1b1534', '#5b2a86', '#c13a74', '#f59e42', '#fbe59a'];
+export const shadeColor = (t: number) => {
+  const position = Math.max(0, Math.min(1, t)) * (SHADE_RAMP.length - 1);
+  const index = Math.min(SHADE_RAMP.length - 2, Math.floor(position));
+  const [a, b] = [SHADE_RAMP[index], SHADE_RAMP[index + 1]].map((hex) => [1, 3, 5].map((offset) => parseInt(hex.slice(offset, offset + 2), 16)));
+  const mix = position - index;
+  return `rgb(${a.map((value, channel) => Math.round(value + (b[channel] - value) * mix)).join(',')})`;
+};
+export type ShadeKey = {low: string; high: string};
+
 export type SeriesStyle = {accent: string; ink: string; backdrop: string; muted: string};
 
 /** Height of the panel at the bottom of the frame; the map lifts by half of it. */
@@ -48,6 +59,8 @@ type Props = {
   height: number;
   style: SeriesStyle;
   credit: string;
+  /** A shaded map's key: the ends of its scale. */
+  shadeKey?: ShadeKey;
 };
 
 const Frame: React.FC<{props: Props; year: number; children: React.ReactNode}> = ({props, year, children}) => {
@@ -59,6 +72,12 @@ const Frame: React.FC<{props: Props; year: number; children: React.ReactNode}> =
     <text x={SAFE} y={top + 56} style={{...text, fontSize: 36, fill: style.ink}}>{title.toUpperCase()}</text>
     <text x={SAFE} y={top + 92} style={{...text, fontSize: 24, fill: style.ink, opacity: 0.6}}>{unit.toUpperCase()}</text>
     <text x={width - SAFE} y={top + 84} textAnchor="end" style={{...text, fontSize: 96, fill: style.accent}}>{Math.round(year)}</text>
+    {props.shadeKey ? <g transform={`translate(${width - SAFE - 330} ${top + 102})`}>
+      <defs><linearGradient id="shade-ramp" x1="0" x2="1" y1="0" y2="0">{SHADE_RAMP.map((color, index) => <stop key={color} offset={index / (SHADE_RAMP.length - 1)} stopColor={color} />)}</linearGradient></defs>
+      <rect width={330} height={16} rx={8} fill="url(#shade-ramp)" />
+      <text y={42} style={{...text, fontSize: 22, fill: style.ink, opacity: 0.75}}>{props.shadeKey.low}</text>
+      <text x={330} y={42} textAnchor="end" style={{...text, fontSize: 22, fill: style.ink, opacity: 0.75}}>{props.shadeKey.high}</text>
+    </g> : null}
     <g transform={`translate(0 ${top})`}>{children}</g>
     <text x={SAFE} y={top + SERIES_PANEL - 16} style={{...text, fontSize: 22, fill: style.ink, opacity: 0.55}}>{credit.toUpperCase()}</text>
   </g>;
@@ -75,7 +94,7 @@ export const LineChart: React.FC<Props> = (props) => {
   const range = fit ? niceRange(Math.min(...all), Math.max(...all)) : undefined;
   const max = range ? range.high : niceCeiling(Math.max(...all, 1));
   const low = range ? range.low : indicator === 'life-expectancy' ? Math.floor(Math.min(...all) / 10) * 10 : 0;
-  const plot = {left: SAFE + 100, right: width - SAFE - 250, top: 150, bottom: SERIES_PANEL - 86};
+  const plot = {left: SAFE + 100, right: width - SAFE - 250, top: props.shadeKey ? 190 : 150, bottom: SERIES_PANEL - 86};
   const x = (y: number) => plot.left + ((y - first) / Math.max(1, last - first)) * (plot.right - plot.left);
   const y = (v: number) => plot.bottom - ((v - low) / (max - low)) * (plot.bottom - plot.top);
   const ticks = range ? Array.from({length: Math.round((range.high - range.low) / range.step) + 1}, (_, i) => range.low + i * range.step) : [0, 0.5, 1].map((share) => low + (max - low) * share);

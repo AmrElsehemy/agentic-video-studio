@@ -116,6 +116,8 @@ export const primitiveSchema = z.discriminatedUnion('kind', [
     globe: z.boolean().optional(),
     // Shaded relief (#91) under the map: mountains and valleys from the pinned Natural Earth raster.
     relief: z.boolean().optional(),
+    // One number that matters, rolled up on screen over the map's lower part. The director only uses a value the research states.
+    figure: z.object({value: z.number().min(0).max(1e13), unit: z.string().min(1).max(14).optional(), text: z.string().min(1).max(28), decimals: z.number().int().min(0).max(2).default(0), at: moment.default(0.3)}).strict().optional(),
     // Yearly figures for countries (World Bank, public/geo/series.json): a line chart that draws itself year by year, or a
     // ranked race where countries overtake one another. The numbers come from the pinned table, never from the model.
     series: z.object({
@@ -126,6 +128,8 @@ export const primitiveSchema = z.discriminatedUnion('kind', [
       from: z.number().int().min(1960).max(2025),
       to: z.number().int().min(1960).max(2025),
       at: moment.default(0.04),
+      // The whole map shaded by the indicator, country by country, in the year the chart is showing (rates and averages only).
+      shade: z.boolean().optional(),
       // line only: 'zero' starts the axis at zero (honest sizes); 'fit' zooms to the data, to show a turn. The ticks say which.
       axis: z.enum(['zero', 'fit']).default('zero'),
       // line only: a dashed line and a short caption at a year, once the chart reaches it.
@@ -149,12 +153,15 @@ export const primitiveSchema = z.discriminatedUnion('kind', [
 ]).superRefine((primitive, context) => {
   if (primitive.kind === 'geo-map') {
     if (primitive.morph && (primitive.globe || (primitive.projection ?? 'mercator') !== 'mercator')) context.addIssue({code: 'custom', path: ['morph'], message: 'A morph runs from Mercator to Equal Earth on a flat map: no globe, and no other projection'});
+    if (primitive.figure && (primitive.series || primitive.streets || (primitive.data && (primitive.data.view === 'bars' || primitive.data.view === 'both')) || primitive.annotations.some((annotation) => annotation.type === 'photo' || annotation.type === 'timeline'))) context.addIssue({code: 'custom', path: ['figure'], message: 'A big number takes the lower part of the frame: it cannot share a scene with a chart over time, a street map, a bar view, a photo or a timeline strip'});
     if (primitive.series) {
       if (primitive.series.from === primitive.series.to) context.addIssue({code: 'custom', path: ['series', 'to'], message: 'A chart over time needs different from and to years'});
       if (primitive.series.view === 'line' && primitive.series.places.length === 0) context.addIssue({code: 'custom', path: ['series', 'places'], message: 'A line chart needs 1 to 4 countries to draw'});
       if (primitive.series.view === 'race' && (primitive.series.mark || primitive.series.axis === 'fit')) context.addIssue({code: 'custom', path: ['series'], message: 'axis and mark belong to a line chart'});
       if (primitive.series.mark && (primitive.series.mark.year < Math.min(primitive.series.from, primitive.series.to) || primitive.series.mark.year > Math.max(primitive.series.from, primitive.series.to))) context.addIssue({code: 'custom', path: ['series', 'mark', 'year'], message: 'The marked year must fall inside the chart\'s years'});
       if (primitive.series.view === 'race' && primitive.series.places.length > 1) context.addIssue({code: 'custom', path: ['series', 'places'], message: 'A race lights up at most one country'});
+      if (primitive.series.shade && primitive.series.indicator === 'population') context.addIssue({code: 'custom', path: ['series', 'shade'], message: 'A population cannot shade the map (it would only paint the big countries): shade life expectancy, fertility or GDP per person'});
+      if (primitive.series.shade && (primitive.data || primitive.surface || primitive.globe)) context.addIssue({code: 'custom', path: ['series', 'shade'], message: 'A shaded map cannot share a scene with a data layer, a surface or a globe'});
       if (primitive.data && (primitive.data.view === 'bars' || primitive.data.view === 'both')) context.addIssue({code: 'custom', path: ['series'], message: 'A chart over time and a bar chart both want the bottom of the frame: use one'});
       if (primitive.streets || primitive.annotations.some((annotation) => annotation.type === 'photo' || annotation.type === 'timeline')) context.addIssue({code: 'custom', path: ['series'], message: 'A chart over time cannot share a scene with a street map, a photo or a timeline strip'});
     }

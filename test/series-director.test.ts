@@ -55,3 +55,19 @@ describe('the director draws charts over time', () => {
     assert.match(prompt.system, /"series" draws a chart over time/);
   });
 });
+
+describe('shaded maps and big numbers', () => {
+  it('shades only by a rate, never a population', () => {
+    assert.equal(run({indicator: 'life-expectancy', view: 'line', from: 1960, to: 2020, places: ['country:CHN'], shade: true}).series?.shade, true);
+    assert.throws(() => run({indicator: 'population', view: 'line', from: 1960, to: 2020, places: ['country:CHN'], shade: true}), /cannot shade the map/);
+  });
+
+  it('rolls up a number only when the research states it', () => {
+    const research = {claims: [{text: 'Bir Tawil covers 2,060 square kilometres.'}], places: {}};
+    const figure = {value: 2060, unit: 'km2', text: 'AREA'};
+    const primitive = shotToPrimitive(shot({figure}), {places, research, series} as never);
+    assert.deepEqual(primitive.figure, {value: 2060, unit: 'km2', text: 'AREA', decimals: 0, at: 0.3});
+    assert.throws(() => shotToPrimitive(shot({figure: {...figure, value: 2061}}), {places, research, series} as never), /not a number in the research/);
+    assert.throws(() => shotToPrimitive(shot({figure, series: {indicator: 'population', view: 'line', from: 1960, to: 2000, places: ['country:CHN']}}), {places, research, series} as never), /cannot share a scene/);
+  });
+});

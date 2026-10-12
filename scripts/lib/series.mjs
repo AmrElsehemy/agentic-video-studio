@@ -112,3 +112,28 @@ export function niceRange(min, max) {
   const step = niceCeiling(span / 4);
   return {low: Math.floor(min / step + 1e-9) * step, high: Math.ceil(max / step - 1e-9) * step, step};
 }
+
+/** Indicators a map can be shaded by: rates and averages that compare across countries (a population would just paint the big ones). */
+export const SHADEABLE = ['life-expectancy', 'fertility', 'gdp-per-person'];
+
+/**
+ * The colour scale for a shaded map: one scale for the whole chart (every country, every year from..to), so a colour
+ * means the same thing in every frame. The ends are the 2nd and 98th percentiles, so one outlier does not wash the rest
+ * out; values beyond them take the end colour, and the key says so ("80+"). Money is shaded on a log scale.
+ */
+export function shadeScale(series, indicator, from, to) {
+  const values = [];
+  for (const row of Object.values(series.countries)) {
+    for (let year = Math.min(from, to); year <= Math.max(from, to); year++) {
+      const value = row[year - series.years[0]];
+      if (typeof value === 'number' && Number.isFinite(value) && (indicator !== 'gdp-per-person' || value > 0)) values.push(value);
+    }
+  }
+  values.sort((a, b) => a - b);
+  const pick = (share) => values[Math.min(values.length - 1, Math.max(0, Math.round(share * (values.length - 1))))];
+  const log = indicator === 'gdp-per-person';
+  const [low, high] = [pick(0.02), pick(0.98)];
+  const scale = log ? Math.log : (value) => value;
+  const t = (value) => (high === low ? 0.5 : Math.max(0, Math.min(1, (scale(value) - scale(low)) / (scale(high) - scale(low)))));
+  return {low, high, log, t, clippedHigh: values.at(-1) > high, clippedLow: values[0] < low};
+}

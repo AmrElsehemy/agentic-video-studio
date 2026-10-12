@@ -1,7 +1,7 @@
 // The director's side of charts over time: turn a model's `series` choice into the primitive's field, checking it against the
 // pinned World Bank table, and summarise the table so the model picks years that exist. The model never writes a figure:
 // it picks an indicator, countries and years; a marked year's caption is derived here, and "peak" and "low" are verified.
-import {INDICATORS} from './series.mjs';
+import {INDICATORS, SHADEABLE} from './series.mjs';
 
 const MARKS = ['peak', 'low', 'year'];
 
@@ -34,6 +34,10 @@ export const seriesFromShot = (raw, {series, placeId}) => {
   });
   const out = {indicator: raw.indicator, view: raw.view, places, from: raw.from, to: raw.to};
   if (typeof raw.at === 'number') out.at = raw.at;
+  if (raw.shade === true) {
+    if (!SHADEABLE.includes(raw.indicator)) throw new Error(`series.shade: ${raw.indicator} cannot shade the map (only ${SHADEABLE.join(', ')})`);
+    out.shade = true;
+  }
   if (raw.mark !== undefined && raw.mark !== null) {
     if (raw.view !== 'line') throw new Error('series.mark belongs to a line chart');
     if (!MARKS.includes(raw.mark.kind)) throw new Error(`series.mark.kind must be one of ${MARKS.join(', ')}`);

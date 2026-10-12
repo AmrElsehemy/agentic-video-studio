@@ -10,7 +10,8 @@ import {cameraAt, cameraKeys, continuesMap, episodeCameraKeys, MAP_SIZE, type BB
 import {PHOTO_CARD, PHOTO_HEIGHT, PhotoCard, usePhotos} from './Photos';
 import {FlagBadge, labelNamesCountry, shortCountryName, useFlags} from './Flags';
 import {useElevationData, useGeoData, useReliefData, useSeriesData, useStreetsData, type GeoData} from './data';
-import {LineChart, RaceChart, SERIES_PANEL, SERIES_SLIDE_FRAMES, type SeriesPlace} from './SeriesChart';
+import {FigureReveal} from './FigureReveal';
+import {LineChart, RaceChart, SERIES_PANEL, SERIES_SLIDE_FRAMES, formatFigure, shadeColor, yearAt, type SeriesPlace} from './SeriesChart';
 import {RELIEF_STRENGTH, reliefPlacements} from './relief';
 import {fitInside, labelBox, resolveLabels, type Box, type Placed} from './labels';
 import {labelScale, pop} from './motion';
@@ -18,7 +19,7 @@ import {COUNT_FRAMES, countUp, flash, MARCH, marchOffset, ripple} from './effect
 import {barRows, DataBars, PANEL_FRAMES, panelHeight} from './DataBars';
 import {Bubbles} from './Bubbles';
 import {TIMELINE_HEIGHT, TimelineStrip} from './TimelineStrip';
-import {raceCandidates} from '../../../scripts/lib/series.mjs';
+import {raceCandidates, shadeScale, valueAt} from '../../../scripts/lib/series.mjs';
 import {reconstruction, rotateGeometry} from '../../../scripts/lib/plates.mjs';
 import {partialRotation, trueSizeRotation} from '../../../scripts/lib/true-size.mjs';
 import {destination, kmToDegrees} from '../../../scripts/lib/geodesy.mjs';
@@ -719,7 +720,22 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
     <rect x={SIZE.width - SAFE - 470} y={SIZE.height - SAFE - 56} width={470} height={56} rx={28} fill={styled && look.chip ? look.chip.fill : palette.background} opacity={.88} />
     <text x={SIZE.width - SAFE - 235} y={SIZE.height - SAFE - 26} textAnchor="middle" dominantBaseline="middle" style={{fontFamily: displayFont, fontSize: 26, letterSpacing: 2, fill: styled && look.chip ? look.chip.text : palette.ink}}>© OPENSTREETMAP CONTRIBUTORS</text>
   </g>) : null;
-  const dataFills = <>{valueFills}</>;
+  // A shaded map (series.shade): every country with a figure coloured by its value in the year the chart is showing,
+  // on one scale for the whole chart, so a colour means the same thing in every frame. Countries without a figure stay unshaded.
+  const shaded = primitive.series?.shade && seriesTable ? (() => {
+    const chart = primitive.series!;
+    const scale = shadeScale(seriesTable, chart.indicator, chart.from, chart.to);
+    const year = yearAt(frame, seriesStart + SERIES_SLIDE_FRAMES, Math.max(seriesStart + SERIES_SLIDE_FRAMES + 30, 0.9 * durationInFrames), chart.from, chart.to);
+    const shown = appear(chart.at, 12);
+    const fills = Object.keys(seriesTable.countries).flatMap((code) => {
+      const feature = data.features.get(`country:${code}`);
+      const value = feature ? valueAt(seriesTable, code, year) : null;
+      return feature && value !== null && onScreen(data.entities.get(`country:${code}`)?.bbox) ? [<path key={`shade-${code}`} d={path(feature) ?? ''} fill={shadeColor(scale.t(value))} fillOpacity={shown * .96} />] : [];
+    });
+    const label = (value: number, clipped: boolean, plus: string) => `${formatFigure(chart.indicator, value, seriesTable.decimals)}${clipped ? plus : ''}`;
+    return {fills, key: {low: label(scale.low, scale.clippedLow, ' OR LESS'), high: label(scale.high, scale.clippedHigh, '+')}};
+  })() : undefined;
+  const dataFills = <>{valueFills}{shaded?.fills}</>;
   const surfaceLegend = surface ? out(<g opacity={outro * appear(surface.at, 12)}>{(() => {
     const ink = styled && look.chip ? look.chip.text : palette.ink;
     const flood = surface.kind === 'flood';
@@ -753,7 +769,7 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
     const series = {years: seriesTable.years, countries: seriesTable.countries};
     const accentColor = styled ? look.subject.from : accent;
     const style = {accent: accentColor, ink: styled && look.chip ? look.chip.text : palette.ink, backdrop: styled && look.chip ? look.chip.fill : palette.background, muted: styled ? look.subject.side : palette.ink};
-    const common = {indicator: chart.indicator, title: seriesTable.name, unit: seriesTable.unit, decimals: seriesTable.decimals, series, from: chart.from, to: chart.to, axis: chart.axis, mark: chart.mark, frame, startFrame: seriesStart, endFrame: Math.max(seriesStart + SERIES_SLIDE_FRAMES + 30, 0.9 * durationInFrames), width: SIZE.width, height: SIZE.height, style, credit: 'Source: World Bank (CC BY 4.0)'};
+    const common = {indicator: chart.indicator, title: seriesTable.name, unit: seriesTable.unit, decimals: seriesTable.decimals, series, from: chart.from, to: chart.to, axis: chart.axis, mark: chart.mark, frame, startFrame: seriesStart, endFrame: Math.max(seriesStart + SERIES_SLIDE_FRAMES + 30, 0.9 * durationInFrames), width: SIZE.width, height: SIZE.height, style, credit: 'Source: World Bank (CC BY 4.0)', shadeKey: shaded?.key};
     if (chart.view === 'line') {
       const colors = [accentColor, '#4cc9f0', '#ffd166', '#95e06c'];
       const places: SeriesPlace[] = chart.places.map((id, index) => ({id, code: id.slice('country:'.length), name: shortCountryName(data.entities.get(id)?.name ?? id), color: colors[index % colors.length], flag: flags.href(id)}));
@@ -764,6 +780,10 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
     const lit = chart.places[0] ?? seriesSubject;
     return <RaceChart {...common} places={[]} candidates={raceCodes} names={names} flags={flagByCode} subject={lit?.startsWith('country:') ? lit.slice('country:'.length) : undefined} />;
   })();
+
+  // One number that matters, rolled up over the lower part of the map.
+  const figure = primitive.figure ? <FigureReveal value={primitive.figure.value} unit={primitive.figure.unit} text={primitive.figure.text} decimals={primitive.figure.decimals} frame={frame} startFrame={primitive.figure.at * durationInFrames} width={SIZE.width} height={SIZE.height}
+    style={{accent: styled ? look.subject.from : accent, ink: styled && look.chip ? look.chip.text : palette.ink, backdrop: styled && look.chip ? look.chip.fill : palette.background}} /> : null;
 
   // Bubbles (data view "bubbles"): a circle on each place sized by its value, placed in screen space and drawn flat.
   const bubbleItems = primitive.data?.view === 'bubbles' ? primitive.data.values.flatMap(({entity, value}) => {
@@ -879,7 +899,7 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
           {annotations}
           {pointTexts}
           {legend}
-          {bars}{seriesChart}
+          {bars}{seriesChart}{figure}
           {timeline}{bubbleLayer}
         </g>
       </svg>
@@ -933,7 +953,7 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
         {labelLayer}
       </div>
       {look.vignette > 0 ? <div style={{position: 'absolute', inset: 0, background: `radial-gradient(ellipse at 50% 48%, transparent 45%, rgba(0,0,0,${look.vignette}) 100%)`}} /> : null}
-      <svg width={SIZE.width} height={SIZE.height} viewBox={`0 0 ${SIZE.width} ${SIZE.height}`} style={{position: 'absolute', inset: 0}}><g opacity={outro}>{pointTexts}{flat}{legend}{bars}{seriesChart}{timeline}{bubbleLayer}</g></svg>
+      <svg width={SIZE.width} height={SIZE.height} viewBox={`0 0 ${SIZE.width} ${SIZE.height}`} style={{position: 'absolute', inset: 0}}><g opacity={outro}>{pointTexts}{flat}{legend}{bars}{seriesChart}{figure}{timeline}{bubbleLayer}</g></svg>
     </div>;
   }
 
@@ -946,7 +966,7 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
     {annotations}
     {pointTexts}
     {legend}
-    {bars}{seriesChart}
+    {bars}{seriesChart}{figure}
     {timeline}{bubbleLayer}
     </g>
   </svg>;
@@ -963,7 +983,7 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
       {reliefPlacements(relief, view).map((placement) => <Img key={placement.key} src={staticFile(`geo/relief/${placement.file}`)} style={{position: 'absolute', left: placement.left, top: placement.top, width: placement.width, height: placement.height, maxWidth: 'none'}} />)}
     </div>
     <svg width={SIZE.width} height={SIZE.height} viewBox={`0 0 ${SIZE.width} ${SIZE.height}`} style={{position: 'absolute', inset: 0}}>
-      <g opacity={outro}>{annotations}{pointTexts}{legend}{bars}{seriesChart}{timeline}{bubbleLayer}</g>
+      <g opacity={outro}>{annotations}{pointTexts}{legend}{bars}{seriesChart}{figure}{timeline}{bubbleLayer}</g>
     </svg>
   </div>;
 };
