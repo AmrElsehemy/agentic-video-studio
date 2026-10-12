@@ -46,7 +46,7 @@ export const episodeDraftSchema = z.preprocess(upgradeLegacySubject, z.object({
   paletteVariant: z.string().regex(/^[a-z0-9-]+$/).optional(),
   // How the episode opens and ends. Opening 'bleed': the first scene's picture fills the frame, then settles into its card.
   // Ending 'loop': the last 0.4 seconds fade into the first frame, so a Short that replays does so seamlessly.
-  framing: z.object({opening: z.enum(['card', 'bleed']).optional(), ending: z.enum(['cut', 'loop']).optional()}).strict().optional(),
+  framing: z.object({opening: z.enum(['card', 'bleed']).optional(), ending: z.enum(['cut', 'loop']).optional(), depth: z.enum(['flat', 'tilt']).optional()}).strict().optional(),
   // The music the episode gets (scripts/lib/score.mjs): a mood, with a stereo score arranged for its scenes. Absent keeps the show's loop.
   score: z.enum(SCORE_NAMES).optional(),
   // How a map episode is projected: "auto" (the default) picks one from where the subject sits (src/video/geo/projections.ts).

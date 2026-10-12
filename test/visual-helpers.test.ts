@@ -39,3 +39,15 @@ describe('rolled-up number', () => {
     assert.equal(formatCount(3.5, 1), '3.5');
   });
 });
+
+describe('map depth', () => {
+  const manifest = (extra: object, scenePrimitive: object = {}) => ({framing: {depth: 'tilt'}, ...extra, scenes: [{id: 'a', primitive: {kind: 'geo-map', annotations: [], ...scenePrimitive}}]});
+  it('leans the maps back only when the episode asks and nothing compares sizes or shades values', async () => {
+    const {episodeTilts} = await import('../src/video/geo/GeoMap');
+    assert.equal(episodeTilts(manifest({}) as never), true);
+    assert.equal(episodeTilts(manifest({framing: {}}) as never), false);
+    for (const unsafe of [{morph: true}, {globe: true}, {data: {}}, {surface: {}}, {series: {}}, {figure: {}}, {streets: {}}, {annotations: [{type: 'truesize'}]}]) {
+      assert.equal(episodeTilts(manifest({}, unsafe) as never), false, JSON.stringify(unsafe));
+    }
+  });
+});

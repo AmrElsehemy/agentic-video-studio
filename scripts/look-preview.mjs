@@ -60,7 +60,7 @@ try {
     const [transitionScene, transitionKind] = option('transition', '').split(':');
     const withTransition = transitionScene ? {...withFlags, scenes: withFlags.scenes.map((scene, index) => (index + 1 === Number(transitionScene) ? {...scene, transition: transitionKind, ...(scene.primitive?.kind === 'geo-map' ? {primitive: {...scene.primitive, cut: true}} : {})} : scene))} : withFlags;
     const framing = option('framing', '').split(',').filter(Boolean);
-    const withFraming = framing.length ? {...withTransition, framing: {...(framing.includes('bleed') ? {opening: 'bleed'} : {}), ...(framing.includes('loop') ? {ending: 'loop'} : {})}} : withTransition;
+    const withFraming = framing.length ? {...withTransition, framing: {...(framing.includes('bleed') ? {opening: 'bleed'} : {}), ...(framing.includes('loop') ? {ending: 'loop'} : {}), ...(framing.includes('tilt') ? {depth: 'tilt'} : {})}} : withTransition;
     const styled = {...withFraming, look, ...(PALETTES[look] ? {palette: PALETTES[look]} : {})};
     const inputProps = {manifest: styled};
     const composition = await selectComposition({serveUrl, id: 'VerticalEpisode', inputProps, puppeteerInstance: browser});

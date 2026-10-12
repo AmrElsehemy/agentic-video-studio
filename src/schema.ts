@@ -62,7 +62,7 @@ export const videoSchema = z.object({
   // How map scenes are painted (src/video/geo/look.ts); the classic flat map when absent.
   look: z.enum(['classic', 'neon', 'atlas', 'terrain']).optional(),
   // How the episode opens ('bleed': the first picture fills the frame, then settles into its card) and ends ('loop': fades into the first frame).
-  framing: z.object({opening: z.enum(['card', 'bleed']).optional(), ending: z.enum(['cut', 'loop']).optional()}).strict().optional(),
+  framing: z.object({opening: z.enum(['card', 'bleed']).optional(), ending: z.enum(['cut', 'loop']).optional(), depth: z.enum(['flat', 'tilt']).optional()}).strict().optional(),
   // An architecture diagram (#120) with its layout, computed when the episode was compiled.
   diagram: z.object({
     spec: z.union([archSpecSchema, diagramSpecSchema]),

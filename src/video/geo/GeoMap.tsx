@@ -190,7 +190,28 @@ const useCameraPath = ({data: primitive, scene, manifest, seams}: GeoMapProps) =
  * 1/(n+1) over those below, which weighs every render equally. `blur: false`
  * draws the single frame (a still such as the cover).
  */
-export const GeoMapVisual: React.FC<GeoMapProps & {blur?: boolean}> = ({blur = true, ...props}) => {
+/** How far a tilted map leans back, in degrees: enough to read as depth, little enough that sizes stay readable (about 4% across the card). */
+export const TILT_DEGREES = 6;
+
+/**
+ * Whether an episode's maps may lean back (framing.depth 'tilt'). A tilt shrinks the far edge, so it is only for episodes
+ * where no map scene compares sizes or shades a value: a true-size copy, a data layer, a surface, a chart, a big number,
+ * a street plan, a morph or a globe turns it off for the whole episode (one scene flat and the next tilted would jump).
+ */
+export const episodeTilts = (manifest: GeoMapProps['manifest']) => manifest.framing?.depth === 'tilt' && manifest.scenes.every((scene) => {
+  const p = scene.primitive;
+  return p?.kind !== 'geo-map' || !(p.morph || p.globe || p.data || p.surface || p.series || p.figure || p.streets || p.annotations.some((annotation) => annotation.type === 'truesize'));
+});
+
+/** The map, leaning back when the episode asks for depth; it eases in over the first moment of the first scene. */
+export const GeoMapVisual: React.FC<GeoMapProps & {blur?: boolean}> = (props) => {
+  const {manifest, scene, frame} = props;
+  if (!episodeTilts(manifest)) return <GeoMapBlurred {...props} />;
+  const settle = manifest.scenes[0]?.id === scene.id ? 1 - (1 - Math.min(1, frame / 24)) ** 3 : 1;
+  return <div style={{position: 'absolute', inset: 0, transform: `perspective(1700px) rotateX(${TILT_DEGREES * settle}deg)`, transformOrigin: '50% 70%'}}><GeoMapBlurred {...props} /></div>;
+};
+
+const GeoMapBlurred: React.FC<GeoMapProps & {blur?: boolean}> = ({blur = true, ...props}) => {
   const {data, keys, viewAt} = useCameraPath(props);
   if (!blur || !data || !keys) return <GeoMapFrame {...props} />;
   const {frame, durationInFrames} = props;
