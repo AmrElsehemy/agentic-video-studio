@@ -4,6 +4,7 @@
 //                                                                                add numbers from YouTube Studio by hand
 //   npm run analytics -- fetch <id>        pull the numbers and retention curve from the YouTube Analytics API
 //   npm run analytics -- live <show>       current views, likes and comments for every upload on the show's channel (no delay)
+//   npm run analytics -- compare <show> [--at-day=N]   which features go with more views (reads the live counts saved by `live`)
 //   npm run analytics -- report            every published episode, its numbers and how it was built
 //   npm run analytics -- link-channel <show> [--dry-run]   link every upload on the show's channel to its episode, by title
 // Files live in analytics/<show>/<id>.json and are committed, so the history is kept.
@@ -11,6 +12,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {findManifest, listManifests, repoRoot as root, resolveEpisodeId} from './catalog.mjs';
 import {addSnapshot, analyticsPath, buildReport, fetchYouTubeSnapshot, linkVideo, MIN_EPISODES_FOR_TRENDS, readAnalytics, writeAnalytics} from './lib/analytics.mjs';
+import {appendHistory, compareByTag, MIN_GROUP} from './lib/compare.mjs';
+import {featureTags} from './lib/feature-tags.mjs';
 import {readProduction, summarizeProduction} from './lib/production.mjs';
 import {loadShow} from './lib/shows.mjs';
 import {assertShowChannel, channelOf, getAccessToken, listUploads, liveStats, matchUploads} from './lib/youtube.mjs';
@@ -18,7 +21,7 @@ import {assertShowChannel, channelOf, getAccessToken, listUploads, liveStats, ma
 const [command, target, ...rest] = process.argv.slice(2);
 const option = (name) => rest.find((arg) => arg.startsWith(`--${name}=`))?.slice(name.length + 3);
 const usage = () => {
-  console.error('Usage: npm run analytics -- link <id> <video> [--published-at=<ISO>] | record <id> --views=N [...] | fetch <id> | report | link-channel <show> [--dry-run] | live <show>');
+  console.error('Usage: npm run analytics -- link <id> <video> [--published-at=<ISO>] | record <id> --views=N [...] | fetch <id> | report | link-channel <show> [--dry-run] | live <show> | compare <show> [--at-day=N]');
   process.exit(1);
 };
 
@@ -158,7 +161,34 @@ if (command === 'link') {
   const live = rows.filter((row) => row.status === 'public');
   console.log(`\n${live.length} public: ${live.reduce((sum, row) => sum + row.views, 0).toLocaleString('en-US')} views in total`);
   fs.mkdirSync(path.join(root, 'out'), {recursive: true});
-  fs.writeFileSync(path.join(root, 'out', `live-${show.id}.json`), `${JSON.stringify({capturedAt: new Date().toISOString(), channel: channel.title, videos: rows}, null, 2)}\n`);
+  const capturedAt = new Date().toISOString();
+  fs.writeFileSync(path.join(root, 'out', `live-${show.id}.json`), `${JSON.stringify({capturedAt, channel: channel.title, videos: rows}, null, 2)}\n`);
+  // Counts over time are kept (committed) so episodes can later be compared at the same age.
+  const historyFile = path.join(root, 'analytics', show.id, 'live', 'history.json');
+  const history = fs.existsSync(historyFile) ? JSON.parse(fs.readFileSync(historyFile, 'utf8')) : [];
+  const entry = {capturedAt, videos: Object.fromEntries(rows.filter((row) => row.status === 'public').map((row) => [row.videoId, {views: row.views, likes: row.likes, comments: row.comments}]))};
+  fs.mkdirSync(path.dirname(historyFile), {recursive: true});
+  fs.writeFileSync(historyFile, `${JSON.stringify(appendHistory(history, entry), null, 1)}\n`);
+} else if (command === 'compare') {
+  if (!target) usage();
+  const show = loadShow(target);
+  const livePath = path.join(root, 'out', `live-${show.id}.json`);
+  if (!fs.existsSync(livePath)) throw new Error(`No live counts yet. Run: npm run analytics -- live ${show.id}`);
+  const live = JSON.parse(fs.readFileSync(livePath, 'utf8'));
+  const historyFile = path.join(root, 'analytics', show.id, 'live', 'history.json');
+  const history = fs.existsSync(historyFile) ? JSON.parse(fs.readFileSync(historyFile, 'utf8')) : [];
+  const manifests = new Map(listManifests().map((file) => JSON.parse(fs.readFileSync(file, 'utf8'))).filter((manifest) => manifest.show.id === show.id).map((manifest) => [manifest.id, manifest]));
+  const rows = live.videos.filter((video) => video.status === 'public' && manifests.has(video.episode)).map((video) => ({episodeId: video.episode, videoId: video.videoId, publishedAt: video.publishedAt, views: video.views, likes: video.likes, tags: featureTags(manifests.get(video.episode))}));
+  const matchAge = option('at-day') ? Number(option('at-day')) : undefined;
+  const result = compareByTag(rows, {now: new Date(live.capturedAt), history, matchAge});
+  const fixed = (value, digits = 0) => (value === undefined ? '–' : value.toFixed(digits));
+  console.log(`${result.episodes} public episodes old enough to read, by ${result.metric} (live counts of ${live.capturedAt.slice(0, 16)}Z).`);
+  console.log(`A feature is only ranked when ≥${MIN_GROUP} episodes have it AND ≥${MIN_GROUP} don't; everything else is shown for reference, not as a finding.\n`);
+  console.log('| feature | with (n) | median | without (n) | median | ratio | like rate with / without |');
+  console.log('|---|---|---|---|---|---|---|');
+  for (const group of result.groups) console.log(`| ${group.tag} | ${group.with.n} | ${fixed(group.with.medianRate)} | ${group.without.n} | ${fixed(group.without.medianRate)} | ${group.readable ? `${fixed(group.ratio, 2)}×` : 'too few'} | ${fixed((group.with.medianLikeRate ?? NaN) * 100, 1)}% / ${fixed((group.without.medianLikeRate ?? NaN) * 100, 1)}% |`);
+  const hidden = [...manifests.values()].length - result.episodes;
+  console.log(`\n${hidden} of the show's episodes aren't counted (not public yet, or under 2 days old${matchAge ? `, or not tracked to day ${matchAge}` : ''}).`);
 } else {
   usage();
 }
