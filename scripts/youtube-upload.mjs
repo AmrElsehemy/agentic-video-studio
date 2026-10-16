@@ -43,7 +43,14 @@ if (!publishAt && !explicitPrivacy && show.publishing?.schedule) {
   const channel = await channelOf(accessToken);
   assertShowChannel(show, channel);
   const uploads = await listUploads(accessToken, channel.uploads);
-  publishAt = nextSlot(show.publishing.schedule, {after: latestTaken(await liveStats(accessToken, uploads.map((video) => video.videoId)))});
+  // YouTube's uploads list lags a few seconds behind an upload, so back-to-back uploads would pick the same slot:
+  // the receipts of this show's earlier uploads count as taken too.
+  const showOut = path.join(root, 'out', show.id);
+  const receipts = (fs.existsSync(showOut) ? fs.readdirSync(showOut) : []).flatMap((dir) => {
+    const file = path.join(showOut, dir, `${dir}-youtube.json`);
+    return fs.existsSync(file) ? [{publishAt: JSON.parse(fs.readFileSync(file, 'utf8')).scheduledPublishAt}] : [];
+  });
+  publishAt = nextSlot(show.publishing.schedule, {after: latestTaken([...(await liveStats(accessToken, uploads.map((video) => video.videoId))), ...receipts])});
   console.log(`▶ next free slot on ${channel.title}: ${publishAt}`);
 }
 
