@@ -419,52 +419,31 @@
           {
             "target": {
               "bbox": [
-                24.7,
-                -18.3,
-                25.8,
-                -17.3
+                25.24741,
+                -17.81194,
+                25.27759,
+                -17.77026
               ]
             },
             "at": 0,
-            "padding": 0.1,
-            "ease": "in-out"
+            "padding": 0,
+            "ease": "linear"
           },
           {
             "target": {
               "bbox": [
-                25.0,
-                -18.0,
-                25.5,
-                -17.6
+                25.2565,
+                -17.7956,
+                25.2685,
+                -17.7866
               ]
             },
-            "at": 0.85,
-            "padding": 0.1,
+            "at": 1,
+            "padding": 0,
             "ease": "in-out"
           }
         ],
-        "highlights": [
-          {
-            "entity": "country:BWA",
-            "style": "fill",
-            "at": 0.2
-          },
-          {
-            "entity": "country:ZMB",
-            "style": "fill",
-            "at": 0.2
-          },
-          {
-            "entity": "country:ZWE",
-            "style": "outline",
-            "at": 0.2
-          },
-          {
-            "entity": "country:NAM",
-            "style": "outline",
-            "at": 0.2
-          }
-        ],
+        "highlights": [],
         "annotations": [
           {
             "type": "marker",
@@ -472,12 +451,16 @@
               "lon": 25.2625,
               "lat": -17.7911
             },
-            "text": "ABOUT 150 M OF BORDER",
+            "text": "A 150 M BORDER",
             "at": 0.4
           }
         ],
         "dataset": "natural-earth",
         "ambience": "none",
+        "streets": {
+          "city": "kazungula",
+          "at": 0.05
+        },
         "projection": "albers"
       }
     },
