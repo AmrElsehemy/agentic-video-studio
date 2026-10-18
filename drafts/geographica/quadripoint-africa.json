@@ -289,10 +289,10 @@
           {
             "target": {
               "bbox": [
-                23.5,
-                -19.2,
-                27.0,
-                -16.4
+                24.7,
+                -18.3,
+                25.8,
+                -17.3
               ]
             },
             "at": 0,
@@ -309,41 +309,21 @@
               ]
             },
             "at": 0.85,
-            "padding": 0.1,
+            "padding": 0.05,
             "ease": "in-out"
           }
         ],
-        "highlights": [
-          {
-            "entity": "country:BWA",
-            "style": "outline",
-            "at": 0.2
-          },
-          {
-            "entity": "country:NAM",
-            "style": "outline",
-            "at": 0.2
-          },
-          {
-            "entity": "country:ZMB",
-            "style": "outline",
-            "at": 0.2
-          },
-          {
-            "entity": "country:ZWE",
-            "style": "outline",
-            "at": 0.2
-          }
-        ],
+        "highlights": [],
         "annotations": [
           {
-            "type": "marker",
-            "anchor": {
-              "lon": 25.2625,
-              "lat": -17.7911
-            },
-            "text": "SHOTS FIRED AT THE FERRY",
-            "at": 0.35
+            "type": "photo",
+            "photo": "kazungula-ferry",
+            "fill": true,
+            "at": 0,
+            "pan": [
+              0.4,
+              0.6
+            ]
           }
         ],
         "dataset": "natural-earth",
@@ -602,38 +582,28 @@
           {
             "target": {
               "bbox": [
-                25.0,
-                -18.0,
-                25.5,
-                -17.6
+                24.7,
+                -18.3,
+                25.8,
+                -17.3
               ]
             },
             "at": 0.85,
-            "padding": 0.1,
+            "padding": 0.05,
             "ease": "in-out"
           }
         ],
-        "highlights": [
-          {
-            "entity": "country:BWA",
-            "style": "outline",
-            "at": 0.2
-          },
-          {
-            "entity": "country:ZMB",
-            "style": "outline",
-            "at": 0.2
-          }
-        ],
+        "highlights": [],
         "annotations": [
           {
-            "type": "marker",
-            "anchor": {
-              "lon": 25.2625,
-              "lat": -17.7911
-            },
-            "text": "A 150 M BORDER",
-            "at": 0.4
+            "type": "photo",
+            "photo": "kazungula-landing",
+            "fill": true,
+            "at": 0,
+            "pan": [
+              0.55,
+              0.35
+            ]
           }
         ],
         "dataset": "natural-earth",

@@ -100,6 +100,22 @@
         "licenseStatus": "licensed",
         "publicReleaseApproved": true,
         "notes": "Flags: flag-icons (MIT)."
+      },
+      {
+        "kind": "photo",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:KazungulaFerry.jpg",
+        "owner": "Mirko Raner at English Wikipedia",
+        "licenseStatus": "licensed",
+        "publicReleaseApproved": true,
+        "notes": "Photo: Mirko Raner at English Wikipedia / Wikimedia Commons / CC BY 3.0."
+      },
+      {
+        "kind": "photo",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Botswana_Kazungula_Bridge.jpg",
+        "owner": "Gaone1991",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Photo: Gaone1991 / Wikimedia Commons (CC0)."
       }
     ]
   },
@@ -376,10 +392,10 @@
           {
             "target": {
               "bbox": [
-                23.5,
-                -19.2,
-                27,
-                -16.4
+                24.7,
+                -18.3,
+                25.8,
+                -17.3
               ]
             },
             "at": 0,
@@ -396,41 +412,21 @@
               ]
             },
             "at": 0.85,
-            "padding": 0.1,
+            "padding": 0.05,
             "ease": "in-out"
           }
         ],
-        "highlights": [
-          {
-            "entity": "country:BWA",
-            "style": "outline",
-            "at": 0.2
-          },
-          {
-            "entity": "country:NAM",
-            "style": "outline",
-            "at": 0.2
-          },
-          {
-            "entity": "country:ZMB",
-            "style": "outline",
-            "at": 0.2
-          },
-          {
-            "entity": "country:ZWE",
-            "style": "outline",
-            "at": 0.2
-          }
-        ],
+        "highlights": [],
         "annotations": [
           {
-            "type": "marker",
-            "anchor": {
-              "lon": 25.2625,
-              "lat": -17.7911
-            },
-            "text": "SHOTS FIRED AT THE FERRY",
-            "at": 0.35
+            "type": "photo",
+            "photo": "kazungula-ferry",
+            "fill": true,
+            "pan": [
+              0.4,
+              0.6
+            ],
+            "at": 0
           }
         ],
         "dataset": "natural-earth",
@@ -713,38 +709,28 @@
           {
             "target": {
               "bbox": [
-                25,
-                -18,
-                25.5,
-                -17.6
+                24.7,
+                -18.3,
+                25.8,
+                -17.3
               ]
             },
             "at": 0.85,
-            "padding": 0.1,
+            "padding": 0.05,
             "ease": "in-out"
           }
         ],
-        "highlights": [
-          {
-            "entity": "country:BWA",
-            "style": "outline",
-            "at": 0.2
-          },
-          {
-            "entity": "country:ZMB",
-            "style": "outline",
-            "at": 0.2
-          }
-        ],
+        "highlights": [],
         "annotations": [
           {
-            "type": "marker",
-            "anchor": {
-              "lon": 25.2625,
-              "lat": -17.7911
-            },
-            "text": "A 150 M BORDER",
-            "at": 0.4
+            "type": "photo",
+            "photo": "kazungula-landing",
+            "fill": true,
+            "pan": [
+              0.55,
+              0.35
+            ],
+            "at": 0
           }
         ],
         "dataset": "natural-earth",
