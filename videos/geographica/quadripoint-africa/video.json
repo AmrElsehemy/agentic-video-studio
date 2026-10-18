@@ -628,48 +628,28 @@
           {
             "target": {
               "bbox": [
-                25,
-                -18,
-                25.5,
-                -17.6
+                24.7,
+                -18.3,
+                25.8,
+                -17.3
               ]
             },
             "at": 0.85,
-            "padding": 0.1,
+            "padding": 0.05,
             "ease": "in-out"
           }
         ],
-        "highlights": [
-          {
-            "entity": "country:BWA",
-            "style": "outline",
-            "at": 0.2
-          },
-          {
-            "entity": "country:NAM",
-            "style": "outline",
-            "at": 0.2
-          },
-          {
-            "entity": "country:ZMB",
-            "style": "outline",
-            "at": 0.2
-          },
-          {
-            "entity": "country:ZWE",
-            "style": "outline",
-            "at": 0.2
-          }
-        ],
+        "highlights": [],
         "annotations": [
           {
-            "type": "marker",
-            "anchor": {
-              "lon": 25.2625,
-              "lat": -17.7911
-            },
-            "text": "KAZUNGULA BRIDGE",
-            "at": 0.35
+            "type": "photo",
+            "photo": "kazungula-landing",
+            "fill": true,
+            "pan": [
+              0.55,
+              0.35
+            ],
+            "at": 0
           }
         ],
         "dataset": "natural-earth",
@@ -709,28 +689,38 @@
           {
             "target": {
               "bbox": [
-                24.7,
-                -18.3,
-                25.8,
-                -17.3
+                25,
+                -18,
+                25.5,
+                -17.6
               ]
             },
             "at": 0.85,
-            "padding": 0.05,
+            "padding": 0.1,
             "ease": "in-out"
           }
         ],
-        "highlights": [],
+        "highlights": [
+          {
+            "entity": "country:BWA",
+            "style": "outline",
+            "at": 0.2
+          },
+          {
+            "entity": "country:ZMB",
+            "style": "outline",
+            "at": 0.2
+          }
+        ],
         "annotations": [
           {
-            "type": "photo",
-            "photo": "kazungula-landing",
-            "fill": true,
-            "pan": [
-              0.55,
-              0.35
-            ],
-            "at": 0
+            "type": "marker",
+            "anchor": {
+              "lon": 25.2625,
+              "lat": -17.7911
+            },
+            "text": "A 150 M BORDER",
+            "at": 0.4
           }
         ],
         "dataset": "natural-earth",
