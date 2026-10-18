@@ -92,6 +92,30 @@
         "licenseStatus": "public-domain",
         "publicReleaseApproved": true,
         "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      },
+      {
+        "kind": "photo",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aral_Sea_1989-2008.jpg",
+        "owner": "NASA, derivative work by Zafiroblue05 at en.wikipedia",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Photo: NASA, derivative work by Zafiroblue05 at en.wikipedia / Wikimedia Commons (Public domain)."
+      },
+      {
+        "kind": "photo",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aral_sea_20090503.jpg",
+        "owner": "NASA’s Terra satellite",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Photo: NASA’s Terra satellite / Wikimedia Commons (Public domain)."
+      },
+      {
+        "kind": "photo",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aral_Sea_2021.jpg",
+        "owner": "NASA",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Photo: NASA / Wikimedia Commons (Public domain)."
       }
     ]
   },
@@ -153,13 +177,9 @@
         ],
         "annotations": [
           {
-            "type": "label",
-            "anchor": {
-              "lon": 59.2,
-              "lat": 45
-            },
-            "text": "THE ARAL SEA TODAY",
-            "at": 0.35
+            "type": "photo",
+            "photo": "aral-1989-2008",
+            "at": 0.2
           }
         ],
         "dataset": "natural-earth",
@@ -507,6 +527,11 @@
             "radiusKm": 46.5,
             "text": "10%: SAME AREA, A CIRCLE",
             "at": 0.45
+          },
+          {
+            "type": "photo",
+            "photo": "aral-2009",
+            "at": 0.25
           }
         ],
         "dataset": "natural-earth",
@@ -525,7 +550,7 @@
       "eyebrow": "2014",
       "headline": "EASTERN BASIN DRY",
       "narration": "In 2014, NASA saw the eastern basin dry up completely.",
-      "caption": "AUGUST 2014: EASTERN BASIN DRY (NASA)",
+      "caption": "EASTERN BASIN DRY SINCE 2014 (NASA)",
       "visual": "tradeoff",
       "primitive": {
         "kind": "geo-map",
@@ -566,13 +591,9 @@
         ],
         "annotations": [
           {
-            "type": "label",
-            "anchor": {
-              "lon": 60.3,
-              "lat": 44.7
-            },
-            "text": "EASTERN BASIN: DRY",
-            "at": 0.4
+            "type": "photo",
+            "photo": "aral-2021",
+            "at": 0.25
           }
         ],
         "dataset": "natural-earth",

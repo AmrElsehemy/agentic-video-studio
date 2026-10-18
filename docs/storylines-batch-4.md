@@ -13,7 +13,7 @@ Plan and reasoning: [storylines-batch-4-plan.md](storylines-batch-4-plan.md). Ev
 | 7 | shrinking-countries | transformation | light | bleed | three Baltic population lines, Japan line with verified PEAK 2010, zoom |
 | 8 | aleutians-east-west | mechanic | neon | loop | globe, 180th meridian line, 15.6 km ring at the island, flash |
 | 9 | vietnam-china-forty-fold | transformation | classic dark |  | world shaded by GDP per person 1990 to 2022 (current US$), wipe |
-| 10 | aral-sea-gone | transformation | terrain | bleed | same-area circles (68,000 and 10%) over today's outline, rivers, timeline |
+| 10 | aral-sea-gone | transformation | terrain | bleed | NASA satellite photos (1989 and 2008 side by side, 2009, 2021), same-area circles (68,000 and 10%), rivers, timeline |
 
 Patterns: 4 transformation, 3 mystery, 1 profile, 1 comparison, 1 mechanic. Looks: 2 each of light, atlas, terrain, classic dark and neon.
 
@@ -23,7 +23,7 @@ Patterns: 4 transformation, 3 mystery, 1 profile, 1 comparison, 1 mechanic. Look
 - Cabinda: the director highlighted all of Angola for 7,290 km²; the scenes now zoom on Cabinda. There is no Cabinda region in the map data.
 - Aleutians: the director anchored "Semisopochnoi" to Alaska's centre and drew a 15.6 km ring there; markers now sit at the island's coordinates (Wikipedia).
 - Quadripoint: two markers hundreds of kilometres apart for tripoints 100 to 150 metres apart; now one marker at Kazungula.
-- Aral Sea: Natural Earth's lake outlines are today's remnants, so the old areas (68,000 km², 10%) are drawn as same-area circles and labelled as such.
+- Aral Sea: Natural Earth's lake outlines are today's remnants, so the old areas (68,000 km², 10%) are drawn as same-area circles and labelled as such. After review ("Aral Sea sucks") the hook, the 10% scene and the 2014 scene now show NASA's public-domain satellite photos (Wikimedia Commons), which show the real shrinkage.
 - shrinking-countries: a bar layer with Natural Earth population figures (not the World Bank's) was removed; the Baltic chart starts at 1990 on a zero axis.
 - china-one-time-zone: an irrelevant area comparison with Afghanistan was removed.
 
