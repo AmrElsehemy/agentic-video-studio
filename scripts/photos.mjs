@@ -1,6 +1,6 @@
 // Photographs from Wikimedia Commons, with their credit.
 //   npm run photos -- search <words...>          list likely files with their licences (usable ones first)
-//   npm run photos -- add <slug> "<File:Name.jpg>" [--caption="..."]   download one (it must be public domain, CC0 or CC BY) into public/photos/
+//   npm run photos -- add <slug> "<File:Name.jpg>" [--caption="..."] [--allow-share-alike]   download one (it must be public domain, CC0 or CC BY; CC BY-SA only with the flag, a person's decision per photo) into public/photos/
 //   npm run photos -- verify                     check the files and their credits (no network)
 import fs from 'node:fs';
 import path from 'node:path';
@@ -39,6 +39,8 @@ if (command === 'search') {
   if (!/^[a-z0-9-]+$/.test(slug ?? '') || !title) throw new Error('Usage: npm run photos -- add <slug> "File:Name.jpg" [--caption="..."]');
   const reply = await api({action: 'query', titles: title, ...infoParams});
   const file = describeFile(Object.values(reply.query.pages)[0]);
+  // CC BY-SA is refused unless the person decided, for this one photo, to accept the share-alike term (--allow-share-alike).
+  if (!file.kind && rest.includes('--allow-share-alike') && /^CC BY-SA( \d(\.\d)?)?$/i.test(file.license.trim())) file.kind = 'attribution';
   if (!file.kind) throw new Error(`${file.title}: ${refusal(file.license)}.`);
   if (!file.author) throw new Error(`${file.title} names no author; a photo is only used with its credit.`);
   const response = await fetchWithReason('Wikimedia Commons', file.imageUrl, {headers: {'user-agent': USER_AGENT}});
