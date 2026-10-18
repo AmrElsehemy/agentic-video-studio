@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "id": "vietnam-china-forty-fold",
+  "subject": "Vietnam",
+  "kind": "curated",
+  "note": "Hand-curated from the pinned World Bank series (public/geo/series.json): GDP per capita, current US$ (NY.GDP.PCAP.CD), 1990 and 2022. Current dollars are not adjusted for inflation, so every country's figure rises; the claim compares growth between countries. Counts use the 190 countries and territories with a figure in both years.",
+  "regions": [
+    "Vietnam"
+  ],
+  "claims": [
+    {
+      "id": "vietnam",
+      "text": "Vietnam's GDP per capita (current US$) was US$98.80 in 1990 and US$4,147.69 in 2022, about 42 times as much.",
+      "tier": "official",
+      "sources": [
+        "world-bank-gdp"
+      ]
+    },
+    {
+      "id": "china",
+      "text": "China's GDP per capita (current US$) was US$318.50 in 1990 and US$12,970.61 in 2022, about 41 times as much.",
+      "tier": "official",
+      "sources": [
+        "world-bank-gdp"
+      ]
+    },
+    {
+      "id": "rank",
+      "text": "Among the 190 countries and territories with figures in both years, Vietnam had the largest multiple, followed by China.",
+      "tier": "official",
+      "sources": [
+        "world-bank-gdp"
+      ]
+    },
+    {
+      "id": "ten-k",
+      "text": "41 of those 190 had a GDP per capita of US$10,000 or more in 1990, and 81 in 2022 (current US$).",
+      "tier": "official",
+      "sources": [
+        "world-bank-gdp"
+      ]
+    },
+    {
+      "id": "inflation",
+      "text": "The figures are in current US dollars and are not adjusted for inflation.",
+      "tier": "official",
+      "sources": [
+        "world-bank-gdp"
+      ]
+    }
+  ],
+  "places": {},
+  "sources": {
+    "world-bank-gdp": {
+      "label": "World Bank, World Development Indicators: GDP per capita, current US$ (NY.GDP.PCAP.CD)",
+      "url": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD"
+    },
+    "natural-earth": {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  }
+}

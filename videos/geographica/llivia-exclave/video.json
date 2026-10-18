@@ -1,0 +1,629 @@
+{
+  "schemaVersion": 2,
+  "id": "llivia-exclave",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica",
+    "wordmark": {
+      "lead": "GEO",
+      "accent": "GRAPHICA"
+    },
+    "fonts": {
+      "display": "Oswald",
+      "body": "Inter"
+    },
+    "captions": {
+      "mode": "words"
+    }
+  },
+  "title": "The Spanish Town Stuck Inside France",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "profile",
+    "numberRelevant": true,
+    "premise": "Llívia is a Spanish town surrounded by France because a 1659 treaty gave France only villages.",
+    "audiencePromise": "See a Spanish town inside France.",
+    "openLoop": "Why did this town stay Spanish?",
+    "payoff": "A 1659 treaty gave France villages, and Llívia counted as a town.",
+    "targetEmotion": "surprise",
+    "engagementQuestion": "Which side would you drive on?",
+    "targetSecondsBetweenVisualChanges": 0.72
+  },
+  "subject": {
+    "name": "Llívia",
+    "category": "Border",
+    "attributes": {
+      "geoEntity": "country:ESP"
+    }
+  },
+  "related": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#06161c",
+    "surface": "#2f5d3c",
+    "primary": "#ffd166",
+    "secondary": "#10424d",
+    "ink": "#f7f2dc"
+  },
+  "look": "terrain",
+  "audio": {
+    "music": "generated/llivia-exclave-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 96,
+      "notes": [
+        98,
+        116.54,
+        130.81,
+        146.83,
+        130.81,
+        116.54,
+        87.31,
+        98
+      ]
+    },
+    "voice": {
+      "provider": "elevenlabs",
+      "model": "eleven_v4",
+      "voice": "JBFqnCBsd6RMkjVDRZzb",
+      "instructions": "Warm, curious storyteller walking a friend across a map. Clear and confident, with a sense of discovery on each reveal; slow slightly on dates and place names so they land. Conversational and human, never a documentary announcer, lecture, or neutral TTS. Never imitate a known person or character.",
+      "speed": 1.06,
+      "output": "generated/llivia-exclave-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      },
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.openstreetmap.org/copyright",
+        "owner": "OpenStreetMap contributors",
+        "licenseStatus": "licensed",
+        "publicReleaseApproved": true,
+        "notes": "© OpenStreetMap contributors (ODbL)."
+      },
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://github.com/lipis/flag-icons/blob/main/LICENSE",
+        "owner": "flag-icons",
+        "licenseStatus": "licensed",
+        "publicReleaseApproved": true,
+        "notes": "Flags: flag-icons (MIT)."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "durationSeconds": 3.8,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "mystery",
+      "subjectFocus": "hidden",
+      "beatEverySeconds": 0.72,
+      "eyebrow": "LLÍVIA",
+      "headline": "SPAIN INSIDE FRANCE",
+      "narration": "This Spanish town is surrounded by France.",
+      "caption": "A SPANISH TOWN SURROUNDED BY FRANCE",
+      "visual": "hook",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -9.292,
+                36.006,
+                8.2,
+                51.088
+              ]
+            },
+            "at": 0,
+            "padding": 0.25,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -9.292,
+                36.006,
+                8.2,
+                51.088
+              ]
+            },
+            "at": 1,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:FRA",
+            "style": "fill",
+            "at": 0.2
+          },
+          {
+            "entity": "country:ESP",
+            "style": "outline",
+            "at": 0.35
+          }
+        ],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": "country:ESP",
+            "text": "LLÍVIA",
+            "at": 0.5
+          },
+          {
+            "type": "label",
+            "anchor": "country:ESP",
+            "text": "LLÍVIA, CATALONIA",
+            "at": 0.58
+          },
+          {
+            "type": "label",
+            "anchor": "country:FRA",
+            "text": "FRANCE",
+            "at": 0.3
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "space",
+        "flags": true,
+        "globe": true
+      }
+    },
+    {
+      "id": "evidence",
+      "durationSeconds": 4.3,
+      "beat": "evidence",
+      "role": "evidence",
+      "shot": "tracking",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.72,
+      "eyebrow": "THE TOWN",
+      "headline": "1,562 PEOPLE",
+      "narration": "Llívia is a Catalan town with 1,562 people.",
+      "caption": "LLÍVIA: 1,562 PEOPLE, 2025",
+      "visual": "gauntlet",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                1.97013,
+                42.44854,
+                1.99847,
+                42.47886
+              ]
+            },
+            "at": 0,
+            "padding": 0,
+            "ease": "linear"
+          },
+          {
+            "target": {
+              "bbox": [
+                1.96969,
+                42.45001,
+                1.99891,
+                42.47933
+              ]
+            },
+            "at": 1,
+            "padding": 0,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": {
+              "lon": 1.9843,
+              "lat": 42.4637
+            },
+            "text": "LLÍVIA",
+            "at": 0.2
+          }
+        ],
+        "dataset": "natural-earth",
+        "projection": "albers",
+        "ambience": "none",
+        "streets": {
+          "city": "llivia",
+          "at": 0.05
+        }
+      }
+    },
+    {
+      "id": "evidence-2",
+      "durationSeconds": 6,
+      "beat": "evidence",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.72,
+      "eyebrow": "THE GAP",
+      "headline": "1.6 KM OF FRANCE",
+      "narration": "A strip of France 1.6 kilometres wide separates it from Spain.",
+      "caption": "A 1.6 KM FRENCH CORRIDOR",
+      "visual": "advantage",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -9.292,
+                36.006,
+                8.2,
+                51.088
+              ]
+            },
+            "at": 0,
+            "padding": 0.2,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -9.292,
+                36.006,
+                8.2,
+                51.088
+              ]
+            },
+            "at": 1,
+            "padding": 0.08,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:FRA",
+            "style": "fill",
+            "at": 0.2
+          },
+          {
+            "entity": "country:ESP",
+            "style": "outline",
+            "at": 0.38
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:FRA",
+            "text": "FRANCE",
+            "at": 0.25
+          },
+          {
+            "type": "label",
+            "anchor": "country:ESP",
+            "text": "SPAIN",
+            "at": 0.42
+          },
+          {
+            "type": "ring",
+            "center": "country:ESP",
+            "radiusKm": 1.6,
+            "text": "1.6 KM WIDE",
+            "at": 0.55
+          }
+        ],
+        "dataset": "natural-earth",
+        "projection": "albers",
+        "ambience": "wind",
+        "flags": true
+      }
+    },
+    {
+      "id": "evidence-3",
+      "durationSeconds": 4.1,
+      "beat": "evidence",
+      "role": "evidence",
+      "shot": "wide",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.72,
+      "eyebrow": "THE ROAD",
+      "headline": "NO BORDER POST",
+      "narration": "One road crosses it, owned by both countries.",
+      "caption": "A SHARED ROAD. NO FORMAL BORDER SINCE 1995",
+      "visual": "gauntlet",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                1.97013,
+                42.44854,
+                1.99847,
+                42.47886
+              ]
+            },
+            "at": 0,
+            "padding": 0,
+            "ease": "linear"
+          },
+          {
+            "target": {
+              "bbox": [
+                1.96969,
+                42.45001,
+                1.99891,
+                42.47933
+              ]
+            },
+            "at": 1,
+            "padding": 0,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "timeline",
+            "steps": [
+              {
+                "label": "1659 TREATY",
+                "detail": "VILLAGES"
+              },
+              {
+                "label": "1995 SCHENGEN",
+                "detail": "NO BORDER"
+              },
+              {
+                "label": "TODAY",
+                "detail": "SHARED ROAD"
+              }
+            ],
+            "active": 1,
+            "at": 0.62
+          }
+        ],
+        "dataset": "natural-earth",
+        "projection": "albers",
+        "ambience": "none",
+        "streets": {
+          "city": "llivia",
+          "at": 0.05
+        }
+      }
+    },
+    {
+      "id": "escalation",
+      "durationSeconds": 4.3,
+      "beat": "escalation",
+      "role": "escalation",
+      "shot": "comparison",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.72,
+      "eyebrow": "1659",
+      "headline": "A TREATY WORD",
+      "narration": "A 1659 treaty gave France villages, not towns.",
+      "caption": "1659: ONLY VILLAGES WENT TO FRANCE",
+      "visual": "race",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -9.292,
+                36.006,
+                8.2,
+                51.088
+              ]
+            },
+            "at": 0,
+            "padding": 0.22,
+            "ease": "in-out"
+          },
+          {
+            "target": "country:FRA",
+            "at": 1,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:FRA",
+            "style": "fill",
+            "at": 0.25
+          },
+          {
+            "entity": "country:ESP",
+            "style": "outline",
+            "at": 0.45
+          }
+        ],
+        "annotations": [
+          {
+            "type": "timeline",
+            "steps": [
+              {
+                "label": "1659 TREATY",
+                "detail": "VILLAGES"
+              },
+              {
+                "label": "1995 SCHENGEN",
+                "detail": "NO BORDER"
+              },
+              {
+                "label": "TODAY",
+                "detail": "SHARED ROAD"
+              }
+            ],
+            "active": 0,
+            "at": 0.3
+          },
+          {
+            "type": "label",
+            "anchor": "country:FRA",
+            "text": "FRANCE",
+            "at": 0.2
+          },
+          {
+            "type": "label",
+            "anchor": "country:ESP",
+            "text": "SPAIN",
+            "at": 0.52
+          }
+        ],
+        "dataset": "natural-earth",
+        "projection": "albers",
+        "ambience": "wind",
+        "flags": true
+      }
+    },
+    {
+      "id": "twist",
+      "durationSeconds": 4.6,
+      "beat": "twist",
+      "role": "twist",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.72,
+      "eyebrow": "THE LOOPHOLE",
+      "headline": "A TOWN, NOT A VILLAGE",
+      "narration": "Llívia counted as a town, so it stayed Spanish.",
+      "caption": "LLÍVIA WAS A TOWN, SO IT STAYED SPANISH",
+      "visual": "tradeoff",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                1.97013,
+                42.44854,
+                1.99847,
+                42.47886
+              ]
+            },
+            "at": 0,
+            "padding": 0,
+            "ease": "linear"
+          },
+          {
+            "target": {
+              "bbox": [
+                1.96969,
+                42.45001,
+                1.99891,
+                42.47933
+              ]
+            },
+            "at": 1,
+            "padding": 0,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "projection": "albers",
+        "ambience": "none",
+        "streets": {
+          "city": "llivia",
+          "at": 0.05
+        }
+      }
+    },
+    {
+      "id": "verdict",
+      "durationSeconds": 4,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.72,
+      "eyebrow": "YOUR TURN",
+      "headline": "WHICH SIDE?",
+      "narration": "Which country would you say you were in?",
+      "caption": "WHICH COUNTRY ARE YOU IN?",
+      "visual": "cta",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                1.97013,
+                42.44854,
+                1.99847,
+                42.47886
+              ]
+            },
+            "at": 0,
+            "padding": 0,
+            "ease": "linear"
+          },
+          {
+            "target": {
+              "bbox": [
+                1.96969,
+                42.45001,
+                1.99891,
+                42.47933
+              ]
+            },
+            "at": 1,
+            "padding": 0,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": {
+              "lon": 1.9843,
+              "lat": 42.4637
+            },
+            "text": "LLÍVIA",
+            "at": 0.2
+          }
+        ],
+        "dataset": "natural-earth",
+        "projection": "albers",
+        "ambience": "none",
+        "streets": {
+          "city": "llivia",
+          "at": 0.05
+        }
+      }
+    }
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia: Llívia (revision 1374532206)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Llívia&oldid=1374532206"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ]
+}

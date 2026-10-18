@@ -60,7 +60,7 @@ if (args.includes('--verify')) {
     const streets = compactStreets(reply.elements);
     // A city that is a country in its own right (the Vatican, Gibraltar) also keeps its boundary, to draw on the plan.
     if (city.boundary) {
-      const outline = boundaryLines((await overpass(boundaryQuery(city.boundary), `${id} boundary`)).elements);
+      const outline = boundaryLines((await overpass(boundaryQuery(city.boundary, city.boundaryLevel), `${id} boundary`)).elements);
       if (!outline.length) throw new Error(`No boundary found for ${city.boundary}`);
       streets.outline = outline;
       streets.outlineBox = boxAroundLines(outline);

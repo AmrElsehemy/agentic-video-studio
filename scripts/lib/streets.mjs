@@ -63,8 +63,11 @@ export const compactStreets = (elements) => {
   return result;
 };
 
-/** The query for a place's national boundary, by its English name (an administrative boundary at admin level 2). */
-export const boundaryQuery = (name) => `[out:json][timeout:60];rel["boundary"="administrative"]["admin_level"="2"]["name:en"="${name.replace(/"/g, '')}"];out geom;`;
+/**
+ * The query for a place's administrative boundary, by its name: a country (admin level 2, the default) or,
+ * with `level`, a municipality whose own outline is the story (Baarle-Hertog, Llívia).
+ */
+export const boundaryQuery = (name, level = 2) => `[out:json][timeout:60];rel["boundary"="administrative"]["admin_level"="${level}"]["name${level === 2 ? ':en' : ''}"="${name.replace(/"/g, '')}"];out geom;`;
 
 /**
  * The outline of a boundary relation from Overpass, as lines of [lon, lat] (the relation's outer ways, as drawn;

@@ -1,0 +1,593 @@
+{
+  "schemaVersion": 2,
+  "id": "china-one-time-zone",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica",
+    "wordmark": {
+      "lead": "GEO",
+      "accent": "GRAPHICA"
+    },
+    "fonts": {
+      "display": "Oswald",
+      "body": "Inter"
+    },
+    "captions": {
+      "mode": "words"
+    }
+  },
+  "title": "Five Time Zones Wide. One Clock.",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "comparison",
+    "numberRelevant": true,
+    "premise": "China spans five geographical time zones but officially keeps one: Beijing Time, UTC+8.",
+    "audiencePromise": "See how far apart the clocks would be.",
+    "openLoop": "What happens to a country that keeps one clock?",
+    "payoff": "At the Afghan border the clocks change by 3.5 hours, the biggest change at any land frontier.",
+    "targetEmotion": "surprise",
+    "engagementQuestion": "Would you keep one clock for a whole country?",
+    "targetSecondsBetweenVisualChanges": 0.7
+  },
+  "subject": {
+    "name": "China",
+    "category": "Border",
+    "attributes": {
+      "geoEntity": "country:CHN"
+    }
+  },
+  "related": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#cfe9f2",
+    "surface": "#f4e3b8",
+    "primary": "#d9482b",
+    "secondary": "#2a7fa6",
+    "ink": "#14263a"
+  },
+  "look": "atlas",
+  "framing": {
+    "ending": "loop"
+  },
+  "audio": {
+    "music": "generated/china-one-time-zone-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 96,
+      "notes": [
+        98,
+        116.54,
+        130.81,
+        146.83,
+        130.81,
+        116.54,
+        87.31,
+        98
+      ]
+    },
+    "voice": {
+      "provider": "elevenlabs",
+      "model": "eleven_v4",
+      "voice": "JBFqnCBsd6RMkjVDRZzb",
+      "instructions": "Warm, curious storyteller walking a friend across a map. Clear and confident, with a sense of discovery on each reveal; slow slightly on dates and place names so they land. Conversational and human, never a documentary announcer, lecture, or neutral TTS. Never imitate a known person or character.",
+      "speed": 1.06,
+      "output": "generated/china-one-time-zone-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      },
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://github.com/lipis/flag-icons/blob/main/LICENSE",
+        "owner": "flag-icons",
+        "licenseStatus": "licensed",
+        "publicReleaseApproved": true,
+        "notes": "Flags: flag-icons (MIT)."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "durationSeconds": 4.4,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "comparison",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "CHINA",
+      "headline": "FIVE ZONES, ONE CLOCK",
+      "narration": "China spans five time zones but keeps one clock.",
+      "caption": "FIVE ZONES WIDE, ONE CLOCK",
+      "visual": "hook",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "world",
+            "at": 0,
+            "padding": 0.15,
+            "ease": "in-out"
+          },
+          {
+            "target": "country:CHN",
+            "at": 0.72,
+            "padding": 0.2,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:CHN",
+            "style": "fill",
+            "at": 0.35
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:CHN",
+            "text": "FIVE ZONES WIDE",
+            "at": 0.55
+          },
+          {
+            "type": "label",
+            "anchor": "country:CHN",
+            "text": "ONE CLOCK",
+            "at": 0.75
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "space",
+        "flags": true,
+        "globe": true
+      }
+    },
+    {
+      "id": "evidence",
+      "durationSeconds": 5.1,
+      "beat": "evidence",
+      "role": "evidence",
+      "shot": "wide",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "BEIJING TIME",
+      "headline": "UTC+8",
+      "narration": "Officially, the whole country keeps Beijing Time, UTC plus eight.",
+      "caption": "BEIJING TIME: UTC+8",
+      "visual": "gauntlet",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "country:CHN",
+            "at": 0,
+            "padding": 0.2,
+            "ease": "in-out"
+          },
+          {
+            "target": "admin1:CHN-1155",
+            "at": 0.72,
+            "padding": 0.25,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:CHN",
+            "style": "outline",
+            "at": 0.2
+          },
+          {
+            "entity": "admin1:CHN-1155",
+            "style": "fill",
+            "at": 0.4
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "admin1:CHN-1155",
+            "text": "BEIJING TIME",
+            "at": 0.42
+          },
+          {
+            "type": "label",
+            "anchor": "admin1:CHN-1155",
+            "text": "UTC+8",
+            "at": 0.7
+          }
+        ],
+        "dataset": "natural-earth",
+        "cut": true,
+        "projection": "albers",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "evidence-2",
+      "durationSeconds": 4.4,
+      "beat": "evidence",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "THE RECORD",
+      "headline": "BIGGEST WITH ONE",
+      "narration": "No bigger country officially has just one time zone.",
+      "caption": "THE LARGEST COUNTRY WITH ONE TIME ZONE",
+      "visual": "advantage",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                72,
+                15,
+                138,
+                56
+              ]
+            },
+            "at": 0,
+            "padding": 0.06,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                80,
+                18,
+                128,
+                50
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:CHN",
+            "style": "fill",
+            "at": 0.2
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:CHN",
+            "text": "ONE TIME ZONE",
+            "at": 0.4
+          }
+        ],
+        "dataset": "natural-earth",
+        "projection": "albers",
+        "ambience": "sea"
+      }
+    },
+    {
+      "id": "escalation",
+      "durationSeconds": 4.6,
+      "beat": "escalation",
+      "role": "escalation",
+      "shot": "tracking",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "XINJIANG",
+      "headline": "A SECOND CLOCK",
+      "narration": "In Xinjiang, a second clock runs two hours behind.",
+      "caption": "XINJIANG TIME: UTC+6, TWO HOURS BEHIND",
+      "visual": "race",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                73.607,
+                34.336,
+                117.429,
+                49.166
+              ]
+            },
+            "at": 0,
+            "padding": 0.2,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                73.607,
+                34.336,
+                117.429,
+                49.166
+              ]
+            },
+            "at": 0.75,
+            "padding": 0.2,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "admin1:CHN-1756",
+            "style": "fill",
+            "at": 0.3
+          },
+          {
+            "entity": "admin1:CHN-1155",
+            "style": "outline",
+            "at": 0.42
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "admin1:CHN-1756",
+            "text": "XINJIANG UTC+6",
+            "at": 0.45
+          },
+          {
+            "type": "label",
+            "anchor": "admin1:CHN-1155",
+            "text": "BEIJING UTC+8",
+            "at": 0.45
+          },
+          {
+            "type": "arrow",
+            "from": "admin1:CHN-1155",
+            "to": "admin1:CHN-1756",
+            "at": 0.7
+          }
+        ],
+        "dataset": "natural-earth",
+        "projection": "albers",
+        "ambience": "wind"
+      }
+    },
+    {
+      "id": "escalation-4",
+      "durationSeconds": 6.1,
+      "beat": "escalation",
+      "role": "escalation",
+      "shot": "comparison",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "THE DAY",
+      "headline": "10:00 IS 08:00",
+      "narration": "Offices open at 10:00 Beijing Time, which is 08:00 locally.",
+      "caption": "10:00 BEIJING TIME = 08:00 ÜRÜMQI TIME",
+      "visual": "race",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                73.607,
+                34.336,
+                117.429,
+                49.166
+              ]
+            },
+            "at": 0,
+            "padding": 0.2,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                87.573,
+                39.442,
+                117.429,
+                43.807
+              ]
+            },
+            "at": 0.75,
+            "padding": 0.2,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "admin1:CHN-1756",
+            "style": "outline",
+            "at": 0.3
+          },
+          {
+            "entity": "admin1:CHN-1155",
+            "style": "fill",
+            "at": 0.42
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "city:urumqi-chn",
+            "text": "08:00 ÜRÜMQI",
+            "at": 0.3
+          },
+          {
+            "type": "label",
+            "anchor": "city:beijing-chn",
+            "text": "10:00 BEIJING",
+            "at": 0.5
+          }
+        ],
+        "dataset": "natural-earth",
+        "projection": "albers",
+        "ambience": "city"
+      },
+      "transition": "wipe"
+    },
+    {
+      "id": "twist",
+      "durationSeconds": 5.9,
+      "beat": "twist",
+      "role": "twist",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "THE BORDER",
+      "headline": "3.5 HOURS",
+      "narration": "Cross into Afghanistan, and the clock jumps three and a half hours.",
+      "caption": "WAKHJIR PASS: UTC+8 TO UTC+4:30",
+      "visual": "tradeoff",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                60.487,
+                29.387,
+                96.373,
+                49.166
+              ]
+            },
+            "at": 0,
+            "padding": 0.2,
+            "ease": "in-out"
+          },
+          {
+            "target": "country:AFG",
+            "at": 0.78,
+            "padding": 0.25,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "admin1:CHN-1756",
+            "style": "outline",
+            "at": 0.3
+          },
+          {
+            "entity": "country:AFG",
+            "style": "fill",
+            "at": 0.35
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": {
+              "lon": 74.4842,
+              "lat": 37.0872
+            },
+            "text": "WAKHJIR PASS",
+            "at": 0.4
+          },
+          {
+            "type": "label",
+            "anchor": {
+              "lon": 70,
+              "lat": 34
+            },
+            "text": "UTC+4:30",
+            "at": 0.55
+          },
+          {
+            "type": "label",
+            "anchor": {
+              "lon": 80,
+              "lat": 41
+            },
+            "text": "UTC+8",
+            "at": 0.6
+          }
+        ],
+        "dataset": "natural-earth",
+        "projection": "albers",
+        "ambience": "wind",
+        "flags": true
+      }
+    },
+    {
+      "id": "verdict",
+      "durationSeconds": 4.4,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "YOUR TURN",
+      "headline": "ONE CLOCK?",
+      "narration": "Would you keep one clock for a whole country?",
+      "caption": "ONE CLOCK FOR A WHOLE COUNTRY?",
+      "visual": "cta",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "country:AFG",
+            "at": 0,
+            "padding": 0.25,
+            "ease": "in-out"
+          },
+          {
+            "target": "country:CHN",
+            "at": 0.8,
+            "padding": 0.18,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:CHN",
+            "style": "fill",
+            "at": 0.35
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:CHN",
+            "text": "ONE CLOCK?",
+            "at": 0.48
+          },
+          {
+            "type": "label",
+            "anchor": "country:CHN",
+            "text": "WHOLE COUNTRY?",
+            "at": 0.7
+          }
+        ],
+        "dataset": "natural-earth",
+        "cut": true,
+        "ambience": "space",
+        "flags": true,
+        "globe": true
+      }
+    }
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia: Time in China (revision 1369694837)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Time_in_China&oldid=1369694837"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ]
+}

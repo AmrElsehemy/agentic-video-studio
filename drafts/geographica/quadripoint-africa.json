@@ -1,0 +1,663 @@
+{
+  "id": "quadripoint-africa",
+  "title": "The Four-Country Corner That Probably Isn't",
+  "storyPattern": "mystery",
+  "numberRelevant": true,
+  "premise": "Botswana, Namibia, Zambia and Zimbabwe were said to meet at one point; most now think there are two three-country points.",
+  "audiencePromise": "Find the corner where four countries almost meet.",
+  "openLoop": "Do four countries really touch here?",
+  "payoff": "Most now believe it is two tripoints about 100 to 150 metres apart, and a bridge now curves around them.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "Would you cross a border that short?",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica"
+  },
+  "subject": {
+    "name": "Kazungula",
+    "category": "Border",
+    "attributes": {
+      "geoEntity": "country:ZMB"
+    }
+  },
+  "voice": {
+    "provider": "elevenlabs",
+    "voice": "JBFqnCBsd6RMkjVDRZzb"
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "eyebrow": "AFRICA",
+      "headline": "FOUR COUNTRIES, ONE POINT",
+      "narration": "Four countries were said to meet at one point.",
+      "caption": "FOUR COUNTRIES, ONE POINT?",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "world",
+            "at": 0,
+            "padding": 0.2,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                11.718,
+                -28.959,
+                33.674,
+                -8.194
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.25,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:BWA",
+            "style": "outline",
+            "at": 0.25
+          },
+          {
+            "entity": "country:NAM",
+            "style": "outline",
+            "at": 0.25
+          },
+          {
+            "entity": "country:ZMB",
+            "style": "outline",
+            "at": 0.25
+          },
+          {
+            "entity": "country:ZWE",
+            "style": "outline",
+            "at": 0.25
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:BWA",
+            "text": "BOTSWANA, NAMIBIA, ZAMBIA",
+            "at": 0.55
+          },
+          {
+            "type": "label",
+            "anchor": "country:ZWE",
+            "text": "ZIMBABWE",
+            "at": 0.58
+          },
+          {
+            "type": "marker",
+            "anchor": "country:ZWE",
+            "text": "CLAIMED FOUR-COUNTRY POINT",
+            "at": 0.68
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "space",
+        "globe": true
+      }
+    },
+    {
+      "id": "clue",
+      "beat": "clue",
+      "eyebrow": "THE CORNER",
+      "headline": "A RIVER JUNCTION",
+      "narration": "Botswana, Namibia, Zambia and Zimbabwe, where two rivers meet.",
+      "caption": "BOTSWANA, NAMIBIA, ZAMBIA, ZIMBABWE",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                11.718,
+                -28.959,
+                33.674,
+                -8.194
+              ]
+            },
+            "at": 0,
+            "padding": 0.2,
+            "ease": "in-out"
+          },
+          {
+            "target": "river:zambezi",
+            "at": 0.85,
+            "padding": 0.18,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:BWA",
+            "style": "fill",
+            "at": 0.2
+          },
+          {
+            "entity": "country:ZMB",
+            "style": "fill",
+            "at": 0.2
+          },
+          {
+            "entity": "country:ZWE",
+            "style": "fill",
+            "at": 0.2
+          },
+          {
+            "entity": "river:zambezi",
+            "style": "trace",
+            "at": 0.35
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:NAM",
+            "text": "NAMIBIA",
+            "at": 0.42
+          },
+          {
+            "type": "label",
+            "anchor": "country:ZWE",
+            "text": "ZIMBABWE",
+            "at": 0.48
+          },
+          {
+            "type": "label",
+            "anchor": "river:zambezi",
+            "text": "ZAMBEZI",
+            "at": 0.58
+          }
+        ],
+        "dataset": "natural-earth",
+        "cut": true,
+        "ambience": "sea",
+        "flags": true
+      }
+    },
+    {
+      "id": "clue-2",
+      "beat": "clue",
+      "eyebrow": "1970",
+      "headline": "A BIG CLAIM",
+      "narration": "In 1970, South Africa said Botswana and Zambia did not touch.",
+      "caption": "1970: \"BOTSWANA AND ZAMBIA DO NOT TOUCH\"",
+      "transition": "flash",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                16.47,
+                -34.822,
+                33.674,
+                -8.194
+              ]
+            },
+            "at": 0,
+            "padding": 0.2,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                19.978,
+                -26.892,
+                33.674,
+                -8.194
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.15,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:ZAF",
+            "style": "outline",
+            "at": 0.18
+          },
+          {
+            "entity": "country:BWA",
+            "style": "fill",
+            "at": 0.3
+          },
+          {
+            "entity": "country:ZMB",
+            "style": "fill",
+            "at": 0.3
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:ZAF",
+            "text": "SOUTH AFRICA",
+            "at": 0.35
+          },
+          {
+            "type": "label",
+            "anchor": "country:BWA",
+            "text": "BOTSWANA",
+            "at": 0.5
+          },
+          {
+            "type": "label",
+            "anchor": "country:ZMB",
+            "text": "ZAMBIA",
+            "at": 0.5
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "sea",
+        "flags": true
+      }
+    },
+    {
+      "id": "escalation",
+      "beat": "escalation",
+      "eyebrow": "THE FERRY",
+      "headline": "SHOTS FIRED",
+      "narration": "Shots were fired at the ferry that crossed there.",
+      "caption": "SHOTS WERE FIRED AT THE KAZUNGULA FERRY",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                23.5,
+                -19.2,
+                27.0,
+                -16.4
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                24.7,
+                -18.3,
+                25.8,
+                -17.3
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:BWA",
+            "style": "outline",
+            "at": 0.2
+          },
+          {
+            "entity": "country:NAM",
+            "style": "outline",
+            "at": 0.2
+          },
+          {
+            "entity": "country:ZMB",
+            "style": "outline",
+            "at": 0.2
+          },
+          {
+            "entity": "country:ZWE",
+            "style": "outline",
+            "at": 0.2
+          }
+        ],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 25.2625,
+              "lat": -17.7911
+            },
+            "text": "SHOTS FIRED AT THE FERRY",
+            "at": 0.35
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "projection": "albers"
+      }
+    },
+    {
+      "id": "reveal",
+      "beat": "reveal",
+      "eyebrow": "TODAY",
+      "headline": "TWO POINTS",
+      "narration": "Most now think it is two separate points, close together.",
+      "caption": "TWO TRIPOINTS, ABOUT 100 TO 150 METRES APART",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                24.7,
+                -18.3,
+                25.8,
+                -17.3
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                25.0,
+                -18.0,
+                25.5,
+                -17.6
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:BWA",
+            "style": "outline",
+            "at": 0.2
+          },
+          {
+            "entity": "country:NAM",
+            "style": "outline",
+            "at": 0.2
+          },
+          {
+            "entity": "country:ZMB",
+            "style": "outline",
+            "at": 0.2
+          },
+          {
+            "entity": "country:ZWE",
+            "style": "outline",
+            "at": 0.2
+          }
+        ],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 25.2625,
+              "lat": -17.7911
+            },
+            "text": "TWO POINTS, 100–150 M APART",
+            "at": 0.35
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "projection": "albers"
+      }
+    },
+    {
+      "id": "reveal-5",
+      "beat": "reveal",
+      "eyebrow": "THE BORDER",
+      "headline": "ABOUT 150 METRES",
+      "narration": "Between them runs a border about 150 metres long.",
+      "caption": "BOTSWANA–ZAMBIA: ABOUT 150 METRES",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                24.7,
+                -18.3,
+                25.8,
+                -17.3
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                25.0,
+                -18.0,
+                25.5,
+                -17.6
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:BWA",
+            "style": "fill",
+            "at": 0.2
+          },
+          {
+            "entity": "country:ZMB",
+            "style": "fill",
+            "at": 0.2
+          },
+          {
+            "entity": "country:ZWE",
+            "style": "outline",
+            "at": 0.2
+          },
+          {
+            "entity": "country:NAM",
+            "style": "outline",
+            "at": 0.2
+          }
+        ],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 25.2625,
+              "lat": -17.7911
+            },
+            "text": "ABOUT 150 M OF BORDER",
+            "at": 0.4
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "projection": "albers"
+      }
+    },
+    {
+      "id": "reveal-6",
+      "beat": "reveal",
+      "eyebrow": "2021",
+      "headline": "A BRIDGE CURVES",
+      "narration": "A bridge, opened in 2021, curves around the other two borders.",
+      "caption": "KAZUNGULA BRIDGE, OPENED MAY 2021",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                24.7,
+                -18.3,
+                25.8,
+                -17.3
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                25.0,
+                -18.0,
+                25.5,
+                -17.6
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:BWA",
+            "style": "outline",
+            "at": 0.2
+          },
+          {
+            "entity": "country:NAM",
+            "style": "outline",
+            "at": 0.2
+          },
+          {
+            "entity": "country:ZMB",
+            "style": "outline",
+            "at": 0.2
+          },
+          {
+            "entity": "country:ZWE",
+            "style": "outline",
+            "at": 0.2
+          }
+        ],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 25.2625,
+              "lat": -17.7911
+            },
+            "text": "KAZUNGULA BRIDGE",
+            "at": 0.35
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "projection": "albers"
+      }
+    },
+    {
+      "id": "verdict",
+      "beat": "verdict",
+      "eyebrow": "YOUR TURN",
+      "headline": "HOW SHORT?",
+      "narration": "Would you cross a border that short?",
+      "caption": "WOULD YOU CROSS A 150 METRE BORDER?",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                24.7,
+                -18.3,
+                25.8,
+                -17.3
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                25.0,
+                -18.0,
+                25.5,
+                -17.6
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:BWA",
+            "style": "outline",
+            "at": 0.2
+          },
+          {
+            "entity": "country:ZMB",
+            "style": "outline",
+            "at": 0.2
+          }
+        ],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 25.2625,
+              "lat": -17.7911
+            },
+            "text": "A 150 M BORDER",
+            "at": 0.4
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "projection": "albers"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia: Quadripoint (revision 1374354037)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Quadripoint&oldid=1374354037"
+    },
+    {
+      "label": "Wikipedia: Kazungula Bridge (revision 1369564818)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Kazungula_Bridge&oldid=1369564818"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ],
+  "framing": {
+    "ending": "loop",
+    "depth": "tilt"
+  }
+}

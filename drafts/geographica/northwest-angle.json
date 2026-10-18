@@ -1,0 +1,623 @@
+{
+  "id": "northwest-angle",
+  "title": "The Part of Minnesota North of the 49th Parallel",
+  "storyPattern": "mystery",
+  "numberRelevant": true,
+  "premise": "A piece of Minnesota lies north of the 49th parallel, cut off by Lake of the Woods, because a 1783 treaty relied on a wrong map.",
+  "audiencePromise": "Find the one place in the lower 48 above the border line.",
+  "openLoop": "How did a map error make part of the United States?",
+  "payoff": "The 1842 treaty fixed the lake's northwestern point and cut the Angle off from the rest of Minnesota.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "Would you live on the far side of a mapping error?",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica"
+  },
+  "subject": {
+    "name": "Northwest Angle",
+    "category": "Border",
+    "attributes": {
+      "geoEntity": "admin1:USA-3514"
+    }
+  },
+  "voice": {
+    "provider": "elevenlabs",
+    "voice": "JBFqnCBsd6RMkjVDRZzb"
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "eyebrow": "MINNESOTA",
+      "headline": "NORTH OF THE LINE",
+      "narration": "Part of Minnesota lies north of the 49th parallel.",
+      "caption": "A PIECE OF MINNESOTA IS NORTH OF 49°N",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "world",
+            "at": 0,
+            "padding": 0.15,
+            "ease": "in-out"
+          },
+          {
+            "target": "admin1:USA-3514",
+            "at": 0.65,
+            "padding": 0.2,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "admin1:USA-3514",
+            "style": "fill",
+            "at": 0.3
+          }
+        ],
+        "annotations": [
+          {
+            "type": "line",
+            "kind": "parallel",
+            "degrees": 49,
+            "text": "49°N PARALLEL",
+            "at": 0.2,
+            "reverse": false
+          },
+          {
+            "type": "label",
+            "anchor": "admin1:USA-3514",
+            "text": "MINNESOTA",
+            "at": 0.55
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "space",
+        "globe": true
+      }
+    },
+    {
+      "id": "clue",
+      "beat": "clue",
+      "eyebrow": "THE ONLY ONE",
+      "headline": "LOWER 48",
+      "narration": "It is the only such place in the lower 48 states.",
+      "caption": "THE ONLY LAND IN THE LOWER 48 NORTH OF 49°N",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "admin1:USA-3514",
+            "at": 0,
+            "padding": 0.2,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -102.002,
+                43.501,
+                -88.948,
+                60.002
+              ]
+            },
+            "at": 0.7,
+            "padding": 0.3,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "admin1:USA-3514",
+            "style": "outline",
+            "at": 0.25
+          },
+          {
+            "entity": "admin1:CAN-630",
+            "style": "outline",
+            "at": 0.45
+          }
+        ],
+        "annotations": [
+          {
+            "type": "line",
+            "kind": "parallel",
+            "degrees": 49,
+            "text": "49°N",
+            "at": 0.2,
+            "reverse": false
+          },
+          {
+            "type": "label",
+            "anchor": "admin1:USA-3514",
+            "text": "ONLY SUCH PLACE",
+            "at": 0.55
+          },
+          {
+            "type": "label",
+            "anchor": "admin1:CAN-630",
+            "text": "MANITOBA",
+            "at": 0.6
+          }
+        ],
+        "dataset": "natural-earth",
+        "cut": true,
+        "projection": "albers",
+        "ambience": "wind"
+      }
+    },
+    {
+      "id": "clue-2",
+      "beat": "clue",
+      "eyebrow": "THE LAKE",
+      "headline": "CUT OFF",
+      "narration": "A lake separates it from the rest of Minnesota.",
+      "caption": "SEPARATED BY LAKE OF THE WOODS",
+      "transition": "wipe",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -97.226,
+                43.501,
+                -89.498,
+                49.994
+              ]
+            },
+            "at": 0,
+            "padding": 0.2,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -97.226,
+                43.501,
+                -89.498,
+                49.994
+              ]
+            },
+            "at": 0.75,
+            "padding": 0.25,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "lake:lake-of-the-woods",
+            "style": "fill",
+            "at": 0.25
+          },
+          {
+            "entity": "admin1:USA-3514",
+            "style": "outline",
+            "at": 0.45
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "lake:lake-of-the-woods",
+            "text": "LAKE OF THE WOODS",
+            "at": 0.45
+          },
+          {
+            "type": "label",
+            "anchor": "admin1:USA-3514",
+            "text": "MINNESOTA",
+            "at": 0.65
+          }
+        ],
+        "dataset": "natural-earth",
+        "projection": "albers",
+        "ambience": "wind"
+      }
+    },
+    {
+      "id": "escalation",
+      "beat": "escalation",
+      "eyebrow": "1783",
+      "headline": "A WRONG MAP",
+      "narration": "A 1783 treaty was written from a map that got it wrong.",
+      "caption": "THE 1783 TREATY USED THE MITCHELL MAP",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -97.226,
+                43.501,
+                -89.498,
+                49.994
+              ]
+            },
+            "at": 0,
+            "padding": 0.2,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -97.226,
+                43.501,
+                2.331,
+                49.37
+              ]
+            },
+            "at": 0.7,
+            "padding": 0.35,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "lake:lake-of-the-woods",
+            "style": "outline",
+            "at": 0.3
+          },
+          {
+            "entity": "admin1:USA-3514",
+            "style": "fill",
+            "at": 0.45
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "city:paris-fra",
+            "text": "PARIS",
+            "at": 0.55
+          },
+          {
+            "type": "label",
+            "anchor": "lake:lake-of-the-woods",
+            "text": "MITCHELL MAP",
+            "at": 0.65
+          },
+          {
+            "type": "timeline",
+            "steps": [
+              {
+                "label": "1783 TREATY",
+                "detail": "TREATY"
+              },
+              {
+                "label": "1842 FIX",
+                "detail": "LINE FIXED"
+              }
+            ],
+            "active": 0,
+            "at": 0.35
+          }
+        ],
+        "dataset": "natural-earth",
+        "cut": true,
+        "projection": "albers",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "reveal",
+      "beat": "reveal",
+      "eyebrow": "THE MISSISSIPPI",
+      "headline": "SOURCE IN THE SOUTH",
+      "narration": "The Mississippi starts far south of where the map said.",
+      "caption": "THE SOURCE LIES SOUTH OF THE LAKE",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -97.226,
+                43.501,
+                -89.498,
+                49.994
+              ]
+            },
+            "at": 0,
+            "padding": 0.3,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -97.226,
+                43.501,
+                -89.498,
+                49.994
+              ]
+            },
+            "at": 0.72,
+            "padding": 0.25,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "lake:lake-of-the-woods",
+            "style": "fill",
+            "at": 0.25
+          },
+          {
+            "entity": "admin1:USA-3514",
+            "style": "outline",
+            "at": 0.4
+          }
+        ],
+        "annotations": [
+          {
+            "type": "line",
+            "kind": "parallel",
+            "degrees": 49,
+            "text": "49°N",
+            "at": 0.2,
+            "reverse": false
+          },
+          {
+            "type": "arrow",
+            "from": "lake:lake-of-the-woods",
+            "to": "admin1:USA-3514",
+            "at": 0.45
+          },
+          {
+            "type": "marker",
+            "anchor": "admin1:USA-3514",
+            "text": "SOURCE SOUTH",
+            "at": 0.5
+          },
+          {
+            "type": "label",
+            "anchor": "lake:lake-of-the-woods",
+            "text": "LAKE OF THE WOODS",
+            "at": 0.35
+          }
+        ],
+        "dataset": "natural-earth",
+        "projection": "albers",
+        "ambience": "wind"
+      }
+    },
+    {
+      "id": "reveal-5",
+      "beat": "reveal",
+      "eyebrow": "1842",
+      "headline": "THE LINE IS FIXED",
+      "narration": "In 1842, the fixed line cut the Angle off.",
+      "caption": "1842: THE LINE CUTS OFF THE ANGLE",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -97.226,
+                43.501,
+                -89.498,
+                49.994
+              ]
+            },
+            "at": 0,
+            "padding": 0.2,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -102.002,
+                43.501,
+                -88.948,
+                60.002
+              ]
+            },
+            "at": 0.7,
+            "padding": 0.25,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "lake:lake-of-the-woods",
+            "style": "fill",
+            "at": 0.25
+          },
+          {
+            "entity": "admin1:CAN-630",
+            "style": "outline",
+            "at": 0.45
+          },
+          {
+            "entity": "admin1:USA-3514",
+            "style": "outline",
+            "at": 0.55
+          }
+        ],
+        "annotations": [
+          {
+            "type": "line",
+            "kind": "parallel",
+            "degrees": 49,
+            "text": "49°N LINE",
+            "at": 0.2,
+            "reverse": false
+          },
+          {
+            "type": "label",
+            "anchor": "lake:lake-of-the-woods",
+            "text": "NORTHWEST POINT",
+            "at": 0.45
+          },
+          {
+            "type": "label",
+            "anchor": "admin1:USA-3514",
+            "text": "ANGLE CUT OFF",
+            "at": 0.65
+          },
+          {
+            "type": "timeline",
+            "steps": [
+              {
+                "label": "1783 TREATY",
+                "detail": "TREATY"
+              },
+              {
+                "label": "1842 FIX",
+                "detail": "LINE FIXED"
+              }
+            ],
+            "active": 1,
+            "at": 0.35
+          }
+        ],
+        "dataset": "natural-earth",
+        "projection": "albers",
+        "ambience": "wind"
+      }
+    },
+    {
+      "id": "reveal-6",
+      "beat": "reveal",
+      "eyebrow": "TODAY",
+      "headline": "149 PEOPLE",
+      "narration": "Today, 149 people live there.",
+      "caption": "149 PEOPLE, 2020 CENSUS",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -97.226,
+                43.501,
+                -89.498,
+                49.994
+              ]
+            },
+            "at": 0,
+            "padding": 0.2,
+            "ease": "in-out"
+          },
+          {
+            "target": "lake:lake-of-the-woods",
+            "at": 0.7,
+            "padding": 0.18,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "lake:lake-of-the-woods",
+            "style": "outline",
+            "at": 0.25
+          },
+          {
+            "entity": "admin1:USA-3514",
+            "style": "fill",
+            "at": 0.4
+          }
+        ],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": "admin1:USA-3514",
+            "text": "149 PEOPLE",
+            "at": 0.45
+          },
+          {
+            "type": "label",
+            "anchor": "admin1:USA-3514",
+            "text": "2020 CENSUS",
+            "at": 0.6
+          }
+        ],
+        "dataset": "natural-earth",
+        "projection": "albers",
+        "ambience": "wind"
+      }
+    },
+    {
+      "id": "verdict",
+      "beat": "verdict",
+      "eyebrow": "YOUR TURN",
+      "headline": "WOULD YOU LIVE THERE?",
+      "narration": "Would you live on the far side of a map error?",
+      "caption": "WOULD YOU LIVE THERE?",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "lake:lake-of-the-woods",
+            "at": 0,
+            "padding": 0.4,
+            "ease": "in-out"
+          },
+          {
+            "target": "lake:lake-of-the-woods",
+            "at": 0.85,
+            "padding": 0.25,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "lake:lake-of-the-woods",
+            "style": "outline",
+            "at": 0.15
+          },
+          {
+            "entity": "admin1:USA-3514",
+            "style": "outline",
+            "at": 0.2
+          }
+        ],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": -95.05,
+              "lat": 49.2667
+            },
+            "text": "THE ANGLE",
+            "at": 0.3
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "sea",
+        "projection": "albers"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia: Northwest Angle (revision 1377833798)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Northwest_Angle&oldid=1377833798"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ],
+  "paletteVariant": "atlas",
+  "framing": {
+    "ending": "loop"
+  }
+}

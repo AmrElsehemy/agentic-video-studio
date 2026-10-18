@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "id": "shrinking-countries",
+  "subject": "Latvia",
+  "kind": "curated",
+  "note": "Hand-curated from the pinned World Bank series (public/geo/series.json): population (SP.POP.TOTL), 1990 and 2024. 'Countries' means the countries and territories the table has figures for in both years (215). The 23 are ALB, ARM, BGR, BIH, BLR, DMA, EST, GEO, HRV, HUN, LTU, LVA, MAF, MDA, MHL, MKD, POL, PRI, ROU, RUS, SRB, UKR, VCT; 18 are in Europe or the Caucasus. 2024 figures for recent years are estimates the World Bank may revise.",
+  "regions": [
+    "Latvia"
+  ],
+  "claims": [
+    {
+      "id": "count",
+      "text": "In the World Bank's population table, 23 of the 215 countries and territories had fewer people in 2024 than in 1990.",
+      "tier": "official",
+      "sources": [
+        "world-bank-population"
+      ]
+    },
+    {
+      "id": "region",
+      "text": "Of those 23, 18 are in Europe or the Caucasus.",
+      "tier": "official",
+      "sources": [
+        "world-bank-population"
+      ]
+    },
+    {
+      "id": "latvia",
+      "text": "Latvia had 2.66 million people in 1990 and 1.87 million in 2024, about 30% fewer.",
+      "tier": "official",
+      "sources": [
+        "world-bank-population"
+      ]
+    },
+    {
+      "id": "baltic",
+      "text": "Lithuania fell from 3.70 million to 2.89 million, and Estonia from 1.57 million to 1.37 million, between 1990 and 2024.",
+      "tier": "official",
+      "sources": [
+        "world-bank-population"
+      ]
+    },
+    {
+      "id": "ukraine",
+      "text": "Ukraine fell from 52.05 million in 1990 to 37.86 million in 2024, 14.19 million fewer, the largest fall in numbers.",
+      "tier": "official",
+      "sources": [
+        "world-bank-population"
+      ]
+    },
+    {
+      "id": "japan",
+      "text": "Japan had 123.48 million people in 1990 and 123.98 million in 2024, so it is not among the 23.",
+      "tier": "official",
+      "sources": [
+        "world-bank-population"
+      ]
+    }
+  ],
+  "places": {},
+  "sources": {
+    "world-bank-population": {
+      "label": "World Bank, World Development Indicators: Population, total (SP.POP.TOTL), CC BY 4.0",
+      "url": "https://data.worldbank.org/indicator/SP.POP.TOTL"
+    },
+    "natural-earth": {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  }
+}

@@ -1,0 +1,741 @@
+{
+  "schemaVersion": 2,
+  "id": "aral-sea-gone",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica",
+    "wordmark": {
+      "lead": "GEO",
+      "accent": "GRAPHICA"
+    },
+    "fonts": {
+      "display": "Oswald",
+      "body": "Inter"
+    },
+    "captions": {
+      "mode": "words"
+    }
+  },
+  "title": "The Third-Largest Lake That Nearly Vanished",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "transformation",
+    "numberRelevant": true,
+    "premise": "The Aral Sea, once the third-largest lake on Earth at 68,000 km², shrank to 10% of its size by 2007.",
+    "audiencePromise": "Watch a lake dry up.",
+    "openLoop": "What happened to a lake that big?",
+    "payoff": "By 2007 it was 10% of its original size, and its eastern basin dried up completely by 2014.",
+    "targetEmotion": "surprise",
+    "engagementQuestion": "Would you have noticed a lake disappearing?",
+    "targetSecondsBetweenVisualChanges": 0.62
+  },
+  "subject": {
+    "name": "Aral Sea",
+    "category": "Border",
+    "attributes": {
+      "geoEntity": "lake:south-aral-sea"
+    }
+  },
+  "related": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#06161c",
+    "surface": "#2f5d3c",
+    "primary": "#ffd166",
+    "secondary": "#10424d",
+    "ink": "#f7f2dc"
+  },
+  "look": "terrain",
+  "framing": {
+    "opening": "bleed"
+  },
+  "audio": {
+    "music": "generated/aral-sea-gone-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 96,
+      "notes": [
+        98,
+        116.54,
+        130.81,
+        146.83,
+        130.81,
+        116.54,
+        87.31,
+        98
+      ]
+    },
+    "voice": {
+      "provider": "elevenlabs",
+      "model": "eleven_v4",
+      "voice": "JBFqnCBsd6RMkjVDRZzb",
+      "instructions": "Warm, curious storyteller walking a friend across a map. Clear and confident, with a sense of discovery on each reveal; slow slightly on dates and place names so they land. Conversational and human, never a documentary announcer, lecture, or neutral TTS. Never imitate a known person or character.",
+      "speed": 1.06,
+      "output": "generated/aral-sea-gone-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "durationSeconds": 3.8,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "THE ARAL SEA",
+      "headline": "A LAKE VANISHES",
+      "narration": "The world's third-largest lake nearly dried up.",
+      "caption": "THE THIRD-LARGEST LAKE ON EARTH, ONCE",
+      "visual": "hook",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                56.3,
+                42.8,
+                64.2,
+                48.6
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                56.3,
+                42.8,
+                64.2,
+                48.6
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.05,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "lake:south-aral-sea",
+            "style": "fill",
+            "at": 0.2
+          },
+          {
+            "entity": "lake:north-aral-sea",
+            "style": "fill",
+            "at": 0.25
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": {
+              "lon": 59.2,
+              "lat": 45
+            },
+            "text": "THE ARAL SEA TODAY",
+            "at": 0.35
+          }
+        ],
+        "dataset": "natural-earth",
+        "projection": "albers",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "before",
+      "durationSeconds": 3.8,
+      "beat": "before",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "BEFORE",
+      "headline": "68,000 KM²",
+      "narration": "It once covered 68,000 square kilometres.",
+      "caption": "68,000 KM² BEFORE THE 1960S",
+      "visual": "gauntlet",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                56.3,
+                42.8,
+                64.2,
+                48.6
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                56.3,
+                42.8,
+                64.2,
+                48.6
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.05,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "lake:south-aral-sea",
+            "style": "fill",
+            "at": 0.2
+          },
+          {
+            "entity": "lake:north-aral-sea",
+            "style": "fill",
+            "at": 0.25
+          }
+        ],
+        "annotations": [
+          {
+            "type": "ring",
+            "center": {
+              "lon": 60,
+              "lat": 45.1
+            },
+            "radiusKm": 147,
+            "text": "68,000 KM² AS A CIRCLE",
+            "at": 0.3
+          }
+        ],
+        "dataset": "natural-earth",
+        "projection": "albers",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "before-2",
+      "durationSeconds": 4.4,
+      "beat": "before",
+      "role": "evidence",
+      "shot": "wide",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "THE CAUSE",
+      "headline": "RIVERS DIVERTED",
+      "narration": "Soviet irrigation projects diverted the rivers that fed it.",
+      "caption": "SOVIET IRRIGATION DIVERTED ITS RIVERS",
+      "visual": "gauntlet",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                56.3,
+                42.8,
+                64.2,
+                48.6
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                56.3,
+                42.8,
+                64.2,
+                48.6
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.05,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "lake:south-aral-sea",
+            "style": "fill",
+            "at": 0.2
+          },
+          {
+            "entity": "lake:north-aral-sea",
+            "style": "fill",
+            "at": 0.25
+          },
+          {
+            "entity": "river:amu-darya",
+            "style": "outline",
+            "at": 0.15
+          },
+          {
+            "entity": "river:syr-darya",
+            "style": "outline",
+            "at": 0.2
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": {
+              "lon": 61.8,
+              "lat": 42.4
+            },
+            "text": "AMU DARYA",
+            "at": 0.3
+          },
+          {
+            "type": "label",
+            "anchor": {
+              "lon": 63.2,
+              "lat": 45
+            },
+            "text": "SYR DARYA",
+            "at": 0.45
+          }
+        ],
+        "dataset": "natural-earth",
+        "projection": "albers",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "change",
+      "durationSeconds": 3.9,
+      "beat": "change",
+      "role": "escalation",
+      "shot": "tracking",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "1987",
+      "headline": "TWO SEAS",
+      "narration": "By 1987, it had split into two.",
+      "caption": "1987: THE NORTH AND SOUTH ARAL SEAS",
+      "visual": "race",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                56.3,
+                42.8,
+                64.2,
+                48.6
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                56.3,
+                42.8,
+                64.2,
+                48.6
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.05,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "lake:south-aral-sea",
+            "style": "fill",
+            "at": 0.2
+          },
+          {
+            "entity": "lake:north-aral-sea",
+            "style": "fill",
+            "at": 0.25
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": {
+              "lon": 59.9,
+              "lat": 46.5
+            },
+            "text": "NORTH ARAL SEA",
+            "at": 0.3
+          },
+          {
+            "type": "label",
+            "anchor": {
+              "lon": 58.2,
+              "lat": 44.7
+            },
+            "text": "SOUTH ARAL SEA",
+            "at": 0.45
+          },
+          {
+            "type": "timeline",
+            "steps": [
+              {
+                "label": "1960s",
+                "detail": "DIVERTED"
+              },
+              {
+                "label": "1987",
+                "detail": "TWO SEAS"
+              },
+              {
+                "label": "2007",
+                "detail": "10% LEFT"
+              },
+              {
+                "label": "2014",
+                "detail": "BASIN DRY"
+              }
+            ],
+            "active": 1,
+            "at": 0.68
+          }
+        ],
+        "dataset": "natural-earth",
+        "projection": "albers",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "reveal",
+      "durationSeconds": 5,
+      "beat": "reveal",
+      "role": "payoff",
+      "shot": "comparison",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "2007",
+      "headline": "10% LEFT",
+      "narration": "By 2007, only 10 percent of it was left.",
+      "caption": "2007: 10% OF ITS ORIGINAL SIZE",
+      "visual": "advantage",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                56.3,
+                42.8,
+                64.2,
+                48.6
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                56.3,
+                42.8,
+                64.2,
+                48.6
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.05,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "lake:south-aral-sea",
+            "style": "fill",
+            "at": 0.2
+          },
+          {
+            "entity": "lake:north-aral-sea",
+            "style": "fill",
+            "at": 0.25
+          }
+        ],
+        "annotations": [
+          {
+            "type": "ring",
+            "center": {
+              "lon": 60,
+              "lat": 45.1
+            },
+            "radiusKm": 147,
+            "text": "68,000 KM²",
+            "at": 0.1
+          },
+          {
+            "type": "ring",
+            "center": {
+              "lon": 60,
+              "lat": 45.1
+            },
+            "radiusKm": 46.5,
+            "text": "10%: SAME AREA, A CIRCLE",
+            "at": 0.45
+          }
+        ],
+        "dataset": "natural-earth",
+        "projection": "albers",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "aftermath",
+      "durationSeconds": 5.2,
+      "beat": "aftermath",
+      "role": "payoff",
+      "shot": "wide",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "2014",
+      "headline": "EASTERN BASIN DRY",
+      "narration": "In 2014, NASA saw the eastern basin dry up completely.",
+      "caption": "AUGUST 2014: EASTERN BASIN DRY (NASA)",
+      "visual": "tradeoff",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                56.3,
+                42.8,
+                64.2,
+                48.6
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                56.3,
+                42.8,
+                64.2,
+                48.6
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.05,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "lake:south-aral-sea",
+            "style": "fill",
+            "at": 0.2
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": {
+              "lon": 60.3,
+              "lat": 44.7
+            },
+            "text": "EASTERN BASIN: DRY",
+            "at": 0.4
+          }
+        ],
+        "dataset": "natural-earth",
+        "projection": "albers",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "aftermath-6",
+      "durationSeconds": 5.7,
+      "beat": "aftermath",
+      "role": "payoff",
+      "shot": "impact",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "THE NORTH",
+      "headline": "A DAM, FISH BACK",
+      "narration": "A dam finished in 2005 helped the north, and fish returned.",
+      "caption": "2005: THE KOKARAL DAM. 2013: FISH RETURN",
+      "visual": "tradeoff",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                56.3,
+                42.8,
+                64.2,
+                48.6
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                59.2,
+                45.3,
+                62,
+                47.3
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "lake:north-aral-sea",
+            "style": "fill",
+            "at": 0.2
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": {
+              "lon": 60.7,
+              "lat": 46.4
+            },
+            "text": "NORTH ARAL SEA",
+            "at": 0.3
+          },
+          {
+            "type": "label",
+            "anchor": {
+              "lon": 60.7,
+              "lat": 46
+            },
+            "text": "KOKARAL DAM, 2005",
+            "at": 0.5
+          }
+        ],
+        "dataset": "natural-earth",
+        "projection": "albers",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "verdict",
+      "durationSeconds": 3.8,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "YOUR TURN",
+      "headline": "WOULD YOU NOTICE?",
+      "narration": "Would you have noticed a lake disappearing?",
+      "caption": "WOULD YOU HAVE NOTICED?",
+      "visual": "cta",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                56.3,
+                42.8,
+                64.2,
+                48.6
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                56.3,
+                42.8,
+                64.2,
+                48.6
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.05,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "lake:south-aral-sea",
+            "style": "fill",
+            "at": 0.2
+          },
+          {
+            "entity": "lake:north-aral-sea",
+            "style": "fill",
+            "at": 0.25
+          }
+        ],
+        "annotations": [
+          {
+            "type": "ring",
+            "center": {
+              "lon": 60,
+              "lat": 45.1
+            },
+            "radiusKm": 147,
+            "text": "ONCE THIS BIG",
+            "at": 0.4
+          }
+        ],
+        "dataset": "natural-earth",
+        "projection": "albers",
+        "ambience": "none"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia: Aral Sea (revision 1378797274)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Aral_Sea&oldid=1378797274"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ]
+}

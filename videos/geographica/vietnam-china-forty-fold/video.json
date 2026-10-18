@@ -1,0 +1,534 @@
+{
+  "schemaVersion": 2,
+  "id": "vietnam-china-forty-fold",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica",
+    "wordmark": {
+      "lead": "GEO",
+      "accent": "GRAPHICA"
+    },
+    "fonts": {
+      "display": "Oswald",
+      "body": "Inter"
+    },
+    "captions": {
+      "mode": "words"
+    }
+  },
+  "title": "Two Countries Grew Their Output per Person Over 40 Times",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "transformation",
+    "numberRelevant": true,
+    "premise": "Between 1990 and 2022, Vietnam's GDP per person rose about 42 times and China's about 41 times, in current US dollars.",
+    "audiencePromise": "Watch the world map change colour as output per person grows.",
+    "openLoop": "Which countries grew fastest?",
+    "payoff": "Vietnam went from US$99 to US$4,148 and China from US$319 to US$12,971 (current US$).",
+    "targetEmotion": "surprise",
+    "engagementQuestion": "Which country will be next?",
+    "targetSecondsBetweenVisualChanges": 0.62
+  },
+  "subject": {
+    "name": "Vietnam",
+    "category": "Border",
+    "attributes": {
+      "geoEntity": "country:VNM"
+    }
+  },
+  "related": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#0b1a2a",
+    "surface": "#23473d",
+    "primary": "#e4b363",
+    "secondary": "#8c2f39",
+    "ink": "#f6f1e7"
+  },
+  "audio": {
+    "music": "generated/vietnam-china-forty-fold-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 96,
+      "notes": [
+        98,
+        116.54,
+        130.81,
+        146.83,
+        130.81,
+        116.54,
+        87.31,
+        98
+      ]
+    },
+    "voice": {
+      "provider": "elevenlabs",
+      "model": "eleven_v4",
+      "voice": "JBFqnCBsd6RMkjVDRZzb",
+      "instructions": "Warm, curious storyteller walking a friend across a map. Clear and confident, with a sense of discovery on each reveal; slow slightly on dates and place names so they land. Conversational and human, never a documentary announcer, lecture, or neutral TTS. Never imitate a known person or character.",
+      "speed": 1.06,
+      "output": "generated/vietnam-china-forty-fold-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      },
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://databank.worldbank.org/source/world-development-indicators",
+        "owner": "World Bank",
+        "licenseStatus": "licensed",
+        "publicReleaseApproved": true,
+        "notes": "Data: World Bank, World Development Indicators (CC BY 4.0)."
+      },
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://github.com/lipis/flag-icons/blob/main/LICENSE",
+        "owner": "flag-icons",
+        "licenseStatus": "licensed",
+        "publicReleaseApproved": true,
+        "notes": "Flags: flag-icons (MIT)."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "durationSeconds": 3.8,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "OUTPUT PER PERSON",
+      "headline": "OVER 40 TIMES",
+      "narration": "Two countries grew over forty-fold.",
+      "caption": "TWO COUNTRIES GREW OVER 40×, 1990 TO 2022",
+      "visual": "hook",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "world",
+            "at": 0,
+            "padding": 0.15,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                73.602,
+                8.566,
+                134.773,
+                53.569
+              ]
+            },
+            "at": 0.7,
+            "padding": 0.35,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:VNM",
+            "style": "fill",
+            "at": 0.35
+          },
+          {
+            "entity": "country:CHN",
+            "style": "fill",
+            "at": 0.45
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:VNM",
+            "text": "VIETNAM 42×",
+            "at": 0.5
+          },
+          {
+            "type": "label",
+            "anchor": "country:CHN",
+            "text": "CHINA 41×",
+            "at": 0.6
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "space",
+        "globe": true
+      }
+    },
+    {
+      "id": "before",
+      "durationSeconds": 5,
+      "beat": "before",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "1990",
+      "headline": "VIETNAM: US$99",
+      "narration": "In 1990, Vietnam produced about 99 dollars per person.",
+      "caption": "VIETNAM, 1990: US$99 PER PERSON",
+      "visual": "gauntlet",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "country:VNM",
+            "at": 0,
+            "padding": 0.15,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:VNM",
+            "style": "fill",
+            "at": 0.15
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:VNM",
+            "text": "VIETNAM",
+            "at": 0.4
+          }
+        ],
+        "dataset": "natural-earth",
+        "cut": true
+      }
+    },
+    {
+      "id": "before-2",
+      "durationSeconds": 3.8,
+      "beat": "before",
+      "role": "evidence",
+      "shot": "wide",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "1990",
+      "headline": "CHINA: US$319",
+      "narration": "China produced about 319 dollars per person.",
+      "caption": "CHINA, 1990: US$319 PER PERSON",
+      "visual": "gauntlet",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "country:CHN",
+            "at": 0,
+            "padding": 0.3,
+            "ease": "in-out"
+          },
+          {
+            "target": "country:CHN",
+            "at": 0.8,
+            "padding": 0.18,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:CHN",
+            "style": "fill",
+            "at": 0.18
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:CHN",
+            "text": "CHINA",
+            "at": 0.22
+          }
+        ],
+        "dataset": "natural-earth",
+        "projection": "albers",
+        "ambience": "sea",
+        "flags": true
+      }
+    },
+    {
+      "id": "change",
+      "durationSeconds": 4.1,
+      "beat": "change",
+      "role": "escalation",
+      "shot": "tracking",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "THE MAP",
+      "headline": "COLOUR BY YEAR",
+      "narration": "Watch the world fill in, year by year.",
+      "caption": "GDP PER PERSON, CURRENT US$ (NOT INFLATION-ADJUSTED)",
+      "visual": "race",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "world",
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "series": {
+          "indicator": "gdp-per-person",
+          "view": "line",
+          "places": [
+            "country:VNM",
+            "country:CHN"
+          ],
+          "from": 1990,
+          "to": 2022,
+          "at": 0.04,
+          "shade": true,
+          "axis": "zero"
+        }
+      },
+      "transition": "wipe"
+    },
+    {
+      "id": "reveal",
+      "durationSeconds": 5,
+      "beat": "reveal",
+      "role": "payoff",
+      "shot": "comparison",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "2022",
+      "headline": "US$4,148 AND US$12,971",
+      "narration": "By 2022, those were 4,148 and 12,971 dollars.",
+      "caption": "2022: VIETNAM US$4,148, CHINA US$12,971",
+      "visual": "advantage",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                73.602,
+                8.566,
+                134.773,
+                53.569
+              ]
+            },
+            "at": 0,
+            "padding": 0.3,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                73.602,
+                8.566,
+                134.773,
+                53.569
+              ]
+            },
+            "at": 0.7,
+            "padding": 0.22,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:VNM",
+            "style": "fill",
+            "at": 0.25
+          },
+          {
+            "entity": "country:CHN",
+            "style": "fill",
+            "at": 0.35
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:VNM",
+            "text": "US$4,148",
+            "at": 0.45
+          },
+          {
+            "type": "label",
+            "anchor": "country:CHN",
+            "text": "US$12,971",
+            "at": 0.55
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "flags": true
+      }
+    },
+    {
+      "id": "aftermath",
+      "durationSeconds": 6.2,
+      "beat": "aftermath",
+      "role": "payoff",
+      "shot": "wide",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "10,000+",
+      "headline": "41 TO 81 COUNTRIES",
+      "narration": "Countries above 10,000 dollars per person doubled, from 41 to 81.",
+      "caption": "COUNTRIES ABOVE US$10,000: 41 (1990), 81 (2022)",
+      "visual": "tradeoff",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                73.602,
+                8.566,
+                134.773,
+                53.569
+              ]
+            },
+            "at": 0,
+            "padding": 0.4,
+            "ease": "in-out"
+          },
+          {
+            "target": "world",
+            "at": 0.72,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:VNM",
+            "text": "41 IN 1990",
+            "at": 0.45
+          },
+          {
+            "type": "label",
+            "anchor": "country:CHN",
+            "text": "81 IN 2022",
+            "at": 0.58
+          },
+          {
+            "type": "timeline",
+            "steps": [
+              {
+                "label": "1990",
+                "detail": "41 COUNTRIES"
+              },
+              {
+                "label": "2022",
+                "detail": "81 COUNTRIES"
+              }
+            ],
+            "active": 1,
+            "at": 0.5
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "verdict",
+      "durationSeconds": 3.8,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "YOUR TURN",
+      "headline": "WHO IS NEXT?",
+      "narration": "Which country will be next?",
+      "caption": "WHICH COUNTRY IS NEXT?",
+      "visual": "cta",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "world",
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                73.602,
+                8.566,
+                134.773,
+                53.569
+              ]
+            },
+            "at": 0.72,
+            "padding": 0.32,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:VNM",
+            "style": "outline",
+            "at": 0.3
+          },
+          {
+            "entity": "country:CHN",
+            "style": "outline",
+            "at": 0.4
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:VNM",
+            "text": "VIETNAM 42×",
+            "at": 0.5
+          },
+          {
+            "type": "label",
+            "anchor": "country:CHN",
+            "text": "CHINA 41×",
+            "at": 0.6
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "flags": true
+      }
+    }
+  ],
+  "sources": [
+    {
+      "label": "World Bank, World Development Indicators: GDP per capita, current US$ (NY.GDP.PCAP.CD)",
+      "url": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ]
+}

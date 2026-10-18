@@ -1,0 +1,641 @@
+{
+  "schemaVersion": 2,
+  "id": "shrinking-countries",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica",
+    "wordmark": {
+      "lead": "GEO",
+      "accent": "GRAPHICA"
+    },
+    "fonts": {
+      "display": "Oswald",
+      "body": "Inter"
+    },
+    "captions": {
+      "mode": "words"
+    }
+  },
+  "title": "23 Countries Have Fewer People Than in 1990",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "transformation",
+    "numberRelevant": true,
+    "premise": "In the World Bank table, 23 of 215 countries and territories had fewer people in 2024 than in 1990, most of them in Europe and the Caucasus.",
+    "audiencePromise": "See which countries have lost people since 1990.",
+    "openLoop": "Which countries are shrinking?",
+    "payoff": "Latvia fell about 30%, the three Baltic states all shrank, and Ukraine lost the most people, 14.19 million.",
+    "targetEmotion": "surprise",
+    "engagementQuestion": "Is your country on the list?",
+    "targetSecondsBetweenVisualChanges": 0.62
+  },
+  "subject": {
+    "name": "Latvia",
+    "category": "Border",
+    "attributes": {
+      "geoEntity": "country:LVA"
+    }
+  },
+  "related": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#cfdde6",
+    "surface": "#f3ede0",
+    "primary": "#b4561f",
+    "secondary": "#2c5d7f",
+    "ink": "#1b2730"
+  },
+  "framing": {
+    "opening": "bleed"
+  },
+  "audio": {
+    "music": "generated/shrinking-countries-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 96,
+      "notes": [
+        98,
+        116.54,
+        130.81,
+        146.83,
+        130.81,
+        116.54,
+        87.31,
+        98
+      ]
+    },
+    "voice": {
+      "provider": "elevenlabs",
+      "model": "eleven_v4",
+      "voice": "JBFqnCBsd6RMkjVDRZzb",
+      "instructions": "Warm, curious storyteller walking a friend across a map. Clear and confident, with a sense of discovery on each reveal; slow slightly on dates and place names so they land. Conversational and human, never a documentary announcer, lecture, or neutral TTS. Never imitate a known person or character.",
+      "speed": 1.06,
+      "output": "generated/shrinking-countries-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      },
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://databank.worldbank.org/source/world-development-indicators",
+        "owner": "World Bank",
+        "licenseStatus": "licensed",
+        "publicReleaseApproved": true,
+        "notes": "Data: World Bank, World Development Indicators (CC BY 4.0)."
+      },
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://github.com/lipis/flag-icons/blob/main/LICENSE",
+        "owner": "flag-icons",
+        "licenseStatus": "licensed",
+        "publicReleaseApproved": true,
+        "notes": "Flags: flag-icons (MIT)."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "durationSeconds": 4.7,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "POPULATION",
+      "headline": "23 COUNTRIES SHRANK",
+      "narration": "Twenty-three countries now have fewer people than in 1990.",
+      "caption": "23 OF 215 HAVE FEWER PEOPLE THAN IN 1990",
+      "visual": "hook",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "world",
+            "at": 0,
+            "padding": 0.15,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                20.969,
+                45.214,
+                40.16,
+                59.671
+              ]
+            },
+            "at": 0.8,
+            "padding": 0.3,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:LVA",
+            "style": "fill",
+            "at": 0.3
+          },
+          {
+            "entity": "country:EST",
+            "style": "fill",
+            "at": 0.3
+          },
+          {
+            "entity": "country:LTU",
+            "style": "fill",
+            "at": 0.3
+          },
+          {
+            "entity": "country:UKR",
+            "style": "fill",
+            "at": 0.3
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:LVA",
+            "text": "23 OF 215 FEWER",
+            "at": 0.45
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "space",
+        "globe": true
+      }
+    },
+    {
+      "id": "before",
+      "durationSeconds": 4.4,
+      "beat": "before",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "WHERE",
+      "headline": "MOSTLY EUROPE",
+      "narration": "Eighteen of them are in Europe or the Caucasus.",
+      "caption": "18 OF THE 23 ARE IN EUROPE OR THE CAUCASUS",
+      "visual": "gauntlet",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                20.969,
+                45.214,
+                40.16,
+                59.671
+              ]
+            },
+            "at": 0,
+            "padding": 0.3,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                20.969,
+                53.887,
+                28.217,
+                59.671
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.22,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:LVA",
+            "style": "outline",
+            "at": 0.2
+          },
+          {
+            "entity": "country:EST",
+            "style": "outline",
+            "at": 0.2
+          },
+          {
+            "entity": "country:LTU",
+            "style": "outline",
+            "at": 0.2
+          },
+          {
+            "entity": "country:UKR",
+            "style": "outline",
+            "at": 0.2
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:LVA",
+            "text": "18 OF 23 IN REGION",
+            "at": 0.45
+          }
+        ],
+        "dataset": "natural-earth",
+        "cut": true,
+        "projection": "albers",
+        "ambience": "none",
+        "flags": true
+      }
+    },
+    {
+      "id": "before-2",
+      "durationSeconds": 5.7,
+      "beat": "before",
+      "role": "evidence",
+      "shot": "wide",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "LATVIA",
+      "headline": "2.66M TO 1.87M",
+      "narration": "Latvia fell from 2.66 million people to 1.87 million.",
+      "caption": "LATVIA: 2.66 MILLION (1990) TO 1.87 MILLION (2024)",
+      "visual": "gauntlet",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                20.969,
+                53.887,
+                28.217,
+                59.671
+              ]
+            },
+            "at": 0,
+            "padding": 0.22,
+            "ease": "in-out"
+          },
+          {
+            "target": "country:LVA",
+            "at": 0.85,
+            "padding": 0.18,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:LVA",
+            "style": "fill",
+            "at": 0.2
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:LVA",
+            "text": "LATVIA: 1.87M",
+            "at": 0.42
+          },
+          {
+            "type": "timeline",
+            "steps": [
+              {
+                "label": "1990",
+                "detail": "LATVIA 2.66M"
+              },
+              {
+                "label": "2024",
+                "detail": "LATVIA 1.87M"
+              }
+            ],
+            "active": 1,
+            "at": 0.35
+          }
+        ],
+        "dataset": "natural-earth",
+        "projection": "albers",
+        "ambience": "none",
+        "flags": true
+      }
+    },
+    {
+      "id": "change",
+      "durationSeconds": 3.8,
+      "beat": "change",
+      "role": "escalation",
+      "shot": "tracking",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "THE BALTICS",
+      "headline": "ALL THREE FELL",
+      "narration": "Lithuania and Estonia shrank too.",
+      "caption": "LATVIA, LITHUANIA, ESTONIA: ALL FEWER SINCE 1990",
+      "visual": "race",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "country:LVA",
+            "at": 0,
+            "padding": 0.18,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                20.969,
+                53.887,
+                28.217,
+                59.671
+              ]
+            },
+            "at": 0.8,
+            "padding": 0.2,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:LVA",
+            "style": "outline",
+            "at": 0.15
+          },
+          {
+            "entity": "country:LTU",
+            "style": "fill",
+            "at": 0.25
+          },
+          {
+            "entity": "country:EST",
+            "style": "fill",
+            "at": 0.25
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:LTU",
+            "text": "LITHUANIA 3.70→2.89M",
+            "at": 0.4
+          },
+          {
+            "type": "label",
+            "anchor": "country:EST",
+            "text": "ESTONIA 1.57→1.37M",
+            "at": 0.55
+          },
+          {
+            "type": "label",
+            "anchor": "country:LVA",
+            "text": "LATVIA",
+            "at": 0.3
+          }
+        ],
+        "dataset": "natural-earth",
+        "projection": "albers",
+        "ambience": "none",
+        "flags": true,
+        "series": {
+          "indicator": "population",
+          "view": "line",
+          "places": [
+            "country:LVA",
+            "country:LTU",
+            "country:EST"
+          ],
+          "from": 1990,
+          "to": 2024,
+          "at": 0.04,
+          "axis": "zero"
+        }
+      },
+      "transition": "zoom"
+    },
+    {
+      "id": "reveal",
+      "durationSeconds": 5.3,
+      "beat": "reveal",
+      "role": "payoff",
+      "shot": "comparison",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "UKRAINE",
+      "headline": "14 MILLION FEWER",
+      "narration": "In numbers, Ukraine lost the most, 14.19 million people.",
+      "caption": "UKRAINE: 52.05 MILLION TO 37.86 MILLION",
+      "visual": "advantage",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                20.969,
+                53.887,
+                28.217,
+                59.671
+              ]
+            },
+            "at": 0,
+            "padding": 0.2,
+            "ease": "in-out"
+          },
+          {
+            "target": "country:UKR",
+            "at": 0.85,
+            "padding": 0.2,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:UKR",
+            "style": "fill",
+            "at": 0.22
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:UKR",
+            "text": "UKRAINE",
+            "at": 0.35
+          },
+          {
+            "type": "label",
+            "anchor": "country:UKR",
+            "text": "14.19M FEWER",
+            "at": 0.62
+          }
+        ],
+        "dataset": "natural-earth",
+        "projection": "albers",
+        "ambience": "none",
+        "flags": true
+      }
+    },
+    {
+      "id": "aftermath",
+      "durationSeconds": 4.6,
+      "beat": "aftermath",
+      "role": "payoff",
+      "shot": "wide",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "JAPAN",
+      "headline": "NOT ON THE LIST",
+      "narration": "Japan is not on the list. It grew slightly.",
+      "caption": "JAPAN: 123.48 MILLION (1990), 123.98 MILLION (2024)",
+      "visual": "tradeoff",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                22.133,
+                33.433,
+                145.825,
+                52.369
+              ]
+            },
+            "at": 0,
+            "padding": 0.25,
+            "ease": "in-out"
+          },
+          {
+            "target": "country:JPN",
+            "at": 0.85,
+            "padding": 0.2,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:JPN",
+            "style": "outline",
+            "at": 0.2
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:JPN",
+            "text": "NOT ON THE LIST",
+            "at": 0.68
+          }
+        ],
+        "dataset": "natural-earth",
+        "projection": "albers",
+        "ambience": "sea",
+        "flags": true,
+        "series": {
+          "indicator": "population",
+          "view": "line",
+          "places": [
+            "country:JPN"
+          ],
+          "from": 1990,
+          "to": 2024,
+          "at": 0.04,
+          "axis": "fit",
+          "mark": {
+            "year": 2010,
+            "text": "PEAK 2010"
+          }
+        }
+      }
+    },
+    {
+      "id": "verdict",
+      "durationSeconds": 3.8,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "YOUR TURN",
+      "headline": "YOUR COUNTRY?",
+      "narration": "Is your country on the list?",
+      "caption": "IS YOUR COUNTRY ON THE LIST?",
+      "visual": "cta",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "country:JPN",
+            "at": 0,
+            "padding": 0.2,
+            "ease": "in-out"
+          },
+          {
+            "target": "world",
+            "at": 0.85,
+            "padding": 0.15,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:LVA",
+            "style": "outline",
+            "at": 0.35
+          },
+          {
+            "entity": "country:EST",
+            "style": "outline",
+            "at": 0.35
+          },
+          {
+            "entity": "country:LTU",
+            "style": "outline",
+            "at": 0.35
+          },
+          {
+            "entity": "country:UKR",
+            "style": "outline",
+            "at": 0.35
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:UKR",
+            "text": "YOUR COUNTRY?",
+            "at": 0.55
+          }
+        ],
+        "dataset": "natural-earth",
+        "cut": true,
+        "ambience": "space",
+        "globe": true
+      }
+    }
+  ],
+  "sources": [
+    {
+      "label": "World Bank, World Development Indicators: Population, total (SP.POP.TOTL)",
+      "url": "https://data.worldbank.org/indicator/SP.POP.TOTL"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ]
+}

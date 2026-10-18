@@ -1,0 +1,566 @@
+{
+  "schemaVersion": 2,
+  "id": "baarle-border",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica",
+    "wordmark": {
+      "lead": "GEO",
+      "accent": "GRAPHICA"
+    },
+    "fonts": {
+      "display": "Oswald",
+      "body": "Inter"
+    },
+    "captions": {
+      "mode": "words"
+    }
+  },
+  "title": "The Town Where the Border Runs Through Houses",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "mystery",
+    "numberRelevant": true,
+    "premise": "In Baarle, Belgium and the Netherlands interlock in dozens of small pieces, and some houses stand on both sides of the border.",
+    "audiencePromise": "See a border that zigzags through a town.",
+    "openLoop": "How can a border split a house?",
+    "payoff": "Medieval land swaps left Belgium with 22 exclaves inside the Netherlands, and the 1843 treaty settled them.",
+    "targetEmotion": "surprise",
+    "engagementQuestion": "Which side of the line would you pick?",
+    "targetSecondsBetweenVisualChanges": 0.68
+  },
+  "subject": {
+    "name": "Baarle",
+    "category": "Border",
+    "attributes": {
+      "geoEntity": "country:BEL"
+    }
+  },
+  "related": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#cfdde6",
+    "surface": "#f3ede0",
+    "primary": "#b4561f",
+    "secondary": "#2c5d7f",
+    "ink": "#1b2730"
+  },
+  "framing": {
+    "opening": "bleed"
+  },
+  "audio": {
+    "music": "generated/baarle-border-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 96,
+      "notes": [
+        98,
+        116.54,
+        130.81,
+        146.83,
+        130.81,
+        116.54,
+        87.31,
+        98
+      ]
+    },
+    "voice": {
+      "provider": "elevenlabs",
+      "model": "eleven_v4",
+      "voice": "JBFqnCBsd6RMkjVDRZzb",
+      "instructions": "Warm, curious storyteller walking a friend across a map. Clear and confident, with a sense of discovery on each reveal; slow slightly on dates and place names so they land. Conversational and human, never a documentary announcer, lecture, or neutral TTS. Never imitate a known person or character.",
+      "speed": 1.06,
+      "output": "generated/baarle-border-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      },
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.openstreetmap.org/copyright",
+        "owner": "OpenStreetMap contributors",
+        "licenseStatus": "licensed",
+        "publicReleaseApproved": true,
+        "notes": "© OpenStreetMap contributors (ODbL)."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "durationSeconds": 4.1,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "mystery",
+      "subjectFocus": "hidden",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "BAARLE",
+      "headline": "THE BORDER SPLITS HOUSES",
+      "narration": "In Baarle, the border runs straight through houses.",
+      "caption": "THE BORDER RUNS THROUGH HOUSES",
+      "visual": "hook",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                4.91932,
+                51.42986,
+                4.94728,
+                51.45514
+              ]
+            },
+            "at": 0,
+            "padding": 0,
+            "ease": "linear"
+          },
+          {
+            "target": {
+              "bbox": [
+                4.91889,
+                51.42947,
+                4.94771,
+                51.4539
+              ]
+            },
+            "at": 1,
+            "padding": 0,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": {
+              "lon": 4.9333,
+              "lat": 51.4425
+            },
+            "text": "BAARLE",
+            "at": 0.2
+          }
+        ],
+        "dataset": "natural-earth",
+        "projection": "albers",
+        "ambience": "none",
+        "streets": {
+          "city": "baarle",
+          "at": 0.05
+        }
+      }
+    },
+    {
+      "id": "clue",
+      "durationSeconds": 5.2,
+      "beat": "clue",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "BELGIUM",
+      "headline": "22 PIECES",
+      "narration": "Belgium owns 22 small pieces, each surrounded by Dutch land.",
+      "caption": "22 BELGIAN EXCLAVES INSIDE THE NETHERLANDS",
+      "visual": "gauntlet",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                2.5,
+                50.2,
+                7.4,
+                53.2
+              ]
+            },
+            "at": 0,
+            "padding": 0.08,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                4.2,
+                51.1,
+                5.7,
+                51.8
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.08,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:BEL",
+            "style": "outline",
+            "at": 0.2
+          },
+          {
+            "entity": "country:NLD",
+            "style": "outline",
+            "at": 0.2
+          }
+        ],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 4.9333,
+              "lat": 51.4425
+            },
+            "text": "BAARLE",
+            "at": 0.3
+          }
+        ],
+        "dataset": "natural-earth",
+        "projection": "albers",
+        "ambience": "sea"
+      }
+    },
+    {
+      "id": "escalation",
+      "durationSeconds": 4.6,
+      "beat": "escalation",
+      "role": "escalation",
+      "shot": "tracking",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "COUNTER-ENCLAVES",
+      "headline": "7 DUTCH PIECES",
+      "narration": "Inside those Belgian pieces, seven Dutch pieces sit again.",
+      "caption": "7 DUTCH ENCLAVES INSIDE BELGIAN ONES",
+      "visual": "advantage",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                4.91932,
+                51.42986,
+                4.94728,
+                51.45514
+              ]
+            },
+            "at": 0,
+            "padding": 0,
+            "ease": "linear"
+          },
+          {
+            "target": {
+              "bbox": [
+                4.91889,
+                51.42947,
+                4.94771,
+                51.4539
+              ]
+            },
+            "at": 1,
+            "padding": 0,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "projection": "albers",
+        "ambience": "none",
+        "streets": {
+          "city": "baarle",
+          "at": 0.05
+        }
+      },
+      "transition": "zoom"
+    },
+    {
+      "id": "reveal",
+      "durationSeconds": 4,
+      "beat": "reveal",
+      "role": "payoff",
+      "shot": "comparison",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "THE HOUSES",
+      "headline": "BOTH SIDES",
+      "narration": "Some houses stand in two countries at once.",
+      "caption": "SOME HOUSES ARE DIVIDED BETWEEN TWO COUNTRIES",
+      "visual": "race",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                4.91932,
+                51.42986,
+                4.94728,
+                51.45514
+              ]
+            },
+            "at": 0,
+            "padding": 0,
+            "ease": "linear"
+          },
+          {
+            "target": {
+              "bbox": [
+                4.91889,
+                51.42947,
+                4.94771,
+                51.4539
+              ]
+            },
+            "at": 1,
+            "padding": 0,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": {
+              "lon": 4.9333,
+              "lat": 51.4425
+            },
+            "text": "BAARLE",
+            "at": 0.2
+          }
+        ],
+        "dataset": "natural-earth",
+        "projection": "albers",
+        "ambience": "none",
+        "streets": {
+          "city": "baarle",
+          "at": 0.05
+        }
+      }
+    },
+    {
+      "id": "reveal-4",
+      "durationSeconds": 5,
+      "beat": "reveal",
+      "role": "payoff",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "THE RULES",
+      "headline": "CLOSING TIMES",
+      "narration": "Dutch restaurants had to close earlier, so diners moved tables.",
+      "caption": "DUTCH RESTAURANTS CLOSED EARLIER THAN BELGIAN ONES",
+      "visual": "tradeoff",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                4.3,
+                51.15,
+                5.5,
+                51.75
+              ]
+            },
+            "at": 0,
+            "padding": 0.06,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                4.7,
+                51.3,
+                5.2,
+                51.58
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.06,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:BEL",
+            "style": "outline",
+            "at": 0.2
+          },
+          {
+            "entity": "country:NLD",
+            "style": "outline",
+            "at": 0.2
+          }
+        ],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 4.9333,
+              "lat": 51.4425
+            },
+            "text": "BAARLE",
+            "at": 0.3
+          }
+        ],
+        "dataset": "natural-earth",
+        "projection": "albers",
+        "ambience": "sea"
+      }
+    },
+    {
+      "id": "reveal-5",
+      "durationSeconds": 5.7,
+      "beat": "reveal",
+      "role": "payoff",
+      "shot": "comparison",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "WHY",
+      "headline": "MEDIEVAL LAND SWAPS",
+      "narration": "Medieval land swaps drew it, and a 1843 treaty settled it.",
+      "caption": "MEDIEVAL LAND-SWAPS, SETTLED IN 1843",
+      "visual": "race",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                4.91932,
+                51.42986,
+                4.94728,
+                51.45514
+              ]
+            },
+            "at": 0,
+            "padding": 0,
+            "ease": "linear"
+          },
+          {
+            "target": {
+              "bbox": [
+                4.91889,
+                51.42947,
+                4.94771,
+                51.4539
+              ]
+            },
+            "at": 1,
+            "padding": 0,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "timeline",
+            "steps": [
+              {
+                "label": "MEDIEVAL",
+                "detail": "LAND SWAPS"
+              },
+              {
+                "label": "1843",
+                "detail": "TREATY"
+              }
+            ],
+            "active": 1,
+            "at": 0.32
+          }
+        ],
+        "dataset": "natural-earth",
+        "projection": "albers",
+        "ambience": "none",
+        "streets": {
+          "city": "baarle",
+          "at": 0.05
+        }
+      }
+    },
+    {
+      "id": "verdict",
+      "durationSeconds": 4,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "YOUR TURN",
+      "headline": "WHICH SIDE?",
+      "narration": "Which side of the line would you pick?",
+      "caption": "WHICH SIDE WOULD YOU PICK?",
+      "visual": "cta",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                4.91932,
+                51.42986,
+                4.94728,
+                51.45514
+              ]
+            },
+            "at": 0,
+            "padding": 0,
+            "ease": "linear"
+          },
+          {
+            "target": {
+              "bbox": [
+                4.91889,
+                51.42947,
+                4.94771,
+                51.4539
+              ]
+            },
+            "at": 1,
+            "padding": 0,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "projection": "albers",
+        "ambience": "none",
+        "streets": {
+          "city": "baarle",
+          "at": 0.05
+        }
+      }
+    }
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia: Baarle-Hertog (revision 1375646116)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Baarle-Hertog&oldid=1375646116"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ]
+}

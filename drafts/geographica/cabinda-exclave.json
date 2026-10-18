@@ -1,0 +1,594 @@
+{
+  "id": "cabinda-exclave",
+  "title": "The Province Cut Off From Its Own Country",
+  "storyPattern": "transformation",
+  "numberRelevant": true,
+  "premise": "Cabinda is an exclave province of Angola, separated from the rest of the country by a strip of the Democratic Republic of the Congo.",
+  "audiencePromise": "See a province that is not connected to its country.",
+  "openLoop": "How does a province end up cut off?",
+  "payoff": "A 1885 protectorate and a Congolese strip left Cabinda separate, and some groups dispute that it belongs to Angola.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "Could you run a country in two pieces?",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica"
+  },
+  "subject": {
+    "name": "Cabinda",
+    "category": "Border",
+    "attributes": {
+      "geoEntity": "country:AGO"
+    }
+  },
+  "voice": {
+    "provider": "elevenlabs",
+    "voice": "JBFqnCBsd6RMkjVDRZzb"
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "eyebrow": "ANGOLA",
+      "headline": "A PIECE IS MISSING",
+      "narration": "Part of Angola is cut off from Angola.",
+      "caption": "A PROVINCE CUT OFF FROM ITS COUNTRY",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "country:AGO",
+            "at": 0,
+            "padding": 0.25,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                11.0,
+                -8.5,
+                17.5,
+                -3.8
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:AGO",
+            "style": "outline",
+            "at": 0.2
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": {
+              "lon": 12.2,
+              "lat": -5.0
+            },
+            "text": "CABINDA",
+            "at": 0.45
+          },
+          {
+            "type": "label",
+            "anchor": {
+              "lon": 15.5,
+              "lat": -8.2
+            },
+            "text": "REST OF ANGOLA",
+            "at": 0.65
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "sea",
+        "projection": "albers"
+      }
+    },
+    {
+      "id": "before",
+      "beat": "before",
+      "eyebrow": "CABINDA",
+      "headline": "7,290 KM²",
+      "narration": "Cabinda is a coastal province of 7,290 square kilometres.",
+      "caption": "CABINDA: 7,290 KM²",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                11.6,
+                -6.1,
+                13.3,
+                -4.1
+              ]
+            },
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                11.6,
+                -6.1,
+                13.3,
+                -4.1
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.06,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:AGO",
+            "style": "fill",
+            "at": 0.2
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": {
+              "lon": 12.2,
+              "lat": -5.0
+            },
+            "text": "CABINDA",
+            "at": 0.3
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "sea",
+        "projection": "albers"
+      }
+    },
+    {
+      "id": "before-2",
+      "beat": "before",
+      "eyebrow": "1885",
+      "headline": "A PROTECTORATE",
+      "narration": "In 1885, a treaty made it a Portuguese protectorate.",
+      "caption": "1885: TREATY OF SIMULAMBUCO",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                11.6,
+                -6.1,
+                13.3,
+                -4.1
+              ]
+            },
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                11.6,
+                -6.1,
+                13.3,
+                -4.1
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.06,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:AGO",
+            "style": "outline",
+            "at": 0.2
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": {
+              "lon": 12.2,
+              "lat": -5.0
+            },
+            "text": "CABINDA",
+            "at": 0.25
+          },
+          {
+            "type": "timeline",
+            "steps": [
+              {
+                "label": "BEFORE",
+                "detail": "CABINDA"
+              },
+              {
+                "label": "1885",
+                "detail": "SIMULAMBUCO"
+              }
+            ],
+            "active": 1,
+            "at": 0.45
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "sea",
+        "projection": "albers"
+      }
+    },
+    {
+      "id": "change",
+      "beat": "change",
+      "eyebrow": "TODAY",
+      "headline": "A STRIP OF CONGO",
+      "narration": "A strip of Congolese land now separates it from Angola.",
+      "caption": "THE DR CONGO CUTS IT OFF FROM ANGOLA",
+      "transition": "wipe",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                11.114,
+                -18.031,
+                24.062,
+                3.708
+              ]
+            },
+            "at": 0,
+            "padding": 0.24,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                11.114,
+                -18.031,
+                24.062,
+                3.708
+              ]
+            },
+            "at": 0.8,
+            "padding": 0.17,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:COG",
+            "style": "outline",
+            "at": 0.25
+          },
+          {
+            "entity": "country:AGO",
+            "style": "outline",
+            "at": 0.38
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:AGO",
+            "text": "ANGOLA'S TWO PIECES",
+            "at": 0.43
+          },
+          {
+            "type": "label",
+            "anchor": "country:COG",
+            "text": "CONGO STRIP",
+            "at": 0.6
+          },
+          {
+            "type": "arrow",
+            "from": "country:COG",
+            "to": "country:AGO",
+            "at": 0.52
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "sea"
+      }
+    },
+    {
+      "id": "reveal",
+      "beat": "reveal",
+      "eyebrow": "THE OIL",
+      "headline": "700,000 BARRELS",
+      "narration": "Its coast has huge oil fields, about 700,000 barrels a day.",
+      "caption": "ABOUT 700,000 BARRELS OF OIL A DAY",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                11.6,
+                -6.1,
+                13.3,
+                -4.1
+              ]
+            },
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                11.6,
+                -6.1,
+                13.3,
+                -4.1
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.06,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:AGO",
+            "style": "fill",
+            "at": 0.2
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": {
+              "lon": 11.9,
+              "lat": -5.0
+            },
+            "text": "OFFSHORE OIL FIELDS",
+            "at": 0.35
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "sea",
+        "projection": "albers",
+        "figure": {
+          "value": 700000,
+          "unit": "BBL/DAY",
+          "text": "700,000 BBL/DAY",
+          "decimals": 0,
+          "at": 0.48
+        }
+      }
+    },
+    {
+      "id": "aftermath",
+      "beat": "aftermath",
+      "eyebrow": "STATUS",
+      "headline": "DISPUTED",
+      "narration": "Some political groups dispute that it belongs to Angola.",
+      "caption": "SOME GROUPS DISPUTE ITS STATUS",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                11.6,
+                -6.1,
+                13.3,
+                -4.1
+              ]
+            },
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                11.6,
+                -6.1,
+                13.3,
+                -4.1
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.06,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:AGO",
+            "style": "outline",
+            "at": 0.2
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": {
+              "lon": 12.2,
+              "lat": -5.0
+            },
+            "text": "CABINDA",
+            "at": 0.3
+          },
+          {
+            "type": "label",
+            "anchor": {
+              "lon": 12.2,
+              "lat": -5.6
+            },
+            "text": "STATUS DISPUTED",
+            "at": 0.5
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "sea",
+        "projection": "albers"
+      }
+    },
+    {
+      "id": "aftermath-6",
+      "beat": "aftermath",
+      "eyebrow": "PEOPLE",
+      "headline": "903,370 PEOPLE",
+      "narration": "At the 2024 census, 903,370 people lived there.",
+      "caption": "903,370 PEOPLE, 2024 CENSUS",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                11.6,
+                -6.1,
+                13.3,
+                -4.1
+              ]
+            },
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                11.6,
+                -6.1,
+                13.3,
+                -4.1
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.06,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:AGO",
+            "style": "fill",
+            "at": 0.2
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": {
+              "lon": 12.2,
+              "lat": -5.0
+            },
+            "text": "CABINDA",
+            "at": 0.3
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "sea",
+        "projection": "albers",
+        "figure": {
+          "value": 903370,
+          "unit": "PEOPLE",
+          "text": "903,370 PEOPLE",
+          "decimals": 0,
+          "at": 0.47
+        }
+      }
+    },
+    {
+      "id": "verdict",
+      "beat": "verdict",
+      "eyebrow": "YOUR TURN",
+      "headline": "TWO PIECES?",
+      "narration": "Could you run a country in two pieces?",
+      "caption": "COULD YOU RUN A COUNTRY IN TWO PIECES?",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "country:AGO",
+            "at": 0,
+            "padding": 0.15,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                11.114,
+                -18.031,
+                24.062,
+                3.708
+              ]
+            },
+            "at": 0.8,
+            "padding": 0.22,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:AGO",
+            "style": "outline",
+            "at": 0.3
+          },
+          {
+            "entity": "country:COG",
+            "style": "outline",
+            "at": 0.35
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:AGO",
+            "text": "TWO ANGOLA PIECES",
+            "at": 0.42
+          },
+          {
+            "type": "label",
+            "anchor": "country:COG",
+            "text": "BETWEEN THEM",
+            "at": 0.58
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia: Cabinda Province (revision 1379291246)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Cabinda_Province&oldid=1379291246"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ],
+  "paletteVariant": "neon",
+  "framing": {
+    "opening": "bleed",
+    "depth": "tilt"
+  }
+}

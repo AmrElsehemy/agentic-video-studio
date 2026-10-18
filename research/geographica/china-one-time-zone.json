@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "id": "china-one-time-zone",
+  "subject": "China",
+  "kind": "curated",
+  "note": "Cited to a pinned Wikipedia revision (trusted_secondary): Time in China. Xinjiang is described as the page does: two time standards used in parallel.",
+  "regions": [
+    "China"
+  ],
+  "claims": [
+    {
+      "id": "one",
+      "text": "China follows a single standard time offset of UTC+08:00 (Beijing Time), even though the country spans five geographical time zones.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-time-china"
+      ]
+    },
+    {
+      "id": "largest",
+      "text": "It is the largest sovereign nation in the world that officially observes only one time zone.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-time-china"
+      ]
+    },
+    {
+      "id": "xinjiang",
+      "text": "In Xinjiang, two time standards are used in parallel, Beijing Time and Xinjiang Time (UTC+06:00), which is two hours behind Beijing.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-time-china"
+      ]
+    },
+    {
+      "id": "hours",
+      "text": "Stores and offices in Xinjiang are commonly open from 10:00 to 19:00 Beijing Time, which equals 08:00 to 17:00 in Ürümqi Time.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-time-china"
+      ]
+    },
+    {
+      "id": "afghan",
+      "text": "At the Wakhjir Pass the clocks change from UTC+08:00 in China to UTC+04:30 in Afghanistan, the biggest official change at any land frontier.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-time-china"
+      ]
+    }
+  ],
+  "places": {},
+  "sources": {
+    "wikipedia-time-china": {
+      "label": "Wikipedia: Time in China (revision 1369694837)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Time_in_China&oldid=1369694837"
+    },
+    "natural-earth": {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  }
+}

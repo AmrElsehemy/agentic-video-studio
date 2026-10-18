@@ -1,0 +1,615 @@
+{
+  "id": "aleutians-east-west",
+  "title": "By Longitude, America's Easternmost Land Is in Alaska",
+  "storyPattern": "mechanic",
+  "numberRelevant": true,
+  "premise": "Semisopochnoi Island in the Aleutians lies at 179°46' east, so by longitude it is the easternmost land in the United States.",
+  "audiencePromise": "See why the most western part of America is also its most eastern.",
+  "openLoop": "How can Alaska be in the east?",
+  "payoff": "The 180th meridian splits the Western and Eastern Hemispheres, and the Aleutians cross it.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "Which hemisphere did you think Alaska was in?",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica"
+  },
+  "subject": {
+    "name": "Alaska",
+    "category": "Border",
+    "attributes": {
+      "geoEntity": "admin1:USA-3563"
+    }
+  },
+  "voice": {
+    "provider": "elevenlabs",
+    "voice": "JBFqnCBsd6RMkjVDRZzb"
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "eyebrow": "ALASKA",
+      "headline": "EAST AND WEST",
+      "narration": "By longitude, America's easternmost land is in Alaska.",
+      "caption": "THE EASTERNMOST US LAND, BY LONGITUDE, IS IN ALASKA",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "world",
+            "at": 0,
+            "padding": 0.3,
+            "ease": "in-out"
+          },
+          {
+            "target": "admin1:USA-3563",
+            "at": 1,
+            "padding": 0.22,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "admin1:USA-3563",
+            "style": "fill",
+            "at": 0.22
+          }
+        ],
+        "annotations": [
+          {
+            "type": "line",
+            "kind": "meridian",
+            "degrees": 180,
+            "text": "180TH MERIDIAN",
+            "at": 0.12,
+            "reverse": false
+          },
+          {
+            "type": "marker",
+            "anchor": "admin1:USA-3563",
+            "text": "EASTERNMOST US LAND",
+            "at": 0.55
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "space",
+        "globe": true
+      }
+    },
+    {
+      "id": "evidence",
+      "beat": "evidence",
+      "eyebrow": "THE ISLAND",
+      "headline": "SEMISOPOCHNOI",
+      "narration": "It is Semisopochnoi Island, in the Aleutians.",
+      "caption": "SEMISOPOCHNOI ISLAND, ALEUTIAN ISLANDS",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                170,
+                48,
+                180,
+                57
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                174,
+                49.5,
+                180,
+                55
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.08,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "admin1:USA-3563",
+            "style": "fill",
+            "at": 0.2
+          }
+        ],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 179.6008,
+              "lat": 51.9514
+            },
+            "text": "SEMISOPOCHNOI",
+            "at": 0.35
+          },
+          {
+            "type": "label",
+            "anchor": {
+              "lon": 173.5,
+              "lat": 52.6
+            },
+            "text": "ALEUTIAN ISLANDS",
+            "at": 0.55
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "sea",
+        "projection": "albers"
+      }
+    },
+    {
+      "id": "evidence-2",
+      "beat": "evidence",
+      "eyebrow": "THE NUMBER",
+      "headline": "179°46' EAST",
+      "narration": "It sits at 179 degrees 46 minutes east.",
+      "caption": "179°46' EAST",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                174,
+                49.5,
+                180,
+                55
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                176.5,
+                50.5,
+                180,
+                53.5
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.08,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "admin1:USA-3563",
+            "style": "fill",
+            "at": 0.2
+          }
+        ],
+        "annotations": [
+          {
+            "type": "line",
+            "kind": "meridian",
+            "degrees": 179.7667,
+            "text": "179°46' EAST",
+            "at": 0.2,
+            "reverse": false
+          },
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 179.6008,
+              "lat": 51.9514
+            },
+            "text": "SEMISOPOCHNOI",
+            "at": 0.5
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "sea",
+        "projection": "albers"
+      }
+    },
+    {
+      "id": "escalation",
+      "beat": "escalation",
+      "eyebrow": "THE LINE",
+      "headline": "15.6 KM TO GO",
+      "narration": "Just 15.6 kilometres short of the 180th meridian.",
+      "caption": "15.6 KM FROM THE 180TH MERIDIAN",
+      "transition": "flash",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                176.5,
+                50.5,
+                180,
+                53.5
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                178.8,
+                51.5,
+                180,
+                52.4
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.08,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "admin1:USA-3563",
+            "style": "fill",
+            "at": 0.2
+          }
+        ],
+        "annotations": [
+          {
+            "type": "line",
+            "kind": "meridian",
+            "degrees": 180,
+            "text": "180TH MERIDIAN",
+            "at": 0.12,
+            "reverse": false
+          },
+          {
+            "type": "ring",
+            "center": {
+              "lon": 179.6008,
+              "lat": 51.9514
+            },
+            "radiusKm": 15.6,
+            "text": "15.6 KM",
+            "at": 0.42
+          },
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 179.6008,
+              "lat": 51.9514
+            },
+            "text": "SEMISOPOCHNOI",
+            "at": 0.64
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "sea",
+        "projection": "albers"
+      }
+    },
+    {
+      "id": "payoff",
+      "beat": "payoff",
+      "eyebrow": "THE MERIDIAN",
+      "headline": "EAST MEETS WEST",
+      "narration": "That meridian divides the Eastern and Western Hemispheres.",
+      "caption": "THE 180TH MERIDIAN SPLITS THE HEMISPHERES",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                150,
+                38,
+                180,
+                62
+              ]
+            },
+            "at": 0,
+            "padding": 0.2,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                160,
+                42,
+                180,
+                60
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.15,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "admin1:USA-3563",
+            "style": "fill",
+            "at": 0.2
+          }
+        ],
+        "annotations": [
+          {
+            "type": "line",
+            "kind": "meridian",
+            "degrees": 180,
+            "text": "180TH MERIDIAN",
+            "at": 0.14,
+            "reverse": false
+          },
+          {
+            "type": "label",
+            "anchor": {
+              "lon": 173,
+              "lat": 55
+            },
+            "text": "EASTERN HEMISPHERE",
+            "at": 0.42
+          },
+          {
+            "type": "label",
+            "anchor": {
+              "lon": -173,
+              "lat": 55
+            },
+            "text": "WESTERN HEMISPHERE",
+            "at": 0.62
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "space",
+        "projection": "albers",
+        "globe": true
+      }
+    },
+    {
+      "id": "payoff-5",
+      "beat": "payoff",
+      "eyebrow": "THE ISLAND",
+      "headline": "NO PEOPLE",
+      "narration": "Nobody lives there, but over a million seabirds do.",
+      "caption": "UNINHABITED, OVER A MILLION SEABIRDS",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                177,
+                50,
+                180,
+                54
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                178.6,
+                51.4,
+                180,
+                52.5
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "admin1:USA-3563",
+            "style": "fill",
+            "at": 0.2
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": {
+              "lon": 179.6008,
+              "lat": 51.9514
+            },
+            "text": "UNINHABITED",
+            "at": 0.3
+          },
+          {
+            "type": "label",
+            "anchor": {
+              "lon": 178.9,
+              "lat": 52.4
+            },
+            "text": "OVER A MILLION SEABIRDS",
+            "at": 0.5
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "sea",
+        "projection": "albers"
+      }
+    },
+    {
+      "id": "payoff-6",
+      "beat": "payoff",
+      "eyebrow": "THE VOLCANO",
+      "headline": "A WIDE CALDERA",
+      "narration": "It is also a volcano with a caldera 8 kilometres wide.",
+      "caption": "A CALDERA 8 KM WIDE",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                177,
+                50,
+                180,
+                54
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                178.8,
+                51.5,
+                180,
+                52.4
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "admin1:USA-3563",
+            "style": "fill",
+            "at": 0.2
+          }
+        ],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 179.6008,
+              "lat": 51.9514
+            },
+            "text": "VOLCANO",
+            "at": 0.3
+          },
+          {
+            "type": "label",
+            "anchor": {
+              "lon": 178.9,
+              "lat": 52.4
+            },
+            "text": "8 KM CALDERA",
+            "at": 0.5
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "sea",
+        "projection": "albers"
+      }
+    },
+    {
+      "id": "verdict",
+      "beat": "verdict",
+      "eyebrow": "YOUR TURN",
+      "headline": "WHICH HEMISPHERE?",
+      "narration": "Which hemisphere did you think Alaska was in?",
+      "caption": "WHICH HEMISPHERE IS ALASKA IN?",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                150,
+                38,
+                180,
+                62
+              ]
+            },
+            "at": 0,
+            "padding": 0.2,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                160,
+                42,
+                180,
+                60
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.15,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "admin1:USA-3563",
+            "style": "outline",
+            "at": 0.2
+          }
+        ],
+        "annotations": [
+          {
+            "type": "line",
+            "kind": "meridian",
+            "degrees": 180,
+            "text": "180TH MERIDIAN",
+            "at": 0.14,
+            "reverse": false
+          },
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 179.6008,
+              "lat": 51.9514
+            },
+            "text": "WHICH HEMISPHERE?",
+            "at": 0.4
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "space",
+        "projection": "albers",
+        "globe": true
+      }
+    }
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia: Semisopochnoi Island (revision 1378466198)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Semisopochnoi_Island&oldid=1378466198"
+    },
+    {
+      "label": "Wikipedia: 180th meridian (revision 1379061326)",
+      "url": "https://en.wikipedia.org/w/index.php?title=180th_meridian&oldid=1379061326"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ],
+  "paletteVariant": "neon",
+  "framing": {
+    "ending": "loop"
+  }
+}
