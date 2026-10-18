@@ -15,7 +15,10 @@ export const featureTags = (manifest) => {
     if (primitive.data) tags.add(`data-${primitive.data.view ?? 'map'}`);
     if (primitive.series) tags.add(`chart-${primitive.series.view}`);
     if (primitive.cut) tags.add('cuts');
-    for (const annotation of primitive.annotations ?? []) if (ANNOTATIONS[annotation.type]) tags.add(ANNOTATIONS[annotation.type]);
+    for (const annotation of primitive.annotations ?? []) {
+      if (ANNOTATIONS[annotation.type]) tags.add(ANNOTATIONS[annotation.type]);
+      if (annotation.type === 'photo' && annotation.fill) tags.add('photo-full');
+    }
   }
   if (manifest.framing?.opening === 'bleed') tags.add('opening-bleed');
   if (manifest.framing?.ending === 'loop') tags.add('ending-loop');

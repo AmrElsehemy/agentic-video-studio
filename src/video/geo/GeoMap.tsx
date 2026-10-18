@@ -8,6 +8,7 @@ import type {ShotProps} from '../shots';
 import {displayFont} from '../typography';
 import {cameraAt, cameraKeys, continuesMap, episodeCameraKeys, MAP_SIZE, type BBox, type CameraKey, type Size, type View} from './camera';
 import {PHOTO_CARD, PHOTO_HEIGHT, PhotoCard, usePhotos} from './Photos';
+import {FullPhotos, type FullPhotoSpec} from './FullPhotos';
 import {FlagBadge, labelNamesCountry, shortCountryName, useFlags} from './Flags';
 import {useElevationData, useGeoData, useReliefData, useSeriesData, useStreetsData, type GeoData} from './data';
 import {FigureReveal} from './FigureReveal';
@@ -200,12 +201,15 @@ export const TILT_DEGREES = 6;
  */
 export const episodeTilts = (manifest: GeoMapProps['manifest']) => manifest.framing?.depth === 'tilt' && manifest.scenes.every((scene) => {
   const p = scene.primitive;
-  return p?.kind !== 'geo-map' || !(p.morph || p.globe || p.data || p.surface || p.series || p.figure || p.streets || p.annotations.some((annotation) => annotation.type === 'truesize'));
+  return p?.kind !== 'geo-map' || !(p.morph || p.globe || p.data || p.surface || p.series || p.figure || p.streets || p.annotations.some((annotation) => annotation.type === 'truesize' || (annotation.type === 'photo' && annotation.fill)));
 });
 
 /** The map, leaning back when the episode asks for depth; it eases in over the first moment of the first scene. */
 export const GeoMapVisual: React.FC<GeoMapProps & {blur?: boolean}> = (props) => {
   const {manifest, scene, frame} = props;
+  // A full-frame photo replaces the map for the scene (the schema allows nothing else with it).
+  const fullPhotos: FullPhotoSpec[] = props.data.annotations.flatMap((annotation) => (annotation.type === 'photo' && annotation.fill ? [{photo: annotation.photo, at: annotation.at, until: annotation.until, pan: annotation.pan}] : []));
+  if (fullPhotos.length) return <FullPhotos photos={fullPhotos} frame={frame} durationInFrames={props.durationInFrames} />;
   if (!episodeTilts(manifest)) return <GeoMapBlurred {...props} />;
   const settle = manifest.scenes[0]?.id === scene.id ? 1 - (1 - Math.min(1, frame / 24)) ** 3 : 1;
   return <div style={{position: 'absolute', inset: 0, transform: `perspective(1700px) rotateX(${TILT_DEGREES * settle}deg)`, transformOrigin: '50% 70%'}}><GeoMapBlurred {...props} /></div>;

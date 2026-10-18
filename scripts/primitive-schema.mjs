@@ -59,7 +59,11 @@ const geoAnnotation = z.discriminatedUnion('type', [
   // A real photograph (public/photos/, from Wikimedia Commons: public domain, CC0 or CC BY) as a card over the lower part of
   // the map with its credit on it, from `at` to `until` (default the end of the scene). The map lifts to keep the camera's
   // centre in view above the card, as it does for a chart.
-  z.object({type: z.literal('photo'), photo: z.string().regex(/^[a-z0-9-]+$/), at: moment.default(0), until: moment.optional()}).strict(),
+  // With `fill`, the photograph covers the whole map panel instead of sitting on it as a card, for scenes about a place seen
+  // from above or a before and after. It slowly pushes in, and `pan` moves the crop across the picture (the fractions of
+  // its width the crop is centred on, at the start and at the end), so a wide image or a side-by-side pair is not cut off.
+  // Nothing sits on it but its credit: a label or marker on a picture would claim a position the photo cannot back.
+  z.object({type: z.literal('photo'), photo: z.string().regex(/^[a-z0-9-]+$/), fill: z.boolean().optional(), pan: z.tuple([moment, moment]).optional(), at: moment.default(0), until: moment.optional()}).strict(),
   z.object({type: z.literal('line'), kind: z.enum(['meridian', 'parallel']), degrees: z.number().min(-180).max(180), text: label.optional(), at: moment.default(0), until: moment.optional(), reverse: z.boolean().default(false)}).strict(),
 ]);
 
@@ -164,6 +168,12 @@ export const primitiveSchema = z.discriminatedUnion('kind', [
       if (primitive.series.shade && (primitive.data || primitive.surface || primitive.globe)) context.addIssue({code: 'custom', path: ['series', 'shade'], message: 'A shaded map cannot share a scene with a data layer, a surface or a globe'});
       if (primitive.data && (primitive.data.view === 'bars' || primitive.data.view === 'both')) context.addIssue({code: 'custom', path: ['series'], message: 'A chart over time and a bar chart both want the bottom of the frame: use one'});
       if (primitive.streets || primitive.annotations.some((annotation) => annotation.type === 'photo' || annotation.type === 'timeline')) context.addIssue({code: 'custom', path: ['series'], message: 'A chart over time cannot share a scene with a street map, a photo or a timeline strip'});
+    }
+    const fullPhotos = primitive.annotations.filter((annotation) => annotation.type === 'photo' && annotation.fill);
+    if (fullPhotos.length) {
+      if (primitive.annotations.some((annotation) => !(annotation.type === 'photo' && annotation.fill))) context.addIssue({code: 'custom', path: ['annotations'], message: 'A full-frame photo covers the map: it takes no labels, markers or other layers, only more full-frame photos one after another'});
+      if (fullPhotos.length > 2) context.addIssue({code: 'custom', path: ['annotations'], message: 'A scene shows at most two full-frame photos, one after the other'});
+      if (primitive.highlights.length || primitive.series || primitive.streets || primitive.figure || primitive.data || primitive.surface || primitive.globe || primitive.morph || primitive.relief) context.addIssue({code: 'custom', path: ['highlights'], message: 'A full-frame photo hides the map, so the scene has no highlights, globe, relief, chart, street plan, big number or data layer'});
     }
     primitive.annotations.forEach((annotation, index) => {
       if (annotation.type === 'truesize' && (primitive.globe || !['albers', 'equal-earth'].includes(primitive.projection ?? ''))) context.addIssue({code: 'custom', path: ['annotations', index], message: 'A true-size comparison needs an equal-area projection (projection "albers" or "equal-earth") and no globe, or the copy would look the wrong size'});

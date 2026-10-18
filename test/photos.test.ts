@@ -101,3 +101,45 @@ describe('a photo on a map scene', () => {
     assert.ok(!publishBlockers({...uncredited, rights: manifest.rights} as never, geo).some((blocker: string) => blocker.startsWith('photo-credit:')));
   });
 });
+
+describe('full-frame photographs', () => {
+  const base = {kind: 'geo-map', camera: [{target: 'world', at: 0, padding: 0.1, ease: 'in-out'}], highlights: [], annotations: [], dataset: 'natural-earth'};
+  const full = (extra = {}) => ({type: 'photo', photo: 'peace-arch', fill: true, at: 0, ...extra});
+
+  it('are a photo with fill, optionally panned', () => {
+    assert.ok(primitiveSchema.safeParse({...base, annotations: [full()]}).success);
+    assert.ok(primitiveSchema.safeParse({...base, annotations: [full({pan: [0.3, 0.7]})]}).success);
+    assert.ok(!primitiveSchema.safeParse({...base, annotations: [full({pan: [0.3, 1.4]})]}).success);
+  });
+
+  it('take nothing else on the picture', () => {
+    const label = {type: 'label', anchor: 'country:CAN', text: 'CANADA', at: 0.2};
+    assert.ok(!primitiveSchema.safeParse({...base, annotations: [full(), label]}).success);
+    assert.ok(!primitiveSchema.safeParse({...base, highlights: [{entity: 'country:CAN', style: 'fill', at: 0.1}], annotations: [full()]}).success);
+    assert.ok(!primitiveSchema.safeParse({...base, globe: true, annotations: [full()]}).success);
+    assert.ok(!primitiveSchema.safeParse({...base, annotations: [full(), full({photo: 'erg-chebbi', at: 0.5}), full({photo: 'peace-arch', at: 0.8})]}).success);
+    assert.ok(primitiveSchema.safeParse({...base, annotations: [full(), full({photo: 'erg-chebbi', at: 0.5})]}).success);
+  });
+
+  it('keep a plain photo card as it was (no fill key added)', () => {
+    const parsed = primitiveSchema.parse({...base, annotations: [{type: 'photo', photo: 'peace-arch', at: 0.3}]});
+    assert.ok(!('fill' in (parsed as {annotations: object[]}).annotations[0]));
+  });
+
+  it('are tagged photo-full, and the crop stays on the picture', async () => {
+    const {featureTags} = await import('../scripts/lib/feature-tags.mjs');
+    const scene = (annotations: unknown[]) => ({shot: 'wide', narration: 'x.', primitive: {...base, annotations}});
+    const tags = featureTags({scenes: [scene([full()])], palette: {background: '#000000'}});
+    assert.ok(tags.includes('photo-full') && tags.includes('photo'));
+    assert.ok(!featureTags({scenes: [scene([{type: 'photo', photo: 'peace-arch', at: 0}])], palette: {background: '#000000'}}).includes('photo-full'));
+    const {photoPlacement} = await import('../src/video/geo/photoPlacement');
+    const wide = {width: 3000, height: 1500};
+    const size = {width: 1000, height: 1400};
+    for (const focus of [0, 0.5, 1]) {
+      const {left, width, top, height} = photoPlacement(wide, focus, 0.5, size);
+      assert.ok(left <= 0 && left + width >= size.width, `a ${focus} crop leaves no gap at the sides`);
+      assert.ok(top <= 0 && top + height >= size.height, `a ${focus} crop leaves no gap above or below`);
+    }
+    assert.ok(photoPlacement(wide, 0.2, 0, size).left > photoPlacement(wide, 0.8, 0, size).left, 'a later focus moves the picture left');
+  });
+});
