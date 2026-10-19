@@ -14,6 +14,7 @@ const viewOf = (primitive) => JSON.stringify({
   route: (primitive.annotations ?? []).some((annotation) => annotation.type === 'route'),
   recon: (primitive.annotations ?? []).some((annotation) => annotation.type === 'reconstruction'),
   truesize: (primitive.annotations ?? []).some((annotation) => annotation.type === 'truesize'),
+  daynight: (primitive.annotations ?? []).filter((annotation) => annotation.type === 'daynight').map((annotation) => [annotation.date, annotation.from, annotation.to]),
   ring: (primitive.annotations ?? []).filter((annotation) => annotation.type === 'ring').map((annotation) => annotation.radiusKm),
   photo: (primitive.annotations ?? []).filter((annotation) => annotation.type === 'photo').map((annotation) => annotation.photo),
   satellite: (primitive.annotations ?? []).filter((annotation) => annotation.type === 'satellite').map((annotation) => [annotation.set, annotation.dates, annotation.mode]),
@@ -65,7 +66,7 @@ export const mapDirectionProblems = (manifest) => {
 export const mapDevices = (primitive) => {
   const devices = new Set();
   for (const annotation of primitive.annotations ?? []) {
-    if (['line', 'ring', 'truesize', 'reconstruction', 'timeline', 'route', 'photo', 'satellite'].includes(annotation.type)) devices.add(annotation.type);
+    if (['line', 'ring', 'truesize', 'reconstruction', 'timeline', 'route', 'photo', 'satellite', 'daynight'].includes(annotation.type)) devices.add(annotation.type);
   }
   if (primitive.data) devices.add(`data-${primitive.data.view ?? 'map'}`);
   if (primitive.surface) devices.add(`surface-${primitive.surface.kind}`);

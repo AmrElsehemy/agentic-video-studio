@@ -21,6 +21,7 @@ import {COUNT_FRAMES, countUp, flash, MARCH, marchOffset, ripple} from './effect
 import {barRows, DataBars, PANEL_FRAMES, panelHeight} from './DataBars';
 import {Bubbles} from './Bubbles';
 import {Cartogram, type CartogramItem} from './Cartogram';
+import {clockLabel, subsolarPoint, sunAltitude} from './sun';
 import {discRadius, relax} from './dorling';
 import {TIMELINE_HEIGHT, TimelineStrip} from './TimelineStrip';
 import {raceCandidates, shadeScale, valueAt} from '../../../scripts/lib/series.mjs';
@@ -372,7 +373,7 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
       texts.set(index, {box: fitInside(labelBox(x, y, annotation.text, LABEL_SIZE), bounds), anchorY: screen[1], priority: annotation.at, opacity: appear(annotation.at + RING_FRAMES / 2 / durationInFrames, 14) * vanish(annotation.until), size: LABEL_SIZE});
       return;
     }
-    if (annotation.type === 'timeline' || annotation.type === 'reconstruction' || annotation.type === 'truesize' || annotation.type === 'photo' || annotation.type === 'satellite') return;
+    if (annotation.type === 'timeline' || annotation.type === 'reconstruction' || annotation.type === 'truesize' || annotation.type === 'photo' || annotation.type === 'satellite' || annotation.type === 'daynight') return;
     if (annotation.type === 'arrow' || !annotation.text) return;
     if (annotation.type === 'route') {
       if (t < annotation.at) return;
@@ -569,6 +570,44 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
       }
       // A timeline is drawn as the flat strip (see `timeline`), not on the map.
       if (annotation.type === 'timeline' || annotation.type === 'photo') return null;
+      // The night side for a real UTC moment, sweeping across the scene; its places are lit while the sun is up there.
+      if (annotation.type === 'daynight') {
+        if (t < annotation.at) return null;
+        const run = interpolate(frame, [annotation.at * durationInFrames, (annotation.until ?? 0.92) * durationInFrames], [0, 1], clamp);
+        const moment = Date.parse(`${annotation.date}T00:00:00Z`) + (annotation.from + (annotation.to - annotation.from) * run * run * (3 - 2 * run)) * 3600000;
+        const sun = subsolarPoint(moment);
+        const night = geoCircle().center([sun.lon + 180, -sun.lat]).radius(90).precision(1)();
+        const dusk = geoCircle().center([sun.lon + 180, -sun.lat]).radius(96).precision(1)();
+        const [sx, sy] = point([sun.lon, sun.lat]);
+        const sunVisible = !farOffFrame([sx, sy]);
+        const ink = styled && look.chip ? look.chip.text : palette.ink;
+        const chip = styled && look.chip ? look.chip.fill : palette.background;
+        const label = clockLabel(moment);
+        return <g key={index} opacity={appear(annotation.at, 12) * vanish(annotation.until)}>
+          <path d={path(dusk) ?? ''} fill="#02060d" fillOpacity={.22} />
+          <path d={path(night) ?? ''} fill="#02060d" fillOpacity={.5} />
+          <path d={path(night) ?? ''} fill="none" stroke="#ffd166" strokeOpacity={.5} strokeWidth={2.5} />
+          {sunVisible ? <g><circle cx={sx} cy={sy} r={30} fill="#ffd166" opacity={.28} /><circle cx={sx} cy={sy} r={13} fill="#ffe9a8" stroke="#ffd166" strokeWidth={4} /></g> : null}
+          {annotation.places.map((place) => {
+            const lonLat = data.entities.get(place)?.label as [number, number] | undefined;
+            if (!lonLat) return null;
+            const [px, py] = point(lonLat);
+            if (farOffFrame([px, py])) return null;
+            const up = sunAltitude(sun, lonLat[0], lonLat[1]) > 0;
+            const name = shortCountryName(data.entities.get(place)?.name ?? place).toUpperCase();
+            // A place near the right edge is labelled on its left, so the name stays on the panel.
+            const left = px > SIZE.width * 0.6;
+            const [tx, anchor] = left ? [px - 24, 'end'] : [px + 24, 'start'];
+            return <g key={place}>
+              <circle cx={px} cy={py} r={13} fill={up ? '#ffd166' : '#0b1117'} stroke={up ? '#fff3c4' : '#8aa0b8'} strokeWidth={4} />
+              <text x={tx} y={py - 4} textAnchor={anchor as 'start' | 'end'} dominantBaseline="central" style={{fontFamily: displayFont, fontSize: 32, letterSpacing: 2, fill: ink, stroke: chip, strokeWidth: 7, paintOrder: 'stroke'}}>{name}</text>
+              <text x={tx} y={py + 28} textAnchor={anchor as 'start' | 'end'} dominantBaseline="central" style={{fontFamily: displayFont, fontSize: 24, letterSpacing: 2, fill: up ? '#ffd166' : '#a9b8c9', stroke: chip, strokeWidth: 6, paintOrder: 'stroke'}}>{up ? 'SUN UP' : 'DARK'}</text>
+            </g>;
+          })}
+          <rect x={SIZE.width / 2 - 250} y={SAFE + 20} width={500} height={64} rx={32} fill={chip} opacity={.9} />
+          <text x={SIZE.width / 2} y={SAFE + 53} textAnchor="middle" dominantBaseline="central" style={{fontFamily: displayFont, fontSize: 36, letterSpacing: 3, fill: ink}}>{label}</text>
+        </g>;
+      }
       if (annotation.type === 'ring') {
         if (t < annotation.at) return null;
         const centre = anchorLonLat(annotation.center, data);

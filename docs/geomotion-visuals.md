@@ -210,3 +210,17 @@ npm run satellite -- verify
 - **Layout:** every circle starts at its country's position on an Equal Earth map fitted to the panel (stretched vertically to give them room) and is pushed apart until none overlap. The layout is computed from the largest size each circle reaches, so nothing jumps while the sizes change, and it is deterministic. The countries are drawn faintly behind in the same projection (without Antarctica).
 - **Rules:** population only (a circle's area is a count of people); no shading, mark, globe, morph, surface, data layer or relief in the scene. Every figure comes from the pinned World Bank table, so it is sourced and credited like the other charts.
 - **Good for:** "the world resized by people", India passing China, a country that has shrunk, how fast Africa grows. Tag: `chart-cartogram`.
+
+## Day and night
+
+A `daynight` annotation shades the night side of the Earth for a real UTC moment and sweeps it across the scene, so the terminator moves the way the sun does.
+
+```json
+{"type": "daynight", "date": "2024-12-21", "from": 16, "to": 26, "places": ["city:shanghai-chn", "city:urumqi-chn"]}
+```
+
+- **The sun is computed**, from the standard solar position formulas (well under a degree), not drawn by hand. The shading is the astronomical night side, with a lighter band for civil twilight; the sun's own point is marked.
+- **A UTC clock** sits at the top of the panel ("22:07 UTC · 21 DEC"). The sweep runs from `from` to `to` hours of `date` (hours past 24 carry into the next day), eased, ending by 92% of the scene unless `until` says otherwise.
+- **`places`** (up to 4 city, country or other entities) get a dot that is lit and says SUN UP while the sun is above the horizon there, and dark and DARK while it is not.
+- **It knows nothing of clocks.** That is the point of the China story: Shanghai and Ürümqi share one official time but not one sun. The shading is not a time-zone map and must not be described as one.
+- **Works** on flat maps and on the globe. Tag: `day-night`. Good for the date line, time zones, midnight sun and polar night, why Russia has 11 zones.
