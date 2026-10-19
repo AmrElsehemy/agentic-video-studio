@@ -254,3 +254,16 @@ npm run profiles -- add andes-crossing --path="-71.6,-33.0;-70.0,-33.1;-66.5,-33
 - **Path:** 2 to 8 stops joined along great circles (`lon,lat`), not crossing the date line. 20 to 400 samples (default 160). The highest and lowest points and where they are come from the samples.
 - **Rules:** one profile per scene, on a flat map; the panel takes the lower part of the frame, so no chart, big number, bars, street map, photo, satellite still or timeline strip in the same scene. Tag: `elevation-profile`. Credit: a rights entry for NOAA ETOPO 2022 is added by the compiler.
 - **Good for:** Chile's ribbon, the Nile's fall, a pass over the Alps, the Panama Canal's locks, a road to the world's highest capital, how low the Netherlands lies.
+
+## Counting rings (reach)
+
+`ring` with `reach: true` is a distance ring that also lights each country as it passes that country's nearest border and keeps a running tally on the panel.
+
+```json
+{"type": "ring", "center": "city:singapore-sgp", "radiusKm": 3000, "text": "3,000 km", "reach": true}
+```
+
+- **What is measured:** the straight-line (great-circle) distance from the centre to each country's nearest border, taken from the map's own boundaries (long straight borders are walked in small steps, so a stretch between two far corners is not missed). A country the centre is inside is at 0. The panel says "NEAREST BORDER WITHIN N KM, IN A STRAIGHT LINE" and the ring's radius is still a claim that must come from the research.
+- **What is counted:** the map's own list of "countries and territories". It includes dependencies, special regions and disputed places (Hong Kong, Macao, Taiwan, Spratly Is., Ashmore and Cartier Is. for Singapore at 3,000 km: 23 in all, 16 of them sovereign states), so the panel says "COUNTRIES & TERRITORIES". **The narration must say the same**: never "23 countries". If the story needs a sovereign-state count, name them in the research instead.
+- **Rules:** flat map only (no globe, no morph). Tag: `ring` (as any ring).
+- **Good for:** "from Singapore, 3,000 km reaches ...", how many borders touch a place, how far a missile, a flight or a storm can reach.

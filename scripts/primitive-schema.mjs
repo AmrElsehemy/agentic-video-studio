@@ -48,7 +48,9 @@ const geoAnnotation = z.discriminatedUnion('type', [
   // A distance ring: a true circle of `radiusKm` around `center` (a place or a named point), drawn on the sphere so it is
   // right in any projection (roundest in azimuthal). It grows from the centre at `at`; its text sits on the ring's east edge.
   // The radius is a claim, so the director only draws one the research states.
-  z.object({type: z.literal('ring'), center: anchor, radiusKm: z.number().min(0.1).max(20000), text: label.optional(), at: moment.default(0), until: moment.optional()}).strict(),
+  z.object({type: z.literal('ring'), center: anchor, radiusKm: z.number().min(0.1).max(20000), text: label.optional(), at: moment.default(0), until: moment.optional(), reach: z.boolean().optional()}).strict(),
+  // With `reach`, the ring also lights each country as the ring passes its nearest border and counts them ("14 COUNTRIES"). The count is
+  // computed from the map's own boundaries, measured in a straight line over the Earth to the nearest border, and the panel says so.
   // A true-size comparison: a copy of `entity` slides across the map onto `onto` (rotated on the sphere, so its area and
   // shape stay exact) from `at` to `until`, to show how big one place is against another. Only meaningful in an equal-area
   // projection (albers or equal-earth), which the schema requires; the map says the place was moved.
@@ -249,6 +251,7 @@ export const primitiveSchema = z.discriminatedUnion('kind', [
       if (annotation.type === 'satellite' && annotation.mode === 'swipe' && annotation.dates.length !== 2) context.addIssue({code: 'custom', path: ['annotations', index, 'dates'], message: 'A before/after swipe compares exactly two dates'});
     });
     primitive.annotations.forEach((annotation, index) => {
+      if (annotation.type === 'ring' && annotation.reach && (primitive.globe || primitive.morph)) context.addIssue({code: 'custom', path: ['annotations', index, 'reach'], message: 'A counting ring is drawn on a flat map: no globe and no morph'});
       if (annotation.type === 'truesize' && (primitive.globe || !['albers', 'equal-earth'].includes(primitive.projection ?? ''))) context.addIssue({code: 'custom', path: ['annotations', index], message: 'A true-size comparison needs an equal-area projection (projection "albers" or "equal-earth") and no globe, or the copy would look the wrong size'});
       if (annotation.type === 'truesize' && annotation.entity === annotation.onto) context.addIssue({code: 'custom', path: ['annotations', index, 'onto'], message: 'A place cannot be compared with itself'});
       if (annotation.type === 'reconstruction' && annotation.from <= annotation.to) context.addIssue({code: 'custom', path: ['annotations', index, 'from'], message: `A reconstruction runs forward in time: from (${annotation.from} Ma) must be older than to (${annotation.to} Ma)`});

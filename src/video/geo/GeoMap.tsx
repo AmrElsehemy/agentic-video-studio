@@ -22,6 +22,7 @@ import {barRows, DataBars, PANEL_FRAMES, panelHeight} from './DataBars';
 import {Bubbles} from './Bubbles';
 import {Cartogram, type CartogramItem} from './Cartogram';
 import {clockLabel, subsolarPoint, sunAltitude} from './sun';
+import {countriesWithin, reachDistances} from './reach';
 import {PROFILE_PANEL, PROFILE_SLIDE_FRAMES, ProfilePanel, profileProgress, useProfile} from './Profile';
 import {discRadius, relax} from './dorling';
 import {TIMELINE_HEIGHT, TimelineStrip} from './TimelineStrip';
@@ -688,11 +689,28 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
         const colour = styled ? look.subject.from : accent;
         const core = styled ? look.subject.rim : palette.ink;
         const [cx, cy] = point(centre);
+        // A counting ring lights each country as the ring passes its nearest border, and tallies them.
+        const reached = annotation.reach ? (() => {
+          const countries = [...data.features.entries()].filter(([id]) => id.startsWith('country:')).map(([id, feature]) => ({id, geometry: feature.geometry as {type: string; coordinates: unknown}}));
+          const distances = reachDistances(countries, centre as [number, number]);
+          return countriesWithin(distances, annotation.radiusKm * grow);
+        })() : [];
+        const ink = styled && look.chip ? look.chip.text : palette.ink;
+        const chip = styled && look.chip ? look.chip.fill : palette.background;
         return <g key={index} opacity={vanish(annotation.until)}>
+          {reached.map((id) => {
+            const feature = data.features.get(id);
+            return feature ? <path key={id} d={path(feature) ?? ''} fill={colour} fillOpacity={.3} stroke={core} strokeOpacity={.5} strokeWidth={2} /> : null;
+          })}
           <path d={d} fill={colour} fillOpacity={.14} />
           <path d={d} fill="none" stroke={colour} strokeWidth={7} strokeLinejoin="round" style={{filter: glow(12, colour)}} />
           <path d={d} fill="none" stroke={core} strokeOpacity={.85} strokeWidth={2.4} strokeLinejoin="round" />
           <circle cx={cx} cy={cy} r={8} fill={core} stroke={colour} strokeWidth={3} />
+          {annotation.reach ? <g>
+            <rect x={SIZE.width / 2 - 400} y={SAFE + 20} width={800} height={112} rx={30} fill={chip} opacity={.92} />
+            <text x={SIZE.width / 2} y={SAFE + 62} textAnchor="middle" dominantBaseline="central" style={{fontFamily: displayFont, fontSize: 46, letterSpacing: 3, fill: colour}}>{reached.length === 1 ? '1 COUNTRY OR TERRITORY' : `${reached.length} COUNTRIES & TERRITORIES`}</text>
+            <text x={SIZE.width / 2} y={SAFE + 104} textAnchor="middle" dominantBaseline="central" style={{fontFamily: displayFont, fontSize: 24, letterSpacing: 2, fill: ink, opacity: .8}}>{`NEAREST BORDER WITHIN ${new Intl.NumberFormat('en-US').format(Math.round(annotation.radiusKm * grow))} KM, IN A STRAIGHT LINE`}</text>
+          </g> : null}
         </g>;
       }
       if (annotation.type === 'truesize') {
