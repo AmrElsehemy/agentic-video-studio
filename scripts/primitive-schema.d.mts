@@ -26,6 +26,7 @@ export type GeoAnnotation =
   | {type: 'reconstruction'; entities: GeoEntityId[]; fixed: GeoEntityId; from: number; to: number; at: number; until?: number; text?: string}
   | {type: 'timeline'; steps: {label: string; detail?: string}[]; active: number; at: number}
   | {type: 'photo'; photo: string; fill?: boolean; pan?: [number, number]; at: number; until?: number}
+  | {type: 'flow'; flows: {from: GeoAnchor; to: GeoAnchor; value?: number; text?: string}[]; unit?: string; at: number; until?: number}
   | {type: 'daynight'; date: string; from: number; to: number; places: GeoEntityId[]; at: number; until?: number}
   | {type: 'satellite'; set: string; dates: string[]; mode: 'fade' | 'swipe'; marks: {lon: number; lat: number; text: string}[]; at: number; until?: number}
   | {type: 'line'; kind: 'meridian' | 'parallel'; degrees: number; text?: string; at: number; until?: number; reverse: boolean};

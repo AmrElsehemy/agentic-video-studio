@@ -40,6 +40,7 @@ export const geoReferences = (primitive) => [
     .map((key) => [`annotations[${index}].${key}`, annotation[key]])),
   ...(primitive.data?.values ?? []).map(({entity}, index) => [`data.values[${index}].entity`, entity]),
   ...primitive.annotations.flatMap((annotation, index) => (annotation.type === 'ring' && typeof annotation.center === 'string' ? [[`annotations[${index}].center`, annotation.center]] : [])),
+  ...primitive.annotations.flatMap((annotation, index) => (annotation.type === 'flow' ? annotation.flows.flatMap((flow, at) => ['from', 'to'].filter((key) => typeof flow[key] === 'string').map((key) => [`annotations[${index}].flows[${at}].${key}`, flow[key]])) : [])),
   ...primitive.annotations.flatMap((annotation, index) => (annotation.type === 'daynight' ? annotation.places.map((place, at) => [`annotations[${index}].places[${at}]`, place]) : [])),
   ...primitive.annotations.flatMap((annotation, index) => (annotation.type === 'truesize' ? [[`annotations[${index}].entity`, annotation.entity], [`annotations[${index}].onto`, annotation.onto]] : [])),
   ...primitive.annotations.flatMap((annotation, index) => (annotation.type === 'reconstruction' ? [...annotation.entities.map((entity, at) => [`annotations[${index}].entities[${at}]`, entity]), [`annotations[${index}].fixed`, annotation.fixed]] : [])),

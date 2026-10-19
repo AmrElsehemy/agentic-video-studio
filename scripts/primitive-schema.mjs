@@ -64,6 +64,16 @@ const geoAnnotation = z.discriminatedUnion('type', [
   // its width the crop is centred on, at the start and at the end), so a wide image or a side-by-side pair is not cut off.
   // Nothing sits on it but its credit: a label or marker on a picture would claim a position the photo cannot back.
   z.object({type: z.literal('photo'), photo: z.string().regex(/^[a-z0-9-]+$/), fill: z.boolean().optional(), pan: z.tuple([moment, moment]).optional(), at: moment.default(0), until: moment.optional()}).strict(),
+  // A flow map: 1 to 6 arcs from an origin to a destination along great circles, with particles streaming along them. The arcs
+  // are all plain or all carry a `value` (then each arc's width follows its value, and its figure is printed on it); a value is
+  // a claim, so it must come from the research. Every arc draws itself in turn from `at`.
+  z.object({
+    type: z.literal('flow'),
+    flows: z.array(z.object({from: anchor, to: anchor, value: z.number().positive().optional(), text: label.optional()}).strict()).min(1).max(6),
+    unit: z.string().min(1).max(8).optional(),
+    at: moment.default(0),
+    until: moment.optional(),
+  }).strict(),
   // Day and night (#daynight): the night side of the Earth shaded for a real UTC moment, sweeping from `from` to `to` hours of `date`
   // (the sun's position is computed, not drawn by hand), with the sun's point, a UTC clock and, for each place in `places`, a dot that is
   // lit while the sun is up there. The shading is the astronomical night side: it knows nothing of time zones or clocks.
@@ -207,6 +217,15 @@ export const primitiveSchema = z.discriminatedUnion('kind', [
       if (fullPhotos.length > 2) context.addIssue({code: 'custom', path: ['annotations'], message: 'A scene shows at most two full-frame photos, one after the other'});
       if (primitive.highlights.length || primitive.series || primitive.streets || primitive.figure || primitive.data || primitive.surface || primitive.globe || primitive.morph || primitive.relief) context.addIssue({code: 'custom', path: ['highlights'], message: 'A full-frame photo hides the map, so the scene has no highlights, globe, relief, chart, street plan, big number or data layer'});
     }
+    primitive.annotations.forEach((annotation, index) => {
+      if (annotation.type !== 'flow') return;
+      const withValue = annotation.flows.filter((flow) => flow.value !== undefined).length;
+      if (withValue !== 0 && withValue !== annotation.flows.length) context.addIssue({code: 'custom', path: ['annotations', index, 'flows'], message: 'Either every arc has a value or none does: widths must compare like with like'});
+      if (annotation.unit && withValue === 0) context.addIssue({code: 'custom', path: ['annotations', index, 'unit'], message: 'A unit belongs to arcs that carry values'});
+      annotation.flows.forEach((flow, at) => {
+        if (typeof flow.from === 'string' && flow.from === flow.to) context.addIssue({code: 'custom', path: ['annotations', index, 'flows', at, 'to'], message: 'An arc needs two different places'});
+      });
+    });
     primitive.annotations.forEach((annotation, index) => {
       if (annotation.type === 'daynight' && annotation.from === annotation.to) context.addIssue({code: 'custom', path: ['annotations', index, 'to'], message: 'The sweep needs different from and to hours'});
       if (annotation.type === 'daynight' && Number.isNaN(Date.parse(`${annotation.date}T00:00:00Z`))) context.addIssue({code: 'custom', path: ['annotations', index, 'date'], message: 'Not a real date'});

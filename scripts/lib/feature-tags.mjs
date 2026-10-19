@@ -1,6 +1,6 @@
 // What an episode is made of, read from its own manifest, so performance can be compared by feature
 // without anyone tagging episodes by hand. Tags describe what the viewer sees, not how it was authored.
-const ANNOTATIONS = {photo: 'photo', timeline: 'timeline', route: 'route', reconstruction: 'reconstruction', truesize: 'true-size', ring: 'ring', arrow: 'arrow', daynight: 'day-night'};
+const ANNOTATIONS = {photo: 'photo', timeline: 'timeline', route: 'route', reconstruction: 'reconstruction', truesize: 'true-size', ring: 'ring', arrow: 'arrow', daynight: 'day-night', flow: 'flow'};
 
 export const featureTags = (manifest) => {
   const tags = new Set();

@@ -1,5 +1,5 @@
 import React, {useMemo} from 'react';
-import {geoCentroid, geoCircle, geoDistance, geoEqualEarth, geoGraticule, geoOrthographic, geoPath, type GeoProjection} from 'd3-geo';
+import {geoCentroid, geoCircle, geoDistance, geoEqualEarth, geoGraticule, geoInterpolate, geoOrthographic, geoPath, type GeoProjection} from 'd3-geo';
 import {evolvePath} from '@remotion/paths';
 import {Img, interpolate, staticFile} from 'remotion';
 import {paletteMode} from '../../../scripts/lib/palette.mjs';
@@ -373,7 +373,7 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
       texts.set(index, {box: fitInside(labelBox(x, y, annotation.text, LABEL_SIZE), bounds), anchorY: screen[1], priority: annotation.at, opacity: appear(annotation.at + RING_FRAMES / 2 / durationInFrames, 14) * vanish(annotation.until), size: LABEL_SIZE});
       return;
     }
-    if (annotation.type === 'timeline' || annotation.type === 'reconstruction' || annotation.type === 'truesize' || annotation.type === 'photo' || annotation.type === 'satellite' || annotation.type === 'daynight') return;
+    if (annotation.type === 'timeline' || annotation.type === 'reconstruction' || annotation.type === 'truesize' || annotation.type === 'photo' || annotation.type === 'satellite' || annotation.type === 'daynight' || annotation.type === 'flow') return;
     if (annotation.type === 'arrow' || !annotation.text) return;
     if (annotation.type === 'route') {
       if (t < annotation.at) return;
@@ -570,6 +570,49 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
       }
       // A timeline is drawn as the flat strip (see `timeline`), not on the map.
       if (annotation.type === 'timeline' || annotation.type === 'photo') return null;
+      // A flow map: arcs along great circles, drawing themselves in turn, with particles streaming origin to destination.
+      if (annotation.type === 'flow') {
+        if (t < annotation.at) return null;
+        const colour = styled ? look.subject.from : accent;
+        const core = styled ? look.subject.rim : palette.ink;
+        const ink = styled && look.chip ? look.chip.text : palette.ink;
+        const chip = styled && look.chip ? look.chip.fill : palette.background;
+        const top = Math.max(...annotation.flows.map((flow) => flow.value ?? 0));
+        const SAMPLES = 64;
+        return <g key={index} opacity={vanish(annotation.until)}>
+          {annotation.flows.map((flow, order) => {
+            const begin = annotation.at * durationInFrames + order * 14;
+            const grow = interpolate(frame, [begin, begin + 34], [0, 1], clamp);
+            if (grow <= 0) return null;
+            const [start, end] = [anchorLonLat(flow.from, data), anchorLonLat(flow.to, data)];
+            const along = geoInterpolate(start, end);
+            const samples = Array.from({length: SAMPLES + 1}, (_, k) => along(k / SAMPLES) as [number, number]);
+            const shown = samples.slice(0, Math.max(2, Math.ceil(grow * SAMPLES) + 1));
+            const d = path({type: 'LineString', coordinates: shown}) ?? '';
+            const width = flow.value !== undefined && top > 0 ? 5 + 15 * Math.sqrt(flow.value / top) : 7;
+            const screen = shown.map((lonLat) => point(lonLat));
+            // Particles stream along the finished part of the arc, evenly spaced, looping.
+            const count = 7;
+            const particles = Array.from({length: count}, (_, k) => {
+              const u = (((frame - begin) / 90 + k / count) % 1 + 1) % 1;
+              const index2 = Math.floor(u * SAMPLES);
+              return index2 < shown.length - 1 ? screen[index2] : null;
+            }).filter((xy): xy is [number, number] => Boolean(xy) && !farOffFrame(xy as [number, number]));
+            const tip = screen[screen.length - 1];
+            const before = screen[Math.max(0, screen.length - 4)];
+            const angle = (Math.atan2(tip[1] - before[1], tip[0] - before[0]) * 180) / Math.PI;
+            const mid = screen[Math.floor(screen.length * 0.72)];
+            const caption = [flow.text, flow.value !== undefined ? `${new Intl.NumberFormat('en-US', {notation: 'compact', maximumSignificantDigits: 3}).format(flow.value)}${annotation.unit ? ` ${annotation.unit}` : ''}` : undefined].filter(Boolean).join(' · ');
+            return <g key={order}>
+              <path d={d} fill="none" stroke={colour} strokeOpacity={.28} strokeWidth={width + 8} strokeLinecap="round" />
+              <path d={d} fill="none" stroke={colour} strokeOpacity={.85} strokeWidth={width} strokeLinecap="round" />
+              {particles.map(([px, py], k) => <circle key={k} cx={px} cy={py} r={Math.max(4, width * 0.45)} fill={core} fillOpacity={.9} />)}
+              {grow > .97 && !farOffFrame(tip) ? <polygon points={`0,${-(width * 1.3 + 8)} ${width * 2.6 + 16},0 0,${width * 1.3 + 8}`} fill={colour} stroke={core} strokeWidth={2} strokeOpacity={.8} transform={`translate(${tip[0]} ${tip[1]}) rotate(${angle})`} /> : null}
+              {caption && grow > .6 && !farOffFrame(mid) ? <text x={mid[0]} y={mid[1] - width - 14} textAnchor="middle" dominantBaseline="central" style={{fontFamily: displayFont, fontSize: 32, letterSpacing: 2, fill: ink, stroke: chip, strokeWidth: 7, paintOrder: 'stroke'}} opacity={interpolate(grow, [.6, .8], [0, 1], clamp)}>{caption.toUpperCase()}</text> : null}
+            </g>;
+          })}
+        </g>;
+      }
       // The night side for a real UTC moment, sweeping across the scene; its places are lit while the sun is up there.
       if (annotation.type === 'daynight') {
         if (t < annotation.at) return null;

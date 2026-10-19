@@ -224,3 +224,16 @@ A `daynight` annotation shades the night side of the Earth for a real UTC moment
 - **`places`** (up to 4 city, country or other entities) get a dot that is lit and says SUN UP while the sun is above the horizon there, and dark and DARK while it is not.
 - **It knows nothing of clocks.** That is the point of the China story: Shanghai and Ürümqi share one official time but not one sun. The shading is not a time-zone map and must not be described as one.
 - **Works** on flat maps and on the globe. Tag: `day-night`. Good for the date line, time zones, midnight sun and polar night, why Russia has 11 zones.
+
+## Flow maps
+
+A `flow` annotation draws 1 to 6 arcs from an origin to a destination along great circles, each drawing itself in turn from `at`, with particles streaming along it and an arrowhead where it lands.
+
+```json
+{"type": "flow", "unit": "mb/d", "flows": [{"from": {"lon": 51.5, "lat": 26.5}, "to": "city:shanghai-chn", "value": 9, "text": "China"}, {"from": {"lon": 51.5, "lat": 26.5}, "to": "city:mumbai-ind", "value": 4.5, "text": "India"}]}
+```
+
+- **Values are claims.** Either every arc carries a `value` (then each width follows the square root of its value against the biggest, and the figure is printed on the arc, compact, with the unit) or none does (every arc the same width, no figure). A value must come from the research; the director never invents one. A mix is refused, so widths always compare like with like.
+- **Honest wording.** An arc says "from here to there", not "all of it": say what the width measures (barrels a day, people a year) and for which year in the narration or the arc's `text`.
+- **Ends** are places or named points (`{lon, lat}`); a named end is checked like any other place. A scene can hold several flow annotations only by putting all its arcs in one (at most six).
+- **Good for:** oil and shipping lanes, migration routes, rivers' water going to cities, trade, a country's exports. Tag: `flow`.
