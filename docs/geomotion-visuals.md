@@ -197,3 +197,16 @@ npm run satellite -- verify
 - **Honest choices.** Pick places where the image really shows the change (a lake's open water, cleared forest, a city's footprint), not a seasonal marsh or a cloud. 250 m pixels are soft at phone size; keep the box to about 100 to 300 km.
 - **Credit.** NASA imagery is free to use with acknowledgement. The compiler adds a rights entry naming NASA GIBS, the layers and the dates, which the upload description prints with the photo credits.
 - **Tags:** `satellite`, `satellite-swipe`.
+
+## Cartogram (population circles)
+
+`series` with `view: 'cartogram'` redraws the world as circles whose **area** is the World Bank population of the year shown (a Dorling cartogram). The circles grow and shrink in place as the years run `from` to `to`, with the year in large type and "CIRCLE AREA = POPULATION" on the panel, so nobody has to guess what the size means.
+
+```json
+"series": {"indicator": "population", "view": "cartogram", "places": ["country:IND"], "from": 1960, "to": 2023, "top": 20}
+```
+
+- **Which countries:** the `top` biggest (6 to 30, default 20) in any year of the span. Each circle is labelled with its name and figure when large, its country code when medium, and nothing when tiny. `places[0]` (or the episode's subject) is lit.
+- **Layout:** every circle starts at its country's position on an Equal Earth map fitted to the panel (stretched vertically to give them room) and is pushed apart until none overlap. The layout is computed from the largest size each circle reaches, so nothing jumps while the sizes change, and it is deterministic. The countries are drawn faintly behind in the same projection (without Antarctica).
+- **Rules:** population only (a circle's area is a count of people); no shading, mark, globe, morph, surface, data layer or relief in the scene. Every figure comes from the pinned World Bank table, so it is sourced and credited like the other charts.
+- **Good for:** "the world resized by people", India passing China, a country that has shrunk, how fast Africa grows. Tag: `chart-cartogram`.

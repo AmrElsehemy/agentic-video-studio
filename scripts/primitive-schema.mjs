@@ -138,12 +138,14 @@ export const primitiveSchema = z.discriminatedUnion('kind', [
     // ranked race where countries overtake one another. The numbers come from the pinned table, never from the model.
     series: z.object({
       indicator: z.enum(['population', 'life-expectancy', 'fertility', 'gdp-per-person']),
-      view: z.enum(['line', 'race']),
+      view: z.enum(['line', 'race', 'cartogram']),
       // line: the countries drawn (1 to 4). race: the country to light up, if any.
       places: z.array(geoEntity).max(4).default([]),
       from: z.number().int().min(1960).max(2025),
       to: z.number().int().min(1960).max(2025),
       at: moment.default(0.04),
+      // cartogram only: how many of the biggest countries get a circle (their area follows the population).
+      top: z.number().int().min(6).max(30).optional(),
       // The whole map shaded by the indicator, country by country, in the year the chart is showing (rates and averages only).
       shade: z.boolean().optional(),
       // line only: 'zero' starts the axis at zero (honest sizes); 'fit' zooms to the data, to show a turn. The ticks say which.
@@ -173,6 +175,12 @@ export const primitiveSchema = z.discriminatedUnion('kind', [
     if (primitive.series) {
       if (primitive.series.from === primitive.series.to) context.addIssue({code: 'custom', path: ['series', 'to'], message: 'A chart over time needs different from and to years'});
       if (primitive.series.view === 'line' && primitive.series.places.length === 0) context.addIssue({code: 'custom', path: ['series', 'places'], message: 'A line chart needs 1 to 4 countries to draw'});
+      if (primitive.series.top !== undefined && primitive.series.view !== 'cartogram') context.addIssue({code: 'custom', path: ['series', 'top'], message: 'top (the number of circles) belongs to a cartogram'});
+      if (primitive.series.view === 'cartogram') {
+        if (primitive.series.indicator !== 'population') context.addIssue({code: 'custom', path: ['series', 'indicator'], message: 'A cartogram sizes circles by a count of people: use the population'});
+        if (primitive.series.mark || primitive.series.axis === 'fit' || primitive.series.shade) context.addIssue({code: 'custom', path: ['series'], message: 'axis, mark and shade belong to a line chart or a shaded map, not a cartogram'});
+        if (primitive.globe || primitive.morph || primitive.surface || primitive.data || primitive.relief) context.addIssue({code: 'custom', path: ['series'], message: 'A cartogram is drawn flat: no globe, morph, surface, data layer or relief'});
+      }
       if (primitive.series.view === 'race' && (primitive.series.mark || primitive.series.axis === 'fit')) context.addIssue({code: 'custom', path: ['series'], message: 'axis and mark belong to a line chart'});
       if (primitive.series.mark && (primitive.series.mark.year < Math.min(primitive.series.from, primitive.series.to) || primitive.series.mark.year > Math.max(primitive.series.from, primitive.series.to))) context.addIssue({code: 'custom', path: ['series', 'mark', 'year'], message: 'The marked year must fall inside the chart\'s years'});
       if (primitive.series.view === 'race' && primitive.series.places.length > 1) context.addIssue({code: 'custom', path: ['series', 'places'], message: 'A race lights up at most one country'});

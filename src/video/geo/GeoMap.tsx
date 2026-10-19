@@ -1,5 +1,5 @@
 import React, {useMemo} from 'react';
-import {geoCentroid, geoCircle, geoDistance, geoGraticule, geoOrthographic, geoPath, type GeoProjection} from 'd3-geo';
+import {geoCentroid, geoCircle, geoDistance, geoEqualEarth, geoGraticule, geoOrthographic, geoPath, type GeoProjection} from 'd3-geo';
 import {evolvePath} from '@remotion/paths';
 import {Img, interpolate, staticFile} from 'remotion';
 import {paletteMode} from '../../../scripts/lib/palette.mjs';
@@ -20,6 +20,8 @@ import {labelScale, pop} from './motion';
 import {COUNT_FRAMES, countUp, flash, MARCH, marchOffset, ripple} from './effects';
 import {barRows, DataBars, PANEL_FRAMES, panelHeight} from './DataBars';
 import {Bubbles} from './Bubbles';
+import {Cartogram, type CartogramItem} from './Cartogram';
+import {discRadius, relax} from './dorling';
 import {TIMELINE_HEIGHT, TimelineStrip} from './TimelineStrip';
 import {raceCandidates, shadeScale, valueAt} from '../../../scripts/lib/series.mjs';
 import {reconstruction, rotateGeometry} from '../../../scripts/lib/plates.mjs';
@@ -250,9 +252,12 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
   const seriesTable = primitive.series ? seriesFile?.indicators[primitive.series.indicator] : undefined;
   const seriesSubject = typeof manifest.subject.attributes?.geoEntity === 'string' ? manifest.subject.attributes.geoEntity : undefined;
   const raceCodes = primitive.series?.view === 'race' && seriesTable ? raceCandidates(seriesTable, primitive.series.from, primitive.series.to, 6) : [];
+  // A cartogram draws a circle for each of the biggest countries in any year of its span.
+  const cartogramCodes = primitive.series?.view === 'cartogram' && seriesTable ? raceCandidates(seriesTable, primitive.series.from, primitive.series.to, (primitive.series.top ?? 20) - 1) : [];
   const flagEntities = [
     ...(primitive.series?.places ?? []),
     ...raceCodes.map((code) => `country:${code}`),
+    ...cartogramCodes.map((code) => `country:${code}`),
     ...primitive.highlights.map((highlight) => highlight.entity),
     ...primitive.annotations.flatMap((annotation) => ((annotation.type === 'label' || annotation.type === 'marker') && typeof annotation.anchor === 'string' ? [annotation.anchor] : [])),
     ...(primitive.data?.values.map(({entity}) => entity) ?? []),
@@ -277,7 +282,7 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
     : 0;
   const seriesStart = primitive.series ? primitive.series.at * durationInFrames : 0;
   const barsShift = Math.max(
-    primitive.series ? (SERIES_PANEL / 2) * interpolate(frame, [seriesStart, seriesStart + SERIES_SLIDE_FRAMES], [0, 1], clamp) : 0,
+    primitive.series && primitive.series.view !== 'cartogram' ? (SERIES_PANEL / 2) * interpolate(frame, [seriesStart, seriesStart + SERIES_SLIDE_FRAMES], [0, 1], clamp) : 0,
     photoLift,
     barsOn ? (barsPanel / 2) * interpolate(frame, [barsStart, barsStart + PANEL_FRAMES], [0, 1], clamp) : 0,
     timelineOn ? (TIMELINE_HEIGHT / 2) * interpolate(frame, [timelineStart, timelineStart + 12], [0, 1], clamp) : 0,
@@ -795,7 +800,7 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
 
   // A chart over time: the figures come from the pinned World Bank table, drawn along the bottom as the years run.
   const seriesChart = (() => {
-    if (!primitive.series || !seriesTable || !seriesFile) return null;
+    if (!primitive.series || !seriesTable || !seriesFile || primitive.series.view === 'cartogram') return null;
     const chart = primitive.series;
     const series = {years: seriesTable.years, countries: seriesTable.countries};
     const accentColor = styled ? look.subject.from : accent;
@@ -810,6 +815,42 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
     const flagByCode = new Map(raceCodes.map((code) => [code, flags.href(`country:${code}`)]));
     const lit = chart.places[0] ?? seriesSubject;
     return <RaceChart {...common} places={[]} candidates={raceCodes} names={names} flags={flagByCode} subject={lit?.startsWith('country:') ? lit.slice('country:'.length) : undefined} />;
+  })();
+
+  // A cartogram: circles sized by population in the year shown, laid out once so they never overlap.
+  const cartogramLayer = (() => {
+    if (primitive.series?.view !== 'cartogram' || !seriesTable || !cartogramCodes.length || globe) return null;
+    const chart = primitive.series;
+    const series = {years: seriesTable.years, countries: seriesTable.countries};
+    const span: number[] = [];
+    for (let y = Math.min(chart.from, chart.to); y <= Math.max(chart.from, chart.to); y++) span.push(y);
+    const peak = (code: string) => Math.max(...span.map((y) => valueAt(series, code, y) ?? 0));
+    const maxValue = Math.max(...cartogramCodes.map(peak));
+    const maxRadius = 205;
+    // The whole world in Equal Earth, fitted to the panel whatever the camera does: the circles sit where their countries are on this map.
+    const home = geoEqualEarth().fitExtent([[28, SAFE + 190], [SIZE.width - 28, SIZE.height - 110]], {type: 'Sphere'});
+    const stretchOutlines = `translate(0 ${((SAFE + 190 + SIZE.height - 110) / 2) * (1 - 1.9)}) scale(1 1.9)`;
+    const homePath = geoPath(home);
+    const outlines = [...data.features.entries()].filter(([id]) => id.startsWith('country:') && id !== 'country:ATA').map(([id, feature]) => ({id, d: homePath(feature) ?? ''})).filter((outline) => outline.d);
+    // The world is wider than the panel is tall, so it is stretched vertically (the same for the outlines) to give the circles room.
+    const [top, bottom] = [SAFE + 190, SIZE.height - 110];
+    const centreY = (top + bottom) / 2;
+    const stretch = 1.9;
+    const placed = cartogramCodes.flatMap((code) => {
+      const place = data.entities.get(`country:${code}`);
+      const feature = data.features.get(`country:${code}`);
+      const lonLat = (place?.label ?? (feature ? geoCentroid(feature) : undefined)) as [number, number] | undefined;
+      const xy = lonLat ? home(lonLat) : null;
+      return xy ? [{id: code, x: xy[0], y: centreY + (xy[1] - centreY) * stretch, r: discRadius(peak(code), maxValue, maxRadius)}] : [];
+    });
+    const laid = relax(placed, {left: 16, top, right: SIZE.width - 16, bottom: bottom + 40});
+    const year = yearAt(frame, seriesStart + SERIES_SLIDE_FRAMES, Math.max(seriesStart + SERIES_SLIDE_FRAMES + 30, 0.9 * durationInFrames), chart.from, chart.to);
+    const lit = chart.places[0] ?? seriesSubject;
+    const items: CartogramItem[] = laid.map((disc) => ({code: disc.id, name: shortCountryName(data.entities.get(`country:${disc.id}`)?.name ?? disc.id), x: disc.x, y: disc.y, r: disc.r, value: valueAt(series, disc.id, year) ?? 0, subject: lit === `country:${disc.id}`, flag: flags.href(`country:${disc.id}`)}));
+    return out(<g opacity={outro}>
+      <Cartogram outlines={outlines} outlineTransform={stretchOutlines} items={items} year={year} frame={frame} startFrame={seriesStart} fps={manifest.format.fps} indicator={chart.indicator} decimals={seriesTable.decimals} maxValue={maxValue} maxRadius={maxRadius}
+        accent={styled ? look.subject.from : accent} ink={styled && look.chip ? look.chip.text : palette.ink} backdrop={styled && look.chip ? look.chip.fill : palette.background} muted={styled ? look.subject.side : palette.ink} width={SIZE.width} height={SIZE.height} top={SAFE} />
+    </g>);
   })();
 
   // One number that matters, rolled up over the lower part of the map.
@@ -868,7 +909,7 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
     return [<PhotoCard key={`photo-${index}`} photo={photo} id={annotation.photo} cx={SIZE.width / 2} cy={cy} frame={frame} startFrame={annotation.at * durationInFrames} endFrame={(annotation.until ?? 1) * durationInFrames} fps={manifest.format.fps}
       ink={styled && look.chip ? look.chip.text : palette.ink} backdrop={styled && look.chip ? look.chip.fill : palette.background} />];
   });
-  const bubbleLayer = <>{bubblesOnly}{morphChip}{surfaceLegend}{streetCredit}{flagChip}{out(<g opacity={outro}>{photoCards}</g>)}</>;
+  const bubbleLayer = <>{bubblesOnly}{cartogramLayer}{morphChip}{surfaceLegend}{streetCredit}{flagChip}{out(<g opacity={outro}>{photoCards}</g>)}</>;
 
   const timeline = timelineOn && timelineAnnotation ? <TimelineStrip steps={timelineAnnotation.steps} active={timelineAnnotation.active} frame={frame} startFrame={timelineStart} fps={manifest.format.fps} width={SIZE.width} height={SIZE.height}
     accent={styled ? look.subject.from : accent} ink={styled && look.chip ? look.chip.text : palette.ink} backdrop={styled && look.chip ? look.chip.fill : palette.background} muted={styled ? look.subject.side : palette.ink} /> : null;
