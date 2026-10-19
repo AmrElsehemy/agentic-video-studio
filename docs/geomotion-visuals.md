@@ -178,3 +178,22 @@ The reviewer pass reads a chart as "numbers over time" when it judges whether a 
 ### Full-frame photographs
 
 A `photo` annotation with `"fill": true` covers the whole map panel instead of sitting on it as a card, for a scene about a place seen from above (satellite imagery) or a before and after. It pushes in slowly (10% over the scene); `"pan": [from, to]` moves the crop across the picture (the fractions of its width the crop is centred on at the start and the end), so a wide image or a side-by-side pair such as `aral-1989-2008` is seen in turn instead of cut off. The caption and credit are printed on it. Two full photos may follow each other in a scene (the second needs an `at`; they cross-fade). The map is not drawn, so the scene takes no highlights, labels, markers, globe, relief, chart, street plan, big number or data layer (the schema refuses them: a label on a picture would claim a position the photo cannot back); the camera is ignored. A full-frame photo turns the depth tilt off for the episode, is tagged `photo-full` for the compare command, and counts as a photo scene for the director's one-in-three limit. `npm run photos -- search <words>` finds public-domain images (NASA's satellite pictures are on Wikimedia Commons).
+
+## Satellite imagery (NASA GIBS)
+
+A `satellite` annotation fills the map panel with real satellite stills, by date. The stills are fetched once, stored in `public/satellite/` and never change, so a render needs no network.
+
+```
+npm run satellite -- layers
+npm run satellite -- probe --layer=modis-terra --bbox=west,south,east,north --dates=2000-07-18,2000-08-05,... --out=sheet.png
+npm run satellite -- add <set> --layer=modis-terra --bbox=west,south,east,north --dates=2000-07-18,2024-07-18 --caption="Rondônia, Brazil"
+npm run satellite -- verify
+```
+
+- **Layers:** `modis-terra` and `viirs-snpp` (daily true colour, 250 m, from 2000 and 2015), `landsat-annual` (30 m, only 1983–85, 1988–90 and 1998–2000), `night-lights` (VIIRS Black Marble, annual from 2012), `blue-marble` (undated relief). A date may name its own layer (`landsat-annual:1990-12-01`) to compare sensors. NASA's HLS layer returns empty tiles over most places, so it is not offered.
+- **Pick the date with `probe`.** A daily image can be cloud, smoke or a gap between swaths; the contact sheet lets you choose a clear day. Compare the same time of year across years, or the season changes more than the place does. An empty image is refused.
+- **In a scene:** `{type: 'satellite', set, dates: [...], mode: 'fade' | 'swipe', marks: [{lon, lat, text}]}`. `fade` shows the dates one after another; `swipe` wipes between exactly two (the later image replaces the earlier from the right). The date is printed large on the picture (a year for annual layers, month and year for daily ones), with the NASA credit and the set's caption.
+- **Marks are honest labels.** The still is Web Mercator over a known box, so a mark sits at its true position; a mark outside the box is refused at compile time. Nothing else may be on the picture: no highlights, labels, globe, chart or street plan.
+- **Honest choices.** Pick places where the image really shows the change (a lake's open water, cleared forest, a city's footprint), not a seasonal marsh or a cloud. 250 m pixels are soft at phone size; keep the box to about 100 to 300 km.
+- **Credit.** NASA imagery is free to use with acknowledgement. The compiler adds a rights entry naming NASA GIBS, the layers and the dates, which the upload description prints with the photo credits.
+- **Tags:** `satellite`, `satellite-swipe`.

@@ -40,7 +40,8 @@ if (command === 'search') {
   const reply = await api({action: 'query', titles: title, ...infoParams});
   const file = describeFile(Object.values(reply.query.pages)[0]);
   // CC BY-SA is refused unless the person decided, for this one photo, to accept the share-alike term (--allow-share-alike).
-  if (!file.kind && rest.includes('--allow-share-alike') && /^CC BY-SA( \d(\.\d)?)?$/i.test(file.license.trim())) file.kind = 'attribution';
+  const shareAlike = !file.kind && rest.includes('--allow-share-alike') && /^CC BY-SA( \d(\.\d)?)?$/i.test(file.license.trim());
+  if (shareAlike) file.kind = 'attribution';
   if (!file.kind) throw new Error(`${file.title}: ${refusal(file.license)}.`);
   if (!file.author) throw new Error(`${file.title} names no author; a photo is only used with its credit.`);
   const response = await fetchWithReason('Wikimedia Commons', file.imageUrl, {headers: {'user-agent': USER_AGENT}});
@@ -51,7 +52,8 @@ if (command === 'search') {
   const index = readIndex();
   index.photos[slug] = {
     title: file.title, pageUrl: file.pageUrl, author: file.author, license: file.license, licenseUrl: file.licenseUrl, kind: file.kind,
-    width: file.width, height: file.height, caption: option('caption') ?? file.description.slice(0, 140), attribution: attributionLine(file), screenCredit: screenCredit(file), sha256: sha256(bytes),
+    width: file.width, height: file.height, caption: option('caption') ?? file.description.slice(0, 140),
+    ...(shareAlike ? {shareAlikeAccepted: `Accepted by the channel owner for this photo only (${new Date().toISOString().slice(0, 10)}).`} : {}), attribution: attributionLine(file), screenCredit: screenCredit(file), sha256: sha256(bytes),
   };
   fs.writeFileSync(indexPath, `${JSON.stringify(index, null, 1)}\n`);
   console.log(`✓ ${slug}: ${file.title} (${file.license}, ${file.author}) → public/photos/${slug}.jpg ${(bytes.length / 1024).toFixed(0)} KB\n  ${attributionLine(file)}`);

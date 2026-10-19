@@ -9,6 +9,7 @@ import {displayFont} from '../typography';
 import {cameraAt, cameraKeys, continuesMap, episodeCameraKeys, MAP_SIZE, type BBox, type CameraKey, type Size, type View} from './camera';
 import {PHOTO_CARD, PHOTO_HEIGHT, PhotoCard, usePhotos} from './Photos';
 import {FullPhotos, type FullPhotoSpec} from './FullPhotos';
+import {SatelliteScene} from './SatelliteScene';
 import {FlagBadge, labelNamesCountry, shortCountryName, useFlags} from './Flags';
 import {useElevationData, useGeoData, useReliefData, useSeriesData, useStreetsData, type GeoData} from './data';
 import {FigureReveal} from './FigureReveal';
@@ -201,7 +202,7 @@ export const TILT_DEGREES = 6;
  */
 export const episodeTilts = (manifest: GeoMapProps['manifest']) => manifest.framing?.depth === 'tilt' && manifest.scenes.every((scene) => {
   const p = scene.primitive;
-  return p?.kind !== 'geo-map' || !(p.morph || p.globe || p.data || p.surface || p.series || p.figure || p.streets || p.annotations.some((annotation) => annotation.type === 'truesize' || (annotation.type === 'photo' && annotation.fill)));
+  return p?.kind !== 'geo-map' || !(p.morph || p.globe || p.data || p.surface || p.series || p.figure || p.streets || p.annotations.some((annotation) => annotation.type === 'truesize' || (annotation.type === 'photo' && annotation.fill) || annotation.type === 'satellite'));
 });
 
 /** The map, leaning back when the episode asks for depth; it eases in over the first moment of the first scene. */
@@ -210,6 +211,9 @@ export const GeoMapVisual: React.FC<GeoMapProps & {blur?: boolean}> = (props) =>
   // A full-frame photo replaces the map for the scene (the schema allows nothing else with it).
   const fullPhotos: FullPhotoSpec[] = props.data.annotations.flatMap((annotation) => (annotation.type === 'photo' && annotation.fill ? [{photo: annotation.photo, at: annotation.at, until: annotation.until, pan: annotation.pan}] : []));
   if (fullPhotos.length) return <FullPhotos photos={fullPhotos} frame={frame} durationInFrames={props.durationInFrames} />;
+  // A satellite still fills the map the same way: the stored NASA image, by date, with its credit.
+  const satellite = props.data.annotations.find((annotation) => annotation.type === 'satellite');
+  if (satellite && satellite.type === 'satellite') return <SatelliteScene spec={satellite} frame={frame} durationInFrames={props.durationInFrames} />;
   if (!episodeTilts(manifest)) return <GeoMapBlurred {...props} />;
   const settle = manifest.scenes[0]?.id === scene.id ? 1 - (1 - Math.min(1, frame / 24)) ** 3 : 1;
   return <div style={{position: 'absolute', inset: 0, transform: `perspective(1700px) rotateX(${TILT_DEGREES * settle}deg)`, transformOrigin: '50% 70%'}}><GeoMapBlurred {...props} /></div>;
@@ -363,7 +367,7 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
       texts.set(index, {box: fitInside(labelBox(x, y, annotation.text, LABEL_SIZE), bounds), anchorY: screen[1], priority: annotation.at, opacity: appear(annotation.at + RING_FRAMES / 2 / durationInFrames, 14) * vanish(annotation.until), size: LABEL_SIZE});
       return;
     }
-    if (annotation.type === 'timeline' || annotation.type === 'reconstruction' || annotation.type === 'truesize' || annotation.type === 'photo') return;
+    if (annotation.type === 'timeline' || annotation.type === 'reconstruction' || annotation.type === 'truesize' || annotation.type === 'photo' || annotation.type === 'satellite') return;
     if (annotation.type === 'arrow' || !annotation.text) return;
     if (annotation.type === 'route') {
       if (t < annotation.at) return;
@@ -615,6 +619,8 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
           })}
         </g>;
       }
+      // A satellite still is drawn by SatelliteScene, never on the map.
+      if (annotation.type === 'satellite') return null;
       const projected = point(anchorLonLat(annotation.anchor, data));
       if (farOffFrame(projected)) return null;
       const [x, y] = keepIn(projected);

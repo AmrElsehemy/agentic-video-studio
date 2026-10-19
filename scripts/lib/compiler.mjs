@@ -6,7 +6,7 @@ import {layoutDiagram, layoutProblems} from './diagram-layout.mjs';
 import {archActionProblems, archProblems} from '../diagram-arch-schema.mjs';
 import {VOICE_MODELS, voiceProblems} from '../episode-fields.mjs';
 import {SCORES} from './score.mjs';
-import {photoRightsAsset, flagRightsAsset, geoProblems, geoRightsAsset, loadGeoData, osmRightsAsset, plateRightsAsset, seriesRightsAsset} from './geo-primitives.mjs';
+import {photoRightsAsset, satelliteRightsAsset, flagRightsAsset, geoProblems, geoRightsAsset, loadGeoData, osmRightsAsset, plateRightsAsset, seriesRightsAsset} from './geo-primitives.mjs';
 import {loadShow} from './shows.mjs';
 import {COMPILE_FILL, END_PADDING, estimatedSpeech} from './speech.mjs';
 
@@ -98,6 +98,17 @@ const creditedRights = (rights, geoData, scenes) => {
   for (const slug of slugs) {
     const photo = geoData.photos?.[slug];
     if (photo && !assets.some((asset) => asset.kind === 'photo' && asset.notes === photo.attribution)) assets.push(photoRightsAsset(slug, photo));
+  }
+  // Each satellite set on screen is credited to NASA with its layers and dates.
+  const stills = new Map();
+  for (const scene of scenes) {
+    if (scene.primitive?.kind !== 'geo-map') continue;
+    for (const annotation of scene.primitive.annotations) if (annotation.type === 'satellite') stills.set(annotation.set, [...new Set([...(stills.get(annotation.set) ?? []), ...annotation.dates])]);
+  }
+  for (const [id, dates] of stills) {
+    const set = geoData.satellite?.[id];
+    const asset = set ? satelliteRightsAsset(id, set, dates) : undefined;
+    if (asset && !assets.some((existing) => existing.kind === 'photo' && existing.notes === asset.notes)) assets.push(asset);
   }
   return assets.length === rights.assets.length ? rights : {...rights, assets};
 };

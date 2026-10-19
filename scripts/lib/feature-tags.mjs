@@ -18,6 +18,7 @@ export const featureTags = (manifest) => {
     for (const annotation of primitive.annotations ?? []) {
       if (ANNOTATIONS[annotation.type]) tags.add(ANNOTATIONS[annotation.type]);
       if (annotation.type === 'photo' && annotation.fill) tags.add('photo-full');
+      if (annotation.type === 'satellite') tags.add(annotation.mode === 'swipe' ? 'satellite-swipe' : 'satellite');
     }
   }
   if (manifest.framing?.opening === 'bleed') tags.add('opening-bleed');

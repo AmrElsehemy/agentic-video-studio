@@ -1,0 +1,10 @@
+export declare const GIBS: string;
+export declare const TILE: number;
+export declare const DATE: RegExp;
+export type SatelliteLayer = {id: string; matrix: string; maxZoom: number; ext: string; dated: 'daily' | 'annual' | 'none'; credit: string; title: string; first?: string};
+export declare const LAYERS: Record<string, SatelliteLayer>;
+export declare const worldPixel: (lon: number, lat: number, zoom: number) => {x: number; y: number};
+export declare const chooseZoom: (bbox: number[], layer: SatelliteLayer, limits?: {maxWidth?: number; maxHeight?: number}) => number;
+export declare const tilePlan: (bbox: number[], zoom: number) => {columns: number[]; rows: number[]; crop: {x: number; y: number; width: number; height: number}};
+export declare const tileUrl: (layer: SatelliteLayer, date: string, zoom: number, column: number, row: number) => string;
+export declare const fractionIn: (bbox: number[], lon: number, lat: number) => {x: number; y: number};

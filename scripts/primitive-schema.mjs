@@ -64,6 +64,18 @@ const geoAnnotation = z.discriminatedUnion('type', [
   // its width the crop is centred on, at the start and at the end), so a wide image or a side-by-side pair is not cut off.
   // Nothing sits on it but its credit: a label or marker on a picture would claim a position the photo cannot back.
   z.object({type: z.literal('photo'), photo: z.string().regex(/^[a-z0-9-]+$/), fill: z.boolean().optional(), pan: z.tuple([moment, moment]).optional(), at: moment.default(0), until: moment.optional()}).strict(),
+  // A satellite still from NASA GIBS (public/satellite/, npm run satellite) filling the map panel: one or more dates of a stored
+  // set, shown one after another with a cross-fade ('fade') or as a before/after wipe ('swipe', exactly two dates). The still is
+  // georeferenced, so `marks` (a place name at a lon/lat inside the set's box) are honest labels on it. Its credit is on the picture.
+  z.object({
+    type: z.literal('satellite'),
+    set: z.string().regex(/^[a-z0-9-]+$/),
+    dates: z.array(z.string().regex(/^(\d{4}-\d{2}-\d{2}|static)$/)).min(1).max(3),
+    mode: z.enum(['fade', 'swipe']).default('fade'),
+    marks: z.array(z.object({lon: z.number().min(-180).max(180), lat: z.number().min(-85).max(85), text: z.string().min(1).max(28)}).strict()).max(4).default([]),
+    at: moment.default(0),
+    until: moment.optional(),
+  }).strict(),
   z.object({type: z.literal('line'), kind: z.enum(['meridian', 'parallel']), degrees: z.number().min(-180).max(180), text: label.optional(), at: moment.default(0), until: moment.optional(), reverse: z.boolean().default(false)}).strict(),
 ]);
 
@@ -175,6 +187,14 @@ export const primitiveSchema = z.discriminatedUnion('kind', [
       if (fullPhotos.length > 2) context.addIssue({code: 'custom', path: ['annotations'], message: 'A scene shows at most two full-frame photos, one after the other'});
       if (primitive.highlights.length || primitive.series || primitive.streets || primitive.figure || primitive.data || primitive.surface || primitive.globe || primitive.morph || primitive.relief) context.addIssue({code: 'custom', path: ['highlights'], message: 'A full-frame photo hides the map, so the scene has no highlights, globe, relief, chart, street plan, big number or data layer'});
     }
+    const satellites = primitive.annotations.filter((annotation) => annotation.type === 'satellite');
+    if (satellites.length) {
+      if (satellites.length > 1 || primitive.annotations.length > 1) context.addIssue({code: 'custom', path: ['annotations'], message: 'A satellite scene has one satellite annotation and nothing else on it'});
+      if (primitive.highlights.length || primitive.series || primitive.streets || primitive.figure || primitive.data || primitive.surface || primitive.globe || primitive.morph || primitive.relief) context.addIssue({code: 'custom', path: ['highlights'], message: 'A satellite still fills the map, so the scene has no highlights, globe, relief, chart, street plan, big number or data layer'});
+    }
+    primitive.annotations.forEach((annotation, index) => {
+      if (annotation.type === 'satellite' && annotation.mode === 'swipe' && annotation.dates.length !== 2) context.addIssue({code: 'custom', path: ['annotations', index, 'dates'], message: 'A before/after swipe compares exactly two dates'});
+    });
     primitive.annotations.forEach((annotation, index) => {
       if (annotation.type === 'truesize' && (primitive.globe || !['albers', 'equal-earth'].includes(primitive.projection ?? ''))) context.addIssue({code: 'custom', path: ['annotations', index], message: 'A true-size comparison needs an equal-area projection (projection "albers" or "equal-earth") and no globe, or the copy would look the wrong size'});
       if (annotation.type === 'truesize' && annotation.entity === annotation.onto) context.addIssue({code: 'custom', path: ['annotations', index, 'onto'], message: 'A place cannot be compared with itself'});

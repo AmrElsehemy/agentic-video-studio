@@ -22,6 +22,8 @@ export const loadGeoData = (root = repoRoot) => {
     plates: fs.existsSync(path.join(root, 'public', 'geo', 'plates.json')) ? read('plates.json') : undefined,
     // The photographs on file with their credits (npm run photos); absent before one is added.
     photos: fs.existsSync(path.join(root, 'public', 'photos', 'index.json')) ? JSON.parse(fs.readFileSync(path.join(root, 'public', 'photos', 'index.json'), 'utf8')).photos : undefined,
+    // The satellite stills on file with their credits (npm run satellite); absent before one is added.
+    satellite: fs.existsSync(path.join(root, 'public', 'satellite', 'index.json')) ? JSON.parse(fs.readFileSync(path.join(root, 'public', 'satellite', 'index.json'), 'utf8')).sets : undefined,
     // The yearly World Bank figures (npm run series:prepare); absent before it is run.
     series: fs.existsSync(path.join(root, 'public', 'geo', 'series.json')) ? read('series.json') : undefined,
     // The cities with street maps (npm run streets:prepare); absent before it is run.
@@ -54,7 +56,7 @@ const suggest = (id, entities) => {
 };
 
 /** Problems with a geo-map's places, as actionable messages (empty when it's fine). */
-export const geoProblems = (primitive, geo) => [...geoReferenceProblems(primitive, geo), ...reconstructionProblems(primitive, geo), ...trueSizeProblems(primitive, geo), ...streetsProblems(primitive, geo), ...photoProblems(primitive, geo), ...seriesProblems(primitive, geo)];
+export const geoProblems = (primitive, geo) => [...geoReferenceProblems(primitive, geo), ...reconstructionProblems(primitive, geo), ...trueSizeProblems(primitive, geo), ...streetsProblems(primitive, geo), ...photoProblems(primitive, geo), ...satelliteProblems(primitive, geo), ...seriesProblems(primitive, geo)];
 
 /** A chart over time needs the pinned table, years it covers, and for a line a figure for every country drawn. */
 export const seriesProblems = (primitive, {series}) => {
@@ -77,6 +79,20 @@ export const seriesProblems = (primitive, {series}) => {
   });
   return problems;
 };
+
+/** A satellite annotation needs its set and every date on file, and each mark must fall inside the set's box (a label off the picture would point at nothing). */
+export const satelliteProblems = (primitive, {satellite}) => primitive.annotations.flatMap((annotation, index) => {
+  if (annotation.type !== 'satellite') return [];
+  const set = satellite?.[annotation.set];
+  if (!set) return [`annotations[${index}]: no satellite set "${annotation.set}" on file. Add it with: npm run satellite -- add ${annotation.set} --layer=... --bbox=... --dates=...`];
+  const missing = annotation.dates.filter((date) => !set.dates[date]);
+  const [west, south, east, north] = set.bbox;
+  const outside = annotation.marks.filter(({lon, lat}) => lon < west || lon > east || lat < south || lat > north);
+  return [
+    ...(missing.length ? [`annotations[${index}]: satellite set "${annotation.set}" has no still for ${missing.join(', ')} (it has ${Object.keys(set.dates).join(', ')})`] : []),
+    ...outside.map(({text}) => `annotations[${index}]: the mark "${text}" lies outside the satellite picture of "${annotation.set}"`),
+  ];
+});
 
 /** A photo annotation needs the photo on file, with a credit and a licence that allows it. */
 export const photoProblems = (primitive, {photos}) => primitive.annotations.flatMap((annotation, index) => {
@@ -184,6 +200,16 @@ export const flagRightsAsset = () => ({
   licenseStatus: 'licensed',
   publicReleaseApproved: true,
   notes: 'Flags: flag-icons (MIT).',
+});
+
+/** The rights entry crediting the NASA imagery of one satellite set (printed in the description with the photo credits). */
+export const satelliteRightsAsset = (id, set, dates) => ({
+  kind: 'photo',
+  sourceUrl: 'https://earthdata.nasa.gov/eosdis/science-system-description/eosdis-components/gibs',
+  owner: 'NASA EOSDIS GIBS',
+  licenseStatus: 'public-domain',
+  publicReleaseApproved: true,
+  notes: `Satellite imagery: NASA EOSDIS Global Imagery Browse Services (${[...new Set(dates.map((date) => set.dates[date]?.title).filter(Boolean))].join('; ')}), ${dates.join(', ')}. NASA imagery is free to use with acknowledgement.`,
 });
 
 /** The rights entry crediting one photograph. */

@@ -62,7 +62,8 @@ describe('the photographs on file', () => {
     assert.ok(Object.keys(index).length >= 10);
     for (const [slug, photo] of Object.entries(index)) {
       assert.equal(sha256(fs.readFileSync(path.join(root, 'public', 'photos', `${slug}.jpg`))), photo.sha256, slug);
-      assert.ok(licenseKind(photo.license), `${slug}: ${photo.license}`);
+      // A share-alike photo is on file only where the channel owner accepted that term for this photo (recorded in the index).
+      assert.ok(licenseKind(photo.license) || (/^CC BY-SA/.test(photo.license) && photo.shareAlikeAccepted), `${slug}: ${photo.license}`);
       assert.ok(photo.author && photo.pageUrl.startsWith('https://commons.wikimedia.org/'), slug);
       assert.match(photo.attribution, /Wikimedia Commons/);
       assert.ok(photo.screenCredit.startsWith('PHOTO: '), slug);
