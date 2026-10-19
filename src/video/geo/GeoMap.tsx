@@ -22,6 +22,7 @@ import {barRows, DataBars, PANEL_FRAMES, panelHeight} from './DataBars';
 import {Bubbles} from './Bubbles';
 import {Cartogram, type CartogramItem} from './Cartogram';
 import {clockLabel, subsolarPoint, sunAltitude} from './sun';
+import {PROFILE_PANEL, PROFILE_SLIDE_FRAMES, ProfilePanel, profileProgress, useProfile} from './Profile';
 import {discRadius, relax} from './dorling';
 import {TIMELINE_HEIGHT, TimelineStrip} from './TimelineStrip';
 import {raceCandidates, shadeScale, valueAt} from '../../../scripts/lib/series.mjs';
@@ -264,8 +265,10 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
     ...(primitive.data?.values.map(({entity}) => entity) ?? []),
   ].flatMap((id) => (id.startsWith('border:') ? id.slice('border:'.length).split('-').map((code) => `country:${code}`) : [id]));
   const flags = useFlags(flagEntities, Boolean(primitive.flags));
+  const profileAnnotation = primitive.annotations.find((annotation): annotation is Extract<GeoMapPrimitive['annotations'][number], {type: 'profile'}> => annotation.type === 'profile');
+  const profile = useProfile(profileAnnotation?.set);
   const photos = usePhotos(primitive.annotations.flatMap((annotation) => (annotation.type === 'photo' ? [annotation.photo] : [])));
-  if (!photos || !data || !keys || (wantsRelief && !relief) || (wantsElevation && !elevation) || (primitive.streets && !streetMap) || (wantsSeries && !seriesTable) || !flags) return null;
+  if (!photos || (profileAnnotation && !profile) || !data || !keys || (wantsRelief && !relief) || (wantsElevation && !elevation) || (primitive.streets && !streetMap) || (wantsSeries && !seriesTable) || !flags) return null;
 
   const t = durationInFrames > 1 ? frame / (durationInFrames - 1) : 0;
   const view = viewAt(t);
@@ -285,6 +288,7 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
   const barsShift = Math.max(
     primitive.series && primitive.series.view !== 'cartogram' ? (SERIES_PANEL / 2) * interpolate(frame, [seriesStart, seriesStart + SERIES_SLIDE_FRAMES], [0, 1], clamp) : 0,
     photoLift,
+    profileAnnotation ? (PROFILE_PANEL / 2) * interpolate(frame, [profileAnnotation.at * durationInFrames, profileAnnotation.at * durationInFrames + PROFILE_SLIDE_FRAMES], [0, 1], clamp) : 0,
     barsOn ? (barsPanel / 2) * interpolate(frame, [barsStart, barsStart + PANEL_FRAMES], [0, 1], clamp) : 0,
     timelineOn ? (TIMELINE_HEIGHT / 2) * interpolate(frame, [timelineStart, timelineStart + 12], [0, 1], clamp) : 0,
   );
@@ -373,7 +377,7 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
       texts.set(index, {box: fitInside(labelBox(x, y, annotation.text, LABEL_SIZE), bounds), anchorY: screen[1], priority: annotation.at, opacity: appear(annotation.at + RING_FRAMES / 2 / durationInFrames, 14) * vanish(annotation.until), size: LABEL_SIZE});
       return;
     }
-    if (annotation.type === 'timeline' || annotation.type === 'reconstruction' || annotation.type === 'truesize' || annotation.type === 'photo' || annotation.type === 'satellite' || annotation.type === 'daynight' || annotation.type === 'flow') return;
+    if (annotation.type === 'timeline' || annotation.type === 'reconstruction' || annotation.type === 'truesize' || annotation.type === 'photo' || annotation.type === 'satellite' || annotation.type === 'daynight' || annotation.type === 'flow' || annotation.type === 'profile') return;
     if (annotation.type === 'arrow' || !annotation.text) return;
     if (annotation.type === 'route') {
       if (t < annotation.at) return;
@@ -570,6 +574,28 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
       }
       // A timeline is drawn as the flat strip (see `timeline`), not on the map.
       if (annotation.type === 'timeline' || annotation.type === 'photo') return null;
+      // An elevation profile: the route draws itself along the stored path as the panel below fills in.
+      if (annotation.type === 'profile') {
+        if (t < annotation.at || !profile) return null;
+        const colour = styled ? look.subject.from : accent;
+        const core = styled ? look.subject.rim : palette.ink;
+        const progress = profileProgress(frame, annotation.at * durationInFrames, (annotation.until ?? 0.92) * durationInFrames);
+        const last = progress * (profile.samples - 1);
+        const whole = Math.floor(last);
+        const coordinates = profile.points.slice(0, whole + 1);
+        if (whole < profile.samples - 1) {
+          const [a, b] = [profile.points[whole], profile.points[whole + 1]];
+          coordinates.push([a[0] + (b[0] - a[0]) * (last - whole), a[1] + (b[1] - a[1]) * (last - whole)]);
+        }
+        if (coordinates.length < 2) return null;
+        const d = path({type: 'LineString', coordinates}) ?? '';
+        const [hx, hy] = point(coordinates[coordinates.length - 1]);
+        return <g key={index} opacity={vanish(annotation.until)}>
+          <path d={d} fill="none" stroke={colour} strokeOpacity={.3} strokeWidth={16} strokeLinecap="round" strokeLinejoin="round" />
+          <path d={d} fill="none" stroke={colour} strokeWidth={7} strokeLinecap="round" strokeLinejoin="round" style={{filter: glow(10, colour)}} />
+          {farOffFrame([hx, hy]) ? null : <circle cx={hx} cy={hy} r={13} fill={core} stroke={colour} strokeWidth={5} />}
+        </g>;
+      }
       // A flow map: arcs along great circles, drawing themselves in turn, with particles streaming origin to destination.
       if (annotation.type === 'flow') {
         if (t < annotation.at) return null;
@@ -899,6 +925,12 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
     return <RaceChart {...common} places={[]} candidates={raceCodes} names={names} flags={flagByCode} subject={lit?.startsWith('country:') ? lit.slice('country:'.length) : undefined} />;
   })();
 
+  // The elevation profile's panel, filling in with the route.
+  const profileLayer = profileAnnotation && profile ? out(<g opacity={outro}>
+    <ProfilePanel profile={profile} progress={profileProgress(frame, profileAnnotation.at * durationInFrames, (profileAnnotation.until ?? 0.92) * durationInFrames)} frame={frame} startFrame={profileAnnotation.at * durationInFrames}
+      width={SIZE.width} height={SIZE.height} title={profileAnnotation.text} accent={styled ? look.subject.from : accent} ink={styled && look.chip ? look.chip.text : palette.ink} backdrop={styled && look.chip ? look.chip.fill : palette.background} />
+  </g>) : null;
+
   // A cartogram: circles sized by population in the year shown, laid out once so they never overlap.
   const cartogramLayer = (() => {
     if (primitive.series?.view !== 'cartogram' || !seriesTable || !cartogramCodes.length || globe) return null;
@@ -991,7 +1023,7 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
     return [<PhotoCard key={`photo-${index}`} photo={photo} id={annotation.photo} cx={SIZE.width / 2} cy={cy} frame={frame} startFrame={annotation.at * durationInFrames} endFrame={(annotation.until ?? 1) * durationInFrames} fps={manifest.format.fps}
       ink={styled && look.chip ? look.chip.text : palette.ink} backdrop={styled && look.chip ? look.chip.fill : palette.background} />];
   });
-  const bubbleLayer = <>{bubblesOnly}{cartogramLayer}{morphChip}{surfaceLegend}{streetCredit}{flagChip}{out(<g opacity={outro}>{photoCards}</g>)}</>;
+  const bubbleLayer = <>{bubblesOnly}{cartogramLayer}{profileLayer}{morphChip}{surfaceLegend}{streetCredit}{flagChip}{out(<g opacity={outro}>{photoCards}</g>)}</>;
 
   const timeline = timelineOn && timelineAnnotation ? <TimelineStrip steps={timelineAnnotation.steps} active={timelineAnnotation.active} frame={frame} startFrame={timelineStart} fps={manifest.format.fps} width={SIZE.width} height={SIZE.height}
     accent={styled ? look.subject.from : accent} ink={styled && look.chip ? look.chip.text : palette.ink} backdrop={styled && look.chip ? look.chip.fill : palette.background} muted={styled ? look.subject.side : palette.ink} /> : null;

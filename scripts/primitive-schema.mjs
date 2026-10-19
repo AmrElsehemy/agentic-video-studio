@@ -64,6 +64,10 @@ const geoAnnotation = z.discriminatedUnion('type', [
   // its width the crop is centred on, at the start and at the end), so a wide image or a side-by-side pair is not cut off.
   // Nothing sits on it but its credit: a label or marker on a picture would claim a position the photo cannot back.
   z.object({type: z.literal('photo'), photo: z.string().regex(/^[a-z0-9-]+$/), fill: z.boolean().optional(), pan: z.tuple([moment, moment]).optional(), at: moment.default(0), until: moment.optional()}).strict(),
+  // An elevation profile: a route along a stored path (public/geo/profiles/, npm run profiles) draws itself on the map while
+  // a panel at the bottom fills in the height of the land under it, from NOAA's ETOPO 2022 model. The panel says how much the
+  // height is stretched. It takes the lower part of the frame, so a scene has no other panel (chart, big number, photo, timeline, bars).
+  z.object({type: z.literal('profile'), set: z.string().regex(/^[a-z0-9-]+$/), text: label.optional(), at: moment.default(0), until: moment.optional()}).strict(),
   // A flow map: 1 to 6 arcs from an origin to a destination along great circles, with particles streaming along them. The arcs
   // are all plain or all carry a `value` (then each arc's width follows its value, and its figure is printed on it); a value is
   // a claim, so it must come from the research. Every arc draws itself in turn from `at`.
@@ -193,7 +197,7 @@ export const primitiveSchema = z.discriminatedUnion('kind', [
 ]).superRefine((primitive, context) => {
   if (primitive.kind === 'geo-map') {
     if (primitive.morph && (primitive.globe || (primitive.projection ?? 'mercator') !== 'mercator')) context.addIssue({code: 'custom', path: ['morph'], message: 'A morph runs from Mercator to Equal Earth on a flat map: no globe, and no other projection'});
-    if (primitive.figure && (primitive.series || primitive.streets || (primitive.data && (primitive.data.view === 'bars' || primitive.data.view === 'both')) || primitive.annotations.some((annotation) => annotation.type === 'photo' || annotation.type === 'timeline'))) context.addIssue({code: 'custom', path: ['figure'], message: 'A big number takes the lower part of the frame: it cannot share a scene with a chart over time, a street map, a bar view, a photo or a timeline strip'});
+    if (primitive.figure && (primitive.series || primitive.streets || (primitive.data && (primitive.data.view === 'bars' || primitive.data.view === 'both')) || primitive.annotations.some((annotation) => annotation.type === 'photo' || annotation.type === 'timeline' || annotation.type === 'profile'))) context.addIssue({code: 'custom', path: ['figure'], message: 'A big number takes the lower part of the frame: it cannot share a scene with a chart over time, a street map, a bar view, a photo or a timeline strip'});
     if (primitive.series) {
       if (primitive.series.from === primitive.series.to) context.addIssue({code: 'custom', path: ['series', 'to'], message: 'A chart over time needs different from and to years'});
       if (primitive.series.view === 'line' && primitive.series.places.length === 0) context.addIssue({code: 'custom', path: ['series', 'places'], message: 'A line chart needs 1 to 4 countries to draw'});
@@ -209,7 +213,7 @@ export const primitiveSchema = z.discriminatedUnion('kind', [
       if (primitive.series.shade && primitive.series.indicator === 'population') context.addIssue({code: 'custom', path: ['series', 'shade'], message: 'A population cannot shade the map (it would only paint the big countries): shade life expectancy, fertility or GDP per person'});
       if (primitive.series.shade && (primitive.data || primitive.surface || primitive.globe)) context.addIssue({code: 'custom', path: ['series', 'shade'], message: 'A shaded map cannot share a scene with a data layer, a surface or a globe'});
       if (primitive.data && (primitive.data.view === 'bars' || primitive.data.view === 'both')) context.addIssue({code: 'custom', path: ['series'], message: 'A chart over time and a bar chart both want the bottom of the frame: use one'});
-      if (primitive.streets || primitive.annotations.some((annotation) => annotation.type === 'photo' || annotation.type === 'timeline')) context.addIssue({code: 'custom', path: ['series'], message: 'A chart over time cannot share a scene with a street map, a photo or a timeline strip'});
+      if (primitive.streets || primitive.annotations.some((annotation) => annotation.type === 'photo' || annotation.type === 'timeline' || annotation.type === 'profile')) context.addIssue({code: 'custom', path: ['series'], message: 'A chart over time cannot share a scene with a street map, a photo or a timeline strip'});
     }
     const fullPhotos = primitive.annotations.filter((annotation) => annotation.type === 'photo' && annotation.fill);
     if (fullPhotos.length) {
@@ -230,6 +234,12 @@ export const primitiveSchema = z.discriminatedUnion('kind', [
       if (annotation.type === 'daynight' && annotation.from === annotation.to) context.addIssue({code: 'custom', path: ['annotations', index, 'to'], message: 'The sweep needs different from and to hours'});
       if (annotation.type === 'daynight' && Number.isNaN(Date.parse(`${annotation.date}T00:00:00Z`))) context.addIssue({code: 'custom', path: ['annotations', index, 'date'], message: 'Not a real date'});
     });
+    const profiles = primitive.annotations.filter((annotation) => annotation.type === 'profile');
+    if (profiles.length) {
+      if (profiles.length > 1) context.addIssue({code: 'custom', path: ['annotations'], message: 'A scene has one elevation profile'});
+      if (primitive.series || primitive.figure || (primitive.data && (primitive.data.view === 'bars' || primitive.data.view === 'both')) || primitive.streets || primitive.annotations.some((annotation) => annotation.type === 'photo' || annotation.type === 'timeline' || annotation.type === 'satellite')) context.addIssue({code: 'custom', path: ['annotations'], message: 'An elevation profile takes the lower part of the frame: it cannot share a scene with a chart over time, a big number, a bar view, a street map, a photo, a satellite still or a timeline strip'});
+      if (primitive.globe || primitive.morph) context.addIssue({code: 'custom', path: ['annotations'], message: 'An elevation profile is drawn on a flat map: no globe and no morph'});
+    }
     const satellites = primitive.annotations.filter((annotation) => annotation.type === 'satellite');
     if (satellites.length) {
       if (satellites.length > 1 || primitive.annotations.length > 1) context.addIssue({code: 'custom', path: ['annotations'], message: 'A satellite scene has one satellite annotation and nothing else on it'});

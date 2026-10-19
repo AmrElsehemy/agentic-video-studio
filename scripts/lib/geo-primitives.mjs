@@ -24,6 +24,8 @@ export const loadGeoData = (root = repoRoot) => {
     photos: fs.existsSync(path.join(root, 'public', 'photos', 'index.json')) ? JSON.parse(fs.readFileSync(path.join(root, 'public', 'photos', 'index.json'), 'utf8')).photos : undefined,
     // The satellite stills on file with their credits (npm run satellite); absent before one is added.
     satellite: fs.existsSync(path.join(root, 'public', 'satellite', 'index.json')) ? JSON.parse(fs.readFileSync(path.join(root, 'public', 'satellite', 'index.json'), 'utf8')).sets : undefined,
+    // The elevation profiles on file (npm run profiles); absent before one is added.
+    profiles: fs.existsSync(path.join(root, 'public', 'geo', 'profiles', 'index.json')) ? JSON.parse(fs.readFileSync(path.join(root, 'public', 'geo', 'profiles', 'index.json'), 'utf8')) : undefined,
     // The yearly World Bank figures (npm run series:prepare); absent before it is run.
     series: fs.existsSync(path.join(root, 'public', 'geo', 'series.json')) ? read('series.json') : undefined,
     // The cities with street maps (npm run streets:prepare); absent before it is run.
@@ -58,7 +60,7 @@ const suggest = (id, entities) => {
 };
 
 /** Problems with a geo-map's places, as actionable messages (empty when it's fine). */
-export const geoProblems = (primitive, geo) => [...geoReferenceProblems(primitive, geo), ...reconstructionProblems(primitive, geo), ...trueSizeProblems(primitive, geo), ...streetsProblems(primitive, geo), ...photoProblems(primitive, geo), ...satelliteProblems(primitive, geo), ...seriesProblems(primitive, geo)];
+export const geoProblems = (primitive, geo) => [...geoReferenceProblems(primitive, geo), ...reconstructionProblems(primitive, geo), ...trueSizeProblems(primitive, geo), ...streetsProblems(primitive, geo), ...photoProblems(primitive, geo), ...satelliteProblems(primitive, geo), ...profileProblems(primitive, geo), ...seriesProblems(primitive, geo)];
 
 /** A chart over time needs the pinned table, years it covers, and for a line a figure for every country drawn. */
 export const seriesProblems = (primitive, {series}) => {
@@ -81,6 +83,22 @@ export const seriesProblems = (primitive, {series}) => {
   });
   return problems;
 };
+
+/** A profile annotation needs its profile on file. */
+export const profileProblems = (primitive, {profiles}) => primitive.annotations.flatMap((annotation, index) => {
+  if (annotation.type !== 'profile') return [];
+  return profiles?.profiles?.[annotation.set] ? [] : [`annotations[${index}]: no elevation profile "${annotation.set}" on file. Add it with: npm run profiles -- add ${annotation.set} --path="lon,lat;lon,lat"`];
+});
+
+/** The rights entry crediting the elevation model behind a profile. */
+export const profileRightsAsset = (geo) => ({
+  kind: 'map-data',
+  sourceUrl: geo.profiles.source.doi,
+  owner: 'NOAA National Centers for Environmental Information (ETOPO 2022)',
+  licenseStatus: 'public-domain',
+  publicReleaseApproved: true,
+  notes: `Elevation profile: ${geo.profiles.source.name}, ${geo.profiles.source.publisher} (${geo.profiles.source.license}).`,
+});
 
 /** A satellite annotation needs its set and every date on file, and each mark must fall inside the set's box (a label off the picture would point at nothing). */
 export const satelliteProblems = (primitive, {satellite}) => primitive.annotations.flatMap((annotation, index) => {

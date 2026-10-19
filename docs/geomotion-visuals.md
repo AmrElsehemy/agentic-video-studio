@@ -237,3 +237,20 @@ A `flow` annotation draws 1 to 6 arcs from an origin to a destination along grea
 - **Honest wording.** An arc says "from here to there", not "all of it": say what the width measures (barrels a day, people a year) and for which year in the narration or the arc's `text`.
 - **Ends** are places or named points (`{lon, lat}`); a named end is checked like any other place. A scene can hold several flow annotations only by putting all its arcs in one (at most six).
 - **Good for:** oil and shipping lanes, migration routes, rivers' water going to cities, trade, a country's exports. Tag: `flow`.
+
+## Elevation profiles
+
+A `profile` annotation draws a route along a stored path on the map while a panel at the bottom fills in the height of the land under it, step for step, with the current height and distance read out in large type.
+
+```
+npm run profiles -- add andes-crossing --path="-71.6,-33.0;-70.0,-33.1;-66.5,-33.3;-62.0,-33.7" --caption="Valparaíso to Argentina"
+```
+```json
+{"type": "profile", "set": "andes-crossing", "text": "Valparaíso to Argentina"}
+```
+
+- **Data:** NOAA's ETOPO 2022 model (public domain, the same source as the elevation shading), at 1 arc-minute (about 1.8 km). The profile is fetched once into `public/geo/profiles/<id>.json` with a checksum, so the numbers never change under a published episode. The model gives the height of the surface (land, or the sea floor where it is under water), not a surveyed section; a narrow peak or gorge smaller than a cell is smoothed.
+- **Honest scale:** a profile of hundreds of kilometres is always drawn far steeper than the land is, so the panel prints "HEIGHT STRETCHED ×N · NOT TO SCALE". Don't talk about "steep" slopes from it. Say what the line shows (height above the sea) and where the highest point is.
+- **Path:** 2 to 8 stops joined along great circles (`lon,lat`), not crossing the date line. 20 to 400 samples (default 160). The highest and lowest points and where they are come from the samples.
+- **Rules:** one profile per scene, on a flat map; the panel takes the lower part of the frame, so no chart, big number, bars, street map, photo, satellite still or timeline strip in the same scene. Tag: `elevation-profile`. Credit: a rights entry for NOAA ETOPO 2022 is added by the compiler.
+- **Good for:** Chile's ribbon, the Nile's fall, a pass over the Alps, the Panama Canal's locks, a road to the world's highest capital, how low the Netherlands lies.

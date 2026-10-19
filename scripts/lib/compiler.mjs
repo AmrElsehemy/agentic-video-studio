@@ -6,7 +6,7 @@ import {layoutDiagram, layoutProblems} from './diagram-layout.mjs';
 import {archActionProblems, archProblems} from '../diagram-arch-schema.mjs';
 import {VOICE_MODELS, voiceProblems} from '../episode-fields.mjs';
 import {SCORES} from './score.mjs';
-import {photoRightsAsset, satelliteRightsAsset, flagRightsAsset, geoProblems, geoRightsAsset, loadGeoData, osmRightsAsset, plateRightsAsset, seriesRightsAsset} from './geo-primitives.mjs';
+import {photoRightsAsset, profileRightsAsset, satelliteRightsAsset, flagRightsAsset, geoProblems, geoRightsAsset, loadGeoData, osmRightsAsset, plateRightsAsset, seriesRightsAsset} from './geo-primitives.mjs';
 import {loadShow} from './shows.mjs';
 import {COMPILE_FILL, END_PADDING, estimatedSpeech} from './speech.mjs';
 
@@ -86,7 +86,7 @@ export const LOOK_VARIANTS = ['neon', 'atlas', 'terrain'];
 const creditedRights = (rights, geoData, scenes) => {
   if (!geoData) return rights;
   const assets = [...rights.assets];
-  if (!assets.some((asset) => asset.kind === 'map-data' && !/plate model|OpenStreetMap|flag-icons|World Bank/.test(asset.owner))) assets.push(geoRightsAsset(geoData));
+  if (!assets.some((asset) => asset.kind === 'map-data' && !/plate model|OpenStreetMap|flag-icons|World Bank|ETOPO/.test(asset.owner))) assets.push(geoRightsAsset(geoData));
   const reconstructs = scenes.some((scene) => scene.primitive?.kind === 'geo-map' && scene.primitive.annotations.some((annotation) => annotation.type === 'reconstruction'));
   if (reconstructs && geoData.plates && !assets.some((asset) => /plate model/.test(asset.owner))) assets.push(plateRightsAsset(geoData));
   const streetMap = scenes.some((scene) => scene.primitive?.kind === 'geo-map' && scene.primitive.streets);
@@ -99,6 +99,7 @@ const creditedRights = (rights, geoData, scenes) => {
     const photo = geoData.photos?.[slug];
     if (photo && !assets.some((asset) => asset.kind === 'photo' && asset.notes === photo.attribution)) assets.push(photoRightsAsset(slug, photo));
   }
+  if (scenes.some((scene) => scene.primitive?.kind === 'geo-map' && scene.primitive.annotations.some((annotation) => annotation.type === 'profile')) && geoData.profiles && !assets.some((asset) => /ETOPO/.test(asset.owner))) assets.push(profileRightsAsset(geoData));
   // Each satellite set on screen is credited to NASA with its layers and dates.
   const stills = new Map();
   for (const scene of scenes) {
