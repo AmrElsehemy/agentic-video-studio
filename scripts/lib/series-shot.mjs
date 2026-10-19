@@ -19,20 +19,26 @@ export const extremeYear = (table, code, from, to, kind) => {
 };
 
 /**
- * `raw` is the shot's series: {indicator, view: "line"|"race", from, to, places?, axis?: "fit", mark?: {year, kind: "peak"|"low"|"year"}, at?}.
+ * `raw` is the shot's series: {indicator, view: "line"|"race"|"cartogram", top?, from, to, places?, axis?: "fit", mark?: {year, kind: "peak"|"low"|"year"}, at?}.
  * `placeId(id, where)` is the director's own check that an id is one of the episode's places.
  */
 export const seriesFromShot = (raw, {series, placeId}) => {
   if (!raw || typeof raw !== 'object') throw new Error('series: expected an object {indicator, view, from, to, places}');
   const table = series?.indicators?.[raw.indicator];
   if (!table) throw new Error(`series: "${raw.indicator}" isn't an indicator we have (${Object.keys(series?.indicators ?? {}).join(', ') || 'none; run npm run series:prepare'})`);
-  if (!['line', 'race'].includes(raw.view)) throw new Error('series.view must be "line" or "race"');
+  if (!['line', 'race', 'cartogram'].includes(raw.view)) throw new Error('series.view must be "line", "race" or "cartogram"');
+  if (raw.view === 'cartogram') {
+    if (raw.indicator !== 'population') throw new Error('series: a cartogram sizes circles by population; use the "population" indicator');
+    if (raw.shade || raw.mark || raw.axis) throw new Error('series: a cartogram takes no shade, mark or axis');
+    if (raw.top !== undefined && !(Number.isInteger(raw.top) && raw.top >= 6 && raw.top <= 30)) throw new Error('series.top must be a whole number from 6 to 30');
+  } else if (raw.top !== undefined) throw new Error('series.top belongs to a cartogram');
   const places = (Array.isArray(raw.places) ? raw.places : []).map((id, index) => {
     const checked = placeId(id, `series.places[${index}]`);
     if (!checked.startsWith('country:')) throw new Error(`series.places[${index}]: "${id}" isn't a country; yearly figures are per country`);
     return checked;
   });
   const out = {indicator: raw.indicator, view: raw.view, places, from: raw.from, to: raw.to};
+  if (raw.view === 'cartogram' && raw.top !== undefined) out.top = raw.top;
   if (typeof raw.at === 'number') out.at = raw.at;
   if (raw.shade === true) {
     if (!SHADEABLE.includes(raw.indicator)) throw new Error(`series.shade: ${raw.indicator} cannot shade the map (only ${SHADEABLE.join(', ')})`);

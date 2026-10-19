@@ -193,7 +193,7 @@ const aroundBox = (ids, places) => {
  * Turn the model's shot (ids, {place}, {around}) into a geo-map primitive, or
  * throw with the reason. Checks places, approximate points and numbers.
  */
-export const shotToPrimitive = (shot, {places, research, datasets = new Map(), streets = {}, photos = {}, series}) => {
+export const shotToPrimitive = (shot, {places, research, datasets = new Map(), streets = {}, photos = {}, series, satellite = {}, profiles = {}}) => {
   if (!shot || typeof shot !== 'object') throw new Error('no shot');
   const allowed = [...places.keys()];
   const placeId = (id, where) => {
@@ -217,6 +217,18 @@ export const shotToPrimitive = (shot, {places, research, datasets = new Map(), s
       return {lon: place.lon, lat: place.lat};
     }
     return placeId(ref, where);
+  };
+  // Where a place or a named point is, as [lon, lat]: for a mark on a satellite still, which must lie inside its picture.
+  const lonLatOf = (ref, where) => {
+    ref = asPoint(ref);
+    if (ref && typeof ref === 'object' && 'place' in ref) {
+      const found = point(ref, where);
+      return [found.lon, found.lat];
+    }
+    const id = placeId(ref, where);
+    const label = places.get(id)?.label;
+    if (!label) throw new Error(`${where}: "${id}" has no point on the map to mark`);
+    return label;
   };
   const camera = (Array.isArray(shot.camera) ? shot.camera : []).map((key, index) => {
     const where = `camera[${index}]`;
@@ -247,6 +259,36 @@ export const shotToPrimitive = (shot, {places, research, datasets = new Map(), s
       if (!stated.has(number)) throw new Error(`${where}: "${annotation.text}" states ${number}, which is not in the research`);
     }
     if (annotation?.type === 'line') return annotation;
+    if (annotation?.type === 'satellite') {
+      const set = satellite[annotation.set];
+      if (!set) throw new Error(`${where}: "${annotation.set}" isn't a satellite set on file (${Object.keys(satellite).join(', ') || 'none'})`);
+      const dates = Array.isArray(annotation.dates) ? annotation.dates : [];
+      for (const date of dates) if (!set.dates[date]) throw new Error(`${where}: satellite set "${annotation.set}" has no still for ${date} (it has ${Object.keys(set.dates).join(', ')})`);
+      const [west, south, east, north] = set.bbox;
+      const marks = (Array.isArray(annotation.marks) ? annotation.marks : []).map((mark, at) => {
+        for (const number of textNumbers(mark?.text ?? '')) if (!numbers.has(number)) throw new Error(`${where}.marks[${at}]: "${mark.text}" states ${number}, which is not in the research`);
+        const [lon, lat] = lonLatOf(mark?.anchor ?? mark?.place, `${where}.marks[${at}].anchor`);
+        if (lon < west || lon > east || lat < south || lat > north) throw new Error(`${where}.marks[${at}]: "${mark.text}" lies outside the satellite picture of "${annotation.set}"; mark only a place inside it`);
+        return {lon: Math.round(lon * 1e4) / 1e4, lat: Math.round(lat * 1e4) / 1e4, text: String(mark.text ?? '').slice(0, 28)};
+      });
+      return {type: 'satellite', set: annotation.set, dates, mode: annotation.mode === 'swipe' ? 'swipe' : 'fade', marks, at: typeof annotation.at === 'number' ? annotation.at : 0, ...(typeof annotation.until === 'number' ? {until: annotation.until} : {})};
+    }
+    if (annotation?.type === 'profile') {
+      if (!profiles?.profiles?.[annotation.set]) throw new Error(`${where}: "${annotation.set}" isn't an elevation profile on file (${Object.keys(profiles?.profiles ?? {}).join(', ') || 'none'})`);
+      return annotation;
+    }
+    if (annotation?.type === 'daynight') {
+      return {...annotation, places: (Array.isArray(annotation.places) ? annotation.places : []).map((id, at) => placeId(id, `${where}.places[${at}]`))};
+    }
+    if (annotation?.type === 'flow') {
+      const flows = (Array.isArray(annotation.flows) ? annotation.flows : []).map((flow, at) => {
+        // An arc's width is a claim: its value must be a number the research states, and its text's numbers too.
+        if (flow?.value !== undefined && !numbers.has(flow.value)) throw new Error(`${where}.flows[${at}]: the value ${flow.value} is not a number in the research`);
+        for (const number of textNumbers(flow?.text ?? '')) if (!numbers.has(number)) throw new Error(`${where}.flows[${at}]: "${flow.text}" states ${number}, which is not in the research`);
+        return {from: anchor(flow?.from, `${where}.flows[${at}].from`), to: anchor(flow?.to, `${where}.flows[${at}].to`), ...(flow?.value !== undefined ? {value: flow.value} : {}), ...(flow?.text ? {text: String(flow.text).slice(0, 28)} : {})};
+      });
+      return {...annotation, flows};
+    }
     if (annotation?.type === 'photo') {
       if (!photos[annotation.photo]) throw new Error(`${where}: "${annotation.photo}" isn't a photo on file (${Object.keys(photos).join(', ') || 'none'})`);
       return annotation;
@@ -440,16 +482,21 @@ export const describeShot = (primitive, places, boxes) => {
     else if (annotation.type === 'arrow') parts.push(`arrow: ${typeof annotation.from === 'string' ? nameOf(annotation.from, places) : 'a point'} → ${typeof annotation.to === 'string' ? nameOf(annotation.to, places) : 'a point'}${annotation.text ? ` "${annotation.text}"` : ''}`);
     else if (annotation.type === 'route') parts.push(`route: ${annotation.path.map((stop) => (typeof stop === 'string' ? nameOf(stop, places) : 'a point')).join(' → ')}`);
     else if (annotation.type === 'line') parts.push(`${annotation.kind} line at ${annotation.degrees}°${annotation.text ? ` "${annotation.text}"` : ''}`);
-    else if (annotation.type === 'ring') parts.push(`distance ring: ${annotation.radiusKm} km around ${typeof annotation.center === 'string' ? nameOf(annotation.center, places) : 'a point'}${annotation.text ? ` "${annotation.text}"` : ''}`);
+    else if (annotation.type === 'ring') parts.push(`distance ring: ${annotation.radiusKm} km around ${typeof annotation.center === 'string' ? nameOf(annotation.center, places) : 'a point'}${annotation.text ? ` "${annotation.text}"` : ''}${annotation.reach ? ', lighting each country as the ring passes its nearest border with a running count of countries and territories' : ''}`);
     else if (annotation.type === 'truesize') parts.push(`true-size comparison: a copy of ${nameOf(annotation.entity, places)} slides onto ${nameOf(annotation.onto, places)} at its real size, with a note that it was moved and a dashed outline of its real position`);
     else if (annotation.type === 'reconstruction') parts.push(`reconstruction: ${annotation.entities.map((id) => nameOf(id, places)).join(', ')} drifting from ${annotation.from} million years ago to ${annotation.to ? `${annotation.to} million years ago` : 'today'}, with ${nameOf(annotation.fixed, places)} held still, an age counter and a dashed outline of the final position`);
     else if (annotation.type === 'photo') parts.push(`photo: ${annotation.photo}`);
+    else if (annotation.type === 'satellite') parts.push(`NASA satellite ${annotation.mode === 'swipe' ? 'before/after wipe' : 'stills in turn'} of ${annotation.set}: ${annotation.dates.join(' → ')}${annotation.marks.length ? `, marking ${annotation.marks.map((mark) => `"${mark.text}"`).join(', ')}` : ''}, the date printed on the picture and nothing else on it`);
+    else if (annotation.type === 'profile') parts.push(`elevation profile "${annotation.set}": a route drawn along the path while a panel fills in the height of the land under it (NOAA data), with the height stretched and said to be`);
+    else if (annotation.type === 'daynight') parts.push(`day and night: the night side of the Earth on ${annotation.date}, sweeping from ${annotation.from}:00 to ${annotation.to}:00 UTC${annotation.places.length ? `, with ${annotation.places.map((id) => nameOf(id, places)).join(', ')} marked sun up or dark` : ''}; astronomical, it knows nothing of time zones`);
+    else if (annotation.type === 'flow') parts.push(`flow arcs with streaming particles: ${annotation.flows.map((flow) => `${typeof flow.from === 'string' ? nameOf(flow.from, places) : 'a point'} → ${typeof flow.to === 'string' ? nameOf(flow.to, places) : 'a point'}${flow.value !== undefined ? ` (${flow.value}${annotation.unit ? ` ${annotation.unit}` : ''})` : ''}`).join('; ')}`);
     else if (annotation.type === 'timeline') parts.push(`timeline: ${annotation.steps.map((step, index) => `${index === annotation.active ? '[' : ''}${step.label}${index === annotation.active ? ']' : ''}`).join(' · ')}`);
   }
   if (primitive.series) {
     const chart = primitive.series;
     const who = chart.places.map((id) => nameOf(id, places)).join(', ');
-    parts.push(chart.view === 'line'
+    if (chart.view === 'cartogram') parts.push(`cartogram: the ${chart.top ?? 20} biggest countries as circles whose area is their World Bank population, growing and shrinking from ${chart.from} to ${chart.to} with a year counter${who ? `, ${who} lit` : ''}; the panel shows only the circles`);
+    else parts.push(chart.view === 'line'
       ? `chart over time (World Bank ${chart.indicator}): a line for ${who}, drawn year by year from ${chart.from} to ${chart.to}${chart.axis === 'fit' ? ', axis zoomed to the data' : ', axis from zero'}${chart.shade ? ', the whole map shaded by it year by year' : ''}${chart.mark ? `, with "${chart.mark.text}" marked at ${chart.mark.year}` : ''}`
       : `chart over time (World Bank ${chart.indicator}): a ranked bar race of the biggest countries from ${chart.from} to ${chart.to}${who ? `, ${who} lit` : ''}, a year counter running`);
   }
@@ -654,7 +701,7 @@ export const defaultShot = (subject) => primitiveSchema.parse({
   annotations: [{type: subject.kind === 'city' ? 'marker' : 'label', anchor: subject.id, text: subject.name.toUpperCase().slice(0, 28), at: .4}],
 });
 
-export const buildGeoDirectorPrompt = ({draft, research, places, datasets, mentions = new Map(), showId = draft.show?.id ?? 'geographica', streetCities = {}, photos = {}, series}) => ({
+export const buildGeoDirectorPrompt = ({draft, research, places, datasets, mentions = new Map(), showId = draft.show?.id ?? 'geographica', streetCities = {}, photos = {}, series, satellite = {}, profiles = {}}) => ({
   system: `You are the map director of ${draft.show?.name ?? 'a geography series'}, vertical short videos told with animated maps. Give EVERY scene one map shot that shows what its narration says.
 
 A shot is JSON:
@@ -662,10 +709,14 @@ A shot is JSON:
  "camera": [{"target": T, "at": 0, "padding": 0.15}, ...],   // 1-4 keyframes; at = fraction of the scene, first at 0, then increasing
  "highlights": [{"entity": "<place id>", "style": "fill" | "outline" | "trace", "at": 0.3}],   // up to 4
  "annotations": [{"type": "label" | "marker", "anchor": A, "text": "SHORT CAPS", "at": 0.5, "until": 0.9},
-                 {"type": "ring", "center": A, "radiusKm": 14, "text": "14 KM", "at": 0.3},
+                 {"type": "ring", "center": A, "radiusKm": 14, "text": "14 KM", "at": 0.3, "reach": false},
                  {"type": "truesize", "entity": "<place id>", "onto": "<place id>", "at": 0.2, "until": 0.6},
                  {"type": "reconstruction", "entities": ["country:MDG"], "fixed": "country:ZAF", "from": 180, "to": 0, "at": 0.1, "until": 0.9},
                  {"type": "photo", "photo": "<photo id>", "at": 0.3},
+                 {"type": "satellite", "set": "<satellite set id>", "dates": ["2000-07-18", "2024-07-18"], "mode": "swipe" | "fade", "marks": [{"anchor": A, "text": "SHORT CAPS"}], "at": 0},   // a full-panel NASA satellite still, by date
+                 {"type": "profile", "set": "<profile id>", "text": "SHORT CAPS", "at": 0.02},   // a route with an elevation panel
+                 {"type": "daynight", "date": "2024-12-21", "from": 16, "to": 26, "places": ["city:..."], "at": 0.02},   // the night side sweeping the Earth
+                 {"type": "flow", "flows": [{"from": A, "to": A, "value": 9, "text": "CHINA"}], "unit": "mb/d", "at": 0.04},   // arcs with streaming particles
                  {"type": "timeline", "steps": [{"label": "180 MYA", "detail": "AFRICA"}, ...], "active": 0, "at": 0.3},
                  {"type": "line", "kind": "meridian" | "parallel", "degrees": 0, "text": "0° PRIME MERIDIAN", "at": 0.2},   // until is optional: when it fades out
                  {"type": "arrow", "from": A, "to": A, "at": 0.7},
@@ -677,7 +728,7 @@ A shot is JSON:
  "floodRise": 5,     // optional: show the land a sea-level rise of 1, 2, 5, 10, 20 or 50 metres would flood
  "morph": false,    // optional: the map flows from Mercator to Equal Earth during the scene, so stretched sizes settle to true
  "data": {"dataset": "<dataset key>", "at": 0.3, "view": "map" | "bars" | "both" | "bubbles"},   // optional: show a dataset: shade the places (map), a ranked bar chart (bars), both, or sized circles on the places (bubbles)
- "series": {"indicator": "population" | "life-expectancy" | "fertility" | "gdp-per-person", "view": "line" | "race", "from": 1960, "to": 2020, "places": ["country:CHN"], "axis": "fit", "shade": true, "mark": {"year": 2021, "kind": "peak" | "low" | "year"}, "at": 0.04},   // optional: a chart over time, drawn year by year
+ "series": {"indicator": "population" | "life-expectancy" | "fertility" | "gdp-per-person", "view": "line" | "race" | "cartogram", "top": 20, "from": 1960, "to": 2020, "places": ["country:CHN"], "axis": "fit", "shade": true, "mark": {"year": 2021, "kind": "peak" | "low" | "year"}, "at": 0.04},   // optional: a chart over time, drawn year by year
  "figure": {"value": 8848, "unit": "M", "text": "SHORT CAPS", "at": 0.3},   // optional: one number rolled up big over the lower map
  "why": "one sentence"}
 
@@ -704,6 +755,12 @@ Rules:
 - "relief": true adds shaded relief (mountains and valleys) under the map. Use it when the narration is about terrain or altitude: mountains, highlands, plateaus, valleys.
 - "data" shows one of the datasets listed below. Use it when the narration compares places by a number (heights, sizes, populations, how crowded or empty a place is). Name the dataset only; its values come from the research or the map data. "view": "map" shades the places with a legend; "bars" shows a ranked bar chart of them beside the map (the clearest way to compare sizes or populations: use it at least once in an episode that compares places); "both" does both; "bubbles" puts a circle on each place, its area in proportion to its value, right on the map (good when the places are spread out and you want the comparison to sit on the geography; the bars are better for a ranked list). Frame the places the dataset covers.
 - "series" draws a chart over time under the map from the World Bank's yearly figures (the figures are ours; you choose only the indicator, the countries and the years). "view": "line" draws 1 to 4 countries' lines year by year, "places" being those countries; "race" is a ranked bar race of the biggest countries over the years, "places" holding at most one country to light up. "axis": "fit" zooms a line chart to its data and is honoured only together with a "peak" or "low" mark (the axis ticks say so); everything else starts at zero, the honest choice for sizes. A line chart's "mark" adds a dashed line and caption at a year: kind "peak" or "low" is checked against the data (the year must be the first place's actual highest or lowest in the chart's years), "year" just names the year. Use it when the narration is about how a number CHANGED over time (a population overtaking another, a country peaking, life spans rising), with years that exist in the digest below. When the narration says something peaked or bottomed out, draw that country as the first place with "mark" kind "peak" or "low" at the true year, and zoom ("axis": "fit") only to show such a turn; to compare sizes keep the axis at zero. Never mark the chart's first year, and end the chart at the last year the narration speaks about (it may stop short of the latest data). A race suits "who led, and when someone overtook": light the country the story is about. The countries in "places" must be places of this episode. "shade": true also colours every country on the map by the indicator in the year the chart is showing (purple low to gold high, with a key; life-expectancy, fertility and gdp-per-person only, never a population): use it on a chart of one of those when the story is about the world or a region changing, and frame a wide area so many countries show. A chart takes the lower part of the frame and the map lifts above it, so keep the place the scene is about at the camera's centre. At most 3 scenes an episode, one chart per scene, never with a photo, a timeline, a street map, a bar data view, a globe, a morph or a surface in the same scene. Show the same indicator in consecutive chart scenes so the viewer reads the story as one.
+- A "satellite" annotation fills the whole map panel with real NASA satellite stills of one place, by date, with the date and the NASA credit printed on the picture. It is for a scene about a place seen from above, above all a before and after (a forest cleared, a lake shrunk, a city grown): "mode": "swipe" wipes between exactly two dates, "fade" shows one to three dates in turn. Use ONLY a set on file and ONLY its dates: ${Object.entries(satellite).map(([id, set]) => `${id} (${set.caption || id}; dates on file: ${Object.entries(set.dates).map(([date, still]) => `${date} ${still.layerKey}`).join(', ')}; the picture covers lon ${set.bbox[0]} to ${set.bbox[2]}, lat ${set.bbox[1]} to ${set.bbox[3]})`).join('; ') || 'none'}. The scene has no highlights, labels or other layers (the camera is ignored); "marks" (up to 4) name places inside the picture, each {"anchor": a place id or point key, "text": "SHORT CAPS"} and each must lie inside the area the set covers. Count it as a photo scene (never more than one scene in three, never next to a full-frame photo). Say only what the picture can show (cleared ground, open water, a shoreline); never state a cause or a figure it cannot back, and put the two dates the picture shows in the narration or leave them to the date on screen.
+- A "profile" annotation draws a route along a stored path on the map while a panel at the bottom fills in the height of the land under it (NOAA data; the panel prints the current height and says the height is stretched). Use it on a scene about a climb, a fall or a crossing: a road over a pass, a river's descent, a country's backbone. Profiles on file: ${Object.entries(profiles?.profiles ?? {}).map(([id, profile]) => `${id} (${profile.totalKm.toFixed(0)} km long, ${profile.lowestM} to ${profile.highestM} m)`).join('; ') || 'none'}. Frame the route's area with the camera (the route runs through it); give the annotation a short "text" (28 characters at most). One per scene, at most 2 an episode; never with a chart over time, a figure, a bar view, a street map, a photo, a satellite still, a timeline, a globe or a morph in the same scene. Heights in the narration must be numbers the research states; the panel's own numbers come from the data.
+- "series" with "view": "cartogram" redraws the world as circles whose AREA is the country's World Bank population in the year shown, growing and shrinking from "from" to "to" (population only; "top": 6 to 30 sets how many of the biggest countries get one, 20 by default; "places" may light up to 4 of them). The scene shows only the circles on a cleared panel, so give it no highlights or other layers. Use it for "the world by people": who overtook whom, how fast a continent grew, a country that shrank. At most 1 scene an episode; say "circle area" or "size" in the narration so the viewer knows what the circles mean.
+- A "daynight" annotation shades the night side of the Earth for a real UTC moment, sweeping from hour "from" to hour "to" (0 to 48) of "date" (YYYY-MM-DD), with a UTC clock, the sun's point, and a dot for each of up to 4 "places" that is lit while the sun is up there. Use it for a scene about time and the sun: time zones, the date line, why one clock spans different daylight, polar day and night. The sun is computed; choose a date that suits the story (a solstice or equinox for polar and tropical stories). It is astronomical night, not time zones or clock time: never describe it as a time-zone map. Flat map or globe; at most 1 scene an episode.
+- A "flow" annotation draws 1 to 6 arcs from an origin to a destination, each with particles streaming along it and an arrowhead. Use it for where something goes: oil or grain to its buyers, a river's water, migration, trade. Either EVERY arc has a "value" (then the widths follow the values, the figure is printed on the arc, and "unit" names it) or none does; a value must be a number the research states, so with no stated numbers draw plain arcs. Say in the narration what the width measures and for which year. "from" and "to" are place ids or point keys; frame the camera so every arc is inside it.
+- A "ring" with "reach": true also lights each country as the ring passes its nearest border and counts them ("N COUNTRIES & TERRITORIES"), measured in a straight line. The radius must still be a number the research states. Use it on a scene about how far something reaches (a range, a flight, a missile, a neighbourhood); the narration must say "countries and territories" or name them, never "N countries", because the count includes dependencies and disputed places.
 - "figure" rolls ONE number up on screen, big, over the lower part of the map, with a unit and a short caption. Use it when a scene turns on a single figure the narration states (a height, a length, an area, a count, a year-count) and the picture needs weight there. The value MUST be a number the research states (it is checked), with a unit that matches the claim. At most 2 scenes an episode; never with a chart over time, a street map, a bar view, a photo or a timeline strip in the same scene. Keep the place the scene is about in the upper half of the frame.
 - A "ring" draws a true circle of "radiusKm" around "center" (a place id or a named point), growing out from the centre, with its text on the ring's east edge. Use it when the narration is about a DISTANCE from a place: "within 14 kilometres", "400 kilometres of water", "farthest from the sea", or two shores a short way apart (a ring from one shore that reaches the other shows how close they are). The radius must be a number the research states (it is checked); the text may say it. Frame the whole ring. At most two rings in a scene.
 - A "truesize" copies the place "entity" (a country, state or lake) and slides the copy onto the place "onto" (a country, state, lake or city), rotated on the sphere so its size and shape stay exactly true, to show how big one place is against another. Use it when the narration compares AREA: "as big as", "larger than", "twice the size of", "would cover", "fits inside". The map says the copy was moved and shows where the place really is as a dashed outline. It always uses an equal-area projection (the system sets it). Frame both where the place really is and where it lands, and do not also highlight, label or point at the place that is moving: its home position is wrong while it slides. Use it at most once or twice an episode, on the scenes that are about size.
@@ -771,7 +828,7 @@ export const directGeoVisuals = async ({draft, research: rawResearch, complete, 
       if (!draft.scenes.some((scene) => scene.id === id)) { reasons.push({id, reason: 'no such scene'}); continue; }
       if (valid.has(id)) continue;
       try {
-        const primitive = shotToPrimitive(item, {places, research, datasets, streets: streetCities, photos: geo.photos ?? {}, series: geo.series});
+        const primitive = shotToPrimitive(item, {places, research, datasets, streets: streetCities, photos: geo.photos ?? {}, series: geo.series, satellite: geo.satellite ?? {}, profiles: geo.profiles});
         const problems = [...geoProblems(primitive, geo), ...shotProblems(primitive)];
         if (problems.length) throw new Error(problems.join('; '));
         valid.set(id, {primitive, why: typeof item.why === 'string' ? item.why : ''});
@@ -790,7 +847,7 @@ export const directGeoVisuals = async ({draft, research: rawResearch, complete, 
 
   if (complete) {
     try {
-      const prompt = buildGeoDirectorPrompt({draft, research, places, datasets, mentions, showId, streetCities, photos: geo.photos ?? {}, series: geo.series});
+      const prompt = buildGeoDirectorPrompt({draft, research, places, datasets, mentions, showId, streetCities, photos: geo.photos ?? {}, series: geo.series, satellite: geo.satellite ?? {}, profiles: geo.profiles});
       const first = await complete(prompt);
       const firstRead = read(first);
       adopt(firstRead.valid);

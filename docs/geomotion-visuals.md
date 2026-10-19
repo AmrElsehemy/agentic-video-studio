@@ -267,3 +267,25 @@ npm run profiles -- add andes-crossing --path="-71.6,-33.0;-70.0,-33.1;-66.5,-33
 - **What is counted:** the map's own list of "countries and territories". It includes dependencies, special regions and disputed places (Hong Kong, Macao, Taiwan, Spratly Is., Ashmore and Cartier Is. for Singapore at 3,000 km: 23 in all, 16 of them sovereign states), so the panel says "COUNTRIES & TERRITORIES". **The narration must say the same**: never "23 countries". If the story needs a sovereign-state count, name them in the research instead.
 - **Rules:** flat map only (no globe, no morph). Tag: `ring` (as any ring).
 - **Good for:** "from Singapore, 3,000 km reaches ...", how many borders touch a place, how far a missile, a flight or a storm can reach.
+
+## How the director uses the new devices
+
+The Geo Visual Director (`geo:direct`) knows all six. What it needs, and what it checks:
+
+| Device | What the model writes | What the system checks |
+|---|---|---|
+| `satellite` | a set id, 1 to 3 dates (a swipe takes exactly 2), up to 4 marks each `{anchor, text}` | the set and every date are on file, each mark lies inside the picture, no other layer on the scene, mark text numbers are in the research |
+| `profile` | a profile id and a short text | the profile is on file; no other panel in the scene; text numbers are in the research |
+| `series` cartogram | `view: "cartogram"`, years, optional `top` and lit `places` | population only, no shade, mark or axis, `top` 6 to 30, places are countries of the episode |
+| `daynight` | a date, from and to hours, up to 4 places | every place is one of the episode's places; the schema requires different hours and a real date |
+| `flow` | arcs `{from, to, value?, text?}` and a unit | every end is a place or a named point; a value must be a number the research states; values on all arcs or none |
+| `ring` with `reach` | `reach: true` on a ring | the radius is a number the research states; flat map only |
+
+The prompt lists the satellite sets (with their dates and the area each covers) and the profiles on file, so **a set has to exist before the episode is directed**. The order of work for an episode that uses them:
+
+1. Draft the storyline and research as usual (every number sourced).
+2. Fetch what the story needs: `npm run satellite -- probe ...` to pick clear dates, then `satellite add`; `npm run profiles -- add ...`.
+3. `npm run geo:direct -- <id> --write` (the director now sees them), then fix by hand what it gets wrong, as before.
+4. `npm run episode:check -- <id>` certifies and scores it; the compiler adds the NASA and NOAA credits to the rights.
+
+Guidance baked into the prompt: satellite stills count as photo scenes (at most one scene in three); a profile or a cartogram is at most one or two a scene; the narration must say what the width of a flow measures, call a counting ring's total "countries and territories", never describe the night side as time zones, and never state a cause a satellite picture cannot show.

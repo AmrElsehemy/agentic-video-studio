@@ -1,0 +1,657 @@
+{
+  "schemaVersion": 2,
+  "id": "mapkit-demo",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica",
+    "wordmark": {
+      "lead": "GEO",
+      "accent": "GRAPHICA"
+    },
+    "fonts": {
+      "display": "Oswald",
+      "body": "Inter"
+    },
+    "captions": {
+      "mode": "words"
+    }
+  },
+  "title": "The Third-Largest Lake That Nearly Vanished",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "transformation",
+    "numberRelevant": true,
+    "premise": "The Aral Sea, once the third-largest lake on Earth at 68,000 km², shrank to 10% of its size by 2007.",
+    "audiencePromise": "Watch a lake dry up.",
+    "openLoop": "What happened to a lake that big?",
+    "payoff": "By 2007 it was 10% of its original size, and its eastern basin dried up completely by 2014.",
+    "targetEmotion": "surprise",
+    "engagementQuestion": "Would you have noticed a lake disappearing?",
+    "targetSecondsBetweenVisualChanges": 0.62
+  },
+  "subject": {
+    "name": "Aral Sea",
+    "category": "Border",
+    "attributes": {
+      "geoEntity": "lake:south-aral-sea"
+    }
+  },
+  "related": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#06161c",
+    "surface": "#2f5d3c",
+    "primary": "#ffd166",
+    "secondary": "#10424d",
+    "ink": "#f7f2dc"
+  },
+  "look": "terrain",
+  "framing": {
+    "opening": "bleed"
+  },
+  "audio": {
+    "music": "generated/mapkit-demo-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 96,
+      "notes": [
+        98,
+        116.54,
+        130.81,
+        146.83,
+        130.81,
+        116.54,
+        87.31,
+        98
+      ]
+    },
+    "voice": {
+      "provider": "elevenlabs",
+      "model": "eleven_v4",
+      "voice": "JBFqnCBsd6RMkjVDRZzb",
+      "instructions": "Warm, curious storyteller walking a friend across a map. Clear and confident, with a sense of discovery on each reveal; slow slightly on dates and place names so they land. Conversational and human, never a documentary announcer, lecture, or neutral TTS. Never imitate a known person or character.",
+      "speed": 1.06,
+      "output": "generated/mapkit-demo-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "cleared",
+    "publicReleaseApproved": true,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      },
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://databank.worldbank.org/source/world-development-indicators",
+        "owner": "World Bank",
+        "licenseStatus": "licensed",
+        "publicReleaseApproved": true,
+        "notes": "Data: World Bank, World Development Indicators (CC BY 4.0)."
+      },
+      {
+        "kind": "photo",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aral_Sea_2021.jpg",
+        "owner": "NASA",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Photo: NASA / Wikimedia Commons (Public domain)."
+      },
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://doi.org/10.25921/fd45-gt74",
+        "owner": "NOAA National Centers for Environmental Information (ETOPO 2022)",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Elevation profile: ETOPO 2022 60 arc-second surface elevation, NOAA National Centers for Environmental Information (Public domain)."
+      },
+      {
+        "kind": "photo",
+        "sourceUrl": "https://earthdata.nasa.gov/eosdis/science-system-description/eosdis-components/gibs",
+        "owner": "NASA EOSDIS GIBS",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Satellite imagery: NASA EOSDIS Global Imagery Browse Services (MODIS Terra true colour (250 m)), 2000-07-18, 2024-07-18. NASA imagery is free to use with acknowledgement."
+      }
+    ],
+    "bordersReview": {
+      "reviewer": "Amr",
+      "date": "2026-10-19",
+      "decision": "Natural Earth de facto lines and OpenStreetMap boundaries; disputed areas disclaimed in the notice; approved by the channel owner."
+    }
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "durationSeconds": 3.8,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "SATELLITE",
+      "headline": "TWO DATES, ONE PLACE",
+      "narration": "The world's third-largest lake nearly dried up.",
+      "caption": "RONDÔNIA, BRAZIL: JULY 2000 TO JULY 2024",
+      "visual": "hook",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -63.4,
+                -11.6,
+                -61.4,
+                -9
+              ]
+            },
+            "at": 0,
+            "padding": 0.05,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -63.4,
+                -11.6,
+                -61.4,
+                -9
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.05,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "satellite",
+            "set": "rondonia",
+            "dates": [
+              "2000-07-18",
+              "2024-07-18"
+            ],
+            "mode": "swipe",
+            "marks": [],
+            "at": 0
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "before",
+      "durationSeconds": 3.8,
+      "beat": "before",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "SATELLITE",
+      "headline": "FADE BETWEEN DATES",
+      "narration": "It once covered 68,000 square kilometres.",
+      "caption": "SAME BOX, CROSS-FADING",
+      "visual": "gauntlet",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -63.4,
+                -11.6,
+                -61.4,
+                -9
+              ]
+            },
+            "at": 0,
+            "padding": 0.05,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -63.4,
+                -11.6,
+                -61.4,
+                -9
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.05,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "satellite",
+            "set": "rondonia",
+            "dates": [
+              "2000-07-18",
+              "2024-07-18"
+            ],
+            "mode": "fade",
+            "marks": [
+              {
+                "lon": -62,
+                "lat": -10.3,
+                "text": "Forest remnant"
+              }
+            ],
+            "at": 0
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "before-2",
+      "durationSeconds": 4.4,
+      "beat": "before",
+      "role": "evidence",
+      "shot": "wide",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "CARTOGRAM",
+      "headline": "THE WORLD BY PEOPLE",
+      "narration": "Soviet irrigation projects diverted the rivers that fed it.",
+      "caption": "CIRCLE AREA = POPULATION, 1960 TO 2023",
+      "visual": "gauntlet",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "world",
+            "at": 0,
+            "padding": 0.05,
+            "ease": "in-out"
+          },
+          {
+            "target": "world",
+            "at": 0.85,
+            "padding": 0.05,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "projection": "equal-earth",
+        "ambience": "none",
+        "series": {
+          "indicator": "population",
+          "view": "cartogram",
+          "places": [
+            "country:IND"
+          ],
+          "from": 1960,
+          "to": 2023,
+          "at": 0.02,
+          "top": 20,
+          "axis": "zero"
+        }
+      }
+    },
+    {
+      "id": "change",
+      "durationSeconds": 3.9,
+      "beat": "change",
+      "role": "escalation",
+      "shot": "tracking",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "DAY AND NIGHT",
+      "headline": "ONE CLOCK, TWO SUNS",
+      "narration": "By 1987, it had split into two.",
+      "caption": "THE TERMINATOR, COMPUTED",
+      "visual": "race",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                72,
+                20,
+                136,
+                52
+              ]
+            },
+            "at": 0,
+            "padding": 0.05,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                72,
+                20,
+                136,
+                52
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.05,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "daynight",
+            "date": "2024-12-21",
+            "from": 16,
+            "to": 26,
+            "places": [
+              "city:shanghai-chn",
+              "city:urumqi-chn"
+            ],
+            "at": 0.02
+          }
+        ],
+        "dataset": "natural-earth",
+        "projection": "mercator",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "reveal",
+      "durationSeconds": 5,
+      "beat": "reveal",
+      "role": "payoff",
+      "shot": "comparison",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "FLOW",
+      "headline": "WHERE IT GOES",
+      "narration": "By 2007, only 10 percent of it was left.",
+      "caption": "GREAT-CIRCLE ARCS WITH PARTICLES",
+      "visual": "advantage",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                25,
+                0,
+                150,
+                62
+              ]
+            },
+            "at": 0,
+            "padding": 0.05,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                25,
+                0,
+                150,
+                62
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.05,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "flow",
+            "flows": [
+              {
+                "from": {
+                  "lon": 51.5,
+                  "lat": 26.5
+                },
+                "to": {
+                  "lon": 139.7,
+                  "lat": 35.7
+                },
+                "text": "Japan"
+              },
+              {
+                "from": {
+                  "lon": 51.5,
+                  "lat": 26.5
+                },
+                "to": "city:shanghai-chn",
+                "text": "China"
+              },
+              {
+                "from": {
+                  "lon": 51.5,
+                  "lat": 26.5
+                },
+                "to": "city:mumbai-ind",
+                "text": "India"
+              },
+              {
+                "from": {
+                  "lon": 51.5,
+                  "lat": 26.5
+                },
+                "to": {
+                  "lon": 4.4,
+                  "lat": 51.9
+                },
+                "text": "Europe"
+              }
+            ],
+            "at": 0.04
+          }
+        ],
+        "dataset": "natural-earth",
+        "projection": "mercator",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "aftermath",
+      "durationSeconds": 5.2,
+      "beat": "aftermath",
+      "role": "payoff",
+      "shot": "wide",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "ELEVATION",
+      "headline": "OVER THE ANDES",
+      "narration": "In 2014, NASA saw the eastern basin dry up completely.",
+      "caption": "HEIGHT OF THE LAND UNDER THE ROUTE",
+      "visual": "tradeoff",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -73,
+                -35.5,
+                -61,
+                -31
+              ]
+            },
+            "at": 0,
+            "padding": 0.05,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -73,
+                -35.5,
+                -61,
+                -31
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.05,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "profile",
+            "set": "andes-crossing",
+            "text": "Valparaíso to Argentina",
+            "at": 0.02
+          }
+        ],
+        "dataset": "natural-earth",
+        "projection": "mercator",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "aftermath-6",
+      "durationSeconds": 5.7,
+      "beat": "aftermath",
+      "role": "payoff",
+      "shot": "impact",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "REACH",
+      "headline": "WHAT 3,000 KM REACHES",
+      "narration": "A dam finished in 2005 helped the north, and fish returned.",
+      "caption": "A RING THAT COUNTS",
+      "visual": "tradeoff",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                85,
+                -14,
+                135,
+                25
+              ]
+            },
+            "at": 0,
+            "padding": 0.05,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                85,
+                -14,
+                135,
+                25
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.05,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "ring",
+            "center": "city:singapore-sgp",
+            "radiusKm": 3000,
+            "text": "3,000 km",
+            "at": 0.04,
+            "reach": true
+          }
+        ],
+        "dataset": "natural-earth",
+        "projection": "mercator",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "verdict",
+      "durationSeconds": 3.8,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "YOUR TURN",
+      "headline": "WOULD YOU NOTICE?",
+      "narration": "Would you have noticed a lake disappearing?",
+      "caption": "WOULD YOU HAVE NOTICED?",
+      "visual": "cta",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                56.3,
+                42.8,
+                64.2,
+                48.6
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                56.3,
+                42.8,
+                64.2,
+                48.6
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.05,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "photo",
+            "photo": "aral-2021",
+            "fill": true,
+            "pan": [
+              0.35,
+              0.65
+            ],
+            "at": 0
+          }
+        ],
+        "dataset": "natural-earth",
+        "projection": "albers",
+        "ambience": "none"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia: Aral Sea (revision 1378797274)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Aral_Sea&oldid=1378797274"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ]
+}
