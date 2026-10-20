@@ -1,0 +1,507 @@
+{
+  "schemaVersion": 2,
+  "id": "death-valley-whitney",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica",
+    "wordmark": {
+      "lead": "GEO",
+      "accent": "GRAPHICA"
+    },
+    "fonts": {
+      "display": "Oswald",
+      "body": "Inter"
+    },
+    "captions": {
+      "mode": "words"
+    }
+  },
+  "title": "85 Miles From the Lowest to the Highest",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "mystery",
+    "numberRelevant": true,
+    "premise": "Badwater Basin, the lowest point in the United States, and Mount Whitney, the highest in the lower 48, are only 85 miles apart.",
+    "audiencePromise": "Cut a profile from the lowest point to the highest.",
+    "openLoop": "How far apart are the lowest and highest points in the lower 48?",
+    "payoff": "Badwater is 86 m below sea level and Whitney 4,421 m above it, 137 km apart.",
+    "targetEmotion": "surprise",
+    "engagementQuestion": "Which end would you rather stand on?",
+    "targetSecondsBetweenVisualChanges": 0.68
+  },
+  "subject": {
+    "name": "Death Valley and Mount Whitney",
+    "category": "Border",
+    "attributes": {
+      "geoEntity": "admin1:USA-3521"
+    }
+  },
+  "related": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#0b1a2a",
+    "surface": "#23473d",
+    "primary": "#e4b363",
+    "secondary": "#8c2f39",
+    "ink": "#f6f1e7"
+  },
+  "framing": {
+    "opening": "bleed"
+  },
+  "audio": {
+    "music": "generated/death-valley-whitney-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 96,
+      "notes": [
+        98,
+        116.54,
+        130.81,
+        146.83,
+        130.81,
+        116.54,
+        87.31,
+        98
+      ]
+    },
+    "voice": {
+      "provider": "elevenlabs",
+      "model": "eleven_v4",
+      "voice": "JBFqnCBsd6RMkjVDRZzb",
+      "instructions": "Warm, curious storyteller walking a friend across a map. Clear and confident, with a sense of discovery on each reveal; slow slightly on dates and place names so they land. Conversational and human, never a documentary announcer, lecture, or neutral TTS. Never imitate a known person or character.",
+      "speed": 1.06,
+      "output": "generated/death-valley-whitney-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      },
+      {
+        "kind": "photo",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Badwater_Basin_-_Flickr_-_Joe_Parks.jpg",
+        "owner": "Joe Parks from Berkeley, CA",
+        "licenseStatus": "licensed",
+        "publicReleaseApproved": true,
+        "notes": "Photo: Joe Parks from Berkeley, CA / Wikimedia Commons / CC BY 2.0."
+      },
+      {
+        "kind": "photo",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mount_Whitney_September_2009.JPG",
+        "owner": "Cullen328",
+        "licenseStatus": "licensed",
+        "publicReleaseApproved": true,
+        "notes": "Photo: Cullen328 / Wikimedia Commons / CC BY 3.0."
+      },
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://doi.org/10.25921/fd45-gt74",
+        "owner": "NOAA National Centers for Environmental Information (ETOPO 2022)",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Elevation profile: ETOPO 2022 60 arc-second surface elevation, NOAA National Centers for Environmental Information (Public domain)."
+      },
+      {
+        "kind": "photo",
+        "sourceUrl": "https://earthdata.nasa.gov/eosdis/science-system-description/eosdis-components/gibs",
+        "owner": "NASA EOSDIS GIBS",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Satellite imagery: NASA EOSDIS Global Imagery Browse Services (MODIS Terra true colour (250 m)), 2024-05-06. NASA imagery is free to use with acknowledgement."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "durationSeconds": 3.8,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "mystery",
+      "subjectFocus": "hidden",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "CALIFORNIA",
+      "headline": "85 MILES APART",
+      "narration": "Lowest to highest: just 85 miles.",
+      "caption": "85 MILES (137 KM) APART",
+      "visual": "hook",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -119.4,
+                35.4,
+                -116.2,
+                37.3
+              ]
+            },
+            "at": 0,
+            "padding": 0,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "satellite",
+            "set": "death-valley",
+            "dates": [
+              "2024-05-06"
+            ],
+            "mode": "fade",
+            "marks": [
+              {
+                "lon": -116.825,
+                "lat": 36.23,
+                "text": "BADWATER"
+              },
+              {
+                "lon": -118.292,
+                "lat": 36.579,
+                "text": "WHITNEY"
+              }
+            ],
+            "at": 0
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "clue",
+      "durationSeconds": 4.2,
+      "beat": "clue",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "THE LOW",
+      "headline": "86 M BELOW",
+      "narration": "Badwater Basin lies 86 metres below sea level.",
+      "caption": "BADWATER BASIN: 86 M BELOW SEA LEVEL",
+      "visual": "gauntlet",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -119.5,
+                35.2,
+                -115.8,
+                37.4
+              ]
+            },
+            "at": 0,
+            "padding": 0.05,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "photo",
+            "photo": "badwater-salt-flats",
+            "fill": true,
+            "pan": [
+              0.3,
+              0.7
+            ],
+            "at": 0
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "escalation",
+      "durationSeconds": 3.8,
+      "beat": "escalation",
+      "role": "escalation",
+      "shot": "tracking",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "THE HIGH",
+      "headline": "4,421 M",
+      "narration": "Mount Whitney rises to 4,421 metres.",
+      "caption": "MOUNT WHITNEY: 4,421 M",
+      "visual": "advantage",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -119.5,
+                35.2,
+                -115.8,
+                37.4
+              ]
+            },
+            "at": 0,
+            "padding": 0.05,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "photo",
+            "photo": "mount-whitney",
+            "fill": true,
+            "pan": [
+              0.5,
+              0.5
+            ],
+            "at": 0
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "reveal",
+      "durationSeconds": 5.9,
+      "beat": "reveal",
+      "role": "payoff",
+      "shot": "comparison",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "THE CUT",
+      "headline": "137 KM",
+      "narration": "Cut a line between them, and the ground climbs the whole way.",
+      "caption": "A STRAIGHT 137 KM CUT (NOAA ETOPO)",
+      "visual": "race",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -119.5,
+                35.2,
+                -115.8,
+                37.4
+              ]
+            },
+            "at": 0,
+            "padding": 0.05,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "profile",
+            "set": "death-valley-whitney",
+            "text": "137 KM · BADWATER TO WHITNEY",
+            "at": 0.05
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "reveal-4",
+      "durationSeconds": 5.3,
+      "beat": "reveal",
+      "role": "payoff",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "THE GRADIENT",
+      "headline": "THE STEEPEST",
+      "narration": "It is the greatest elevation gradient in the contiguous United States.",
+      "caption": "THE GREATEST ELEVATION GRADIENT IN THE LOWER 48",
+      "visual": "tradeoff",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -119.4,
+                35.4,
+                -116.2,
+                37.3
+              ]
+            },
+            "at": 0,
+            "padding": 0,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "satellite",
+            "set": "death-valley",
+            "dates": [
+              "2024-05-06"
+            ],
+            "mode": "fade",
+            "marks": [
+              {
+                "lon": -116.825,
+                "lat": 36.23,
+                "text": "BADWATER"
+              },
+              {
+                "lon": -118.292,
+                "lat": 36.579,
+                "text": "WHITNEY"
+              }
+            ],
+            "at": 0
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "reveal-5",
+      "durationSeconds": 4,
+      "beat": "reveal",
+      "role": "payoff",
+      "shot": "comparison",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "THE HEAT",
+      "headline": "134 DEGREES",
+      "narration": "The valley also holds the air temperature record.",
+      "caption": "134 °F · 10 JULY 1913 · FURNACE CREEK",
+      "visual": "race",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "admin1:USA-3521",
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "admin1:USA-3521",
+            "style": "fill",
+            "at": 0.2
+          }
+        ],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": -116.87,
+              "lat": 36.46
+            },
+            "text": "FURNACE CREEK",
+            "at": 0.4
+          }
+        ],
+        "dataset": "natural-earth",
+        "projection": "albers",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "verdict",
+      "durationSeconds": 3.8,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "YOUR TURN",
+      "headline": "WHICH END?",
+      "narration": "Which end would you rather stand on?",
+      "caption": "WHICH END WOULD YOU STAND ON?",
+      "visual": "cta",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "admin1:USA-3521",
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "admin1:USA-3521",
+            "style": "outline",
+            "at": 0.2
+          }
+        ],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": -116.825,
+              "lat": 36.23
+            },
+            "text": "BADWATER",
+            "at": 0.2
+          },
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": -118.292,
+              "lat": 36.579
+            },
+            "text": "WHITNEY",
+            "at": 0.4
+          }
+        ],
+        "dataset": "natural-earth",
+        "projection": "albers",
+        "ambience": "none"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia: Death Valley National Park (revision 1379064163)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Death_Valley_National_Park&oldid=1379064163"
+    },
+    {
+      "label": "Wikipedia: Badwater Basin (revision 1367657708)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Badwater_Basin&oldid=1367657708"
+    },
+    {
+      "label": "Wikipedia: Mount Whitney (revision 1370266413)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Mount_Whitney&oldid=1370266413"
+    },
+    {
+      "label": "NOAA NCEI ETOPO 2022 Global Relief Model (public domain)",
+      "url": "https://doi.org/10.25921/fd45-gt74"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ]
+}

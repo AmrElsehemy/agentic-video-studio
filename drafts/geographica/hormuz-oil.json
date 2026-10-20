@@ -1,0 +1,402 @@
+{
+  "id": "hormuz-oil",
+  "title": "The Strait Where a Quarter of Seaborne Oil Passes",
+  "storyPattern": "mechanic",
+  "numberRelevant": true,
+  "premise": "Oil from the Persian Gulf has one sea exit, the Strait of Hormuz, and most of it goes to Asia.",
+  "audiencePromise": "Follow the oil out of the Gulf.",
+  "openLoop": "Where does the oil go once it leaves the strait?",
+  "payoff": "In 2011 about 17 million barrels a day left through the strait, more than 85% to Asia; pipelines can carry only part around it.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "What would the world do without this passage?",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica"
+  },
+  "subject": {
+    "name": "Strait of Hormuz",
+    "category": "Border",
+    "attributes": {
+      "geoEntity": "country:IRN"
+    }
+  },
+  "voice": {
+    "provider": "elevenlabs",
+    "voice": "JBFqnCBsd6RMkjVDRZzb"
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "eyebrow": "THE STRAIT OF HORMUZ",
+      "headline": "ONE EXIT FOR THE GULF",
+      "narration": "The Gulf's oil has one way out.",
+      "caption": "THE ONLY SEA PASSAGE FROM THE PERSIAN GULF",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                46,
+                22,
+                64,
+                31
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                52,
+                23,
+                60,
+                29
+              ]
+            },
+            "at": 0.8,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "water:persian-gulf",
+            "style": "fill",
+            "at": 0.3
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "water:persian-gulf",
+            "text": "PERSIAN GULF",
+            "at": 0.4
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "evidence",
+      "beat": "evidence",
+      "eyebrow": "THE SHARE",
+      "headline": "A QUARTER",
+      "narration": "A quarter of the world's seaborne oil passes through.",
+      "caption": "25% OF SEABORNE OIL TRADE (2023–2025)",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                52,
+                23,
+                60,
+                29
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "water:persian-gulf",
+            "style": "fill",
+            "at": 0.1
+          }
+        ],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 56.4,
+              "lat": 26.5
+            },
+            "text": "STRAIT OF HORMUZ",
+            "at": 0.3
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "escalation",
+      "beat": "escalation",
+      "eyebrow": "2011",
+      "headline": "14 TANKERS A DAY",
+      "narration": "In 2011, fourteen tankers a day carried 17 million barrels out.",
+      "caption": "2011: 14 TANKERS, 17 MILLION BARRELS A DAY",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                52,
+                23,
+                60,
+                29
+              ]
+            },
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 56.4,
+              "lat": 26.5
+            },
+            "text": "14 TANKERS A DAY",
+            "at": 0.3
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "payoff",
+      "beat": "payoff",
+      "eyebrow": "WHERE IT GOES",
+      "headline": "TO ASIA",
+      "narration": "Over 85 percent went to Asia: Japan, India, South Korea, China.",
+      "caption": "MORE THAN 85% TO ASIA (EIA, 2011)",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                40,
+                5,
+                150,
+                48
+              ]
+            },
+            "at": 0,
+            "padding": 0.05,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "flow",
+            "flows": [
+              {
+                "from": {
+                  "lon": 56.4,
+                  "lat": 26.5
+                },
+                "to": "city:tokyo-jpn",
+                "text": "JAPAN"
+              },
+              {
+                "from": {
+                  "lon": 56.4,
+                  "lat": 26.5
+                },
+                "to": "city:mumbai-ind",
+                "text": "INDIA"
+              },
+              {
+                "from": {
+                  "lon": 56.4,
+                  "lat": 26.5
+                },
+                "to": "city:seoul-kor",
+                "text": "SOUTH KOREA"
+              },
+              {
+                "from": {
+                  "lon": 56.4,
+                  "lat": 26.5
+                },
+                "to": "city:shanghai-chn",
+                "text": "CHINA"
+              }
+            ],
+            "at": 0.1
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "sea"
+      }
+    },
+    {
+      "id": "payoff-4",
+      "beat": "payoff",
+      "eyebrow": "THE BYPASS",
+      "headline": "A PIPELINE",
+      "narration": "A pipeline bypasses it, but carries only 2 million barrels a day.",
+      "caption": "HABSHAN–FUJAIRAH: UP TO 2 MILLION BARRELS A DAY",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                52,
+                22,
+                62,
+                28
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 56.36,
+              "lat": 25.12
+            },
+            "text": "FUJAIRAH",
+            "at": 0.3
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "payoff-5",
+      "beat": "payoff",
+      "eyebrow": "THE GAS",
+      "headline": "ONLY BY SHIP",
+      "narration": "All the gas must still go by ship through the strait.",
+      "caption": "ALL LNG GOES BY SHIP THROUGH THE STRAIT",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                44,
+                22,
+                64,
+                30
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "water:persian-gulf",
+            "style": "fill",
+            "at": 0.1
+          }
+        ],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 56.4,
+              "lat": 26.5
+            },
+            "text": "ALL GAS BY SHIP",
+            "at": 0.4
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "verdict",
+      "beat": "verdict",
+      "eyebrow": "YOUR TURN",
+      "headline": "WHAT IF IT CLOSED?",
+      "narration": "What would the world do without this passage?",
+      "caption": "WHAT WOULD THE WORLD DO WITHOUT IT?",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                46,
+                22,
+                64,
+                31
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "water:persian-gulf",
+            "style": "fill",
+            "at": 0.1
+          }
+        ],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 56.4,
+              "lat": 26.5
+            },
+            "text": "HORMUZ",
+            "at": 0.3
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia: Strait of Hormuz (revision 1379417428)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Strait_of_Hormuz&oldid=1379417428"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ],
+  "paletteVariant": "neon",
+  "framing": {
+    "opening": "bleed"
+  }
+}

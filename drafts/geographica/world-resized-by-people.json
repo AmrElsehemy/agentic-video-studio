@@ -1,0 +1,298 @@
+{
+  "id": "world-resized-by-people",
+  "title": "The World Redrawn by Its People",
+  "storyPattern": "transformation",
+  "numberRelevant": true,
+  "premise": "A map where each country is a circle sized by its population shows how the world changed between 1960 and 2023.",
+  "audiencePromise": "Watch the circles of the world grow.",
+  "openLoop": "Which circles grew the most?",
+  "payoff": "Nigeria grew about five times, Ethiopia six, the Democratic Republic of the Congo nearly seven; Japan about a third.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "Which circle surprised you most?",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica"
+  },
+  "subject": {
+    "name": "World population",
+    "category": "Border",
+    "attributes": {
+      "geoEntity": "country:IND"
+    }
+  },
+  "voice": {
+    "provider": "elevenlabs",
+    "voice": "JBFqnCBsd6RMkjVDRZzb"
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "eyebrow": "THE WORLD BY PEOPLE",
+      "headline": "EVERY COUNTRY A CIRCLE",
+      "narration": "Here is the world, drawn by its people.",
+      "caption": "CIRCLE SIZE = POPULATION (WORLD BANK)",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "world",
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "series": {
+          "indicator": "population",
+          "view": "cartogram",
+          "places": [
+            "country:IND",
+            "country:CHN"
+          ],
+          "from": 1960,
+          "to": 2023,
+          "at": 0.03,
+          "top": 30
+        }
+      }
+    },
+    {
+      "id": "before",
+      "beat": "before",
+      "eyebrow": "1960",
+      "headline": "THE WORLD IN 1960",
+      "narration": "This is 1960.",
+      "caption": "1960 · POPULATION BY COUNTRY",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "world",
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "series": {
+          "indicator": "population",
+          "view": "cartogram",
+          "places": [
+            "country:IND",
+            "country:CHN"
+          ],
+          "from": 1960,
+          "to": 1970,
+          "at": 0.03,
+          "top": 30
+        }
+      }
+    },
+    {
+      "id": "change",
+      "beat": "change",
+      "eyebrow": "1960 TO 2023",
+      "headline": "THE CIRCLES GROW",
+      "narration": "Now watch them grow, to 2023.",
+      "caption": "1960 TO 2023 · WORLD BANK",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "world",
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "series": {
+          "indicator": "population",
+          "view": "cartogram",
+          "places": [
+            "country:IND",
+            "country:CHN"
+          ],
+          "from": 1970,
+          "to": 2023,
+          "at": 0.03,
+          "top": 30
+        }
+      }
+    },
+    {
+      "id": "reveal",
+      "beat": "reveal",
+      "eyebrow": "INDIA AND CHINA",
+      "headline": "THE GIANTS",
+      "narration": "India grew from 436 million to 1.44 billion. China roughly doubled.",
+      "caption": "INDIA 436M TO 1.44B · CHINA 667M TO 1.41B",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "world",
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "series": {
+          "indicator": "population",
+          "view": "cartogram",
+          "places": [
+            "country:IND",
+            "country:CHN"
+          ],
+          "from": 1960,
+          "to": 2023,
+          "at": 0.03,
+          "top": 12
+        }
+      }
+    },
+    {
+      "id": "aftermath",
+      "beat": "aftermath",
+      "eyebrow": "AFRICA",
+      "headline": "FIVE TO SEVEN TIMES",
+      "narration": "Nigeria grew about five times, Ethiopia six, Congo nearly seven.",
+      "caption": "NIGERIA ×5 · ETHIOPIA ×6 · CONGO ×7",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "world",
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "series": {
+          "indicator": "population",
+          "view": "cartogram",
+          "places": [
+            "country:NGA",
+            "country:ETH",
+            "country:COD"
+          ],
+          "from": 1960,
+          "to": 2023,
+          "at": 0.03,
+          "top": 30
+        }
+      }
+    },
+    {
+      "id": "aftermath-5",
+      "beat": "aftermath",
+      "eyebrow": "JAPAN",
+      "headline": "ONLY A THIRD MORE",
+      "narration": "Japan grew by only about a third.",
+      "caption": "JAPAN 93M TO 125M",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "world",
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "series": {
+          "indicator": "population",
+          "view": "cartogram",
+          "places": [
+            "country:JPN"
+          ],
+          "from": 1960,
+          "to": 2023,
+          "at": 0.03,
+          "top": 30
+        }
+      }
+    },
+    {
+      "id": "verdict",
+      "beat": "verdict",
+      "eyebrow": "YOUR TURN",
+      "headline": "WHICH SURPRISED YOU?",
+      "narration": "Which circle surprised you most?",
+      "caption": "WHICH CIRCLE SURPRISED YOU MOST?",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "world",
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "series": {
+          "indicator": "population",
+          "view": "cartogram",
+          "places": [
+            "country:IND"
+          ],
+          "from": 2000,
+          "to": 2023,
+          "at": 0.03,
+          "top": 30
+        }
+      }
+    }
+  ],
+  "sources": [
+    {
+      "label": "World Bank, World Development Indicators: Population, total (SP.POP.TOTL), CC BY 4.0",
+      "url": "https://data.worldbank.org/indicator/SP.POP.TOTL"
+    }
+  ],
+  "framing": {
+    "ending": "loop"
+  }
+}

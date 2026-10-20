@@ -1,0 +1,471 @@
+{
+  "schemaVersion": 2,
+  "id": "tromso-polar-night",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica",
+    "wordmark": {
+      "lead": "GEO",
+      "accent": "GRAPHICA"
+    },
+    "fonts": {
+      "display": "Oswald",
+      "body": "Inter"
+    },
+    "captions": {
+      "mode": "words"
+    }
+  },
+  "title": "The City Where the Sun Disappears for 48 Days",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "mechanic",
+    "numberRelevant": true,
+    "premise": "In Tromsø, Norway, the sun stays below the horizon from 28 November to 14 January, and a computed day-and-night map shows why.",
+    "audiencePromise": "See why the sun never rises over one city.",
+    "openLoop": "How can a city go 48 days without a sunrise?",
+    "payoff": "In winter the city stays on the night side of the line between day and night; in summer the midnight sun stays up for 71 days.",
+    "targetEmotion": "surprise",
+    "engagementQuestion": "Could you live through 48 days without a sunrise?",
+    "targetSecondsBetweenVisualChanges": 0.65
+  },
+  "subject": {
+    "name": "Tromsø",
+    "category": "Border",
+    "attributes": {
+      "geoEntity": "country:NOR"
+    }
+  },
+  "related": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#cfe9f2",
+    "surface": "#f4e3b8",
+    "primary": "#d9482b",
+    "secondary": "#2a7fa6",
+    "ink": "#14263a"
+  },
+  "look": "atlas",
+  "framing": {
+    "opening": "bleed"
+  },
+  "audio": {
+    "music": "generated/tromso-polar-night-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 96,
+      "notes": [
+        98,
+        116.54,
+        130.81,
+        146.83,
+        130.81,
+        116.54,
+        87.31,
+        98
+      ]
+    },
+    "voice": {
+      "provider": "elevenlabs",
+      "model": "eleven_v4",
+      "voice": "JBFqnCBsd6RMkjVDRZzb",
+      "instructions": "Warm, curious storyteller walking a friend across a map. Clear and confident, with a sense of discovery on each reveal; slow slightly on dates and place names so they land. Conversational and human, never a documentary announcer, lecture, or neutral TTS. Never imitate a known person or character.",
+      "speed": 1.06,
+      "output": "generated/tromso-polar-night-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "durationSeconds": 3.9,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "TROMSØ, NORWAY",
+      "headline": "NO SUN FOR 48 DAYS",
+      "narration": "Here, the sun vanishes for 48 days.",
+      "caption": "28 NOVEMBER TO 14 JANUARY",
+      "visual": "hook",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -12,
+                58,
+                50,
+                82
+              ]
+            },
+            "at": 0,
+            "padding": 0.05,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "daynight",
+            "date": "2026-12-21",
+            "from": 0,
+            "to": 24,
+            "places": [],
+            "at": 0.05
+          },
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 18.96,
+              "lat": 69.65
+            },
+            "text": "TROMSØ",
+            "at": 0.2
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "evidence",
+      "durationSeconds": 5.9,
+      "beat": "evidence",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "THE POLAR NIGHT",
+      "headline": "NO SUNRISE",
+      "narration": "From 28 November to 14 January, the sun does not rise.",
+      "caption": "POLAR NIGHT: 28 NOVEMBER TO 14 JANUARY",
+      "visual": "gauntlet",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "country:NOR",
+            "at": 0,
+            "padding": 0.08,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                10,
+                66,
+                30,
+                72
+              ]
+            },
+            "at": 0.8,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:NOR",
+            "style": "outline",
+            "at": 0.2
+          }
+        ],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 18.96,
+              "lat": 69.65
+            },
+            "text": "POLAR NIGHT: 48 DAYS",
+            "at": 0.5
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "escalation",
+      "durationSeconds": 5,
+      "beat": "escalation",
+      "role": "escalation",
+      "shot": "comparison",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "THE MECHANISM",
+      "headline": "THE LINE OF NIGHT",
+      "narration": "On the sun map, Tromsø never leaves the night side.",
+      "caption": "COMPUTED FROM THE SUN'S POSITION (UTC)",
+      "visual": "advantage",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "country:NOR",
+            "at": 0,
+            "padding": 0.4,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "daynight",
+            "date": "2026-12-21",
+            "from": 10,
+            "to": 12,
+            "places": [],
+            "at": 0.05
+          },
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 18.96,
+              "lat": 69.65
+            },
+            "text": "TROMSØ",
+            "at": 0.3
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "space",
+        "globe": true
+      }
+    },
+    {
+      "id": "payoff",
+      "durationSeconds": 5.5,
+      "beat": "payoff",
+      "role": "payoff",
+      "shot": "tracking",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "TWILIGHT",
+      "headline": "BLUE HOURS",
+      "narration": "Even so, twilight gives a couple of hours of bluish daylight.",
+      "caption": "TWILIGHT BRINGS SOME DAYLIGHT, OFTEN BLUISH",
+      "visual": "race",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                5,
+                65,
+                35,
+                73
+              ]
+            },
+            "at": 0,
+            "padding": 0.05,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "daynight",
+            "date": "2026-12-21",
+            "from": 9,
+            "to": 13,
+            "places": [],
+            "at": 0.05
+          },
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 18.96,
+              "lat": 69.65
+            },
+            "text": "TROMSØ",
+            "at": 0.2
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "payoff-4",
+      "durationSeconds": 6.1,
+      "beat": "payoff",
+      "role": "payoff",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "THE OTHER SIDE",
+      "headline": "71 DAYS OF SUN",
+      "narration": "In summer it flips: the midnight sun stays up for 71 days.",
+      "caption": "MIDNIGHT SUN: 19 MAY TO 27 JULY",
+      "visual": "tradeoff",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "country:NOR",
+            "at": 0,
+            "padding": 0.4,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "daynight",
+            "date": "2027-06-21",
+            "from": 20,
+            "to": 26,
+            "places": [],
+            "at": 0.05
+          },
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 18.96,
+              "lat": 69.65
+            },
+            "text": "MIDNIGHT SUN",
+            "at": 0.3
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "space",
+        "globe": true
+      }
+    },
+    {
+      "id": "payoff-5",
+      "durationSeconds": 5.5,
+      "beat": "payoff",
+      "role": "payoff",
+      "shot": "comparison",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "THE RETURN",
+      "headline": "DAY OF THE SUN",
+      "narration": "At the end of January, the city celebrates the sun's return.",
+      "caption": "THE DAY OF THE SUN (SOLDAGEN)",
+      "visual": "race",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                5,
+                65,
+                35,
+                73
+              ]
+            },
+            "at": 0,
+            "padding": 0.05,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "daynight",
+            "date": "2027-01-28",
+            "from": 8,
+            "to": 14,
+            "places": [],
+            "at": 0.05
+          },
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 18.96,
+              "lat": 69.65
+            },
+            "text": "SOLDAGEN",
+            "at": 0.2
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "verdict",
+      "durationSeconds": 4.7,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "YOUR TURN",
+      "headline": "WOULD YOU STAY?",
+      "narration": "Could you live through 48 days without a sunrise?",
+      "caption": "COULD YOU LIVE THROUGH 48 DAYS WITHOUT A SUNRISE?",
+      "visual": "cta",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "country:NOR",
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:NOR",
+            "style": "fill",
+            "at": 0.2
+          }
+        ],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 18.96,
+              "lat": 69.65
+            },
+            "text": "TROMSØ",
+            "at": 0.4
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia: Tromsø (revision 1381102269)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Tromsø&oldid=1381102269"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ]
+}

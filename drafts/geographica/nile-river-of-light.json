@@ -1,0 +1,320 @@
+{
+  "id": "nile-river-of-light",
+  "title": "The Country That Is One Line of Light",
+  "storyPattern": "profile",
+  "numberRelevant": true,
+  "premise": "At night, satellite pictures show Egypt as a thin line of light along the Nile, because nearly everyone lives on a small share of the land.",
+  "audiencePromise": "See a whole country in one line of light.",
+  "openLoop": "Why is most of Egypt dark?",
+  "payoff": "98% of Egyptians live on 3% of the territory, along the Nile Valley and Delta.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "Would you have guessed this from a map?",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica"
+  },
+  "subject": {
+    "name": "Egypt",
+    "category": "Border",
+    "attributes": {
+      "geoEntity": "country:EGY"
+    }
+  },
+  "voice": {
+    "provider": "elevenlabs",
+    "voice": "JBFqnCBsd6RMkjVDRZzb"
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "eyebrow": "EGYPT AT NIGHT",
+      "headline": "ONE LINE OF LIGHT",
+      "narration": "At night, Egypt is one thin line of light.",
+      "caption": "NASA NIGHT LIGHTS, 2012",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                24.5,
+                21.5,
+                37,
+                32.5
+              ]
+            },
+            "at": 0,
+            "padding": 0,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "satellite",
+            "set": "nile-night",
+            "dates": [
+              "2012-01-01"
+            ],
+            "mode": "fade",
+            "marks": [],
+            "at": 0
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "evidence",
+      "beat": "evidence",
+      "eyebrow": "THE SIZE",
+      "headline": "29TH LARGEST",
+      "narration": "Egypt is the world's 29th largest country, over a million square kilometres.",
+      "caption": "1,001,450 KM² · 29TH LARGEST COUNTRY",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "country:EGY",
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:EGY",
+            "style": "fill",
+            "at": 0.1
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:EGY",
+            "text": "1,001,450 KM²",
+            "at": 0.3
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "evidence-2",
+      "beat": "evidence",
+      "eyebrow": "THE LINE",
+      "headline": "THE NILE VALLEY",
+      "narration": "The light follows the narrow Nile Valley, and spreads at the Delta.",
+      "caption": "THE NILE VALLEY AND DELTA",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "country:EGY",
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "river:nile",
+            "style": "trace",
+            "at": 0.1
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "river:nile",
+            "text": "THE NILE",
+            "at": 0.3
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "relief": true
+      }
+    },
+    {
+      "id": "escalation",
+      "beat": "escalation",
+      "eyebrow": "THE NUMBERS",
+      "headline": "98% ON 3%",
+      "narration": "98 percent of Egyptians live on 3 percent of the land.",
+      "caption": "98% OF EGYPTIANS LIVE ON 3% OF THE TERRITORY",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "country:EGY",
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:EGY",
+            "style": "outline",
+            "at": 0.1
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:EGY",
+            "text": "98% ON 3% OF THE LAND",
+            "at": 0.3
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "escalation-4",
+      "beat": "escalation",
+      "eyebrow": "THE WATER",
+      "headline": "90% FROM THE NILE",
+      "narration": "The Nile gives Egypt about 90 percent of its water.",
+      "caption": "THE NILE: ABOUT 90% OF EGYPT'S WATER",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "country:EGY",
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "river:nile",
+            "style": "trace",
+            "at": 0.1
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "river:nile",
+            "text": "90% OF EGYPT'S WATER",
+            "at": 0.3
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "twist",
+      "beat": "twist",
+      "eyebrow": "LATER",
+      "headline": "THE SAME LINE",
+      "narration": "This is the same line a few years later, in 2016.",
+      "caption": "NASA NIGHT LIGHTS, 2012 AND 2016",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                24.5,
+                21.5,
+                37,
+                32.5
+              ]
+            },
+            "at": 0,
+            "padding": 0,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "satellite",
+            "set": "nile-night",
+            "dates": [
+              "2012-01-01",
+              "2016-01-01"
+            ],
+            "mode": "swipe",
+            "marks": [],
+            "at": 0
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "verdict",
+      "beat": "verdict",
+      "eyebrow": "YOUR TURN",
+      "headline": "WOULD YOU HAVE GUESSED?",
+      "narration": "Would you have guessed this from a map?",
+      "caption": "WOULD YOU HAVE GUESSED THIS FROM A MAP?",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "country:EGY",
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:EGY",
+            "style": "fill",
+            "at": 0.1
+          }
+        ],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia: Egypt (revision 1380465980)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Egypt&oldid=1380465980"
+    },
+    {
+      "label": "NASA EOSDIS Global Imagery Browse Services (GIBS)",
+      "url": "https://earthdata.nasa.gov/gibs"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ],
+  "paletteVariant": "terrain",
+  "framing": {
+    "ending": "loop"
+  }
+}

@@ -1,0 +1,465 @@
+{
+  "schemaVersion": 2,
+  "id": "korea-dark-half",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica",
+    "wordmark": {
+      "lead": "GEO",
+      "accent": "GRAPHICA"
+    },
+    "fonts": {
+      "display": "Oswald",
+      "body": "Inter"
+    },
+    "captions": {
+      "mode": "words"
+    }
+  },
+  "title": "One Peninsula, Two Nights",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "comparison",
+    "numberRelevant": true,
+    "premise": "NASA night-light imagery of the Korean Peninsula shows South Korea as a web of light and most of North Korea dark.",
+    "audiencePromise": "Compare the two halves of a peninsula at night.",
+    "openLoop": "Why is half the peninsula dark?",
+    "payoff": "In 2021 the World Bank counted 52.63% of North Koreans with access to electricity; light in a picture shows lamps, not people.",
+    "targetEmotion": "surprise",
+    "engagementQuestion": "What do you think a night picture can and cannot tell us?",
+    "targetSecondsBetweenVisualChanges": 0.7
+  },
+  "subject": {
+    "name": "Korean Peninsula",
+    "category": "Border",
+    "attributes": {
+      "geoEntity": "country:PRK"
+    }
+  },
+  "related": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#050818",
+    "surface": "#18284f",
+    "primary": "#ff3d9a",
+    "secondary": "#6c5ce7",
+    "ink": "#ffffff"
+  },
+  "look": "neon",
+  "framing": {
+    "opening": "bleed"
+  },
+  "audio": {
+    "music": "generated/korea-dark-half-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 96,
+      "notes": [
+        98,
+        116.54,
+        130.81,
+        146.83,
+        130.81,
+        116.54,
+        87.31,
+        98
+      ]
+    },
+    "voice": {
+      "provider": "elevenlabs",
+      "model": "eleven_v4",
+      "voice": "JBFqnCBsd6RMkjVDRZzb",
+      "instructions": "Warm, curious storyteller walking a friend across a map. Clear and confident, with a sense of discovery on each reveal; slow slightly on dates and place names so they land. Conversational and human, never a documentary announcer, lecture, or neutral TTS. Never imitate a known person or character.",
+      "speed": 1.06,
+      "output": "generated/korea-dark-half-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      },
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://github.com/lipis/flag-icons/blob/main/LICENSE",
+        "owner": "flag-icons",
+        "licenseStatus": "licensed",
+        "publicReleaseApproved": true,
+        "notes": "Flags: flag-icons (MIT)."
+      },
+      {
+        "kind": "photo",
+        "sourceUrl": "https://earthdata.nasa.gov/eosdis/science-system-description/eosdis-components/gibs",
+        "owner": "NASA EOSDIS GIBS",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Satellite imagery: NASA EOSDIS Global Imagery Browse Services (VIIRS Black Marble night lights (500 m)), 2016-01-01. NASA imagery is free to use with acknowledgement."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "durationSeconds": 4.6,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "comparison",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "THE KOREAN PENINSULA",
+      "headline": "TWO NIGHTS",
+      "narration": "This is the Korean Peninsula at night, from space.",
+      "caption": "NASA NIGHT LIGHTS, 2016",
+      "visual": "hook",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                123.5,
+                32.5,
+                132,
+                43.5
+              ]
+            },
+            "at": 0,
+            "padding": 0,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "satellite",
+            "set": "korea-night",
+            "dates": [
+              "2016-01-01"
+            ],
+            "mode": "fade",
+            "marks": [],
+            "at": 0
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "evidence",
+      "durationSeconds": 3.8,
+      "beat": "evidence",
+      "role": "evidence",
+      "shot": "wide",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "THE SOUTH",
+      "headline": "A WEB OF LIGHT",
+      "narration": "The south is a web of light.",
+      "caption": "SOUTH KOREA AT NIGHT",
+      "visual": "gauntlet",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "country:KOR",
+            "at": 0,
+            "padding": 0.15,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:KOR",
+            "style": "fill",
+            "at": 0.1
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:KOR",
+            "text": "SOUTH KOREA",
+            "at": 0.3
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "flags": true
+      }
+    },
+    {
+      "id": "evidence-2",
+      "durationSeconds": 3.8,
+      "beat": "evidence",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "THE NORTH",
+      "headline": "MOSTLY DARK",
+      "narration": "The north is mostly dark.",
+      "caption": "NORTH KOREA AT NIGHT",
+      "visual": "advantage",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "country:PRK",
+            "at": 0,
+            "padding": 0.15,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:PRK",
+            "style": "fill",
+            "at": 0.1
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:PRK",
+            "text": "NORTH KOREA",
+            "at": 0.3
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "flags": true
+      }
+    },
+    {
+      "id": "escalation",
+      "durationSeconds": 4,
+      "beat": "escalation",
+      "role": "escalation",
+      "shot": "tracking",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "THE CAPITAL",
+      "headline": "ONE BRIGHT SPOT",
+      "narration": "Pyongyang is the one clear patch of light.",
+      "caption": "PYONGYANG: 3,255,288 PEOPLE (2008)",
+      "visual": "race",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                123.5,
+                32.5,
+                132,
+                43.5
+              ]
+            },
+            "at": 0,
+            "padding": 0,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "satellite",
+            "set": "korea-night",
+            "dates": [
+              "2016-01-01"
+            ],
+            "mode": "fade",
+            "marks": [
+              {
+                "lon": 125.75,
+                "lat": 39.02,
+                "text": "PYONGYANG"
+              },
+              {
+                "lon": 126.98,
+                "lat": 37.57,
+                "text": "SEOUL"
+              }
+            ],
+            "at": 0
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "escalation-4",
+      "durationSeconds": 5.4,
+      "beat": "escalation",
+      "role": "escalation",
+      "shot": "comparison",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "THE NUMBER",
+      "headline": "52.63%",
+      "narration": "In 2021, 52.63 percent of North Koreans had electricity.",
+      "caption": "2021: 52.63% HAD ELECTRICITY ACCESS (WORLD BANK)",
+      "visual": "race",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "country:PRK",
+            "at": 0,
+            "padding": 0.15,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:PRK",
+            "style": "outline",
+            "at": 0.1
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:PRK",
+            "text": "52.63% WITH ELECTRICITY",
+            "at": 0.3
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "twist",
+      "durationSeconds": 5.7,
+      "beat": "twist",
+      "role": "twist",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "THE CATCH",
+      "headline": "LIGHT IS NOT PEOPLE",
+      "narration": "But light shows lamps, not people. Dark areas have homes too.",
+      "caption": "NIGHT LIGHTS SHOW LIGHT, NOT PEOPLE",
+      "visual": "tradeoff",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                123.5,
+                32.5,
+                132,
+                43.5
+              ]
+            },
+            "at": 0,
+            "padding": 0,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "satellite",
+            "set": "korea-night",
+            "dates": [
+              "2016-01-01"
+            ],
+            "mode": "fade",
+            "marks": [],
+            "at": 0
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "verdict",
+      "durationSeconds": 5.8,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "YOUR TURN",
+      "headline": "WHAT DOES NIGHT SHOW?",
+      "narration": "What do you think a night picture can and cannot tell us?",
+      "caption": "WHAT CAN A NIGHT PICTURE TELL US?",
+      "visual": "cta",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                124,
+                33,
+                131,
+                43
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:PRK",
+            "style": "outline",
+            "at": 0.1
+          },
+          {
+            "entity": "country:KOR",
+            "style": "outline",
+            "at": 0.2
+          }
+        ],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia: Energy in North Korea (revision 1380907626)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Energy_in_North_Korea&oldid=1380907626"
+    },
+    {
+      "label": "Wikipedia: Pyongyang (revision 1378825104)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Pyongyang&oldid=1378825104"
+    },
+    {
+      "label": "Wikipedia: Seoul (revision 1379372717)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Seoul&oldid=1379372717"
+    },
+    {
+      "label": "NASA EOSDIS Global Imagery Browse Services (GIBS)",
+      "url": "https://earthdata.nasa.gov/gibs"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ]
+}

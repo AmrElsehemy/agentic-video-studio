@@ -1,0 +1,517 @@
+{
+  "schemaVersion": 2,
+  "id": "andes-road-pass",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica",
+    "wordmark": {
+      "lead": "GEO",
+      "accent": "GRAPHICA"
+    },
+    "fonts": {
+      "display": "Oswald",
+      "body": "Inter"
+    },
+    "captions": {
+      "mode": "words"
+    }
+  },
+  "title": "Crossing the Andes in a Straight Line",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "mechanic",
+    "numberRelevant": true,
+    "premise": "A straight 895 km cut from Valparaíso on the Pacific across the Andes to the Argentine plain, drawn as a height profile from NOAA data.",
+    "audiencePromise": "Walk a line from the sea to the roof of the Andes.",
+    "openLoop": "How high does the ground climb on the way?",
+    "payoff": "In the model the ground climbs from sea level to a ridge of 4,849 m in 186 km, and Aconcagua beside the line stands at 6,967 m.",
+    "targetEmotion": "surprise",
+    "engagementQuestion": "Would you rather climb it or drive around?",
+    "targetSecondsBetweenVisualChanges": 0.65
+  },
+  "subject": {
+    "name": "Andes crossing",
+    "category": "Border",
+    "attributes": {
+      "geoEntity": "country:CHL"
+    }
+  },
+  "related": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#06161c",
+    "surface": "#2f5d3c",
+    "primary": "#ffd166",
+    "secondary": "#10424d",
+    "ink": "#f7f2dc"
+  },
+  "look": "terrain",
+  "framing": {
+    "ending": "loop"
+  },
+  "audio": {
+    "music": "generated/andes-road-pass-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 96,
+      "notes": [
+        98,
+        116.54,
+        130.81,
+        146.83,
+        130.81,
+        116.54,
+        87.31,
+        98
+      ]
+    },
+    "voice": {
+      "provider": "elevenlabs",
+      "model": "eleven_v4",
+      "voice": "JBFqnCBsd6RMkjVDRZzb",
+      "instructions": "Warm, curious storyteller walking a friend across a map. Clear and confident, with a sense of discovery on each reveal; slow slightly on dates and place names so they land. Conversational and human, never a documentary announcer, lecture, or neutral TTS. Never imitate a known person or character.",
+      "speed": 1.06,
+      "output": "generated/andes-road-pass-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      },
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://github.com/lipis/flag-icons/blob/main/LICENSE",
+        "owner": "flag-icons",
+        "licenseStatus": "licensed",
+        "publicReleaseApproved": true,
+        "notes": "Flags: flag-icons (MIT)."
+      },
+      {
+        "kind": "photo",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aconcagua_13.JPG",
+        "owner": "Mariordo Mario Roberto Duran Ortiz",
+        "licenseStatus": "licensed",
+        "publicReleaseApproved": true,
+        "notes": "Photo: Mariordo Mario Roberto Duran Ortiz / Wikimedia Commons / CC BY 3.0."
+      },
+      {
+        "kind": "photo",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Le_Christ_des_Andes_reconnu_comme_un_symbole_international_de_la_paix,_situ%C3%A9_au_sommet_de_la_Cordill%C3%A8re_des_Andes,_%C3%A0_la_fronti%C3%A8re_d%27Argentine_et_Chili_-_btv1b532074266.jpg",
+        "owner": "Agence Rol. Agence photographique (commanditaire)",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Photo: Agence Rol. Agence photographique (commanditaire) / Wikimedia Commons (Public domain)."
+      },
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://doi.org/10.25921/fd45-gt74",
+        "owner": "NOAA National Centers for Environmental Information (ETOPO 2022)",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Elevation profile: ETOPO 2022 60 arc-second surface elevation, NOAA National Centers for Environmental Information (Public domain)."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "durationSeconds": 3.8,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "VALPARAÍSO TO ARGENTINA",
+      "headline": "FROM SEA TO SKY",
+      "narration": "Start at the Pacific and walk east.",
+      "caption": "A STRAIGHT 895 KM CUT ACROSS THE ANDES",
+      "visual": "hook",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "world",
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -75,
+                -40,
+                -58,
+                -27
+              ]
+            },
+            "at": 0.8,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": "city:valparaiso-chl",
+            "text": "VALPARAÍSO",
+            "at": 0.6
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "evidence",
+      "durationSeconds": 5.7,
+      "beat": "evidence",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "THE CUT",
+      "headline": "895 KILOMETRES",
+      "narration": "Here is the ground along a straight line, 895 kilometres long.",
+      "caption": "895 KM · HEIGHT FROM NOAA ETOPO",
+      "visual": "gauntlet",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -75,
+                -40,
+                -58,
+                -27
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "profile",
+            "set": "andes-crossing",
+            "text": "895 KM TO ARGENTINA",
+            "at": 0.1
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "escalation",
+      "durationSeconds": 5.1,
+      "beat": "escalation",
+      "role": "escalation",
+      "shot": "comparison",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "THE CLIMB",
+      "headline": "4,849 METRES",
+      "narration": "In 186 kilometres, the ground climbs to 4,849 metres.",
+      "caption": "SEA LEVEL TO 4,849 M IN 186 KM (MODEL)",
+      "visual": "advantage",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -75,
+                -40,
+                -58,
+                -27
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -72,
+                -34.5,
+                -66,
+                -32
+              ]
+            },
+            "at": 0.7,
+            "padding": 0.2,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "profile",
+            "set": "andes-crossing",
+            "text": "4,849 M AT 186 KM",
+            "at": 0.05
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "payoff",
+      "durationSeconds": 4,
+      "beat": "payoff",
+      "role": "payoff",
+      "shot": "tracking",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "THE GIANT",
+      "headline": "ACONCAGUA",
+      "narration": "Beside the line stands Aconcagua, 6,967 metres.",
+      "caption": "ACONCAGUA: 6,967 M",
+      "visual": "race",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -71.5,
+                -34,
+                -68.5,
+                -31.5
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "photo",
+            "photo": "aconcagua",
+            "fill": true,
+            "pan": [
+              0.35,
+              0.65
+            ],
+            "at": 0
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "payoff-4",
+      "durationSeconds": 6.4,
+      "beat": "payoff",
+      "role": "payoff",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "THE ROAD",
+      "headline": "ZIGZAGS",
+      "narration": "The road does not go straight. It zigzags up to La Cumbre Pass.",
+      "caption": "THE ROAD ZIGZAGS FROM LAS CUEVAS TO LA CUMBRE PASS",
+      "visual": "tradeoff",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -71,
+                -33.5,
+                -69,
+                -32.2
+              ]
+            },
+            "at": 0,
+            "padding": 0.05,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "photo",
+            "photo": "christ-of-the-andes",
+            "fill": true,
+            "pan": [
+              0.5,
+              0.5
+            ],
+            "at": 0
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "payoff-5",
+      "durationSeconds": 4.4,
+      "beat": "payoff",
+      "role": "payoff",
+      "shot": "comparison",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "THE PLAIN",
+      "headline": "DOWN AGAIN",
+      "narration": "Then the land falls away to the Argentine plain.",
+      "caption": "THEN DOWN TO THE PLAIN",
+      "visual": "race",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -72,
+                -34.5,
+                -62,
+                -31.5
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -70,
+                -34,
+                -66,
+                -32
+              ]
+            },
+            "at": 0.8,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": -68.84,
+              "lat": -32.89
+            },
+            "text": "MENDOZA",
+            "at": 0.5
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "relief": true
+      }
+    },
+    {
+      "id": "verdict",
+      "durationSeconds": 4.1,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "YOUR TURN",
+      "headline": "CLIMB OR DRIVE?",
+      "narration": "Would you rather climb it, or drive around?",
+      "caption": "WOULD YOU CLIMB IT OR DRIVE?",
+      "visual": "cta",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -75,
+                -40,
+                -58,
+                -27
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:CHL",
+            "style": "outline",
+            "at": 0.2
+          },
+          {
+            "entity": "country:ARG",
+            "style": "outline",
+            "at": 0.3
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:CHL",
+            "text": "CHILE",
+            "at": 0.4
+          },
+          {
+            "type": "label",
+            "anchor": "country:ARG",
+            "text": "ARGENTINA",
+            "at": 0.6
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "flags": true
+      }
+    }
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia: Valparaíso (revision 1380223028)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Valparaíso&oldid=1380223028"
+    },
+    {
+      "label": "Wikipedia: Aconcagua (revision 1373517716)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Aconcagua&oldid=1373517716"
+    },
+    {
+      "label": "Wikipedia: National Route 7 (Argentina) (revision 1372452053)",
+      "url": "https://en.wikipedia.org/w/index.php?title=National_Route_7_(Argentina)&oldid=1372452053"
+    },
+    {
+      "label": "NOAA NCEI ETOPO 2022 Global Relief Model (public domain)",
+      "url": "https://doi.org/10.25921/fd45-gt74"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ]
+}

@@ -59,7 +59,7 @@ export const SatelliteScene: React.FC<{spec: SatelliteSpec; frame: number; durat
   const placed = photoPlacement(meta, 0.5, progress);
   const stampOfIndex = (index: number) => {
     const still = meta.dates[spec.dates[index]];
-    return stampOf(spec.dates[index], Boolean(still?.layerKey.includes('annual')));
+    return stampOf(spec.dates[index], Boolean(still && /annual|night-lights/.test(still.layerKey)));
   };
   const stillOf = (index: number) => meta.dates[spec.dates[index]];
   const layer = (index: number, opacity: number, clip?: string) => (

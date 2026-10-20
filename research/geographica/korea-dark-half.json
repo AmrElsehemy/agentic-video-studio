@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "id": "korea-dark-half",
+  "subject": "North Korea",
+  "kind": "curated",
+  "note": "Cited to pinned Wikipedia revisions (trusted_secondary): Energy in North Korea (quoting the World Bank), Pyongyang, Seoul. The picture is NASA VIIRS Black Marble (annual, 2016; GIBS offers 2012 and 2016 only). It shows light at night; it is not a measure of population, wealth or the causes of dark areas, and the script says so.",
+  "regions": [
+    "North Korea"
+  ],
+  "claims": [
+    {
+      "id": "access",
+      "text": "According to The World Bank, in 2021, 52.63% of North Korea's population had access to electricity.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-energy-nk"
+      ]
+    },
+    {
+      "id": "pyongyang",
+      "text": "Pyongyang, the capital of North Korea, had a population of 3,255,288 in the 2008 census.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-pyongyang"
+      ]
+    },
+    {
+      "id": "south",
+      "text": "South Korea's 2019 population was estimated at 51.71 million, and 49.8% of the population lived in the Seoul metropolitan area in 2018.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-seoul"
+      ]
+    },
+    {
+      "id": "picture",
+      "text": "NASA VIIRS Black Marble night-lights picture of the Korean Peninsula, 2016 (NASA GIBS).",
+      "tier": "official",
+      "sources": [
+        "nasa-gibs"
+      ]
+    }
+  ],
+  "places": {},
+  "sources": {
+    "wikipedia-energy-nk": {
+      "label": "Wikipedia: Energy in North Korea (revision 1380907626)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Energy_in_North_Korea&oldid=1380907626"
+    },
+    "wikipedia-pyongyang": {
+      "label": "Wikipedia: Pyongyang (revision 1378825104)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Pyongyang&oldid=1378825104"
+    },
+    "wikipedia-seoul": {
+      "label": "Wikipedia: Seoul (revision 1379372717)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Seoul&oldid=1379372717"
+    },
+    "nasa-gibs": {
+      "label": "NASA EOSDIS Global Imagery Browse Services (GIBS)",
+      "url": "https://earthdata.nasa.gov/gibs"
+    },
+    "natural-earth": {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  }
+}

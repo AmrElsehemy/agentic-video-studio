@@ -1,0 +1,355 @@
+{
+  "id": "rondonia-fishbone",
+  "title": "The Fishbone in the Amazon",
+  "storyPattern": "transformation",
+  "numberRelevant": true,
+  "premise": "NASA pictures of Rondônia, Brazil, from July 2000 and July 2024 show branching lines of cleared land spreading along roads.",
+  "audiencePromise": "Swipe between two Julys, 24 years apart.",
+  "openLoop": "What is the pattern spreading across this forest?",
+  "payoff": "Clearing follows the roads: by 2003 about 70,000 km² of Rondônia had been cleared.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "What would this patch look like in another 24 years?",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica"
+  },
+  "subject": {
+    "name": "Rondônia",
+    "category": "Border",
+    "attributes": {
+      "geoEntity": "country:BRA"
+    }
+  },
+  "voice": {
+    "provider": "elevenlabs",
+    "voice": "JBFqnCBsd6RMkjVDRZzb"
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "eyebrow": "RONDÔNIA, BRAZIL",
+      "headline": "A FISHBONE IN THE FOREST",
+      "narration": "Part of the Amazon looks like a fishbone.",
+      "caption": "NASA SATELLITE, JULY 2000 AND JULY 2024",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -63.4,
+                -11.6,
+                -61.4,
+                -9
+              ]
+            },
+            "at": 0,
+            "padding": 0.0,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "satellite",
+            "set": "rondonia",
+            "dates": [
+              "2024-07-18"
+            ],
+            "mode": "fade",
+            "marks": [],
+            "at": 0
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "before",
+      "beat": "before",
+      "eyebrow": "JULY 2000",
+      "headline": "24 YEARS AGO",
+      "narration": "This is the same patch in July 2000.",
+      "caption": "JULY 2000 (NASA MODIS)",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -63.4,
+                -11.6,
+                -61.4,
+                -9
+              ]
+            },
+            "at": 0,
+            "padding": 0.0,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "satellite",
+            "set": "rondonia",
+            "dates": [
+              "2000-07-18"
+            ],
+            "mode": "fade",
+            "marks": [],
+            "at": 0
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "change",
+      "beat": "change",
+      "eyebrow": "JULY 2024",
+      "headline": "THE LINES SPREAD",
+      "narration": "And this is July 2024. The cleared patches have spread.",
+      "caption": "JULY 2024 (NASA MODIS)",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -63.4,
+                -11.6,
+                -61.4,
+                -9
+              ]
+            },
+            "at": 0,
+            "padding": 0.0,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "satellite",
+            "set": "rondonia",
+            "dates": [
+              "2000-07-18",
+              "2024-07-18"
+            ],
+            "mode": "swipe",
+            "marks": [],
+            "at": 0
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "reveal",
+      "beat": "reveal",
+      "eyebrow": "THE ROAD",
+      "headline": "BR-364",
+      "narration": "A highway, BR-364, was paved in the 1980s.",
+      "caption": "BR-364 OPENED IN THE 1960S, PAVED IN THE 1980S",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "country:BRA",
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": "admin1:BRA-595",
+            "at": 0.7,
+            "padding": 0.25,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "admin1:BRA-595",
+            "style": "fill",
+            "at": 0.3
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "admin1:BRA-595",
+            "text": "RONDÔNIA",
+            "at": 0.5
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "projection": "albers"
+      }
+    },
+    {
+      "id": "aftermath",
+      "beat": "aftermath",
+      "eyebrow": "THE CLEARING",
+      "headline": "70,000 KM²",
+      "narration": "By 2003, about 70,000 square kilometres of Rondônia had been cleared.",
+      "caption": "BY 2003: ABOUT 70,000 KM² CLEARED",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "admin1:BRA-595",
+            "at": 0,
+            "padding": 0.2,
+            "ease": "in-out"
+          },
+          {
+            "target": "admin1:BRA-595",
+            "at": 0.9,
+            "padding": 0.08,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "admin1:BRA-595",
+            "style": "trace",
+            "at": 0.1
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "admin1:BRA-595",
+            "text": "70,000 KM² CLEARED BY 2003",
+            "at": 0.5
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "projection": "albers",
+        "relief": true
+      }
+    },
+    {
+      "id": "aftermath-5",
+      "beat": "aftermath",
+      "eyebrow": "THE PATTERN",
+      "headline": "NEAR THE ROADS",
+      "narration": "Across the Amazon, 95 percent of clearing is near a road.",
+      "caption": "95% WITHIN 3.4 MILES OF A ROAD (AMAZON-WIDE)",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -63.4,
+                -11.6,
+                -61.4,
+                -9
+              ]
+            },
+            "at": 0,
+            "padding": 0.0,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "satellite",
+            "set": "rondonia",
+            "dates": [
+              "2024-07-18"
+            ],
+            "mode": "fade",
+            "marks": [],
+            "at": 0
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "verdict",
+      "beat": "verdict",
+      "eyebrow": "YOUR TURN",
+      "headline": "24 YEARS ON",
+      "narration": "What would this patch look like in another 24 years?",
+      "caption": "WHAT WILL IT LOOK LIKE IN 2048?",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "admin1:BRA-595",
+            "at": 0,
+            "padding": 0.15,
+            "ease": "in-out"
+          },
+          {
+            "target": "country:BRA",
+            "at": 0.8,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "admin1:BRA-595",
+            "style": "fill",
+            "at": 0.1
+          }
+        ],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "projection": "albers"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia: Rondônia (revision 1379766740)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Rondônia&oldid=1379766740"
+    },
+    {
+      "label": "Wikipedia: BR-364 (Brazil highway) (revision 1359020365)",
+      "url": "https://en.wikipedia.org/w/index.php?title=BR-364_(Brazil_highway)&oldid=1359020365"
+    },
+    {
+      "label": "Wikipedia: Deforestation of the Amazon rainforest (revision 1379783134)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Deforestation_of_the_Amazon_rainforest&oldid=1379783134"
+    },
+    {
+      "label": "NASA EOSDIS Global Imagery Browse Services (GIBS)",
+      "url": "https://earthdata.nasa.gov/gibs"
+    }
+  ],
+  "paletteVariant": "terrain",
+  "framing": {
+    "opening": "bleed"
+  }
+}

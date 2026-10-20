@@ -1,0 +1,471 @@
+{
+  "schemaVersion": 2,
+  "id": "lake-poopo",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica",
+    "wordmark": {
+      "lead": "GEO",
+      "accent": "GRAPHICA"
+    },
+    "fonts": {
+      "display": "Oswald",
+      "body": "Inter"
+    },
+    "captions": {
+      "mode": "words"
+    }
+  },
+  "title": "The Lake That Vanished From Space",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "transformation",
+    "numberRelevant": true,
+    "premise": "Bolivia's second-largest lake, Poopó, dried up by December 2015; NASA pictures from March 2014, 2016 and 2017 show it.",
+    "audiencePromise": "Watch a lake disappear between two Marches.",
+    "openLoop": "What happened to Bolivia's second-largest lake?",
+    "payoff": "By December 2015 the lake had completely dried up; the March 2017 picture shows water again.",
+    "targetEmotion": "surprise",
+    "engagementQuestion": "Would you have noticed a lake vanishing?",
+    "targetSecondsBetweenVisualChanges": 0.62
+  },
+  "subject": {
+    "name": "Lake Poopó",
+    "category": "Border",
+    "attributes": {
+      "geoEntity": "country:BOL"
+    }
+  },
+  "related": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#cfdde6",
+    "surface": "#f3ede0",
+    "primary": "#b4561f",
+    "secondary": "#2c5d7f",
+    "ink": "#1b2730"
+  },
+  "framing": {
+    "opening": "bleed"
+  },
+  "audio": {
+    "music": "generated/lake-poopo-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 96,
+      "notes": [
+        98,
+        116.54,
+        130.81,
+        146.83,
+        130.81,
+        116.54,
+        87.31,
+        98
+      ]
+    },
+    "voice": {
+      "provider": "elevenlabs",
+      "model": "eleven_v4",
+      "voice": "JBFqnCBsd6RMkjVDRZzb",
+      "instructions": "Warm, curious storyteller walking a friend across a map. Clear and confident, with a sense of discovery on each reveal; slow slightly on dates and place names so they land. Conversational and human, never a documentary announcer, lecture, or neutral TTS. Never imitate a known person or character.",
+      "speed": 1.06,
+      "output": "generated/lake-poopo-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      },
+      {
+        "kind": "photo",
+        "sourceUrl": "https://earthdata.nasa.gov/eosdis/science-system-description/eosdis-components/gibs",
+        "owner": "NASA EOSDIS GIBS",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Satellite imagery: NASA EOSDIS Global Imagery Browse Services (MODIS Terra true colour (250 m)), 2014-03-20, 2016-03-20, 2017-03-20. NASA imagery is free to use with acknowledgement."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "durationSeconds": 4.2,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "LAKE POOPÓ, BOLIVIA",
+      "headline": "A LAKE VANISHES",
+      "narration": "Bolivia lost its second-largest lake, and satellites watched.",
+      "caption": "NASA SATELLITE, MARCH 2014 TO 2017",
+      "visual": "hook",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -67.6,
+                -19.4,
+                -66.5,
+                -17.8
+              ]
+            },
+            "at": 0,
+            "padding": 0,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "satellite",
+            "set": "poopo",
+            "dates": [
+              "2014-03-20",
+              "2016-03-20"
+            ],
+            "mode": "swipe",
+            "marks": [],
+            "at": 0
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "before",
+      "durationSeconds": 3.8,
+      "beat": "before",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "MARCH 2014",
+      "headline": "WATER",
+      "narration": "This is Lake Poopó in March 2014.",
+      "caption": "MARCH 2014 (NASA MODIS)",
+      "visual": "gauntlet",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -67.6,
+                -19.4,
+                -66.5,
+                -17.8
+              ]
+            },
+            "at": 0,
+            "padding": 0,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "satellite",
+            "set": "poopo",
+            "dates": [
+              "2014-03-20"
+            ],
+            "mode": "fade",
+            "marks": [],
+            "at": 0
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "before-2",
+      "durationSeconds": 5.1,
+      "beat": "before",
+      "role": "evidence",
+      "shot": "wide",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "THE LAKE",
+      "headline": "SHALLOW AND HIGH",
+      "narration": "It lay 3,700 metres up, under 3 metres deep.",
+      "caption": "3,700 M HIGH · UNDER 3 M DEEP",
+      "visual": "gauntlet",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "country:BOL",
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:BOL",
+            "style": "fill",
+            "at": 0.2
+          }
+        ],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": -67.1,
+              "lat": -18.7
+            },
+            "text": "LAKE POOPÓ",
+            "at": 0.4
+          }
+        ],
+        "dataset": "natural-earth",
+        "projection": "albers",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "change",
+      "durationSeconds": 6.4,
+      "beat": "change",
+      "role": "escalation",
+      "shot": "tracking",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "MARCH 2016",
+      "headline": "DRY",
+      "narration": "By December 2015 it had completely dried up. This is March 2016.",
+      "caption": "DRIED UP BY DECEMBER 2015 · MARCH 2016",
+      "visual": "race",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -67.6,
+                -19.4,
+                -66.5,
+                -17.8
+              ]
+            },
+            "at": 0,
+            "padding": 0,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "satellite",
+            "set": "poopo",
+            "dates": [
+              "2016-03-20"
+            ],
+            "mode": "fade",
+            "marks": [],
+            "at": 0
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "reveal",
+      "durationSeconds": 4.3,
+      "beat": "reveal",
+      "role": "payoff",
+      "shot": "comparison",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "THE CAUSES",
+      "headline": "SUGGESTED",
+      "narration": "Suggested causes: melting glaciers, drought, mining and farming.",
+      "caption": "SUGGESTED CAUSES: GLACIERS, DROUGHT, MINING, FARMING",
+      "visual": "advantage",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -72,
+                -24,
+                -60,
+                -12
+              ]
+            },
+            "at": 0,
+            "padding": 0.05,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -69,
+                -21,
+                -65,
+                -16.5
+              ]
+            },
+            "at": 0.9,
+            "padding": 0.05,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:BOL",
+            "style": "outline",
+            "at": 0.2
+          }
+        ],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": -67.1,
+              "lat": -18.7
+            },
+            "text": "LAKE POOPÓ",
+            "at": 0.4
+          }
+        ],
+        "dataset": "natural-earth",
+        "projection": "albers",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "aftermath",
+      "durationSeconds": 4.3,
+      "beat": "aftermath",
+      "role": "payoff",
+      "shot": "wide",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "MARCH 2017",
+      "headline": "WATER AGAIN",
+      "narration": "In March 2017, the picture shows water again.",
+      "caption": "MARCH 2017 (NASA MODIS)",
+      "visual": "tradeoff",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -67.6,
+                -19.4,
+                -66.5,
+                -17.8
+              ]
+            },
+            "at": 0,
+            "padding": 0,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "satellite",
+            "set": "poopo",
+            "dates": [
+              "2017-03-20"
+            ],
+            "mode": "fade",
+            "marks": [],
+            "at": 0
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "verdict",
+      "durationSeconds": 3.8,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "YOUR TURN",
+      "headline": "WOULD YOU NOTICE?",
+      "narration": "Would you have noticed a lake vanishing?",
+      "caption": "WOULD YOU HAVE NOTICED?",
+      "visual": "cta",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -67.6,
+                -19.4,
+                -66.5,
+                -17.8
+              ]
+            },
+            "at": 0,
+            "padding": 0,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "satellite",
+            "set": "poopo",
+            "dates": [
+              "2014-03-20",
+              "2016-03-20",
+              "2017-03-20"
+            ],
+            "mode": "fade",
+            "marks": [],
+            "at": 0
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia: Lake Poopó (revision 1380603233)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Lake_Poopó&oldid=1380603233"
+    },
+    {
+      "label": "NASA EOSDIS Global Imagery Browse Services (GIBS)",
+      "url": "https://earthdata.nasa.gov/gibs"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ]
+}

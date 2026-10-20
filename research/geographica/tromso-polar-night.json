@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "id": "tromso-polar-night",
+  "subject": "Norway",
+  "kind": "curated",
+  "note": "Cited to a pinned Wikipedia revision (trusted_secondary): Tromsø, the page's own dates (polar night 28 November to 14 January, 48 days; midnight sun 19 May to 27 July, 71 days; the page also gives 'about 26 November to 15 January' for the sun below the horizon, so the narration uses the first set only). The day and night shading is computed from the sun's position at the stated UTC moment (no data source); it shows where the sun is above the horizon, not twilight.",
+  "regions": [
+    "Norway"
+  ],
+  "claims": [
+    {
+      "id": "night",
+      "text": "In Tromsø the polar night, when the sun does not rise, lasts from 28 November to 14 January (48 days).",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-tromso"
+      ]
+    },
+    {
+      "id": "midnight",
+      "text": "The midnight sun is above the horizon in Tromsø from 19 May to 27 July (71 days).",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-tromso"
+      ]
+    },
+    {
+      "id": "twilight",
+      "text": "Because of twilight there is some daylight for a couple of hours even around midwinter, often with bluish light.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-tromso"
+      ]
+    },
+    {
+      "id": "sun-day",
+      "text": "At the end of January the 'Day of the Sun' (Soldagen) marks the day the sun finally appears above the horizon after the polar night.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-tromso"
+      ]
+    }
+  ],
+  "places": {},
+  "sources": {
+    "wikipedia-tromso": {
+      "label": "Wikipedia: Tromsø (revision 1381102269)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Tromsø&oldid=1381102269"
+    },
+    "natural-earth": {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  }
+}

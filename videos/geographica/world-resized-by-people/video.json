@@ -1,0 +1,406 @@
+{
+  "schemaVersion": 2,
+  "id": "world-resized-by-people",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica",
+    "wordmark": {
+      "lead": "GEO",
+      "accent": "GRAPHICA"
+    },
+    "fonts": {
+      "display": "Oswald",
+      "body": "Inter"
+    },
+    "captions": {
+      "mode": "words"
+    }
+  },
+  "title": "The World Redrawn by Its People",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "transformation",
+    "numberRelevant": true,
+    "premise": "A map where each country is a circle sized by its population shows how the world changed between 1960 and 2023.",
+    "audiencePromise": "Watch the circles of the world grow.",
+    "openLoop": "Which circles grew the most?",
+    "payoff": "Nigeria grew about five times, Ethiopia six, the Democratic Republic of the Congo nearly seven; Japan about a third.",
+    "targetEmotion": "surprise",
+    "engagementQuestion": "Which circle surprised you most?",
+    "targetSecondsBetweenVisualChanges": 0.62
+  },
+  "subject": {
+    "name": "World population",
+    "category": "Border",
+    "attributes": {
+      "geoEntity": "country:IND"
+    }
+  },
+  "related": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#0b1a2a",
+    "surface": "#23473d",
+    "primary": "#e4b363",
+    "secondary": "#8c2f39",
+    "ink": "#f6f1e7"
+  },
+  "framing": {
+    "ending": "loop"
+  },
+  "audio": {
+    "music": "generated/world-resized-by-people-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 96,
+      "notes": [
+        98,
+        116.54,
+        130.81,
+        146.83,
+        130.81,
+        116.54,
+        87.31,
+        98
+      ]
+    },
+    "voice": {
+      "provider": "elevenlabs",
+      "model": "eleven_v4",
+      "voice": "JBFqnCBsd6RMkjVDRZzb",
+      "instructions": "Warm, curious storyteller walking a friend across a map. Clear and confident, with a sense of discovery on each reveal; slow slightly on dates and place names so they land. Conversational and human, never a documentary announcer, lecture, or neutral TTS. Never imitate a known person or character.",
+      "speed": 1.06,
+      "output": "generated/world-resized-by-people-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      },
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://databank.worldbank.org/source/world-development-indicators",
+        "owner": "World Bank",
+        "licenseStatus": "licensed",
+        "publicReleaseApproved": true,
+        "notes": "Data: World Bank, World Development Indicators (CC BY 4.0)."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "durationSeconds": 4.1,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "THE WORLD BY PEOPLE",
+      "headline": "EVERY COUNTRY A CIRCLE",
+      "narration": "Here is the world, drawn by its people.",
+      "caption": "CIRCLE SIZE = POPULATION (WORLD BANK)",
+      "visual": "hook",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "world",
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "series": {
+          "indicator": "population",
+          "view": "cartogram",
+          "places": [
+            "country:IND",
+            "country:CHN"
+          ],
+          "from": 1960,
+          "to": 2023,
+          "at": 0.03,
+          "top": 30,
+          "axis": "zero"
+        }
+      }
+    },
+    {
+      "id": "before",
+      "durationSeconds": 3.8,
+      "beat": "before",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "1960",
+      "headline": "THE WORLD IN 1960",
+      "narration": "This is 1960.",
+      "caption": "1960 · POPULATION BY COUNTRY",
+      "visual": "gauntlet",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "world",
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "series": {
+          "indicator": "population",
+          "view": "cartogram",
+          "places": [
+            "country:IND",
+            "country:CHN"
+          ],
+          "from": 1960,
+          "to": 1970,
+          "at": 0.03,
+          "top": 30,
+          "axis": "zero"
+        }
+      }
+    },
+    {
+      "id": "change",
+      "durationSeconds": 3.8,
+      "beat": "change",
+      "role": "escalation",
+      "shot": "tracking",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "1960 TO 2023",
+      "headline": "THE CIRCLES GROW",
+      "narration": "Now watch them grow, to 2023.",
+      "caption": "1960 TO 2023 · WORLD BANK",
+      "visual": "race",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "world",
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "series": {
+          "indicator": "population",
+          "view": "cartogram",
+          "places": [
+            "country:IND",
+            "country:CHN"
+          ],
+          "from": 1970,
+          "to": 2023,
+          "at": 0.03,
+          "top": 30,
+          "axis": "zero"
+        }
+      }
+    },
+    {
+      "id": "reveal",
+      "durationSeconds": 6.3,
+      "beat": "reveal",
+      "role": "payoff",
+      "shot": "comparison",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "INDIA AND CHINA",
+      "headline": "THE GIANTS",
+      "narration": "India grew from 436 million to 1.44 billion. China roughly doubled.",
+      "caption": "INDIA 436M TO 1.44B · CHINA 667M TO 1.41B",
+      "visual": "advantage",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "world",
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "series": {
+          "indicator": "population",
+          "view": "cartogram",
+          "places": [
+            "country:IND",
+            "country:CHN"
+          ],
+          "from": 1960,
+          "to": 2023,
+          "at": 0.03,
+          "top": 12,
+          "axis": "zero"
+        }
+      }
+    },
+    {
+      "id": "aftermath",
+      "durationSeconds": 5.1,
+      "beat": "aftermath",
+      "role": "payoff",
+      "shot": "wide",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "AFRICA",
+      "headline": "FIVE TO SEVEN TIMES",
+      "narration": "Nigeria grew about five times, Ethiopia six, Congo nearly seven.",
+      "caption": "NIGERIA ×5 · ETHIOPIA ×6 · CONGO ×7",
+      "visual": "tradeoff",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "world",
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "series": {
+          "indicator": "population",
+          "view": "cartogram",
+          "places": [
+            "country:NGA",
+            "country:ETH",
+            "country:COD"
+          ],
+          "from": 1960,
+          "to": 2023,
+          "at": 0.03,
+          "top": 30,
+          "axis": "zero"
+        }
+      }
+    },
+    {
+      "id": "aftermath-5",
+      "durationSeconds": 3.8,
+      "beat": "aftermath",
+      "role": "payoff",
+      "shot": "impact",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "JAPAN",
+      "headline": "ONLY A THIRD MORE",
+      "narration": "Japan grew by only about a third.",
+      "caption": "JAPAN 93M TO 125M",
+      "visual": "tradeoff",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "world",
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "series": {
+          "indicator": "population",
+          "view": "cartogram",
+          "places": [
+            "country:JPN"
+          ],
+          "from": 1960,
+          "to": 2023,
+          "at": 0.03,
+          "top": 30,
+          "axis": "zero"
+        }
+      }
+    },
+    {
+      "id": "verdict",
+      "durationSeconds": 3.8,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "YOUR TURN",
+      "headline": "WHICH SURPRISED YOU?",
+      "narration": "Which circle surprised you most?",
+      "caption": "WHICH CIRCLE SURPRISED YOU MOST?",
+      "visual": "cta",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "world",
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "series": {
+          "indicator": "population",
+          "view": "cartogram",
+          "places": [
+            "country:IND"
+          ],
+          "from": 2000,
+          "to": 2023,
+          "at": 0.03,
+          "top": 30,
+          "axis": "zero"
+        }
+      }
+    }
+  ],
+  "sources": [
+    {
+      "label": "World Bank, World Development Indicators: Population, total (SP.POP.TOTL), CC BY 4.0",
+      "url": "https://data.worldbank.org/indicator/SP.POP.TOTL"
+    }
+  ]
+}

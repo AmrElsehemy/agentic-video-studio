@@ -1,0 +1,354 @@
+{
+  "id": "point-nemo",
+  "title": "The Loneliest Place in the Ocean",
+  "storyPattern": "mystery",
+  "numberRelevant": true,
+  "premise": "Point Nemo, in the South Pacific, is the place in the ocean farthest from land, about 2,688 km from the three nearest landmasses.",
+  "audiencePromise": "Draw a circle around the loneliest place on Earth.",
+  "openLoop": "What is the nearest land to the farthest place from land?",
+  "payoff": "Three landmasses, each about 2,688 km away: part of the Pitcairn Islands, an islet beside Easter Island, and an island off Antarctica.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "Would you sail here?",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica"
+  },
+  "subject": {
+    "name": "Point Nemo",
+    "category": "Border",
+    "attributes": {
+      "geoEntity": "ocean:south-pacific-ocean"
+    }
+  },
+  "voice": {
+    "provider": "elevenlabs",
+    "voice": "JBFqnCBsd6RMkjVDRZzb"
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "eyebrow": "POINT NEMO",
+      "headline": "THE LONELIEST PLACE",
+      "narration": "This is the farthest place from land.",
+      "caption": "THE PLACE IN THE OCEAN FARTHEST FROM LAND",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "water:south-pacific-ocean",
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -150,
+                -62,
+                -95,
+                -34
+              ]
+            },
+            "at": 0.8,
+            "padding": 0.05,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": -123.39,
+              "lat": -48.88
+            },
+            "text": "POINT NEMO",
+            "at": 0.5
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "projection": "equal-earth"
+      }
+    },
+    {
+      "id": "clue",
+      "beat": "clue",
+      "eyebrow": "THE DISTANCE",
+      "headline": "2,688 KM",
+      "narration": "From here, the nearest land is about 2,688 kilometres away.",
+      "caption": "ABOUT 2,688 KM TO THE NEAREST LAND",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -165,
+                -75,
+                -82,
+                -22
+              ]
+            },
+            "at": 0,
+            "padding": 0.05,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "ring",
+            "center": {
+              "lon": -123.39,
+              "lat": -48.88
+            },
+            "radiusKm": 2688,
+            "text": "2,688 KM",
+            "at": 0.1
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "escalation",
+      "beat": "escalation",
+      "eyebrow": "THE RING",
+      "headline": "THREE LANDS",
+      "narration": "At exactly that distance, the ring reaches three landmasses.",
+      "caption": "THREE LANDMASSES, EACH ABOUT 2,688 KM AWAY",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -165,
+                -75,
+                -82,
+                -22
+              ]
+            },
+            "at": 0,
+            "padding": 0.05,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "ring",
+            "center": {
+              "lon": -123.39,
+              "lat": -48.88
+            },
+            "radiusKm": 2688,
+            "text": "2,688 KM",
+            "at": 0.02
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "reveal",
+      "beat": "reveal",
+      "eyebrow": "WHICH THREE",
+      "headline": "ISLANDS AND ICE",
+      "narration": "A Pitcairn islet, one by Easter Island, and one off Antarctica.",
+      "caption": "DUCIE ATOLL · MOTU NUI · MAHER ISLAND",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -150,
+                -72,
+                -85,
+                -20
+              ]
+            },
+            "at": 0,
+            "padding": 0.05,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -130,
+                -70,
+                -110,
+                -40
+              ]
+            },
+            "at": 0.8,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": -123.39,
+              "lat": -48.88
+            },
+            "text": "POINT NEMO",
+            "at": 0.3
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "reveal-4",
+      "beat": "reveal",
+      "eyebrow": "THE NAME",
+      "headline": "NOBODY",
+      "narration": "Its name is Latin for nobody, from Captain Nemo.",
+      "caption": "NEMO: LATIN FOR \"NOBODY\"",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -150,
+                -62,
+                -95,
+                -34
+              ]
+            },
+            "at": 0,
+            "padding": 0.05,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": -123.39,
+              "lat": -48.88
+            },
+            "text": "NEMO: \"NOBODY\"",
+            "at": 0.3
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "reveal-5",
+      "beat": "reveal",
+      "eyebrow": "THE GRAVEYARD",
+      "headline": "SPACECRAFT FALL HERE",
+      "narration": "Spacecraft fall near here. The space station is due in 2031.",
+      "caption": "SPACECRAFT CEMETERY · ISS PLANNED FOR 2031",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -150,
+                -62,
+                -95,
+                -34
+              ]
+            },
+            "at": 0,
+            "padding": 0.05,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": -123.39,
+              "lat": -48.88
+            },
+            "text": "SPACECRAFT FALL HERE",
+            "at": 0.3
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "verdict",
+      "beat": "verdict",
+      "eyebrow": "YOUR TURN",
+      "headline": "WOULD YOU SAIL HERE?",
+      "narration": "Would you sail here?",
+      "caption": "WOULD YOU SAIL HERE?",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "water:south-pacific-ocean",
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": -123.39,
+              "lat": -48.88
+            },
+            "text": "POINT NEMO",
+            "at": 0.4
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia: Pole of inaccessibility (revision 1380075811)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Pole_of_inaccessibility&oldid=1380075811"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ],
+  "paletteVariant": "light",
+  "framing": {
+    "ending": "loop"
+  }
+}

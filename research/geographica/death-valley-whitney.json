@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "id": "death-valley-whitney",
+  "subject": "California",
+  "kind": "curated",
+  "note": "Cited to pinned Wikipedia revisions (trusted_secondary): Death Valley National Park, Badwater Basin, Mount Whitney. The page gives the gap as 85 miles (137 km). The profile is computed from NOAA ETOPO 2022 (1.8 km cells, so the model's peak is lower than the real summit; the panel prints its own numbers and the height stretch). The narration's heights are the pages'.",
+  "regions": [
+    "California"
+  ],
+  "claims": [
+    {
+      "id": "low",
+      "text": "Badwater Basin in Death Valley is 282 feet (86 m) below sea level, the lowest point in North America.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-badwater"
+      ]
+    },
+    {
+      "id": "high",
+      "text": "Mount Whitney rises to 14,505 feet (4,421 m) and is the highest point in the contiguous United States.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-whitney"
+      ]
+    },
+    {
+      "id": "apart",
+      "text": "Mount Whitney is only 85 miles (137 km) west of Badwater Basin; this is the greatest elevation gradient in the contiguous United States.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-dv"
+      ]
+    },
+    {
+      "id": "hot",
+      "text": "On 10 July 1913 a high of 134 °F (56.7 °C) was recorded at Greenland Ranch (now Furnace Creek) in Death Valley, the highest air temperature ever recorded at the surface of the Earth.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-dv"
+      ]
+    },
+    {
+      "id": "profile",
+      "text": "A straight 137 km cut from Badwater to Whitney (computed from NOAA ETOPO 2022).",
+      "tier": "official",
+      "sources": [
+        "noaa-etopo"
+      ]
+    }
+  ],
+  "places": {},
+  "sources": {
+    "wikipedia-dv": {
+      "label": "Wikipedia: Death Valley National Park (revision 1379064163)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Death_Valley_National_Park&oldid=1379064163"
+    },
+    "wikipedia-badwater": {
+      "label": "Wikipedia: Badwater Basin (revision 1367657708)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Badwater_Basin&oldid=1367657708"
+    },
+    "wikipedia-whitney": {
+      "label": "Wikipedia: Mount Whitney (revision 1370266413)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Mount_Whitney&oldid=1370266413"
+    },
+    "noaa-etopo": {
+      "label": "NOAA NCEI ETOPO 2022 Global Relief Model (public domain)",
+      "url": "https://doi.org/10.25921/fd45-gt74"
+    },
+    "natural-earth": {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "id": "andes-road-pass",
+  "subject": "Chile",
+  "kind": "curated",
+  "note": "Cited to pinned Wikipedia revisions (trusted_secondary): Valparaíso, Aconcagua, National Route 7 (Argentina). The profile is computed from NOAA ETOPO 2022 (1 arc-minute grid, about 1.8 km cells, public domain) along a straight great-circle line through four stops; 895.5 km, lowest -87 m at the start, highest 4,849 m at 185.9 km. The grid smooths peaks, so this is the model's height along the line, not a surveyed section and not the road (the road winds). The panel prints the vertical stretch.",
+  "regions": [
+    "Chile"
+  ],
+  "claims": [
+    {
+      "id": "port",
+      "text": "Valparaíso is a major seaport of Chile and one of the Pacific Ocean's most important seaports.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-valparaiso"
+      ]
+    },
+    {
+      "id": "cut",
+      "text": "A straight cut of 895 km from Valparaíso to the plain in Argentina (computed from NOAA ETOPO 2022, not the road).",
+      "tier": "official",
+      "sources": [
+        "noaa-etopo"
+      ]
+    },
+    {
+      "id": "ridge",
+      "text": "Along that cut the model's height rises from -87 m at the coast to 4,849 m at 186 km (computed from NOAA ETOPO 2022; 1.8 km cells smooth the peaks).",
+      "tier": "official",
+      "sources": [
+        "noaa-etopo"
+      ]
+    },
+    {
+      "id": "aconcagua",
+      "text": "Aconcagua, in Mendoza Province, Argentina, has a summit elevation of 6,967.15 metres and is the highest mountain outside Asia; it lies about 15 kilometres from the Argentine–Chilean border.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-aconcagua"
+      ]
+    },
+    {
+      "id": "zigzag",
+      "text": "The old road to the Chilean border is a zigzagging road from Las Cuevas to La Cumbre Pass, where the statue Christ the Redeemer of the Andes stands.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-route7"
+      ]
+    }
+  ],
+  "places": {},
+  "sources": {
+    "wikipedia-valparaiso": {
+      "label": "Wikipedia: Valparaíso (revision 1380223028)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Valparaíso&oldid=1380223028"
+    },
+    "wikipedia-aconcagua": {
+      "label": "Wikipedia: Aconcagua (revision 1373517716)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Aconcagua&oldid=1373517716"
+    },
+    "wikipedia-route7": {
+      "label": "Wikipedia: National Route 7 (Argentina) (revision 1372452053)",
+      "url": "https://en.wikipedia.org/w/index.php?title=National_Route_7_(Argentina)&oldid=1372452053"
+    },
+    "noaa-etopo": {
+      "label": "NOAA NCEI ETOPO 2022 Global Relief Model (public domain)",
+      "url": "https://doi.org/10.25921/fd45-gt74"
+    },
+    "natural-earth": {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  }
+}

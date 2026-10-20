@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "id": "rondonia-fishbone",
+  "subject": "Brazil",
+  "kind": "curated",
+  "note": "Cited to pinned Wikipedia revisions (trusted_secondary): Rondônia, BR-364 (Brazil highway), Deforestation of the Amazon rainforest. The pictures are NASA MODIS Terra true colour (250 m) for 18 July 2000 and 18 July 2024 (NASA GIBS, stored under public/satellite/rondonia). The pictures show cleared and uncleared land; they do not show who cleared it or why, and the script does not say so beyond what the pinned pages state. 'Fishbone' describes the pattern in the pictures.",
+  "regions": [
+    "Brazil"
+  ],
+  "claims": [
+    {
+      "id": "forest",
+      "text": "Rondônia used to be home to over 200,000 km2 of rainforest, but has become one of the most deforested places in the Amazon.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-rondonia"
+      ]
+    },
+    {
+      "id": "cleared",
+      "text": "By 2003 around 70,000 km2 of Rondônia's rainforest had been cleared.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-rondonia"
+      ]
+    },
+    {
+      "id": "road",
+      "text": "The BR-364 highway was opened in the 1960s and paved in the 1980s; it has brought economic development and population growth, as well as an unprecedented process of deforestation in Rondônia and Acre.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-br364"
+      ]
+    },
+    {
+      "id": "near-roads",
+      "text": "95% of the deforestation in the Amazon rainforest happens within 3.4 miles of a roadway.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-deforestation"
+      ]
+    },
+    {
+      "id": "pictures",
+      "text": "NASA MODIS Terra true-colour pictures of the same area of Rondônia taken on 18 July 2000 and 18 July 2024 (NASA GIBS).",
+      "tier": "official",
+      "sources": [
+        "nasa-gibs"
+      ]
+    }
+  ],
+  "places": {},
+  "sources": {
+    "wikipedia-rondonia": {
+      "label": "Wikipedia: Rondônia (revision 1379766740)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Rondônia&oldid=1379766740"
+    },
+    "wikipedia-br364": {
+      "label": "Wikipedia: BR-364 (Brazil highway) (revision 1359020365)",
+      "url": "https://en.wikipedia.org/w/index.php?title=BR-364_(Brazil_highway)&oldid=1359020365"
+    },
+    "wikipedia-deforestation": {
+      "label": "Wikipedia: Deforestation of the Amazon rainforest (revision 1379783134)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Deforestation_of_the_Amazon_rainforest&oldid=1379783134"
+    },
+    "nasa-gibs": {
+      "label": "NASA EOSDIS Global Imagery Browse Services (GIBS)",
+      "url": "https://earthdata.nasa.gov/gibs"
+    }
+  }
+}
