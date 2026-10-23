@@ -1,8 +1,18 @@
 // What stops an episode going public. `preflight:publish` prints these and
 // exits non-zero; passing them is necessary, not sufficient: a person still
 // approves the release (rights.publicReleaseApproved, releaseStatus "cleared").
+import fs from 'node:fs';
+import path from 'node:path';
+import {fileURLToPath} from 'node:url';
 import {geoReferences} from './geo-primitives.mjs';
 import {mapVariety} from './map-variety.mjs';
+import {cameraMotion} from './camera-motion.mjs';
+
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
+/** Episodes already uploaded (they have an analytics record) were released before the camera-motion rule and are not held to it. */
+// Older prototypes that were never uploaded are likewise left as they were.
+const BEFORE_MOTION_RULE = new Set(['silk-road', 'silk-road-light', 'georgia-wine', 'lesotho-enclave', 'lesotho-enclave-light', 'mapkit-demo']);
+const uploaded = (manifest) => BEFORE_MOTION_RULE.has(manifest.id) || fs.existsSync(path.join(root, 'analytics', manifest.show?.id ?? '', `${manifest.id}.json`));
 
 /**
  * @param manifest a parsed video manifest
@@ -46,6 +56,8 @@ export const publishBlockers = (manifest, geo) => {
     }
     // A map that never changes is not worth publishing: it should have been directed.
     for (const problem of mapVariety(manifest).problems) blockers.push(`map-variety: ${problem}`);
+    // A camera that hardly moves, or never gets near anything, reads as a slideshow of far views.
+    if (!uploaded(manifest)) for (const problem of cameraMotion(manifest, new Map([...geo.entities].map(([id, entity]) => [id, entity.bbox]))).problems) blockers.push(`camera-motion: ${problem}`);
     // Places with disputed borders or names need a person's recorded decision on how they're shown.
     const flagged = [...new Set(maps.flatMap((scene) => geoReferences(scene.primitive).map(([, id]) => id)))]
       .map((id) => geo.entities.get(id))

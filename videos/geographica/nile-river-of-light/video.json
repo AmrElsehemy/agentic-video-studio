@@ -168,8 +168,21 @@
         "kind": "geo-map",
         "camera": [
           {
-            "target": "country:EGY",
+            "target": {
+              "bbox": [
+                10,
+                10,
+                55,
+                40
+              ]
+            },
             "at": 0,
+            "padding": 0.05,
+            "ease": "in-out"
+          },
+          {
+            "target": "country:EGY",
+            "at": 0.9,
             "padding": 0.1,
             "ease": "in-out"
           }
@@ -214,6 +227,19 @@
             "at": 0,
             "padding": 0.1,
             "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                29,
+                23,
+                35,
+                31.5
+              ]
+            },
+            "at": 0.9,
+            "padding": 0.05,
+            "ease": "in-out"
           }
         ],
         "highlights": [
@@ -257,6 +283,19 @@
             "at": 0,
             "padding": 0.1,
             "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                28,
+                22,
+                36,
+                32
+              ]
+            },
+            "at": 0.9,
+            "padding": 0.05,
+            "ease": "in-out"
           }
         ],
         "highlights": [
@@ -298,6 +337,19 @@
             "target": "country:EGY",
             "at": 0,
             "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                29.3,
+                29.5,
+                33.2,
+                31.8
+              ]
+            },
+            "at": 0.9,
+            "padding": 0.05,
             "ease": "in-out"
           }
         ],
@@ -388,6 +440,19 @@
             "target": "country:EGY",
             "at": 0,
             "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                10,
+                0,
+                60,
+                40
+              ]
+            },
+            "at": 0.9,
+            "padding": 0.05,
             "ease": "in-out"
           }
         ],

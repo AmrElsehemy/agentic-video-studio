@@ -1,0 +1,3 @@
+
+## Camera work (added 23 Oct)
+The first cut of this batch kept the camera on one framing in most scenes. The scenes were re-directed with real moves: pushes from a region to the strait, pass or town, pull-backs from a detail, and a ring that grows while the camera widens. `scripts/lib/camera-motion.mjs` measures it from the shots: at least 70% of map scenes must zoom (1.4× or more) or pan (half a frame), at least one framing under 9° across, and at least one 3× push or pull. Satellite stills, full-frame photos, profiles, street plans, globes and cartograms carry their own motion. It is a release blocker for episodes not yet uploaded (the older uploaded ones and a few early prototypes are exempt), and the director is taught it and asked to repair shots that fail it.

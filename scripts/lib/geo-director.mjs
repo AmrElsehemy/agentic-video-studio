@@ -11,6 +11,7 @@ import {compileEpisode} from './compiler.mjs';
 import {parseJsonReply} from './fact-verifier.mjs';
 import {geoProblems, loadGeoData} from './geo-primitives.mjs';
 import {resolvePlaces} from './geo-resolver.mjs';
+import {cameraMotion} from './camera-motion.mjs';
 import {mapDeviceProblems, mapDirectionProblems, mapVariety} from './map-variety.mjs';
 import {reconstruction, rotatePoint} from './plates.mjs';
 import {kmToDegrees} from './geodesy.mjs';
@@ -770,6 +771,7 @@ Rules:
 - A "line" draws a line of longitude ("meridian") or latitude ("parallel") from the map's grid: use it whenever the story is about one, such as the prime meridian (meridian, 0), the equator (parallel, 0), the tropics (parallel, 23.4 or -23.4), the date line (meridian, 180) or any parallel or meridian the narration names. It draws itself across the map (a meridian from north to south, a parallel from west to east; "reverse": true flips that) and its text sits where it crosses the middle of the frame. Draw the line FIRST, then light up the places it crosses in the order the narration names them. A story about a line must show the line.
 - A route (2-6 stops) draws a journey, trade road, migration or voyage along the shortest path across the globe, with a marker moving along it from "at" to "until". Use it only when the narration describes movement. Frame the whole route in the camera, or set "follow": true to have the camera ride along with the marker (then "until" must be at most 0.85).
 - Labels stay inside the frame, and where two overlap the older one fades. Give a label or marker an "until" when the camera will pull out and crowd it.
+- Make the camera move, and get close. Give most scenes two or three keyframes that change the size of the view (about 1.5 times or more), not a slow drift: push in from a country to the town, strait, pass or border post the scene is about (a city, or a named point as {"place": "<point key>"}, which frames a few degrees around it), or pull back from a detail to show where it sits. Open some scenes on the detail and widen out (a reveal), end others by closing in. Over a whole episode at least one scene frames something narrower than about 9 degrees across, at least one pushes in or pulls back by 3 times or more, and at least 70% of the map scenes move. Keep every place a scene names inside the view when it appears.
 - Every scene must look different from the one before it: change the framing, what is highlighted, or add a layer (data, relief, route, an arrow between two places). Never give two consecutive scenes the same camera and the same highlight. When the narration states a size, a count or a comparison, show it: frame the places being compared together and label each one, or shade them with a dataset.
 - A scene's "names" are places its text mentions. Show every one of them in that scene's shot: highlight it, label it, point an arrow at it, or frame it with the camera.
 - A river's pieces carry its name (the Nile's pieces are the Nile, the White Nile, the Blue Nile, the Victoria Nile, the Albert Nile; the main "Nile" feature is only the northern stretch). When the narration is about the whole river, trace every piece listed.
@@ -859,7 +861,7 @@ export const directGeoVisuals = async ({draft, research: rawResearch, complete, 
       let latest = firstRead;
       for (let round = 0; round < MAX_REPAIRS; round++) {
         const missing = draft.scenes.map((scene) => scene.id).filter((id) => !shots.has(id));
-        const variety = [...mapVariety(sequence()).problems, ...mapDirectionProblems(sequence()), ...mapDeviceProblems(sequence())];
+        const variety = [...mapVariety(sequence()).problems, ...mapDirectionProblems(sequence()), ...mapDeviceProblems(sequence()), ...cameraMotion(sequence(), boxes).problems];
         const unseen = draft.scenes.filter((scene) => shots.has(scene.id)).map((scene) => ({id: scene.id, places: unshown(scene.id, shots.get(scene.id))})).filter((item) => item.places.length);
         const outside = draft.scenes.filter((scene) => shots.has(scene.id)).map((scene) => ({id: scene.id, places: cutOff(shots.get(scene.id))})).filter((item) => item.places.length);
         const clutter = draft.scenes.filter((scene) => shots.has(scene.id)).map((scene) => ({id: scene.id, problem: labelClutter(shots.get(scene.id))})).filter((item) => item.problem);
