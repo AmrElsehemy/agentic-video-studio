@@ -1,0 +1,161 @@
+{
+  "episodeId": "victreebel-071",
+  "createdAt": "2026-10-29T18:54:32.517Z",
+  "chosen": {
+    "id": "sweetened-acid-trap",
+    "premise": "Victreebel’s acid gets sweeter after dissolving prey, making its next lure even more effective.",
+    "hook": "Victreebel’s hunting acid gets better every time it eats.",
+    "archetype": "mechanic",
+    "evidence": [
+      "pokedexEntries[2].text",
+      "pokedexEntries[9].text"
+    ],
+    "visualIdea": "Show prey dissolving into acid, then the liquid becoming sweeter and drawing in the next victim.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 5,
+      "specificity": 5,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 25,
+    "note": "A highly specific feedback loop unique to Victreebel: its prey-dissolving acid becomes sweeter and improves the next lure. The visual progression is clear and all cited entries directly support it."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "sweetened-acid-trap",
+          "premise": "Victreebel’s acid gets sweeter after dissolving prey, making its next lure even more effective.",
+          "hook": "Victreebel’s hunting acid gets better every time it eats.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[2].text",
+            "pokedexEntries[9].text"
+          ],
+          "visualIdea": "Show prey dissolving into acid, then the liquid becoming sweeter and drawing in the next victim.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 25,
+          "note": "A highly specific feedback loop unique to Victreebel: its prey-dissolving acid becomes sweeter and improves the next lure. The visual progression is clear and all cited entries directly support it."
+        },
+        {
+          "id": "honey-is-acid",
+          "premise": "The honeylike fluid pooled in Victreebel’s mouth is actually acid that dissolves anything.",
+          "hook": "That sweet honey smell is actually a mouthful of acid.",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[8].text",
+            "pokedexEntries[11].text"
+          ],
+          "visualIdea": "Zoom from a glossy honey-like pool to a label reading ACID, then dissolve a hard object in it.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 23,
+          "note": "Strong contradiction and easy visual reveal, but the basic sweet-smelling acid fact is already fairly central to Victreebel’s standard characterization."
+        },
+        {
+          "id": "vine-decoy",
+          "premise": "Victreebel waves the long vine on its head like a living animal to attract prey into swallowing range.",
+          "hook": "Victreebel’s head vine is a fake animal—and prey follows it.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[5].text",
+            "pokedexEntries[6].text"
+          ],
+          "visualIdea": "Animate the head vine twitching like bait while an unsuspecting target follows it toward Victreebel’s mouth.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 23,
+          "note": "Concrete, character-specific hunting behavior with excellent animation potential, though less surprising than the acid feedback loop."
+        },
+        {
+          "id": "one-day-dissolution",
+          "premise": "Victreebel can swallow prey whole and dissolve it completely within a day—even its bones.",
+          "hook": "Victreebel doesn’t chew prey; it dissolves everything in one day.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[1].text",
+            "pokedexEntries[13].text"
+          ],
+          "visualIdea": "Use a 24-hour countdown as a swallowed silhouette fades away, including a final bone outline.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 23,
+          "note": "The 24-hour countdown and bones-and-all detail make this compelling, but it mainly intensifies the familiar 'Victreebel dissolves prey' premise."
+        },
+        {
+          "id": "jungle-no-return",
+          "premise": "Victreebel reportedly lives in huge jungle colonies, but nobody who enters those colonies has returned.",
+          "hook": "Victreebel’s jungle home has a survival record of zero witnesses.",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[0].text"
+          ],
+          "visualIdea": "Build a dense jungle colony from distant calls, missing explorer markers, and a path that abruptly ends.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 4,
+            "support": 4
+          },
+          "total": 20,
+          "note": "Atmospheric and memorable, but the claim is explicitly hearsay and the 'survival record of zero witnesses' wording is an inference rather than a measured fact."
+        },
+        {
+          "id": "leaf-stone-giant",
+          "premise": "A Leaf Stone transforms Weepinbell into Victreebel; its Mega variety then grows from 1.7 to 4.5 meters.",
+          "hook": "One Leaf Stone turns Weepinbell into a plant—and Mega makes it 4.5 meters tall.",
+          "archetype": "transformation",
+          "evidence": [
+            "evolutionChain[2].method",
+            "evolutionChain[2].evolvesFrom",
+            "heightMeters",
+            "varieties[0].heightMeters"
+          ],
+          "visualIdea": "Show Weepinbell touching a Leaf Stone, becoming Victreebel, then expanding beside a 4.5-meter height marker.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 3,
+            "surprise": 3,
+            "specificity": 4,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 19,
+          "note": "The height comparison is highly visual, but evolution and Mega-size transformation are broadly applicable Pokémon angles; the cited data also does not explain the transformation beyond listing the forms."
+        }
+      ],
+      "rejected": [],
+      "request": "None—sweetened-acid-trap is strong enough. A stronger alternative would need an equally specific, surprising Victreebel-only rule with direct Pokédex support and a clear visual progression."
+    }
+  ]
+}

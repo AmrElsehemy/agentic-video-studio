@@ -1,0 +1,461 @@
+{
+  "episodeId": "slowpoke-079",
+  "checkedAt": "2026-10-29T19:17:16.552Z",
+  "claims": [
+    {
+      "id": "c1",
+      "where": "title",
+      "text": "Slowpoke's Tail Comes Back Unnoticed",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[12].text",
+        "pokedexEntries[16].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c2",
+      "where": "premise",
+      "text": "Slowpoke's tail can break off without pain, grow back, and go unnoticed when it returns.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[12].text",
+        "pokedexEntries[16].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c3",
+      "where": "audiencePromise",
+      "text": "Watch Slowpoke lose a useful fishing tail, regrow it, and miss the return.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[12].text",
+        "pokedexEntries[16].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c4",
+      "where": "openLoop",
+      "text": "A tail used to lure prey can break off. What happens next?",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[12].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c5",
+      "where": "payoff",
+      "text": "Its tail lures other Pokémon, regrows unnoticed, and becomes salty stew when it falls.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[17].text",
+        "pokedexEntries[12].text",
+        "pokedexEntries[13].text",
+        "pokedexEntries[15].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c6",
+      "where": "scenes.tail-regrows-unnoticed.headline",
+      "text": "ITS TAIL COMES BACK",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[12].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c7",
+      "where": "scenes.tail-regrows-unnoticed.narration",
+      "text": "Slowpoke's tail can fall off, then regrow unnoticed.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[12].text",
+        "pokedexEntries[16].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c8",
+      "where": "scenes.tail-regrows-unnoticed.caption",
+      "text": "TAIL GONE. THEN BACK.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[12].text",
+        "pokedexEntries[16].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c9",
+      "where": "scenes.tail-regrows-unnoticed.eyebrow",
+      "text": "SLOWPOKE",
+      "verdict": "supported",
+      "evidence": [
+        "name"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c10",
+      "where": "scenes.tail-lures-prey.headline",
+      "text": "THE TAIL IS BAIT",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[17].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c11",
+      "where": "scenes.tail-lures-prey.narration",
+      "text": "Slowpoke soaks its tail, letting sweetness lure other Pokémon.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[17].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c12",
+      "where": "scenes.tail-lures-prey.caption",
+      "text": "SWEETNESS LURES OTHER POKÉMON",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[17].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c13",
+      "where": "scenes.tail-lures-prey.eyebrow",
+      "text": "BEFORE",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c14",
+      "where": "scenes.tail-lures-prey.facts[0]",
+      "text": "SOAKED IN WATER",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[17].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c15",
+      "where": "scenes.tail-lures-prey.facts[1]",
+      "text": "SWEETNESS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[17].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c16",
+      "where": "scenes.tail-lures-prey.facts[2]",
+      "text": "LURES OTHER POKÉMON",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[17].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c17",
+      "where": "scenes.tail-breaks-off.headline",
+      "text": "THE BAIT BREAKS OFF",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[12].text",
+        "pokedexEntries[17].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c18",
+      "where": "scenes.tail-breaks-off.narration",
+      "text": "Then its tail can break off naturally, without pain.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[12].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c19",
+      "where": "scenes.tail-breaks-off.caption",
+      "text": "BREAKS OFF WITHOUT PAIN",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[12].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c20",
+      "where": "scenes.tail-breaks-off.eyebrow",
+      "text": "THE CHANGE",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c21",
+      "where": "scenes.tail-breaks-off.facts[0]",
+      "text": "BREAKS OFF NATURALLY",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[12].text",
+        "pokedexEntries[15].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c22",
+      "where": "scenes.tail-breaks-off.facts[1]",
+      "text": "NO PAIN",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[12].text",
+        "pokedexEntries[16].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c23",
+      "where": "scenes.tail-grows-back.headline",
+      "text": "IT GROWS BACK",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[12].text",
+        "pokedexEntries[16].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c24",
+      "where": "scenes.tail-grows-back.narration",
+      "text": "It grows back, and Slowpoke does not notice the return.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[12].text",
+        "pokedexEntries[16].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c25",
+      "where": "scenes.tail-grows-back.caption",
+      "text": "REGROWTH GOES UNNOTICED",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[12].text",
+        "pokedexEntries[16].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c26",
+      "where": "scenes.tail-grows-back.eyebrow",
+      "text": "THE REVEAL",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c27",
+      "where": "scenes.tail-grows-back.facts[0]",
+      "text": "TAIL GROWS BACK",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[12].text",
+        "pokedexEntries[16].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c28",
+      "where": "scenes.tail-grows-back.facts[1]",
+      "text": "DOESN'T NOTICE RETURN",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[16].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c29",
+      "where": "scenes.fallen-tail-stew.headline",
+      "text": "THE FALLEN TAILS MATTER",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[15].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c30",
+      "where": "scenes.fallen-tail-stew.narration",
+      "text": "In Alola, fallen tails are dried, then simmered into salty stew.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[13].text",
+        "pokedexEntries[15].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c31",
+      "where": "scenes.fallen-tail-stew.caption",
+      "text": "DRIED, THEN SIMMERED",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[13].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c32",
+      "where": "scenes.fallen-tail-stew.eyebrow",
+      "text": "ALOLAN COOKING",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[13].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c33",
+      "where": "scenes.fallen-tail-stew.facts[0]",
+      "text": "DRIED TAILS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[13].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c34",
+      "where": "scenes.fallen-tail-stew.facts[1]",
+      "text": "SALTY STEW",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[13].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c35",
+      "where": "scenes.fishing-or-cooking.headline",
+      "text": "FISHING OR COOKING?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c36",
+      "where": "scenes.fishing-or-cooking.narration",
+      "text": "Would you use the tail for fishing, or cook it?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c37",
+      "where": "scenes.fishing-or-cooking.caption",
+      "text": "FISHING OR SALTY STEW?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c38",
+      "where": "scenes.fishing-or-cooking.eyebrow",
+      "text": "YOUR CHOICE",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    }
+  ],
+  "unsupported": [],
+  "uncertain": []
+}

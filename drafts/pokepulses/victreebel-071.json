@@ -1,0 +1,181 @@
+{
+  "id": "victreebel-071",
+  "title": "Victreebel's Acid Gets Sweeter After It Eats",
+  "storyPattern": "mechanic",
+  "numberRelevant": false,
+  "premise": "Victreebel's acid becomes sweeter after dissolving prey, making it better at attracting more prey.",
+  "audiencePromise": "See how Victreebel turns digestion into a stronger lure.",
+  "openLoop": "How can a deadly acid become an even better bait?",
+  "payoff": "Victreebel's acid creates a hunting loop: prey dissolves, the lure sweetens, and more prey comes closer.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "Smart hunting loop, or nightmare fuel?",
+  "subject": {
+    "name": "Victreebel",
+    "category": "Flycatcher Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/71.png",
+    "identifier": "#071"
+  },
+  "related": [
+    {
+      "name": "Weepinbell",
+      "relation": "evolves-from",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/70.png",
+      "identifier": "#070"
+    },
+    {
+      "name": "Bellsprout",
+      "relation": "evolves-from",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/69.png",
+      "identifier": "#069"
+    },
+    {
+      "name": "Victreebel Mega",
+      "relation": "form",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10279.png",
+      "identifier": "#071"
+    }
+  ],
+  "palette": {
+    "background": "#101A18",
+    "surface": "#1D2B25",
+    "primary": "#8BC34A",
+    "secondary": "#D8A83E",
+    "ink": "#F5F2D8"
+  },
+  "voice": {
+    "instructions": "Speak quickly, warmly, and clearly. Sound like a knowledgeable fan sharing a disturbing surprise. Stress sweeter, acid, and more prey. Pause briefly before the final question."
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    },
+    "assets": [
+      {
+        "kind": "Victreebel official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/71.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "sweeter-acid",
+      "beat": "hook",
+      "eyebrow": "VICTREEBEL'S SECRET",
+      "headline": "THE ACID GETS SWEETER",
+      "narration": "Victreebel's acid gets sweeter after it eats.",
+      "caption": "ITS ACID IMPROVES AFTER EATING",
+      "accent": "#D8A83E",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/71.png"
+    },
+    {
+      "id": "honeylike-acid",
+      "beat": "evidence",
+      "eyebrow": "THE BAIT IS DEADLY",
+      "headline": "HONEY SCENT. REAL ACID.",
+      "narration": "Its honeylike scent is actually acid, pooled inside its mouth.",
+      "caption": "THE SWEET SMELL HIDES DISSOLVING ACID",
+      "facts": [
+        "HONEYLIKE SCENT",
+        "ACID IN ITS MOUTH"
+      ],
+      "accent": "#D8A83E",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/71.png"
+    },
+    {
+      "id": "acid-sweetens",
+      "beat": "escalation",
+      "eyebrow": "THE HUNTING RULE",
+      "headline": "EATING MAKES IT SWEETER",
+      "narration": "After dissolving prey, that acid becomes sweeter, not weaker.",
+      "caption": "DISSOLVED PREY CHANGES THE ACID",
+      "facts": [
+        "DISSOLVES PREY",
+        "BECOMES SWEETER"
+      ],
+      "accent": "#8BC34A",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/71.png",
+      "primitive": {
+        "kind": "timeline",
+        "steps": [
+          {
+            "label": "ACID IN MOUTH",
+            "detail": "HONEYLIKE SCENT"
+          },
+          {
+            "label": "DISSOLVES PREY"
+          },
+          {
+            "label": "SWEETER ACID"
+          }
+        ],
+        "active": 2
+      }
+    },
+    {
+      "id": "stronger-lure",
+      "beat": "payoff",
+      "eyebrow": "THE NEXT TRAP",
+      "headline": "SWEETER MEANS MORE EFFECTIVE",
+      "narration": "The sweeter acid attracts the next prey toward Victreebel's mouth.",
+      "caption": "THE LURE GETS MORE EFFECTIVE",
+      "facts": [
+        "SWEETER ACID",
+        "ATTRACTS PREY"
+      ],
+      "accent": "#D8A83E",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/71.png"
+    },
+    {
+      "id": "hunting-loop",
+      "beat": "payoff",
+      "eyebrow": "A HUNTING LOOP",
+      "headline": "THE CATCH IMPROVES THE BAIT",
+      "narration": "Prey dissolves, the lure sweetens, and the trap becomes stronger.",
+      "caption": "DISSOLVE → SWEETEN → ATTRACT",
+      "facts": [
+        "DISSOLVE",
+        "SWEETEN",
+        "ATTRACT"
+      ],
+      "accent": "#8BC34A",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/71.png"
+    },
+    {
+      "id": "smart-or-horrifying",
+      "beat": "verdict",
+      "eyebrow": "YOUR VERDICT",
+      "headline": "SMART OR HORRIFYING?",
+      "narration": "Is this smart hunting, or nightmare fuel?",
+      "caption": "SMART HUNTING OR NIGHTMARE FUEL?",
+      "accent": "#D8A83E",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/71.png"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Victreebel",
+      "url": "https://www.pokemon.com/us/pokedex/victreebel",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Victreebel",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Victreebel_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Victreebel",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/71",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

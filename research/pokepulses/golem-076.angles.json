@@ -1,0 +1,163 @@
+{
+  "episodeId": "golem-076",
+  "createdAt": "2026-10-29T19:07:41.901Z",
+  "chosen": {
+    "id": "mountain-railroad",
+    "premise": "Earthquakes send Golem rolling downhill, so people carve mountain grooves to redirect its course.",
+    "hook": "People built mountain grooves to stop Golem traffic.",
+    "archetype": "mystery",
+    "evidence": [
+      "pokedexEntries[5].text",
+      "pokedexEntries[6].text",
+      "pokedexEntries[13].text"
+    ],
+    "visualIdea": "An earthquake starts the roll, then carved grooves assemble into a giant mountain guideway.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 5,
+      "specificity": 5,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 25,
+    "note": "The most distinctive premise: Golem migration is such a recurring hazard that people carve mountain guideways to redirect it. The environmental scale and practical human response create a complete visual story."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "mountain-railroad",
+          "premise": "Earthquakes send Golem rolling downhill, so people carve mountain grooves to redirect its course.",
+          "hook": "People built mountain grooves to stop Golem traffic.",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[5].text",
+            "pokedexEntries[6].text",
+            "pokedexEntries[13].text"
+          ],
+          "visualIdea": "An earthquake starts the roll, then carved grooves assemble into a giant mountain guideway.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 25,
+          "note": "The most distinctive premise: Golem migration is such a recurring hazard that people carve mountain guideways to redirect it. The environmental scale and practical human response create a complete visual story."
+        },
+        {
+          "id": "annual-soil-molt",
+          "premise": "Once a year, Golem sheds its rocky shell, which crumbles into enriched soil that farmers collect.",
+          "hook": "Golem’s discarded skin becomes farm fertilizer.",
+          "archetype": "transformation",
+          "evidence": [
+            "pokedexEntries[17].text",
+            "pokedexEntries[20].text"
+          ],
+          "visualIdea": "Show Golem shedding a shell, then the shell crumbling into soil spread across crop fields.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 24,
+          "note": "Highly Golem-specific and strongly supported. The farming payoff is unusual and easy to visualize, though the core molting fact may be familiar to dedicated fans."
+        },
+        {
+          "id": "dynamite-but-rain",
+          "premise": "Golem can survive dynamite blasts without a scratch, yet rain and humidity bother it.",
+          "hook": "Dynamite cannot hurt Golem—but rain can.",
+          "archetype": "comparison",
+          "evidence": [
+            "pokedexEntries[0].text",
+            "pokedexEntries[16].text"
+          ],
+          "visualIdea": "Split-screen: dynamite detonates harmlessly against Golem, then rain makes it recoil.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 5,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 23,
+          "note": "Excellent contradiction, directly supported by Pokédex entries, though the rain-versus-dynamite framing is more of a comparison than a uniquely complex Golem behavior."
+        },
+        {
+          "id": "explosive-mountain-jump",
+          "premise": "Golem detonates its own body to launch itself up steep mountain paths and between peaks.",
+          "hook": "Golem reaches the next mountain by exploding itself.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[3].text",
+            "pokedexEntries[19].text"
+          ],
+          "visualIdea": "Animate Golem crouching, detonating, and blasting upward along a steep mountain path.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 22,
+          "note": "A strong, cinematic mechanic backed by multiple entries, but self-detonating Pokémon are not entirely unique and the premise lacks a sharper contradiction or consequence."
+        },
+        {
+          "id": "mossy-old-golem",
+          "premise": "Young Golem shed their shells yearly, but ancient Golem stop shedding and grow moss-green shells.",
+          "hook": "A mossy Golem may be one that stopped aging normally.",
+          "archetype": "transformation",
+          "evidence": [
+            "pokedexEntries[8].text",
+            "pokedexEntries[18].text"
+          ],
+          "visualIdea": "Cycle through yearly shell shedding, then reveal an old Golem whose shell is covered in green moss.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 21,
+          "note": "The moss-covered shell is a memorable reveal, but 'stopped aging normally' is an unsupported interpretation. The evidence only says old Golem stop shedding and develop mossy shells."
+        },
+        {
+          "id": "trade-for-golem",
+          "premise": "Graveler reaches level 25, but becoming Golem requires a trade instead of another level.",
+          "hook": "Golem’s evolution asks for a friend, not more experience.",
+          "archetype": "mechanic",
+          "evidence": [
+            "evolutionChain[1].method",
+            "evolutionChain[2].method",
+            "evolutionChain[2].evolvesFrom"
+          ],
+          "visualIdea": "A Graveler hits level 25, stops evolving, then transforms only after a trade animation.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 3,
+            "surprise": 3,
+            "specificity": 5,
+            "visual": 4,
+            "support": 5
+          },
+          "total": 20,
+          "note": "Clear and accurate, but trade evolution is a familiar Pokémon mechanic and not especially surprising for experienced fans. The friend framing is editorial rather than stated by the research."
+        }
+      ],
+      "rejected": [],
+      "request": "N/A—the mountain-railroad angle is strong enough. A stronger alternative would need an equally specific, surprising Golem-only behavior with direct Pokédex support and a clear visual cause-and-effect sequence."
+    }
+  ]
+}

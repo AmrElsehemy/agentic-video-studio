@@ -1,0 +1,164 @@
+{
+  "schemaVersion": 1,
+  "id": "lucario-448",
+  "number": 448,
+  "index": "#448",
+  "name": "Lucario",
+  "slug": "lucario",
+  "category": "Aura Pokémon",
+  "generation": "Generation IV",
+  "isLegendary": false,
+  "isMythical": false,
+  "types": [
+    "Fighting",
+    "Steel"
+  ],
+  "heightMeters": 1.2,
+  "weightKg": 54,
+  "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/448.png",
+  "pokedexEntries": [
+    {
+      "game": "Diamond",
+      "text": "It has the ability to sense the auras of all things. It understands human speech."
+    },
+    {
+      "game": "Pearl",
+      "text": "By catching the aura emanating from others, it can read their thoughts and movements."
+    },
+    {
+      "game": "Platinum",
+      "text": "A well-trained one can sense auras to identify and take in the feelings of creatures over half a mile away."
+    },
+    {
+      "game": "Heartgold",
+      "text": "It’s said that no foe can remain invisible to LUCARIO, since it can detect auras. Even foes it could not otherwise see."
+    },
+    {
+      "game": "Black 2",
+      "text": "By reading the auras of all things, it can tell how others are feeling from over half a mile away."
+    },
+    {
+      "game": "Sun",
+      "text": "Not only does it perceive auras, but it has also gained the power to control them. It employs them in battle."
+    },
+    {
+      "game": "Moon",
+      "text": "They can detect the species of a living being— and its emotions—from over half a mile away. They control auras and hunt their prey in packs."
+    },
+    {
+      "game": "Ultra Sun",
+      "text": "It concentrates its mental energy and fires off mysterious waves called auras, which can crush boulders of large size to dust."
+    },
+    {
+      "game": "Ultra Moon",
+      "text": "Lucario reads its opponent’s feelings with its aura waves. It finds out things it would rather not know, so it gets stressed out easily."
+    },
+    {
+      "game": "Sword",
+      "text": "It controls waves known as auras, which are powerful enough to pulverize huge rocks. It uses these waves to take down its prey."
+    },
+    {
+      "game": "Shield",
+      "text": "It can tell what people are thinking. Only Trainers who have justice in their hearts can earn this Pokémon’s trust."
+    },
+    {
+      "game": "Legends Arceus",
+      "text": "A most gallant-looking creature. It emits energy waves and controls them with precision, using them to sense even faraway beings. I have given the name ”aura” to this power."
+    }
+  ],
+  "evolutionChain": [
+    {
+      "name": "Riolu",
+      "index": "#447",
+      "stage": 1,
+      "types": [
+        "Fighting"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/447.png",
+      "isSubject": false
+    },
+    {
+      "name": "Lucario",
+      "index": "#448",
+      "stage": 2,
+      "evolvesFrom": "Riolu",
+      "method": "Level Up, friendship 160, at day",
+      "types": [
+        "Fighting",
+        "Steel"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/448.png",
+      "isSubject": true
+    }
+  ],
+  "varieties": [
+    {
+      "name": "Lucario Mega",
+      "types": [
+        "Fighting",
+        "Steel"
+      ],
+      "heightMeters": 1.3,
+      "weightKg": 57.5,
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10059.png"
+    },
+    {
+      "name": "Lucario Mega Z",
+      "types": [
+        "Fighting",
+        "Steel"
+      ],
+      "heightMeters": 1.3,
+      "weightKg": 49.4,
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10310.png"
+    }
+  ],
+  "lore": [],
+  "tiers": {
+    "official": [
+      "name",
+      "index",
+      "number",
+      "category",
+      "generation",
+      "isLegendary",
+      "isMythical",
+      "types",
+      "heightMeters",
+      "weightKg",
+      "pokedexEntries",
+      "evolutionChain[].name",
+      "evolutionChain[].index",
+      "evolutionChain[].types",
+      "evolutionChain[].stage",
+      "varieties[].types",
+      "varieties[].heightMeters",
+      "varieties[].weightKg"
+    ],
+    "trusted_secondary": [
+      "evolutionChain[].method",
+      "evolutionChain[].evolvesFrom",
+      "varieties[].name"
+    ],
+    "community": [
+      "lore"
+    ]
+  },
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Lucario",
+      "url": "https://www.pokemon.com/us/pokedex/lucario",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Lucario",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Lucario_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Lucario",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/448",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

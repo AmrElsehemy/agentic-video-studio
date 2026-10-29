@@ -1,0 +1,167 @@
+{
+  "episodeId": "slowpoke-079",
+  "createdAt": "2026-10-29T19:17:00.843Z",
+  "chosen": {
+    "id": "tail-that-returns",
+    "premise": "Slowpoke’s tail can break off without pain, then grow back without Slowpoke even noticing.",
+    "hook": "Slowpoke can lose its tail and not notice when it comes back.",
+    "archetype": "transformation",
+    "evidence": [
+      "pokedexEntries[13].text",
+      "pokedexEntries[17].text"
+    ],
+    "visualIdea": "Use a before-and-after tail silhouette: attached, missing, then regrown while Slowpoke remains expressionless.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 5,
+      "specificity": 5,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 25,
+    "note": "A distinctly Slowpoke biological oddity with a clear three-beat visual: tail attached, missing, then regrown while Slowpoke remains unaware."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "tail-that-returns",
+          "premise": "Slowpoke’s tail can break off without pain, then grow back without Slowpoke even noticing.",
+          "hook": "Slowpoke can lose its tail and not notice when it comes back.",
+          "archetype": "transformation",
+          "evidence": [
+            "pokedexEntries[13].text",
+            "pokedexEntries[17].text"
+          ],
+          "visualIdea": "Use a before-and-after tail silhouette: attached, missing, then regrown while Slowpoke remains expressionless.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 25,
+          "note": "A distinctly Slowpoke biological oddity with a clear three-beat visual: tail attached, missing, then regrown while Slowpoke remains unaware."
+        },
+        {
+          "id": "yawn-rain-belief",
+          "premise": "Some places worship Slowpoke because they believe every one of its yawns makes it rain.",
+          "hook": "Some people worship Slowpoke for one absurd weather prediction.",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[14].text"
+          ],
+          "visualIdea": "Build from a Slowpoke yawn to dark clouds, rainfall, and a crowd bowing to it.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 5,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 23,
+          "note": "Very surprising and visually theatrical, though the belief is less mechanically concrete because the Pokédex only reports worship based on the tradition."
+        },
+        {
+          "id": "tail-fishing-forgetfulness",
+          "premise": "Slowpoke fishes with its tail, but often forgets what it is doing and loafs by the river all day.",
+          "hook": "Slowpoke has a fishing strategy—and immediately forgets it is fishing.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[5].text",
+            "pokedexEntries[6].text",
+            "pokedexEntries[7].text"
+          ],
+          "visualIdea": "Animate a sweetened tail luring prey, then cut to Slowpoke staring blankly beside the river.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 22,
+          "note": "Strongly supported and easy to animate, with a funny contradiction between an effective fishing tactic and immediate forgetfulness."
+        },
+        {
+          "id": "five-second-pain",
+          "premise": "Slowpoke can take five seconds to feel pain after an attack, making its sluggishness a literal delay.",
+          "hook": "Slowpoke gets hurt—but its body takes five seconds to notice.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[0].text",
+            "pokedexEntries[8].text"
+          ],
+          "visualIdea": "Show an attack landing, then freeze Slowpoke for five seconds before a delayed pain reaction.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 4,
+            "support": 4
+          },
+          "total": 21,
+          "note": "A concrete, highly visual mechanic, but the research also gives conflicting delays of five seconds and an entire day, weakening the premise if not carefully framed."
+        },
+        {
+          "id": "two-evolutions-two-rules",
+          "premise": "Slowpoke has two stage-two evolutions: one requires level 37, the other a trade while holding a King's Rock.",
+          "hook": "Slowpoke can evolve two ways—but the rules could not be more different.",
+          "archetype": "comparison",
+          "evidence": [
+            "evolutionChain[1].name",
+            "evolutionChain[1].method",
+            "evolutionChain[2].name",
+            "evolutionChain[2].method"
+          ],
+          "visualIdea": "Split the screen into Slowbro’s level-37 path and Slowking’s trade-with-item path.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 3,
+            "specificity": 5,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 21,
+          "note": "Excellent rule comparison and screen structure, but evolution-method explainers are familiar and the methods rely on trusted secondary research."
+        },
+        {
+          "id": "galar-type-switch",
+          "premise": "Regular Slowpoke is Water/Psychic, while its Galar variety is Psychic-only at the same height and weight.",
+          "hook": "Same Slowpoke size, different typing: Galar takes away its Water type.",
+          "archetype": "comparison",
+          "evidence": [
+            "types",
+            "heightMeters",
+            "weightKg",
+            "varieties[0].name",
+            "varieties[0].types",
+            "varieties[0].heightMeters",
+            "varieties[0].weightKg"
+          ],
+          "visualIdea": "Place the two forms side by side with matching size stats while the Water type visibly disappears.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 3,
+            "surprise": 3,
+            "specificity": 5,
+            "visual": 4,
+            "support": 5
+          },
+          "total": 20,
+          "note": "The matching height and weight make a clean comparison, but regional typing changes are common and the reveal is less emotionally or narratively distinctive."
+        }
+      ],
+      "rejected": [],
+      "request": "None needed; the chosen angle is already specific, surprising, highly visual, and fully supported. Stronger alternatives would need an equally concrete Slowpoke-only rule or contradiction."
+    }
+  ]
+}

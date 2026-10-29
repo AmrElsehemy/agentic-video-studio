@@ -1,0 +1,208 @@
+{
+  "id": "dragonite-149",
+  "title": "Dragonite May Have an Island—and One Survivor",
+  "storyPattern": "mystery",
+  "numberRelevant": false,
+  "premise": "Two Pokédex accounts point to a Dragonite-only island, including one survivor Dragonite reportedly brought there.",
+  "audiencePromise": "Trace the clues from ocean rescues to a hidden island populated solely by Dragonite.",
+  "openLoop": "Did Dragonite rescue one man, or lead him somewhere no one else lives?",
+  "payoff": "One account says Dragonite took a shipwrecked man to a remote paradise occupied solely by Dragonite.",
+  "targetEmotion": "curiosity",
+  "engagementQuestion": "Do you see a rescue, or a secret Dragonite island?",
+  "subject": {
+    "name": "Dragonite",
+    "category": "Dragon Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/149.png",
+    "identifier": "#149"
+  },
+  "related": [
+    {
+      "name": "Dragonair",
+      "relation": "evolves-from",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/148.png",
+      "identifier": "#148"
+    },
+    {
+      "name": "Dratini",
+      "relation": "evolves-from",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/147.png",
+      "identifier": "#147"
+    },
+    {
+      "name": "Dragonite Mega",
+      "relation": "form",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10281.png",
+      "identifier": "#149"
+    }
+  ],
+  "palette": {
+    "background": "#08131F",
+    "surface": "#10263A",
+    "primary": "#F28C28",
+    "secondary": "#6FC3DF",
+    "ink": "#F4F7FA"
+  },
+  "voice": {
+    "instructions": "Warm, quick, and curious. Stress island, survivor, and solely. Pause briefly before each reveal, then end invitingly."
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    },
+    "assets": [
+      {
+        "kind": "Dragonite official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/149.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "island-survivor",
+      "beat": "hook",
+      "eyebrow": "A STRANGE OCEAN CLUE",
+      "headline": "AN ISLAND. ONE SURVIVOR.",
+      "narration": "Dragonite may have an island. One survivor reached it.",
+      "caption": "DRAGONITE MAY HAVE ITS OWN ISLAND",
+      "accent": "#F28C28",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/149.png"
+    },
+    {
+      "id": "island-entry",
+      "beat": "clue",
+      "eyebrow": "FIRST CLUE",
+      "headline": "ONLY DRAGONITE LIVE THERE",
+      "narration": "One Pokédex entry says Dragonite lives on an island alone.",
+      "caption": "AN ISLAND WHERE ONLY DRAGONITE LIVE",
+      "facts": [
+        "OCEAN ISLAND",
+        "ONLY DRAGONITE"
+      ],
+      "accent": "#6FC3DF",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/149.png",
+      "primitive": {
+        "kind": "checklist",
+        "items": [
+          {
+            "label": "OCEAN ISLAND",
+            "met": true
+          },
+          {
+            "label": "ONLY DRAGONITE",
+            "met": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "rescue-pattern",
+      "beat": "escalation",
+      "eyebrow": "THE PATTERN GROWS",
+      "headline": "DRAGONITE GUIDES SHIPWRECKS",
+      "narration": "Other entries say Dragonite guides crews from shipwrecks to shore.",
+      "caption": "THE SEA INCARNATE LEADS PEOPLE HOME",
+      "facts": [
+        "SHIPWRECK CREWS",
+        "GUIDES TO SHORE"
+      ],
+      "accent": "#F28C28",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/149.png",
+      "primitive": {
+        "kind": "checklist",
+        "items": [
+          {
+            "label": "SHIPWRECK CREWS",
+            "met": true
+          },
+          {
+            "label": "GUIDES TO SHORE",
+            "met": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "survivor-saved",
+      "beat": "reveal",
+      "eyebrow": "THE SURVIVOR CLUE",
+      "headline": "ONE MAN WAS SAVED",
+      "narration": "Then another entry says Dragonite saved a shipwrecked man.",
+      "caption": "A SURVIVOR WAS TAKEN FROM THE SEA",
+      "facts": [
+        "SHIPWRECKED MAN",
+        "DRAGONITE SAVED HIM"
+      ],
+      "accent": "#6FC3DF",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/149.png"
+    },
+    {
+      "id": "paradise-island",
+      "beat": "reveal",
+      "eyebrow": "THE HIDDEN DESTINATION",
+      "headline": "A REMOTE DRAGONITE PARADISE",
+      "narration": "It took him to a remote island, a paradise occupied solely by Dragonite.",
+      "caption": "A DRAGONITE-ONLY PARADISE",
+      "facts": [
+        "REMOTE ISLAND",
+        "PARADISE",
+        "SOLELY DRAGONITE"
+      ],
+      "accent": "#F28C28",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/149.png",
+      "primitive": {
+        "kind": "checklist",
+        "items": [
+          {
+            "label": "REMOTE ISLAND",
+            "met": true
+          },
+          {
+            "label": "PARADISE",
+            "met": true
+          },
+          {
+            "label": "SOLELY DRAGONITE",
+            "met": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "rescue-or-island",
+      "beat": "verdict",
+      "eyebrow": "YOUR READING",
+      "headline": "RESCUE OR SECRET ISLAND?",
+      "narration": "Do you see a rescue, or a secret Dragonite island?",
+      "caption": "WHICH STORY DO YOU BELIEVE?",
+      "accent": "#6FC3DF",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/149.png"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Dragonite",
+      "url": "https://www.pokemon.com/us/pokedex/dragonite",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Dragonite",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Dragonite_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Dragonite",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/149",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

@@ -1,0 +1,490 @@
+{
+  "episodeId": "lapras-131",
+  "checkedAt": "2026-10-29T18:52:15.968Z",
+  "claims": [
+    {
+      "id": "c1",
+      "where": "title",
+      "text": "Lapras Was Saved, Then the Sea Changed",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[14].text",
+        "pokedexEntries[15].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c2",
+      "where": "premise",
+      "text": "Lapras went from near extinction to overabundance, and too many began reducing fish populations.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[14].text",
+        "pokedexEntries[15].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c3",
+      "where": "audiencePromise",
+      "text": "Trace Lapras's rescue from overhunting to the unexpected cost of having too many.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[6].text",
+        "pokedexEntries[14].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c4",
+      "where": "openLoop",
+      "text": "How did saving Lapras create a new problem for the sea?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Question only.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c5",
+      "where": "payoff",
+      "text": "Protective regulations saved Lapras, but waters with too many saw fish Pokémon decline.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[14].text",
+        "pokedexEntries[15].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c6",
+      "where": "scenes.near-extinction.headline",
+      "text": "SAVED, THEN A PROBLEM",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[14].text",
+        "pokedexEntries[15].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c7",
+      "where": "scenes.near-extinction.narration",
+      "text": "Lapras neared extinction. Protection created a new problem.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[14].text",
+        "pokedexEntries[15].text"
+      ],
+      "note": "The research supports near extinction, protective regulations, overabundance, and fish decline, but does not explicitly state that protection created the problem.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c8",
+      "where": "scenes.near-extinction.caption",
+      "text": "ALMOST GONE. THEN TOO MANY.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[14].text",
+        "pokedexEntries[15].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c9",
+      "where": "scenes.near-extinction.eyebrow",
+      "text": "THE RESCUE BACKFIRED",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[14].text",
+        "pokedexEntries[15].text"
+      ],
+      "note": "The outcomes are documented, but calling the rescue a 'backfire' is an evaluative causal conclusion not stated directly.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c10",
+      "where": "scenes.overhunting.headline",
+      "text": "GENTLE MADE IT VULNERABLE",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[2].text"
+      ],
+      "note": "Lapras is described as gentle, rarely fighting, and consequently often caught, but 'made it vulnerable' compresses that causal interpretation.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c11",
+      "where": "scenes.overhunting.narration",
+      "text": "Overhunting nearly erased Lapras. They rarely fight, so many were caught.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text",
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c12",
+      "where": "scenes.overhunting.caption",
+      "text": "OVERHUNTED ALMOST TO EXTINCTION",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c13",
+      "where": "scenes.overhunting.eyebrow",
+      "text": "THE FIRST CLUE",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Framing phrase only.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c14",
+      "where": "scenes.overhunting.facts[0]",
+      "text": "OVERHUNTED",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c15",
+      "where": "scenes.overhunting.facts[1]",
+      "text": "GENTLE NATURE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c16",
+      "where": "scenes.overhunting.facts[2]",
+      "text": "RARELY FIGHT",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c17",
+      "where": "scenes.population-surges.headline",
+      "text": "THE RESCUE WORKED",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[14].text",
+        "pokedexEntries[15].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c18",
+      "where": "scenes.population-surges.narration",
+      "text": "Then protective regulations worked, and Lapras became overabundant.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[14].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c19",
+      "where": "scenes.population-surges.caption",
+      "text": "PROTECTION CHANGED THE COUNT",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[14].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c20",
+      "where": "scenes.population-surges.eyebrow",
+      "text": "THE SECOND CLUE",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Framing phrase only.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c21",
+      "where": "scenes.population-surges.facts[0]",
+      "text": "PROTECTIVE REGULATIONS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[14].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c22",
+      "where": "scenes.population-surges.facts[1]",
+      "text": "OVERABUNDANCE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[14].text",
+        "pokedexEntries[15].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c23",
+      "where": "scenes.fish-decline.headline",
+      "text": "FISH POPULATIONS DECLINE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[15].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c24",
+      "where": "scenes.fish-decline.narration",
+      "text": "But too many Lapras now mean fewer fish in those waters.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[15].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c25",
+      "where": "scenes.fish-decline.caption",
+      "text": "LAPRAS UP. FISH DOWN.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[15].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c26",
+      "where": "scenes.fish-decline.eyebrow",
+      "text": "THE HIDDEN COST",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Framing phrase only.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c27",
+      "where": "scenes.fish-decline.facts[0]",
+      "text": "TOO MANY LAPRAS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[14].text",
+        "pokedexEntries[15].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c28",
+      "where": "scenes.fish-decline.facts[1]",
+      "text": "FEWER FISH",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[15].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c29",
+      "where": "scenes.success-changes-ecosystem.headline",
+      "text": "SUCCESS HAD A COST",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[14].text",
+        "pokedexEntries[15].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c30",
+      "where": "scenes.success-changes-ecosystem.narration",
+      "text": "The rescue succeeded, but fish Pokémon declined in those waters.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[14].text",
+        "pokedexEntries[15].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c31",
+      "where": "scenes.success-changes-ecosystem.caption",
+      "text": "FISH POKÉMON POPULATIONS DECLINED",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[15].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c32",
+      "where": "scenes.success-changes-ecosystem.eyebrow",
+      "text": "THE FINAL REVEAL",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Framing phrase only.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c33",
+      "where": "scenes.success-changes-ecosystem.facts[0]",
+      "text": "RESCUE SUCCEEDED",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[14].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c34",
+      "where": "scenes.success-changes-ecosystem.facts[1]",
+      "text": "FISH POKÉMON DECLINED",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[15].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c35",
+      "where": "scenes.necessary-or-costly.headline",
+      "text": "RESCUE OR MISTAKE?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Question only.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c36",
+      "where": "scenes.necessary-or-costly.narration",
+      "text": "Protecting Lapras: necessary rescue or costly mistake?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Question only.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c37",
+      "where": "scenes.necessary-or-costly.caption",
+      "text": "WHICH SIDE ARE YOU ON?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Audience prompt only.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c38",
+      "where": "scenes.necessary-or-costly.eyebrow",
+      "text": "YOUR VERDICT",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Framing phrase only.",
+      "checkedBy": "model"
+    }
+  ],
+  "unsupported": [],
+  "uncertain": [
+    {
+      "id": "c7",
+      "where": "scenes.near-extinction.narration",
+      "text": "Lapras neared extinction. Protection created a new problem.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[14].text",
+        "pokedexEntries[15].text"
+      ],
+      "note": "The research supports near extinction, protective regulations, overabundance, and fish decline, but does not explicitly state that protection created the problem.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c9",
+      "where": "scenes.near-extinction.eyebrow",
+      "text": "THE RESCUE BACKFIRED",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[14].text",
+        "pokedexEntries[15].text"
+      ],
+      "note": "The outcomes are documented, but calling the rescue a 'backfire' is an evaluative causal conclusion not stated directly.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c10",
+      "where": "scenes.overhunting.headline",
+      "text": "GENTLE MADE IT VULNERABLE",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[2].text"
+      ],
+      "note": "Lapras is described as gentle, rarely fighting, and consequently often caught, but 'made it vulnerable' compresses that causal interpretation.",
+      "tier": "official",
+      "checkedBy": "model"
+    }
+  ]
+}

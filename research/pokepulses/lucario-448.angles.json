@@ -1,0 +1,170 @@
+{
+  "episodeId": "lucario-448",
+  "createdAt": "2026-10-29T18:37:09.219Z",
+  "chosen": {
+    "id": "mega-weight-split",
+    "premise": "Both Mega Lucario forms are 1.3 meters tall, but one weighs 57.5 kg and the other only 49.4 kg.",
+    "hook": "These two Mega Lucarios are equally tall—but 8.1 kilos apart.",
+    "archetype": "comparison",
+    "evidence": [
+      "varieties[0].name",
+      "varieties[0].heightMeters",
+      "varieties[0].weightKg",
+      "varieties[1].name",
+      "varieties[1].heightMeters",
+      "varieties[1].weightKg"
+    ],
+    "visualIdea": "Two 1.3-meter Mega Lucarios stand side by side as scales show 57.5 kg versus 49.4 kg.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 4,
+      "specificity": 5,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 24,
+    "note": "A precise, unusual comparison with a strong visual payoff: identical height but an 8.1-kilogram difference. Its main weakness is that the fact is more data-trivia than meaningful Lucario characterization."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "mega-weight-split",
+          "premise": "Both Mega Lucario forms are 1.3 meters tall, but one weighs 57.5 kg and the other only 49.4 kg.",
+          "hook": "These two Mega Lucarios are equally tall—but 8.1 kilos apart.",
+          "archetype": "comparison",
+          "evidence": [
+            "varieties[0].name",
+            "varieties[0].heightMeters",
+            "varieties[0].weightKg",
+            "varieties[1].name",
+            "varieties[1].heightMeters",
+            "varieties[1].weightKg"
+          ],
+          "visualIdea": "Two 1.3-meter Mega Lucarios stand side by side as scales show 57.5 kg versus 49.4 kg.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 24,
+          "note": "A precise, unusual comparison with a strong visual payoff: identical height but an 8.1-kilogram difference. Its main weakness is that the fact is more data-trivia than meaningful Lucario characterization."
+        },
+        {
+          "id": "aura-reading-stress",
+          "premise": "Lucario reads opponents’ feelings through aura waves, but the knowledge is so uncomfortable that it gets stressed easily.",
+          "hook": "Lucario’s greatest power is also something it wishes it didn’t know.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[1].text",
+            "pokedexEntries[8].text"
+          ],
+          "visualIdea": "Emotion labels flood Lucario’s aura vision until the battlefield becomes overwhelming and it visibly wilts.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 4,
+            "visual": 4,
+            "support": 5
+          },
+          "total": 23,
+          "note": "A rare character contradiction: Lucario’s signature power is also emotionally distressing. The stress detail is genuinely surprising and directly supported; visuals need to make internal overload readable without relying only on narration."
+        },
+        {
+          "id": "half-mile-aura-radar",
+          "premise": "Lucario can identify species and emotions from over half a mile away, even detecting foes it cannot see.",
+          "hook": "Lucario can find you even when its eyes absolutely cannot.",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[2].text",
+            "pokedexEntries[3].text",
+            "pokedexEntries[6].text"
+          ],
+          "visualIdea": "A hidden Pokémon appears behind terrain while expanding aura rings reveal its species and emotions from half a mile away.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 23,
+          "note": "Highly Lucario-specific and strongly supported by multiple Pokédex entries. The half-mile range and invisible-target reveal create excellent visuals, though the premise is slightly broad because it combines several aura abilities."
+        },
+        {
+          "id": "friendship-day-evolution",
+          "premise": "Riolu evolves into Lucario only after reaching 160 friendship and leveling up during the day.",
+          "hook": "You cannot evolve Riolu just by grinding levels.",
+          "archetype": "mechanic",
+          "evidence": [
+            "evolutionChain[0].name",
+            "evolutionChain[1].method"
+          ],
+          "visualIdea": "A friendship meter climbs to 160, then a day-night clock shows evolution triggering only on the daytime side.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 23,
+          "note": "Extremely concrete and easy to demonstrate with the 160-friendship threshold and day-only condition. It is a strong mechanic angle, though evolution-method videos are less uniquely memorable than Lucario’s aura lore."
+        },
+        {
+          "id": "aura-boulder-cannon",
+          "premise": "Lucario concentrates mental energy into aura waves powerful enough to pulverize huge rocks into dust.",
+          "hook": "Lucario’s invisible sense can become a boulder-shredding weapon.",
+          "archetype": "transformation",
+          "evidence": [
+            "pokedexEntries[7].text",
+            "pokedexEntries[9].text"
+          ],
+          "visualIdea": "A calm aura scan concentrates into visible waves that strike a huge boulder and reduce it to dust.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 22,
+          "note": "The transformation from sensing energy to pulverizing huge rocks is clear and highly visual. It is well supported, but the basic power-escalation structure could fit several aura- or energy-based Pokémon."
+        },
+        {
+          "id": "justice-locked-trust",
+          "premise": "Lucario understands human speech and thoughts, yet only Trainers with justice in their hearts can earn its trust.",
+          "hook": "Lucario may understand you—but that does not mean it will trust you.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[0].text",
+            "pokedexEntries[1].text",
+            "pokedexEntries[10].text"
+          ],
+          "visualIdea": "A Trainer speaks while Lucario’s aura displays their thoughts, then a justice test decides whether Lucario steps closer.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 3,
+            "visual": 4,
+            "support": 5
+          },
+          "total": 20,
+          "note": "The contrast between mind-reading and conditional trust is compelling and fully supported. However, 'justice in their hearts' is abstract, so the premise is less concrete and harder to prove visually than the other angles."
+        }
+      ],
+      "rejected": [],
+      "request": "None; this is strong enough to lead the episode. Even stronger angles would need a sharper contradiction or measurable rule tied to Lucario, plus a visual demonstration that does not depend on exposition alone."
+    }
+  ]
+}

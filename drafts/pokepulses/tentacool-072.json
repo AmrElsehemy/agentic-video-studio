@@ -1,0 +1,166 @@
+{
+  "id": "tentacool-072",
+  "title": "Tentacool Dries Up, Then Comes Back",
+  "storyPattern": "transformation",
+  "numberRelevant": false,
+  "premise": "Tentacool can dry into parchment on a beach and still revive in the sea.",
+  "audiencePromise": "Watch Tentacool transform from a dried beach remnant back into a drifting sea Pokémon.",
+  "openLoop": "What happens when water returns to a dried-out Tentacool?",
+  "payoff": "The sea restores what the shore dried out, and Tentacool revives.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "Is Tentacool a survivor, or a Pokémon built around water?",
+  "subject": {
+    "name": "Tentacool",
+    "category": "Jellyfish Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/72.png",
+    "identifier": "#072"
+  },
+  "related": [
+    {
+      "name": "Tentacruel",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/73.png",
+      "identifier": "#073"
+    }
+  ],
+  "palette": {
+    "background": "#07151C",
+    "surface": "#102A33",
+    "primary": "#F04F9A",
+    "secondary": "#52D6D0",
+    "ink": "#F4FAF7"
+  },
+  "voice": {
+    "instructions": "Speak like a knowledgeable fan sharing a surprising Pokédex detail. Use quick, warm pacing with clear emphasis on dry, alive, and revives. Keep the final question genuinely debatable."
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    },
+    "assets": [
+      {
+        "kind": "Tentacool official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/72.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "dry-but-still-alive",
+      "beat": "hook",
+      "eyebrow": "A BEACH SURPRISE",
+      "headline": "DRY, BUT STILL ALIVE",
+      "narration": "Tentacool can dry into parchment, and still be alive.",
+      "caption": "DRIED OUT DOESN'T MEAN FINISHED",
+      "accent": "#F04F9A",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/72.png"
+    },
+    {
+      "id": "made-of-water",
+      "beat": "before",
+      "eyebrow": "BEFORE THE SHORE",
+      "headline": "DRIFTS IN SHALLOW SEAS",
+      "narration": "Tentacool drifts in shallow seas, with a body largely made of water.",
+      "caption": "ITS BODY IS LARGELY WATER",
+      "facts": [
+        "Shallow seas",
+        "Largely water"
+      ],
+      "accent": "#52D6D0",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/72.png",
+      "primitive": {
+        "kind": "bars",
+        "unit": "%",
+        "bars": [
+          {
+            "label": "BODY WATER",
+            "value": 99
+          },
+          {
+            "label": "POISON ORGAN",
+            "value": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "shore-dries-it-out",
+      "beat": "change",
+      "eyebrow": "THE SHORE CHANGES IT",
+      "headline": "WATER LEAVES. FORM COLLAPSES.",
+      "narration": "When it washes ashore, that water-based body dries like parchment.",
+      "caption": "ASHORE, IT DRIES LIKE PARCHMENT",
+      "facts": [
+        "Washed ashore",
+        "Dries like parchment"
+      ],
+      "accent": "#D99573",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/72.png"
+    },
+    {
+      "id": "still-alive",
+      "beat": "reveal",
+      "eyebrow": "THE IMPOSSIBLE PART",
+      "headline": "THE BEACH REMNANT LIVES",
+      "narration": "Yet those dehydrated beach remains are often still alive.",
+      "caption": "DEHYDRATED DOESN'T MEAN DEAD",
+      "facts": [
+        "Dehydrated",
+        "Often still alive"
+      ],
+      "accent": "#F04F9A",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/72.png"
+    },
+    {
+      "id": "sea-restores-it",
+      "beat": "aftermath",
+      "eyebrow": "THE REVIVAL",
+      "headline": "THE SEA REVERSES IT",
+      "narration": "The sea restores what the shore dried out, and Tentacool revives.",
+      "caption": "BACK INTO THE SEA, BACK TO LIFE",
+      "facts": [
+        "Soaked in water",
+        "Revives"
+      ],
+      "accent": "#52D6D0",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/72.png"
+    },
+    {
+      "id": "survivor-or-water-built",
+      "beat": "verdict",
+      "eyebrow": "YOUR VERDICT",
+      "headline": "SURVIVOR OR WATER-BUILT?",
+      "narration": "Is Tentacool a survivor, or a Pokémon built around water?",
+      "caption": "WHICH ONE FITS TENTACOOL?",
+      "accent": "#F04F9A",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/72.png"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Tentacool",
+      "url": "https://www.pokemon.com/us/pokedex/tentacool",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Tentacool",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Tentacool_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Tentacool",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/72",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

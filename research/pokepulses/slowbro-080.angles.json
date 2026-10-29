@@ -1,0 +1,167 @@
+{
+  "episodeId": "slowbro-080",
+  "createdAt": "2026-10-29T19:19:43.431Z",
+  "chosen": {
+    "id": "the-reversible-evolution",
+    "premise": "Slowbro can revert to Slowpoke if the Shellder on its tail breaks off or lets go.",
+    "hook": "Slowbro’s evolution has an undo button: remove the Shellder.",
+    "archetype": "transformation",
+    "evidence": [
+      "pokedexEntries[1].text",
+      "pokedexEntries[2].text",
+      "pokedexEntries[16].text",
+      "pokedexEntries[18].text"
+    ],
+    "visualIdea": "Animate Shellder detaching from Slowbro, then morph Slowbro back into Slowpoke.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 5,
+      "specificity": 5,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 25,
+    "note": "A genuinely unusual reversal rule tied directly to Shellder’s attachment. Multiple Pokédex entries explicitly say Slowbro returns to Slowpoke if Shellder detaches, creating a clear and memorable visual payoff."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "the-reversible-evolution",
+          "premise": "Slowbro can revert to Slowpoke if the Shellder on its tail breaks off or lets go.",
+          "hook": "Slowbro’s evolution has an undo button: remove the Shellder.",
+          "archetype": "transformation",
+          "evidence": [
+            "pokedexEntries[1].text",
+            "pokedexEntries[2].text",
+            "pokedexEntries[16].text",
+            "pokedexEntries[18].text"
+          ],
+          "visualIdea": "Animate Shellder detaching from Slowbro, then morph Slowbro back into Slowpoke.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 25,
+          "note": "A genuinely unusual reversal rule tied directly to Shellder’s attachment. Multiple Pokédex entries explicitly say Slowbro returns to Slowpoke if Shellder detaches, creating a clear and memorable visual payoff."
+        },
+        {
+          "id": "inspiration-forgotten",
+          "premise": "Shellder’s hard bite gives Slowbro flashes of inspiration, but Slowbro forgets them moments later.",
+          "hook": "Shellder gives Slowbro brilliant ideas—and Slowbro instantly forgets them.",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[9].text",
+            "pokedexEntries[14].text"
+          ],
+          "visualIdea": "Show a lightbulb over Slowbro, then erase it seconds later as its blank expression returns.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 25,
+          "note": "The bite granting momentary inspiration that is immediately forgotten is an unusually concrete contradiction and is directly supported by two Pokédex entries. Strong character hook with simple visual storytelling."
+        },
+        {
+          "id": "forced-to-swim",
+          "premise": "Once Shellder blocks Slowbro’s fishing tail, Slowbro reluctantly has to swim and catch prey instead.",
+          "hook": "Shellder ruins Slowbro’s fishing technique—and forces it to hunt differently.",
+          "archetype": "comparison",
+          "evidence": [
+            "pokedexEntries[5].text",
+            "pokedexEntries[6].text"
+          ],
+          "visualIdea": "Contrast Slowpoke fishing with its tail against Slowbro awkwardly swimming after prey.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 23,
+          "note": "A concrete behavioral consequence with excellent before-and-after visuals, directly backed by Ruby and Emerald. It is less instantly shocking than the reversal or inspiration angles."
+        },
+        {
+          "id": "the-tail-too-sweet",
+          "premise": "Shellder refuses to let go because Slowbro’s tail oozes a tasty sweetness that feels like a dream.",
+          "hook": "Shellder is not trapped on Slowbro—it refuses to leave.",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[4].text",
+            "pokedexEntries[12].text",
+            "pokedexEntries[17].text"
+          ],
+          "visualIdea": "Zoom into Slowbro’s tail as sweet vapor attracts Shellder, which spirals into its shell form.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 4,
+            "visual": 4,
+            "support": 4
+          },
+          "total": 22,
+          "note": "Shellder’s refusal to let go because of the tail’s sweetness is highly distinctive and surprising. The proposed sweet vapor is an embellishment rather than a stated visual, and the metamorphosis detail is suggestive but not fully explained."
+        },
+        {
+          "id": "shellder-powered-evolution",
+          "premise": "Slowpoke evolves into Slowbro when Shellder bites its tail, turning a bite into an evolution trigger.",
+          "hook": "Slowbro’s evolution starts with another Pokémon biting it.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[7].text",
+            "evolutionChain[1].method",
+            "evolutionChain[1].evolvesFrom"
+          ],
+          "visualIdea": "Show Slowpoke, a Shellder biting its tail, then the evolution flash into Slowbro.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 3,
+            "specificity": 4,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 21,
+          "note": "The bite-triggered evolution is highly specific and easy to animate, but many fans already know Slowbro evolves through Shellder. The Pokédex supports the bite story, while the evolution data separately lists level 37."
+        },
+        {
+          "id": "poisoned-into-spacing-out",
+          "premise": "Shellder’s seeping poison makes Slowbro lose pain and become even spacier than it already was.",
+          "hook": "Slowbro’s tail parasite changes not just its body, but its mind.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[3].text",
+            "pokedexEntries[13].text",
+            "pokedexEntries[15].text"
+          ],
+          "visualIdea": "Layer poison flowing from Shellder into Slowbro, followed by pain disappearing and thought bubbles fading.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 4,
+            "support": 4
+          },
+          "total": 20,
+          "note": "The poison, lost pain sensation, and increased spaciness are supported, but calling Shellder a parasite and presenting one direct mental transformation slightly overstates the entries."
+        }
+      ],
+      "rejected": [],
+      "request": "The chosen angle is strong enough. A stronger alternative would need an equally specific rule or contradiction, direct multi-entry support, and a visual transformation that clearly changes what viewers believe about Slowbro."
+    }
+  ]
+}

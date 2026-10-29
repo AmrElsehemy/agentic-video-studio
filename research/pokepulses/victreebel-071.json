@@ -1,0 +1,176 @@
+{
+  "schemaVersion": 1,
+  "id": "victreebel-071",
+  "number": 71,
+  "index": "#071",
+  "name": "Victreebel",
+  "slug": "victreebel",
+  "category": "Flycatcher Pokémon",
+  "generation": "Generation I",
+  "isLegendary": false,
+  "isMythical": false,
+  "types": [
+    "Grass",
+    "Poison"
+  ],
+  "heightMeters": 1.7,
+  "weightKg": 15.5,
+  "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/71.png",
+  "pokedexEntries": [
+    {
+      "game": "Red",
+      "text": "Said to live in huge colonies deep in jungles, although no one has ever returned from there."
+    },
+    {
+      "game": "Yellow",
+      "text": "Lures prey with the sweet aroma of honey. Swallowed whole, the prey is melted in a day, bones and all."
+    },
+    {
+      "game": "Gold",
+      "text": "ACID that has dis solved many prey becomes sweeter, making it even more effective at attracting prey."
+    },
+    {
+      "game": "Silver",
+      "text": "This horrifying plant POKéMON at tracts prey with aromatic honey, then melts them in its mouth."
+    },
+    {
+      "game": "Crystal",
+      "text": "Once ingested into this POKéMON's body, even the hardest object will melt into nothing."
+    },
+    {
+      "game": "Ruby",
+      "text": "VICTREEBEL has a long vine that extends from its head. This vine is waved and flicked about as if it were an animal to attract prey. When an unsuspecting prey draws near, this POKéMON swallows it whole."
+    },
+    {
+      "game": "Emerald",
+      "text": "The long vine extending from its head is waved about as if it were a living thing to attract prey. When an unsuspecting victim approaches, it is swallowed whole."
+    },
+    {
+      "game": "Firered",
+      "text": "Lures prey into its mouth with a honeylike aroma. The helpless prey is melted with a dissolving fluid."
+    },
+    {
+      "game": "Diamond",
+      "text": "It pools in its mouth a fluid with a honeylike scent, which is really an acid that dissolves anything."
+    },
+    {
+      "game": "Heartgold",
+      "text": "Acid that has dissolved many prey becomes sweeter, making it even more effective at attracting prey."
+    },
+    {
+      "game": "Soulsilver",
+      "text": "This horrifying plant Pokémon attracts prey with aromatic honey, then melts them in its mouth."
+    },
+    {
+      "game": "Black 2",
+      "text": "It pools in its mouth a fluid with a honey-like scent, which is really an acid that dissolves anything."
+    },
+    {
+      "game": "Y",
+      "text": "Once ingested into this Pokémon’s body, even the hardest object will melt into nothing."
+    },
+    {
+      "game": "Lets Go Pikachu",
+      "text": "Lures prey with the sweet aroma of honey. Swallowed whole, the prey is dissolved in a day, bones and all."
+    }
+  ],
+  "evolutionChain": [
+    {
+      "name": "Bellsprout",
+      "index": "#069",
+      "stage": 1,
+      "types": [
+        "Grass",
+        "Poison"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/69.png",
+      "isSubject": false
+    },
+    {
+      "name": "Weepinbell",
+      "index": "#070",
+      "stage": 2,
+      "evolvesFrom": "Bellsprout",
+      "method": "Level Up, level 21",
+      "types": [
+        "Grass",
+        "Poison"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/70.png",
+      "isSubject": false
+    },
+    {
+      "name": "Victreebel",
+      "index": "#071",
+      "stage": 3,
+      "evolvesFrom": "Weepinbell",
+      "method": "Use Item, Leaf Stone",
+      "types": [
+        "Grass",
+        "Poison"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/71.png",
+      "isSubject": true
+    }
+  ],
+  "varieties": [
+    {
+      "name": "Victreebel Mega",
+      "types": [
+        "Grass",
+        "Poison"
+      ],
+      "heightMeters": 4.5,
+      "weightKg": 125.5,
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10279.png"
+    }
+  ],
+  "lore": [],
+  "tiers": {
+    "official": [
+      "name",
+      "index",
+      "number",
+      "category",
+      "generation",
+      "isLegendary",
+      "isMythical",
+      "types",
+      "heightMeters",
+      "weightKg",
+      "pokedexEntries",
+      "evolutionChain[].name",
+      "evolutionChain[].index",
+      "evolutionChain[].types",
+      "evolutionChain[].stage",
+      "varieties[].types",
+      "varieties[].heightMeters",
+      "varieties[].weightKg"
+    ],
+    "trusted_secondary": [
+      "evolutionChain[].method",
+      "evolutionChain[].evolvesFrom",
+      "varieties[].name"
+    ],
+    "community": [
+      "lore"
+    ]
+  },
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Victreebel",
+      "url": "https://www.pokemon.com/us/pokedex/victreebel",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Victreebel",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Victreebel_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Victreebel",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/71",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

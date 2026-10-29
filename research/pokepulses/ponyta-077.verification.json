@@ -1,0 +1,501 @@
+{
+  "episodeId": "ponyta-077",
+  "checkedAt": "2026-10-29T19:10:16.372Z",
+  "claims": [
+    {
+      "id": "c1",
+      "where": "title",
+      "text": "Ponyta Is Born Without Its Signature Fire",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[16].text",
+        "pokedexEntries[9].text"
+      ],
+      "note": "The research establishes that newborn Ponyta lack their fiery mane and that the mane and tail develop later, but it does not explicitly say Ponyta is born without fire itself.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c2",
+      "where": "premise",
+      "text": "Newborn Ponyta lack their fiery mane and tail, which grow out about one hour after birth.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[16].text",
+        "pokedexEntries[9].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c3",
+      "where": "audiencePromise",
+      "text": "Watch a plain newborn Ponyta transform into the fiery Pokémon fans recognize.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[16].text",
+        "pokedexEntries[9].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c4",
+      "where": "openLoop",
+      "text": "What changes during Ponyta's first hour?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c5",
+      "where": "payoff",
+      "text": "About an hour after birth, Ponyta gains the fiery mane and tail behind its impressive appearance.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[9].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c6",
+      "where": "scenes.born-without-fire.headline",
+      "text": "BORN WITHOUT FIRE",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[16].text",
+        "pokedexEntries[9].text"
+      ],
+      "note": "The research supports being born without the fiery mane and tail, but not literally being born without fire itself.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c7",
+      "where": "scenes.born-without-fire.narration",
+      "text": "Ponyta is born without its signature fire.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[16].text",
+        "pokedexEntries[9].text"
+      ],
+      "note": "This compresses the absence of the fiery mane and tail into 'without fire'; the research does not explicitly say all fire is absent.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c8",
+      "where": "scenes.born-without-fire.caption",
+      "text": "THE FIRE COMES LATER",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[16].text",
+        "pokedexEntries[9].text"
+      ],
+      "note": "Later development of the fiery mane and tail is supported, but 'the fire' is a looser shorthand than the researched wording.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c9",
+      "where": "scenes.born-without-fire.eyebrow",
+      "text": "NEWBORN PONYTA",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c10",
+      "where": "scenes.plain-newborn.headline",
+      "text": "A PLAIN FOAL",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[16].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c11",
+      "where": "scenes.plain-newborn.narration",
+      "text": "At birth, this Fire Horse can barely stand, with no mane or tail.",
+      "verdict": "supported",
+      "evidence": [
+        "category",
+        "pokedexEntries[5].text",
+        "pokedexEntries[16].text",
+        "pokedexEntries[9].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c12",
+      "where": "scenes.plain-newborn.caption",
+      "text": "NO FIERY MANE. NO FIERY TAIL.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[16].text",
+        "pokedexEntries[9].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c13",
+      "where": "scenes.plain-newborn.eyebrow",
+      "text": "AT BIRTH",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c14",
+      "where": "scenes.plain-newborn.facts[0]",
+      "text": "BARELY STANDS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c15",
+      "where": "scenes.plain-newborn.facts[1]",
+      "text": "NO MANE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[16].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c16",
+      "where": "scenes.plain-newborn.facts[2]",
+      "text": "NO TAIL",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[9].text",
+        "pokedexEntries[16].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c17",
+      "where": "scenes.one-hour-countdown.headline",
+      "text": "COUNTDOWN TO FIRE",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[9].text",
+        "pokedexEntries[16].text"
+      ],
+      "note": "The timing of the mane and tail's development is supported, but 'countdown to fire' is a dramatic shorthand rather than the precise researched event.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c18",
+      "where": "scenes.one-hour-countdown.narration",
+      "text": "A one-hour countdown marks when the missing fire appears.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[9].text",
+        "pokedexEntries[16].text"
+      ],
+      "note": "The research says the mane and tail develop about an hour after birth, not that missing fire itself appears at a countdown mark.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c19",
+      "where": "scenes.one-hour-countdown.caption",
+      "text": "THE TRANSFORMATION IS TIMED",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[9].text",
+        "pokedexEntries[16].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c20",
+      "where": "scenes.one-hour-countdown.eyebrow",
+      "text": "THE FIRST HOUR",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c21",
+      "where": "scenes.one-hour-countdown.facts[0]",
+      "text": "ABOUT ONE HOUR",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[9].text",
+        "pokedexEntries[16].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c22",
+      "where": "scenes.mane-grows-out.headline",
+      "text": "THE FLAMES GROW OUT",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[9].text",
+        "pokedexEntries[16].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c23",
+      "where": "scenes.mane-grows-out.narration",
+      "text": "About an hour after birth, its fiery mane and tail grow out.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[9].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c24",
+      "where": "scenes.mane-grows-out.caption",
+      "text": "MANE AND TAIL: FINALLY HERE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[9].text",
+        "pokedexEntries[16].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c25",
+      "where": "scenes.mane-grows-out.eyebrow",
+      "text": "THE REVEAL",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c26",
+      "where": "scenes.mane-grows-out.facts[0]",
+      "text": "FIERY MANE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[9].text",
+        "pokedexEntries[16].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c27",
+      "where": "scenes.mane-grows-out.facts[1]",
+      "text": "FIERY TAIL",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[9].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c28",
+      "where": "scenes.fiery-appearance.headline",
+      "text": "NOW IT LOOKS LIKE PONYTA",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[9].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c29",
+      "where": "scenes.fiery-appearance.narration",
+      "text": "The plain newborn now has an impressive, fiery appearance.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[9].text",
+        "pokedexEntries[16].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c30",
+      "where": "scenes.fiery-appearance.caption",
+      "text": "THE ICONIC LOOK ISN'T THERE AT BIRTH",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[16].text",
+        "pokedexEntries[9].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c31",
+      "where": "scenes.fiery-appearance.eyebrow",
+      "text": "AFTER ONE HOUR",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[9].text",
+        "pokedexEntries[16].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c32",
+      "where": "scenes.plain-or-fiery.headline",
+      "text": "WHICH LOOK WINS?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c33",
+      "where": "scenes.plain-or-fiery.narration",
+      "text": "Which look wins: plain foal or fiery Ponyta?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c34",
+      "where": "scenes.plain-or-fiery.caption",
+      "text": "PLAIN FOAL OR FIERY PONYTA?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c35",
+      "where": "scenes.plain-or-fiery.eyebrow",
+      "text": "YOUR CALL",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    }
+  ],
+  "unsupported": [],
+  "uncertain": [
+    {
+      "id": "c1",
+      "where": "title",
+      "text": "Ponyta Is Born Without Its Signature Fire",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[16].text",
+        "pokedexEntries[9].text"
+      ],
+      "note": "The research establishes that newborn Ponyta lack their fiery mane and that the mane and tail develop later, but it does not explicitly say Ponyta is born without fire itself.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c6",
+      "where": "scenes.born-without-fire.headline",
+      "text": "BORN WITHOUT FIRE",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[16].text",
+        "pokedexEntries[9].text"
+      ],
+      "note": "The research supports being born without the fiery mane and tail, but not literally being born without fire itself.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c7",
+      "where": "scenes.born-without-fire.narration",
+      "text": "Ponyta is born without its signature fire.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[16].text",
+        "pokedexEntries[9].text"
+      ],
+      "note": "This compresses the absence of the fiery mane and tail into 'without fire'; the research does not explicitly say all fire is absent.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c8",
+      "where": "scenes.born-without-fire.caption",
+      "text": "THE FIRE COMES LATER",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[16].text",
+        "pokedexEntries[9].text"
+      ],
+      "note": "Later development of the fiery mane and tail is supported, but 'the fire' is a looser shorthand than the researched wording.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c17",
+      "where": "scenes.one-hour-countdown.headline",
+      "text": "COUNTDOWN TO FIRE",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[9].text",
+        "pokedexEntries[16].text"
+      ],
+      "note": "The timing of the mane and tail's development is supported, but 'countdown to fire' is a dramatic shorthand rather than the precise researched event.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c18",
+      "where": "scenes.one-hour-countdown.narration",
+      "text": "A one-hour countdown marks when the missing fire appears.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[9].text",
+        "pokedexEntries[16].text"
+      ],
+      "note": "The research says the mane and tail develop about an hour after birth, not that missing fire itself appears at a countdown mark.",
+      "tier": "official",
+      "checkedBy": "model"
+    }
+  ]
+}

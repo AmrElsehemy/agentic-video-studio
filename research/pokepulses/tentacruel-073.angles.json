@@ -1,0 +1,160 @@
+{
+  "episodeId": "tentacruel-073",
+  "createdAt": "2026-10-29T18:59:52.614Z",
+  "chosen": {
+    "id": "aging-removes-tentacles",
+    "premise": "Tentacruel normally has 80 poisonous tentacles, but older individuals have fewer.",
+    "hook": "Tentacruel gets older—and starts losing its tentacles.",
+    "archetype": "comparison",
+    "evidence": [
+      "pokedexEntries[14].text"
+    ],
+    "visualIdea": "Compare a young Tentacruel labeled 80 tentacles with an older one whose tentacles fade away.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 5,
+      "specificity": 5,
+      "visual": 4,
+      "support": 4
+    },
+    "total": 23,
+    "note": "A remarkably Pokémon-specific contradiction: Tentacruel is defined by having 80 tentacles, yet older individuals have fewer. The single Pokédex entry supports it directly, though it gives no rate or explanation for the loss."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "aging-removes-tentacles",
+          "premise": "Tentacruel normally has 80 poisonous tentacles, but older individuals have fewer.",
+          "hook": "Tentacruel gets older—and starts losing its tentacles.",
+          "archetype": "comparison",
+          "evidence": [
+            "pokedexEntries[14].text"
+          ],
+          "visualIdea": "Compare a young Tentacruel labeled 80 tentacles with an older one whose tentacles fade away.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 4,
+            "support": 4
+          },
+          "total": 23,
+          "note": "A remarkably Pokémon-specific contradiction: Tentacruel is defined by having 80 tentacles, yet older individuals have fewer. The single Pokédex entry supports it directly, though it gives no rate or explanation for the loss."
+        },
+        {
+          "id": "water-powered-poison-net",
+          "premise": "Tentacruel absorbs water through its tentacles, stretches them almost endlessly, and forms a poisonous net.",
+          "hook": "Tentacruel drinks water—and turns its body into a trap.",
+          "archetype": "transformation",
+          "evidence": [
+            "pokedexEntries[2].text",
+            "pokedexEntries[4].text",
+            "pokedexEntries[12].text"
+          ],
+          "visualIdea": "Animate short tentacles absorbing water, then extending into a wide, enclosing poisonous net.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 23,
+          "note": "The research directly connects water absorption, extreme tentacle extension, and a poisonous net. It is a coherent transformation, though several entries describe related steps rather than one complete mechanism."
+        },
+        {
+          "id": "eighty-prey-at-once",
+          "premise": "Tentacruel can catch up to 80 prey at once, using its 80 freely moving tentacles.",
+          "hook": "How many prey can one Tentacruel catch at the same time? Eighty.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[6].text",
+            "pokedexEntries[1].text"
+          ],
+          "visualIdea": "Show 80 tentacles branching outward, each wrapping around a separate fish silhouette.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 22,
+          "note": "The 80-prey claim is concrete and highly visual, but the evidence says it can catch up to 80 prey—not necessarily one prey per tentacle—so the tentacle-to-prey implication should be phrased carefully."
+        },
+        {
+          "id": "red-orb-warning-system",
+          "premise": "Tentacruel’s red orbs communicate warnings and signal that an ultrasonic attack is about to fire.",
+          "hook": "Those red orbs aren’t decoration—they’re Tentacruel’s warning system.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[10].text",
+            "pokedexEntries[17].text",
+            "pokedexEntries[18].text"
+          ],
+          "visualIdea": "Zoom into the red orbs as they blink a warning, then flash brightly before ultrasonic waves erupt.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 22,
+          "note": "The evidence clearly supports blinking orbs as communication and bright orbs as a pre-attack signal. Strong screen language, but the premise combines warning communication with ultrasonic weapon activation."
+        },
+        {
+          "id": "the-fish-disappearing-outbreak",
+          "premise": "When a large Tentacruel outbreak occurs, all fish Pokémon disappear from the surrounding sea.",
+          "hook": "A Tentacruel outbreak can empty an entire sea of fish Pokémon.",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[15].text"
+          ],
+          "visualIdea": "Show a crowded sea suddenly emptying as multiple Tentacruel silhouettes spread across it.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 5,
+            "specificity": 4,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 22,
+          "note": "A striking ecological consequence backed directly by the Moon entry. It says fish Pokémon disappear during a large outbreak, but does not establish whether Tentacruel eat them, drive them away, or cause the disappearance another way."
+        },
+        {
+          "id": "level-thirty-evolution",
+          "premise": "Tentacool evolves into Tentacruel when it reaches level 30.",
+          "hook": "At level 30, Tentacool becomes this 80-tentacled hunter.",
+          "archetype": "transformation",
+          "evidence": [
+            "evolutionChain[0].name",
+            "evolutionChain[1].name",
+            "evolutionChain[1].method"
+          ],
+          "visualIdea": "Display Tentacool beside Tentacruel, with a level counter climbing to 30 before the evolution.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 3,
+            "surprise": 2,
+            "specificity": 5,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 19,
+          "note": "Very clear and easy to animate, but level-30 evolution is standard Pokémon trivia and is less distinctive or surprising than Tentacruel’s biology. The evolution method is from trusted secondary research rather than a Pokédex entry."
+        }
+      ],
+      "rejected": [],
+      "request": "The chosen angle is strong enough. Even stronger research would add a concrete age threshold, a typical tentacle count at different ages, or an explanation for why Tentacruel loses tentacles over time."
+    }
+  ]
+}

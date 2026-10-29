@@ -1,0 +1,148 @@
+{
+  "episodeId": "magikarp-129",
+  "createdAt": "2026-10-29T18:49:06.817Z",
+  "chosen": {
+    "id": "seven-foot-ceiling",
+    "premise": "Magikarp can leap high, but its rare jumps never exceed seven feet—unless it has lived long enough to leap a mountain.",
+    "hook": "Magikarp has a seven-foot jump limit... with one absurd exception.",
+    "archetype": "mystery",
+    "evidence": [
+      "pokedexEntries[2].text",
+      "pokedexEntries[12].text"
+    ],
+    "visualIdea": "Show a seven-foot height marker, then smash-cut to an aged Magikarp vaulting over a mountain.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 5,
+      "specificity": 5,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 25,
+    "note": "A highly specific contradiction directly supported by two Pokédex entries: a usual seven-foot ceiling versus a mountain-leaping exception. The visual escalation is immediate and clear."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "seven-foot-ceiling",
+          "premise": "Magikarp can leap high, but its rare jumps never exceed seven feet—unless it has lived long enough to leap a mountain.",
+          "hook": "Magikarp has a seven-foot jump limit... with one absurd exception.",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[2].text",
+            "pokedexEntries[12].text"
+          ],
+          "visualIdea": "Show a seven-foot height marker, then smash-cut to an aged Magikarp vaulting over a mountain.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 25,
+          "note": "A highly specific contradiction directly supported by two Pokédex entries: a usual seven-foot ceiling versus a mountain-leaping exception. The visual escalation is immediate and clear."
+        },
+        {
+          "id": "current-delivery",
+          "premise": "Magikarp cannot swim against even slow currents, so rivers wash them into pools and deposit them there.",
+          "hook": "Magikarp doesn't choose its pond—the river delivers it.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[7].text",
+            "pokedexEntries[10].text",
+            "pokedexEntries[4].text"
+          ],
+          "visualIdea": "Animate Magikarp drifting down a river, collecting in a pool like fish being deposited by a conveyor belt.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 24,
+          "note": "Very concrete, unusually specific behavior with excellent animation potential. It is slightly less surprising to knowledgeable fans because Magikarp’s poor swimming is well known."
+        },
+        {
+          "id": "weakest-survivor",
+          "premise": "The Pokédex calls Magikarp the world's weakest Pokémon, yet it survives in polluted water anywhere in the world.",
+          "hook": "The world's weakest Pokémon may also be one of its toughest survivors.",
+          "archetype": "comparison",
+          "evidence": [
+            "pokedexEntries[9].text",
+            "pokedexEntries[6].text",
+            "pokedexEntries[16].text"
+          ],
+          "visualIdea": "Contrast a flopping Magikarp labeled “weakest” with increasingly murky water it calmly survives in.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 22,
+          "note": "Strongly supported and visually clear, but the weak-versus-tough-survivor contrast is a familiar Magikarp framing and less distinctive than the jump-limit contradiction."
+        },
+        {
+          "id": "backward-evolution",
+          "premise": "Magikarp was once stronger, but gradually weakened over time before evolving at level 20 into Gyarados.",
+          "hook": "Magikarp's origin story is a Pokémon getting weaker before getting stronger.",
+          "archetype": "transformation",
+          "evidence": [
+            "pokedexEntries[0].text",
+            "pokedexEntries[15].text",
+            "evolutionChain[1].method",
+            "evolutionChain[1].name"
+          ],
+          "visualIdea": "Show a timeline draining Magikarp's strength, then trigger level 20 and transform it into Gyarados.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 4,
+            "visual": 4,
+            "support": 4
+          },
+          "total": 22,
+          "note": "The weakening-before-evolving premise is compelling, but the research does not establish a direct causal timeline between ancient strength, gradual decline, and level-20 evolution. The transformation visual is also more conventional."
+        },
+        {
+          "id": "predator-benefactor",
+          "premise": "Magikarp's reckless jumping makes it easy prey, but its abundance lets many Pokémon live longer by feeding on it.",
+          "hook": "Magikarp's worst habit may be helping other Pokémon survive.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[3].text",
+            "pokedexEntries[14].text"
+          ],
+          "visualIdea": "Follow a jumping Magikarp spotted by a predator, then widen out to countless Magikarp feeding entire ecosystems.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 3,
+            "visual": 4,
+            "support": 3
+          },
+          "total": 18,
+          "note": "The predator-and-food-web contrast is supported, but “feeding entire ecosystems” overstates the evidence, which only says many Pokémon enjoy longer life spans thanks to Magikarp."
+        }
+      ],
+      "rejected": [
+        {
+          "id": "splash-isnt-useless",
+          "reason": "unknown story shape \"contradiction\""
+        }
+      ],
+      "request": "N/A—the seven-foot-ceiling angle is strong enough. A stronger alternative would need an equally specific contradiction or hard rule, direct support from multiple Pokédex entries, and a visually immediate escalation."
+    }
+  ]
+}

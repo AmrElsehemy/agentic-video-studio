@@ -1,0 +1,172 @@
+{
+  "schemaVersion": 1,
+  "id": "rapidash-078",
+  "number": 78,
+  "index": "#078",
+  "name": "Rapidash",
+  "slug": "rapidash",
+  "category": "Fire Horse Pokémon",
+  "generation": "Generation I",
+  "isLegendary": false,
+  "isMythical": false,
+  "types": [
+    "Fire"
+  ],
+  "heightMeters": 1.7,
+  "weightKg": 95,
+  "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/78.png",
+  "pokedexEntries": [
+    {
+      "game": "Red",
+      "text": "Very competitive, this POKéMON will chase anything that moves fast in the hopes of racing it."
+    },
+    {
+      "game": "Yellow",
+      "text": "Just loves to run. If it sees some thing faster than itself, it will give chase at top speed."
+    },
+    {
+      "game": "Gold",
+      "text": "At full gallop, its four hooves barely touch the ground because it moves so incredi bly fast."
+    },
+    {
+      "game": "Silver",
+      "text": "With incredible acceleration, it reaches its top speed of 150 mph after running just ten steps."
+    },
+    {
+      "game": "Crystal",
+      "text": "It just loves to gallop. The faster it goes, the long er the swaying flames of its mane will become."
+    },
+    {
+      "game": "Ruby",
+      "text": "RAPIDASH usually can be seen casually cantering in the fields and plains. However, when this POKéMON turns serious, its fiery manes flare and blaze as it gallops its way up to 150 mph."
+    },
+    {
+      "game": "Emerald",
+      "text": "It usually canters casually in the fields and plains. But once a RAPIDASH turns serious, its fiery manes flare and blaze as it gallops its way up to 150 mph."
+    },
+    {
+      "game": "Firered",
+      "text": "It can gallop at a top speed of 150 miles per hour. It can race as fast as a bullet train while ablaze."
+    },
+    {
+      "game": "Diamond",
+      "text": "It gallops at nearly 150 mph. With its mane blazing ferociously, it races as if it were an arrow."
+    },
+    {
+      "game": "Pearl",
+      "text": "It has astounding acceleration. From a standstill, it can reach top speed within 10 steps."
+    },
+    {
+      "game": "Platinum",
+      "text": "When at an all-out gallop, its blazing mane sparkles, enhancing its beautiful appearance."
+    },
+    {
+      "game": "Heartgold",
+      "text": "At full gallop, its four hooves barely touch the ground because it moves so incredibly fast."
+    },
+    {
+      "game": "Soulsilver",
+      "text": "With incredible acceleration, it reaches its top speed of 150 mph after running just 10 steps."
+    },
+    {
+      "game": "Lets Go Pikachu",
+      "text": "Just loves to run. If it sees something faster than itself, it will give chase at top speed."
+    },
+    {
+      "game": "Sword",
+      "text": "This Pokémon can be seen galloping through fields at speeds of up to 150 mph, its fiery mane fluttering in the wind."
+    },
+    {
+      "game": "Shield",
+      "text": "The fastest runner becomes the leader, and it decides the herd’s pace and direction of travel."
+    },
+    {
+      "game": "Legends Arceus",
+      "text": "Fiery mane aglow, Rapidash darts like an arrow across the land. This prodigiously swift creature can traverse the vast region of Hisui in a day and a half."
+    }
+  ],
+  "evolutionChain": [
+    {
+      "name": "Ponyta",
+      "index": "#077",
+      "stage": 1,
+      "types": [
+        "Fire"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/77.png",
+      "isSubject": false
+    },
+    {
+      "name": "Rapidash",
+      "index": "#078",
+      "stage": 2,
+      "evolvesFrom": "Ponyta",
+      "method": "Level Up, level 40",
+      "types": [
+        "Fire"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/78.png",
+      "isSubject": true
+    }
+  ],
+  "varieties": [
+    {
+      "name": "Rapidash Galar",
+      "types": [
+        "Psychic",
+        "Fairy"
+      ],
+      "heightMeters": 1.7,
+      "weightKg": 80,
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10163.png"
+    }
+  ],
+  "lore": [],
+  "tiers": {
+    "official": [
+      "name",
+      "index",
+      "number",
+      "category",
+      "generation",
+      "isLegendary",
+      "isMythical",
+      "types",
+      "heightMeters",
+      "weightKg",
+      "pokedexEntries",
+      "evolutionChain[].name",
+      "evolutionChain[].index",
+      "evolutionChain[].types",
+      "evolutionChain[].stage",
+      "varieties[].types",
+      "varieties[].heightMeters",
+      "varieties[].weightKg"
+    ],
+    "trusted_secondary": [
+      "evolutionChain[].method",
+      "evolutionChain[].evolvesFrom",
+      "varieties[].name"
+    ],
+    "community": [
+      "lore"
+    ]
+  },
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Rapidash",
+      "url": "https://www.pokemon.com/us/pokedex/rapidash",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Rapidash",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Rapidash_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Rapidash",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/78",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

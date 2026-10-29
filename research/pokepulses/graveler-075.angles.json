@@ -1,0 +1,164 @@
+{
+  "episodeId": "graveler-075",
+  "createdAt": "2026-10-29T19:05:14.766Z",
+  "chosen": {
+    "id": "mountain-round-trip",
+    "premise": "Graveler climbs a mountain while eating rocks, then rolls all the way back to the bottom.",
+    "hook": "Graveler’s daily routine is one enormous mountain round trip.",
+    "archetype": "transformation",
+    "evidence": [
+      "pokedexEntries[6].text",
+      "pokedexEntries[15].text"
+    ],
+    "visualIdea": "Animate Graveler crunching rocks uphill, reaching the summit, then curling into a ball and rolling down.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 4,
+      "specificity": 5,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 24,
+    "note": "A highly Graveler-specific routine with two directly matching Pokédex entries; the uphill eating and downhill roll create a clear visual story."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "mountain-round-trip",
+          "premise": "Graveler climbs a mountain while eating rocks, then rolls all the way back to the bottom.",
+          "hook": "Graveler’s daily routine is one enormous mountain round trip.",
+          "archetype": "transformation",
+          "evidence": [
+            "pokedexEntries[6].text",
+            "pokedexEntries[15].text"
+          ],
+          "visualIdea": "Animate Graveler crunching rocks uphill, reaching the summit, then curling into a ball and rolling down.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 24,
+          "note": "A highly Graveler-specific routine with two directly matching Pokédex entries; the uphill eating and downhill roll create a clear visual story."
+        },
+        {
+          "id": "summit-reset",
+          "premise": "Graveler repeatedly climbs toward a mountain peak only to roll back down the same mountain.",
+          "hook": "Graveler reaches the top of the mountain just to undo the entire climb.",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[6].text",
+            "pokedexEntries[15].text"
+          ],
+          "visualIdea": "Track Graveler’s uphill route on a mountain diagram, then reverse the path in one long downhill roll.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 24,
+          "note": "A concrete, amusing contradiction in Graveler's routine, but it is narrower and less layered than the mountain round trip because it omits the rock-eating behavior."
+        },
+        {
+          "id": "river-last-gasp",
+          "premise": "Graveler’s rolling journey has a bizarre fail state: falling into a river makes it explode.",
+          "hook": "There is one place Graveler absolutely should not roll into.",
+          "archetype": "comparison",
+          "evidence": [
+            "pokedexEntries[4].text",
+            "pokedexEntries[17].text"
+          ],
+          "visualIdea": "Contrast Graveler surviving cliffs and boulders with a river warning sign, followed by a sudden explosion effect.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 4,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 23,
+          "note": "The river explosion is the biggest shock, but it relies on a single unusual entry and offers less narrative substance for a full episode."
+        },
+        {
+          "id": "breakaway-body",
+          "premise": "Graveler treats losing body parts during mountain rolls as completely normal.",
+          "hook": "Graveler can lose pieces of itself and simply keep rolling.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[2].text",
+            "pokedexEntries[10].text",
+            "pokedexEntries[12].text"
+          ],
+          "visualIdea": "As Graveler tumbles downhill, small rocky pieces chip off while it continues without reacting.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 5,
+            "specificity": 4,
+            "visual": 4,
+            "support": 5
+          },
+          "total": 22,
+          "note": "Genuinely disturbing and well supported, though 'body parts' is somewhat stronger wording than the entries' 'pieces' and 'chipping off.'"
+        },
+        {
+          "id": "rocks-for-breakfast",
+          "premise": "Graveler eats a ton of rocks every day, especially rocks covered in moss.",
+          "hook": "Graveler does not live on rocks—it eats a ton of them daily.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[5].text",
+            "pokedexEntries[6].text",
+            "pokedexEntries[13].text",
+            "pokedexEntries[10].text"
+          ],
+          "visualIdea": "Pile up mossy boulders like a meal, then show Graveler crunching through them with a daily counter.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 22,
+          "note": "The daily rock diet and moss preference are directly supported and easy to depict, but eating rocks is an expected trait for a Rock Pokémon and less distinctive than the round trip."
+        },
+        {
+          "id": "unstoppable-momentum",
+          "premise": "Once Graveler builds momentum, it rolls straight through obstacles and can exceed 60 miles per hour.",
+          "hook": "At full speed, Graveler does not dodge obstacles—it deletes them.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[0].text",
+            "pokedexEntries[11].text",
+            "pokedexEntries[14].text",
+            "pokedexEntries[7].text"
+          ],
+          "visualIdea": "Show a speed gauge passing 60 mph as trees, boulders, and trail obstacles vanish from Graveler’s path.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 21,
+          "note": "Strong action premise and excellent visuals, but the hook exaggerates the evidence slightly, and the basic unstoppable-roller idea overlaps with Graveler's broader identity."
+        }
+      ],
+      "rejected": []
+    }
+  ]
+}

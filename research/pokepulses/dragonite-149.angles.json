@@ -1,0 +1,174 @@
+{
+  "episodeId": "dragonite-149",
+  "createdAt": "2026-10-29T18:31:14.685Z",
+  "chosen": {
+    "id": "the-island-of-dragonite",
+    "premise": "One account says Dragonite saved a shipwrecked man, while another places an island paradise inhabited only by Dragonite.",
+    "hook": "Dragonite may have its own island—and one survivor was taken there.",
+    "archetype": "mystery",
+    "evidence": [
+      "pokedexEntries[4].text",
+      "pokedexEntries[13].text",
+      "pokedexEntries[9].text"
+    ],
+    "visualIdea": "Trace a shipwreck survivor across the ocean to a hidden island populated only by Dragonite.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 5,
+      "specificity": 4,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 24,
+    "note": "The hidden island, sole inhabitants, and rescued survivor form a distinctive mystery directly backed by multiple Pokédex entries. Keep the wording cautious because the entries present it as legend or hearsay."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "the-island-of-dragonite",
+          "premise": "One account says Dragonite saved a shipwrecked man, while another places an island paradise inhabited only by Dragonite.",
+          "hook": "Dragonite may have its own island—and one survivor was taken there.",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[4].text",
+            "pokedexEntries[13].text",
+            "pokedexEntries[9].text"
+          ],
+          "visualIdea": "Trace a shipwreck survivor across the ocean to a hidden island populated only by Dragonite.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 24,
+          "note": "The hidden island, sole inhabitants, and rescued survivor form a distinctive mystery directly backed by multiple Pokédex entries. Keep the wording cautious because the entries present it as legend or hearsay."
+        },
+        {
+          "id": "same-height-mega-weight",
+          "premise": "Mega Dragonite stays 2.2 meters tall but rises from 210 kg to 290 kg.",
+          "hook": "Mega Dragonite gets 80 kilograms heavier without getting any taller.",
+          "archetype": "comparison",
+          "evidence": [
+            "heightMeters",
+            "weightKg",
+            "varieties[0].name",
+            "varieties[0].heightMeters",
+            "varieties[0].weightKg"
+          ],
+          "visualIdea": "Keep both silhouettes the same height while a scale jumps from 210 kg to 290 kg.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 24,
+          "note": "The unchanged height and exact 80 kg increase make an excellent visual comparison. Support is strong within the supplied data, but the Mega Dragonite variety is secondary rather than established across the main cited Pokédex evidence."
+        },
+        {
+          "id": "sixteen-hour-globe",
+          "premise": "Dragonite weighs 210 kg and looks bulky, yet it can circle the globe in only 16 hours.",
+          "hook": "How does a 210-kilogram Pokémon circle the globe in 16 hours?",
+          "archetype": "comparison",
+          "evidence": [
+            "weightKg",
+            "heightMeters",
+            "pokedexEntries[5].text",
+            "pokedexEntries[7].text"
+          ],
+          "visualIdea": "Show Dragonite's 210 kg stat beside a spinning globe and a 16-hour countdown.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 23,
+          "note": "The 210 kg versus 16-hour globe-circling contrast is concrete and well supported, though the basic bulky-but-fast comparison could fit several Pokémon."
+        },
+        {
+          "id": "the-flying-type-arrives-last",
+          "premise": "Dragonite evolves from two Dragon-only forms, gaining its Flying type only at level 55.",
+          "hook": "Dragonite does not become Flying-type until its final evolution.",
+          "archetype": "transformation",
+          "evidence": [
+            "evolutionChain[0].types",
+            "evolutionChain[1].types",
+            "evolutionChain[1].method",
+            "evolutionChain[2].types",
+            "evolutionChain[2].method"
+          ],
+          "visualIdea": "Animate Dratini into Dragonair at level 30, then Dragonite at level 55 as the Flying type appears.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 23,
+          "note": "A precise evolution rule with an easy type-and-level animation. It is strong, though type changes at evolution are not exclusive to Dragonite."
+        },
+        {
+          "id": "sea-incarnate-that-flies",
+          "premise": "Dragonite is described as a marine Pokémon that flies, but early Pokédex entries call its existence only a rumor.",
+          "hook": "Dragonite was once just a rumor: a sea creature that could fly.",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[0].text",
+            "pokedexEntries[1].text",
+            "pokedexEntries[15].text",
+            "pokedexEntries[19].text"
+          ],
+          "visualIdea": "Begin with a foggy ocean and rumor text, then reveal Dragonite above the waves as the Sea Incarnate.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 22,
+          "note": "The marine Pokémon that flies and was treated as a rumor is highly Dragonite-specific and visually strong. 'Just a rumor' slightly overstates entries that frame it as hearsay rather than denying its existence."
+        },
+        {
+          "id": "rescue-or-rampage",
+          "premise": "Dragonite constantly rescues drowning people, but angering this normally calm rescuer makes it smash everything.",
+          "hook": "Dragonite saves drowning people—until you make it angry.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[2].text",
+            "pokedexEntries[14].text",
+            "pokedexEntries[16].text",
+            "pokedexEntries[18].text"
+          ],
+          "visualIdea": "Split the screen between Dragonite lifting a swimmer to safety and a raging Dragonite smashing objects.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 21,
+          "note": "The kind rescuer versus destructive rage contradiction is compelling and supported, but the hook implies anger ends or reverses its rescue behavior, which the entries do not explicitly say."
+        }
+      ],
+      "rejected": [],
+      "request": "The chosen angle is strong enough. A stronger version would need a more explicit, source-backed connection between the shipwrecked survivor and the Dragonite-only island, rather than presenting two related Pokédex legends as one confirmed event."
+    }
+  ]
+}

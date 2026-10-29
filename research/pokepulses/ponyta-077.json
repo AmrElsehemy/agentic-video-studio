@@ -1,0 +1,171 @@
+{
+  "schemaVersion": 1,
+  "id": "ponyta-077",
+  "number": 77,
+  "index": "#077",
+  "name": "Ponyta",
+  "slug": "ponyta",
+  "category": "Fire Horse Pokémon",
+  "generation": "Generation I",
+  "isLegendary": false,
+  "isMythical": false,
+  "types": [
+    "Fire"
+  ],
+  "heightMeters": 1,
+  "weightKg": 30,
+  "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/77.png",
+  "pokedexEntries": [
+    {
+      "game": "Red",
+      "text": "Its hooves are 10 times harder than diamonds. It can trample anything completely flat in little time."
+    },
+    {
+      "game": "Yellow",
+      "text": "Capable of jumping incredibly high. Its hooves and sturdy legs absorb the impact of a hard landing."
+    },
+    {
+      "game": "Gold",
+      "text": "It is a weak run ner immediately after birth. It gradually becomes faster by chasing after its parents."
+    },
+    {
+      "game": "Silver",
+      "text": "Its hind legs, which have hard er-than-diamond hooves, kick back at any presence it senses behind it."
+    },
+    {
+      "game": "Crystal",
+      "text": "Training by jumping over grass that grows longer every day has made it a world-class jumper."
+    },
+    {
+      "game": "Ruby",
+      "text": "PONYTA is very weak at birth. It can barely stand up. This POKéMON becomes stronger by stumbling and falling to keep up with its parent."
+    },
+    {
+      "game": "Emerald",
+      "text": "A PONYTA is very weak at birth. It can barely stand up. Its legs become stronger as it stumbles and falls while trying to keep up with its parent."
+    },
+    {
+      "game": "Firered",
+      "text": "Its body is light, and its legs are incredibly powerful. It can clear Ayers Rock in one leap."
+    },
+    {
+      "game": "Leafgreen",
+      "text": "Its hooves are ten times harder than diamond. It can trample anything completely flat in little time."
+    },
+    {
+      "game": "Diamond",
+      "text": "About an hour after birth, its fiery mane and tail grow out, giving it an impressive appearance."
+    },
+    {
+      "game": "Pearl",
+      "text": "Its legs grow strong while it chases after its parent. It runs in fields and mountains all day."
+    },
+    {
+      "game": "Platinum",
+      "text": "As a newborn, it can barely stand. However, through galloping, its legs are made tougher and faster."
+    },
+    {
+      "game": "Heartgold",
+      "text": "It is a weak runner immediately after birth. It gradually becomes faster by chasing after its parents."
+    },
+    {
+      "game": "Soulsilver",
+      "text": "Its hind legs, which have hooves that are harder than diamond, kick back at any presence it senses behind it."
+    },
+    {
+      "game": "Sword",
+      "text": "It can’t run properly when it’s newly born. As it races around with others of its kind, its legs grow stronger."
+    },
+    {
+      "game": "Shield",
+      "text": "If you’ve been accepted by Ponyta, its burning mane is mysteriously no longer hot to the touch."
+    },
+    {
+      "game": "Legends Arceus",
+      "text": "These Pokémon live in herds out in the grassland. Newborn foals lack their fiery manes, which will develop about an hour after birth."
+    }
+  ],
+  "evolutionChain": [
+    {
+      "name": "Ponyta",
+      "index": "#077",
+      "stage": 1,
+      "types": [
+        "Fire"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/77.png",
+      "isSubject": true
+    },
+    {
+      "name": "Rapidash",
+      "index": "#078",
+      "stage": 2,
+      "evolvesFrom": "Ponyta",
+      "method": "Level Up, level 40",
+      "types": [
+        "Fire"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/78.png",
+      "isSubject": false
+    }
+  ],
+  "varieties": [
+    {
+      "name": "Ponyta Galar",
+      "types": [
+        "Psychic"
+      ],
+      "heightMeters": 0.8,
+      "weightKg": 24,
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10162.png"
+    }
+  ],
+  "lore": [],
+  "tiers": {
+    "official": [
+      "name",
+      "index",
+      "number",
+      "category",
+      "generation",
+      "isLegendary",
+      "isMythical",
+      "types",
+      "heightMeters",
+      "weightKg",
+      "pokedexEntries",
+      "evolutionChain[].name",
+      "evolutionChain[].index",
+      "evolutionChain[].types",
+      "evolutionChain[].stage",
+      "varieties[].types",
+      "varieties[].heightMeters",
+      "varieties[].weightKg"
+    ],
+    "trusted_secondary": [
+      "evolutionChain[].method",
+      "evolutionChain[].evolvesFrom",
+      "varieties[].name"
+    ],
+    "community": [
+      "lore"
+    ]
+  },
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Ponyta",
+      "url": "https://www.pokemon.com/us/pokedex/ponyta",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Ponyta",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Ponyta_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Ponyta",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/77",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

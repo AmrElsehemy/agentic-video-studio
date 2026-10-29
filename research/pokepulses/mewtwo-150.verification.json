@@ -1,0 +1,508 @@
+{
+  "episodeId": "mewtwo-150",
+  "checkedAt": "2026-10-29T18:34:36.259Z",
+  "claims": [
+    {
+      "id": "c1",
+      "where": "title",
+      "text": "Mewtwo's Mega Forms Split on Size",
+      "verdict": "supported",
+      "evidence": [
+        "varieties[0].name",
+        "varieties[1].name",
+        "varieties[0].heightMeters",
+        "varieties[1].heightMeters",
+        "varieties[0].weightKg",
+        "varieties[1].weightKg"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c2",
+      "where": "premise",
+      "text": "Mega Mewtwo X and Mega Mewtwo Y split dramatically on height and weight.",
+      "verdict": "supported",
+      "evidence": [
+        "varieties[0].heightMeters",
+        "varieties[1].heightMeters",
+        "varieties[0].weightKg",
+        "varieties[1].weightKg"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c3",
+      "where": "audiencePromise",
+      "text": "See how Mewtwo's Mega forms turn one body into two opposite physical builds.",
+      "verdict": "supported",
+      "evidence": [
+        "name",
+        "varieties[0].name",
+        "varieties[1].name",
+        "varieties[0].heightMeters",
+        "varieties[1].heightMeters",
+        "varieties[0].weightKg",
+        "varieties[1].weightKg"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c4",
+      "where": "openLoop",
+      "text": "How can Mewtwo's Mega forms split so far in size?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "This is a question/hook.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c5",
+      "where": "payoff",
+      "text": "Mega Mewtwo X is 2.3 meters and 127 kilograms. Y is 1.5 meters and 33 kilograms.",
+      "verdict": "supported",
+      "evidence": [
+        "varieties[0].name",
+        "varieties[0].heightMeters",
+        "varieties[0].weightKg",
+        "varieties[1].name",
+        "varieties[1].heightMeters",
+        "varieties[1].weightKg"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c6",
+      "where": "scenes.two-megas-one-size-fight.headline",
+      "text": "TWO MEGAS. OPPOSITE SIZES.",
+      "verdict": "supported",
+      "evidence": [
+        "varieties[0].name",
+        "varieties[1].name",
+        "varieties[0].heightMeters",
+        "varieties[1].heightMeters"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c7",
+      "where": "scenes.two-megas-one-size-fight.narration",
+      "text": "Mega X towers; Y weighs just 33 kilograms.",
+      "verdict": "supported",
+      "evidence": [
+        "varieties[0].heightMeters",
+        "varieties[1].heightMeters",
+        "varieties[1].weightKg"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c8",
+      "where": "scenes.two-megas-one-size-fight.caption",
+      "text": "THEY SPLIT ON SIZE",
+      "verdict": "supported",
+      "evidence": [
+        "varieties[0].heightMeters",
+        "varieties[1].heightMeters",
+        "varieties[0].weightKg",
+        "varieties[1].weightKg"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c9",
+      "where": "scenes.two-megas-one-size-fight.eyebrow",
+      "text": "ONE POKÉMON, TWO BUILDS",
+      "verdict": "supported",
+      "evidence": [
+        "name",
+        "varieties[0].name",
+        "varieties[1].name",
+        "varieties[0].heightMeters",
+        "varieties[1].heightMeters",
+        "varieties[0].weightKg",
+        "varieties[1].weightKg"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c10",
+      "where": "scenes.mega-x-rises.headline",
+      "text": "X GOES BIG",
+      "verdict": "supported",
+      "evidence": [
+        "varieties[0].heightMeters",
+        "heightMeters",
+        "varieties[0].weightKg",
+        "weightKg"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c11",
+      "where": "scenes.mega-x-rises.narration",
+      "text": "Mega Mewtwo X rises to 2.3 meters and weighs 127 kilograms.",
+      "verdict": "supported",
+      "evidence": [
+        "varieties[0].name",
+        "varieties[0].heightMeters",
+        "varieties[0].weightKg"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c12",
+      "where": "scenes.mega-x-rises.caption",
+      "text": "2.3 METERS • 127 KILOGRAMS",
+      "verdict": "supported",
+      "evidence": [
+        "varieties[0].heightMeters",
+        "varieties[0].weightKg"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c13",
+      "where": "scenes.mega-x-rises.eyebrow",
+      "text": "MEGA MEWTWO X",
+      "verdict": "supported",
+      "evidence": [
+        "varieties[0].name"
+      ],
+      "note": "",
+      "tier": "trusted_secondary",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c14",
+      "where": "scenes.mega-x-rises.facts[0]",
+      "text": "2.3 METERS",
+      "verdict": "supported",
+      "evidence": [
+        "varieties[0].heightMeters"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c15",
+      "where": "scenes.mega-x-rises.facts[1]",
+      "text": "127 KILOGRAMS",
+      "verdict": "supported",
+      "evidence": [
+        "varieties[0].weightKg"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c16",
+      "where": "scenes.mega-y-shrinks.headline",
+      "text": "Y GOES LIGHT",
+      "verdict": "supported",
+      "evidence": [
+        "varieties[1].weightKg",
+        "varieties[0].weightKg",
+        "weightKg"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c17",
+      "where": "scenes.mega-y-shrinks.narration",
+      "text": "Mega Mewtwo Y stands 1.5 meters tall, weighing 33 kilograms.",
+      "verdict": "supported",
+      "evidence": [
+        "varieties[1].name",
+        "varieties[1].heightMeters",
+        "varieties[1].weightKg"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c18",
+      "where": "scenes.mega-y-shrinks.caption",
+      "text": "1.5 METERS • 33 KILOGRAMS",
+      "verdict": "supported",
+      "evidence": [
+        "varieties[1].heightMeters",
+        "varieties[1].weightKg"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c19",
+      "where": "scenes.mega-y-shrinks.eyebrow",
+      "text": "MEGA MEWTWO Y",
+      "verdict": "supported",
+      "evidence": [
+        "varieties[1].name"
+      ],
+      "note": "",
+      "tier": "trusted_secondary",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c20",
+      "where": "scenes.mega-y-shrinks.facts[0]",
+      "text": "1.5 METERS",
+      "verdict": "supported",
+      "evidence": [
+        "varieties[1].heightMeters"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c21",
+      "where": "scenes.mega-y-shrinks.facts[1]",
+      "text": "33 KILOGRAMS",
+      "verdict": "supported",
+      "evidence": [
+        "varieties[1].weightKg"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c22",
+      "where": "scenes.opposite-directions.headline",
+      "text": "ONE BODY, TWO DIRECTIONS",
+      "verdict": "supported",
+      "evidence": [
+        "name",
+        "varieties[0].name",
+        "varieties[1].name",
+        "varieties[0].heightMeters",
+        "varieties[1].heightMeters",
+        "heightMeters"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c23",
+      "where": "scenes.opposite-directions.narration",
+      "text": "X moves above Mewtwo's height; Y drops below it.",
+      "verdict": "supported",
+      "evidence": [
+        "varieties[0].heightMeters",
+        "varieties[1].heightMeters",
+        "heightMeters"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c24",
+      "where": "scenes.opposite-directions.caption",
+      "text": "X: 2.3 METERS • BASE: 2 METERS • Y: 1.5",
+      "verdict": "supported",
+      "evidence": [
+        "varieties[0].heightMeters",
+        "heightMeters",
+        "varieties[1].heightMeters"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c25",
+      "where": "scenes.opposite-directions.eyebrow",
+      "text": "THE SPLIT DEEPENS",
+      "verdict": "supported",
+      "evidence": [
+        "varieties[0].heightMeters",
+        "varieties[1].heightMeters",
+        "heightMeters"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c26",
+      "where": "scenes.opposite-directions.facts[0]",
+      "text": "X: 2.3 METERS",
+      "verdict": "supported",
+      "evidence": [
+        "varieties[0].heightMeters"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c27",
+      "where": "scenes.opposite-directions.facts[1]",
+      "text": "MEWTWO: 2 METERS",
+      "verdict": "supported",
+      "evidence": [
+        "heightMeters"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c28",
+      "where": "scenes.opposite-directions.facts[2]",
+      "text": "Y: 1.5 METERS",
+      "verdict": "supported",
+      "evidence": [
+        "varieties[1].heightMeters"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c29",
+      "where": "scenes.weight-makes-it-stranger.headline",
+      "text": "WEIGHT MAKES IT STRANGER",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "This is editorial framing/opinion rather than a factual claim.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c30",
+      "where": "scenes.weight-makes-it-stranger.narration",
+      "text": "The stranger split is weight: Y weighs 33 kilograms against X's 127.",
+      "verdict": "supported",
+      "evidence": [
+        "varieties[1].weightKg",
+        "varieties[0].weightKg"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c31",
+      "where": "scenes.weight-makes-it-stranger.caption",
+      "text": "33 KILOGRAMS VS 127",
+      "verdict": "supported",
+      "evidence": [
+        "varieties[1].weightKg",
+        "varieties[0].weightKg"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c32",
+      "where": "scenes.weight-makes-it-stranger.eyebrow",
+      "text": "THE COUNTERPOINT",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "This is a framing phrase with no factual claim.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c33",
+      "where": "scenes.weight-makes-it-stranger.facts[0]",
+      "text": "Y: 33 KILOGRAMS",
+      "verdict": "supported",
+      "evidence": [
+        "varieties[1].weightKg"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c34",
+      "where": "scenes.weight-makes-it-stranger.facts[1]",
+      "text": "X: 127 KILOGRAMS",
+      "verdict": "supported",
+      "evidence": [
+        "varieties[0].weightKg"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c35",
+      "where": "scenes.choose-your-build.headline",
+      "text": "THE DESIGN FORKS",
+      "verdict": "supported",
+      "evidence": [
+        "varieties[0].name",
+        "varieties[1].name",
+        "varieties[0].heightMeters",
+        "varieties[1].heightMeters",
+        "varieties[0].weightKg",
+        "varieties[1].weightKg"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c36",
+      "where": "scenes.choose-your-build.narration",
+      "text": "Mega X at 127 kilograms, or Mega Y at 33?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "This is a question framed as a choice.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c37",
+      "where": "scenes.choose-your-build.caption",
+      "text": "PICK YOUR MEGA MEWTWO",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "This is an imperative/framing phrase with no factual claim.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c38",
+      "where": "scenes.choose-your-build.eyebrow",
+      "text": "YOUR MEGA BUILD",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "This is a framing phrase with no factual claim.",
+      "checkedBy": "model"
+    }
+  ],
+  "unsupported": [],
+  "uncertain": []
+}

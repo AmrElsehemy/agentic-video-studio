@@ -1,0 +1,507 @@
+{
+  "episodeId": "lucario-448",
+  "checkedAt": "2026-10-29T18:37:14.203Z",
+  "claims": [
+    {
+      "id": "c1",
+      "where": "title",
+      "text": "Lucario's Mega Forms Have Different Weights",
+      "verdict": "supported",
+      "evidence": [
+        "varieties[0].name",
+        "varieties[0].weightKg",
+        "varieties[1].name",
+        "varieties[1].weightKg"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c2",
+      "where": "premise",
+      "text": "Compare Mega Lucario and Mega Lucario Z, which share the same height but have different listed weights.",
+      "verdict": "supported",
+      "evidence": [
+        "varieties[0].name",
+        "varieties[0].heightMeters",
+        "varieties[0].weightKg",
+        "varieties[1].name",
+        "varieties[1].heightMeters",
+        "varieties[1].weightKg"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c3",
+      "where": "audiencePromise",
+      "text": "See how two equally tall Mega Lucario forms can have very different listed weights.",
+      "verdict": "supported",
+      "evidence": [
+        "varieties[0].heightMeters",
+        "varieties[0].weightKg",
+        "varieties[1].heightMeters",
+        "varieties[1].weightKg"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c4",
+      "where": "openLoop",
+      "text": "How can these two Mega Lucario forms match in height but not weight?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Question/hook framing.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c5",
+      "where": "payoff",
+      "text": "The contrast is clean: both forms are 1.3 meters tall, but their official weights are 57.5 and 49.4 kilos.",
+      "verdict": "supported",
+      "evidence": [
+        "varieties[0].heightMeters",
+        "varieties[1].heightMeters",
+        "varieties[0].weightKg",
+        "varieties[1].weightKg"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c6",
+      "where": "scenes.same-height-eight-kilos-apart.headline",
+      "text": "SAME HEIGHT. BIG WEIGHT GAP.",
+      "verdict": "supported",
+      "evidence": [
+        "varieties[0].heightMeters",
+        "varieties[1].heightMeters",
+        "varieties[0].weightKg",
+        "varieties[1].weightKg"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c7",
+      "where": "scenes.same-height-eight-kilos-apart.narration",
+      "text": "Same height. One Mega weighs much more.",
+      "verdict": "supported",
+      "evidence": [
+        "varieties[0].heightMeters",
+        "varieties[1].heightMeters",
+        "varieties[0].weightKg",
+        "varieties[1].weightKg"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c8",
+      "where": "scenes.same-height-eight-kilos-apart.caption",
+      "text": "ONE HEIGHT. A BIG WEIGHT GAP.",
+      "verdict": "supported",
+      "evidence": [
+        "varieties[0].heightMeters",
+        "varieties[1].heightMeters",
+        "varieties[0].weightKg",
+        "varieties[1].weightKg"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c9",
+      "where": "scenes.same-height-eight-kilos-apart.eyebrow",
+      "text": "MEGA LUCARIO",
+      "verdict": "supported",
+      "evidence": [
+        "varieties[0].name"
+      ],
+      "note": "",
+      "tier": "trusted_secondary",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c10",
+      "where": "scenes.matching-height.headline",
+      "text": "BOTH MEASURE 1.3 METERS",
+      "verdict": "supported",
+      "evidence": [
+        "varieties[0].heightMeters",
+        "varieties[1].heightMeters"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c11",
+      "where": "scenes.matching-height.narration",
+      "text": "Both forms measure 1.3 meters, but their listed weights differ.",
+      "verdict": "supported",
+      "evidence": [
+        "varieties[0].heightMeters",
+        "varieties[1].heightMeters",
+        "varieties[0].weightKg",
+        "varieties[1].weightKg"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c12",
+      "where": "scenes.matching-height.caption",
+      "text": "THE HEIGHT MATCHES",
+      "verdict": "supported",
+      "evidence": [
+        "varieties[0].heightMeters",
+        "varieties[1].heightMeters"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c13",
+      "where": "scenes.matching-height.eyebrow",
+      "text": "THE HEIGHT MATCH",
+      "verdict": "supported",
+      "evidence": [
+        "varieties[0].heightMeters",
+        "varieties[1].heightMeters"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c14",
+      "where": "scenes.matching-height.facts[0]",
+      "text": "MEGA LUCARIO",
+      "verdict": "supported",
+      "evidence": [
+        "varieties[0].name"
+      ],
+      "note": "",
+      "tier": "trusted_secondary",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c15",
+      "where": "scenes.matching-height.facts[1]",
+      "text": "MEGA LUCARIO Z",
+      "verdict": "supported",
+      "evidence": [
+        "varieties[1].name"
+      ],
+      "note": "",
+      "tier": "trusted_secondary",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c16",
+      "where": "scenes.matching-height.facts[2]",
+      "text": "1.3 METERS",
+      "verdict": "supported",
+      "evidence": [
+        "varieties[0].heightMeters",
+        "varieties[1].heightMeters"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c17",
+      "where": "scenes.the-two-scales.headline",
+      "text": "57.5 KILOS VS 49.4",
+      "verdict": "supported",
+      "evidence": [
+        "varieties[0].weightKg",
+        "varieties[1].weightKg"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c18",
+      "where": "scenes.the-two-scales.narration",
+      "text": "Mega Lucario weighs 57.5 kilos. Mega Z weighs 49.4.",
+      "verdict": "supported",
+      "evidence": [
+        "varieties[0].name",
+        "varieties[0].weightKg",
+        "varieties[1].name",
+        "varieties[1].weightKg"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c19",
+      "where": "scenes.the-two-scales.caption",
+      "text": "57.5 KILOS VERSUS 49.4",
+      "verdict": "supported",
+      "evidence": [
+        "varieties[0].weightKg",
+        "varieties[1].weightKg"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c20",
+      "where": "scenes.the-two-scales.eyebrow",
+      "text": "THE SCALE READINGS",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Framing label rather than a factual assertion.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c21",
+      "where": "scenes.the-two-scales.facts[0]",
+      "text": "MEGA: 57.5 KG",
+      "verdict": "supported",
+      "evidence": [
+        "varieties[0].name",
+        "varieties[0].weightKg"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c22",
+      "where": "scenes.the-two-scales.facts[1]",
+      "text": "MEGA Z: 49.4 KG",
+      "verdict": "supported",
+      "evidence": [
+        "varieties[1].name",
+        "varieties[1].weightKg"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c23",
+      "where": "scenes.the-weight-gap.headline",
+      "text": "THE WEIGHT GAP IS CLEAR",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Framing/opinion about the visibility of the difference.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c24",
+      "where": "scenes.the-weight-gap.narration",
+      "text": "The scale gap is much larger, despite their matching height.",
+      "verdict": "supported",
+      "evidence": [
+        "varieties[0].heightMeters",
+        "varieties[1].heightMeters",
+        "varieties[0].weightKg",
+        "varieties[1].weightKg"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c25",
+      "where": "scenes.the-weight-gap.caption",
+      "text": "1.3 METERS. A CLEAR WEIGHT GAP.",
+      "verdict": "supported",
+      "evidence": [
+        "varieties[0].heightMeters",
+        "varieties[1].heightMeters",
+        "varieties[0].weightKg",
+        "varieties[1].weightKg"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c26",
+      "where": "scenes.the-weight-gap.eyebrow",
+      "text": "THE DIFFERENCE",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Framing label.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c27",
+      "where": "scenes.the-weight-gap.facts[0]",
+      "text": "WEIGHT GAP",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Label without a quantified factual assertion.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c28",
+      "where": "scenes.the-weight-gap.facts[1]",
+      "text": "MATCHING HEIGHT",
+      "verdict": "supported",
+      "evidence": [
+        "varieties[0].heightMeters",
+        "varieties[1].heightMeters"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c29",
+      "where": "scenes.lighter-without-being-shorter.headline",
+      "text": "LIGHTER WITHOUT BEING SHORTER",
+      "verdict": "supported",
+      "evidence": [
+        "varieties[0].weightKg",
+        "varieties[1].weightKg",
+        "varieties[0].heightMeters",
+        "varieties[1].heightMeters"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c30",
+      "where": "scenes.lighter-without-being-shorter.narration",
+      "text": "Mega Z is much lighter, even though it is not shorter.",
+      "verdict": "supported",
+      "evidence": [
+        "varieties[1].name",
+        "varieties[1].weightKg",
+        "varieties[0].weightKg",
+        "varieties[1].heightMeters",
+        "varieties[0].heightMeters"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c31",
+      "where": "scenes.lighter-without-being-shorter.caption",
+      "text": "MEGA Z: LIGHTER, NOT SHORTER",
+      "verdict": "supported",
+      "evidence": [
+        "varieties[1].name",
+        "varieties[1].weightKg",
+        "varieties[1].heightMeters",
+        "varieties[0].heightMeters"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c32",
+      "where": "scenes.lighter-without-being-shorter.eyebrow",
+      "text": "THE SURPRISE",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Framing label.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c33",
+      "where": "scenes.lighter-without-being-shorter.facts[0]",
+      "text": "MEGA Z",
+      "verdict": "supported",
+      "evidence": [
+        "varieties[1].name"
+      ],
+      "note": "",
+      "tier": "trusted_secondary",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c34",
+      "where": "scenes.lighter-without-being-shorter.facts[1]",
+      "text": "LIGHTER",
+      "verdict": "supported",
+      "evidence": [
+        "varieties[1].weightKg",
+        "varieties[0].weightKg"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c35",
+      "where": "scenes.lighter-without-being-shorter.facts[2]",
+      "text": "1.3 METERS TALL",
+      "verdict": "supported",
+      "evidence": [
+        "varieties[1].heightMeters"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c36",
+      "where": "scenes.choose-the-listed-weight.headline",
+      "text": "ONE HEIGHT. TWO WEIGHTS.",
+      "verdict": "supported",
+      "evidence": [
+        "varieties[0].heightMeters",
+        "varieties[1].heightMeters",
+        "varieties[0].weightKg",
+        "varieties[1].weightKg"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c37",
+      "where": "scenes.choose-the-listed-weight.narration",
+      "text": "Which feels right: 57.5 kilos or 49.4?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Question framing.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c38",
+      "where": "scenes.choose-the-listed-weight.caption",
+      "text": "57.5 KILOS OR 49.4?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Question framing.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c39",
+      "where": "scenes.choose-the-listed-weight.eyebrow",
+      "text": "YOUR PICK",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Audience-directed framing.",
+      "checkedBy": "model"
+    }
+  ],
+  "unsupported": [],
+  "uncertain": []
+}

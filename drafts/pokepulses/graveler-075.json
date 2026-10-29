@@ -1,0 +1,189 @@
+{
+  "id": "graveler-075",
+  "title": "Graveler Climbs Up Just to Roll Back Down",
+  "storyPattern": "transformation",
+  "numberRelevant": false,
+  "premise": "Graveler climbs mountains while eating rocks, then rolls all the way back down.",
+  "audiencePromise": "Watch Graveler turn one mountain climb into a rock-eating round trip.",
+  "openLoop": "Why does Graveler climb all the way up?",
+  "payoff": "The summit is not the destination. It is the starting line for Graveler's descent.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "Is this brilliant efficiency, or the strangest commute?",
+  "subject": {
+    "name": "Graveler",
+    "category": "Rock Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/75.png",
+    "identifier": "#075"
+  },
+  "related": [
+    {
+      "name": "Golem",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/76.png",
+      "identifier": "#076"
+    },
+    {
+      "name": "Geodude",
+      "relation": "evolves-from",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/74.png",
+      "identifier": "#074"
+    },
+    {
+      "name": "Graveler Alola",
+      "relation": "form",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10110.png",
+      "identifier": "#075"
+    }
+  ],
+  "palette": {
+    "background": "#101820",
+    "surface": "#26343A",
+    "primary": "#A89078",
+    "secondary": "#D8B48A",
+    "ink": "#F4F0E8"
+  },
+  "voice": {
+    "instructions": "Speak quickly, warmly, and playfully. Punch the words climb, rocks, summit, and back down. Build tension uphill, then land the final either-or question with a brief pause."
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    },
+    "assets": [
+      {
+        "kind": "Graveler official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/75.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "mountain-round-trip",
+      "beat": "hook",
+      "eyebrow": "GRAVELER'S ROUTINE",
+      "headline": "UPHILL. THEN DOWNHILL.",
+      "narration": "Graveler climbs mountains just to roll back down.",
+      "caption": "ONE ENORMOUS ROUND TRIP",
+      "accent": "#D8B48A",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/75.png",
+      "primitive": {
+        "kind": "timeline",
+        "steps": [
+          {
+            "label": "BASE",
+            "detail": "CLIMBS UP"
+          },
+          {
+            "label": "SUMMIT",
+            "detail": "REACHES THE PEAK"
+          },
+          {
+            "label": "BOTTOM",
+            "detail": "ROLLS BACK DOWN"
+          }
+        ],
+        "active": 1
+      }
+    },
+    {
+      "id": "rock-feast-uphill",
+      "beat": "before",
+      "eyebrow": "THE CLIMB BEGINS",
+      "headline": "DINNER IS UNDERFOOT",
+      "narration": "At the mountain's base, Graveler starts climbing while crunching rocks.",
+      "caption": "THE UPHILL TRIP STARTS WITH A MEAL",
+      "facts": [
+        "CLIMBS FROM THE BASE",
+        "EATS ROCKS"
+      ],
+      "accent": "#A89078",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/75.png",
+      "primitive": {
+        "kind": "counter",
+        "from": 0,
+        "to": 1,
+        "label": "TONS EATEN DAILY"
+      }
+    },
+    {
+      "id": "mountain-feast",
+      "beat": "change",
+      "eyebrow": "THE REAL PURPOSE",
+      "headline": "THE MOUNTAIN IS FOOD",
+      "narration": "The climb doubles as dinner, because rocks are its favorite food.",
+      "caption": "ROCKS ARE GRAVELER'S FAVORITE FOOD",
+      "facts": [
+        "ROCK-FEEDING POKÉMON",
+        "CRUNCHES WHILE CLIMBING"
+      ],
+      "accent": "#C47F43",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/75.png"
+    },
+    {
+      "id": "summit-turnaround",
+      "beat": "reveal",
+      "eyebrow": "REACHING THE TOP",
+      "headline": "THE SUMMIT ISN'T THE END",
+      "narration": "At the summit, Graveler curls up and rolls straight back down.",
+      "caption": "SUMMIT REACHED. DESCENT ACTIVATED.",
+      "facts": [
+        "REACHES THE SUMMIT",
+        "ROLLS BACK DOWN"
+      ],
+      "accent": "#F0C15A",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/75.png"
+    },
+    {
+      "id": "unstoppable-descent",
+      "beat": "aftermath",
+      "eyebrow": "THE WAY DOWN",
+      "headline": "NOTHING GETS A DETOUR",
+      "narration": "It rolls downhill, ignoring obstacles and building momentum on mountain paths.",
+      "caption": "OBSTACLES ARE JUST THINGS TO ROLL OVER",
+      "facts": [
+        "ROLLS TO MOVE",
+        "IGNORES OBSTACLES",
+        "BUILDS MOMENTUM"
+      ],
+      "accent": "#B86B4B",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/75.png"
+    },
+    {
+      "id": "strangest-commute",
+      "beat": "verdict",
+      "eyebrow": "YOUR VERDICT",
+      "headline": "BEST ROUTINE EVER?",
+      "narration": "Is this brilliant efficiency, or the strangest commute?",
+      "caption": "BRILLIANT ROUTINE OR WASTED CLIMB?",
+      "accent": "#D8B48A",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/75.png"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Graveler",
+      "url": "https://www.pokemon.com/us/pokedex/graveler",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Graveler",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Graveler_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Graveler",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/75",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

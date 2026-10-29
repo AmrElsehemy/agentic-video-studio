@@ -1,0 +1,158 @@
+{
+  "id": "tentacruel-073",
+  "title": "Tentacruel Gets Older and Loses Tentacles",
+  "storyPattern": "comparison",
+  "numberRelevant": true,
+  "premise": "Tentacruel normally has 80 poisonous tentacles, but older individuals have fewer.",
+  "audiencePromise": "See why Tentacruel's famous 80-tentacle image may change with age.",
+  "openLoop": "If Tentacruel gets older, what happens to its signature tentacles?",
+  "payoff": "Tentacruel's tentacle count is not fixed forever. Older individuals have fewer.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "Better with 80 tentacles, or more mysterious with fewer?",
+  "subject": {
+    "name": "Tentacruel",
+    "category": "Jellyfish Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/73.png",
+    "identifier": "#073"
+  },
+  "related": [
+    {
+      "name": "Tentacool",
+      "relation": "evolves-from",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/72.png",
+      "identifier": "#072"
+    }
+  ],
+  "palette": {
+    "background": "#07151B",
+    "surface": "#102A31",
+    "primary": "#D94B4B",
+    "secondary": "#4EC5C1",
+    "ink": "#F4FAF8"
+  },
+  "voice": {
+    "instructions": "Speak like a knowledgeable fan sharing a strange discovery. Keep the pace quick, warm, and slightly playful. Stress older, fewer, and 80. Pause briefly before the final choice."
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    },
+    "assets": [
+      {
+        "kind": "Tentacruel official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/73.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "older-means-fewer",
+      "beat": "hook",
+      "eyebrow": "THE WEIRD PART",
+      "headline": "OLDER MEANS FEWER",
+      "narration": "Tentacruel gets older and starts losing its tentacles.",
+      "caption": "AGE CHANGES THE COUNT",
+      "accent": "#D94B4B",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/73.png"
+    },
+    {
+      "id": "the-famous-count",
+      "beat": "evidence",
+      "eyebrow": "ITS NORMAL FORM",
+      "headline": "80 POISONOUS TENTACLES",
+      "narration": "Normally, Tentacruel has all 80 of its poisonous tentacles.",
+      "caption": "THE CLASSIC TENTACRUEL",
+      "facts": [
+        "80 TENTACLES",
+        "POISONOUS"
+      ],
+      "accent": "#4EC5C1",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/73.png",
+      "primitive": {
+        "kind": "counter",
+        "from": 0,
+        "to": 80,
+        "label": "POISONOUS TENTACLES"
+      }
+    },
+    {
+      "id": "a-living-net",
+      "beat": "evidence",
+      "eyebrow": "BUILT TO ENTRAP",
+      "headline": "A POISONOUS NET",
+      "narration": "Those tentacles stretch freely, forming a poisonous net around prey.",
+      "caption": "STRETCH. WRAP. WEAKEN.",
+      "facts": [
+        "STRETCH FREELY",
+        "POISONOUS NET"
+      ],
+      "accent": "#D94B4B",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/73.png"
+    },
+    {
+      "id": "age-changes-the-count",
+      "beat": "escalation",
+      "eyebrow": "THE POKÉDEX SAYS",
+      "headline": "OLDER MEANS FEWER",
+      "narration": "But the Pokédex says older Tentacruel have fewer tentacles.",
+      "caption": "THE COUNT DROPS WITH AGE",
+      "facts": [
+        "OLDER",
+        "FEWER TENTACLES"
+      ],
+      "accent": "#F0B84B",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/73.png"
+    },
+    {
+      "id": "the-eighty-tentacle-problem",
+      "beat": "twist",
+      "eyebrow": "THE COUNTERPOINT",
+      "headline": "BUT BATTLE SHOWS ALL 80",
+      "narration": "Yet several entries still describe all 80 extending in battle.",
+      "caption": "SEVERAL ENTRIES SAY ALL 80",
+      "facts": [
+        "ALL 80",
+        "IN BATTLE"
+      ],
+      "accent": "#D94B4B",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/73.png"
+    },
+    {
+      "id": "age-or-mystery",
+      "beat": "verdict",
+      "eyebrow": "YOUR TAKE",
+      "headline": "THE COUNT ISN'T FOREVER",
+      "narration": "Age changes its arsenal. Better with 80, or fewer?",
+      "caption": "80 TENTACLES OR FEWER?",
+      "accent": "#4EC5C1",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/73.png"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Tentacruel",
+      "url": "https://www.pokemon.com/us/pokedex/tentacruel",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Tentacruel",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Tentacruel_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Tentacruel",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/73",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

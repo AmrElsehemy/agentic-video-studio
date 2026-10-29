@@ -27,7 +27,20 @@ if (voice && !['local', 'openai'].includes(voice)) throw new Error(`Unsupported 
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 const RETRYABLE_STATUS = new Set([408, 425, 429, 500, 502, 503, 504]);
-const fetchJson = async (url, {maxAttempts = 4} = {}) => {
+/** The same data from PokéAPI's own GitHub export, for when pokeapi.co itself can't be reached (a reset connection, a blocking network). */
+const mirrorOf = (url) => {
+  const path = url.match(/^https:\/\/pokeapi\.co\/api\/v2\/(.+?)\/?$/)?.[1];
+  return path ? `https://raw.githubusercontent.com/PokeAPI/api-data/master/data/api/v2/${path}/index.json` : undefined;
+};
+let pokeapiDown = false;
+const fetchJson = async (rawUrl, {maxAttempts = 4} = {}) => {
+  // The mirror's links are relative ("/api/v2/evolution-chain/232/"); make them whole.
+  const url = rawUrl.startsWith('/') ? `https://pokeapi.co${rawUrl}` : rawUrl;
+  if (pokeapiDown && mirrorOf(url)) {
+    const response = await fetchWithReason('PokéAPI data export', mirrorOf(url));
+    if (!response.ok) throw new Error(`PokéAPI data export failed (${response.status}) for ${mirrorOf(url)}`);
+    return response.json();
+  }
   let lastError;
   for (let attempt = 1; attempt <= maxAttempts; attempt++) {
     try {
@@ -38,7 +51,16 @@ const fetchJson = async (url, {maxAttempts = 4} = {}) => {
       lastError = error;
     } catch (error) {
       lastError = error;
-      if (attempt === maxAttempts) throw error;
+      if (attempt === maxAttempts) {
+        // Only a failure to connect falls back to the mirror; an HTTP error from the real API is reported as it is.
+        const mirror = !/PokéAPI request failed \(/.test(error.message) ? mirrorOf(url) : undefined;
+        if (!mirror) throw error;
+        console.warn('  ↻ pokeapi.co unreachable; using its GitHub data export');
+        pokeapiDown = true;
+        const response = await fetchWithReason('PokéAPI data export', mirror);
+        if (!response.ok) throw new Error(`PokéAPI data export failed (${response.status}) for ${mirror}`);
+        return response.json();
+      }
     }
     const delay = 500 * (2 ** (attempt - 1));
     console.warn(`  ↻ PokéAPI request failed; retry ${attempt}/${maxAttempts - 1} in ${delay}ms...`);

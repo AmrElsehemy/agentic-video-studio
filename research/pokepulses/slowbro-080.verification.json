@@ -1,0 +1,495 @@
+{
+  "episodeId": "slowbro-080",
+  "checkedAt": "2026-10-29T19:19:51.713Z",
+  "claims": [
+    {
+      "id": "c1",
+      "where": "title",
+      "text": "Slowbro's Evolution Has an Undo Button",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[2].text",
+        "pokedexEntries[18].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c2",
+      "where": "premise",
+      "text": "Slowbro can revert to Slowpoke if Shellder breaks off or lets go.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[2].text",
+        "pokedexEntries[16].text",
+        "pokedexEntries[18].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c3",
+      "where": "audiencePromise",
+      "text": "See how one Shellder bite creates Slowbro, then watch losing it reverse the change.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[7].text",
+        "pokedexEntries[18].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c4",
+      "where": "openLoop",
+      "text": "What makes one bite powerful enough to create and undo Slowbro?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c5",
+      "where": "payoff",
+      "text": "The same bite drives Slowbro's change, so losing Shellder reverses it.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[7].text",
+        "pokedexEntries[10].text",
+        "pokedexEntries[18].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c6",
+      "where": "scenes.evolution-can-vanish.headline",
+      "text": "SHELLDER LETS GO. SLOWBRO REVERTS.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[2].text",
+        "pokedexEntries[18].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c7",
+      "where": "scenes.evolution-can-vanish.narration",
+      "text": "Slowbro's evolution can vanish when Shellder lets go.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[2].text",
+        "pokedexEntries[16].text",
+        "pokedexEntries[18].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c8",
+      "where": "scenes.evolution-can-vanish.caption",
+      "text": "SHELLDER OFF = SLOWPOKE AGAIN",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[2].text",
+        "pokedexEntries[16].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c9",
+      "where": "scenes.evolution-can-vanish.eyebrow",
+      "text": "THE RESET BUTTON",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c10",
+      "where": "scenes.the-bite-starts-it.headline",
+      "text": "ONE BITE CREATES SLOWBRO",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[7].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c11",
+      "where": "scenes.the-bite-starts-it.narration",
+      "text": "Slowpoke's tail gets bitten, and one bite makes it evolve.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[7].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c12",
+      "where": "scenes.the-bite-starts-it.caption",
+      "text": "SLOWPOKE'S TAIL GETS BITTEN",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[7].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c13",
+      "where": "scenes.the-bite-starts-it.eyebrow",
+      "text": "HOW IT STARTS",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c14",
+      "where": "scenes.the-bite-starts-it.facts[0]",
+      "text": "SLOWPOKE",
+      "verdict": "supported",
+      "evidence": [
+        "evolutionChain[0].name"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c15",
+      "where": "scenes.the-bite-starts-it.facts[1]",
+      "text": "TAIL BITE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[7].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c16",
+      "where": "scenes.the-bite-starts-it.facts[2]",
+      "text": "EVOLVES",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[7].text",
+        "evolutionChain[1].evolvesFrom"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c17",
+      "where": "scenes.the-bite-changes-it.headline",
+      "text": "THE BITE SHOCKS IT UPRIGHT",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[18].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c18",
+      "where": "scenes.the-bite-changes-it.narration",
+      "text": "That bite shocks it onto two legs, while Shellder's poison makes it spacier.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[18].text",
+        "pokedexEntries[13].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c19",
+      "where": "scenes.the-bite-changes-it.caption",
+      "text": "TWO LEGS. MORE SPACED OUT.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[18].text",
+        "pokedexEntries[13].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c20",
+      "where": "scenes.the-bite-changes-it.eyebrow",
+      "text": "THE BODY CHANGES",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[18].text",
+        "pokedexEntries[13].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c21",
+      "where": "scenes.the-bite-changes-it.facts[0]",
+      "text": "STANDS ON TWO LEGS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[18].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c22",
+      "where": "scenes.the-bite-changes-it.facts[1]",
+      "text": "SHELLDER'S POISON",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[13].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c23",
+      "where": "scenes.the-bite-changes-it.facts[2]",
+      "text": "EVEN SPACIER",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[13].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c24",
+      "where": "scenes.the-form-reverses.headline",
+      "text": "LET GO, LOSE SLOWBRO",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[2].text",
+        "pokedexEntries[18].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c25",
+      "where": "scenes.the-form-reverses.narration",
+      "text": "But if Shellder lets go, Slowbro turns back into Slowpoke.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[2].text",
+        "pokedexEntries[18].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c26",
+      "where": "scenes.the-form-reverses.caption",
+      "text": "SLOWBRO → SLOWPOKE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[2].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c27",
+      "where": "scenes.the-form-reverses.eyebrow",
+      "text": "THE REVERSAL",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c28",
+      "where": "scenes.the-form-reverses.facts[0]",
+      "text": "SHELLDER LETS GO",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[2].text",
+        "pokedexEntries[18].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c29",
+      "where": "scenes.the-form-reverses.facts[1]",
+      "text": "TURNS BACK",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[2].text",
+        "pokedexEntries[18].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c30",
+      "where": "scenes.battle-can-break-it.headline",
+      "text": "A HARSH BATTLE CAN BREAK IT",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text",
+        "pokedexEntries[10].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c31",
+      "where": "scenes.battle-can-break-it.narration",
+      "text": "In a harsh battle, Shellder can be thrown off; then Slowbro reverts.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text",
+        "pokedexEntries[10].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c32",
+      "where": "scenes.battle-can-break-it.caption",
+      "text": "BATTLE CAN TRIGGER THE REVERSAL",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text",
+        "pokedexEntries[10].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c33",
+      "where": "scenes.battle-can-break-it.eyebrow",
+      "text": "THE FAILURE POINT",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c34",
+      "where": "scenes.battle-can-break-it.facts[0]",
+      "text": "HARSH BATTLE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text",
+        "pokedexEntries[10].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c35",
+      "where": "scenes.battle-can-break-it.facts[1]",
+      "text": "SHELLDER THROWN OFF",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text",
+        "pokedexEntries[10].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c36",
+      "where": "scenes.battle-can-break-it.facts[2]",
+      "text": "SLOWBRO REVERTS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text",
+        "pokedexEntries[10].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c37",
+      "where": "scenes.evolution-or-change.headline",
+      "text": "EVOLUTION OR SHELLDER EFFECT?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c38",
+      "where": "scenes.evolution-or-change.narration",
+      "text": "Is Slowbro an evolution, or a Slowpoke changed by Shellder?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c39",
+      "where": "scenes.evolution-or-change.caption",
+      "text": "EVOLUTION OR SHELLDER EFFECT?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c40",
+      "where": "scenes.evolution-or-change.eyebrow",
+      "text": "YOUR CALL",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    }
+  ],
+  "unsupported": [],
+  "uncertain": []
+}

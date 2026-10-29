@@ -1,0 +1,171 @@
+{
+  "episodeId": "mewtwo-150",
+  "createdAt": "2026-10-29T18:34:30.990Z",
+  "chosen": {
+    "id": "mega-form-whiplash",
+    "premise": "Mega Mewtwo X grows to 2.3 meters, while Mega Mewtwo Y shrinks to 1.5 meters and weighs only 33 kg.",
+    "hook": "Mewtwo’s Mega forms disagree on one thing: how big to be.",
+    "archetype": "comparison",
+    "evidence": [
+      "varieties[0].name",
+      "varieties[0].heightMeters",
+      "varieties[0].weightKg",
+      "varieties[1].name",
+      "varieties[1].heightMeters",
+      "varieties[1].weightKg"
+    ],
+    "visualIdea": "Mewtwo Mega X and Y rise beside a height ruler, followed by a scale showing 127 kg versus 33 kg.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 5,
+      "specificity": 5,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 25,
+    "note": "A highly concrete size-and-weight contrast with striking on-screen proof; the measurements are directly supplied, though the form names rely on trusted secondary data."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "mega-form-whiplash",
+          "premise": "Mega Mewtwo X grows to 2.3 meters, while Mega Mewtwo Y shrinks to 1.5 meters and weighs only 33 kg.",
+          "hook": "Mewtwo’s Mega forms disagree on one thing: how big to be.",
+          "archetype": "comparison",
+          "evidence": [
+            "varieties[0].name",
+            "varieties[0].heightMeters",
+            "varieties[0].weightKg",
+            "varieties[1].name",
+            "varieties[1].heightMeters",
+            "varieties[1].weightKg"
+          ],
+          "visualIdea": "Mewtwo Mega X and Y rise beside a height ruler, followed by a scale showing 127 kg versus 33 kg.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 25,
+          "note": "A highly concrete size-and-weight contrast with striking on-screen proof; the measurements are directly supplied, though the form names rely on trusted secondary data."
+        },
+        {
+          "id": "mew-dna-not-mew",
+          "premise": "Mewtwo’s DNA is almost the same as Mew’s, yet its size and disposition are vastly different.",
+          "hook": "Mewtwo is nearly Mew at the DNA level—but almost nothing like it.",
+          "archetype": "comparison",
+          "evidence": [
+            "pokedexEntries[1].text",
+            "pokedexEntries[13].text"
+          ],
+          "visualIdea": "Split-screen Mew and Mewtwo, with matching DNA strands beside their sharply different silhouettes.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 24,
+          "note": "A Mewtwo-specific DNA-versus-appearance contradiction, directly supported by multiple Pokédex entries and easy to visualize."
+        },
+        {
+          "id": "research-made-vicious",
+          "premise": "Repeatedly recombining Mewtwo’s genetic code for research is said to have turned it vicious.",
+          "hook": "The research didn’t just create Mewtwo—it made it vicious.",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[7].text",
+            "pokedexEntries[0].text",
+            "pokedexEntries[9].text"
+          ],
+          "visualIdea": "DNA strands are repeatedly cut and recombined; with each pass, Mewtwo’s expression becomes more hostile.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 23,
+          "note": "Distinctive causal origin story backed by multiple entries, though 'the research made it vicious' compresses wording that is partly presented as a claim or interpretation."
+        },
+        {
+          "id": "motionless-power-save",
+          "premise": "Mewtwo usually stays motionless to conserve energy, saving its full power for battle.",
+          "hook": "Mewtwo’s signature power move starts with doing absolutely nothing.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[3].text",
+            "pokedexEntries[11].text"
+          ],
+          "visualIdea": "A motionless Mewtwo drains an energy meter slowly, then unleashes the full meter in a battle flash.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 21,
+          "note": "The conservation behavior is well supported, but the 'signature power move' and energy-meter framing are creative extrapolations rather than stated facts."
+        },
+        {
+          "id": "built-without-a-heart",
+          "premise": "Humans created Mewtwo’s body through genetic science but failed to give it compassion or a warm heart.",
+          "hook": "They engineered Mewtwo’s body—but forgot to build its heart.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[5].text",
+            "pokedexEntries[6].text",
+            "pokedexEntries[9].text"
+          ],
+          "visualIdea": "A scientist assembles Mewtwo from glowing DNA, but the heart slot remains visibly empty.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 4,
+            "support": 4
+          },
+          "total": 20,
+          "note": "The failed-compassion premise is supported, but 'forgot to build its heart' can misleadingly imply a literal missing organ."
+        },
+        {
+          "id": "created-only-to-battle",
+          "premise": "Mewtwo was created solely for battling, and its raised battle abilities left it thinking only about defeating foes.",
+          "hook": "Mewtwo wasn’t trained for battle—it was created for nothing else.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[4].text",
+            "pokedexEntries[2].text",
+            "pokedexEntries[10].text"
+          ],
+          "visualIdea": "A lab blueprint labels every part of Mewtwo ‘battle,’ ending with a target display reading ‘defeat foes.’",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 3,
+            "specificity": 4,
+            "visual": 4,
+            "support": 5
+          },
+          "total": 20,
+          "note": "Accurately supported and clear, but it is a familiar summary of Mewtwo's origin and lacks the sharper contradiction of the other angles."
+        }
+      ],
+      "rejected": [],
+      "request": "None; the chosen angle is strong enough. A stronger alternative would need an equally concrete, surprising contrast backed directly by the supplied facts."
+    }
+  ]
+}

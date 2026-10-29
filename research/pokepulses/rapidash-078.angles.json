@@ -1,0 +1,193 @@
+{
+  "episodeId": "rapidash-078",
+  "createdAt": "2026-10-29T19:14:47.626Z",
+  "chosen": {
+    "id": "speed-changes-the-mane",
+    "premise": "The faster Rapidash runs, the longer its mane’s flames become, turning speed into a visible transformation.",
+    "hook": "Rapidash’s mane gets longer the faster it runs.",
+    "archetype": "transformation",
+    "evidence": [
+      "pokedexEntries[4].text",
+      "pokedexEntries[5].text",
+      "pokedexEntries[6].text"
+    ],
+    "visualIdea": "Rapidash accelerates across three shots as its flaming mane visibly stretches and blazes brighter.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 4,
+      "specificity": 4,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 23,
+    "note": "Very Rapidash-specific and visually excellent, with multiple entries connecting speed to the mane, though 'longer' is harder to depict precisely than a number."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "ten-step-top-speed",
+          "premise": "Rapidash reaches 150 mph from a standstill after running just 10 steps.",
+          "hook": "Rapidash hits 150 miles per hour in only ten steps.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[3].text",
+            "pokedexEntries[9].text"
+          ],
+          "visualIdea": "Show Rapidash taking ten numbered steps as a speedometer rockets from zero to 150 mph.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 24,
+          "note": "A highly concrete, startling mechanic with direct Pokédex support from multiple entries and an easy ten-step speedometer visual."
+        },
+        {
+          "id": "speed-changes-the-mane",
+          "premise": "The faster Rapidash runs, the longer its mane’s flames become, turning speed into a visible transformation.",
+          "hook": "Rapidash’s mane gets longer the faster it runs.",
+          "archetype": "transformation",
+          "evidence": [
+            "pokedexEntries[4].text",
+            "pokedexEntries[5].text",
+            "pokedexEntries[6].text"
+          ],
+          "visualIdea": "Rapidash accelerates across three shots as its flaming mane visibly stretches and blazes brighter.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 23,
+          "note": "Very Rapidash-specific and visually excellent, with multiple entries connecting speed to the mane, though 'longer' is harder to depict precisely than a number."
+        },
+        {
+          "id": "two-rapidash-forms",
+          "premise": "Regular Rapidash is Fire-type and weighs 95 kg, while its Galar variety is Psychic/Fairy and weighs 80 kg.",
+          "hook": "Rapidash can change from a 95-kilo Fire horse into an 80-kilo Psychic/Fairy one.",
+          "archetype": "comparison",
+          "evidence": [
+            "types",
+            "weightKg",
+            "varieties[0].name",
+            "varieties[0].types",
+            "varieties[0].weightKg"
+          ],
+          "visualIdea": "Place the two Rapidash forms side by side with their types and weights appearing like comparison cards.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 3,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 22,
+          "note": "Accurate and easy to compare on screen, but regional-form comparisons are a common Pokémon format and the weight difference is not especially dramatic."
+        },
+        {
+          "id": "chases-anything-faster",
+          "premise": "Rapidash is so competitive that seeing anything faster makes it chase at top speed.",
+          "hook": "The one thing guaranteed to trigger Rapidash? Something faster than it.",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[0].text",
+            "pokedexEntries[1].text",
+            "pokedexEntries[13].text"
+          ],
+          "visualIdea": "A faster target flashes past Rapidash; its expression changes before it launches into pursuit.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 4,
+            "support": 5
+          },
+          "total": 21,
+          "note": "Strongly supported behavioral contradiction: a Pokémon defined by speed still compulsively chases anything faster, but the hook is less numerically sharp."
+        },
+        {
+          "id": "fastest-herd-leader",
+          "premise": "In Rapidash’s herd, the fastest runner becomes leader and controls the group’s pace and direction.",
+          "hook": "For Rapidash, the fastest runner gets to lead the entire herd.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[15].text"
+          ],
+          "visualIdea": "Several Rapidash run together while the fastest moves to the front and redirects the herd.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 4,
+            "support": 4
+          },
+          "total": 20,
+          "note": "A distinctive social rule backed by one entry, though the single-source premise is less robust and the visual is comparatively generic."
+        },
+        {
+          "id": "evolves-at-forty",
+          "premise": "Rapidash’s evolution is a level-40 transformation from Ponyta, keeping the same Fire typing.",
+          "hook": "Rapidash does not evolve early—it waits until level 40.",
+          "archetype": "transformation",
+          "evidence": [
+            "evolutionChain[0].name",
+            "evolutionChain[1].name",
+            "evolutionChain[1].evolvesFrom",
+            "evolutionChain[1].method",
+            "evolutionChain[0].types",
+            "evolutionChain[1].types"
+          ],
+          "visualIdea": "A level counter climbs to 40 before Ponyta flashes into Rapidash, with Fire remaining on screen.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 2,
+            "surprise": 3,
+            "specificity": 5,
+            "visual": 4,
+            "support": 4
+          },
+          "total": 18,
+          "note": "Concrete and well suited to gameplay visuals, but level-40 evolution is not especially surprising or unique, and the evolution method relies on secondary research."
+        }
+      ],
+      "rejected": []
+    }
+  ],
+  "initialChoice": {
+    "id": "ten-step-top-speed",
+    "premise": "Rapidash reaches 150 mph from a standstill after running just 10 steps.",
+    "hook": "Rapidash hits 150 miles per hour in only ten steps.",
+    "archetype": "mechanic",
+    "evidence": [
+      "pokedexEntries[3].text",
+      "pokedexEntries[9].text"
+    ],
+    "visualIdea": "Show Rapidash taking ten numbered steps as a speedometer rockets from zero to 150 mph.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 4,
+      "surprise": 5,
+      "specificity": 5,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 24,
+    "note": "A highly concrete, startling mechanic with direct Pokédex support from multiple entries and an easy ten-step speedometer visual."
+  },
+  "attemptedAngles": [
+    "ten-step-top-speed",
+    "speed-changes-the-mane"
+  ]
+}

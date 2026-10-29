@@ -1,0 +1,171 @@
+{
+  "episodeId": "gyarados-130",
+  "createdAt": "2026-10-29T18:22:44.216Z",
+  "chosen": {
+    "id": "month-long-rampage",
+    "premise": "Gyarados’s rage can last an entire month, ending only after it has burned everything down.",
+    "hook": "Gyarados can stay enraged for an entire month.",
+    "archetype": "mechanic",
+    "evidence": [
+      "pokedexEntries[7].text",
+      "pokedexEntries[3].text"
+    ],
+    "visualIdea": "A calendar rapidly flips through 30 days while Gyarados’s rampage spreads across a burning map.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 5,
+      "specificity": 5,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 25,
+    "note": "A precise, disturbing duration backed directly by the Sapphire entry; the calendar-and-rampage visual makes the premise immediately legible."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "month-long-rampage",
+          "premise": "Gyarados’s rage can last an entire month, ending only after it has burned everything down.",
+          "hook": "Gyarados can stay enraged for an entire month.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[7].text",
+            "pokedexEntries[3].text"
+          ],
+          "visualIdea": "A calendar rapidly flips through 30 days while Gyarados’s rampage spreads across a burning map.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 25,
+          "note": "A precise, disturbing duration backed directly by the Sapphire entry; the calendar-and-rampage visual makes the premise immediately legible."
+        },
+        {
+          "id": "level-20-brain-break",
+          "premise": "At level 20, Magikarp becomes Gyarados—and its brain cells structurally transform, triggering its violent nature.",
+          "hook": "What if evolving at level 20 rewired your brain?",
+          "archetype": "transformation",
+          "evidence": [
+            "evolutionChain[1].method",
+            "evolutionChain[1].evolvesFrom",
+            "pokedexEntries[5].text",
+            "pokedexEntries[17].text"
+          ],
+          "visualIdea": "Show Magikarp hitting level 20, then morph into Gyarados as a brain diagram violently rearranges.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 24,
+          "note": "Highly distinctive transformation with strong visual potential, but the claim that the brain change directly triggers violence is presented as speculation in the Pokédex."
+        },
+        {
+          "id": "mega-gyarados-weighs-more",
+          "premise": "Mega Gyarados keeps the same 6.5-meter height but jumps from 235 kg to 305 kg and becomes Water/Dark.",
+          "hook": "Mega Gyarados gets heavier without getting taller.",
+          "archetype": "comparison",
+          "evidence": [
+            "heightMeters",
+            "weightKg",
+            "types",
+            "varieties[0].heightMeters",
+            "varieties[0].weightKg",
+            "varieties[0].types"
+          ],
+          "visualIdea": "Overlay both forms at equal height, then slam a 235 kg counter into a 305 kg counter.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 24,
+          "note": "Exceptionally clean numerical comparison with complete support, though the reveal is more stat-focused and less emotionally gripping than Gyarados’s destructive lore."
+        },
+        {
+          "id": "hyper-beam-in-all-directions",
+          "premise": "In one account, Gyarados fires Hyper Beams in every direction, burning its surroundings to ash.",
+          "hook": "Gyarados doesn’t aim one Hyper Beam—it fires everywhere.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[16].text",
+            "pokedexEntries[8].text"
+          ],
+          "visualIdea": "Animate beams exploding outward from Gyarados in a full circle until the landscape becomes ash.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 23,
+          "note": "The all-directions detail is concrete and highly animatable, but it comes from a single Pokédex account and may feel like an isolated version-specific claim."
+        },
+        {
+          "id": "conflict-summons-destruction",
+          "premise": "According to multiple Pokédex accounts, human conflict draws Gyarados out—and the places it reaches are destroyed.",
+          "hook": "Human conflict may be the signal that summons Gyarados.",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[2].text",
+            "pokedexEntries[4].text",
+            "pokedexEntries[8].text",
+            "pokedexEntries[15].text"
+          ],
+          "visualIdea": "A small argument on a map escalates into war, then a Gyarados silhouette appears over the burning location.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 4,
+            "support": 4
+          },
+          "total": 21,
+          "note": "Multiple entries support Gyarados appearing during conflict, but “summons” implies a stronger causal mechanism than the text establishes."
+        },
+        {
+          "id": "water-dragon-that-burns",
+          "premise": "Gyarados is Water/Flying, yet its defining attacks and rampages repeatedly burn cities, villages, and fields.",
+          "hook": "Why does a Water-type Pokémon keep setting everything on fire?",
+          "archetype": "comparison",
+          "evidence": [
+            "types",
+            "pokedexEntries[0].text",
+            "pokedexEntries[8].text",
+            "pokedexEntries[11].text",
+            "pokedexEntries[18].text"
+          ],
+          "visualIdea": "Place Water and Flying type labels beside footage-style illustrations of cities and mountains burning.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 3
+          },
+          "total": 20,
+          "note": "The contradiction is visually strong, but the evidence mostly describes Hyper Beam and Pokédex lore rather than establishing fire as a defining attack or Water-type paradox."
+        }
+      ],
+      "rejected": [],
+      "request": "None; month-long-rampage is strong enough. A stronger alternative would need an equally precise, well-supported fact with a more uniquely Gyarados-specific contradiction or reveal."
+    }
+  ]
+}

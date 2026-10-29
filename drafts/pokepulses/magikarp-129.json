@@ -1,0 +1,163 @@
+{
+  "id": "magikarp-129",
+  "title": "Magikarp's Seven-Foot Jump Has One Wild Exception",
+  "storyPattern": "mystery",
+  "numberRelevant": false,
+  "premise": "Magikarp's rare jumps usually stop at seven feet, but one Pokédex entry gives an absurd exception.",
+  "audiencePromise": "Follow the seven-foot clue until Magikarp's age unlocks a mountain-sized reveal.",
+  "openLoop": "How can a Pokémon with a seven-foot jump limit clear a mountain?",
+  "payoff": "A Magikarp living many years can leap a mountain using Splash, even though the move remains useless.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "Seven-foot cap or mountain leap: which feels more like Magikarp?",
+  "subject": {
+    "name": "Magikarp",
+    "category": "Fish Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/129.png",
+    "identifier": "#129"
+  },
+  "related": [
+    {
+      "name": "Gyarados",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/130.png",
+      "identifier": "#130"
+    }
+  ],
+  "palette": {
+    "background": "#08141A",
+    "surface": "#10242B",
+    "primary": "#F28C28",
+    "secondary": "#4FC3C8",
+    "ink": "#F4F7F2"
+  },
+  "voice": {
+    "instructions": "Quick, warm, and playful. Stress seven feet, many years, and mountain. Pause briefly before each reveal, then land the final choice clearly."
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    },
+    "assets": [
+      {
+        "kind": "Magikarp official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/129.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "seven-foot-limit",
+      "beat": "hook",
+      "eyebrow": "THE LIMIT",
+      "headline": "SEVEN FEET. THEN A MOUNTAIN.",
+      "narration": "Magikarp's jump stops at seven feet—unless it ages.",
+      "caption": "A STRICT JUMP LIMIT… OR MORE?",
+      "accent": "#F28C28",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/129.png"
+    },
+    {
+      "id": "rare-jump-cap",
+      "beat": "clue",
+      "eyebrow": "THE FIRST CLUE",
+      "headline": "THE POKÉDEX SETS A CAP",
+      "narration": "Some entries cap its rare jumps at seven feet.",
+      "caption": "RARE JUMPS HAVE A LIMIT",
+      "facts": [
+        "RARE JUMPS",
+        "JUMP LIMIT"
+      ],
+      "accent": "#4FC3C8",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/129.png"
+    },
+    {
+      "id": "scale-break",
+      "beat": "escalation",
+      "eyebrow": "BUT THEN",
+      "headline": "THE RULE GETS STRANGER",
+      "narration": "That sounds final, until one entry makes it much stranger.",
+      "caption": "THE LIMIT ISN'T THE WHOLE STORY",
+      "accent": "#F28C28",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/129.png"
+    },
+    {
+      "id": "mountain-leap",
+      "beat": "reveal",
+      "eyebrow": "FIRST REVEAL",
+      "headline": "AGE UNLOCKS THE MOUNTAIN",
+      "narration": "A Magikarp living many years can leap a mountain using Splash.",
+      "caption": "MANY YEARS → MOUNTAIN LEAP",
+      "facts": [
+        "MANY YEARS",
+        "MOUNTAIN",
+        "SPLASH"
+      ],
+      "accent": "#4FC3C8",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/129.png",
+      "primitive": {
+        "kind": "checklist",
+        "items": [
+          {
+            "label": "MANY YEARS",
+            "met": true
+          },
+          {
+            "label": "SPLASH",
+            "met": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "useless-splash",
+      "beat": "reveal",
+      "eyebrow": "SECOND REVEAL",
+      "headline": "THE MOVE IS STILL USELESS",
+      "narration": "The same entry calls Splash useless, even after that mountain leap.",
+      "caption": "MOUNTAIN LEAP. USELESS MOVE.",
+      "facts": [
+        "SPLASH",
+        "USELESS",
+        "MOUNTAIN LEAP"
+      ],
+      "accent": "#F28C28",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/129.png"
+    },
+    {
+      "id": "choose-the-leap",
+      "beat": "verdict",
+      "eyebrow": "YOUR CALL",
+      "headline": "WHICH MAGIKARP DO YOU BELIEVE?",
+      "narration": "Seven-foot cap or mountain leap: which feels more like Magikarp?",
+      "caption": "SEVEN FEET OR MOUNTAIN?",
+      "accent": "#4FC3C8",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/129.png"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Magikarp",
+      "url": "https://www.pokemon.com/us/pokedex/magikarp",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Magikarp",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Magikarp_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Magikarp",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/129",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

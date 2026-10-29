@@ -1,0 +1,164 @@
+{
+  "episodeId": "geodude-074",
+  "createdAt": "2026-10-29T19:02:48.011Z",
+  "chosen": {
+    "id": "sleeping-landmine",
+    "premise": "A sleeping Geodude can be stepped on without waking, then rolls downhill at sunrise looking for food.",
+    "hook": "You can step on a sleeping Geodude—and it still won’t wake up.",
+    "archetype": "mechanic",
+    "evidence": [
+      "pokedexEntries[6].text"
+    ],
+    "visualIdea": "Show Geodude half-buried as hikers pass over it, then cut to sunrise and its body rolling downhill.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 5,
+      "specificity": 5,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 25,
+    "note": "A remarkably specific contradiction: hikers can step on Geodude while it sleeps, then it rolls downhill for food in the morning. Every beat is directly supported and easy to stage."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "sleeping-landmine",
+          "premise": "A sleeping Geodude can be stepped on without waking, then rolls downhill at sunrise looking for food.",
+          "hook": "You can step on a sleeping Geodude—and it still won’t wake up.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[6].text"
+          ],
+          "visualIdea": "Show Geodude half-buried as hikers pass over it, then cut to sunrise and its body rolling downhill.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 25,
+          "note": "A remarkably specific contradiction: hikers can step on Geodude while it sleeps, then it rolls downhill for food in the morning. Every beat is directly supported and easy to stage."
+        },
+        {
+          "id": "hundred-rock-road",
+          "premise": "A scholar counted 100 Geodude along one route because they blend into the landscape so well.",
+          "hook": "One road had at least 100 Geodude hiding in plain sight.",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[11].text",
+            "pokedexEntries[2].text"
+          ],
+          "visualIdea": "A mountain trail fills with rocks, then each one subtly reveals a Geodude face until the counter reaches 100.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 24,
+          "note": "The exact count of 100 creates a strong mystery and highly visual reveal. The concealment is supported, though the entry does not explicitly say the scholar counted them because they blended in."
+        },
+        {
+          "id": "arms-only-climber",
+          "premise": "Geodude climbs steep and even precipitous mountain paths using only its arms.",
+          "hook": "Geodude climbs cliffs without using legs—because it doesn’t have any.",
+          "archetype": "walkthrough",
+          "evidence": [
+            "pokedexEntries[3].text",
+            "pokedexEntries[7].text",
+            "pokedexEntries[15].text"
+          ],
+          "visualIdea": "A numbered route traces Geodude gripping handholds up a steep cliff, ending with the full arm-powered climb.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 23,
+          "note": "The arm-powered climbing behavior is concrete, distinctive, and repeatedly documented. The hook adds the obvious inference that Geodude has no legs, rather than a fact stated directly in the cited entries."
+        },
+        {
+          "id": "hard-heart-round-body",
+          "premise": "Age smooths Geodude’s rocky edges into a round body, but its heart stays hard, craggy, and rough.",
+          "hook": "Geodude gets softer-looking with age—but never softer inside.",
+          "archetype": "transformation",
+          "evidence": [
+            "pokedexEntries[5].text",
+            "pokedexEntries[14].text"
+          ],
+          "visualIdea": "Morph a jagged young Geodude into a completely round older one while a glowing rocky heart stays unchanged.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 22,
+          "note": "The aging contrast is distinctive and well supported, but the glowing-heart visual is an interpretation, and the entries do not explicitly frame the change as young versus old."
+        },
+        {
+          "id": "accidental-boulder-fight",
+          "premise": "Mistaking Geodude for a boulder is dangerous: stepping on one can make it swing its fists or chase you.",
+          "hook": "That harmless-looking rock might chase you after one careless step.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[0].text",
+            "pokedexEntries[2].text",
+            "pokedexEntries[12].text",
+            "pokedexEntries[17].text"
+          ],
+          "visualIdea": "A hiker approaches an ordinary boulder, steps on it, and the rock unfolds fists before launching into a chase.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 22,
+          "note": "Strongly supported escalation from mistaken boulder to angry fists to pursuit. The general premise is slightly less exclusive because several Pokémon use disguise-based danger."
+        },
+        {
+          "id": "regional-type-swap",
+          "premise": "The standard 20-kilogram Geodude is Rock/Ground, while its 20.3-kilogram Alolan variety is Rock/Electric.",
+          "hook": "Geodude changes one of its types—and gains just 0.3 kilograms.",
+          "archetype": "comparison",
+          "evidence": [
+            "types",
+            "weightKg",
+            "varieties[0].name",
+            "varieties[0].types",
+            "varieties[0].weightKg"
+          ],
+          "visualIdea": "Place standard and Alolan Geodude on scales: 20 kg versus 20.3 kg, then swap Ground for Electric.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 3,
+            "surprise": 3,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 21,
+          "note": "The 20.0-versus-20.3-kilogram comparison is precise and fully supported, but regional form type changes are a familiar Pokémon angle and the 0.3-kilogram difference is not inherently compelling."
+        }
+      ],
+      "rejected": [],
+      "request": "None—sleeping-landmine is strong enough. A stronger alternative would need an equally specific, surprising behavior with a clear visual sequence and direct Pokédex support."
+    }
+  ]
+}

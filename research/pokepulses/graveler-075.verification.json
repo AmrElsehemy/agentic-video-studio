@@ -1,0 +1,513 @@
+{
+  "episodeId": "graveler-075",
+  "checkedAt": "2026-10-29T19:05:28.631Z",
+  "claims": [
+    {
+      "id": "c1",
+      "where": "title",
+      "text": "Graveler Climbs Up Just to Roll Back Down",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[15].text",
+        "pokedexEntries[16].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c2",
+      "where": "premise",
+      "text": "Graveler climbs mountains while eating rocks, then rolls all the way back down.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[6].text",
+        "pokedexEntries[15].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c3",
+      "where": "audiencePromise",
+      "text": "Watch Graveler turn one mountain climb into a rock-eating round trip.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[6].text",
+        "pokedexEntries[15].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c4",
+      "where": "openLoop",
+      "text": "Why does Graveler climb all the way up?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Question only; it makes no factual assertion.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c5",
+      "where": "payoff",
+      "text": "The summit is not the destination. It is the starting line for Graveler's descent.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[6].text",
+        "pokedexEntries[15].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c6",
+      "where": "scenes.mountain-round-trip.headline",
+      "text": "UPHILL. THEN DOWNHILL.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[6].text",
+        "pokedexEntries[15].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c7",
+      "where": "scenes.mountain-round-trip.narration",
+      "text": "Graveler climbs mountains just to roll back down.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[15].text",
+        "pokedexEntries[16].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c8",
+      "where": "scenes.mountain-round-trip.caption",
+      "text": "ONE ENORMOUS ROUND TRIP",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[6].text",
+        "pokedexEntries[15].text"
+      ],
+      "note": "The round trip is supported, but “enormous” is an unsupported exaggeration about its scale.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c9",
+      "where": "scenes.mountain-round-trip.eyebrow",
+      "text": "GRAVELER'S ROUTINE",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[6].text",
+        "pokedexEntries[15].text"
+      ],
+      "note": "The described climb-and-descent behavior is supported, but calling it a routine implies repeated regular behavior beyond the entries.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c10",
+      "where": "scenes.rock-feast-uphill.headline",
+      "text": "DINNER IS UNDERFOOT",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[6].text",
+        "pokedexEntries[13].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c11",
+      "where": "scenes.rock-feast-uphill.narration",
+      "text": "At the mountain's base, Graveler starts climbing while crunching rocks.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c12",
+      "where": "scenes.rock-feast-uphill.caption",
+      "text": "THE UPHILL TRIP STARTS WITH A MEAL",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c13",
+      "where": "scenes.rock-feast-uphill.eyebrow",
+      "text": "THE CLIMB BEGINS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[6].text",
+        "pokedexEntries[15].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c14",
+      "where": "scenes.rock-feast-uphill.facts[0]",
+      "text": "CLIMBS FROM THE BASE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c15",
+      "where": "scenes.rock-feast-uphill.facts[1]",
+      "text": "EATS ROCKS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c16",
+      "where": "scenes.mountain-feast.headline",
+      "text": "THE MOUNTAIN IS FOOD",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[6].text"
+      ],
+      "note": "The research says Graveler eats rocks and favors mossy rocks; saying the entire mountain is food overstates that fact.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c17",
+      "where": "scenes.mountain-feast.narration",
+      "text": "The climb doubles as dinner, because rocks are its favorite food.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c18",
+      "where": "scenes.mountain-feast.caption",
+      "text": "ROCKS ARE GRAVELER'S FAVORITE FOOD",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[6].text",
+        "pokedexEntries[13].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c19",
+      "where": "scenes.mountain-feast.eyebrow",
+      "text": "THE REAL PURPOSE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[6].text",
+        "pokedexEntries[15].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c20",
+      "where": "scenes.mountain-feast.facts[0]",
+      "text": "ROCK-FEEDING POKÉMON",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c21",
+      "where": "scenes.mountain-feast.facts[1]",
+      "text": "CRUNCHES WHILE CLIMBING",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[6].text",
+        "pokedexEntries[13].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c22",
+      "where": "scenes.summit-turnaround.headline",
+      "text": "THE SUMMIT ISN'T THE END",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[15].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c23",
+      "where": "scenes.summit-turnaround.narration",
+      "text": "At the summit, Graveler curls up and rolls straight back down.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[15].text",
+        "pokedexEntries[16].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c24",
+      "where": "scenes.summit-turnaround.caption",
+      "text": "SUMMIT REACHED. DESCENT ACTIVATED.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[15].text",
+        "pokedexEntries[16].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c25",
+      "where": "scenes.summit-turnaround.eyebrow",
+      "text": "REACHING THE TOP",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[15].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c26",
+      "where": "scenes.summit-turnaround.facts[0]",
+      "text": "REACHES THE SUMMIT",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[15].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c27",
+      "where": "scenes.summit-turnaround.facts[1]",
+      "text": "ROLLS BACK DOWN",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[6].text",
+        "pokedexEntries[15].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c28",
+      "where": "scenes.unstoppable-descent.headline",
+      "text": "NOTHING GETS A DETOUR",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text",
+        "pokedexEntries[1].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c29",
+      "where": "scenes.unstoppable-descent.narration",
+      "text": "It rolls downhill, ignoring obstacles and building momentum on mountain paths.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[11].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c30",
+      "where": "scenes.unstoppable-descent.caption",
+      "text": "OBSTACLES ARE JUST THINGS TO ROLL OVER",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text",
+        "pokedexEntries[1].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c31",
+      "where": "scenes.unstoppable-descent.eyebrow",
+      "text": "THE WAY DOWN",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text",
+        "pokedexEntries[1].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c32",
+      "where": "scenes.unstoppable-descent.facts[0]",
+      "text": "ROLLS TO MOVE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text",
+        "pokedexEntries[3].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c33",
+      "where": "scenes.unstoppable-descent.facts[1]",
+      "text": "IGNORES OBSTACLES",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text",
+        "pokedexEntries[1].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c34",
+      "where": "scenes.unstoppable-descent.facts[2]",
+      "text": "BUILDS MOMENTUM",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[11].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c35",
+      "where": "scenes.strangest-commute.headline",
+      "text": "BEST ROUTINE EVER?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Question/opinion framing only; it makes no factual assertion.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c36",
+      "where": "scenes.strangest-commute.narration",
+      "text": "Is this brilliant efficiency, or the strangest commute?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Question presenting an opinionated comparison; it makes no factual assertion.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c37",
+      "where": "scenes.strangest-commute.caption",
+      "text": "BRILLIANT ROUTINE OR WASTED CLIMB?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Question/opinion framing only; it makes no factual assertion.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c38",
+      "where": "scenes.strangest-commute.eyebrow",
+      "text": "YOUR VERDICT",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Call to the audience only; it makes no factual assertion.",
+      "checkedBy": "model"
+    }
+  ],
+  "unsupported": [],
+  "uncertain": [
+    {
+      "id": "c8",
+      "where": "scenes.mountain-round-trip.caption",
+      "text": "ONE ENORMOUS ROUND TRIP",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[6].text",
+        "pokedexEntries[15].text"
+      ],
+      "note": "The round trip is supported, but “enormous” is an unsupported exaggeration about its scale.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c9",
+      "where": "scenes.mountain-round-trip.eyebrow",
+      "text": "GRAVELER'S ROUTINE",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[6].text",
+        "pokedexEntries[15].text"
+      ],
+      "note": "The described climb-and-descent behavior is supported, but calling it a routine implies repeated regular behavior beyond the entries.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c16",
+      "where": "scenes.mountain-feast.headline",
+      "text": "THE MOUNTAIN IS FOOD",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[6].text"
+      ],
+      "note": "The research says Graveler eats rocks and favors mossy rocks; saying the entire mountain is food overstates that fact.",
+      "tier": "official",
+      "checkedBy": "model"
+    }
+  ]
+}

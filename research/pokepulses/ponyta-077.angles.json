@@ -1,0 +1,165 @@
+{
+  "episodeId": "ponyta-077",
+  "createdAt": "2026-10-29T19:10:06.178Z",
+  "chosen": {
+    "id": "the-one-hour-mane",
+    "premise": "A newborn Ponyta lacks its fiery mane and tail, which grow out about one hour after birth.",
+    "hook": "For one hour, Ponyta is born without its signature fire.",
+    "archetype": "transformation",
+    "evidence": [
+      "pokedexEntries[9].text",
+      "pokedexEntries[16].text"
+    ],
+    "visualIdea": "Use a countdown from birth to one hour as a plain foal transforms into the familiar fiery-maned Ponyta.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 5,
+      "specificity": 5,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 25,
+    "note": "A precise, unusual birth detail directly supported by multiple Pokédex entries, with an immediately readable visual countdown."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "the-one-hour-mane",
+          "premise": "A newborn Ponyta lacks its fiery mane and tail, which grow out about one hour after birth.",
+          "hook": "For one hour, Ponyta is born without its signature fire.",
+          "archetype": "transformation",
+          "evidence": [
+            "pokedexEntries[9].text",
+            "pokedexEntries[16].text"
+          ],
+          "visualIdea": "Use a countdown from birth to one hour as a plain foal transforms into the familiar fiery-maned Ponyta.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 25,
+          "note": "A precise, unusual birth detail directly supported by multiple Pokédex entries, with an immediately readable visual countdown."
+        },
+        {
+          "id": "grass-jump-training",
+          "premise": "Ponyta becomes a world-class jumper by repeatedly jumping over grass that grows longer every day.",
+          "hook": "Ponyta’s jump training gets harder because the grass grows every day.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[4].text"
+          ],
+          "visualIdea": "Show the same grass patch growing taller across several days while Ponyta clears each new height.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 23,
+          "note": "A genuinely unusual training method with strong escalating visuals, though 'world-class' is less sharply defined than the one-hour detail."
+        },
+        {
+          "id": "from-stumbling-to-speed",
+          "premise": "Ponyta is born barely able to stand, then gets stronger and faster by stumbling after its parent.",
+          "hook": "Ponyta’s first workout is simply trying not to fall behind.",
+          "archetype": "transformation",
+          "evidence": [
+            "pokedexEntries[6].text",
+            "pokedexEntries[12].text",
+            "pokedexEntries[14].text"
+          ],
+          "visualIdea": "Show a wobbly newborn chasing a parent, then rapidly cut to stronger legs and a full-speed gallop.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 22,
+          "note": "A strongly Ponyta-specific birth-to-speed transformation, though the general 'gets stronger through training' structure is familiar."
+        },
+        {
+          "id": "diamond-hoof-kick",
+          "premise": "Ponyta’s hooves are described as ten times harder than diamond, and its hind legs kick at anything behind it.",
+          "hook": "Ponyta’s hooves are not just hard—they’re ten times harder than diamond.",
+          "archetype": "comparison",
+          "evidence": [
+            "pokedexEntries[0].text",
+            "pokedexEntries[3].text",
+            "pokedexEntries[8].text"
+          ],
+          "visualIdea": "Put a diamond beside a hoof on a hardness scale, then show a warning marker behind Ponyta.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 22,
+          "note": "The number and rear-kick rule are concrete and visual, but the hardness comparison is an in-universe claim and the angle combines two related facts."
+        },
+        {
+          "id": "the-touch-test",
+          "premise": "If Ponyta accepts you, its burning mane mysteriously stops being hot to the touch.",
+          "hook": "How do you know Ponyta trusts you? Its fire stops burning.",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[15].text"
+          ],
+          "visualIdea": "Show a hand approaching the flaming mane, then reveal the accepted Ponyta’s mane becoming safe to touch.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 4,
+            "visual": 4,
+            "support": 4
+          },
+          "total": 22,
+          "note": "Extremely distinctive and surprising, but the hook slightly overstates the source: the mane becomes no longer hot to the touch, not necessarily that the fire stops burning."
+        },
+        {
+          "id": "two-ponyta-builds",
+          "premise": "Standard Ponyta is a 1-meter, 30-kilogram Fire type, while its Galar variety is 0.8 meters, 24 kilograms, and Psychic.",
+          "hook": "Ponyta changes more than its colors in Galar—it changes type and size.",
+          "archetype": "comparison",
+          "evidence": [
+            "types",
+            "heightMeters",
+            "weightKg",
+            "varieties[0].name",
+            "varieties[0].types",
+            "varieties[0].heightMeters",
+            "varieties[0].weightKg"
+          ],
+          "visualIdea": "Place standard and Galar Ponyta side by side with height, weight, and type labels appearing over each.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 3,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 22,
+          "note": "Well-supported and easy to present, but regional-form size-and-type comparisons are a broadly reusable Pokémon angle rather than uniquely Ponyta's."
+        }
+      ],
+      "rejected": [],
+      "request": "Stronger alternatives would need an equally precise, surprising Ponyta-only rule or contradiction, direct multi-entry support, and a transformation or comparison that is instantly legible in vertical video."
+    }
+  ]
+}
