@@ -1,0 +1,178 @@
+{
+  "episodeId": "eevee-133",
+  "createdAt": "2026-10-28T14:22:49.980Z",
+  "chosen": {
+    "id": "trainer-face",
+    "premise": "Eevee's genes are so responsive that even its face can start resembling its Trainer.",
+    "hook": "Eevee can become so influenced by you that its face changes.",
+    "archetype": "profile",
+    "evidence": [
+      "pokedexEntries[17].text"
+    ],
+    "visualIdea": "Crossfade Eevee's face with a Trainer's face, emphasizing the eyes, ears, and muzzle before returning to Eevee.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 5,
+      "specificity": 5,
+      "visual": 4,
+      "support": 5
+    },
+    "total": 24,
+    "note": "The rarest and most startling fact in the set, backed by a specific official Pokédex entry. The visual can be memorable, though it must avoid implying a precise anatomical transformation the source does not describe."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "trainer-face",
+          "premise": "Eevee's genes are so responsive that even its face can start resembling its Trainer.",
+          "hook": "Eevee can become so influenced by you that its face changes.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[17].text"
+          ],
+          "visualIdea": "Crossfade Eevee's face with a Trainer's face, emphasizing the eyes, ears, and muzzle before returning to Eevee.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 4,
+            "support": 5
+          },
+          "total": 24,
+          "note": "The rarest and most startling fact in the set, backed by a specific official Pokédex entry. The visual can be memorable, though it must avoid implying a precise anatomical transformation the source does not describe."
+        },
+        {
+          "id": "eight-way-evolution",
+          "premise": "Eevee is one Pokémon whose evolution chain branches into eight different species.",
+          "hook": "Eevee doesn't have one evolution—it has eight.",
+          "archetype": "comparison",
+          "evidence": [
+            "pokedexEntries[15].text",
+            "evolutionChain[1].name",
+            "evolutionChain[2].name",
+            "evolutionChain[3].name",
+            "evolutionChain[4].name",
+            "evolutionChain[5].name",
+            "evolutionChain[6].name",
+            "evolutionChain[7].name",
+            "evolutionChain[8].name"
+          ],
+          "visualIdea": "Start with Eevee, then branch eight colored paths into Vaporeon, Jolteon, Flareon, Espeon, Umbreon, Leafeon, Glaceon, and Sylveon.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 24,
+          "note": "A defining Eevee premise with a clean, countable payoff and an instantly readable branching visual. Familiar to many fans, so the surprise is strong but not exceptional."
+        },
+        {
+          "id": "unsolved-genes",
+          "premise": "Eevee's unstable genes explain its many evolutions, but why only Eevee has them remains unsolved.",
+          "hook": "Eevee's greatest mystery is written directly into its genes.",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[0].text",
+            "pokedexEntries[1].text",
+            "pokedexEntries[14].text",
+            "pokedexEntries[16].text"
+          ],
+          "visualIdea": "Zoom into a DNA strand that splits into eight silhouettes, then freeze on a question mark over the unstable genetic code.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 4,
+            "support": 5
+          },
+          "total": 24,
+          "note": "A genuinely Eevee-specific mystery: its unstable genes are tied to its evolutions, yet the reason only Eevee has them remains unsolved. The genetic visual is compelling but necessarily somewhat abstract."
+        },
+        {
+          "id": "evolution-rulebook",
+          "premise": "Eevee can evolve through stones, friendship, time, location, a Fairy move, and affection.",
+          "hook": "Eevee's evolution depends on far more than just leveling up.",
+          "archetype": "mechanic",
+          "evidence": [
+            "evolutionChain[1].method",
+            "evolutionChain[2].method",
+            "evolutionChain[3].method",
+            "evolutionChain[4].method",
+            "evolutionChain[5].method",
+            "evolutionChain[6].method",
+            "evolutionChain[7].method",
+            "evolutionChain[8].method"
+          ],
+          "visualIdea": "Show Eevee beside a Water, Thunder, and Fire Stone, then rapidly switch to day, night, friendship, locations, and a Fairy move.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 23,
+          "note": "The six distinct evolution triggers make a strong mechanic-driven episode. The methods are cited from trusted secondary data, but some are game-specific and the premise needs careful wording."
+        },
+        {
+          "id": "gigantamax-scale",
+          "premise": "Eevee's Gigantamax form grows from 0.3 meters and 6.5 kilograms to 18 meters and 1,000 kilograms.",
+          "hook": "Eevee can go from a small 6.5-kilo Pokémon to a one-ton giant.",
+          "archetype": "transformation",
+          "evidence": [
+            "varieties[0].heightMeters",
+            "varieties[0].weightKg",
+            "varieties[1].heightMeters",
+            "varieties[1].weightKg",
+            "varieties[1].name"
+          ],
+          "visualIdea": "Put regular Eevee beside a height scale, then expand it to 18 meters and overlay a 1,000-kilogram weight counter.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 23,
+          "note": "The 0.3-meter, 6.5-kilogram-to-18-meter, 1,000-kilogram jump is concrete and highly visual. It is less uniquely Eevee because the same scale-comparison format can fit other Gigantamax Pokémon."
+        },
+        {
+          "id": "environment-adapter",
+          "premise": "Eevee can alter its body to match its surroundings, evolving into different forms as its environment changes.",
+          "hook": "Eevee doesn't just live in an environment—it changes to fit it.",
+          "archetype": "transformation",
+          "evidence": [
+            "pokedexEntries[2].text",
+            "pokedexEntries[3].text",
+            "pokedexEntries[4].text",
+            "pokedexEntries[8].text",
+            "pokedexEntries[9].text"
+          ],
+          "visualIdea": "Place Eevee in changing environments while its body silhouette morphs into contrasting evolutionary forms.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 3,
+            "specificity": 4,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 20,
+          "note": "Official entries support environmental adaptation, but the idea overlaps with Eevee's broader evolution premise and can overstate how directly every evolution is caused by habitat."
+        }
+      ],
+      "rejected": []
+    }
+  ]
+}

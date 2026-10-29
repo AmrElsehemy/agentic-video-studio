@@ -204,6 +204,7 @@ ${TIERS.map((tier) => `- ${tier} (${tierRules(research)[tier].join(', ')}): ${TI
 - Use ONLY facts from the research. Never invent events, dates, numbers, moves or lore. Any number you state must appear in the research, or be a simple count of its types, evolution stages or forms.
 - Paraphrase freely and punchily, but never make a fact stronger than the research: if it says a Pokémon "stops moving", don't upgrade that to "is paralysed" or "dies".
 - Hook scene (first): narration at most 9 words; headline at most 8 words. It must create tension in the first second.
+- What the channel's numbers show (October 2026): the title starts with the Pokémon's name and is at most about 50 characters; never start it with "Why". The hook is a flat, concrete statement about the Pokémon with a twist in its second half ("Ekans's favorite snack can knock it out.", "Take Pidgey far away. It still flies home."), never a question, "what if" or "so why". Those openers got a fraction of the views.
 - Other scenes: narration 9-14 words, spoken naturally, one idea per scene. Numbers and punctuation take longer to say, so use fewer words in lines that contain them.
 - Aim for 6-8 scenes and 24-45 seconds in total.
 - Last scene: a genuine either/or question to the viewer (use "?" and "or"/"which").

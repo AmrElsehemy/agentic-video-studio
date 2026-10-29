@@ -1,0 +1,558 @@
+{
+  "episodeId": "eevee-133",
+  "checkedAt": "2026-10-28T14:22:53.903Z",
+  "claims": [
+    {
+      "id": "c1",
+      "where": "title",
+      "text": "Eevee Can Start Looking Like Its Trainer",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[16].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c2",
+      "where": "premise",
+      "text": "Eevee's unstable genes respond to its surroundings, even making its face resemble its Trainer.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[13].text",
+        "pokedexEntries[16].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c3",
+      "where": "audiencePromise",
+      "text": "Show how Eevee's surroundings can turn hidden genetic instability into visible changes.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[13].text",
+        "pokedexEntries[16].text",
+        "pokedexEntries[18].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c4",
+      "where": "openLoop",
+      "text": "If surroundings shape Eevee, what can its Trainer really change?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c5",
+      "where": "payoff",
+      "text": "Its design makes hidden genetic influence visible in face and form.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[9].text",
+        "pokedexEntries[16].text"
+      ],
+      "note": "The face and form changes are backed, but calling this Eevee's 'design' a mechanism that makes genetic influence visible is interpretive.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c6",
+      "where": "scenes.your-eevee-may-look-like-you.headline",
+      "text": "YOUR EEVEE MAY LOOK LIKE YOU",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[16].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c7",
+      "where": "scenes.your-eevee-may-look-like-you.narration",
+      "text": "Eevee's genes can make its face resemble yours.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[16].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c8",
+      "where": "scenes.your-eevee-may-look-like-you.caption",
+      "text": "THE POKÉDEX SAYS THIS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[16].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c9",
+      "where": "scenes.your-eevee-may-look-like-you.eyebrow",
+      "text": "A STRANGE GENETIC CLUE",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c10",
+      "where": "scenes.surroundings-affect-its-dna.headline",
+      "text": "SURROUNDINGS LEAVE A MARK",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].text",
+        "pokedexEntries[16].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c11",
+      "where": "scenes.surroundings-affect-its-dna.narration",
+      "text": "Even its surroundings can affect Eevee's irregularly configured DNA.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c12",
+      "where": "scenes.surroundings-affect-its-dna.caption",
+      "text": "ENVIRONMENT CAN INFLUENCE ITS GENES",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].text",
+        "pokedexEntries[16].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c13",
+      "where": "scenes.surroundings-affect-its-dna.eyebrow",
+      "text": "ITS GENES ARE RESPONSIVE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].text",
+        "pokedexEntries[16].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c14",
+      "where": "scenes.surroundings-affect-its-dna.facts[0]",
+      "text": "UNSTABLE GENES",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[13].text",
+        "pokedexEntries[14].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c15",
+      "where": "scenes.surroundings-affect-its-dna.facts[1]",
+      "text": "SURROUNDINGS",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c16",
+      "where": "scenes.surroundings-affect-its-dna.facts[2]",
+      "text": "TRAINER",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c17",
+      "where": "scenes.instability-becomes-species.headline",
+      "text": "POTENTIAL BECOMES A NEW SPECIES",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[15].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c18",
+      "where": "scenes.instability-becomes-species.narration",
+      "text": "That instability can produce eight different species from one Eevee.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[15].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c19",
+      "where": "scenes.instability-becomes-species.caption",
+      "text": "ONE GENETIC MYSTERY. EIGHT OUTCOMES.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[15].text",
+        "pokedexEntries[17].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c20",
+      "where": "scenes.instability-becomes-species.eyebrow",
+      "text": "THE INSTABILITY HAS CONSEQUENCES",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[15].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c21",
+      "where": "scenes.instability-becomes-species.facts[0]",
+      "text": "EIGHT SPECIES",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[15].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c22",
+      "where": "scenes.instability-becomes-species.facts[1]",
+      "text": "UNSTABLE GENETIC MAKEUP",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[13].text",
+        "pokedexEntries[14].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c23",
+      "where": "scenes.environment-can-trigger-evolution.headline",
+      "text": "CHANGE THE ENVIRONMENT",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].text",
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c24",
+      "where": "scenes.environment-can-trigger-evolution.narration",
+      "text": "Change the environment, and Eevee may evolve into another form.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].text",
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c25",
+      "where": "scenes.environment-can-trigger-evolution.caption",
+      "text": "ITS SURROUNDINGS CAN ALTER ITS FUTURE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].text",
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c26",
+      "where": "scenes.environment-can-trigger-evolution.eyebrow",
+      "text": "NOW THE STAKES CHANGE",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c27",
+      "where": "scenes.environment-can-trigger-evolution.facts[0]",
+      "text": "ENVIRONMENT CHANGES",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c28",
+      "where": "scenes.environment-can-trigger-evolution.facts[1]",
+      "text": "EVOLUTION",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c29",
+      "where": "scenes.environment-can-trigger-evolution.facts[2]",
+      "text": "MANY FORMS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text",
+        "pokedexEntries[18].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c30",
+      "where": "scenes.resemblance-is-not-guaranteed.headline",
+      "text": "NOT A GUARANTEED COPY",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[16].text"
+      ],
+      "note": "The research supports resemblance to the Trainer, but does not explicitly state that the resemblance is not guaranteed.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c31",
+      "where": "scenes.resemblance-is-not-guaranteed.narration",
+      "text": "But the Pokédex says resemblance may happen, not that it must.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[16].text"
+      ],
+      "note": "The Pokédex says Eevee's face starts to look like its Trainer's; it does not explicitly use the modal distinction 'may happen, not must.'",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c32",
+      "where": "scenes.resemblance-is-not-guaranteed.caption",
+      "text": "INFLUENCE IS NOT CERTAINTY",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[16].text"
+      ],
+      "note": "Environmental and Trainer resemblance are supported, but the research does not explicitly establish that the influence lacks certainty.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c33",
+      "where": "scenes.resemblance-is-not-guaranteed.eyebrow",
+      "text": "BUT THERE IS A LIMIT",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[16].text"
+      ],
+      "note": "The text implies a limitation on resemblance, but the research does not state one.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c34",
+      "where": "scenes.resemblance-is-not-guaranteed.facts[0]",
+      "text": "MAY RESEMBLE TRAINER",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[16].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c35",
+      "where": "scenes.resemblance-is-not-guaranteed.facts[1]",
+      "text": "NOT GUARANTEED",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[16].text"
+      ],
+      "note": "The research supports Trainer resemblance but does not explicitly say it is not guaranteed.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c36",
+      "where": "scenes.influence-becomes-visible.headline",
+      "text": "INFLUENCE YOU CAN SEE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].text",
+        "pokedexEntries[9].text",
+        "pokedexEntries[16].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c37",
+      "where": "scenes.influence-becomes-visible.narration",
+      "text": "Its design makes hidden genetic influence visible in face and form.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[3].text",
+        "pokedexEntries[9].text",
+        "pokedexEntries[16].text"
+      ],
+      "note": "The research supports genetic influence on face and evolutionary form, but describing this as Eevee's 'design' making that influence visible is interpretive.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c38",
+      "where": "scenes.influence-becomes-visible.caption",
+      "text": "EEVEE MAKES EVOLUTION FEEL PERSONAL",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c39",
+      "where": "scenes.influence-becomes-visible.eyebrow",
+      "text": "THAT IS THE DESIGN",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    }
+  ],
+  "unsupported": [],
+  "uncertain": [
+    {
+      "id": "c5",
+      "where": "payoff",
+      "text": "Its design makes hidden genetic influence visible in face and form.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[9].text",
+        "pokedexEntries[16].text"
+      ],
+      "note": "The face and form changes are backed, but calling this Eevee's 'design' a mechanism that makes genetic influence visible is interpretive.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c30",
+      "where": "scenes.resemblance-is-not-guaranteed.headline",
+      "text": "NOT A GUARANTEED COPY",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[16].text"
+      ],
+      "note": "The research supports resemblance to the Trainer, but does not explicitly state that the resemblance is not guaranteed.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c31",
+      "where": "scenes.resemblance-is-not-guaranteed.narration",
+      "text": "But the Pokédex says resemblance may happen, not that it must.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[16].text"
+      ],
+      "note": "The Pokédex says Eevee's face starts to look like its Trainer's; it does not explicitly use the modal distinction 'may happen, not must.'",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c32",
+      "where": "scenes.resemblance-is-not-guaranteed.caption",
+      "text": "INFLUENCE IS NOT CERTAINTY",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[16].text"
+      ],
+      "note": "Environmental and Trainer resemblance are supported, but the research does not explicitly establish that the influence lacks certainty.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c33",
+      "where": "scenes.resemblance-is-not-guaranteed.eyebrow",
+      "text": "BUT THERE IS A LIMIT",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[16].text"
+      ],
+      "note": "The text implies a limitation on resemblance, but the research does not state one.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c35",
+      "where": "scenes.resemblance-is-not-guaranteed.facts[1]",
+      "text": "NOT GUARANTEED",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[16].text"
+      ],
+      "note": "The research supports Trainer resemblance but does not explicitly say it is not guaranteed.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c37",
+      "where": "scenes.influence-becomes-visible.narration",
+      "text": "Its design makes hidden genetic influence visible in face and form.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[3].text",
+        "pokedexEntries[9].text",
+        "pokedexEntries[16].text"
+      ],
+      "note": "The research supports genetic influence on face and evolutionary form, but describing this as Eevee's 'design' making that influence visible is interpretive.",
+      "tier": "official",
+      "checkedBy": "model"
+    }
+  ]
+}

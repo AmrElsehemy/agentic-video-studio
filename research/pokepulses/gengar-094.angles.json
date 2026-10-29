@@ -1,0 +1,194 @@
+{
+  "episodeId": "gengar-094",
+  "createdAt": "2026-10-28T14:11:53.614Z",
+  "chosen": {
+    "id": "ten-degree-chill",
+    "premise": "When Gengar hides nearby, it steals surrounding heat and can cool the area by nearly 10 degrees Fahrenheit.",
+    "hook": "A hidden Gengar can drop the temperature nearly 10 degrees.",
+    "archetype": "mechanic",
+    "evidence": [
+      "pokedexEntries[9].text",
+      "pokedexEntries[2].text",
+      "pokedexEntries[16].text"
+    ],
+    "visualIdea": "A thermometer plunges nearly 10°F as an invisible Gengar silhouette appears in the room.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 4,
+      "surprise": 4,
+      "specificity": 5,
+      "visual": 4,
+      "support": 5
+    },
+    "total": 22,
+    "note": "The nearly 10°F detail is concrete and well supported, but temperature-draining is a broader ghost-like mechanic and is less inherently dramatic on screen than the overtaking shadow."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "shadow-overtake",
+          "premise": "Gengar can pretend to be your shadow—then suddenly run past and overtake it under a streetlight.",
+          "hook": "What if your shadow suddenly sprinted past you?",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[5].text",
+            "pokedexEntries[6].text"
+          ],
+          "visualIdea": "A streetlight casts a human shadow before a second shadow races past and overtakes it.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 25,
+          "note": "A highly Gengar-specific physical gag: its shadow impersonation can become a second shadow that overtakes the victim. The Ruby and Emerald entries directly support the premise and make the streetlight visual obvious."
+        },
+        {
+          "id": "ten-degree-chill",
+          "premise": "When Gengar hides nearby, it steals surrounding heat and can cool the area by nearly 10 degrees Fahrenheit.",
+          "hook": "A hidden Gengar can drop the temperature nearly 10 degrees.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[9].text",
+            "pokedexEntries[2].text",
+            "pokedexEntries[16].text"
+          ],
+          "visualIdea": "A thermometer plunges nearly 10°F as an invisible Gengar silhouette appears in the room.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 4,
+            "support": 5
+          },
+          "total": 22,
+          "note": "The nearly 10°F detail is concrete and well supported, but temperature-draining is a broader ghost-like mechanic and is less inherently dramatic on screen than the overtaking shadow."
+        },
+        {
+          "id": "human-companion",
+          "premise": "Gengar may have once been human, and now tries to create a traveling companion by taking human lives.",
+          "hook": "Gengar may be searching for company because it was once human.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[17].text",
+            "pokedexEntries[3].text",
+            "pokedexEntries[20].text"
+          ],
+          "visualIdea": "A lonely Gengar follows a traveler, then the reveal connects its former humanity to its deadly search for company.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 4,
+            "visual": 4,
+            "support": 4
+          },
+          "total": 22,
+          "note": "The former-human explanation and lethal search for companionship are unusually disturbing and specific to Gengar. Support is strong, though the wording is framed as an apparent in-universe claim rather than an unequivocal fact."
+        },
+        {
+          "id": "full-moon-shadow-laugh",
+          "premise": "On a full moon, Gengar can make shadows move on their own—and laugh at the people they frighten.",
+          "hook": "If your shadow laughs under a full moon, Gengar is responsible.",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[0].text",
+            "pokedexEntries[8].text",
+            "pokedexEntries[20].text"
+          ],
+          "visualIdea": "A full moon illuminates still shadows; one begins moving, turns toward the viewer, and starts laughing.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 22,
+          "note": "A strong horror image combining full moon, autonomous shadows, and laughter. It is well supported across entries, though it overlaps somewhat with the sharper and more unusual shadow-overtaking premise."
+        },
+        {
+          "id": "gmax-weight-jump",
+          "premise": "Gengar’s Gigantamax form grows from 1.5 meters and 40.5 kilograms to 20 meters and 1,000 kilograms.",
+          "hook": "Gengar’s giant form is over 13 times taller and nearly 25 times heavier.",
+          "archetype": "transformation",
+          "evidence": [
+            "heightMeters",
+            "weightKg",
+            "varieties[1].name",
+            "varieties[1].heightMeters",
+            "varieties[1].weightKg"
+          ],
+          "visualIdea": "Base Gengar scales beside a human, then expands to 20 meters while a weight counter hits 1,000 kilograms.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 3,
+            "surprise": 3,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 21,
+          "note": "The measurements and scale comparison are fully supported and easy to visualize, but giant-form size escalation is a common Pokémon angle and says less about why Gengar is memorable."
+        },
+        {
+          "id": "trade-to-gengar",
+          "premise": "Haunter reaches level 25 from Gastly, but becoming Gengar requires a trade instead of another level.",
+          "hook": "Gengar does not evolve by leveling up—it requires a trade.",
+          "archetype": "mechanic",
+          "evidence": [
+            "evolutionChain[1].method",
+            "evolutionChain[2].method",
+            "evolutionChain[1].name",
+            "evolutionChain[2].name"
+          ],
+          "visualIdea": "Gastly levels into Haunter at 25, then the evolution screen pauses until two players trade.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 2,
+            "surprise": 3,
+            "specificity": 5,
+            "visual": 4,
+            "support": 5
+          },
+          "total": 19,
+          "note": "The evolution contrast is clear and supported, but trade evolution is not uniquely Gengar and mainly appeals to game-mechanic audiences rather than revealing something distinctive about its identity."
+        }
+      ],
+      "rejected": [],
+      "request": "N/A—the chosen angle is strong enough. A stronger alternative would need to preserve Gengar-specific evidence while adding an equally concrete, visually startling contradiction or reveal."
+    }
+  ],
+  "initialChoice": {
+    "id": "shadow-overtake",
+    "premise": "Gengar can pretend to be your shadow—then suddenly run past and overtake it under a streetlight.",
+    "hook": "What if your shadow suddenly sprinted past you?",
+    "archetype": "mystery",
+    "evidence": [
+      "pokedexEntries[5].text",
+      "pokedexEntries[6].text"
+    ],
+    "visualIdea": "A streetlight casts a human shadow before a second shadow races past and overtakes it.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 5,
+      "specificity": 5,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 25,
+    "note": "A highly Gengar-specific physical gag: its shadow impersonation can become a second shadow that overtakes the victim. The Ruby and Emerald entries directly support the premise and make the streetlight visual obvious."
+  },
+  "attemptedAngles": [
+    "shadow-overtake",
+    "ten-degree-chill"
+  ]
+}
