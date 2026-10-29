@@ -1,0 +1,453 @@
+{
+  "episodeId": "farfetchd-083",
+  "checkedAt": "2026-10-29T19:46:24.009Z",
+  "claims": [
+    {
+      "id": "c1",
+      "where": "title",
+      "text": "Farfetch’d’s Sword Can Become Emergency Food",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[14].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c2",
+      "where": "premise",
+      "text": "Farfetch’d uses its plant stalk as a sword, but can eat it as emergency rations.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[14].text",
+        "pokedexEntries[11].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c3",
+      "where": "audiencePromise",
+      "text": "See the survival trade that leaves Farfetch’d searching for a new weapon.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[11].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c4",
+      "where": "openLoop",
+      "text": "If Farfetch’d eats its stalk, how does it replace its weapon?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Question only.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c5",
+      "where": "payoff",
+      "text": "The stalk is a built-in survival trade: food now means searching for a new weapon next.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[14].text",
+        "pokedexEntries[11].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c6",
+      "where": "scenes.sword-or-snack.headline",
+      "text": "SWORD OR SNACK?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Question only.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c7",
+      "where": "scenes.sword-or-snack.narration",
+      "text": "Farfetch’d carries a sword that can become emergency food.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[14].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c8",
+      "where": "scenes.sword-or-snack.caption",
+      "text": "ITS WEAPON CAN BECOME FOOD",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[14].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c9",
+      "where": "scenes.sword-or-snack.eyebrow",
+      "text": "FARFETCH’D",
+      "verdict": "supported",
+      "evidence": [
+        "name"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c10",
+      "where": "scenes.essential-stalk.headline",
+      "text": "IT CAN’T LIVE WITHOUT IT",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[9].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c11",
+      "where": "scenes.essential-stalk.narration",
+      "text": "Farfetch’d can’t live without the plant stalk it carries.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[9].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c12",
+      "where": "scenes.essential-stalk.caption",
+      "text": "THE STALK IS ESSENTIAL",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[9].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c13",
+      "where": "scenes.essential-stalk.eyebrow",
+      "text": "THE ESSENTIAL STALK",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[9].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c14",
+      "where": "scenes.essential-stalk.facts[0]",
+      "text": "PLANT STALK",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[14].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c15",
+      "where": "scenes.essential-stalk.facts[1]",
+      "text": "ESSENTIAL",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[9].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c16",
+      "where": "scenes.dire-rations.headline",
+      "text": "THE ESSENTIAL STALK GETS EATEN",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[9].text",
+        "pokedexEntries[14].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c17",
+      "where": "scenes.dire-rations.narration",
+      "text": "In a dire situation, it can eat that essential stalk as emergency rations.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[14].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c18",
+      "where": "scenes.dire-rations.caption",
+      "text": "EMERGENCY RATIONS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[14].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c19",
+      "where": "scenes.dire-rations.eyebrow",
+      "text": "DIRE SITUATION",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[14].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c20",
+      "where": "scenes.dire-rations.facts[0]",
+      "text": "DIRE SITUATION",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[14].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c21",
+      "where": "scenes.dire-rations.facts[1]",
+      "text": "EMERGENCY RATIONS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[14].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c22",
+      "where": "scenes.searching-unarmed.headline",
+      "text": "NOW THE WEAPON IS GONE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text",
+        "pokedexEntries[14].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c23",
+      "where": "scenes.searching-unarmed.narration",
+      "text": "After eating it, Farfetch’d runs off searching for a new one.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[11].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c24",
+      "where": "scenes.searching-unarmed.caption",
+      "text": "SEARCHING FOR A REPLACEMENT",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[11].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c25",
+      "where": "scenes.searching-unarmed.eyebrow",
+      "text": "AFTER THE MEAL",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[11].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c26",
+      "where": "scenes.searching-unarmed.facts[0]",
+      "text": "WEAPON GONE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text",
+        "pokedexEntries[11].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c27",
+      "where": "scenes.searching-unarmed.facts[1]",
+      "text": "NEW STALK",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[11].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c28",
+      "where": "scenes.one-stalk-trade.headline",
+      "text": "FIGHTING OR HUNGER",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Question only.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c29",
+      "where": "scenes.one-stalk-trade.narration",
+      "text": "One stalk handles fighting and hunger, but never both at once.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[0].text",
+        "pokedexEntries[14].text"
+      ],
+      "note": "The stalk's weapon and food functions are supported, but the claim that it is never both at once is an inference not stated directly in the research.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c30",
+      "where": "scenes.one-stalk-trade.caption",
+      "text": "FIGHTING ↔ HUNGER",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text",
+        "pokedexEntries[14].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c31",
+      "where": "scenes.one-stalk-trade.eyebrow",
+      "text": "THE SURVIVAL TRADE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text",
+        "pokedexEntries[14].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c32",
+      "where": "scenes.one-stalk-trade.facts[0]",
+      "text": "WEAPON",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c33",
+      "where": "scenes.one-stalk-trade.facts[1]",
+      "text": "FOOD",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[14].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c34",
+      "where": "scenes.weapon-trade.headline",
+      "text": "SMART OR TERRIBLE?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Question only.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c35",
+      "where": "scenes.weapon-trade.narration",
+      "text": "One built-in meal, or a terrible weapon trade?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Question only.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c36",
+      "where": "scenes.weapon-trade.caption",
+      "text": "SMART SURVIVAL OR BAD PLANNING?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Question asking for an opinion.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c37",
+      "where": "scenes.weapon-trade.eyebrow",
+      "text": "YOUR VERDICT",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Prompt for the audience's opinion.",
+      "checkedBy": "model"
+    }
+  ],
+  "unsupported": [],
+  "uncertain": [
+    {
+      "id": "c29",
+      "where": "scenes.one-stalk-trade.narration",
+      "text": "One stalk handles fighting and hunger, but never both at once.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[0].text",
+        "pokedexEntries[14].text"
+      ],
+      "note": "The stalk's weapon and food functions are supported, but the claim that it is never both at once is an inference not stated directly in the research.",
+      "tier": "official",
+      "checkedBy": "model"
+    }
+  ]
+}

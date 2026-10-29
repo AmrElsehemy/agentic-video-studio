@@ -1,0 +1,176 @@
+{
+  "schemaVersion": 1,
+  "id": "muk-089",
+  "number": 89,
+  "index": "#089",
+  "name": "Muk",
+  "slug": "muk",
+  "category": "Sludge Pokémon",
+  "generation": "Generation I",
+  "isLegendary": false,
+  "isMythical": false,
+  "types": [
+    "Poison"
+  ],
+  "heightMeters": 1.2,
+  "weightKg": 30,
+  "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/89.png",
+  "pokedexEntries": [
+    {
+      "game": "Red",
+      "text": "Thickly covered with a filthy, vile sludge. It is so toxic, even its footprints contain poison."
+    },
+    {
+      "game": "Yellow",
+      "text": "Smells so awful, it can cause fainting. Through degeneration, it lost its sense of smell."
+    },
+    {
+      "game": "Gold",
+      "text": "They love to gath er in smelly areas where sludge ac cumulates, making the stench around them worse."
+    },
+    {
+      "game": "Silver",
+      "text": "Its body is made of a powerful poi son. Touching it accidentally will cause a fever that requires bed rest."
+    },
+    {
+      "game": "Crystal",
+      "text": "As it moves, a very strong poison leaks from it, making the ground there barren for three years."
+    },
+    {
+      "game": "Ruby",
+      "text": "From MUK’s body seeps a foul fluid that gives off a nose-bendingly horrible stench. Just one drop of this POKéMON’s body fluid can turn a pool stagnant and rancid."
+    },
+    {
+      "game": "Sapphire",
+      "text": "This POKéMON’s favorite food is anything that is repugnantly filthy. In dirty towns where people think nothing of throwing away litter on the streets, MUK are certain to gather."
+    },
+    {
+      "game": "Emerald",
+      "text": "It prefers warm and humid habitats. In the summertime, the toxic substances in its body intensify, making MUK reek like putrid kitchen garbage."
+    },
+    {
+      "game": "Firered",
+      "text": "It is usually undetectable because it blends in with the ground. Touching it can cause terrible poisoning."
+    },
+    {
+      "game": "Diamond",
+      "text": "A toxic fluid seeps from its body. The fluid instantly kills plants and trees on contact."
+    },
+    {
+      "game": "Heartgold",
+      "text": "They love to gather in smelly areas where sludge accumulates, making the stench around them worse."
+    },
+    {
+      "game": "Soulsilver",
+      "text": "Its body is made of a powerful poison. Touching it accidentally will cause a fever that requires bed rest."
+    },
+    {
+      "game": "Black 2",
+      "text": "It’s so stinky! Muk’s body contains toxic elements, and any plant will wilt when it passes by."
+    },
+    {
+      "game": "Sun",
+      "text": "The stench it gives off will make your nose scrunch up. Still, there are Muk fans who think that’s a good thing."
+    },
+    {
+      "game": "Moon",
+      "text": "After recent environmental improvements, this Pokémon is now hardly seen at all. People speculate that it may go extinct at some point."
+    },
+    {
+      "game": "Ultra Sun",
+      "text": "Their food sources have decreased, and their numbers have declined sharply. Sludge ponds are being built to prevent their extinction."
+    },
+    {
+      "game": "Ultra Moon",
+      "text": "Because they scatter germs everywhere, they’ve long been targeted for extermination, leading to a steep decline in their population."
+    },
+    {
+      "game": "Lets Go Pikachu",
+      "text": "Smells so awful, it can cause fainting. Through degeneration of its nose, it lost its sense of smell."
+    }
+  ],
+  "evolutionChain": [
+    {
+      "name": "Grimer",
+      "index": "#088",
+      "stage": 1,
+      "types": [
+        "Poison"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/88.png",
+      "isSubject": false
+    },
+    {
+      "name": "Muk",
+      "index": "#089",
+      "stage": 2,
+      "evolvesFrom": "Grimer",
+      "method": "Level Up, level 38",
+      "types": [
+        "Poison"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/89.png",
+      "isSubject": true
+    }
+  ],
+  "varieties": [
+    {
+      "name": "Muk Alola",
+      "types": [
+        "Poison",
+        "Dark"
+      ],
+      "heightMeters": 1,
+      "weightKg": 52,
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10113.png"
+    }
+  ],
+  "lore": [],
+  "tiers": {
+    "official": [
+      "name",
+      "index",
+      "number",
+      "category",
+      "generation",
+      "isLegendary",
+      "isMythical",
+      "types",
+      "heightMeters",
+      "weightKg",
+      "pokedexEntries",
+      "evolutionChain[].name",
+      "evolutionChain[].index",
+      "evolutionChain[].types",
+      "evolutionChain[].stage",
+      "varieties[].types",
+      "varieties[].heightMeters",
+      "varieties[].weightKg"
+    ],
+    "trusted_secondary": [
+      "evolutionChain[].method",
+      "evolutionChain[].evolvesFrom",
+      "varieties[].name"
+    ],
+    "community": [
+      "lore"
+    ]
+  },
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Muk",
+      "url": "https://www.pokemon.com/us/pokedex/muk",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Muk",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Muk_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Muk",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/89",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

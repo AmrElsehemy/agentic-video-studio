@@ -1,0 +1,516 @@
+{
+  "episodeId": "muk-089",
+  "checkedAt": "2026-10-29T20:04:57.394Z",
+  "claims": [
+    {
+      "id": "c1",
+      "where": "title",
+      "text": "Muk May Need Pollution to Survive",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[14].text",
+        "pokedexEntries[15].text"
+      ],
+      "note": "The research says environmental improvements and reduced food sources have caused Muk's decline, and sludge ponds are being built to prevent extinction, but it does not directly establish that Muk needs pollution to survive.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c2",
+      "where": "premise",
+      "text": "Muk's survival may depend on the dirty environments people worked to clean up.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[14].text",
+        "pokedexEntries[15].text",
+        "pokedexEntries[2].text"
+      ],
+      "note": "Muk gathers where sludge accumulates, and its population declined after environmental improvements, but survival depending on dirty environments is an inference.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c3",
+      "where": "audiencePromise",
+      "text": "Reveal why cleaner environments made Muk rare, then show the strange solution being built to save it.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[14].text",
+        "pokedexEntries[15].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c4",
+      "where": "openLoop",
+      "text": "How could environmental progress push Muk toward extinction?",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[14].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c5",
+      "where": "payoff",
+      "text": "Muk may need sludge ponds to survive, even as its germs have led to extermination efforts.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[15].text",
+        "pokedexEntries[16].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c6",
+      "where": "scenes.cleanup-risk.headline",
+      "text": "CLEANUP PUTS MUK AT RISK",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[14].text",
+        "pokedexEntries[15].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c7",
+      "where": "scenes.cleanup-risk.narration",
+      "text": "Muk needs sludge ponds—cleaner environments may erase it.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[14].text",
+        "pokedexEntries[15].text"
+      ],
+      "note": "The research says sludge ponds are being built to prevent extinction, but 'Muk needs sludge ponds' states the inferred necessity more definitively.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c8",
+      "where": "scenes.cleanup-risk.caption",
+      "text": "CLEANER WORLD. FEWER MUK.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[14].text",
+        "pokedexEntries[15].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c9",
+      "where": "scenes.cleanup-risk.eyebrow",
+      "text": "THE CLEANUP PROBLEM",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c10",
+      "where": "scenes.dirty-gathering-grounds.headline",
+      "text": "DIRTY AREAS ATTRACT MUK",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c11",
+      "where": "scenes.dirty-gathering-grounds.narration",
+      "text": "Muk gathers where sludge accumulates, making the stench even worse.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c12",
+      "where": "scenes.dirty-gathering-grounds.caption",
+      "text": "SLUDGE BUILDS. MUK FOLLOWS.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c13",
+      "where": "scenes.dirty-gathering-grounds.eyebrow",
+      "text": "MUK FOLLOWS THE SLUDGE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c14",
+      "where": "scenes.dirty-gathering-grounds.facts[0]",
+      "text": "SLUDGE ACCUMULATES",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c15",
+      "where": "scenes.dirty-gathering-grounds.facts[1]",
+      "text": "STENCH GETS WORSE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c16",
+      "where": "scenes.food-sources-collapse.headline",
+      "text": "ENVIRONMENTAL PROGRESS HURTS MUK",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[14].text",
+        "pokedexEntries[15].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c17",
+      "where": "scenes.food-sources-collapse.narration",
+      "text": "Environmental improvements cut its food sources, leaving Muk hardly seen.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[14].text",
+        "pokedexEntries[15].text"
+      ],
+      "note": "The research separately reports environmental improvements, decreased food sources, and Muk becoming hardly seen, but does not explicitly say that the improvements cut the food sources.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c18",
+      "where": "scenes.food-sources-collapse.caption",
+      "text": "FEWER SOURCES. FEWER MUK.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[15].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c19",
+      "where": "scenes.food-sources-collapse.eyebrow",
+      "text": "THEN THE FOOD DISAPPEARS",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[15].text"
+      ],
+      "note": "The research says food sources decreased, not that they completely disappeared.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c20",
+      "where": "scenes.food-sources-collapse.facts[0]",
+      "text": "FOOD SOURCES DECREASED",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[15].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c21",
+      "where": "scenes.food-sources-collapse.facts[1]",
+      "text": "HARDLY SEEN",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[14].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c22",
+      "where": "scenes.sludge-pond-solution.headline",
+      "text": "SLUDGE PONDS TO THE RESCUE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[15].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c23",
+      "where": "scenes.sludge-pond-solution.narration",
+      "text": "Now, purpose-built sludge ponds are being built to prevent its extinction.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[15].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c24",
+      "where": "scenes.sludge-pond-solution.caption",
+      "text": "POLLUTION BECOMES PROTECTION",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[15].text"
+      ],
+      "note": "Sludge ponds are described as a measure to prevent extinction, but the research does not explicitly characterize them as pollution becoming protection.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c25",
+      "where": "scenes.sludge-pond-solution.eyebrow",
+      "text": "THE STRANGE FIX",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c26",
+      "where": "scenes.sludge-pond-solution.facts[0]",
+      "text": "SLUDGE PONDS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[15].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c27",
+      "where": "scenes.sludge-pond-solution.facts[1]",
+      "text": "PREVENT EXTINCTION",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[15].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c28",
+      "where": "scenes.toxic-counterpoint.headline",
+      "text": "MUK WAS TARGETED FOR EXTERMINATION",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[16].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c29",
+      "where": "scenes.toxic-counterpoint.narration",
+      "text": "But Muk scatters germs, and people have targeted it for extermination.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[16].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c30",
+      "where": "scenes.toxic-counterpoint.caption",
+      "text": "SAVING IT ISN'T SIMPLE",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c31",
+      "where": "scenes.toxic-counterpoint.eyebrow",
+      "text": "BUT HERE IS THE CATCH",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c32",
+      "where": "scenes.toxic-counterpoint.facts[0]",
+      "text": "SCATTERS GERMS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[16].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c33",
+      "where": "scenes.toxic-counterpoint.facts[1]",
+      "text": "TARGETED FOR EXTERMINATION",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[16].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c34",
+      "where": "scenes.survival-choice.headline",
+      "text": "WHAT SHOULD SURVIVE?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c35",
+      "where": "scenes.survival-choice.narration",
+      "text": "Save Muk with sludge ponds, or choose cleaner habitats?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c36",
+      "where": "scenes.survival-choice.caption",
+      "text": "PROTECT MUK OR PROTECT CLEANUP?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c37",
+      "where": "scenes.survival-choice.eyebrow",
+      "text": "THE MUK DILEMMA",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    }
+  ],
+  "unsupported": [],
+  "uncertain": [
+    {
+      "id": "c1",
+      "where": "title",
+      "text": "Muk May Need Pollution to Survive",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[14].text",
+        "pokedexEntries[15].text"
+      ],
+      "note": "The research says environmental improvements and reduced food sources have caused Muk's decline, and sludge ponds are being built to prevent extinction, but it does not directly establish that Muk needs pollution to survive.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c2",
+      "where": "premise",
+      "text": "Muk's survival may depend on the dirty environments people worked to clean up.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[14].text",
+        "pokedexEntries[15].text",
+        "pokedexEntries[2].text"
+      ],
+      "note": "Muk gathers where sludge accumulates, and its population declined after environmental improvements, but survival depending on dirty environments is an inference.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c7",
+      "where": "scenes.cleanup-risk.narration",
+      "text": "Muk needs sludge ponds—cleaner environments may erase it.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[14].text",
+        "pokedexEntries[15].text"
+      ],
+      "note": "The research says sludge ponds are being built to prevent extinction, but 'Muk needs sludge ponds' states the inferred necessity more definitively.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c17",
+      "where": "scenes.food-sources-collapse.narration",
+      "text": "Environmental improvements cut its food sources, leaving Muk hardly seen.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[14].text",
+        "pokedexEntries[15].text"
+      ],
+      "note": "The research separately reports environmental improvements, decreased food sources, and Muk becoming hardly seen, but does not explicitly say that the improvements cut the food sources.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c19",
+      "where": "scenes.food-sources-collapse.eyebrow",
+      "text": "THEN THE FOOD DISAPPEARS",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[15].text"
+      ],
+      "note": "The research says food sources decreased, not that they completely disappeared.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c24",
+      "where": "scenes.sludge-pond-solution.caption",
+      "text": "POLLUTION BECOMES PROTECTION",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[15].text"
+      ],
+      "note": "Sludge ponds are described as a measure to prevent extinction, but the research does not explicitly characterize them as pollution becoming protection.",
+      "tier": "official",
+      "checkedBy": "model"
+    }
+  ]
+}

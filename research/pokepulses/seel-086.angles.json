@@ -1,0 +1,166 @@
+{
+  "episodeId": "seel-086",
+  "createdAt": "2026-10-29T19:55:52.455Z",
+  "chosen": {
+    "id": "icebreaker-snorkel",
+    "premise": "Seel hunts beneath ice, then uses its head horn to punch a breathing hole when it needs air.",
+    "hook": "Seel's horn isn't just a weapon—it's an emergency snorkel.",
+    "archetype": "mechanic",
+    "evidence": [
+      "pokedexEntries[5].text",
+      "pokedexEntries[0].text",
+      "pokedexEntries[9].text"
+    ],
+    "visualIdea": "Animate Seel hunting under an ice sheet, then drilling upward with its horn to create an air hole.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 4,
+      "specificity": 5,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 24,
+    "note": "A highly Seel-specific survival mechanic with a clear visual sequence. “Emergency snorkel” is a strong metaphor, though the Pokédex only explicitly says it punches a breathing hole."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "icebreaker-snorkel",
+          "premise": "Seel hunts beneath ice, then uses its head horn to punch a breathing hole when it needs air.",
+          "hook": "Seel's horn isn't just a weapon—it's an emergency snorkel.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[5].text",
+            "pokedexEntries[0].text",
+            "pokedexEntries[9].text"
+          ],
+          "visualIdea": "Animate Seel hunting under an ice sheet, then drilling upward with its horn to create an air hole.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 24,
+          "note": "A highly Seel-specific survival mechanic with a clear visual sequence. “Emergency snorkel” is a strong metaphor, though the Pokédex only explicitly says it punches a breathing hole."
+        },
+        {
+          "id": "colder-is-better",
+          "premise": "Seel thrives in water around 14°F and remains active even at -40°F.",
+          "hook": "For Seel, temperatures that hurt us are basically a spa day.",
+          "archetype": "comparison",
+          "evidence": [
+            "pokedexEntries[1].text",
+            "pokedexEntries[7].text",
+            "pokedexEntries[12].text"
+          ],
+          "visualIdea": "Show a thermometer dropping from 14°F to -40°F while Seel becomes increasingly cheerful.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 23,
+          "note": "The 14°F and -40°F figures create a strong, immediately visual temperature escalation. It is distinctive to Seel, though the basic cold-resistance premise could fit several Ice-associated Pokémon."
+        },
+        {
+          "id": "warm-water-weakness",
+          "premise": "Thick fat protects Seel from cold seas, but warm water makes it tire easily.",
+          "hook": "Seel's superpower against cold becomes useless in warm water.",
+          "archetype": "comparison",
+          "evidence": [
+            "pokedexEntries[14].text",
+            "pokedexEntries[4].text"
+          ],
+          "visualIdea": "Transition from energetic Seel in icy water to exhausted Seel as the water visibly warms.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 22,
+          "note": "The reversal is concrete and interesting: cold helps Seel while warm water tires it. The hook slightly overstates this as a superpower becoming useless, but the cited entry supports the core claim."
+        },
+        {
+          "id": "alola-appearance-mystery",
+          "premise": "Seel was believed to live only in cold seas, so its appearance in Alola is officially called a mystery.",
+          "hook": "Seel showing up in Alola breaks what people thought they knew about it.",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[13].text",
+            "pokedexEntries[1].text",
+            "pokedexEntries[7].text"
+          ],
+          "visualIdea": "Build a frozen habitat map, then place a question mark over Alola as Seel suddenly appears there.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 4,
+            "support": 5
+          },
+          "total": 21,
+          "note": "The contradiction between Seel’s supposed cold-sea habitat and its Alola appearance is genuinely intriguing. It is more of a setup for a mystery than a resolved payoff, and the research does not explain why it happens."
+        },
+        {
+          "id": "level-34-ice-upgrade",
+          "premise": "At level 34, Seel evolves into Dewgong and gains the Ice type alongside Water.",
+          "hook": "Seel's cold obsession becomes official at level 34.",
+          "archetype": "transformation",
+          "evidence": [
+            "evolutionChain[1].method",
+            "evolutionChain[1].evolvesFrom",
+            "evolutionChain[1].types",
+            "evolutionChain[0].types"
+          ],
+          "visualIdea": "Show Seel leveling from 33 to 34, transforming into Dewgong as an Ice-type label appears.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 3,
+            "specificity": 5,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 21,
+          "note": "Very concrete and highly visual, but evolution-at-a-level is a familiar Pokémon format and the evolution method/type details rely partly on trusted secondary data rather than the Pokédex entries."
+        },
+        {
+          "id": "land-versus-sea",
+          "premise": "Seel struggles to walk on land but is described as a graceful swimmer in frigid seas.",
+          "hook": "Seel looks clumsy—until it gets into the water.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[2].text",
+            "pokedexEntries[10].text"
+          ],
+          "visualIdea": "Split the screen between Seel wobbling on shore and gliding smoothly beneath icy water.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 3,
+            "surprise": 2,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 19,
+          "note": "Well supported and easy to stage, but the clumsy-on-land/graceful-in-water contrast is a fairly familiar animal-Pokémon profile and offers limited new information."
+        }
+      ],
+      "rejected": [],
+      "request": "None needed: icebreaker-snorkel is strong enough. A stronger alternative would need an equally specific survival mechanic or contradiction, supported by a surprising fact and a clear visual payoff."
+    }
+  ]
+}

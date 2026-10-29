@@ -1,0 +1,159 @@
+{
+  "episodeId": "shellder-090",
+  "createdAt": "2026-10-29T20:06:49.763Z",
+  "chosen": {
+    "id": "pearl-discarded",
+    "premise": "Shellder turns trapped sand into pearls, then spits each pearl out when it gets in the way.",
+    "hook": "Shellder makes pearls—and throws them away.",
+    "archetype": "transformation",
+    "evidence": [
+      "pokedexEntries[3].text",
+      "pokedexEntries[12].text"
+    ],
+    "visualIdea": "Follow sand entering the shell, becoming a pearl, then getting launched out of Shellder’s mouth.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 5,
+      "specificity": 5,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 25,
+    "note": "A memorable contradiction: Shellder creates pearls and then discards them. Both the transformation and the rejection are directly supported and easy to visualize."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "pearl-discarded",
+          "premise": "Shellder turns trapped sand into pearls, then spits each pearl out when it gets in the way.",
+          "hook": "Shellder makes pearls—and throws them away.",
+          "archetype": "transformation",
+          "evidence": [
+            "pokedexEntries[3].text",
+            "pokedexEntries[12].text"
+          ],
+          "visualIdea": "Follow sand entering the shell, becoming a pearl, then getting launched out of Shellder’s mouth.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 25,
+          "note": "A memorable contradiction: Shellder creates pearls and then discards them. Both the transformation and the rejection are directly supported and easy to visualize."
+        },
+        {
+          "id": "tongue-opens-shell",
+          "premise": "Even with its shell closed, yanking Shellder’s exposed tongue shocks it into opening.",
+          "hook": "Shellder’s tongue is also an emergency shell-opening switch.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[13].text"
+          ],
+          "visualIdea": "Show a closed Shellder, a tug on its tongue, and the shell snapping open.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 25,
+          "note": "Extremely specific and bizarre, with a clear cause-and-effect visual. “Emergency” is interpretive, but the tongue-yank mechanism itself is explicitly supported."
+        },
+        {
+          "id": "sleeping-tongue-trap",
+          "premise": "Shellder digs a seafloor sleeping hole with its tongue, closes its shell, and still leaves the tongue outside.",
+          "hook": "Shellder’s bedtime defense leaves its tongue completely exposed.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[5].text",
+            "pokedexEntries[6].text"
+          ],
+          "visualIdea": "Show Shellder burrowing, sealing its shell, and its tongue remaining visibly outside.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 24,
+          "note": "Highly distinctive and visually funny. The exposed tongue is explicit, but calling it a “bedtime defense” slightly overstates the research, which describes sleeping and burrowing rather than a defensive strategy."
+        },
+        {
+          "id": "backward-fast-swimmer",
+          "premise": "Shellder swims backward by opening and closing its two-piece shell—and is surprisingly fast.",
+          "hook": "This Pokémon swims backward, and somehow it’s fast.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[2].text",
+            "pokedexEntries[9].text"
+          ],
+          "visualIdea": "Animate Shellder opening and closing its shell while racing backward across the screen.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 22,
+          "note": "Concrete, unusual movement with excellent animation potential; “surprisingly fast” is supported, but the angle lacks a sharper contradiction or twist."
+        },
+        {
+          "id": "diamond-shell-tender-inside",
+          "premise": "Shellder’s shell is harder than diamond, but the Pokémon inside is surprisingly tender.",
+          "hook": "Shellder is wrapped in something harder than diamond.",
+          "archetype": "comparison",
+          "evidence": [
+            "pokedexEntries[7].text",
+            "pokedexEntries[10].text"
+          ],
+          "visualIdea": "Show a diamond cracking against Shellder’s shell, then reveal the tender body inside.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 4,
+            "support": 5
+          },
+          "total": 21,
+          "note": "A strong contrast directly supported by multiple Pokédex entries, though the diamond comparison is less uniquely compelling than Shellder’s stranger behaviors."
+        },
+        {
+          "id": "shell-clamp-last-resort",
+          "premise": "Clamping onto an opponent exposes Shellder’s vulnerable parts, so it uses the move only as a last resort.",
+          "hook": "Shellder’s strongest-looking attack makes it vulnerable.",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[4].text",
+            "pokedexEntries[0].text"
+          ],
+          "visualIdea": "Reveal the closed shell as an impenetrable shield, then show clamping open it and exposing Shellder.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 4,
+            "support": 3
+          },
+          "total": 19,
+          "note": "The vulnerability contradiction is supported, but “strongest-looking attack” is not established, and the cited entry does not identify a specific move or attack strength."
+        }
+      ],
+      "rejected": [],
+      "request": "None; pearl-discarded is strong enough. A stronger alternative would need an equally unusual, explicitly sourced mechanism or contradiction with a clear visual payoff."
+    }
+  ]
+}

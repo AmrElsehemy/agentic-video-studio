@@ -1,0 +1,197 @@
+{
+  "schemaVersion": 1,
+  "id": "magnemite-081",
+  "number": 81,
+  "index": "#081",
+  "name": "Magnemite",
+  "slug": "magnemite",
+  "category": "Magnet Pokémon",
+  "generation": "Generation I",
+  "isLegendary": false,
+  "isMythical": false,
+  "types": [
+    "Electric",
+    "Steel"
+  ],
+  "heightMeters": 0.3,
+  "weightKg": 6,
+  "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/81.png",
+  "pokedexEntries": [
+    {
+      "game": "Red",
+      "text": "Uses anti-gravity to stay suspended. Appears without warning and uses THUNDER WAVE and similar moves."
+    },
+    {
+      "game": "Yellow",
+      "text": "It is born with the ability to defy gravity. It floats in air on powerful electro magnetic waves."
+    },
+    {
+      "game": "Gold",
+      "text": "It is attracted by electromagnetic waves. It may approach trainers if they are using their POKéGEAR."
+    },
+    {
+      "game": "Silver",
+      "text": "The units at the sides of its body generate anti gravity energy to keep it aloft in the air."
+    },
+    {
+      "game": "Crystal",
+      "text": "The electricity emitted by the units on each side of its body cause it to become a strong magnet."
+    },
+    {
+      "game": "Ruby",
+      "text": "MAGNEMITE attaches itself to power lines to feed on electricity. If your house has a power outage, check your circuit breakers. You may find a large number of this POKéMON clinging to the breaker box."
+    },
+    {
+      "game": "Sapphire",
+      "text": "MAGNEMITE floats in the air by emitting electromagnetic waves from the units at its sides. These waves block gravity. This POKéMON becomes incapable of flight if its internal electrical supply is depleted."
+    },
+    {
+      "game": "Emerald",
+      "text": "The units at its sides are extremely powerful magnets. They generate enough magnetism to draw in iron objects from over 300 feet away."
+    },
+    {
+      "game": "Firered",
+      "text": "It moves while constantly hovering. It discharges THUNDER WAVE and so on from the units at its sides."
+    },
+    {
+      "game": "Leafgreen",
+      "text": "Uses antigravity to stay suspended. Appears without warning and uses THUNDER WAVE and similar moves."
+    },
+    {
+      "game": "Diamond",
+      "text": "The units at its sides generate electromagnetic waves that keep it airborne. It feeds on electricity."
+    },
+    {
+      "game": "Platinum",
+      "text": "The faster the units at its sides rotate, the greater the magnetic force they generate."
+    },
+    {
+      "game": "Soulsilver",
+      "text": "The units at the sides of its body generate antigravity energy to keep it aloft in the air."
+    },
+    {
+      "game": "Black 2",
+      "text": "The electromagnetic waves emitted by the units at the sides of its head expel antigravity, which allows it to float."
+    },
+    {
+      "game": "Sun",
+      "text": "They gather in places where electricity is available. They can be found clinging to the steel towers used to support power lines."
+    },
+    {
+      "game": "Moon",
+      "text": "It sends out electromagnetic waves, which let it float through the air. Touching it while it’s eating electricity will give you a full-body shock."
+    },
+    {
+      "game": "Ultra Sun",
+      "text": "It’s frequently the cause of power outages, which is why some power plants send out electrical signals that it can’t stand."
+    },
+    {
+      "game": "Ultra Moon",
+      "text": "Perhaps because electrical lines are often buried these days, the number of Magnemite attacks on power plants has increased."
+    },
+    {
+      "game": "Lets Go Pikachu",
+      "text": "It is hatched with the ability to defy gravity. It floats while emitting powerful electromagnetic waves."
+    },
+    {
+      "game": "Sword",
+      "text": "At times, Magnemite runs out of electricity and ends up on the ground. If you give batteries to a grounded Magnemite, it’ll start moving again."
+    },
+    {
+      "game": "Shield",
+      "text": "It subsists on electricity. As Magnemite flies, it emits electromagnetic waves from the units on each side of its body."
+    },
+    {
+      "game": "Legends Arceus",
+      "text": "A bizarre Pokémon with but a single eye embedded in an iron sphere. I suspect this creature levitates due to the magnetism it emits from its arms, which resemble horseshoe-shaped magnets."
+    }
+  ],
+  "evolutionChain": [
+    {
+      "name": "Magnemite",
+      "index": "#081",
+      "stage": 1,
+      "types": [
+        "Electric",
+        "Steel"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/81.png",
+      "isSubject": true
+    },
+    {
+      "name": "Magneton",
+      "index": "#082",
+      "stage": 2,
+      "evolvesFrom": "Magnemite",
+      "method": "Level Up, level 30",
+      "types": [
+        "Electric",
+        "Steel"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/82.png",
+      "isSubject": false
+    },
+    {
+      "name": "Magnezone",
+      "index": "#462",
+      "stage": 3,
+      "evolvesFrom": "Magneton",
+      "method": "Level Up, at Mt Coronet",
+      "types": [
+        "Electric",
+        "Steel"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/462.png",
+      "isSubject": false
+    }
+  ],
+  "varieties": [],
+  "lore": [],
+  "tiers": {
+    "official": [
+      "name",
+      "index",
+      "number",
+      "category",
+      "generation",
+      "isLegendary",
+      "isMythical",
+      "types",
+      "heightMeters",
+      "weightKg",
+      "pokedexEntries",
+      "evolutionChain[].name",
+      "evolutionChain[].index",
+      "evolutionChain[].types",
+      "evolutionChain[].stage",
+      "varieties[].types",
+      "varieties[].heightMeters",
+      "varieties[].weightKg"
+    ],
+    "trusted_secondary": [
+      "evolutionChain[].method",
+      "evolutionChain[].evolvesFrom",
+      "varieties[].name"
+    ],
+    "community": [
+      "lore"
+    ]
+  },
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Magnemite",
+      "url": "https://www.pokemon.com/us/pokedex/magnemite",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Magnemite",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Magnemite_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Magnemite",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/81",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

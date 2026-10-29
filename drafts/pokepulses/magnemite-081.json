@@ -1,0 +1,169 @@
+{
+  "id": "magnemite-081",
+  "title": "Magnemite's Floating Has a Magnetic Catch",
+  "storyPattern": "mechanic",
+  "numberRelevant": true,
+  "premise": "Magnemite’s side units keep it airborne while drawing iron objects from over 300 feet away.",
+  "audiencePromise": "See how Magnemite’s floating system doubles as a long-range iron pull.",
+  "openLoop": "How can Magnemite float and still pull distant iron?",
+  "payoff": "Magnemite’s side units solve two problems at once: staying airborne and drawing in iron.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "Clever two-job design, or too much magnetic power?",
+  "subject": {
+    "name": "Magnemite",
+    "category": "Magnet Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/81.png",
+    "identifier": "#081"
+  },
+  "related": [
+    {
+      "name": "Magnezone",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/462.png",
+      "identifier": "#462"
+    },
+    {
+      "name": "Magneton",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/82.png",
+      "identifier": "#082"
+    }
+  ],
+  "palette": {
+    "background": "#0B1018",
+    "surface": "#16212B",
+    "primary": "#DCEBFF",
+    "secondary": "#7AD7FF",
+    "ink": "#F7FBFF"
+  },
+  "voice": {
+    "instructions": "Speak quickly, warmly, and clearly. Stress \"iron\" and \"two jobs,\" then pause before the final either-or question."
+  },
+  "rights": {
+    "releaseStatus": "cleared",
+    "publicReleaseApproved": true,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    },
+    "assets": [
+      {
+        "kind": "Magnemite official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/81.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "the-magnetic-catch",
+      "beat": "hook",
+      "eyebrow": "HIDDEN CATCH",
+      "headline": "FLOATING, BUT IRON FLIES",
+      "narration": "Magnemite floats, but iron can come flying.",
+      "caption": "FLOATING HAS A CATCH",
+      "facts": [
+        "FLOATS",
+        "IRON CAN FLY"
+      ],
+      "accent": "#7AD7FF",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/81.png"
+    },
+    {
+      "id": "the-double-duty-units",
+      "beat": "evidence",
+      "eyebrow": "THE SIDE UNITS",
+      "headline": "ONE SYSTEM, TWO JOBS",
+      "narration": "The same side units that keep it airborne generate powerful magnetism.",
+      "caption": "AIRBORNE AND MAGNETIC",
+      "facts": [
+        "SIDE UNITS",
+        "STAYS AIRBORNE",
+        "POWERFUL MAGNETISM"
+      ],
+      "accent": "#B6F0FF",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/81.png"
+    },
+    {
+      "id": "the-range-reveal",
+      "beat": "escalation",
+      "eyebrow": "THE RANGE",
+      "headline": "THE PULL REACHES 300 FEET",
+      "narration": "That pull reaches iron objects more than three hundred feet away.",
+      "caption": "IRON OBJECTS • OVER 300 FEET",
+      "facts": [
+        "IRON OBJECTS",
+        "OVER 300 FEET"
+      ],
+      "accent": "#65C9F2",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/81.png",
+      "primitive": {
+        "kind": "counter",
+        "from": 0,
+        "to": 300,
+        "label": "FEET OF PULL"
+      }
+    },
+    {
+      "id": "distance-isnt-safety",
+      "beat": "payoff",
+      "eyebrow": "THE SURPRISE",
+      "headline": "DISTANT IRON GETS DRAWN IN",
+      "narration": "Distance is the puzzle: faraway iron still gets drawn in.",
+      "caption": "DISTANCE DOESN’T STOP THE PULL",
+      "facts": [
+        "FARAWAY IRON",
+        "DRAWN IN"
+      ],
+      "accent": "#8BE7FF",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/81.png"
+    },
+    {
+      "id": "the-design-clicks",
+      "beat": "payoff",
+      "eyebrow": "THE PAYOFF",
+      "headline": "THE UNITS DO BOTH",
+      "narration": "The units do two jobs at once: hold Magnemite up and pull iron.",
+      "caption": "HOLD IT UP • PULL IRON",
+      "facts": [
+        "HOLDS IT UP",
+        "PULLS IRON"
+      ],
+      "accent": "#D4F7FF",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/81.png"
+    },
+    {
+      "id": "clever-or-too-powerful",
+      "beat": "verdict",
+      "eyebrow": "YOUR VERDICT",
+      "headline": "CLEVER OR TOO POWERFUL?",
+      "narration": "Clever two-job design, or too much magnetic power?",
+      "caption": "CLEVER DESIGN OR TOO MUCH?",
+      "accent": "#7AD7FF",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/81.png"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Magnemite",
+      "url": "https://www.pokemon.com/us/pokedex/magnemite",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Magnemite",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Magnemite_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Magnemite",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/81",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

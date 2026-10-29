@@ -1,0 +1,269 @@
+{
+  "schemaVersion": 2,
+  "id": "magneton-082",
+  "show": {
+    "id": "pokepulses",
+    "name": "PokePulses",
+    "handle": "@PokePulses",
+    "wordmark": {
+      "lead": "POKE",
+      "accent": "PULSES"
+    },
+    "fonts": {
+      "display": "Bebas Neue",
+      "body": "system"
+    }
+  },
+  "title": "Magneton’s Three Magnemite Share One Brain",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "mystery",
+    "numberRelevant": false,
+    "premise": "Magneton links three Magnemite together, gaining electrical power while their three brains become one.",
+    "audiencePromise": "See why Magneton gets a power boost without becoming three times smarter.",
+    "openLoop": "What does Magneton gain when three Magnemite link together?",
+    "payoff": "Magneton is a power upgrade with one shared mind, not three separate minds working together.",
+    "targetEmotion": "surprise",
+    "engagementQuestion": "More power, or three separate minds?",
+    "targetSecondsBetweenVisualChanges": 0.68
+  },
+  "subject": {
+    "name": "Magneton",
+    "category": "Magnet Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/82.png",
+    "identifier": "#082"
+  },
+  "related": [
+    {
+      "name": "Magnezone",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/462.png",
+      "identifier": "#462"
+    },
+    {
+      "name": "Magnemite",
+      "relation": "evolves-from",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/81.png",
+      "identifier": "#081"
+    }
+  ],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#08121F",
+    "surface": "#12263A",
+    "primary": "#F4C542",
+    "secondary": "#B8C7D9",
+    "ink": "#F7FAFC"
+  },
+  "audio": {
+    "music": "generated/magneton-082-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 126,
+      "notes": [
+        110,
+        130.81,
+        146.83,
+        164.81,
+        146.83,
+        130.81,
+        98,
+        130.81
+      ]
+    },
+    "voice": {
+      "provider": "openai",
+      "model": "gpt-4o-mini-tts",
+      "voice": "marin",
+      "instructions": "Warm, quick, and curious. Stress power, one, and not. Pause before each reveal. Sound like a knowledgeable fan sharing a strange fact.",
+      "speed": 1.12,
+      "output": "generated/magneton-082-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "cleared",
+    "publicReleaseApproved": true,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "assets": [
+      {
+        "kind": "Magneton official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/82.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ],
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    }
+  },
+  "scenes": [
+    {
+      "id": "intelligence-doesnt-triple",
+      "durationSeconds": 3.9,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "mystery",
+      "subjectFocus": "hidden",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "THE STRANGE PART",
+      "headline": "INTELLIGENCE DOESN’T TRIPLE",
+      "narration": "Three Magnemite link up, but intelligence doesn’t triple.",
+      "caption": "THREE LINKED. NOT 3X SMARTER.",
+      "visual": "hook",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/82.png",
+      "accent": "#F4C542"
+    },
+    {
+      "id": "strong-magnetic-link",
+      "durationSeconds": 4.7,
+      "beat": "clue",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "HOW IT FORMS",
+      "headline": "THE LINK IS MAGNETIC",
+      "narration": "Its three bodies stay linked by a strong magnetic force.",
+      "caption": "THREE MAGNEMITE LINK TOGETHER",
+      "visual": "gauntlet",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/82.png",
+      "accent": "#6ED6FF",
+      "facts": [
+        "3 MAGNEMITE",
+        "STRONG MAGNETISM"
+      ],
+      "primitive": {
+        "kind": "counter",
+        "from": 0,
+        "to": 3,
+        "label": "MAGNEMITE LINKED"
+      }
+    },
+    {
+      "id": "power-boost",
+      "durationSeconds": 4.2,
+      "beat": "escalation",
+      "role": "escalation",
+      "shot": "tracking",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "THE TRADE-OFF",
+      "headline": "POWER DOES TRIPLE",
+      "narration": "That link brings about three times Magnemite’s electrical power.",
+      "caption": "ABOUT 3X ELECTRICAL POWER",
+      "visual": "advantage",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/82.png",
+      "accent": "#FF6B6B",
+      "facts": [
+        "ABOUT 3X POWER",
+        "ELECTRICAL POWER"
+      ],
+      "primitive": {
+        "kind": "bars",
+        "unit": "X",
+        "bars": [
+          {
+            "label": "MAGNEMITE",
+            "value": 1
+          },
+          {
+            "label": "MAGNETON",
+            "value": 3
+          }
+        ]
+      }
+    },
+    {
+      "id": "brains-become-one",
+      "durationSeconds": 4.3,
+      "beat": "reveal",
+      "role": "payoff",
+      "shot": "comparison",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "THE FIRST REVEAL",
+      "headline": "THREE BRAINS BECOME ONE",
+      "narration": "Then the strange part: those three brains become one.",
+      "caption": "THREE BRAINS → ONE",
+      "visual": "race",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/82.png",
+      "accent": "#C084FC",
+      "facts": [
+        "THREE BRAINS",
+        "ONE BRAIN"
+      ],
+      "primitive": {
+        "kind": "bars",
+        "bars": [
+          {
+            "label": "THREE BRAINS",
+            "value": 3
+          },
+          {
+            "label": "ONE SHARED MIND",
+            "value": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "shared-mind-power-upgrade",
+      "durationSeconds": 4.7,
+      "beat": "reveal",
+      "role": "payoff",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "THE SECOND REVEAL",
+      "headline": "A POWER UPGRADE. ONE MIND.",
+      "narration": "The result is a power upgrade with one shared mind.",
+      "caption": "MORE POWER. ONE SHARED MIND.",
+      "visual": "tradeoff",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/82.png",
+      "accent": "#F4C542",
+      "facts": [
+        "POWER UPGRADE",
+        "SHARED MIND"
+      ]
+    },
+    {
+      "id": "power-or-separate-minds",
+      "durationSeconds": 3.8,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "YOUR TAKE",
+      "headline": "WHICH WOULD YOU CHOOSE?",
+      "narration": "More power, or three separate minds?",
+      "caption": "POWER OR SEPARATE MINDS?",
+      "visual": "cta",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/82.png",
+      "accent": "#6ED6FF"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Magneton",
+      "url": "https://www.pokemon.com/us/pokedex/magneton"
+    },
+    {
+      "label": "Bulbapedia — Magneton",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Magneton_(Pok%C3%A9mon)"
+    },
+    {
+      "label": "PokéAPI — Magneton",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/82"
+    }
+  ]
+}

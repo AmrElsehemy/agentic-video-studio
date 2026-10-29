@@ -1,0 +1,169 @@
+{
+  "schemaVersion": 1,
+  "id": "farfetchd-083",
+  "number": 83,
+  "index": "#083",
+  "name": "Farfetch’d",
+  "slug": "farfetchd",
+  "category": "Wild Duck Pokémon",
+  "generation": "Generation I",
+  "isLegendary": false,
+  "isMythical": false,
+  "types": [
+    "Normal",
+    "Flying"
+  ],
+  "heightMeters": 0.8,
+  "weightKg": 15,
+  "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/83.png",
+  "pokedexEntries": [
+    {
+      "game": "Red",
+      "text": "The sprig of green onions it holds is its weapon. It is used much like a metal sword."
+    },
+    {
+      "game": "Yellow",
+      "text": "Lives where reedy plants grow. They are rarely seen, so it's thought their numbers are decreasing."
+    },
+    {
+      "game": "Gold",
+      "text": "If anyone tries to disturb where the essential plant sticks grow, it uses its own stick to thwart them."
+    },
+    {
+      "game": "Silver",
+      "text": "If it eats the plant stick it carries as emer gency rations, it runs off in search of a new stick."
+    },
+    {
+      "game": "Crystal",
+      "text": "In order to pre vent their extinction, more people have made an effort to breed these POKéMON."
+    },
+    {
+      "game": "Ruby",
+      "text": "FARFETCH’D is always seen with a stick from a plant of some sort. Apparently, there are good sticks and bad sticks. This POKéMON has been known to fight with others over sticks."
+    },
+    {
+      "game": "Emerald",
+      "text": "It is always seen with a stick from a plant. Apparently, there are good sticks and bad sticks. This POKéMON occasionally fights with others over choice sticks."
+    },
+    {
+      "game": "Firered",
+      "text": "It always walks about with a plant stalk clamped in its beak. The stalk is used for building its nest."
+    },
+    {
+      "game": "Leafgreen",
+      "text": "The plant stalk it holds is its weapon. The stalk is used like a sword to cut all sorts of things."
+    },
+    {
+      "game": "Diamond",
+      "text": "It can’t live without the stalk it holds. That’s why it defends the stalk from attackers with its life."
+    },
+    {
+      "game": "Heartgold",
+      "text": "If anyone tries to disturb where the essential plant stalks grow, it uses its own stalk to thwart them."
+    },
+    {
+      "game": "Soulsilver",
+      "text": "If it eats the plant stalk it carries as emergency rations, it runs off in search of a new stalk."
+    },
+    {
+      "game": "Omega Ruby",
+      "text": "Farfetch’d is always seen with a stalk from a plant of some sort. Apparently, there are good stalks and bad stalks. This Pokémon has been known to fight with others over stalks."
+    },
+    {
+      "game": "Lets Go Pikachu",
+      "text": "They live where reedy plants grow. Farfetch’d are rarely seen, so it’s thought their numbers are decreasing."
+    },
+    {
+      "game": "Sword",
+      "text": "The stalk this Pokémon carries in its wings serves as a sword to cut down opponents. In a dire situation, the stalk can also serve as food."
+    },
+    {
+      "game": "Shield",
+      "text": "They use a plant stalk as a weapon, but not all of them use it in the same way. Several distinct styles of stalk fighting have been observed."
+    }
+  ],
+  "evolutionChain": [
+    {
+      "name": "Farfetch’d",
+      "index": "#083",
+      "stage": 1,
+      "types": [
+        "Normal",
+        "Flying"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/83.png",
+      "isSubject": true
+    },
+    {
+      "name": "Sirfetch’d",
+      "index": "#865",
+      "stage": 2,
+      "evolvesFrom": "Farfetch’d",
+      "method": "Three Critical Hits",
+      "types": [
+        "Fighting"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/865.png",
+      "isSubject": false
+    }
+  ],
+  "varieties": [
+    {
+      "name": "Farfetchd Galar",
+      "types": [
+        "Fighting"
+      ],
+      "heightMeters": 0.8,
+      "weightKg": 42,
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10166.png"
+    }
+  ],
+  "lore": [],
+  "tiers": {
+    "official": [
+      "name",
+      "index",
+      "number",
+      "category",
+      "generation",
+      "isLegendary",
+      "isMythical",
+      "types",
+      "heightMeters",
+      "weightKg",
+      "pokedexEntries",
+      "evolutionChain[].name",
+      "evolutionChain[].index",
+      "evolutionChain[].types",
+      "evolutionChain[].stage",
+      "varieties[].types",
+      "varieties[].heightMeters",
+      "varieties[].weightKg"
+    ],
+    "trusted_secondary": [
+      "evolutionChain[].method",
+      "evolutionChain[].evolvesFrom",
+      "varieties[].name"
+    ],
+    "community": [
+      "lore"
+    ]
+  },
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Farfetch’d",
+      "url": "https://www.pokemon.com/us/pokedex/farfetchd",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Farfetch’d",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Farfetch%E2%80%99d_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Farfetch’d",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/83",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

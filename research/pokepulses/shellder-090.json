@@ -1,0 +1,150 @@
+{
+  "schemaVersion": 1,
+  "id": "shellder-090",
+  "number": 90,
+  "index": "#090",
+  "name": "Shellder",
+  "slug": "shellder",
+  "category": "Bivalve Pokémon",
+  "generation": "Generation I",
+  "isLegendary": false,
+  "isMythical": false,
+  "types": [
+    "Water"
+  ],
+  "heightMeters": 0.3,
+  "weightKg": 4,
+  "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/90.png",
+  "pokedexEntries": [
+    {
+      "game": "Red",
+      "text": "Its hard shell repels any kind of attack. It is vulnerable only when its shell is open."
+    },
+    {
+      "game": "Yellow",
+      "text": "The shell can withstand any attack. However, when it is open, the tender body is exposed."
+    },
+    {
+      "game": "Gold",
+      "text": "It swims facing backward by open ing and closing its two-piece shell. It is surprisingly fast."
+    },
+    {
+      "game": "Silver",
+      "text": "Grains of sand trapped in its shells mix with its body fluids to form beautiful pearls."
+    },
+    {
+      "game": "Crystal",
+      "text": "Clamping on to an opponent reveals its vulnerable parts, so it uses this move only as a last resort."
+    },
+    {
+      "game": "Ruby",
+      "text": "At night, this POKéMON uses its broad tongue to burrow a hole in the seafloor sand and then sleep in it. While it is sleeping, SHELLDER closes its shell, but leaves its tongue hanging out."
+    },
+    {
+      "game": "Emerald",
+      "text": "At night, it burrows a hole in the seafloor with its broad tongue to make a place to sleep. While asleep, it closes its shell, but leaves its tongue hanging out."
+    },
+    {
+      "game": "Firered",
+      "text": "It is encased in a shell that is harder than diamond. Inside, however, it is surprisingly tender."
+    },
+    {
+      "game": "Diamond",
+      "text": "It swims backward by opening and closing its two shells. Its large tongue is always kept hanging out."
+    },
+    {
+      "game": "Heartgold",
+      "text": "It swims facing backward by opening and closing its two-piece shell. It is surprisingly fast."
+    },
+    {
+      "game": "Sun",
+      "text": "The hardness of its shell surpasses the hardness of a diamond. In days gone by, people used the shells to make shields."
+    },
+    {
+      "game": "Moon",
+      "text": "This Pokémon’s tongue is always hanging out. It uses its tongue with great dexterity to dig up sand from the seabed in its search for food."
+    },
+    {
+      "game": "Ultra Sun",
+      "text": "The sand that accumulates inside its shell eventually becomes a pearl. But the pearl gets in the way, so it spits it out and discards it."
+    },
+    {
+      "game": "Ultra Moon",
+      "text": "Even when its shell is closed, its tongue still hangs out. If you give its tongue a good yank, the shock will cause Shellder to open its shell."
+    }
+  ],
+  "evolutionChain": [
+    {
+      "name": "Shellder",
+      "index": "#090",
+      "stage": 1,
+      "types": [
+        "Water"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/90.png",
+      "isSubject": true
+    },
+    {
+      "name": "Cloyster",
+      "index": "#091",
+      "stage": 2,
+      "evolvesFrom": "Shellder",
+      "method": "Use Item, Water Stone",
+      "types": [
+        "Water",
+        "Ice"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/91.png",
+      "isSubject": false
+    }
+  ],
+  "varieties": [],
+  "lore": [],
+  "tiers": {
+    "official": [
+      "name",
+      "index",
+      "number",
+      "category",
+      "generation",
+      "isLegendary",
+      "isMythical",
+      "types",
+      "heightMeters",
+      "weightKg",
+      "pokedexEntries",
+      "evolutionChain[].name",
+      "evolutionChain[].index",
+      "evolutionChain[].types",
+      "evolutionChain[].stage",
+      "varieties[].types",
+      "varieties[].heightMeters",
+      "varieties[].weightKg"
+    ],
+    "trusted_secondary": [
+      "evolutionChain[].method",
+      "evolutionChain[].evolvesFrom",
+      "varieties[].name"
+    ],
+    "community": [
+      "lore"
+    ]
+  },
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Shellder",
+      "url": "https://www.pokemon.com/us/pokedex/shellder",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Shellder",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Shellder_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Shellder",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/90",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

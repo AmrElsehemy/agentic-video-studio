@@ -1,0 +1,147 @@
+{
+  "episodeId": "doduo-084",
+  "createdAt": "2026-10-29T19:49:12.726Z",
+  "chosen": {
+    "id": "heads-as-stabilizers",
+    "premise": "Doduo alternates raising and lowering its two heads to balance itself while sprinting.",
+    "hook": "Doduo’s heads are not redundant—they are its running stabilizers.",
+    "archetype": "mechanic",
+    "evidence": [
+      "pokedexEntries[2].text",
+      "pokedexEntries[10].text"
+    ],
+    "visualIdea": "Animate each head moving up and down in opposite rhythm as Doduo accelerates across grass.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 4,
+      "specificity": 5,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 24,
+    "note": "A distinctive, concrete biological mechanic that explains why Doduo has two heads and translates cleanly into animation."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "heads-as-stabilizers",
+          "premise": "Doduo alternates raising and lowering its two heads to balance itself while sprinting.",
+          "hook": "Doduo’s heads are not redundant—they are its running stabilizers.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[2].text",
+            "pokedexEntries[10].text"
+          ],
+          "visualIdea": "Animate each head moving up and down in opposite rhythm as Doduo accelerates across grass.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 24,
+          "note": "A distinctive, concrete biological mechanic that explains why Doduo has two heads and translates cleanly into animation."
+        },
+        {
+          "id": "identical-brains-exception",
+          "premise": "Doduo normally has two completely identical brains, but rare individuals possess different sets of brains.",
+          "hook": "Doduo usually has matching brains—until a rare exception appears.",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[6].text"
+          ],
+          "visualIdea": "Split-screen two matching brain diagrams, then glitch one into a visibly different pattern.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 4,
+            "visual": 4,
+            "support": 5
+          },
+          "total": 23,
+          "note": "Very unusual and genuinely surprising, but the source's phrasing about 'different sets of brains' is ambiguous, making the premise harder to explain precisely."
+        },
+        {
+          "id": "never-sleeps-together",
+          "premise": "Doduo’s heads take turns sleeping, ensuring one head always watches for danger.",
+          "hook": "Doduo can sleep without ever letting both heads go off duty.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[5].text",
+            "pokedexEntries[6].text",
+            "pokedexEntries[7].text"
+          ],
+          "visualIdea": "Dim one head’s eye while the other scans the horizon, then switch the spotlight between them.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 22,
+          "note": "The alternating-watch behavior is well supported and visually clear, though the two-headed sleep concept is less mechanically distinctive than the stabilizer angle."
+        },
+        {
+          "id": "flightless-speedster",
+          "premise": "Doduo barely flies because of its short wings, so it compensates with developed legs and a running speed over 60 mph.",
+          "hook": "This bird Pokémon is better at running than flying—by a lot.",
+          "archetype": "comparison",
+          "evidence": [
+            "pokedexEntries[1].text",
+            "pokedexEntries[7].text",
+            "pokedexEntries[8].text"
+          ],
+          "visualIdea": "Show Doduo struggling to lift off, then smash-cut to a speed trail and a 60 mph overlay.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 3,
+            "specificity": 4,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 20,
+          "note": "Strongly tied to Doduo and easy to visualize, but 'barely flies' and 'better ... by a lot' overstate the cited wording; the 60 mph claim is supported."
+        },
+        {
+          "id": "level-thirty-one",
+          "premise": "Doduo evolves into Dodrio through one clear trigger: reaching level 31.",
+          "hook": "Doduo’s transformation has a precise checkpoint: level 31.",
+          "archetype": "transformation",
+          "evidence": [
+            "evolutionChain[0].name",
+            "evolutionChain[1].name",
+            "evolutionChain[1].evolvesFrom",
+            "evolutionChain[1].method"
+          ],
+          "visualIdea": "Show Doduo’s level counter climbing to 31, then flash the evolution chain into Dodrio.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 3,
+            "surprise": 2,
+            "specificity": 5,
+            "visual": 4,
+            "support": 4
+          },
+          "total": 18,
+          "note": "Extremely concrete and easy to display, but evolution levels are common Pokémon trivia and the method comes from secondary research rather than the Pokédex entries."
+        }
+      ],
+      "rejected": [
+        {
+          "id": "four-inch-footprints",
+          "reason": "unknown story shape \"evidence\""
+        }
+      ],
+      "request": "Stronger alternatives would need an equally specific Doduo-only mechanic, a surprising contradiction or number, and primary-source support that can be shown clearly in motion."
+    }
+  ]
+}

@@ -1,0 +1,144 @@
+{
+  "schemaVersion": 1,
+  "id": "doduo-084",
+  "number": 84,
+  "index": "#084",
+  "name": "Doduo",
+  "slug": "doduo",
+  "category": "Twin Bird Pokémon",
+  "generation": "Generation I",
+  "isLegendary": false,
+  "isMythical": false,
+  "types": [
+    "Normal",
+    "Flying"
+  ],
+  "heightMeters": 1.4,
+  "weightKg": 39.2,
+  "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/84.png",
+  "pokedexEntries": [
+    {
+      "game": "Red",
+      "text": "A bird that makes up for its poor flying with its fast foot speed. Leaves giant footprints."
+    },
+    {
+      "game": "Yellow",
+      "text": "Its short wings make flying dif ficult. Instead, this POKéMON runs at high speed on developed legs."
+    },
+    {
+      "game": "Gold",
+      "text": "By alternately raising and lower ing its two heads, it balances itself to be more stable while running."
+    },
+    {
+      "game": "Silver",
+      "text": "It races through grassy plains with powerful strides, leaving footprints up to four inches deep."
+    },
+    {
+      "game": "Crystal",
+      "text": "It lives on a grassy plain where it can see a long way. If it sees an enemy, it runs away at 60 mph."
+    },
+    {
+      "game": "Ruby",
+      "text": "DODUO’s two heads never sleep at the same time. Its two heads take turns sleeping, so one head can always keep watch for enemies while the other one sleeps."
+    },
+    {
+      "game": "Sapphire",
+      "text": "DODUO’s two heads contain completely identical brains. A scientific study reported that on rare occasions, there will be examples of this POKéMON possessing different sets of brains."
+    },
+    {
+      "game": "Emerald",
+      "text": "Even while eating or sleeping, one of the heads remains always vigilant for any sign of danger. When threatened, it flees at over 60 miles per hour."
+    },
+    {
+      "game": "Firered",
+      "text": "A two-headed POKéMON that was discovered as a sudden mutation. It runs at a pace of over 60 miles per hour."
+    },
+    {
+      "game": "Diamond",
+      "text": "The brains in its two heads appear to communicate emotions to each other with a telepathic power."
+    },
+    {
+      "game": "Heartgold",
+      "text": "By alternately raising and lowering its two heads, it balances itself to be more stable while running."
+    },
+    {
+      "game": "Lets Go Pikachu",
+      "text": "Its short wings make flying difficult. Instead, this Pokémon runs at high speed on developed legs."
+    }
+  ],
+  "evolutionChain": [
+    {
+      "name": "Doduo",
+      "index": "#084",
+      "stage": 1,
+      "types": [
+        "Normal",
+        "Flying"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/84.png",
+      "isSubject": true
+    },
+    {
+      "name": "Dodrio",
+      "index": "#085",
+      "stage": 2,
+      "evolvesFrom": "Doduo",
+      "method": "Level Up, level 31",
+      "types": [
+        "Normal",
+        "Flying"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/85.png",
+      "isSubject": false
+    }
+  ],
+  "varieties": [],
+  "lore": [],
+  "tiers": {
+    "official": [
+      "name",
+      "index",
+      "number",
+      "category",
+      "generation",
+      "isLegendary",
+      "isMythical",
+      "types",
+      "heightMeters",
+      "weightKg",
+      "pokedexEntries",
+      "evolutionChain[].name",
+      "evolutionChain[].index",
+      "evolutionChain[].types",
+      "evolutionChain[].stage",
+      "varieties[].types",
+      "varieties[].heightMeters",
+      "varieties[].weightKg"
+    ],
+    "trusted_secondary": [
+      "evolutionChain[].method",
+      "evolutionChain[].evolvesFrom",
+      "varieties[].name"
+    ],
+    "community": [
+      "lore"
+    ]
+  },
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Doduo",
+      "url": "https://www.pokemon.com/us/pokedex/doduo",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Doduo",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Doduo_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Doduo",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/84",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

@@ -1,0 +1,247 @@
+{
+  "schemaVersion": 2,
+  "id": "dewgong-087",
+  "show": {
+    "id": "pokepulses",
+    "name": "PokePulses",
+    "handle": "@PokePulses",
+    "wordmark": {
+      "lead": "POKE",
+      "accent": "PULSES"
+    },
+    "fonts": {
+      "display": "Bebas Neue",
+      "body": "system"
+    }
+  },
+  "title": "Dewgong's Glacier Nap Became a Mermaid Sighting",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "mystery",
+    "numberRelevant": false,
+    "premise": "A mariner mistook Dewgong sleeping on a glacier for a mermaid.",
+    "audiencePromise": "Follow the icy shape from a strange sighting to the Pokémon hidden in plain view.",
+    "openLoop": "What was really sleeping on that distant glacier?",
+    "payoff": "The mermaid was Dewgong, whose snowy-white body blends into ice while it snoozes.",
+    "targetEmotion": "surprise",
+    "engagementQuestion": "Would you see a mermaid, or a sleeping Dewgong?",
+    "targetSecondsBetweenVisualChanges": 0.68
+  },
+  "subject": {
+    "name": "Dewgong",
+    "category": "Sea Lion Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/87.png",
+    "identifier": "#087"
+  },
+  "related": [
+    {
+      "name": "Seel",
+      "relation": "evolves-from",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/86.png",
+      "identifier": "#086"
+    }
+  ],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#08131C",
+    "surface": "#122936",
+    "primary": "#EAF7F8",
+    "secondary": "#8DD9E8",
+    "ink": "#EAF6FF"
+  },
+  "audio": {
+    "music": "generated/dewgong-087-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 126,
+      "notes": [
+        110,
+        130.81,
+        146.83,
+        164.81,
+        146.83,
+        130.81,
+        98,
+        130.81
+      ]
+    },
+    "voice": {
+      "provider": "openai",
+      "model": "gpt-4o-mini-tts",
+      "voice": "marin",
+      "instructions": "Speak quickly, warmly, and with quiet mystery. Pause before each reveal, then land the final choice clearly.",
+      "speed": 1.12,
+      "output": "generated/dewgong-087-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "cleared",
+    "publicReleaseApproved": true,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "assets": [
+      {
+        "kind": "Dewgong official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/87.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ],
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    }
+  },
+  "scenes": [
+    {
+      "id": "mermaid-on-ice",
+      "durationSeconds": 3.8,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "mystery",
+      "subjectFocus": "hidden",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "A STRANGE SIGHTING",
+      "headline": "A MERMAID ON ICE",
+      "narration": "Dewgong's nap became a mermaid sighting.",
+      "caption": "THE SIGHTING WAS MISTAKEN",
+      "visual": "hook",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/87.png",
+      "accent": "#8DD9E8"
+    },
+    {
+      "id": "white-as-snow",
+      "durationSeconds": 3.9,
+      "beat": "clue",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "THE FIRST CLUE",
+      "headline": "WHITE AGAINST WHITE",
+      "narration": "Its snowy-white body could vanish against a glacier.",
+      "caption": "SNOWY-WHITE BODY",
+      "visual": "gauntlet",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/87.png",
+      "accent": "#EAF7F8",
+      "facts": [
+        "SNOWY-WHITE BODY",
+        "GLACIER ICE"
+      ]
+    },
+    {
+      "id": "sleeping-on-ice",
+      "durationSeconds": 5.1,
+      "beat": "escalation",
+      "role": "escalation",
+      "shot": "tracking",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "THEN IT GOT WEIRDER",
+      "headline": "SOMETHING WAS SLEEPING",
+      "narration": "Then a mariner saw one sleeping on that bitterly cold ice.",
+      "caption": "SLEEPING ON A GLACIER",
+      "visual": "advantage",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/87.png",
+      "accent": "#6EB9D0",
+      "facts": [
+        "MARINER",
+        "BITTERLY COLD ICE"
+      ],
+      "primitive": {
+        "kind": "checklist",
+        "items": [
+          {
+            "label": "SNOWY-WHITE BODY",
+            "met": true
+          },
+          {
+            "label": "GLACIER ICE",
+            "met": true
+          },
+          {
+            "label": "SLEEPING DEWGONG",
+            "met": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "the-hidden-pokemon",
+      "durationSeconds": 4.3,
+      "beat": "reveal",
+      "role": "payoff",
+      "shot": "comparison",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "THE FIRST REVEAL",
+      "headline": "THE MERMAID WAS DEWGONG",
+      "narration": "The supposed mermaid was Dewgong, asleep on a glacier.",
+      "caption": "MYSTERY SOLVED",
+      "visual": "race",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/87.png",
+      "accent": "#BDECF2",
+      "facts": [
+        "DEWGONG",
+        "SLEEPING ON A GLACIER"
+      ]
+    },
+    {
+      "id": "normal-dewgong-nap",
+      "durationSeconds": 5.2,
+      "beat": "reveal",
+      "role": "payoff",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "THE SECOND REVEAL",
+      "headline": "THIS WAS NORMAL FOR DEWGONG",
+      "narration": "And that icy scene was normal: Dewgong loves snoozing on ice.",
+      "caption": "ICE IS ITS BED",
+      "visual": "tradeoff",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/87.png",
+      "accent": "#8DD9E8",
+      "facts": [
+        "LOVES TO SNOOZE",
+        "BITTERLY COLD ICE"
+      ]
+    },
+    {
+      "id": "mermaid-or-dewgong",
+      "durationSeconds": 4.3,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "YOUR VERDICT",
+      "headline": "MERMAID OR DEWGONG?",
+      "narration": "Would you see a mermaid, or a sleeping Dewgong?",
+      "caption": "WHAT WOULD YOU SPOT?",
+      "visual": "cta",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/87.png",
+      "accent": "#EAF7F8"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Dewgong",
+      "url": "https://www.pokemon.com/us/pokedex/dewgong"
+    },
+    {
+      "label": "Bulbapedia — Dewgong",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Dewgong_(Pok%C3%A9mon)"
+    },
+    {
+      "label": "PokéAPI — Dewgong",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/87"
+    }
+  ]
+}

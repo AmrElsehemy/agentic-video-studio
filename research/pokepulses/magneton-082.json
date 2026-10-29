@@ -1,0 +1,197 @@
+{
+  "schemaVersion": 1,
+  "id": "magneton-082",
+  "number": 82,
+  "index": "#082",
+  "name": "Magneton",
+  "slug": "magneton",
+  "category": "Magnet Pokémon",
+  "generation": "Generation I",
+  "isLegendary": false,
+  "isMythical": false,
+  "types": [
+    "Electric",
+    "Steel"
+  ],
+  "heightMeters": 1,
+  "weightKg": 60,
+  "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/82.png",
+  "pokedexEntries": [
+    {
+      "game": "Red",
+      "text": "Formed by several MAGNEMITEs linked together. They frequently appear when sunspots flare up."
+    },
+    {
+      "game": "Yellow",
+      "text": "Generates strange radio signals. It raises the tem perature by 3.6F degrees within 3,300 feet."
+    },
+    {
+      "game": "Gold",
+      "text": "Three MAGNEMITE are linked by a strong magnetic force. Earaches will occur if you get too close."
+    },
+    {
+      "game": "Silver",
+      "text": "The MAGNEMITE are united by a mag netism so power ful, it dries all moisture in its vicinities."
+    },
+    {
+      "game": "Crystal",
+      "text": "When many MAGNETON gather together, the resulting magnetic storm disrupts radio waves."
+    },
+    {
+      "game": "Ruby",
+      "text": "MAGNETON emits a powerful magnetic force that is fatal to mechanical devices. As a result, large cities sound sirens to warn citizens of large-scale outbreaks of this POKéMON."
+    },
+    {
+      "game": "Sapphire",
+      "text": "MAGNETON emits a powerful magnetic force that is fatal to electronics and precision instruments. Because of this, it is said that some towns warn people to keep this POKéMON inside a POKé BALL."
+    },
+    {
+      "game": "Emerald",
+      "text": "It is actually three MAGNEMITE linked by magnetism. It generates powerful radio waves that raise temperatures by 3.6 degrees F within a 3,300-foot radius."
+    },
+    {
+      "game": "Firered",
+      "text": "A linked cluster formed of several MAGNEMITE. It discharges powerful magnetic waves at high voltage."
+    },
+    {
+      "game": "Leafgreen",
+      "text": "Formed by several MAGNEMITE linked together. They frequently appear when sunspots flare up."
+    },
+    {
+      "game": "Diamond",
+      "text": "It is actually three MAGNEMITE linked by magnetism. A group can set off a magnetic storm."
+    },
+    {
+      "game": "Platinum",
+      "text": "Many mysteriously appear when more sunspots dot the sun. They stop TV sets from displaying properly."
+    },
+    {
+      "game": "Soulsilver",
+      "text": "The MAGNEMITE are united by a magnetism so powerful, it dries all moisture in its vicinity."
+    },
+    {
+      "game": "Black 2",
+      "text": "The stronger electromagnetic waves from the three linked Magnemite are enough to dry out surrounding moisture."
+    },
+    {
+      "game": "Y",
+      "text": "Generates strange radio signals. It raises the temperature by 3.6 degrees Fahrenheit within 3,300 feet."
+    },
+    {
+      "game": "Sun",
+      "text": "When three Magnemite link together, their brains also become one. They do not become three times more intelligent."
+    },
+    {
+      "game": "Moon",
+      "text": "It has about three times the electrical power of Magnemite. For some reason, outbreaks of this Pokémon happen when lots of sunspots appear."
+    },
+    {
+      "game": "Ultra Sun",
+      "text": "Delicate equipment can malfunction in areas inhabited by Magneton, which send out mysterious electrical signals."
+    },
+    {
+      "game": "Ultra Moon",
+      "text": "When rain clouds form, many Magneton gather in high places to wait for lightning to strike."
+    },
+    {
+      "game": "Sword",
+      "text": "This Pokémon is three Magnemite that have linked together. Magneton sends out powerful radio waves to study its surroundings."
+    },
+    {
+      "game": "Shield",
+      "text": "This Pokémon is constantly putting out a powerful magnetic force. Most computers go haywire when a Magneton approaches."
+    },
+    {
+      "game": "Legends Arceus",
+      "text": "Three Magnemite gathered to evolve into this Pokémon. The source of much vexation on my part, as its powerful magnetism destroys my research equipment."
+    }
+  ],
+  "evolutionChain": [
+    {
+      "name": "Magnemite",
+      "index": "#081",
+      "stage": 1,
+      "types": [
+        "Electric",
+        "Steel"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/81.png",
+      "isSubject": false
+    },
+    {
+      "name": "Magneton",
+      "index": "#082",
+      "stage": 2,
+      "evolvesFrom": "Magnemite",
+      "method": "Level Up, level 30",
+      "types": [
+        "Electric",
+        "Steel"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/82.png",
+      "isSubject": true
+    },
+    {
+      "name": "Magnezone",
+      "index": "#462",
+      "stage": 3,
+      "evolvesFrom": "Magneton",
+      "method": "Level Up, at Mt Coronet",
+      "types": [
+        "Electric",
+        "Steel"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/462.png",
+      "isSubject": false
+    }
+  ],
+  "varieties": [],
+  "lore": [],
+  "tiers": {
+    "official": [
+      "name",
+      "index",
+      "number",
+      "category",
+      "generation",
+      "isLegendary",
+      "isMythical",
+      "types",
+      "heightMeters",
+      "weightKg",
+      "pokedexEntries",
+      "evolutionChain[].name",
+      "evolutionChain[].index",
+      "evolutionChain[].types",
+      "evolutionChain[].stage",
+      "varieties[].types",
+      "varieties[].heightMeters",
+      "varieties[].weightKg"
+    ],
+    "trusted_secondary": [
+      "evolutionChain[].method",
+      "evolutionChain[].evolvesFrom",
+      "varieties[].name"
+    ],
+    "community": [
+      "lore"
+    ]
+  },
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Magneton",
+      "url": "https://www.pokemon.com/us/pokedex/magneton",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Magneton",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Magneton_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Magneton",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/82",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

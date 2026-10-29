@@ -1,0 +1,159 @@
+{
+  "episodeId": "magnemite-081",
+  "createdAt": "2026-10-29T19:40:38.766Z",
+  "chosen": {
+    "id": "the-300-foot-magnet",
+    "premise": "Magnemite’s side magnets can pull iron objects from more than 300 feet away.",
+    "hook": "Magnemite can steal iron from over 300 feet away.",
+    "archetype": "mechanic",
+    "evidence": [
+      "pokedexEntries[7].text"
+    ],
+    "visualIdea": "Place Magnemite at one end of a street and show distant iron objects flying toward its side units.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 5,
+      "specificity": 5,
+      "visual": 5,
+      "support": 4
+    },
+    "total": 24,
+    "note": "The 300-foot distance is exceptionally specific and surprising. “Steal” slightly overstates the source, which says Magnemite draws in iron objects."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "the-300-foot-magnet",
+          "premise": "Magnemite’s side magnets can pull iron objects from more than 300 feet away.",
+          "hook": "Magnemite can steal iron from over 300 feet away.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[7].text"
+          ],
+          "visualIdea": "Place Magnemite at one end of a street and show distant iron objects flying toward its side units.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 24,
+          "note": "The 300-foot distance is exceptionally specific and surprising. “Steal” slightly overstates the source, which says Magnemite draws in iron objects."
+        },
+        {
+          "id": "flight-with-a-battery-limit",
+          "premise": "Magnemite’s electromagnetic waves cancel gravity, but it falls when its internal electricity runs out.",
+          "hook": "Magnemite can defeat gravity—until its battery dies.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[6].text",
+            "pokedexEntries[20].text",
+            "pokedexEntries[21].text"
+          ],
+          "visualIdea": "Show Magnemite hovering, its energy meter draining, then dropping to the ground before a battery revives it.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 24,
+          "note": "A Pokémon that levitates only while powered is a strong, concrete contradiction, and the battery-draining visual is very clear."
+        },
+        {
+          "id": "speed-makes-it-stronger",
+          "premise": "The faster Magnemite’s side units rotate, the greater the magnetic force they generate.",
+          "hook": "For Magnemite, spinning faster means becoming a stronger magnet.",
+          "archetype": "transformation",
+          "evidence": [
+            "pokedexEntries[11].text"
+          ],
+          "visualIdea": "Animate the side units accelerating as nearby metal objects begin moving toward Magnemite.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 24,
+          "note": "A precise mechanical rule directly supported by the Pokédex, though the payoff is less inherently dramatic than the 300-foot range or battery failure."
+        },
+        {
+          "id": "the-pokegear-lure",
+          "premise": "Magnemite is attracted to electromagnetic waves and may approach trainers using a Pokégear.",
+          "hook": "Your Pokégear could accidentally call a Magnemite over.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[2].text"
+          ],
+          "visualIdea": "A trainer activates a Pokégear, electromagnetic wave rings spread outward, and Magnemite follows them in.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 23,
+          "note": "A charmingly specific interaction with a Pokégear, but it relies on one older entry and has a smaller dramatic payoff."
+        },
+        {
+          "id": "the-power-outage-culprit",
+          "premise": "Magnemite feeds on electricity and can gather around power lines, breaker boxes, and power plants.",
+          "hook": "That power outage might be a Magnemite feeding frenzy.",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[5].text",
+            "pokedexEntries[9].text",
+            "pokedexEntries[15].text",
+            "pokedexEntries[16].text"
+          ],
+          "visualIdea": "Follow a blackout clue from a dark house to breaker boxes, power lines, and a swarm of Magnemite.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 22,
+          "note": "Well supported and highly visual, but the broader blackout mystery is less distinctive than Magnemite’s measurable magnet range or flight limitation."
+        },
+        {
+          "id": "mount-coronet-evolution",
+          "premise": "Magnemite reaches Magneton at level 30, but its final evolution requires leveling up at Mt. Coronet.",
+          "hook": "Magnemite’s final evolution depends on where it levels up.",
+          "archetype": "comparison",
+          "evidence": [
+            "evolutionChain[1].method",
+            "evolutionChain[2].method",
+            "evolutionChain[2].evolvesFrom"
+          ],
+          "visualIdea": "Compare a level-30 Magnemite evolution with Magneton’s separate final-evolution route at Mt. Coronet.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 4,
+            "support": 3
+          },
+          "total": 22,
+          "note": "The location-based evolution is surprising, but the hook is imprecise: Magnemite evolves into Magneton at level 30, while Magneton requires Mt. Coronet for the final evolution."
+        }
+      ],
+      "rejected": []
+    }
+  ]
+}

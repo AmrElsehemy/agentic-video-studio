@@ -1,0 +1,172 @@
+{
+  "id": "farfetchd-083",
+  "title": "Farfetch’d’s Sword Can Become Emergency Food",
+  "storyPattern": "mechanic",
+  "numberRelevant": false,
+  "premise": "Farfetch’d uses its plant stalk as a sword, but can eat it as emergency rations.",
+  "audiencePromise": "See the survival trade that leaves Farfetch’d searching for a new weapon.",
+  "openLoop": "If Farfetch’d eats its stalk, how does it replace its weapon?",
+  "payoff": "The stalk is a built-in survival trade: food now means searching for a new weapon next.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "One built-in meal, or a terrible weapon trade?",
+  "subject": {
+    "name": "Farfetch’d",
+    "category": "Wild Duck Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/83.png",
+    "identifier": "#083"
+  },
+  "related": [
+    {
+      "name": "Sirfetch’d",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/865.png",
+      "identifier": "#865"
+    },
+    {
+      "name": "Farfetchd Galar",
+      "relation": "form",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10166.png",
+      "identifier": "#083"
+    }
+  ],
+  "palette": {
+    "background": "#101719",
+    "surface": "#1B2926",
+    "primary": "#D9E85A",
+    "secondary": "#7BAE45",
+    "ink": "#F4F5E9"
+  },
+  "voice": {
+    "instructions": "Speak quickly, warmly, and clearly. Stress sword, food, and searching. Pause briefly before the final choice."
+  },
+  "rights": {
+    "releaseStatus": "cleared",
+    "publicReleaseApproved": true,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    },
+    "assets": [
+      {
+        "kind": "Farfetch’d official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/83.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "sword-or-snack",
+      "beat": "hook",
+      "eyebrow": "FARFETCH’D",
+      "headline": "SWORD OR SNACK?",
+      "narration": "Farfetch’d carries a sword that can become emergency food.",
+      "caption": "ITS WEAPON CAN BECOME FOOD",
+      "accent": "#D9E85A",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/83.png"
+    },
+    {
+      "id": "essential-stalk",
+      "beat": "evidence",
+      "eyebrow": "THE ESSENTIAL STALK",
+      "headline": "IT CAN’T LIVE WITHOUT IT",
+      "narration": "Farfetch’d can’t live without the plant stalk it carries.",
+      "caption": "THE STALK IS ESSENTIAL",
+      "facts": [
+        "PLANT STALK",
+        "ESSENTIAL"
+      ],
+      "accent": "#7BAE45",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/83.png"
+    },
+    {
+      "id": "dire-rations",
+      "beat": "escalation",
+      "eyebrow": "DIRE SITUATION",
+      "headline": "THE ESSENTIAL STALK GETS EATEN",
+      "narration": "In a dire situation, it can eat that essential stalk as emergency rations.",
+      "caption": "EMERGENCY RATIONS",
+      "facts": [
+        "DIRE SITUATION",
+        "EMERGENCY RATIONS"
+      ],
+      "accent": "#E6A84D",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/83.png",
+      "primitive": {
+        "kind": "timeline",
+        "steps": [
+          {
+            "label": "STALK AS WEAPON",
+            "detail": "CUT OPPONENTS"
+          },
+          {
+            "label": "EMERGENCY FOOD",
+            "detail": "DIRE SITUATION"
+          }
+        ],
+        "active": 1
+      }
+    },
+    {
+      "id": "searching-unarmed",
+      "beat": "payoff",
+      "eyebrow": "AFTER THE MEAL",
+      "headline": "NOW THE WEAPON IS GONE",
+      "narration": "After eating it, Farfetch’d runs off searching for a new one.",
+      "caption": "SEARCHING FOR A REPLACEMENT",
+      "facts": [
+        "WEAPON GONE",
+        "NEW STALK"
+      ],
+      "accent": "#E6A84D",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/83.png"
+    },
+    {
+      "id": "one-stalk-trade",
+      "beat": "payoff",
+      "eyebrow": "THE SURVIVAL TRADE",
+      "headline": "FIGHTING OR HUNGER",
+      "narration": "One stalk handles fighting and hunger, but never both at once.",
+      "caption": "FIGHTING ↔ HUNGER",
+      "facts": [
+        "WEAPON",
+        "FOOD"
+      ],
+      "accent": "#D9E85A",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/83.png"
+    },
+    {
+      "id": "weapon-trade",
+      "beat": "verdict",
+      "eyebrow": "YOUR VERDICT",
+      "headline": "SMART OR TERRIBLE?",
+      "narration": "One built-in meal, or a terrible weapon trade?",
+      "caption": "SMART SURVIVAL OR BAD PLANNING?",
+      "accent": "#D9E85A",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/83.png"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Farfetch’d",
+      "url": "https://www.pokemon.com/us/pokedex/farfetchd",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Farfetch’d",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Farfetch%E2%80%99d_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Farfetch’d",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/83",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

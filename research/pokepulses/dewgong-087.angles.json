@@ -1,0 +1,161 @@
+{
+  "episodeId": "dewgong-087",
+  "createdAt": "2026-10-29T19:59:16.138Z",
+  "chosen": {
+    "id": "the-fake-mermaid",
+    "premise": "A mariner mistook Dewgong sleeping on a glacier for a mermaid.",
+    "hook": "Dewgong accidentally became a mermaid sighting.",
+    "archetype": "mystery",
+    "evidence": [
+      "pokedexEntries[5].text",
+      "pokedexEntries[6].text"
+    ],
+    "visualIdea": "Reveal a distant shape on a glacier as a supposed mermaid, then zoom in to reveal sleeping Dewgong.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 5,
+      "specificity": 5,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 25,
+    "note": "This is a highly specific Dewgong-only story with an immediate reveal structure, and both cited Pokédex entries directly support it."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "the-fake-mermaid",
+          "premise": "A mariner mistook Dewgong sleeping on a glacier for a mermaid.",
+          "hook": "Dewgong accidentally became a mermaid sighting.",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[5].text",
+            "pokedexEntries[6].text"
+          ],
+          "visualIdea": "Reveal a distant shape on a glacier as a supposed mermaid, then zoom in to reveal sleeping Dewgong.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 25,
+          "note": "This is a highly specific Dewgong-only story with an immediate reveal structure, and both cited Pokédex entries directly support it."
+        },
+        {
+          "id": "post-meal-sunbath",
+          "premise": "After eating, Dewgong sunbathes because raising its body temperature helps digestion.",
+          "hook": "Dewgong's post-meal routine is a strategic sunbath.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[12].text"
+          ],
+          "visualIdea": "Show Dewgong eating, lying on a beach, and a body-temperature gauge rising beside a digestion icon.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 4,
+            "support": 5
+          },
+          "total": 22,
+          "note": "An unusual, well-supported behavior with strong visual logic, though it lacks the dramatic reveal and narrative tension of the mermaid story."
+        },
+        {
+          "id": "cold-makes-it-friskier",
+          "premise": "Unlike most creatures, Dewgong becomes friskier and more active as the temperature drops.",
+          "hook": "For Dewgong, colder doesn't mean slower—it means livelier.",
+          "archetype": "transformation",
+          "evidence": [
+            "pokedexEntries[2].text",
+            "pokedexEntries[7].text"
+          ],
+          "visualIdea": "A temperature gauge falls while Dewgong changes from sluggish in warmth to energetic in a blizzard.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 4,
+            "support": 4
+          },
+          "total": 20,
+          "note": "A strong biological contradiction with clear visuals, though the claim that this is unlike most creatures is not directly supported by the research."
+        },
+        {
+          "id": "cold-powered-cruiser",
+          "premise": "Dewgong stores thermal energy and still swims at a steady 8 knots through intensely cold water.",
+          "hook": "What if freezing water was Dewgong's fuel tank?",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[0].text",
+            "pokedexEntries[8].text"
+          ],
+          "visualIdea": "Show an icy ocean, a thermal-energy meter filling, and Dewgong cruising at an 8-knot speed readout.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 3,
+            "specificity": 4,
+            "visual": 4,
+            "support": 4
+          },
+          "total": 19,
+          "note": "The thermal-energy and 8-knot facts are directly supported, but “fuel tank” is a metaphor and the core idea is less surprising to knowledgeable fans."
+        },
+        {
+          "id": "seel-becomes-dewgong",
+          "premise": "At level 34, Seel evolves into Dewgong and gains the Ice type alongside Water.",
+          "hook": "At level 34, Seel doesn't just evolve—it becomes an Ice type.",
+          "archetype": "transformation",
+          "evidence": [
+            "evolutionChain[0].name",
+            "evolutionChain[1].name",
+            "evolutionChain[1].method",
+            "evolutionChain[0].types",
+            "evolutionChain[1].types"
+          ],
+          "visualIdea": "Show Seel leveling to 34, then transform its Water-type badge into Dewgong's Water/Ice pairing.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 2,
+            "surprise": 3,
+            "specificity": 5,
+            "visual": 4,
+            "support": 5
+          },
+          "total": 19,
+          "note": "The level and type change are precise and fully supported, but evolution-at-a-level is a broadly applicable Pokémon angle rather than a distinctive Dewgong story."
+        },
+        {
+          "id": "snow-camouflage",
+          "premise": "Dewgong's pure-white coat can obscure it from predators when it swims through snow.",
+          "hook": "In falling snow, Dewgong can practically disappear.",
+          "archetype": "comparison",
+          "evidence": [
+            "pokedexEntries[9].text",
+            "pokedexEntries[3].text"
+          ],
+          "visualIdea": "Track Dewgong against dark water, then watch it vanish as the scene fills with white snow.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 3,
+            "specificity": 4,
+            "visual": 4,
+            "support": 3
+          },
+          "total": 18,
+          "note": "The white coat obscuring Dewgong in snow is supported, but the evidence does not specifically say it swims through falling snow or literally disappears."
+        }
+      ],
+      "rejected": []
+    }
+  ]
+}

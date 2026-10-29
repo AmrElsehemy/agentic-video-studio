@@ -1,0 +1,271 @@
+{
+  "schemaVersion": 2,
+  "id": "dodrio-085",
+  "show": {
+    "id": "pokepulses",
+    "name": "PokePulses",
+    "handle": "@PokePulses",
+    "wordmark": {
+      "lead": "POKE",
+      "accent": "PULSES"
+    },
+    "fonts": {
+      "display": "Bebas Neue",
+      "body": "system"
+    }
+  },
+  "title": "Dodrio's Third Head Wasn't Added",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "transformation",
+    "numberRelevant": false,
+    "premise": "Dodrio evolves from Doduo when one of Doduo's two heads splits into two.",
+    "audiencePromise": "Watch one head split into two, then see why Dodrio's three brains are useful and risky.",
+    "openLoop": "Can two heads become three without adding a new one?",
+    "payoff": "After the split, Dodrio uses three brains for complex plans, but may think too much and become immobilized.",
+    "targetEmotion": "surprise",
+    "engagementQuestion": "Are three brains an advantage, or too much thinking?",
+    "targetSecondsBetweenVisualChanges": 0.62
+  },
+  "subject": {
+    "name": "Dodrio",
+    "category": "Triple Bird Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/85.png",
+    "identifier": "#085"
+  },
+  "related": [
+    {
+      "name": "Doduo",
+      "relation": "evolves-from",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/84.png",
+      "identifier": "#084"
+    }
+  ],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#10151C",
+    "surface": "#1C2630",
+    "primary": "#D94B4B",
+    "secondary": "#E7D8B1",
+    "ink": "#F5F1E8"
+  },
+  "audio": {
+    "music": "generated/dodrio-085-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 126,
+      "notes": [
+        110,
+        130.81,
+        146.83,
+        164.81,
+        146.83,
+        130.81,
+        98,
+        130.81
+      ]
+    },
+    "voice": {
+      "provider": "openai",
+      "model": "gpt-4o-mini-tts",
+      "voice": "marin",
+      "instructions": "Speak like a knowledgeable fan sharing a strange discovery. Keep the pace quick, warm, and clear. Punch the words split, three brains, and immobilized. Pause briefly before the reveal.",
+      "speed": 1.12,
+      "output": "generated/dodrio-085-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "cleared",
+    "publicReleaseApproved": true,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "assets": [
+      {
+        "kind": "Dodrio official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/85.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      },
+      {
+        "kind": "Doduo official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/84.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ],
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    }
+  },
+  "scenes": [
+    {
+      "id": "one-head-origin",
+      "durationSeconds": 4.2,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "DODRIO'S EVOLUTION",
+      "headline": "A HEAD SPLITS IN TWO",
+      "narration": "Dodrio's third head begins as part of another head.",
+      "caption": "THE THIRD HEAD WASN'T ADDED",
+      "visual": "hook",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/85.png",
+      "accent": "#D94B4B"
+    },
+    {
+      "id": "two-head-start",
+      "durationSeconds": 4.7,
+      "beat": "before",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "BEFORE EVOLUTION",
+      "headline": "THE TWO-HEAD START",
+      "narration": "Doduo starts with two heads and evolves at level thirty-one.",
+      "caption": "DODUO • TWO HEADS",
+      "visual": "gauntlet",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/84.png",
+      "accent": "#E7D8B1",
+      "facts": [
+        "TWO HEADS",
+        "LEVEL 31"
+      ],
+      "primitive": {
+        "kind": "timeline",
+        "steps": [
+          {
+            "label": "Doduo",
+            "detail": "2 HEADS"
+          },
+          {
+            "label": "Dodrio",
+            "detail": "LEVEL 31"
+          }
+        ],
+        "active": 1
+      }
+    },
+    {
+      "id": "one-becomes-two",
+      "durationSeconds": 5.2,
+      "beat": "change",
+      "role": "escalation",
+      "shot": "tracking",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "THE CHANGE",
+      "headline": "ONE BECOMES TWO",
+      "narration": "One head splits in two, turning Doduo's two heads into three.",
+      "caption": "ONE HEAD → TWO",
+      "visual": "race",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/84.png",
+      "accent": "#D94B4B",
+      "facts": [
+        "ONE HEAD SPLITS",
+        "THREE HEADS TOTAL"
+      ]
+    },
+    {
+      "id": "unique-species",
+      "durationSeconds": 3.8,
+      "beat": "reveal",
+      "role": "payoff",
+      "shot": "comparison",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "THE REVEAL",
+      "headline": "A UNIQUE SPECIES",
+      "narration": "That split forms Dodrio, a unique species.",
+      "caption": "THE SPLIT CREATES DODRIO",
+      "visual": "advantage",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/85.png",
+      "accent": "#E7D8B1",
+      "facts": [
+        "UNIQUE SPECIES"
+      ]
+    },
+    {
+      "id": "three-brains",
+      "durationSeconds": 3.8,
+      "beat": "aftermath",
+      "role": "payoff",
+      "shot": "wide",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "AFTER EVOLUTION",
+      "headline": "THREE BRAINS, COMPLEX PLANS",
+      "narration": "Dodrio's three brains help it execute complex plans.",
+      "caption": "THREE BRAINS",
+      "visual": "tradeoff",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/85.png",
+      "accent": "#D94B4B",
+      "facts": [
+        "THREE BRAINS",
+        "COMPLEX PLANS"
+      ]
+    },
+    {
+      "id": "thinking-risk",
+      "durationSeconds": 4.2,
+      "beat": "aftermath",
+      "role": "payoff",
+      "shot": "impact",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "THE TRADE-OFF",
+      "headline": "TOO MUCH THINKING",
+      "narration": "But it may think too much and become immobilized.",
+      "caption": "THINKING TOO MUCH HAS A RISK",
+      "visual": "tradeoff",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/85.png",
+      "accent": "#E7D8B1",
+      "facts": [
+        "MAY THINK TOO MUCH",
+        "MAY BECOME IMMOBILIZED"
+      ]
+    },
+    {
+      "id": "advantage-or-risk",
+      "durationSeconds": 4.3,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "YOUR VERDICT",
+      "headline": "ADVANTAGE OR RISK?",
+      "narration": "Are three brains an advantage, or too much thinking?",
+      "caption": "ADVANTAGE OR RISK?",
+      "visual": "cta",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/85.png",
+      "accent": "#D94B4B"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Dodrio",
+      "url": "https://www.pokemon.com/us/pokedex/dodrio"
+    },
+    {
+      "label": "Bulbapedia — Dodrio",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Dodrio_(Pok%C3%A9mon)"
+    },
+    {
+      "label": "PokéAPI — Dodrio",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/85"
+    }
+  ]
+}

@@ -1,0 +1,477 @@
+{
+  "episodeId": "dewgong-087",
+  "checkedAt": "2026-10-29T19:59:24.724Z",
+  "claims": [
+    {
+      "id": "c1",
+      "where": "title",
+      "text": "Dewgong's Glacier Nap Became a Mermaid Sighting",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c2",
+      "where": "premise",
+      "text": "A mariner mistook Dewgong sleeping on a glacier for a mermaid.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c3",
+      "where": "audiencePromise",
+      "text": "Follow the icy shape from a strange sighting to the Pokémon hidden in plain view.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[9].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c4",
+      "where": "openLoop",
+      "text": "What was really sleeping on that distant glacier?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Question framing only.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c5",
+      "where": "payoff",
+      "text": "The mermaid was Dewgong, whose snowy-white body blends into ice while it snoozes.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[9].text"
+      ],
+      "note": "Dewgong being the mistaken mermaid and having a snowy-white body are supported, but the research says its coat obscures it in snow, not specifically that it blends into glacier ice.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c6",
+      "where": "scenes.mermaid-on-ice.headline",
+      "text": "A MERMAID ON ICE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c7",
+      "where": "scenes.mermaid-on-ice.narration",
+      "text": "Dewgong's nap became a mermaid sighting.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c8",
+      "where": "scenes.mermaid-on-ice.caption",
+      "text": "THE SIGHTING WAS MISTAKEN",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c9",
+      "where": "scenes.mermaid-on-ice.eyebrow",
+      "text": "A STRANGE SIGHTING",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Descriptive framing only.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c10",
+      "where": "scenes.white-as-snow.headline",
+      "text": "WHITE AGAINST WHITE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[9].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c11",
+      "where": "scenes.white-as-snow.narration",
+      "text": "Its snowy-white body could vanish against a glacier.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[9].text"
+      ],
+      "note": "The snowy-white coat being obscuring is supported in snow, but the text extends this specifically to vanishing against a glacier.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c12",
+      "where": "scenes.white-as-snow.caption",
+      "text": "SNOWY-WHITE BODY",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[7].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c13",
+      "where": "scenes.white-as-snow.eyebrow",
+      "text": "THE FIRST CLUE",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Framing only.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c14",
+      "where": "scenes.white-as-snow.facts[0]",
+      "text": "SNOWY-WHITE BODY",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[7].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c15",
+      "where": "scenes.white-as-snow.facts[1]",
+      "text": "GLACIER ICE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[9].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c16",
+      "where": "scenes.sleeping-on-ice.headline",
+      "text": "SOMETHING WAS SLEEPING",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c17",
+      "where": "scenes.sleeping-on-ice.narration",
+      "text": "Then a mariner saw one sleeping on that bitterly cold ice.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c18",
+      "where": "scenes.sleeping-on-ice.caption",
+      "text": "SLEEPING ON A GLACIER",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c19",
+      "where": "scenes.sleeping-on-ice.eyebrow",
+      "text": "THEN IT GOT WEIRDER",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Dramatic framing only.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c20",
+      "where": "scenes.sleeping-on-ice.facts[0]",
+      "text": "MARINER",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c21",
+      "where": "scenes.sleeping-on-ice.facts[1]",
+      "text": "BITTERLY COLD ICE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c22",
+      "where": "scenes.the-hidden-pokemon.headline",
+      "text": "THE MERMAID WAS DEWGONG",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c23",
+      "where": "scenes.the-hidden-pokemon.narration",
+      "text": "The supposed mermaid was Dewgong, asleep on a glacier.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c24",
+      "where": "scenes.the-hidden-pokemon.caption",
+      "text": "MYSTERY SOLVED",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Framing statement only.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c25",
+      "where": "scenes.the-hidden-pokemon.eyebrow",
+      "text": "THE FIRST REVEAL",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Framing only.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c26",
+      "where": "scenes.the-hidden-pokemon.facts[0]",
+      "text": "DEWGONG",
+      "verdict": "supported",
+      "evidence": [
+        "name"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c27",
+      "where": "scenes.the-hidden-pokemon.facts[1]",
+      "text": "SLEEPING ON A GLACIER",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c28",
+      "where": "scenes.normal-dewgong-nap.headline",
+      "text": "THIS WAS NORMAL FOR DEWGONG",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "The research says Dewgong loves snoozing on bitterly cold ice, but does not explicitly establish that this behavior is normal.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c29",
+      "where": "scenes.normal-dewgong-nap.narration",
+      "text": "And that icy scene was normal: Dewgong loves snoozing on ice.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "Dewgong loving to snooze on bitterly cold ice is supported, but calling the scene 'normal' is an inference.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c30",
+      "where": "scenes.normal-dewgong-nap.caption",
+      "text": "ICE IS ITS BED",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "Metaphorical paraphrase of Dewgong snoozing on ice.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c31",
+      "where": "scenes.normal-dewgong-nap.eyebrow",
+      "text": "THE SECOND REVEAL",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Framing only.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c32",
+      "where": "scenes.normal-dewgong-nap.facts[0]",
+      "text": "LOVES TO SNOOZE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c33",
+      "where": "scenes.normal-dewgong-nap.facts[1]",
+      "text": "BITTERLY COLD ICE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c34",
+      "where": "scenes.mermaid-or-dewgong.headline",
+      "text": "MERMAID OR DEWGONG?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Question only.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c35",
+      "where": "scenes.mermaid-or-dewgong.narration",
+      "text": "Would you see a mermaid, or a sleeping Dewgong?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Question only.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c36",
+      "where": "scenes.mermaid-or-dewgong.caption",
+      "text": "WHAT WOULD YOU SPOT?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Question only.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c37",
+      "where": "scenes.mermaid-or-dewgong.eyebrow",
+      "text": "YOUR VERDICT",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Framing only.",
+      "checkedBy": "model"
+    }
+  ],
+  "unsupported": [],
+  "uncertain": [
+    {
+      "id": "c5",
+      "where": "payoff",
+      "text": "The mermaid was Dewgong, whose snowy-white body blends into ice while it snoozes.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[9].text"
+      ],
+      "note": "Dewgong being the mistaken mermaid and having a snowy-white body are supported, but the research says its coat obscures it in snow, not specifically that it blends into glacier ice.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c11",
+      "where": "scenes.white-as-snow.narration",
+      "text": "Its snowy-white body could vanish against a glacier.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[9].text"
+      ],
+      "note": "The snowy-white coat being obscuring is supported in snow, but the text extends this specifically to vanishing against a glacier.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c28",
+      "where": "scenes.normal-dewgong-nap.headline",
+      "text": "THIS WAS NORMAL FOR DEWGONG",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "The research says Dewgong loves snoozing on bitterly cold ice, but does not explicitly establish that this behavior is normal.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c29",
+      "where": "scenes.normal-dewgong-nap.narration",
+      "text": "And that icy scene was normal: Dewgong loves snoozing on ice.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "Dewgong loving to snooze on bitterly cold ice is supported, but calling the scene 'normal' is an inference.",
+      "tier": "official",
+      "checkedBy": "model"
+    }
+  ]
+}

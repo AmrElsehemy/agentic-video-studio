@@ -1,0 +1,275 @@
+{
+  "schemaVersion": 2,
+  "id": "shellder-090",
+  "show": {
+    "id": "pokepulses",
+    "name": "PokePulses",
+    "handle": "@PokePulses",
+    "wordmark": {
+      "lead": "POKE",
+      "accent": "PULSES"
+    },
+    "fonts": {
+      "display": "Bebas Neue",
+      "body": "system"
+    }
+  },
+  "title": "Shellder Makes Pearls Then Throws Them Away",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "transformation",
+    "numberRelevant": false,
+    "premise": "Trapped sand inside Shellder's shell eventually becomes a pearl, but the pearl gets in the way, so Shellder spits it out.",
+    "audiencePromise": "Follow sand into Shellder's shell, watch it become a pearl, then see where that pearl ends up.",
+    "openLoop": "How does Shellder turn trapped sand into something it immediately discards?",
+    "payoff": "Shellder's beautiful pearl is not treasure to keep. It is an obstruction to spit out.",
+    "targetEmotion": "surprise",
+    "engagementQuestion": "Is Shellder a pearl maker or a pearl waster?",
+    "targetSecondsBetweenVisualChanges": 0.62
+  },
+  "subject": {
+    "name": "Shellder",
+    "category": "Bivalve Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/90.png",
+    "identifier": "#090"
+  },
+  "related": [
+    {
+      "name": "Cloyster",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/91.png",
+      "identifier": "#091"
+    }
+  ],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#081B24",
+    "surface": "#12313A",
+    "primary": "#B8E7E3",
+    "secondary": "#F2C6D2",
+    "ink": "#F6FBF9"
+  },
+  "audio": {
+    "music": "generated/shellder-090-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 126,
+      "notes": [
+        110,
+        130.81,
+        146.83,
+        164.81,
+        146.83,
+        130.81,
+        98,
+        130.81
+      ]
+    },
+    "voice": {
+      "provider": "openai",
+      "model": "gpt-4o-mini-tts",
+      "voice": "marin",
+      "instructions": "Sound like a knowledgeable fan sharing a strange fact. Keep the pace quick, warm, and playful. Stress pearl, way, and spits it out. Pause briefly before the reveal.",
+      "speed": 1.12,
+      "output": "generated/shellder-090-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "cleared",
+    "publicReleaseApproved": true,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "assets": [
+      {
+        "kind": "Shellder official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/90.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ],
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    }
+  },
+  "scenes": [
+    {
+      "id": "pearls-then-throws",
+      "durationSeconds": 3.8,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "SHELLDER",
+      "headline": "MAKES PEARLS. THROWS THEM.",
+      "narration": "Shellder makes pearls, then throws them away.",
+      "caption": "BEAUTIFUL. THEN GONE.",
+      "visual": "hook",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/90.png",
+      "accent": "#F2C6D2",
+      "primitive": {
+        "kind": "timeline",
+        "steps": [
+          {
+            "label": "SAND TRAPPED",
+            "detail": "INSIDE SHELL"
+          },
+          {
+            "label": "BEAUTIFUL PEARL",
+            "detail": "FORMS INSIDE"
+          },
+          {
+            "label": "SPITS IT OUT",
+            "detail": "DISCARDS IT"
+          }
+        ],
+        "active": 2
+      }
+    },
+    {
+      "id": "sand-gets-trapped",
+      "durationSeconds": 5.1,
+      "beat": "before",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "INSIDE THE SHELL",
+      "headline": "SAND GETS TRAPPED",
+      "narration": "Sand gets trapped inside Shellder's shell and mixes with body fluids.",
+      "caption": "SAND + BODY FLUIDS",
+      "visual": "gauntlet",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/90.png",
+      "accent": "#D9C5A1",
+      "facts": [
+        "Trapped sand",
+        "Body fluids"
+      ]
+    },
+    {
+      "id": "sand-becomes-pearl",
+      "durationSeconds": 4.7,
+      "beat": "change",
+      "role": "escalation",
+      "shot": "tracking",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "THE CHANGE",
+      "headline": "SAND BECOMES A PEARL",
+      "narration": "The sand eventually forms a beautiful pearl inside its shell.",
+      "caption": "TRAPPED SAND → PEARL",
+      "visual": "race",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/90.png",
+      "accent": "#F2C6D2",
+      "facts": [
+        "Beautiful pearl",
+        "Inside the shell"
+      ],
+      "primitive": {
+        "kind": "timeline",
+        "steps": [
+          {
+            "label": "TRAPPED SAND",
+            "detail": "MIXES WITH BODY FLUIDS"
+          },
+          {
+            "label": "BEAUTIFUL PEARL",
+            "detail": "FORMS INSIDE SHELL"
+          }
+        ],
+        "active": 1
+      }
+    },
+    {
+      "id": "pearl-gets-in-way",
+      "durationSeconds": 5.6,
+      "beat": "reveal",
+      "role": "payoff",
+      "shot": "comparison",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "THE CATCH",
+      "headline": "THE PEARL IS IN THE WAY",
+      "narration": "But the pearl gets in the way, so Shellder spits it out.",
+      "caption": "THE TREASURE BECOMES A PROBLEM",
+      "visual": "advantage",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/90.png",
+      "accent": "#F2C6D2",
+      "facts": [
+        "Gets in the way",
+        "Spits it out"
+      ],
+      "primitive": {
+        "kind": "timeline",
+        "steps": [
+          {
+            "label": "PEARL FORMS",
+            "detail": "INSIDE SHELL"
+          },
+          {
+            "label": "GETS IN THE WAY",
+            "detail": "SHELlder SPITS IT OUT"
+          }
+        ],
+        "active": 1
+      }
+    },
+    {
+      "id": "pearl-discarded",
+      "durationSeconds": 4.3,
+      "beat": "aftermath",
+      "role": "payoff",
+      "shot": "wide",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "NO KEEPSAKE",
+      "headline": "PEARL: DISCARDED",
+      "narration": "Its pearl-making ends with the finished pearl simply discarded.",
+      "caption": "MADE BEAUTIFUL. THROWN AWAY.",
+      "visual": "tradeoff",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/90.png",
+      "accent": "#D9C5A1",
+      "facts": [
+        "Pearl discarded"
+      ]
+    },
+    {
+      "id": "maker-or-waster",
+      "durationSeconds": 4.2,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "YOUR VERDICT",
+      "headline": "MAKER OR WASTER?",
+      "narration": "Is Shellder a pearl maker or a pearl waster?",
+      "caption": "PEARL MAKER OR PEARL WASTER?",
+      "visual": "cta",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/90.png",
+      "accent": "#F2C6D2"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Shellder",
+      "url": "https://www.pokemon.com/us/pokedex/shellder"
+    },
+    {
+      "label": "Bulbapedia — Shellder",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Shellder_(Pok%C3%A9mon)"
+    },
+    {
+      "label": "PokéAPI — Shellder",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/90"
+    }
+  ]
+}

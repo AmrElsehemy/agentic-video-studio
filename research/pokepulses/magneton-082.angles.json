@@ -1,0 +1,169 @@
+{
+  "episodeId": "magneton-082",
+  "createdAt": "2026-10-29T19:43:23.834Z",
+  "chosen": {
+    "id": "three-magnemite-one-brain",
+    "premise": "Magneton is three Magnemite linked together, but their three brains become one—and they are not three times smarter.",
+    "hook": "Three Magnemite merge their brains. So why aren't they three times smarter?",
+    "archetype": "mystery",
+    "evidence": [
+      "pokedexEntries[15].text",
+      "pokedexEntries[2].text",
+      "evolutionChain[1].evolvesFrom"
+    ],
+    "visualIdea": "Three Magnemite orbit together, their separate brain icons merging into one with a crossed-out 3x intelligence meter.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 5,
+      "specificity": 5,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 25,
+    "note": "A highly specific contradiction unique to Magneton: three Magnemite become one brain without becoming three times smarter. Every part of the hook is directly supported by the Pokédex."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "three-magnemite-one-brain",
+          "premise": "Magneton is three Magnemite linked together, but their three brains become one—and they are not three times smarter.",
+          "hook": "Three Magnemite merge their brains. So why aren't they three times smarter?",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[15].text",
+            "pokedexEntries[2].text",
+            "evolutionChain[1].evolvesFrom"
+          ],
+          "visualIdea": "Three Magnemite orbit together, their separate brain icons merging into one with a crossed-out 3x intelligence meter.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 25,
+          "note": "A highly specific contradiction unique to Magneton: three Magnemite become one brain without becoming three times smarter. Every part of the hook is directly supported by the Pokédex."
+        },
+        {
+          "id": "3300-foot-heat-zone",
+          "premise": "Magneton's radio signals raise the temperature by 3.6°F across a 3,300-foot radius.",
+          "hook": "One Magneton can heat everything within 3,300 feet.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[1].text",
+            "pokedexEntries[7].text",
+            "pokedexEntries[14].text"
+          ],
+          "visualIdea": "A Magneton at the center of a 3,300-foot map radius as a thermometer climbs exactly 3.6°F.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 23,
+          "note": "The exact 3,300-foot radius and 3.6°F increase are unusually concrete and strongly supported. It is slightly less unique because many Electric Pokémon could plausibly have a measurable area effect."
+        },
+        {
+          "id": "sunspot-outbreak",
+          "premise": "Magneton outbreaks appear when sunspots increase, linking this three-Magnemite Pokémon to activity on the Sun.",
+          "hook": "Why do Magneton outbreaks follow sunspots?",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[0].text",
+            "pokedexEntries[9].text",
+            "pokedexEntries[11].text",
+            "pokedexEntries[16].text"
+          ],
+          "visualIdea": "Sunspots multiply on the Sun while a matching Magneton outbreak counter rises on Earth.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 21,
+          "note": "The sunspot connection is distinctive and easy to visualize, but the entries establish correlation rather than explaining why sunspots trigger outbreaks. The mystery hook is stronger than the premise's implied causal link."
+        },
+        {
+          "id": "lightning-waiting-stacks",
+          "premise": "When rain clouds form, Magneton gather in high places and wait for lightning to strike.",
+          "hook": "When storms arrive, Magneton climb high to wait for lightning.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[18].text",
+            "pokedexEntries[2].text",
+            "pokedexEntries[10].text"
+          ],
+          "visualIdea": "Rain clouds roll in as Magneton stack on a mountaintop, eyes fixed on repeated lightning strikes.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 21,
+          "note": "Waiting in high places for lightning is an excellent visual behavior and directly supported by one entry. 'Climb,' 'stack,' and repeated lightning strikes are presentation embellishments rather than researched facts."
+        },
+        {
+          "id": "equipment-destroyer",
+          "premise": "Magneton's magnetic force can destroy mechanical devices, scramble computers, and make cities sound outbreak sirens.",
+          "hook": "A Magneton outbreak can make an entire city sound the sirens.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[5].text",
+            "pokedexEntries[6].text",
+            "pokedexEntries[20].text"
+          ],
+          "visualIdea": "Magneton approaches a city: computers glitch, precision instruments fail, then warning sirens light up.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 3,
+            "surprise": 4,
+            "specificity": 3,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 19,
+          "note": "The danger to electronics is well supported, but the angle bundles several effects and overstates some wording: entries say devices can be fatal to or malfunction, while sirens are tied specifically to large-scale outbreaks."
+        },
+        {
+          "id": "mount-coronet-upgrade",
+          "premise": "Magneton evolves from Magnemite at level 30, then needs Mt. Coronet to become Magnezone.",
+          "hook": "Magneton's final evolution requires one specific mountain.",
+          "archetype": "transformation",
+          "evidence": [
+            "evolutionChain[0].name",
+            "evolutionChain[1].method",
+            "evolutionChain[2].name",
+            "evolutionChain[2].method"
+          ],
+          "visualIdea": "A level-30 Magnemite becomes Magneton, then the evolution animation only activates inside Mt. Coronet.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 3,
+            "surprise": 3,
+            "specificity": 4,
+            "visual": 4,
+            "support": 4
+          },
+          "total": 18,
+          "note": "The Mt. Coronet requirement is concrete and visually clear, but it is primarily a standard evolution-method fact and is less surprising or character-defining than Magneton's biology and environmental effects."
+        }
+      ],
+      "rejected": [],
+      "request": "Stronger alternatives would need an equally specific contradiction or rule, a genuinely Magneton-only premise, and direct support without implying causation or exaggerating what the Pokédex says."
+    }
+  ]
+}

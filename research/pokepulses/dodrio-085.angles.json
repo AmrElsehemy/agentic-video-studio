@@ -1,0 +1,161 @@
+{
+  "episodeId": "dodrio-085",
+  "createdAt": "2026-10-29T19:52:37.882Z",
+  "chosen": {
+    "id": "head-split-evolution",
+    "premise": "Dodrio evolves from Doduo when one of Doduo’s two heads splits into two, creating a three-headed species.",
+    "hook": "Dodrio’s evolution is not a new head—it is one head splitting.",
+    "archetype": "transformation",
+    "evidence": [
+      "pokedexEntries[1].text",
+      "pokedexEntries[10].text",
+      "evolutionChain[1].evolvesFrom",
+      "evolutionChain[1].method"
+    ],
+    "visualIdea": "Animate Doduo’s two-head silhouette as one head divides, then label the level-31 evolution into Dodrio.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 5,
+      "specificity": 5,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 25,
+    "note": "A highly concrete evolutionary contradiction: Dodrio is formed when one of Doduo's heads splits, not simply by adding another head. The transformation is easy to animate and supported by entries plus the evolution chain."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "head-split-evolution",
+          "premise": "Dodrio evolves from Doduo when one of Doduo’s two heads splits into two, creating a three-headed species.",
+          "hook": "Dodrio’s evolution is not a new head—it is one head splitting.",
+          "archetype": "transformation",
+          "evidence": [
+            "pokedexEntries[1].text",
+            "pokedexEntries[10].text",
+            "evolutionChain[1].evolvesFrom",
+            "evolutionChain[1].method"
+          ],
+          "visualIdea": "Animate Doduo’s two-head silhouette as one head divides, then label the level-31 evolution into Dodrio.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 25,
+          "note": "A highly concrete evolutionary contradiction: Dodrio is formed when one of Doduo's heads splits, not simply by adding another head. The transformation is easy to animate and supported by entries plus the evolution chain."
+        },
+        {
+          "id": "threefold-endurance",
+          "premise": "Dodrio has three sets of hearts and lungs, which its Pokédex says let it run long distances without rest.",
+          "hook": "Dodrio’s stamina comes from more than just having three heads.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[7].text"
+          ],
+          "visualIdea": "Reveal three heart-and-lung icons inside Dodrio, then animate it running across a distance marker.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 23,
+          "note": "The three hearts and three lungs are unusually specific to Dodrio and directly explain its endurance. The premise could use the exact 'long distances without rest' wording for maximum precision."
+        },
+        {
+          "id": "three-emotions",
+          "premise": "Dodrio’s three heads are said to represent joy, sadness, and anger—three emotions sharing one body.",
+          "hook": "Dodrio’s heads may not just think differently; each one has an emotion.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[8].text"
+          ],
+          "visualIdea": "Give each head a distinct joy, sadness, or anger expression, then show all three on one body.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 23,
+          "note": "The joy-sadness-anger assignment is concrete and visually expressive, but it comes from a single 'said to' entry and offers less mechanical payoff than the evolution angle."
+        },
+        {
+          "id": "three-way-warning",
+          "premise": "When Dodrio’s three heads face three different directions, the Pokédex says it is on guard and may peck.",
+          "hook": "Three heads looking three ways is Dodrio’s warning signal.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[5].text",
+            "pokedexEntries[12].text"
+          ],
+          "visualIdea": "Use three directional cones from Dodrio’s heads, then flash a danger warning as the cones separate.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 23,
+          "note": "A clear, filmable warning signal with strong textual support. It is compelling, but the general 'three heads scan in different directions' idea is slightly less surprising than the head-splitting evolution."
+        },
+        {
+          "id": "one-head-night-shift",
+          "premise": "Dodrio can let two heads sleep while the third stays awake, giving its three-brain body a permanent lookout.",
+          "hook": "Dodrio never needs all three heads awake to keep watch.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[0].text",
+            "pokedexEntries[9].text"
+          ],
+          "visualIdea": "Show two heads falling asleep while the third scans the horizon like a rotating lookout.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 22,
+          "note": "A distinctive sleep-and-surveillance mechanic, directly supported by multiple Pokédex entries. It is strong, though the permanent-lookout framing slightly overstates the source."
+        },
+        {
+          "id": "smart-enough-to-freeze",
+          "premise": "Dodrio plans three times as wisely with its three brains, but overthinking can leave it completely immobilized.",
+          "hook": "Dodrio’s three brains make it wiser—and can make it stop moving.",
+          "archetype": "comparison",
+          "evidence": [
+            "pokedexEntries[2].text",
+            "pokedexEntries[11].text"
+          ],
+          "visualIdea": "Stack three planning screens around Dodrio until the information overload freezes it in place.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 4,
+            "support": 3
+          },
+          "total": 19,
+          "note": "The overthinking contradiction is interesting, but 'three times as wisely' is awkwardly phrased in the source and the premise turns it into a stronger causal claim than the entries clearly establish."
+        }
+      ],
+      "rejected": []
+    }
+  ]
+}

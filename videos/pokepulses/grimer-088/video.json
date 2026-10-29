@@ -1,0 +1,262 @@
+{
+  "schemaVersion": 2,
+  "id": "grimer-088",
+  "show": {
+    "id": "pokepulses",
+    "name": "PokePulses",
+    "handle": "@PokePulses",
+    "wordmark": {
+      "lead": "POKE",
+      "accent": "PULSES"
+    },
+    "fonts": {
+      "display": "Bebas Neue",
+      "body": "system"
+    }
+  },
+  "title": "Grimer May Starve Because Water Got Cleaner",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "profile",
+    "numberRelevant": false,
+    "premise": "Cleaner factory wastewater sounds like progress, but it removes the food Grimer needs to survive.",
+    "audiencePromise": "Reveal why cleaner factory water creates a food crisis for Grimer, then ask which matters more.",
+    "openLoop": "How can cleaner wastewater push a Pokémon toward extinction?",
+    "payoff": "Grimer turns a polluted world into food, yet sterile environments can make it die.",
+    "targetEmotion": "debate",
+    "engagementQuestion": "Which matters more: clean wastewater or Grimer’s food supply?",
+    "targetSecondsBetweenVisualChanges": 0.72
+  },
+  "subject": {
+    "name": "Grimer",
+    "category": "Sludge Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/88.png",
+    "identifier": "#088"
+  },
+  "related": [
+    {
+      "name": "Muk",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/89.png",
+      "identifier": "#089"
+    },
+    {
+      "name": "Grimer Alola",
+      "relation": "form",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10112.png",
+      "identifier": "#088"
+    }
+  ],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#101414",
+    "surface": "#1B2422",
+    "primary": "#79A84B",
+    "secondary": "#B7D56A",
+    "ink": "#F2F5E9"
+  },
+  "audio": {
+    "music": "generated/grimer-088-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 126,
+      "notes": [
+        110,
+        130.81,
+        146.83,
+        164.81,
+        146.83,
+        130.81,
+        98,
+        130.81
+      ]
+    },
+    "voice": {
+      "provider": "openai",
+      "model": "gpt-4o-mini-tts",
+      "voice": "marin",
+      "instructions": "Speak like a knowledgeable fan sharing a disturbing twist. Start sharp, build urgency with short pauses, then slow slightly before the final either-or question.",
+      "speed": 1.12,
+      "output": "generated/grimer-088-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "cleared",
+    "publicReleaseApproved": true,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "assets": [
+      {
+        "kind": "Grimer official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/88.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ],
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    }
+  },
+  "scenes": [
+    {
+      "id": "clean-water-threat",
+      "durationSeconds": 3.8,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "mystery",
+      "subjectFocus": "hidden",
+      "beatEverySeconds": 0.72,
+      "eyebrow": "A STRANGE FOOD CRISIS",
+      "headline": "CLEAN WATER, HUNGRY GRIMER",
+      "narration": "Cleaner factory water may push Grimer toward extinction.",
+      "caption": "ON THE VERGE OF EXTINCTION",
+      "visual": "hook",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/88.png",
+      "accent": "#B7D56A"
+    },
+    {
+      "id": "filthy-main-food",
+      "durationSeconds": 4.2,
+      "beat": "evidence",
+      "role": "evidence",
+      "shot": "tracking",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.72,
+      "eyebrow": "WHAT GRIMER EATS",
+      "headline": "SLUDGE IS ITS FOOD",
+      "narration": "Grimer’s main food is slimy industrial waste from factories.",
+      "caption": "FACTORY WASTE FUELS GRIMER",
+      "visual": "gauntlet",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/88.png",
+      "accent": "#79A84B",
+      "facts": [
+        "SLIMY INDUSTRIAL WASTE",
+        "FACTORY FOOD"
+      ]
+    },
+    {
+      "id": "wastewater-pipes",
+      "durationSeconds": 4.2,
+      "beat": "evidence",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.72,
+      "eyebrow": "IT SEEKS THE FILTH",
+      "headline": "GRIMER DRINKS FILTHY WATER",
+      "narration": "It squeezes through sewer pipes to drink filthy wastewater.",
+      "caption": "SEWER PIPES ARE FOOD ROUTES",
+      "visual": "advantage",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/88.png",
+      "accent": "#79A84B",
+      "facts": [
+        "SEWER PIPES",
+        "FILTHY WASTEWATER"
+      ]
+    },
+    {
+      "id": "food-supply-vanishes",
+      "durationSeconds": 4.7,
+      "beat": "escalation",
+      "role": "escalation",
+      "shot": "comparison",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.72,
+      "eyebrow": "THE TWIST DEEPENS",
+      "headline": "THE FOOD SOURCE VANISHED",
+      "narration": "Then clean factory wastewater leaves Grimer with nothing to eat.",
+      "caption": "FACTORY WASTEWATER IS CLEAN",
+      "visual": "race",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/88.png",
+      "accent": "#B7D56A",
+      "facts": [
+        "CLEAN WASTEWATER",
+        "NOTHING TO EAT"
+      ],
+      "primitive": {
+        "kind": "checklist",
+        "items": [
+          {
+            "label": "FACTORY WASTEWATER",
+            "met": false
+          },
+          {
+            "label": "FOOD SUPPLY",
+            "met": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "sterile-environment",
+      "durationSeconds": 4.8,
+      "beat": "twist",
+      "role": "twist",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.72,
+      "eyebrow": "THE COUNTERPOINT",
+      "headline": "STERILE CONDITIONS CAN KILL",
+      "narration": "Sterile environments stop its germs from multiplying, and Grimer dies.",
+      "caption": "GERMS CAN’T MULTIPLY",
+      "visual": "tradeoff",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/88.png",
+      "accent": "#C56A55",
+      "facts": [
+        "STERILE ENVIRONMENT",
+        "GERMS CANNOT MULTIPLY"
+      ],
+      "primitive": {
+        "kind": "checklist",
+        "items": [
+          {
+            "label": "GERMS MULTIPLY",
+            "met": false
+          },
+          {
+            "label": "GRIMER SURVIVES",
+            "met": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "choose-grimers-future",
+      "durationSeconds": 4.3,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.72,
+      "eyebrow": "THE UNCOMFORTABLE CHOICE",
+      "headline": "WHICH FUTURE WINS?",
+      "narration": "Which matters more: clean wastewater or Grimer’s food supply?",
+      "caption": "CLEAN WASTEWATER OR GRIMER FOOD?",
+      "visual": "cta",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/88.png",
+      "accent": "#B7D56A"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Grimer",
+      "url": "https://www.pokemon.com/us/pokedex/grimer"
+    },
+    {
+      "label": "Bulbapedia — Grimer",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Grimer_(Pok%C3%A9mon)"
+    },
+    {
+      "label": "PokéAPI — Grimer",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/88"
+    }
+  ]
+}

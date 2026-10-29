@@ -1,0 +1,151 @@
+{
+  "episodeId": "grimer-088",
+  "createdAt": "2026-10-29T20:02:28.985Z",
+  "chosen": {
+    "id": "grimer-needs-pollution",
+    "premise": "Cleaner factory wastewater is starving Grimer, leaving it on the verge of extinction.",
+    "hook": "What if cleaning up pollution accidentally wiped out a Pokémon?",
+    "archetype": "profile",
+    "evidence": [
+      "pokedexEntries[15].text",
+      "pokedexEntries[18].text"
+    ],
+    "visualIdea": "Show factory sludge flowing into a Grimer, then turn the water clear as its food supply and population meter vanish.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 5,
+      "specificity": 5,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 25,
+    "note": "A strong ecological contradiction unique to Grimer: cleaner wastewater removes its food and threatens extinction. The cited Sun and Ultra Moon entries directly support both the cause and consequence."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "grimer-needs-pollution",
+          "premise": "Cleaner factory wastewater is starving Grimer, leaving it on the verge of extinction.",
+          "hook": "What if cleaning up pollution accidentally wiped out a Pokémon?",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[15].text",
+            "pokedexEntries[18].text"
+          ],
+          "visualIdea": "Show factory sludge flowing into a Grimer, then turn the water clear as its food supply and population meter vanish.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 25,
+          "note": "A strong ecological contradiction unique to Grimer: cleaner wastewater removes its food and threatens extinction. The cited Sun and Ultra Moon entries directly support both the cause and consequence."
+        },
+        {
+          "id": "grimer-sheds-clones",
+          "premise": "Every time Grimer moves, pieces fall off its body—and each piece can become a new Grimer.",
+          "hook": "Grimer doesn’t reproduce by having babies—it drops them behind.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[2].text",
+            "pokedexEntries[11].text"
+          ],
+          "visualIdea": "Animate Grimer sliding across the ground, leaving blobs behind that rapidly pop into smaller Grimer.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 24,
+          "note": "Highly specific and visually immediate. The entries support body loss producing new Grimer, though calling them 'clones' and framing this as reproduction is a slight interpretive simplification."
+        },
+        {
+          "id": "grimer-any-opening",
+          "premise": "Grimer’s rubbery body can squeeze through any opening, no matter how small, to drink wastewater in sewer pipes.",
+          "hook": "A 30-kilogram Pokémon can fit through any opening.",
+          "archetype": "mechanic",
+          "evidence": [
+            "heightMeters",
+            "weightKg",
+            "pokedexEntries[5].text"
+          ],
+          "visualIdea": "Show a 30-kilogram Grimer flattening and flowing through progressively tinier sewer gaps.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 23,
+          "note": "The sewer-pipe squeezing claim is concrete and visually strong. The 30-kilogram comparison adds scale, though the source says 'any opening' without establishing a measurable limit."
+        },
+        {
+          "id": "moon-xray-origin",
+          "premise": "Several Pokédex entries claim Grimer was created when sludge was transformed by the moon’s X-rays.",
+          "hook": "Grimer’s origin story starts with sludge and moonlight—not an egg.",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[8].text",
+            "pokedexEntries[10].text",
+            "pokedexEntries[13].text",
+            "pokedexEntries[16].text"
+          ],
+          "visualIdea": "As moonlight beams onto a dirty stream, the sludge ripples, hardens, and forms Grimer.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 22,
+          "note": "The bizarre moon-X-ray origin is well supported across multiple entries and easy to visualize, but it is a familiar Grimer fact and less dramatically focused than the extinction angle."
+        },
+        {
+          "id": "alolan-grimer-heavy",
+          "premise": "Alolan Grimer is shorter but heavier than standard Grimer, and it gains a second type: Dark.",
+          "hook": "The shorter Grimer is actually 12 kilograms heavier.",
+          "archetype": "comparison",
+          "evidence": [
+            "heightMeters",
+            "weightKg",
+            "varieties[0].heightMeters",
+            "varieties[0].weightKg",
+            "types",
+            "varieties[0].types"
+          ],
+          "visualIdea": "Place the two Grimer forms side by side with height, weight, and type badges visibly changing.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 3,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 22,
+          "note": "The 12-kilogram difference is clear and fully supported, but it is primarily a stat comparison and could work for many regional forms, making it less distinctive as a Grimer story."
+        }
+      ],
+      "rejected": [
+        {
+          "id": "grimer-germ-life-support",
+          "reason": "unknown story shape \"contradiction\""
+        }
+      ],
+      "request": "None—the pollution paradox is strong enough. A still stronger angle would need an even more precise consequence, such as a quantified population decline or a direct contrast between Grimer's ecological dependence and human cleanup."
+    }
+  ]
+}

@@ -1,0 +1,166 @@
+{
+  "episodeId": "farfetchd-083",
+  "createdAt": "2026-10-29T19:46:14.289Z",
+  "chosen": {
+    "id": "stalk-as-sword-or-food",
+    "premise": "Farfetch’d’s stalk is both its sword and its emergency meal, so using its weapon can leave it defenseless.",
+    "hook": "Farfetch’d carries a sword it might have to eat.",
+    "archetype": "mechanic",
+    "evidence": [
+      "pokedexEntries[0].text",
+      "pokedexEntries[14].text"
+    ],
+    "visualIdea": "Show the stalk switching between a sword icon and a food icon, then Farfetch’d searching for a replacement.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 4,
+      "specificity": 5,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 24,
+    "note": "A genuinely Farfetch’d-specific contradiction: its signature weapon can become emergency food. Official Pokédex entries directly support both roles and the replacement-search consequence."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "stalk-as-sword-or-food",
+          "premise": "Farfetch’d’s stalk is both its sword and its emergency meal, so using its weapon can leave it defenseless.",
+          "hook": "Farfetch’d carries a sword it might have to eat.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[0].text",
+            "pokedexEntries[14].text"
+          ],
+          "visualIdea": "Show the stalk switching between a sword icon and a food icon, then Farfetch’d searching for a replacement.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 24,
+          "note": "A genuinely Farfetch’d-specific contradiction: its signature weapon can become emergency food. Official Pokédex entries directly support both roles and the replacement-search consequence."
+        },
+        {
+          "id": "three-critical-hits",
+          "premise": "Farfetch’d evolves into Sirfetch’d only after landing three critical hits.",
+          "hook": "This Pokémon evolves by proving it can land three critical hits.",
+          "archetype": "mechanic",
+          "evidence": [
+            "evolutionChain[1].method",
+            "evolutionChain[1].name",
+            "evolutionChain[1].types"
+          ],
+          "visualIdea": "Count three dramatic critical-hit markers as Farfetch’d transforms into the Fighting-type Sirfetch’d.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 23,
+          "note": "Extremely concrete and surprising, with a strong transformation visual. It is well supported by the supplied evolution data, though the evolution method is trusted secondary rather than an official Pokédex entry."
+        },
+        {
+          "id": "same-height-heavier-form",
+          "premise": "The Galarian variety stays 0.8 meters tall but weighs 42 kilograms instead of Farfetch’d’s 15.",
+          "hook": "Same height, but this Farfetch’d weighs nearly three times as much.",
+          "archetype": "comparison",
+          "evidence": [
+            "heightMeters",
+            "weightKg",
+            "varieties[0].name",
+            "varieties[0].heightMeters",
+            "varieties[0].weightKg",
+            "varieties[0].types"
+          ],
+          "visualIdea": "Place both 0.8-meter silhouettes on screen while a scale jumps from 15 kg to 42 kg.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 23,
+          "note": "The 0.8-meter comparison and 15-to-42-kilogram jump are precise and easy to show. It is more a form-comparison fact than a distinctive Farfetch’d story."
+        },
+        {
+          "id": "good-stick-battles",
+          "premise": "Farfetch’d can recognize good and bad plant sticks, and may fight others over the best ones.",
+          "hook": "Farfetch’d doesn’t grab any stick—it fights over the good ones.",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[5].text",
+            "pokedexEntries[6].text"
+          ],
+          "visualIdea": "Reveal a pile of stalks labeled bad and good before two Farfetch’d duel over one.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 23,
+          "note": "The idea that Farfetch’d compete over preferred stalks is unusually specific and well supported across multiple entries. 'Good' and 'bad' remain unexplained, so the mystery is stronger than the factual conclusion."
+        },
+        {
+          "id": "weapon-that-builds-nests",
+          "premise": "The same plant stalk Farfetch’d uses as a sword is also used to build its nest.",
+          "hook": "Farfetch’d’s weapon is also construction equipment.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[8].text",
+            "pokedexEntries[9].text"
+          ],
+          "visualIdea": "Animate one stalk cutting through targets, then transition it into beams forming a nest.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 22,
+          "note": "The sword-to-nest contrast is well supported and highly visual, but it is slightly less surprising than the weapon-as-food contradiction."
+        },
+        {
+          "id": "rare-and-protected",
+          "premise": "Farfetch’d became so rarely seen that people tried breeding it to prevent the Pokémon’s extinction.",
+          "hook": "People bred Farfetch’d because they thought it might disappear.",
+          "archetype": "transformation",
+          "evidence": [
+            "pokedexEntries[1].text",
+            "pokedexEntries[4].text",
+            "pokedexEntries[13].text"
+          ],
+          "visualIdea": "Start with an empty reedy habitat, then fill it with Farfetch’d as breeding efforts appear on screen.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 4,
+            "support": 5
+          },
+          "total": 21,
+          "note": "The decline-and-breeding premise is supported by multiple Pokédex entries, but the visual progression is more generic and the angle lacks a single sharply defined twist."
+        }
+      ],
+      "rejected": [],
+      "request": "None; stalk-as-sword-or-food is strong enough. A stronger alternative would need an equally specific contradiction or mechanic with equally direct evidence and a clearer visual payoff."
+    }
+  ]
+}

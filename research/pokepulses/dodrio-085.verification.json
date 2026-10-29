@@ -1,0 +1,497 @@
+{
+  "episodeId": "dodrio-085",
+  "checkedAt": "2026-10-29T19:52:52.155Z",
+  "claims": [
+    {
+      "id": "c1",
+      "where": "title",
+      "text": "Dodrio's Third Head Wasn't Added",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c2",
+      "where": "premise",
+      "text": "Dodrio evolves from Doduo when one of Doduo's two heads splits into two.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "evolutionChain[1].evolvesFrom",
+        "evolutionChain[1].method"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c3",
+      "where": "audiencePromise",
+      "text": "Watch one head split into two, then see why Dodrio's three brains are useful and risky.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text",
+        "pokedexEntries[2].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c4",
+      "where": "openLoop",
+      "text": "Can two heads become three without adding a new one?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c5",
+      "where": "payoff",
+      "text": "After the split, Dodrio uses three brains for complex plans, but may think too much and become immobilized.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text",
+        "pokedexEntries[2].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c6",
+      "where": "scenes.one-head-origin.headline",
+      "text": "A HEAD SPLITS IN TWO",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c7",
+      "where": "scenes.one-head-origin.narration",
+      "text": "Dodrio's third head begins as part of another head.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c8",
+      "where": "scenes.one-head-origin.caption",
+      "text": "THE THIRD HEAD WASN'T ADDED",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c9",
+      "where": "scenes.one-head-origin.eyebrow",
+      "text": "DODRIO'S EVOLUTION",
+      "verdict": "supported",
+      "evidence": [
+        "evolutionChain[1].evolvesFrom",
+        "evolutionChain[1].method"
+      ],
+      "note": "",
+      "tier": "trusted_secondary",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c10",
+      "where": "scenes.two-head-start.headline",
+      "text": "THE TWO-HEAD START",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c11",
+      "where": "scenes.two-head-start.narration",
+      "text": "Doduo starts with two heads and evolves at level thirty-one.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "evolutionChain[1].method"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c12",
+      "where": "scenes.two-head-start.caption",
+      "text": "DODUO • TWO HEADS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c13",
+      "where": "scenes.two-head-start.eyebrow",
+      "text": "BEFORE EVOLUTION",
+      "verdict": "supported",
+      "evidence": [
+        "evolutionChain[1].evolvesFrom",
+        "evolutionChain[1].method"
+      ],
+      "note": "",
+      "tier": "trusted_secondary",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c14",
+      "where": "scenes.two-head-start.facts[0]",
+      "text": "TWO HEADS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c15",
+      "where": "scenes.two-head-start.facts[1]",
+      "text": "LEVEL 31",
+      "verdict": "supported",
+      "evidence": [
+        "evolutionChain[1].method"
+      ],
+      "note": "",
+      "tier": "trusted_secondary",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c16",
+      "where": "scenes.one-becomes-two.headline",
+      "text": "ONE BECOMES TWO",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c17",
+      "where": "scenes.one-becomes-two.narration",
+      "text": "One head splits in two, turning Doduo's two heads into three.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c18",
+      "where": "scenes.one-becomes-two.caption",
+      "text": "ONE HEAD → TWO",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c19",
+      "where": "scenes.one-becomes-two.eyebrow",
+      "text": "THE CHANGE",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c20",
+      "where": "scenes.one-becomes-two.facts[0]",
+      "text": "ONE HEAD SPLITS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c21",
+      "where": "scenes.one-becomes-two.facts[1]",
+      "text": "THREE HEADS TOTAL",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c22",
+      "where": "scenes.unique-species.headline",
+      "text": "A UNIQUE SPECIES",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c23",
+      "where": "scenes.unique-species.narration",
+      "text": "That split forms Dodrio, a unique species.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "evolutionChain[1].name"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c24",
+      "where": "scenes.unique-species.caption",
+      "text": "THE SPLIT CREATES DODRIO",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c25",
+      "where": "scenes.unique-species.eyebrow",
+      "text": "THE REVEAL",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c26",
+      "where": "scenes.unique-species.facts[0]",
+      "text": "UNIQUE SPECIES",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c27",
+      "where": "scenes.three-brains.headline",
+      "text": "THREE BRAINS, COMPLEX PLANS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c28",
+      "where": "scenes.three-brains.narration",
+      "text": "Dodrio's three brains help it execute complex plans.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c29",
+      "where": "scenes.three-brains.caption",
+      "text": "THREE BRAINS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c30",
+      "where": "scenes.three-brains.eyebrow",
+      "text": "AFTER EVOLUTION",
+      "verdict": "supported",
+      "evidence": [
+        "evolutionChain[1].stage",
+        "pokedexEntries[0].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c31",
+      "where": "scenes.three-brains.facts[0]",
+      "text": "THREE BRAINS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c32",
+      "where": "scenes.three-brains.facts[1]",
+      "text": "COMPLEX PLANS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c33",
+      "where": "scenes.thinking-risk.headline",
+      "text": "TOO MUCH THINKING",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c34",
+      "where": "scenes.thinking-risk.narration",
+      "text": "But it may think too much and become immobilized.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c35",
+      "where": "scenes.thinking-risk.caption",
+      "text": "THINKING TOO MUCH HAS A RISK",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c36",
+      "where": "scenes.thinking-risk.eyebrow",
+      "text": "THE TRADE-OFF",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c37",
+      "where": "scenes.thinking-risk.facts[0]",
+      "text": "MAY THINK TOO MUCH",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c38",
+      "where": "scenes.thinking-risk.facts[1]",
+      "text": "MAY BECOME IMMOBILIZED",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c39",
+      "where": "scenes.advantage-or-risk.headline",
+      "text": "ADVANTAGE OR RISK?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c40",
+      "where": "scenes.advantage-or-risk.narration",
+      "text": "Are three brains an advantage, or too much thinking?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c41",
+      "where": "scenes.advantage-or-risk.caption",
+      "text": "ADVANTAGE OR RISK?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c42",
+      "where": "scenes.advantage-or-risk.eyebrow",
+      "text": "YOUR VERDICT",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    }
+  ],
+  "unsupported": [],
+  "uncertain": []
+}

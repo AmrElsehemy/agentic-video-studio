@@ -1,0 +1,184 @@
+{
+  "schemaVersion": 1,
+  "id": "grimer-088",
+  "number": 88,
+  "index": "#088",
+  "name": "Grimer",
+  "slug": "grimer",
+  "category": "Sludge Pokémon",
+  "generation": "Generation I",
+  "isLegendary": false,
+  "isMythical": false,
+  "types": [
+    "Poison"
+  ],
+  "heightMeters": 0.9,
+  "weightKg": 30,
+  "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/88.png",
+  "pokedexEntries": [
+    {
+      "game": "Red",
+      "text": "Appears in filthy areas. Thrives by sucking up polluted sludge that is pumped out of factories."
+    },
+    {
+      "game": "Yellow",
+      "text": "Made of hardened sludge. It smells too putrid to touch. Even weeds won't grow in its path."
+    },
+    {
+      "game": "Gold",
+      "text": "As it moves, it loses bits of its body from which new GRIMER emerge. This worsens the stench around it."
+    },
+    {
+      "game": "Silver",
+      "text": "Wherever GRIMER has passed, so many germs are left behind that no plants will ever grow again."
+    },
+    {
+      "game": "Crystal",
+      "text": "When two of these POKéMON's bodies are combined together, new poisons are created."
+    },
+    {
+      "game": "Ruby",
+      "text": "GRIMER’s sludgy and rubbery body can be forced through any opening, however small it may be. This POKéMON enters sewer pipes to drink filthy wastewater."
+    },
+    {
+      "game": "Sapphire",
+      "text": "GRIMER emerged from the sludge that settled on a polluted seabed. This POKéMON loves anything filthy. It constantly leaks a horribly germ- infested fluid from all over its body."
+    },
+    {
+      "game": "Emerald",
+      "text": "Born from polluted sludge in the sea, GRIMER’s favorite food is anything filthy. They feed on wastewater pumped out from factories."
+    },
+    {
+      "game": "Firered",
+      "text": "Sludge exposed to X rays from the moon transformed into GRIMER. It loves feeding on filthy things."
+    },
+    {
+      "game": "Leafgreen",
+      "text": "Appears in filthy areas. It thrives by sucking up polluted sludge that is pumped out of factories."
+    },
+    {
+      "game": "Diamond",
+      "text": "It was born when sludge in a dirty stream was exposed to the moon’s X-rays. It appears among filth."
+    },
+    {
+      "game": "Heartgold",
+      "text": "As it moves, it loses bits of its body, from which new GRIMER emerge. This worsens the stench around it."
+    },
+    {
+      "game": "Black 2",
+      "text": "Born from sludge, these Pokémon now gather in polluted places and increase the bacteria in their bodies."
+    },
+    {
+      "game": "X",
+      "text": "Sludge exposed to X-rays from the moon transformed into Grimer. It loves feeding on filthy things."
+    },
+    {
+      "game": "Alpha Sapphire",
+      "text": "Grimer emerged from the sludge that settled on a polluted seabed. This Pokémon loves anything filthy. It constantly leaks a horribly germ-infested fluid from all over its body."
+    },
+    {
+      "game": "Sun",
+      "text": "Its main source of food is the slimy industrial waste of factories. This Pokémon’s numbers have been decreasing in recent years."
+    },
+    {
+      "game": "Moon",
+      "text": "It was born from sludge transformed by exposure to X-rays from the moon. When its internal load of germs decreases, it dies."
+    },
+    {
+      "game": "Ultra Sun",
+      "text": "It was born from sludge on the ocean floor. In a sterile environment, the germs within its body can’t multiply, and it dies."
+    },
+    {
+      "game": "Ultra Moon",
+      "text": "The wastewater coming from factories is clean these days, so Grimer have nothing to eat. They’re said to be on the verge of extinction."
+    },
+    {
+      "game": "Lets Go Pikachu",
+      "text": "Made of congealed sludge. It smells too putrid to touch. Even weeds won’t grow in its path."
+    }
+  ],
+  "evolutionChain": [
+    {
+      "name": "Grimer",
+      "index": "#088",
+      "stage": 1,
+      "types": [
+        "Poison"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/88.png",
+      "isSubject": true
+    },
+    {
+      "name": "Muk",
+      "index": "#089",
+      "stage": 2,
+      "evolvesFrom": "Grimer",
+      "method": "Level Up, level 38",
+      "types": [
+        "Poison"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/89.png",
+      "isSubject": false
+    }
+  ],
+  "varieties": [
+    {
+      "name": "Grimer Alola",
+      "types": [
+        "Poison",
+        "Dark"
+      ],
+      "heightMeters": 0.7,
+      "weightKg": 42,
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10112.png"
+    }
+  ],
+  "lore": [],
+  "tiers": {
+    "official": [
+      "name",
+      "index",
+      "number",
+      "category",
+      "generation",
+      "isLegendary",
+      "isMythical",
+      "types",
+      "heightMeters",
+      "weightKg",
+      "pokedexEntries",
+      "evolutionChain[].name",
+      "evolutionChain[].index",
+      "evolutionChain[].types",
+      "evolutionChain[].stage",
+      "varieties[].types",
+      "varieties[].heightMeters",
+      "varieties[].weightKg"
+    ],
+    "trusted_secondary": [
+      "evolutionChain[].method",
+      "evolutionChain[].evolvesFrom",
+      "varieties[].name"
+    ],
+    "community": [
+      "lore"
+    ]
+  },
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Grimer",
+      "url": "https://www.pokemon.com/us/pokedex/grimer",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Grimer",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Grimer_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Grimer",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/88",
+      "tier": "trusted_secondary"
+    }
+  ]
+}
