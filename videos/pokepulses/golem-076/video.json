@@ -1,0 +1,243 @@
+{
+  "schemaVersion": 2,
+  "id": "golem-076",
+  "show": {
+    "id": "pokepulses",
+    "name": "PokePulses",
+    "handle": "@PokePulses",
+    "wordmark": {
+      "lead": "POKE",
+      "accent": "PULSES"
+    },
+    "fonts": {
+      "display": "Bebas Neue",
+      "body": "system"
+    }
+  },
+  "title": "Golem's Mountain Traffic Needs Guideways",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "mystery",
+    "numberRelevant": false,
+    "premise": "Golem can roll downhill after earthquakes, so mountain grooves redirect its course away from homes.",
+    "audiencePromise": "Follow the earthquake, the danger, and the strange mountain guideways built for Golem.",
+    "openLoop": "How do you stop Golem rolling into homes below?",
+    "payoff": "The grooves guide Golem's roll away from homes instead of letting its course continue downhill.",
+    "targetEmotion": "surprise",
+    "engagementQuestion": "Smart guideway, or should everyone stay away?",
+    "targetSecondsBetweenVisualChanges": 0.68
+  },
+  "subject": {
+    "name": "Golem",
+    "category": "Megaton Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/76.png",
+    "identifier": "#076"
+  },
+  "related": [
+    {
+      "name": "Graveler",
+      "relation": "evolves-from",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/75.png",
+      "identifier": "#075"
+    },
+    {
+      "name": "Geodude",
+      "relation": "evolves-from",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/74.png",
+      "identifier": "#074"
+    },
+    {
+      "name": "Golem Alola",
+      "relation": "form",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10111.png",
+      "identifier": "#076"
+    }
+  ],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#11151A",
+    "surface": "#252B31",
+    "primary": "#8C8F91",
+    "secondary": "#B56A3A",
+    "ink": "#F4F1E8"
+  },
+  "audio": {
+    "music": "generated/golem-076-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 126,
+      "notes": [
+        110,
+        130.81,
+        146.83,
+        164.81,
+        146.83,
+        130.81,
+        98,
+        130.81
+      ]
+    },
+    "voice": {
+      "provider": "openai",
+      "model": "gpt-4o-mini-tts",
+      "voice": "marin",
+      "instructions": "Quick, warm, and curious. Build suspense through short lines. Stress earthquake, rolling, grooves, and guideways. Pause briefly before each reveal.",
+      "speed": 1.12,
+      "output": "generated/golem-076-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "cleared",
+    "publicReleaseApproved": true,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "assets": [
+      {
+        "kind": "Golem official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/76.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ],
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    }
+  },
+  "scenes": [
+    {
+      "id": "mountain-grooves",
+      "durationSeconds": 3.8,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "mystery",
+      "subjectFocus": "hidden",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "GOLEM TRAFFIC",
+      "headline": "HOMES NEED A GOLEM DETOUR",
+      "narration": "Golem rolls downhill, straight toward homes below.",
+      "caption": "DOWNHILL COURSE AHEAD",
+      "visual": "hook",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/76.png",
+      "accent": "#B56A3A"
+    },
+    {
+      "id": "earthquake-starts-the-roll",
+      "durationSeconds": 4.7,
+      "beat": "clue",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "THE FIRST CLUE",
+      "headline": "EARTHQUAKE. THEN GOLEM.",
+      "narration": "A large earthquake can send Golem rolling down from mountains.",
+      "caption": "ROLLING DOWN FROM MOUNTAINS",
+      "visual": "gauntlet",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/76.png",
+      "accent": "#8C8F91",
+      "facts": [
+        "EARTHQUAKE",
+        "MOUNTAIN ROLL"
+      ]
+    },
+    {
+      "id": "homes-below",
+      "durationSeconds": 5.1,
+      "beat": "escalation",
+      "role": "escalation",
+      "shot": "tracking",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "THE DANGER BELOW",
+      "headline": "THE ROLL REACHES FOOTHILLS",
+      "narration": "That downhill roll can continue toward homes at the foothills below.",
+      "caption": "FOOTHILLS BELOW",
+      "visual": "advantage",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/76.png",
+      "accent": "#C94C3C",
+      "facts": [
+        "DOWNHILL HOMES",
+        "ROLLING PATH"
+      ]
+    },
+    {
+      "id": "grooves-become-guideways",
+      "durationSeconds": 4.2,
+      "beat": "reveal",
+      "role": "payoff",
+      "shot": "comparison",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "THE STRANGE FIX",
+      "headline": "A CARVED GOLEM GUIDEWAY",
+      "narration": "Grooves are dug into the mountain sides as guideways.",
+      "caption": "CARVED GUIDEWAY",
+      "visual": "race",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/76.png",
+      "accent": "#B56A3A",
+      "facts": [
+        "DUG GROOVES",
+        "MOUNTAIN SIDES",
+        "GUIDEWAYS"
+      ]
+    },
+    {
+      "id": "course-diverted",
+      "durationSeconds": 5.2,
+      "beat": "reveal",
+      "role": "payoff",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "THE PAYOFF",
+      "headline": "THE ROLL TAKES A NEW COURSE",
+      "narration": "Golem's roll follows the groove, not the path toward homes below.",
+      "caption": "COURSE CHANGES",
+      "visual": "tradeoff",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/76.png",
+      "accent": "#6FA3B8",
+      "facts": [
+        "DIVERTED COURSE",
+        "HOMES PROTECTED"
+      ]
+    },
+    {
+      "id": "trust-the-groove",
+      "durationSeconds": 3.8,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "YOUR CALL",
+      "headline": "SMART FIX OR TOO RISKY?",
+      "narration": "Smart guideway, or should everyone stay away?",
+      "caption": "GUIDEWAY OR DISTANCE?",
+      "visual": "cta",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/76.png",
+      "accent": "#D49A45"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Golem",
+      "url": "https://www.pokemon.com/us/pokedex/golem"
+    },
+    {
+      "label": "Bulbapedia — Golem",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Golem_(Pok%C3%A9mon)"
+    },
+    {
+      "label": "PokéAPI — Golem",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/76"
+    }
+  ]
+}

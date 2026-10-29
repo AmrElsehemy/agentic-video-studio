@@ -1,0 +1,256 @@
+{
+  "schemaVersion": 2,
+  "id": "slowpoke-079",
+  "show": {
+    "id": "pokepulses",
+    "name": "PokePulses",
+    "handle": "@PokePulses",
+    "wordmark": {
+      "lead": "POKE",
+      "accent": "PULSES"
+    },
+    "fonts": {
+      "display": "Bebas Neue",
+      "body": "system"
+    }
+  },
+  "title": "Slowpoke's Tail Comes Back Unnoticed",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "transformation",
+    "numberRelevant": false,
+    "premise": "Slowpoke's tail can break off without pain, grow back, and go unnoticed when it returns.",
+    "audiencePromise": "Watch Slowpoke lose a useful fishing tail, regrow it, and miss the return.",
+    "openLoop": "A tail used to lure prey can break off. What happens next?",
+    "payoff": "Its tail lures other Pokémon, regrows unnoticed, and becomes salty stew when it falls.",
+    "targetEmotion": "surprise",
+    "engagementQuestion": "Would you use the tail for fishing, or cook it?",
+    "targetSecondsBetweenVisualChanges": 0.62
+  },
+  "subject": {
+    "name": "Slowpoke",
+    "category": "Dopey Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/79.png",
+    "identifier": "#079"
+  },
+  "related": [
+    {
+      "name": "Slowbro",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/80.png",
+      "identifier": "#080"
+    },
+    {
+      "name": "Slowking",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/199.png",
+      "identifier": "#199"
+    },
+    {
+      "name": "Slowpoke Galar",
+      "relation": "form",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10164.png",
+      "identifier": "#079"
+    }
+  ],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#17151A",
+    "surface": "#29232A",
+    "primary": "#F2A6A2",
+    "secondary": "#E7C75F",
+    "ink": "#FFF4E6"
+  },
+  "audio": {
+    "music": "generated/slowpoke-079-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 126,
+      "notes": [
+        110,
+        130.81,
+        146.83,
+        164.81,
+        146.83,
+        130.81,
+        98,
+        130.81
+      ]
+    },
+    "voice": {
+      "provider": "openai",
+      "model": "gpt-4o-mini-tts",
+      "voice": "marin",
+      "instructions": "Warm, quick, and playful. Stress the words break, regrow, and unnoticed. Pause briefly before each reveal.",
+      "speed": 1.12,
+      "output": "generated/slowpoke-079-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "cleared",
+    "publicReleaseApproved": true,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "assets": [
+      {
+        "kind": "Slowpoke official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/79.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ],
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    }
+  },
+  "scenes": [
+    {
+      "id": "tail-regrows-unnoticed",
+      "durationSeconds": 3.9,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "SLOWPOKE",
+      "headline": "ITS TAIL COMES BACK",
+      "narration": "Slowpoke's tail can fall off, then regrow unnoticed.",
+      "caption": "TAIL GONE. THEN BACK.",
+      "visual": "hook",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/79.png",
+      "accent": "#E7C75F"
+    },
+    {
+      "id": "tail-lures-prey",
+      "durationSeconds": 4.3,
+      "beat": "before",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "BEFORE",
+      "headline": "THE TAIL IS BAIT",
+      "narration": "Slowpoke soaks its tail, letting sweetness lure other Pokémon.",
+      "caption": "SWEETNESS LURES OTHER POKÉMON",
+      "visual": "gauntlet",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/79.png",
+      "accent": "#F2A6A2",
+      "facts": [
+        "SOAKED IN WATER",
+        "SWEETNESS",
+        "LURES OTHER POKÉMON"
+      ]
+    },
+    {
+      "id": "tail-breaks-off",
+      "durationSeconds": 4.3,
+      "beat": "change",
+      "role": "escalation",
+      "shot": "tracking",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "THE CHANGE",
+      "headline": "THE BAIT BREAKS OFF",
+      "narration": "Then its tail can break off naturally, without pain.",
+      "caption": "BREAKS OFF WITHOUT PAIN",
+      "visual": "race",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/79.png",
+      "accent": "#E7C75F",
+      "facts": [
+        "BREAKS OFF NATURALLY",
+        "NO PAIN"
+      ],
+      "primitive": {
+        "kind": "checklist",
+        "items": [
+          {
+            "label": "BREAKS OFF NATURALLY",
+            "met": true
+          },
+          {
+            "label": "PAIN",
+            "met": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "tail-grows-back",
+      "durationSeconds": 4.8,
+      "beat": "reveal",
+      "role": "payoff",
+      "shot": "comparison",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "THE REVEAL",
+      "headline": "IT GROWS BACK",
+      "narration": "It grows back, and Slowpoke does not notice the return.",
+      "caption": "REGROWTH GOES UNNOTICED",
+      "visual": "advantage",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/79.png",
+      "accent": "#F2A6A2",
+      "facts": [
+        "TAIL GROWS BACK",
+        "DOESN'T NOTICE RETURN"
+      ]
+    },
+    {
+      "id": "fallen-tail-stew",
+      "durationSeconds": 5.3,
+      "beat": "aftermath",
+      "role": "payoff",
+      "shot": "wide",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "ALOLAN COOKING",
+      "headline": "THE FALLEN TAILS MATTER",
+      "narration": "In Alola, fallen tails are dried, then simmered into salty stew.",
+      "caption": "DRIED, THEN SIMMERED",
+      "visual": "tradeoff",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/79.png",
+      "accent": "#E7C75F",
+      "facts": [
+        "DRIED TAILS",
+        "SALTY STEW"
+      ]
+    },
+    {
+      "id": "fishing-or-cooking",
+      "durationSeconds": 4.8,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "YOUR CHOICE",
+      "headline": "FISHING OR COOKING?",
+      "narration": "Would you use the tail for fishing, or cook it?",
+      "caption": "FISHING OR SALTY STEW?",
+      "visual": "cta",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/79.png",
+      "accent": "#F2A6A2"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Slowpoke",
+      "url": "https://www.pokemon.com/us/pokedex/slowpoke"
+    },
+    {
+      "label": "Bulbapedia — Slowpoke",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Slowpoke_(Pok%C3%A9mon)"
+    },
+    {
+      "label": "PokéAPI — Slowpoke",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/79"
+    }
+  ]
+}

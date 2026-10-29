@@ -1,0 +1,238 @@
+{
+  "schemaVersion": 2,
+  "id": "ponyta-077",
+  "show": {
+    "id": "pokepulses",
+    "name": "PokePulses",
+    "handle": "@PokePulses",
+    "wordmark": {
+      "lead": "POKE",
+      "accent": "PULSES"
+    },
+    "fonts": {
+      "display": "Bebas Neue",
+      "body": "system"
+    }
+  },
+  "title": "Ponyta Is Born Without Its Signature Fire",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "transformation",
+    "numberRelevant": false,
+    "premise": "Newborn Ponyta lack their fiery mane and tail, which grow out about one hour after birth.",
+    "audiencePromise": "Watch a plain newborn Ponyta transform into the fiery Pokémon fans recognize.",
+    "openLoop": "What changes during Ponyta's first hour?",
+    "payoff": "About an hour after birth, Ponyta gains the fiery mane and tail behind its impressive appearance.",
+    "targetEmotion": "surprise",
+    "engagementQuestion": "Which look wins: plain foal or fiery Ponyta?",
+    "targetSecondsBetweenVisualChanges": 0.62
+  },
+  "subject": {
+    "name": "Ponyta",
+    "category": "Fire Horse Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/77.png",
+    "identifier": "#077"
+  },
+  "related": [
+    {
+      "name": "Rapidash",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/78.png",
+      "identifier": "#078"
+    },
+    {
+      "name": "Ponyta Galar",
+      "relation": "form",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10162.png",
+      "identifier": "#077"
+    }
+  ],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#101116",
+    "surface": "#1B1D24",
+    "primary": "#F05A28",
+    "secondary": "#FFD166",
+    "ink": "#FFF4E6"
+  },
+  "audio": {
+    "music": "generated/ponyta-077-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 126,
+      "notes": [
+        110,
+        130.81,
+        146.83,
+        164.81,
+        146.83,
+        130.81,
+        98,
+        130.81
+      ]
+    },
+    "voice": {
+      "provider": "openai",
+      "model": "gpt-4o-mini-tts",
+      "voice": "marin",
+      "instructions": "Warm, quick, and conversational. Stress the contrast between the plain newborn and the fiery final look. Pause briefly before each visual reveal.",
+      "speed": 1.12,
+      "output": "generated/ponyta-077-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "cleared",
+    "publicReleaseApproved": true,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "assets": [
+      {
+        "kind": "Ponyta official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/77.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ],
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    }
+  },
+  "scenes": [
+    {
+      "id": "born-without-fire",
+      "durationSeconds": 3.8,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "NEWBORN PONYTA",
+      "headline": "BORN WITHOUT FIRE",
+      "narration": "Ponyta is born without its signature fire.",
+      "caption": "THE FIRE COMES LATER",
+      "visual": "hook",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/77.png",
+      "accent": "#F05A28"
+    },
+    {
+      "id": "plain-newborn",
+      "durationSeconds": 6.2,
+      "beat": "before",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "AT BIRTH",
+      "headline": "A PLAIN FOAL",
+      "narration": "At birth, this Fire Horse can barely stand, with no mane or tail.",
+      "caption": "NO FIERY MANE. NO FIERY TAIL.",
+      "visual": "gauntlet",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/77.png",
+      "accent": "#8C8F9B",
+      "facts": [
+        "BARELY STANDS",
+        "NO MANE",
+        "NO TAIL"
+      ]
+    },
+    {
+      "id": "one-hour-countdown",
+      "durationSeconds": 4.3,
+      "beat": "change",
+      "role": "escalation",
+      "shot": "tracking",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "THE FIRST HOUR",
+      "headline": "COUNTDOWN TO FIRE",
+      "narration": "A one-hour countdown marks when the missing fire appears.",
+      "caption": "THE TRANSFORMATION IS TIMED",
+      "visual": "race",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/77.png",
+      "accent": "#FFD166",
+      "facts": [
+        "ABOUT ONE HOUR"
+      ],
+      "primitive": {
+        "kind": "counter",
+        "from": 0,
+        "to": 1,
+        "label": "HOURS AFTER BIRTH"
+      }
+    },
+    {
+      "id": "mane-grows-out",
+      "durationSeconds": 5.6,
+      "beat": "reveal",
+      "role": "payoff",
+      "shot": "comparison",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "THE REVEAL",
+      "headline": "THE FLAMES GROW OUT",
+      "narration": "About an hour after birth, its fiery mane and tail grow out.",
+      "caption": "MANE AND TAIL: FINALLY HERE",
+      "visual": "advantage",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/77.png",
+      "accent": "#F05A28",
+      "facts": [
+        "FIERY MANE",
+        "FIERY TAIL"
+      ]
+    },
+    {
+      "id": "fiery-appearance",
+      "durationSeconds": 4.3,
+      "beat": "aftermath",
+      "role": "payoff",
+      "shot": "wide",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "AFTER ONE HOUR",
+      "headline": "NOW IT LOOKS LIKE PONYTA",
+      "narration": "The plain newborn now has an impressive, fiery appearance.",
+      "caption": "THE ICONIC LOOK ISN'T THERE AT BIRTH",
+      "visual": "tradeoff",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/77.png",
+      "accent": "#FFD166"
+    },
+    {
+      "id": "plain-or-fiery",
+      "durationSeconds": 3.9,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "YOUR CALL",
+      "headline": "WHICH LOOK WINS?",
+      "narration": "Which look wins: plain foal or fiery Ponyta?",
+      "caption": "PLAIN FOAL OR FIERY PONYTA?",
+      "visual": "cta",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/77.png",
+      "accent": "#F05A28"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Ponyta",
+      "url": "https://www.pokemon.com/us/pokedex/ponyta"
+    },
+    {
+      "label": "Bulbapedia — Ponyta",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Ponyta_(Pok%C3%A9mon)"
+    },
+    {
+      "label": "PokéAPI — Ponyta",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/77"
+    }
+  ]
+}

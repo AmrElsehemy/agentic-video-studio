@@ -1,0 +1,266 @@
+{
+  "schemaVersion": 2,
+  "id": "lapras-131",
+  "show": {
+    "id": "pokepulses",
+    "name": "PokePulses",
+    "handle": "@PokePulses",
+    "wordmark": {
+      "lead": "POKE",
+      "accent": "PULSES"
+    },
+    "fonts": {
+      "display": "Bebas Neue",
+      "body": "system"
+    }
+  },
+  "title": "Lapras Was Saved, Then the Sea Changed",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "mystery",
+    "numberRelevant": false,
+    "premise": "Lapras went from near extinction to overabundance, and too many began reducing fish populations.",
+    "audiencePromise": "Trace Lapras's rescue from overhunting to the unexpected cost of having too many.",
+    "openLoop": "How did saving Lapras create a new problem for the sea?",
+    "payoff": "Protective regulations saved Lapras, but waters with too many saw fish Pokémon decline.",
+    "targetEmotion": "surprise",
+    "engagementQuestion": "Was protecting Lapras a necessary rescue or a costly mistake?",
+    "targetSecondsBetweenVisualChanges": 0.68
+  },
+  "subject": {
+    "name": "Lapras",
+    "category": "Transport Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/131.png",
+    "identifier": "#131"
+  },
+  "related": [
+    {
+      "name": "Lapras Gmax",
+      "relation": "form",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10204.png",
+      "identifier": "#131"
+    }
+  ],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#081820",
+    "surface": "#102B36",
+    "primary": "#72C9D8",
+    "secondary": "#BCECF0",
+    "ink": "#F3FBFC"
+  },
+  "audio": {
+    "music": "generated/lapras-131-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 126,
+      "notes": [
+        110,
+        130.81,
+        146.83,
+        164.81,
+        146.83,
+        130.81,
+        98,
+        130.81
+      ]
+    },
+    "voice": {
+      "provider": "openai",
+      "model": "gpt-4o-mini-tts",
+      "voice": "marin",
+      "instructions": "Speak like a knowledgeable fan sharing an unsettling twist. Keep the pace quick, warm, and clear. Stress extinction, overabundance, and decline. Pause briefly before the final choice.",
+      "speed": 1.12,
+      "output": "generated/lapras-131-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "assets": [
+      {
+        "kind": "Lapras official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/131.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ],
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    }
+  },
+  "scenes": [
+    {
+      "id": "near-extinction",
+      "durationSeconds": 4,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "mystery",
+      "subjectFocus": "hidden",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "THE RESCUE BACKFIRED",
+      "headline": "SAVED, THEN A PROBLEM",
+      "narration": "Lapras neared extinction. Protection created a new problem.",
+      "caption": "ALMOST GONE. THEN TOO MANY.",
+      "visual": "hook",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/131.png",
+      "accent": "#72C9D8"
+    },
+    {
+      "id": "overhunting",
+      "durationSeconds": 5.4,
+      "beat": "clue",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "THE FIRST CLUE",
+      "headline": "GENTLE MADE IT VULNERABLE",
+      "narration": "Overhunting nearly erased Lapras. They rarely fight, so many were caught.",
+      "caption": "OVERHUNTED ALMOST TO EXTINCTION",
+      "visual": "gauntlet",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/131.png",
+      "accent": "#5EAFC2",
+      "facts": [
+        "OVERHUNTED",
+        "GENTLE NATURE",
+        "RARELY FIGHT"
+      ],
+      "primitive": {
+        "kind": "checklist",
+        "items": [
+          {
+            "label": "GENTLE NATURE",
+            "met": true
+          },
+          {
+            "label": "RARELY FIGHT",
+            "met": true
+          },
+          {
+            "label": "OVERHUNTED",
+            "met": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "population-surges",
+      "durationSeconds": 3.9,
+      "beat": "escalation",
+      "role": "escalation",
+      "shot": "tracking",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "THE SECOND CLUE",
+      "headline": "THE RESCUE WORKED",
+      "narration": "Then protective regulations worked, and Lapras became overabundant.",
+      "caption": "PROTECTION CHANGED THE COUNT",
+      "visual": "advantage",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/131.png",
+      "accent": "#91DCE5",
+      "facts": [
+        "PROTECTIVE REGULATIONS",
+        "OVERABUNDANCE"
+      ],
+      "primitive": {
+        "kind": "timeline",
+        "steps": [
+          {
+            "label": "NEAR EXTINCTION",
+            "detail": "OVERHUNTED"
+          },
+          {
+            "label": "PROTECTION",
+            "detail": "PROTECTIVE REGULATIONS"
+          },
+          {
+            "label": "OVERABUNDANCE",
+            "detail": "TOO MANY LAPRAS"
+          }
+        ],
+        "active": 2
+      }
+    },
+    {
+      "id": "fish-decline",
+      "durationSeconds": 5.1,
+      "beat": "reveal",
+      "role": "payoff",
+      "shot": "comparison",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "THE HIDDEN COST",
+      "headline": "FISH POPULATIONS DECLINE",
+      "narration": "But too many Lapras now mean fewer fish in those waters.",
+      "caption": "LAPRAS UP. FISH DOWN.",
+      "visual": "race",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/131.png",
+      "accent": "#E7C85C",
+      "facts": [
+        "TOO MANY LAPRAS",
+        "FEWER FISH"
+      ]
+    },
+    {
+      "id": "success-changes-ecosystem",
+      "durationSeconds": 4.8,
+      "beat": "reveal",
+      "role": "payoff",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "THE FINAL REVEAL",
+      "headline": "SUCCESS HAD A COST",
+      "narration": "The rescue succeeded, but fish Pokémon declined in those waters.",
+      "caption": "FISH POKÉMON POPULATIONS DECLINED",
+      "visual": "tradeoff",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/131.png",
+      "accent": "#F09A63",
+      "facts": [
+        "RESCUE SUCCEEDED",
+        "FISH POKÉMON DECLINED"
+      ]
+    },
+    {
+      "id": "necessary-or-costly",
+      "durationSeconds": 3.8,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "YOUR VERDICT",
+      "headline": "RESCUE OR MISTAKE?",
+      "narration": "Protecting Lapras: necessary rescue or costly mistake?",
+      "caption": "WHICH SIDE ARE YOU ON?",
+      "visual": "cta",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/131.png",
+      "accent": "#BCECF0"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Lapras",
+      "url": "https://www.pokemon.com/us/pokedex/lapras"
+    },
+    {
+      "label": "Bulbapedia — Lapras",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Lapras_(Pok%C3%A9mon)"
+    },
+    {
+      "label": "PokéAPI — Lapras",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/131"
+    }
+  ]
+}

@@ -1,0 +1,278 @@
+{
+  "schemaVersion": 2,
+  "id": "geodude-074",
+  "show": {
+    "id": "pokepulses",
+    "name": "PokePulses",
+    "handle": "@PokePulses",
+    "wordmark": {
+      "lead": "POKE",
+      "accent": "PULSES"
+    },
+    "fonts": {
+      "display": "Bebas Neue",
+      "body": "system"
+    }
+  },
+  "title": "Geodude Sleeps Through Footsteps",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "mechanic",
+    "numberRelevant": false,
+    "premise": "A deeply sleeping Geodude buries itself halfway underground, ignores hikers stepping on it, then rolls downhill for food.",
+    "audiencePromise": "See how Geodude turns from an invisible trail hazard into a rolling morning food hunt.",
+    "openLoop": "How can a buried Geodude ignore footsteps, then start moving?",
+    "payoff": "Geodude sleeps through hikers, then rolls downhill in the morning to search for food.",
+    "targetEmotion": "surprise",
+    "engagementQuestion": "Would you avoid it, or trust it to stay asleep?",
+    "targetSecondsBetweenVisualChanges": 0.65
+  },
+  "subject": {
+    "name": "Geodude",
+    "category": "Rock Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/74.png",
+    "identifier": "#074"
+  },
+  "related": [
+    {
+      "name": "Golem",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/76.png",
+      "identifier": "#076"
+    },
+    {
+      "name": "Graveler",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/75.png",
+      "identifier": "#075"
+    },
+    {
+      "name": "Geodude Alola",
+      "relation": "form",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10109.png",
+      "identifier": "#074"
+    }
+  ],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#15171C",
+    "surface": "#292C33",
+    "primary": "#A5A9B3",
+    "secondary": "#A66A44",
+    "ink": "#F5F5F4"
+  },
+  "audio": {
+    "music": "generated/geodude-074-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 126,
+      "notes": [
+        110,
+        130.81,
+        146.83,
+        164.81,
+        146.83,
+        130.81,
+        98,
+        130.81
+      ]
+    },
+    "voice": {
+      "provider": "openai",
+      "model": "gpt-4o-mini-tts",
+      "voice": "marin",
+      "instructions": "Sound like a knowledgeable fan sharing a strange fact. Keep the pace quick, warm, and playful. Stress sleeping, footsteps, and morning. Pause briefly before each reveal.",
+      "speed": 1.12,
+      "output": "generated/geodude-074-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "cleared",
+    "publicReleaseApproved": true,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "assets": [
+      {
+        "kind": "Geodude official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/74.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ],
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    }
+  },
+  "scenes": [
+    {
+      "id": "sleeping-rock",
+      "durationSeconds": 3.8,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "THE SLEEPING ROCK",
+      "headline": "STEP ON IT",
+      "narration": "Step on sleeping Geodude—it still won't wake.",
+      "caption": "IT DOESN'T WAKE",
+      "visual": "hook",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/74.png",
+      "accent": "#A66A44",
+      "facts": [
+        "DEEP SLEEP",
+        "NO AWAKENING"
+      ],
+      "primitive": {
+        "kind": "checklist",
+        "items": [
+          {
+            "label": "STEPPED ON",
+            "met": true
+          },
+          {
+            "label": "WAKES UP",
+            "met": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "buried-halfway",
+      "durationSeconds": 5.2,
+      "beat": "evidence",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "DEEP SLEEP",
+      "headline": "HALF BURIED",
+      "narration": "When it sleeps deeply, Geodude buries itself halfway into the ground.",
+      "caption": "HALF BURIED WHILE ASLEEP",
+      "visual": "gauntlet",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/74.png",
+      "accent": "#A5A9B3",
+      "facts": [
+        "HALF BURIED",
+        "DEEP SLEEP"
+      ]
+    },
+    {
+      "id": "hikers-miss-it",
+      "durationSeconds": 5.1,
+      "beat": "escalation",
+      "role": "escalation",
+      "shot": "comparison",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "HIKERS MISS IT",
+      "headline": "THE TRAIL HAZARD",
+      "narration": "Hikers may mistake it for a rock and step on it.",
+      "caption": "A ROCK THAT DOESN'T MOVE",
+      "visual": "advantage",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/74.png",
+      "accent": "#C18A5A",
+      "facts": [
+        "LOOKS LIKE ROCK",
+        "HIKERS STEP ON IT"
+      ]
+    },
+    {
+      "id": "morning-roll",
+      "durationSeconds": 4.5,
+      "beat": "payoff",
+      "role": "payoff",
+      "shot": "tracking",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "MORNING SHIFT",
+      "headline": "THEN MORNING COMES",
+      "narration": "Then morning arrives: Geodude rolls downhill, searching for food.",
+      "caption": "MORNING = ROLLING FOR FOOD",
+      "visual": "race",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/74.png",
+      "accent": "#D8A15D",
+      "facts": [
+        "MORNING",
+        "ROLLS DOWNHILL",
+        "SEARCHES FOR FOOD"
+      ],
+      "primitive": {
+        "kind": "timeline",
+        "steps": [
+          {
+            "label": "DEEP SLEEP",
+            "detail": "HALF BURIED"
+          },
+          {
+            "label": "MORNING",
+            "detail": "ROLLS DOWNHILL"
+          },
+          {
+            "label": "FOOD",
+            "detail": "SEARCHING"
+          }
+        ],
+        "active": 1
+      }
+    },
+    {
+      "id": "rock-on-the-move",
+      "durationSeconds": 4.2,
+      "beat": "payoff",
+      "role": "payoff",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "THE PAYOFF",
+      "headline": "THE ROCK MOVES",
+      "narration": "A trail rock becomes a rolling Pokémon by morning.",
+      "caption": "STILL AT NIGHT. MOVING BY MORNING.",
+      "visual": "tradeoff",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/74.png",
+      "accent": "#E0B56D",
+      "facts": [
+        "SLEEPING GEODUDE",
+        "ROLLING GEODUDE"
+      ]
+    },
+    {
+      "id": "trust-or-avoid",
+      "durationSeconds": 4.8,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "YOUR MOVE",
+      "headline": "TRUST IT?",
+      "narration": "Would you avoid it, or trust it to stay asleep?",
+      "caption": "AVOID IT OR TRUST IT?",
+      "visual": "cta",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/74.png",
+      "accent": "#F0C674"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Geodude",
+      "url": "https://www.pokemon.com/us/pokedex/geodude"
+    },
+    {
+      "label": "Bulbapedia — Geodude",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Geodude_(Pok%C3%A9mon)"
+    },
+    {
+      "label": "PokéAPI — Geodude",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/74"
+    }
+  ]
+}

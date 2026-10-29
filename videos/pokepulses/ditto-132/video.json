@@ -1,0 +1,223 @@
+{
+  "schemaVersion": 2,
+  "id": "ditto-132",
+  "show": {
+    "id": "pokepulses",
+    "name": "PokePulses",
+    "handle": "@PokePulses",
+    "wordmark": {
+      "lead": "POKE",
+      "accent": "PULSES"
+    },
+    "fonts": {
+      "display": "Bebas Neue",
+      "body": "system"
+    }
+  },
+  "title": "Ditto's Perfect Transformation Can Fail",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "mechanic",
+    "numberRelevant": false,
+    "premise": "Ditto can perfectly transform, but laughter makes it lose the disguise.",
+    "audiencePromise": "See the strange rule that breaks Ditto's supposedly perfect transformation.",
+    "openLoop": "How can a perfect transformation fail without copying badly?",
+    "payoff": "Even a perfect transformation cannot survive Ditto being made to laugh.",
+    "targetEmotion": "surprise",
+    "engagementQuestion": "A clever weakness or a ridiculous flaw?",
+    "targetSecondsBetweenVisualChanges": 0.65
+  },
+  "subject": {
+    "name": "Ditto",
+    "category": "Transform Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/132.png",
+    "identifier": "#132"
+  },
+  "related": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#10131A",
+    "surface": "#202632",
+    "primary": "#8F78C8",
+    "secondary": "#D7B7E8",
+    "ink": "#F5F1FA"
+  },
+  "audio": {
+    "music": "generated/ditto-132-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 126,
+      "notes": [
+        110,
+        130.81,
+        146.83,
+        164.81,
+        146.83,
+        130.81,
+        98,
+        130.81
+      ]
+    },
+    "voice": {
+      "provider": "openai",
+      "model": "gpt-4o-mini-tts",
+      "voice": "marin",
+      "instructions": "Speak quickly, warmly, and playfully. Stress perfect and laugh. Pause briefly before the weakness reveal.",
+      "speed": 1.12,
+      "output": "generated/ditto-132-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "assets": [
+      {
+        "kind": "Ditto official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/132.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ],
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    }
+  },
+  "scenes": [
+    {
+      "id": "perfect-disguise",
+      "durationSeconds": 4.2,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "DITTO'S SECRET",
+      "headline": "LAUGHTER BREAKS PERFECTION",
+      "narration": "Ditto's perfect disguise breaks when you make it laugh.",
+      "caption": "PERFECT... UNTIL IT LAUGHS",
+      "visual": "hook",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/132.png",
+      "accent": "#D7B7E8"
+    },
+    {
+      "id": "cell-copy",
+      "durationSeconds": 4.7,
+      "beat": "evidence",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "HOW IT WORKS",
+      "headline": "CELLS BECOME THE COPY",
+      "narration": "Ditto can copy what it sees by rearranging its cells.",
+      "caption": "IT REARRANGES ITS CELLS",
+      "visual": "gauntlet",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/132.png",
+      "accent": "#8F78C8",
+      "facts": [
+        "COPY WHAT IT SEES",
+        "REARRANGES CELLS"
+      ]
+    },
+    {
+      "id": "memory-catch",
+      "durationSeconds": 3.9,
+      "beat": "escalation",
+      "role": "escalation",
+      "shot": "comparison",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "A DIFFERENT LIMIT",
+      "headline": "MEMORY CAN MISS DETAILS",
+      "narration": "But memory-based transformations sometimes get their details wrong.",
+      "caption": "MEMORY-BASED COPIES CAN FAIL",
+      "visual": "advantage",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/132.png",
+      "accent": "#F0B35A",
+      "facts": [
+        "MEMORY-BASED",
+        "DETAILS WRONG"
+      ]
+    },
+    {
+      "id": "laugh-rule",
+      "durationSeconds": 4.3,
+      "beat": "payoff",
+      "role": "payoff",
+      "shot": "tracking",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "THE LAUGHTER RULE",
+      "headline": "MADE TO LAUGH? DISGUISE FAILS",
+      "narration": "Make Ditto laugh, and it cannot maintain the disguise.",
+      "caption": "LAUGHTER BREAKS THE DISGUISE",
+      "visual": "race",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/132.png",
+      "accent": "#D7B7E8",
+      "facts": [
+        "MADE TO LAUGH",
+        "DISGUISE FAILS"
+      ]
+    },
+    {
+      "id": "perfect-limit",
+      "durationSeconds": 5.2,
+      "beat": "payoff",
+      "role": "payoff",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "THE PAYOFF",
+      "headline": "LAUGHTER NEEDS NO BAD COPY",
+      "narration": "It can be perfect, yet laughter still stops Ditto maintaining it.",
+      "caption": "PERFECT COPY. SAME RESULT.",
+      "visual": "tradeoff",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/132.png",
+      "accent": "#F0B35A",
+      "facts": [
+        "ABILITY: PERFECT",
+        "LAUGHTER STOPS IT"
+      ]
+    },
+    {
+      "id": "clever-or-ridiculous",
+      "durationSeconds": 3.8,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "YOUR VERDICT",
+      "headline": "CLEVER OR RIDICULOUS?",
+      "narration": "A clever weakness or a ridiculous flaw?",
+      "caption": "CLEVER WEAKNESS OR RIDICULOUS FLAW?",
+      "visual": "cta",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/132.png",
+      "accent": "#F0B35A"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Ditto",
+      "url": "https://www.pokemon.com/us/pokedex/ditto"
+    },
+    {
+      "label": "Bulbapedia — Ditto",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Ditto_(Pok%C3%A9mon)"
+    },
+    {
+      "label": "PokéAPI — Ditto",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/132"
+    }
+  ]
+}

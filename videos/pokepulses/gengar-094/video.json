@@ -1,0 +1,242 @@
+{
+  "schemaVersion": 2,
+  "id": "gengar-094",
+  "show": {
+    "id": "pokepulses",
+    "name": "PokePulses",
+    "handle": "@PokePulses",
+    "wordmark": {
+      "lead": "POKE",
+      "accent": "PULSES"
+    },
+    "fonts": {
+      "display": "Bebas Neue",
+      "body": "system"
+    }
+  },
+  "title": "Gengar Can Cool a Room by Nearly 10 Degrees",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "mechanic",
+    "numberRelevant": false,
+    "premise": "When Gengar hides nearby, it steals surrounding heat and can cool the area by nearly ten degrees Fahrenheit.",
+    "audiencePromise": "See how Gengar's hidden presence turns a sudden chill into a frightening warning.",
+    "openLoop": "What causes the chill, and how far can the temperature fall?",
+    "payoff": "The chill is the warning: hidden Gengar can cool the area by nearly ten degrees Fahrenheit.",
+    "targetEmotion": "surprise",
+    "engagementQuestion": "Would you hide, or investigate the sudden chill?",
+    "targetSecondsBetweenVisualChanges": 0.65
+  },
+  "subject": {
+    "name": "Gengar",
+    "category": "Shadow Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/94.png",
+    "identifier": "#094"
+  },
+  "related": [
+    {
+      "name": "Haunter",
+      "relation": "evolves-from",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/93.png",
+      "identifier": "#093"
+    },
+    {
+      "name": "Gastly",
+      "relation": "evolves-from",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/92.png",
+      "identifier": "#092"
+    },
+    {
+      "name": "Gengar Mega",
+      "relation": "form",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10038.png",
+      "identifier": "#094"
+    }
+  ],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#100D1A",
+    "surface": "#211936",
+    "primary": "#A66BE0",
+    "secondary": "#B8F2E6",
+    "ink": "#F7F3FF"
+  },
+  "audio": {
+    "music": "generated/gengar-094-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 126,
+      "notes": [
+        110,
+        130.81,
+        146.83,
+        164.81,
+        146.83,
+        130.81,
+        98,
+        130.81
+      ]
+    },
+    "voice": {
+      "provider": "openai",
+      "model": "gpt-4o-mini-tts",
+      "voice": "marin",
+      "instructions": "Quick, warm, and uneasy. Stress hidden, steals, sudden chill, and nearly ten degrees. Pause briefly before the final either-or question.",
+      "speed": 1.12,
+      "output": "generated/gengar-094-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "assets": [
+      {
+        "kind": "Gengar official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/94.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ],
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    }
+  },
+  "scenes": [
+    {
+      "id": "hidden-temperature-drop",
+      "durationSeconds": 4.4,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "HIDDEN GENGAR",
+      "headline": "HIDDEN. NEARLY TEN DEGREES.",
+      "narration": "Gengar hides nearby. The room drops nearly ten degrees.",
+      "caption": "A HIDDEN GENGAR CHANGES THE TEMPERATURE",
+      "visual": "hook",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/94.png",
+      "accent": "#7B2CBF"
+    },
+    {
+      "id": "heat-gives-it-away",
+      "durationSeconds": 5.2,
+      "beat": "evidence",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "THE WARNING",
+      "headline": "THE CHILL GIVES IT AWAY",
+      "narration": "Gengar steals surrounding heat, so a sudden chill gives it away.",
+      "caption": "SUDDEN CHILL? GENGAR MAY BE CLOSE.",
+      "visual": "gauntlet",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/94.png",
+      "accent": "#B8F2E6",
+      "facts": [
+        "STEALS SURROUNDING HEAT",
+        "SUDDEN CHILL"
+      ]
+    },
+    {
+      "id": "shadow-before-sight",
+      "durationSeconds": 5.3,
+      "beat": "escalation",
+      "role": "escalation",
+      "shot": "comparison",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "BEFORE YOU SEE IT",
+      "headline": "THE SHADOW HIDES THE CAUSE",
+      "narration": "It hides in shadows. The temperature drops before you see it.",
+      "caption": "THE COLD ARRIVES FIRST",
+      "visual": "advantage",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/94.png",
+      "accent": "#5E60CE",
+      "facts": [
+        "HIDES IN SHADOWS",
+        "TEMPERATURE DROPS"
+      ]
+    },
+    {
+      "id": "nearly-ten-degrees",
+      "durationSeconds": 4.7,
+      "beat": "payoff",
+      "role": "payoff",
+      "shot": "tracking",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "THE POKÉDEX CLAIM",
+      "headline": "NEARLY TEN DEGREES COLDER",
+      "narration": "Hiding Gengar can cool the area nearly ten degrees Fahrenheit.",
+      "caption": "NEARLY 10°F COOLER",
+      "visual": "race",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/94.png",
+      "accent": "#80FFDB",
+      "facts": [
+        "NEARLY 10°F",
+        "COOLS THE AREA"
+      ]
+    },
+    {
+      "id": "heat-is-gone",
+      "durationSeconds": 5.2,
+      "beat": "payoff",
+      "role": "payoff",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "THE REAL MECHANIC",
+      "headline": "GENGAR TAKES THE HEAT",
+      "narration": "That chill has a cause: Gengar takes heat from the room.",
+      "caption": "THE COLD MEANS HEAT IS MISSING",
+      "visual": "tradeoff",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/94.png",
+      "accent": "#9D4EDD",
+      "facts": [
+        "TAKES HEAT",
+        "ROOM TURNS COLD"
+      ]
+    },
+    {
+      "id": "hide-or-investigate",
+      "durationSeconds": 3.9,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "YOUR MOVE",
+      "headline": "HIDE OR INVESTIGATE?",
+      "narration": "Would you hide, or investigate the sudden chill?",
+      "caption": "HIDE OR INVESTIGATE?",
+      "visual": "cta",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/94.png",
+      "accent": "#B8F2E6"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Gengar",
+      "url": "https://www.pokemon.com/us/pokedex/gengar"
+    },
+    {
+      "label": "Bulbapedia — Gengar",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Gengar_(Pok%C3%A9mon)"
+    },
+    {
+      "label": "PokéAPI — Gengar",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/94"
+    }
+  ]
+}

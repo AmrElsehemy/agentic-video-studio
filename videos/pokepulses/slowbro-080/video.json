@@ -1,0 +1,275 @@
+{
+  "schemaVersion": 2,
+  "id": "slowbro-080",
+  "show": {
+    "id": "pokepulses",
+    "name": "PokePulses",
+    "handle": "@PokePulses",
+    "wordmark": {
+      "lead": "POKE",
+      "accent": "PULSES"
+    },
+    "fonts": {
+      "display": "Bebas Neue",
+      "body": "system"
+    }
+  },
+  "title": "Slowbro's Evolution Has an Undo Button",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "transformation",
+    "numberRelevant": false,
+    "premise": "Slowbro can revert to Slowpoke if Shellder breaks off or lets go.",
+    "audiencePromise": "See how one Shellder bite creates Slowbro, then watch losing it reverse the change.",
+    "openLoop": "What makes one bite powerful enough to create and undo Slowbro?",
+    "payoff": "The same bite drives Slowbro's change, so losing Shellder reverses it.",
+    "targetEmotion": "surprise",
+    "engagementQuestion": "Is Slowbro an evolution, or a Slowpoke changed by Shellder?",
+    "targetSecondsBetweenVisualChanges": 0.62
+  },
+  "subject": {
+    "name": "Slowbro",
+    "category": "Hermit Crab Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/80.png",
+    "identifier": "#080"
+  },
+  "related": [
+    {
+      "name": "Slowpoke",
+      "relation": "evolves-from",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/79.png",
+      "identifier": "#079"
+    },
+    {
+      "name": "Slowking",
+      "relation": "related",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/199.png",
+      "identifier": "#199"
+    },
+    {
+      "name": "Slowbro Mega",
+      "relation": "form",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10071.png",
+      "identifier": "#080"
+    }
+  ],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#101820",
+    "surface": "#1C2B35",
+    "primary": "#D95D39",
+    "secondary": "#E8C547",
+    "ink": "#F5F1E8"
+  },
+  "audio": {
+    "music": "generated/slowbro-080-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 126,
+      "notes": [
+        110,
+        130.81,
+        146.83,
+        164.81,
+        146.83,
+        130.81,
+        98,
+        130.81
+      ]
+    },
+    "voice": {
+      "provider": "openai",
+      "model": "gpt-4o-mini-tts",
+      "voice": "marin",
+      "instructions": "Sound like a knowledgeable fan sharing a strange discovery. Keep the pace quick, warm, and playful. Stress bite, reverse, and lets go. Pause briefly before the final question.",
+      "speed": 1.12,
+      "output": "generated/slowbro-080-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "cleared",
+    "publicReleaseApproved": true,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "assets": [
+      {
+        "kind": "Slowbro official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/80.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ],
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    }
+  },
+  "scenes": [
+    {
+      "id": "evolution-can-vanish",
+      "durationSeconds": 3.8,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "THE RESET BUTTON",
+      "headline": "SHELLDER LETS GO. SLOWBRO REVERTS.",
+      "narration": "Slowbro's evolution can vanish when Shellder lets go.",
+      "caption": "SHELLDER OFF = SLOWPOKE AGAIN",
+      "visual": "hook",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/80.png",
+      "accent": "#E8C547"
+    },
+    {
+      "id": "the-bite-starts-it",
+      "durationSeconds": 4.8,
+      "beat": "before",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "HOW IT STARTS",
+      "headline": "ONE BITE CREATES SLOWBRO",
+      "narration": "Slowpoke's tail gets bitten, and one bite makes it evolve.",
+      "caption": "SLOWPOKE'S TAIL GETS BITTEN",
+      "visual": "gauntlet",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/80.png",
+      "accent": "#D95D39",
+      "facts": [
+        "SLOWPOKE",
+        "TAIL BITE",
+        "EVOLVES"
+      ],
+      "primitive": {
+        "kind": "timeline",
+        "steps": [
+          {
+            "label": "Slowpoke"
+          },
+          {
+            "label": "Slowbro",
+            "detail": "TAIL BITE"
+          }
+        ],
+        "active": 1
+      }
+    },
+    {
+      "id": "the-bite-changes-it",
+      "durationSeconds": 6.1,
+      "beat": "change",
+      "role": "escalation",
+      "shot": "tracking",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "THE BODY CHANGES",
+      "headline": "THE BITE SHOCKS IT UPRIGHT",
+      "narration": "That bite shocks it onto two legs, while Shellder's poison makes it spacier.",
+      "caption": "TWO LEGS. MORE SPACED OUT.",
+      "visual": "race",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/80.png",
+      "accent": "#7BC8A4",
+      "facts": [
+        "STANDS ON TWO LEGS",
+        "SHELLDER'S POISON",
+        "EVEN SPACIER"
+      ]
+    },
+    {
+      "id": "the-form-reverses",
+      "durationSeconds": 4.8,
+      "beat": "reveal",
+      "role": "payoff",
+      "shot": "comparison",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "THE REVERSAL",
+      "headline": "LET GO, LOSE SLOWBRO",
+      "narration": "But if Shellder lets go, Slowbro turns back into Slowpoke.",
+      "caption": "SLOWBRO → SLOWPOKE",
+      "visual": "advantage",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/80.png",
+      "accent": "#E8C547",
+      "facts": [
+        "SHELLDER LETS GO",
+        "TURNS BACK"
+      ]
+    },
+    {
+      "id": "battle-can-break-it",
+      "durationSeconds": 5.7,
+      "beat": "aftermath",
+      "role": "payoff",
+      "shot": "wide",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "THE FAILURE POINT",
+      "headline": "A HARSH BATTLE CAN BREAK IT",
+      "narration": "In a harsh battle, Shellder can be thrown off; then Slowbro reverts.",
+      "caption": "BATTLE CAN TRIGGER THE REVERSAL",
+      "visual": "tradeoff",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/80.png",
+      "accent": "#D95D39",
+      "facts": [
+        "HARSH BATTLE",
+        "SHELLDER THROWN OFF",
+        "SLOWBRO REVERTS"
+      ],
+      "primitive": {
+        "kind": "checklist",
+        "items": [
+          {
+            "label": "HARSH BATTLE",
+            "met": true
+          },
+          {
+            "label": "SHELLDER THROWN OFF",
+            "met": true
+          },
+          {
+            "label": "SLOWBRO REVERTS",
+            "met": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "evolution-or-change",
+      "durationSeconds": 4.8,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "YOUR CALL",
+      "headline": "EVOLUTION OR SHELLDER EFFECT?",
+      "narration": "Is Slowbro an evolution, or a Slowpoke changed by Shellder?",
+      "caption": "EVOLUTION OR SHELLDER EFFECT?",
+      "visual": "cta",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/80.png",
+      "accent": "#E8C547"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Slowbro",
+      "url": "https://www.pokemon.com/us/pokedex/slowbro"
+    },
+    {
+      "label": "Bulbapedia — Slowbro",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Slowbro_(Pok%C3%A9mon)"
+    },
+    {
+      "label": "PokéAPI — Slowbro",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/80"
+    }
+  ]
+}

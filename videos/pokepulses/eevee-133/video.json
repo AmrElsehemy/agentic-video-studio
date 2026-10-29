@@ -1,0 +1,244 @@
+{
+  "schemaVersion": 2,
+  "id": "eevee-133",
+  "show": {
+    "id": "pokepulses",
+    "name": "PokePulses",
+    "handle": "@PokePulses",
+    "wordmark": {
+      "lead": "POKE",
+      "accent": "PULSES"
+    },
+    "fonts": {
+      "display": "Bebas Neue",
+      "body": "system"
+    }
+  },
+  "title": "Eevee Can Start Looking Like Its Trainer",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "profile",
+    "numberRelevant": false,
+    "premise": "Eevee's unstable genes respond to its surroundings, even making its face resemble its Trainer.",
+    "audiencePromise": "Show how Eevee's surroundings can turn hidden genetic instability into visible changes.",
+    "openLoop": "If surroundings shape Eevee, what can its Trainer really change?",
+    "payoff": "Its design makes hidden genetic influence visible in face and form.",
+    "targetEmotion": "debate",
+    "engagementQuestion": "Which shapes Eevee more: its surroundings, or its Trainer?",
+    "targetSecondsBetweenVisualChanges": 0.72
+  },
+  "subject": {
+    "name": "Eevee",
+    "category": "Evolution Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/133.png",
+    "identifier": "#133"
+  },
+  "related": [
+    {
+      "name": "Vaporeon",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/134.png",
+      "identifier": "#134"
+    },
+    {
+      "name": "Jolteon",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/135.png",
+      "identifier": "#135"
+    },
+    {
+      "name": "Flareon",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/136.png",
+      "identifier": "#136"
+    }
+  ],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#121018",
+    "surface": "#211A22",
+    "primary": "#B87545",
+    "secondary": "#E8C39E",
+    "ink": "#FFF4E8"
+  },
+  "audio": {
+    "music": "generated/eevee-133-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 126,
+      "notes": [
+        110,
+        130.81,
+        146.83,
+        164.81,
+        146.83,
+        130.81,
+        98,
+        130.81
+      ]
+    },
+    "voice": {
+      "provider": "openai",
+      "model": "gpt-4o-mini-tts",
+      "voice": "marin",
+      "instructions": "Speak like a knowledgeable fan sharing a strange discovery. Keep the pace quick, warm, and playful. Stress face, surroundings, and Trainer. Pause briefly before the final choice.",
+      "speed": 1.12,
+      "output": "generated/eevee-133-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "assets": [
+      {
+        "kind": "Eevee official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/133.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ],
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    }
+  },
+  "scenes": [
+    {
+      "id": "your-eevee-may-look-like-you",
+      "durationSeconds": 3.8,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "mystery",
+      "subjectFocus": "hidden",
+      "beatEverySeconds": 0.72,
+      "eyebrow": "A STRANGE GENETIC CLUE",
+      "headline": "YOUR EEVEE MAY LOOK LIKE YOU",
+      "narration": "Eevee's genes can make its face resemble yours.",
+      "caption": "THE POKÉDEX SAYS THIS",
+      "visual": "hook",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/133.png",
+      "accent": "#E8C39E"
+    },
+    {
+      "id": "surroundings-affect-its-dna",
+      "durationSeconds": 4.2,
+      "beat": "evidence",
+      "role": "evidence",
+      "shot": "tracking",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.72,
+      "eyebrow": "ITS GENES ARE RESPONSIVE",
+      "headline": "SURROUNDINGS LEAVE A MARK",
+      "narration": "Even its surroundings can affect Eevee's irregularly configured DNA.",
+      "caption": "ENVIRONMENT CAN INFLUENCE ITS GENES",
+      "visual": "gauntlet",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/133.png",
+      "accent": "#B87545",
+      "facts": [
+        "UNSTABLE GENES",
+        "SURROUNDINGS",
+        "TRAINER"
+      ]
+    },
+    {
+      "id": "instability-becomes-species",
+      "durationSeconds": 4.7,
+      "beat": "evidence",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.72,
+      "eyebrow": "THE INSTABILITY HAS CONSEQUENCES",
+      "headline": "POTENTIAL BECOMES A NEW SPECIES",
+      "narration": "That instability can produce eight different species from one Eevee.",
+      "caption": "ONE GENETIC MYSTERY. EIGHT OUTCOMES.",
+      "visual": "advantage",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/133.png",
+      "accent": "#D99A65",
+      "facts": [
+        "EIGHT SPECIES",
+        "UNSTABLE GENETIC MAKEUP"
+      ]
+    },
+    {
+      "id": "environment-can-trigger-evolution",
+      "durationSeconds": 4.8,
+      "beat": "escalation",
+      "role": "escalation",
+      "shot": "comparison",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.72,
+      "eyebrow": "NOW THE STAKES CHANGE",
+      "headline": "CHANGE THE ENVIRONMENT",
+      "narration": "Change the environment, and Eevee may evolve into another form.",
+      "caption": "ITS SURROUNDINGS CAN ALTER ITS FUTURE",
+      "visual": "race",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/133.png",
+      "accent": "#C98757",
+      "facts": [
+        "ENVIRONMENT CHANGES",
+        "EVOLUTION",
+        "MANY FORMS"
+      ]
+    },
+    {
+      "id": "resemblance-is-not-guaranteed",
+      "durationSeconds": 5.2,
+      "beat": "twist",
+      "role": "twist",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.72,
+      "eyebrow": "BUT THERE IS A LIMIT",
+      "headline": "NOT A GUARANTEED COPY",
+      "narration": "But the Pokédex says resemblance may happen, not that it must.",
+      "caption": "INFLUENCE IS NOT CERTAINTY",
+      "visual": "tradeoff",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/133.png",
+      "accent": "#8F5E4A",
+      "facts": [
+        "MAY RESEMBLE TRAINER",
+        "NOT GUARANTEED"
+      ]
+    },
+    {
+      "id": "influence-becomes-visible",
+      "durationSeconds": 5.1,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.72,
+      "eyebrow": "THAT IS THE DESIGN",
+      "headline": "INFLUENCE YOU CAN SEE",
+      "narration": "Its design makes hidden genetic influence visible in face and form.",
+      "caption": "EEVEE MAKES EVOLUTION FEEL PERSONAL",
+      "visual": "cta",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/133.png",
+      "accent": "#E8C39E"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Eevee",
+      "url": "https://www.pokemon.com/us/pokedex/eevee"
+    },
+    {
+      "label": "Bulbapedia — Eevee",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Eevee_(Pok%C3%A9mon)"
+    },
+    {
+      "label": "PokéAPI — Eevee",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/133"
+    }
+  ]
+}

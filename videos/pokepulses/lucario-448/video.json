@@ -1,0 +1,280 @@
+{
+  "schemaVersion": 2,
+  "id": "lucario-448",
+  "show": {
+    "id": "pokepulses",
+    "name": "PokePulses",
+    "handle": "@PokePulses",
+    "wordmark": {
+      "lead": "POKE",
+      "accent": "PULSES"
+    },
+    "fonts": {
+      "display": "Bebas Neue",
+      "body": "system"
+    }
+  },
+  "title": "Lucario's Mega Forms Have Different Weights",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "comparison",
+    "numberRelevant": false,
+    "premise": "Compare Mega Lucario and Mega Lucario Z, which share the same height but have different listed weights.",
+    "audiencePromise": "See how two equally tall Mega Lucario forms can have very different listed weights.",
+    "openLoop": "How can these two Mega Lucario forms match in height but not weight?",
+    "payoff": "The contrast is clean: both forms are 1.3 meters tall, but their official weights are 57.5 and 49.4 kilos.",
+    "targetEmotion": "debate",
+    "engagementQuestion": "Which feels right: 57.5 kilos or 49.4?",
+    "targetSecondsBetweenVisualChanges": 0.7
+  },
+  "subject": {
+    "name": "Lucario",
+    "category": "Aura Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/448.png",
+    "identifier": "#448"
+  },
+  "related": [
+    {
+      "name": "Riolu",
+      "relation": "evolves-from",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/447.png",
+      "identifier": "#447"
+    },
+    {
+      "name": "Lucario Mega",
+      "relation": "form",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10059.png",
+      "identifier": "#448"
+    },
+    {
+      "name": "Lucario Mega Z",
+      "relation": "form",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10310.png",
+      "identifier": "#448"
+    }
+  ],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#10131A",
+    "surface": "#1B202B",
+    "primary": "#4A90E2",
+    "secondary": "#D9E2EC",
+    "ink": "#F5F7FA"
+  },
+  "audio": {
+    "music": "generated/lucario-448-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 126,
+      "notes": [
+        110,
+        130.81,
+        146.83,
+        164.81,
+        146.83,
+        130.81,
+        98,
+        130.81
+      ]
+    },
+    "voice": {
+      "provider": "openai",
+      "model": "gpt-4o-mini-tts",
+      "voice": "marin",
+      "instructions": "Speak quickly and clearly, with warm fan energy. Stress the numbers and pause before the final choice.",
+      "speed": 1.12,
+      "output": "generated/lucario-448-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "assets": [
+      {
+        "kind": "Lucario Mega official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10059.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      },
+      {
+        "kind": "Lucario Mega Z official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10310.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ],
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    }
+  },
+  "scenes": [
+    {
+      "id": "same-height-eight-kilos-apart",
+      "durationSeconds": 3.8,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "comparison",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "MEGA LUCARIO",
+      "headline": "SAME HEIGHT. BIG WEIGHT GAP.",
+      "narration": "Same height. One Mega weighs more.",
+      "caption": "ONE HEIGHT. A BIG WEIGHT GAP.",
+      "visual": "hook",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10059.png",
+      "accent": "#4A90E2"
+    },
+    {
+      "id": "matching-height",
+      "durationSeconds": 5.4,
+      "beat": "evidence",
+      "role": "evidence",
+      "shot": "wide",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "THE HEIGHT MATCH",
+      "headline": "BOTH MEASURE 1.3 METERS",
+      "narration": "Both forms measure 1.3 meters, but their listed weights differ.",
+      "caption": "THE HEIGHT MATCHES",
+      "visual": "gauntlet",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10310.png",
+      "accent": "#D9E2EC",
+      "facts": [
+        "MEGA LUCARIO",
+        "MEGA LUCARIO Z",
+        "1.3 METERS"
+      ],
+      "primitive": {
+        "kind": "bars",
+        "unit": "M",
+        "bars": [
+          {
+            "label": "MEGA LUCARIO",
+            "value": 1.3
+          },
+          {
+            "label": "MEGA LUCARIO Z",
+            "value": 1.3
+          }
+        ]
+      }
+    },
+    {
+      "id": "the-two-scales",
+      "durationSeconds": 5.6,
+      "beat": "evidence",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "THE SCALE READINGS",
+      "headline": "57.5 KILOS VS 49.4",
+      "narration": "Mega Lucario weighs 57.5 kilos. Mega Z weighs 49.4.",
+      "caption": "57.5 KILOS VERSUS 49.4",
+      "visual": "advantage",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10059.png",
+      "accent": "#E85D75",
+      "facts": [
+        "MEGA: 57.5 KG",
+        "MEGA Z: 49.4 KG"
+      ],
+      "primitive": {
+        "kind": "bars",
+        "unit": "KG",
+        "bars": [
+          {
+            "label": "MEGA LUCARIO",
+            "value": 57.5
+          },
+          {
+            "label": "MEGA LUCARIO Z",
+            "value": 49.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "the-weight-gap",
+      "durationSeconds": 3.9,
+      "beat": "escalation",
+      "role": "escalation",
+      "shot": "tracking",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "THE DIFFERENCE",
+      "headline": "THE WEIGHT GAP IS CLEAR",
+      "narration": "The weights still differ, despite their matching height.",
+      "caption": "1.3 METERS. A CLEAR WEIGHT GAP.",
+      "visual": "race",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10310.png",
+      "accent": "#F2C14E",
+      "facts": [
+        "WEIGHT GAP",
+        "MATCHING HEIGHT"
+      ]
+    },
+    {
+      "id": "lighter-without-being-shorter",
+      "durationSeconds": 4.8,
+      "beat": "twist",
+      "role": "twist",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "THE SURPRISE",
+      "headline": "LIGHTER WITHOUT BEING SHORTER",
+      "narration": "Mega Z is lighter, even though it is not shorter.",
+      "caption": "MEGA Z: LIGHTER, NOT SHORTER",
+      "visual": "tradeoff",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10310.png",
+      "accent": "#A8DADC",
+      "facts": [
+        "MEGA Z",
+        "LIGHTER",
+        "1.3 METERS TALL"
+      ]
+    },
+    {
+      "id": "choose-the-listed-weight",
+      "durationSeconds": 4.7,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "YOUR PICK",
+      "headline": "ONE HEIGHT. TWO WEIGHTS.",
+      "narration": "Which feels right: 57.5 kilos or 49.4?",
+      "caption": "57.5 KILOS OR 49.4?",
+      "visual": "cta",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10059.png",
+      "accent": "#4A90E2"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Lucario",
+      "url": "https://www.pokemon.com/us/pokedex/lucario"
+    },
+    {
+      "label": "Bulbapedia — Lucario",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Lucario_(Pok%C3%A9mon)"
+    },
+    {
+      "label": "PokéAPI — Lucario",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/448"
+    }
+  ]
+}

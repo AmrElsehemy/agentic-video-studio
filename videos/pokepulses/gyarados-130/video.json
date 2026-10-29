@@ -1,0 +1,255 @@
+{
+  "schemaVersion": 2,
+  "id": "gyarados-130",
+  "show": {
+    "id": "pokepulses",
+    "name": "PokePulses",
+    "handle": "@PokePulses",
+    "wordmark": {
+      "lead": "POKE",
+      "accent": "PULSES"
+    },
+    "fonts": {
+      "display": "Bebas Neue",
+      "body": "system"
+    }
+  },
+  "title": "Gyarados Can Rage for a Whole Month",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "mechanic",
+    "numberRelevant": false,
+    "premise": "Gyarados can stay enraged for a whole month, stopping only after it demolishes everything around it.",
+    "audiencePromise": "See how a recorded whole-month rampage ends only after Gyarados demolishes everything around it.",
+    "openLoop": "What finally makes Gyarados's month-long rampage stop?",
+    "payoff": "Gyarados has recorded rampages lasting a whole month before it stops.",
+    "targetEmotion": "surprise",
+    "engagementQuestion": "Terrifying mechanic or pure overkill?",
+    "targetSecondsBetweenVisualChanges": 0.65
+  },
+  "subject": {
+    "name": "Gyarados",
+    "category": "Atrocious Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/130.png",
+    "identifier": "#130"
+  },
+  "related": [
+    {
+      "name": "Magikarp",
+      "relation": "evolves-from",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/129.png",
+      "identifier": "#129"
+    },
+    {
+      "name": "Gyarados Mega",
+      "relation": "form",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10041.png",
+      "identifier": "#130"
+    }
+  ],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#090D16",
+    "surface": "#151B2A",
+    "primary": "#D9272E",
+    "secondary": "#2D8CCB",
+    "ink": "#F4F7FB"
+  },
+  "audio": {
+    "music": "generated/gyarados-130-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 126,
+      "notes": [
+        110,
+        130.81,
+        146.83,
+        164.81,
+        146.83,
+        130.81,
+        98,
+        130.81
+      ]
+    },
+    "voice": {
+      "provider": "openai",
+      "model": "gpt-4o-mini-tts",
+      "voice": "marin",
+      "instructions": "Speak like a knowledgeable fan revealing something alarming. Start clipped and urgent, then build steady pressure through the calendar reveal. Stress whole month and demolished. End with a playful challenge.",
+      "speed": 1.12,
+      "output": "generated/gyarados-130-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "assets": [
+      {
+        "kind": "Gyarados official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/130.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ],
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    }
+  },
+  "scenes": [
+    {
+      "id": "month-long-rage",
+      "durationSeconds": 3.8,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "GYARADOS RAGE",
+      "headline": "A WHOLE MONTH OF RAGE",
+      "narration": "Gyarados can rage for a whole month.",
+      "caption": "A WHOLE MONTH OF RAGE",
+      "visual": "hook",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/130.png",
+      "accent": "#D9272E",
+      "primitive": {
+        "kind": "counter",
+        "from": 0,
+        "to": 1,
+        "label": "MONTHS OF RAGE"
+      }
+    },
+    {
+      "id": "recorded-rampage",
+      "durationSeconds": 4.7,
+      "beat": "evidence",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "POKÉDEX RECORD",
+      "headline": "THE RAMPAGE KEEPS GOING",
+      "narration": "Pokédex records say its rampages can last a whole month.",
+      "caption": "RAMPAGES CAN LAST A WHOLE MONTH",
+      "visual": "gauntlet",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/130.png",
+      "accent": "#F08A24",
+      "facts": [
+        "WHOLE MONTH",
+        "RAMPAGE"
+      ]
+    },
+    {
+      "id": "rage-condition",
+      "durationSeconds": 5.1,
+      "beat": "escalation",
+      "role": "escalation",
+      "shot": "comparison",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "THE STOPPING RULE",
+      "headline": "IT STOPS AFTER DEMOLITION",
+      "narration": "It does not calm down until everything around it is demolished.",
+      "caption": "IT STOPS ONLY AFTER DEMOLITION",
+      "visual": "advantage",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/130.png",
+      "accent": "#D9272E",
+      "facts": [
+        "DOES NOT CALM",
+        "EVERYTHING DEMOLISHED"
+      ],
+      "primitive": {
+        "kind": "checklist",
+        "items": [
+          {
+            "label": "CALM DOWN",
+            "met": false
+          },
+          {
+            "label": "DEMOLISH EVERYTHING",
+            "met": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "burning-everything",
+      "durationSeconds": 4.2,
+      "beat": "payoff",
+      "role": "payoff",
+      "shot": "tracking",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "THE DAMAGE SPREADS",
+      "headline": "NOTHING STAYS SAFE",
+      "narration": "And it burns everything down with intensely hot flames.",
+      "caption": "INTENSELY HOT FLAMES",
+      "visual": "race",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/130.png",
+      "accent": "#FF5A24",
+      "facts": [
+        "BURNS EVERYTHING",
+        "HOT FLAMES"
+      ]
+    },
+    {
+      "id": "calendar-keeps-flipping",
+      "durationSeconds": 4.7,
+      "beat": "payoff",
+      "role": "payoff",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "THE FINAL REVEAL",
+      "headline": "THE CALENDAR KEEPS FLIPPING",
+      "narration": "A whole month is the recorded length of its rampage.",
+      "caption": "THE CALENDAR FLIPS UNTIL NOTHING REMAINS",
+      "visual": "tradeoff",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/130.png",
+      "accent": "#F2C94C",
+      "facts": [
+        "WHOLE MONTH",
+        "RAMPAGE LENGTH"
+      ]
+    },
+    {
+      "id": "terrifying-or-overkill",
+      "durationSeconds": 3.8,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "YOUR VERDICT",
+      "headline": "TERRIFYING OR OVERKILL?",
+      "narration": "Terrifying mechanic or pure overkill?",
+      "caption": "TERRIFYING MECHANIC OR PURE OVERKILL?",
+      "visual": "cta",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/130.png",
+      "accent": "#2D8CCB"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Gyarados",
+      "url": "https://www.pokemon.com/us/pokedex/gyarados"
+    },
+    {
+      "label": "Bulbapedia — Gyarados",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Gyarados_(Pok%C3%A9mon)"
+    },
+    {
+      "label": "PokéAPI — Gyarados",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/130"
+    }
+  ]
+}
