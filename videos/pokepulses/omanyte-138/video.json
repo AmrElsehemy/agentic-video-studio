@@ -1,0 +1,243 @@
+{
+  "schemaVersion": 2,
+  "id": "omanyte-138",
+  "show": {
+    "id": "pokepulses",
+    "name": "PokePulses",
+    "handle": "@PokePulses",
+    "wordmark": {
+      "lead": "POKE",
+      "accent": "PULSES"
+    },
+    "fonts": {
+      "display": "Bebas Neue",
+      "body": "system"
+    }
+  },
+  "title": "Omanyte Fossils Reveal an Ancient Predator",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "mystery",
+    "numberRelevant": false,
+    "premise": "Omanyte fossils preserve bite marks from Archeops, revealing that Omanyte was ancient prey.",
+    "audiencePromise": "Follow the fossil clues until Omanyte's shell becomes evidence of an ancient hunt.",
+    "openLoop": "What do those fossil bite marks reveal about Omanyte?",
+    "payoff": "Omanyte's fossil does not just prove extinction. It records that Archeops hunted it.",
+    "targetEmotion": "surprise",
+    "engagementQuestion": "Is Omanyte's fossil tragic, or fascinating?",
+    "targetSecondsBetweenVisualChanges": 0.68
+  },
+  "subject": {
+    "name": "Omanyte",
+    "category": "Spiral Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/138.png",
+    "identifier": "#138"
+  },
+  "related": [
+    {
+      "name": "Omastar",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/139.png",
+      "identifier": "#139"
+    }
+  ],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#08131f",
+    "surface": "#10283a",
+    "primary": "#d8c39a",
+    "secondary": "#4fb3c8",
+    "ink": "#f4f7f2"
+  },
+  "audio": {
+    "music": "generated/omanyte-138-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 126,
+      "notes": [
+        110,
+        130.81,
+        146.83,
+        164.81,
+        146.83,
+        130.81,
+        98,
+        130.81
+      ]
+    },
+    "voice": {
+      "provider": "openai",
+      "model": "gpt-4o-mini-tts",
+      "voice": "marin",
+      "instructions": "Speak like a knowledgeable fan sharing a strange discovery. Move quickly, with short pauses before bite marks, Archeops, and prey. Keep the ending warm and genuinely curious.",
+      "speed": 1.12,
+      "output": "generated/omanyte-138-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "cleared",
+    "publicReleaseApproved": true,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "assets": [
+      {
+        "kind": "Omanyte official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/138.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ],
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    }
+  },
+  "scenes": [
+    {
+      "id": "fossil-warning",
+      "durationSeconds": 3.8,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "mystery",
+      "subjectFocus": "hidden",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "A FOSSIL CLUE",
+      "headline": "WHO HUNTED OMANYTE?",
+      "narration": "Omanyte fossils show who hunted them.",
+      "caption": "THE SHELL REMEMBERED",
+      "visual": "hook",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/138.png",
+      "accent": "#d8c39a"
+    },
+    {
+      "id": "ancient-seas",
+      "durationSeconds": 5.2,
+      "beat": "clue",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "BEFORE EXTINCTION",
+      "headline": "LIFE IN ANCIENT SEAS",
+      "narration": "Omanyte lived in ancient seas, then became extinct as a species.",
+      "caption": "AN ANCIENT SHELL POKÉMON",
+      "visual": "gauntlet",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/138.png",
+      "accent": "#4fb3c8",
+      "facts": [
+        "ANCIENT SEAS",
+        "EXTINCT SPECIES"
+      ]
+    },
+    {
+      "id": "bite-marks",
+      "durationSeconds": 4.2,
+      "beat": "escalation",
+      "role": "escalation",
+      "shot": "tracking",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "THE FIRST CLUE",
+      "headline": "THE FOSSIL WAS BITTEN",
+      "narration": "But some fossils carry bite marks from another Pokémon.",
+      "caption": "BITE MARKS IN STONE",
+      "visual": "advantage",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/138.png",
+      "accent": "#e28b62",
+      "facts": [
+        "FOSSIL",
+        "BITE MARKS"
+      ]
+    },
+    {
+      "id": "archeops-identified",
+      "durationSeconds": 4.8,
+      "beat": "reveal",
+      "role": "payoff",
+      "shot": "comparison",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "THE MARKS MATCH",
+      "headline": "ARCHAEOPS LEFT THEM",
+      "narration": "Those bite marks came from Archeops, according to the Pokédex.",
+      "caption": "ARCHAEOPS IS THE CLUE",
+      "visual": "race",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/138.png",
+      "accent": "#e28b62",
+      "facts": [
+        "ARCHAEOPS",
+        "BITE MARKS"
+      ],
+      "primitive": {
+        "kind": "checklist",
+        "items": [
+          {
+            "label": "BITE MARKS",
+            "met": true
+          },
+          {
+            "label": "ARCHAEOPS",
+            "met": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "prey-revealed",
+      "durationSeconds": 4.8,
+      "beat": "reveal",
+      "role": "payoff",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "THE HARD TRUTH",
+      "headline": "OMANYTE WAS PREY",
+      "narration": "So the ancient shell Pokémon was prey, not just preserved.",
+      "caption": "A FOSSILIZED HUNT",
+      "visual": "tradeoff",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/138.png",
+      "accent": "#c95f55",
+      "facts": [
+        "ANCIENT PREY",
+        "PRESERVED EVIDENCE"
+      ]
+    },
+    {
+      "id": "fossil-verdict",
+      "durationSeconds": 3.8,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "YOUR READ",
+      "headline": "A SHELL WITH A STORY",
+      "narration": "Is Omanyte's fossil tragic, or fascinating?",
+      "caption": "TRAGEDY OR TIME CAPSULE?",
+      "visual": "cta",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/138.png",
+      "accent": "#d8c39a"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Omanyte",
+      "url": "https://www.pokemon.com/us/pokedex/omanyte"
+    },
+    {
+      "label": "Bulbapedia — Omanyte",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Omanyte_(Pok%C3%A9mon)"
+    },
+    {
+      "label": "PokéAPI — Omanyte",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/138"
+    }
+  ]
+}

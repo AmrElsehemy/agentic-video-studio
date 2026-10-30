@@ -1,0 +1,178 @@
+{
+  "id": "jolteon-135",
+  "title": "Jolteon’s Lungs Make Electricity",
+  "storyPattern": "mystery",
+  "numberRelevant": false,
+  "premise": "Jolteon’s breath crackles because its lungs contain an organ that creates electricity.",
+  "audiencePromise": "Trace Jolteon’s crackling breath from the sound, to its lungs, to the organ creating electricity.",
+  "openLoop": "What links Jolteon’s lungs to its crackling breath?",
+  "payoff": "Jolteon’s electricity can spark in its fur and crackle in its breath.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "Which is stranger: sparking fur or crackling breath?",
+  "subject": {
+    "name": "Jolteon",
+    "category": "Lightning Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/135.png",
+    "identifier": "#135"
+  },
+  "related": [
+    {
+      "name": "Eevee",
+      "relation": "evolves-from",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/133.png",
+      "identifier": "#133"
+    },
+    {
+      "name": "Vaporeon",
+      "relation": "related",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/134.png",
+      "identifier": "#134"
+    },
+    {
+      "name": "Flareon",
+      "relation": "related",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/136.png",
+      "identifier": "#136"
+    }
+  ],
+  "palette": {
+    "background": "#0B1020",
+    "surface": "#151D33",
+    "primary": "#F4D738",
+    "secondary": "#8ED8FF",
+    "ink": "#F7FAFF"
+  },
+  "voice": {
+    "instructions": "Speak like a knowledgeable fan sharing a strange discovery. Keep the pace quick, warm, and clear. Stress lungs, electricity, and crackle. Pause briefly before each reveal."
+  },
+  "rights": {
+    "releaseStatus": "cleared",
+    "publicReleaseApproved": true,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    },
+    "assets": [
+      {
+        "kind": "Jolteon official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/135.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "lungs-make-electricity",
+      "beat": "hook",
+      "eyebrow": "JOLTEON’S HIDDEN POWER",
+      "headline": "ITS LUNGS MAKE ELECTRICITY",
+      "narration": "Jolteon’s breath crackles because its lungs make electricity.",
+      "caption": "ELECTRICITY FROM ITS LUNGS",
+      "accent": "#F4D738",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/135.png"
+    },
+    {
+      "id": "the-crackle-is-real",
+      "beat": "clue",
+      "eyebrow": "THE POKÉDEX CLUE",
+      "headline": "LISTEN WHEN IT EXHALES",
+      "narration": "Its Pokédex says electricity crackles when Jolteon exhales.",
+      "caption": "ELECTRICITY CRACKLES WHEN IT EXHALES",
+      "facts": [
+        "ELECTRICITY",
+        "EXHALE"
+      ],
+      "accent": "#8ED8FF",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/135.png"
+    },
+    {
+      "id": "inside-the-lungs",
+      "beat": "escalation",
+      "eyebrow": "THE DEEPER CLUE",
+      "headline": "FUR ISN’T THE WHOLE STORY",
+      "narration": "Its fur already crackles, but the lungs hold an organ.",
+      "caption": "FUR SPARKS. LUNGS HOLD AN ORGAN.",
+      "facts": [
+        "SPARKING FUR",
+        "LUNG ORGAN"
+      ],
+      "accent": "#F4D738",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/135.png"
+    },
+    {
+      "id": "electric-organ",
+      "beat": "reveal",
+      "eyebrow": "THE FIRST REVEAL",
+      "headline": "THE ORGAN CREATES ELECTRICITY",
+      "narration": "That organ inside its lungs creates electricity.",
+      "caption": "THE ORGAN CREATES ELECTRICITY",
+      "facts": [
+        "INSIDE LUNGS",
+        "CREATES ELECTRICITY"
+      ],
+      "accent": "#8ED8FF",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/135.png",
+      "primitive": {
+        "kind": "timeline",
+        "steps": [
+          {
+            "label": "LUNG ORGAN",
+            "detail": "CREATES ELECTRICITY"
+          },
+          {
+            "label": "ELECTRIC EXHALE",
+            "detail": "CRACKLING SOUND"
+          }
+        ],
+        "active": 1
+      }
+    },
+    {
+      "id": "electric-exhale",
+      "beat": "reveal",
+      "eyebrow": "THE SOUND MAKES SENSE",
+      "headline": "YOU CAN HEAR THE POWER",
+      "narration": "When Jolteon exhales, you can hear electricity crackle.",
+      "caption": "YOU CAN HEAR ELECTRICITY CRACKLE",
+      "facts": [
+        "EXHALE",
+        "CRACKLING SOUND"
+      ],
+      "accent": "#F4D738",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/135.png"
+    },
+    {
+      "id": "natural-or-electric",
+      "beat": "verdict",
+      "eyebrow": "YOUR VERDICT",
+      "headline": "SPARKING FUR OR CRACKLING BREATH?",
+      "narration": "Which is stranger: sparking fur or crackling breath?",
+      "caption": "SPARKING FUR OR CRACKLING BREATH?",
+      "accent": "#8ED8FF",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/135.png"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Jolteon",
+      "url": "https://www.pokemon.com/us/pokedex/jolteon",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Jolteon",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Jolteon_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Jolteon",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/135",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

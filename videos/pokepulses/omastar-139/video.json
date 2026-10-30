@@ -1,0 +1,250 @@
+{
+  "schemaVersion": 2,
+  "id": "omastar-139",
+  "show": {
+    "id": "pokepulses",
+    "name": "PokePulses",
+    "handle": "@PokePulses",
+    "wordmark": {
+      "lead": "POKE",
+      "accent": "PULSES"
+    },
+    "fonts": {
+      "display": "Bebas Neue",
+      "body": "system"
+    }
+  },
+  "title": "Omastar's Fangs Couldn't Save Its Hunt",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "comparison",
+    "numberRelevant": false,
+    "premise": "Omastar had rock-crushing fangs, but its heavy shell limited the prey it could reach.",
+    "audiencePromise": "See how Omastar's strongest weapons still failed against its hunting problem.",
+    "openLoop": "How could a rock-crushing hunter still fail to catch food?",
+    "payoff": "Omastar's hunting design worked nearby, but failed when food stayed out of reach.",
+    "targetEmotion": "debate",
+    "engagementQuestion": "Crushing fangs or a lighter shell, which would you choose?",
+    "targetSecondsBetweenVisualChanges": 0.7
+  },
+  "subject": {
+    "name": "Omastar",
+    "category": "Spiral Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/139.png",
+    "identifier": "#139"
+  },
+  "related": [
+    {
+      "name": "Omanyte",
+      "relation": "evolves-from",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/138.png",
+      "identifier": "#138"
+    }
+  ],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#101820",
+    "surface": "#1B2A34",
+    "primary": "#4D9DB2",
+    "secondary": "#D7A94B",
+    "ink": "#F4F1DE"
+  },
+  "audio": {
+    "music": "generated/omastar-139-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 126,
+      "notes": [
+        110,
+        130.81,
+        146.83,
+        164.81,
+        146.83,
+        130.81,
+        98,
+        130.81
+      ]
+    },
+    "voice": {
+      "provider": "openai",
+      "model": "gpt-4o-mini-tts",
+      "voice": "marin",
+      "instructions": "Speak like a knowledgeable fan sharing a sharp surprise. Keep the pace quick, warm, and conversational. Stress the contrast between crushing power and limited reach.",
+      "speed": 1.12,
+      "output": "generated/omastar-139-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "cleared",
+    "publicReleaseApproved": true,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "assets": [
+      {
+        "kind": "Omastar official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/139.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ],
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    }
+  },
+  "scenes": [
+    {
+      "id": "rock-crushing-prey-losing",
+      "durationSeconds": 3.9,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "comparison",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "OMASTAR'S PROBLEM",
+      "headline": "CRUSH ROCK. LOSE PREY.",
+      "narration": "Omastar crushes rock, yet its shell loses prey.",
+      "caption": "POWERFUL BITE. FATAL LIMIT.",
+      "visual": "hook",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/139.png",
+      "accent": "#D7A94B"
+    },
+    {
+      "id": "fangs-crush-rock",
+      "durationSeconds": 4.3,
+      "beat": "evidence",
+      "role": "evidence",
+      "shot": "wide",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "THE BITE IS REAL",
+      "headline": "SHARP FANGS, HUGE POWER",
+      "narration": "Its sharp fangs could crush rock, a brutal advantage.",
+      "caption": "THE BITE ISN'T THE LIMIT",
+      "visual": "gauntlet",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/139.png",
+      "accent": "#D7A94B",
+      "facts": [
+        "SHARP FANGS",
+        "CRUSHES ROCK"
+      ]
+    },
+    {
+      "id": "tentacles-bring-prey-close",
+      "durationSeconds": 4.2,
+      "beat": "evidence",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "THE HUNTING METHOD",
+      "headline": "PREY MUST COME CLOSE",
+      "narration": "But tentacles had to bring prey into biting range.",
+      "caption": "GRAB FIRST. BITE SECOND.",
+      "visual": "advantage",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/139.png",
+      "accent": "#4D9DB2",
+      "facts": [
+        "TENTACLES",
+        "CAPTURE PREY",
+        "BITING RANGE"
+      ],
+      "primitive": {
+        "kind": "checklist",
+        "items": [
+          {
+            "label": "TENTACLES CAPTURE",
+            "met": true
+          },
+          {
+            "label": "PREY WITHIN REACH",
+            "met": true
+          },
+          {
+            "label": "SHARP FANGS BITE",
+            "met": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "shell-slows-movement",
+      "durationSeconds": 4.8,
+      "beat": "escalation",
+      "role": "escalation",
+      "shot": "tracking",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "THE COST OF THE SHELL",
+      "headline": "THE SHELL BECAME THE TRAP",
+      "narration": "Then the shell grew too large and heavy, slowing movement.",
+      "caption": "BIG SHELL. SLOW MOVEMENT.",
+      "visual": "race",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/139.png",
+      "accent": "#8B6F47",
+      "facts": [
+        "LARGE SHELL",
+        "HEAVY SHELL",
+        "SLOW MOVEMENT"
+      ]
+    },
+    {
+      "id": "weapons-cannot-prevent-extinction",
+      "durationSeconds": 4.2,
+      "beat": "twist",
+      "role": "twist",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "THE COUNTERPOINT",
+      "headline": "POWER STILL WASN'T ENOUGH",
+      "narration": "Even strong fangs and tentacles could not prevent extinction.",
+      "caption": "STRONG WEAPONS. NO ESCAPE.",
+      "visual": "tradeoff",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/139.png",
+      "accent": "#B85C5C",
+      "facts": [
+        "STRONG FANGS",
+        "DEVELOPED TENTACLES",
+        "EXTINCT"
+      ]
+    },
+    {
+      "id": "nearby-hunt-design",
+      "durationSeconds": 6.1,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "THE HUNTING TRADE-OFF",
+      "headline": "POWER ONLY WORKS UP CLOSE",
+      "narration": "Its hunting design worked nearby, but failed when food stayed out of reach.",
+      "caption": "NEARBY FOOD: POSSIBLE. DISTANT FOOD: LOST.",
+      "visual": "cta",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/139.png",
+      "accent": "#D7A94B"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Omastar",
+      "url": "https://www.pokemon.com/us/pokedex/omastar"
+    },
+    {
+      "label": "Bulbapedia — Omastar",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Omastar_(Pok%C3%A9mon)"
+    },
+    {
+      "label": "PokéAPI — Omastar",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/139"
+    }
+  ]
+}

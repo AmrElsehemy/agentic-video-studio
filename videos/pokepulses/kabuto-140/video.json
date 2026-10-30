@@ -1,0 +1,254 @@
+{
+  "schemaVersion": 2,
+  "id": "kabuto-140",
+  "show": {
+    "id": "pokepulses",
+    "name": "PokePulses",
+    "handle": "@PokePulses",
+    "wordmark": {
+      "lead": "POKE",
+      "accent": "PULSES"
+    },
+    "fonts": {
+      "display": "Bebas Neue",
+      "body": "system"
+    }
+  },
+  "title": "Kabuto's Hard Shell Keeps Changing",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "mechanic",
+    "numberRelevant": false,
+    "premise": "Kabuto molts every three days, and each new shell becomes harder than the last.",
+    "audiencePromise": "See why Kabuto's hard shell is not a finished defense, but a repeating cycle.",
+    "openLoop": "If Kabuto already has a hard shell, why shed it every three days?",
+    "payoff": "Kabuto's hard shell is not a final state. Each three-day molt leads to a harder replacement.",
+    "targetEmotion": "surprise",
+    "engagementQuestion": "Which sounds better: one hard shell, or repeated molts?",
+    "targetSecondsBetweenVisualChanges": 0.65
+  },
+  "subject": {
+    "name": "Kabuto",
+    "category": "Shellfish Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/140.png",
+    "identifier": "#140"
+  },
+  "related": [
+    {
+      "name": "Kabutops",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/141.png",
+      "identifier": "#141"
+    }
+  ],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#0b1020",
+    "surface": "#182338",
+    "primary": "#c49a6c",
+    "secondary": "#4c91a8",
+    "ink": "#f4f7fb"
+  },
+  "audio": {
+    "music": "generated/kabuto-140-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 126,
+      "notes": [
+        110,
+        130.81,
+        146.83,
+        164.81,
+        146.83,
+        130.81,
+        98,
+        130.81
+      ]
+    },
+    "voice": {
+      "provider": "openai",
+      "model": "gpt-4o-mini-tts",
+      "voice": "marin",
+      "instructions": "Speak quickly, warmly, and clearly. Stress hard shell, three days, and harder. Pause before the final choice.",
+      "speed": 1.12,
+      "output": "generated/kabuto-140-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "cleared",
+    "publicReleaseApproved": true,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "assets": [
+      {
+        "kind": "Kabuto official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/140.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ],
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    }
+  },
+  "scenes": [
+    {
+      "id": "hard-shell-keeps-changing",
+      "durationSeconds": 4.8,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "KABUTO'S SHELL",
+      "headline": "A HARD SHELL THAT KEEPS CHANGING",
+      "narration": "Kabuto's hard shell isn't finished. It changes every three days.",
+      "caption": "HARD SHELL. NEW EVERY THREE DAYS.",
+      "visual": "hook",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/140.png",
+      "accent": "#c49a6c",
+      "facts": [
+        "HARD SHELL",
+        "THREE-DAY CYCLE"
+      ]
+    },
+    {
+      "id": "hard-shell-defense",
+      "durationSeconds": 4.7,
+      "beat": "evidence",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "THE STARTING POINT",
+      "headline": "PROTECTED BY A HARD SHELL",
+      "narration": "The Pokédex says Kabuto protects itself with a hard shell.",
+      "caption": "ITS SHELL IS ALREADY HARD",
+      "visual": "gauntlet",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/140.png",
+      "accent": "#4c91a8",
+      "facts": [
+        "HARD SHELL",
+        "SELF-PROTECTION"
+      ]
+    },
+    {
+      "id": "replacement-gets-harder",
+      "durationSeconds": 5.3,
+      "beat": "escalation",
+      "role": "escalation",
+      "shot": "comparison",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "THE STRANGE RULE",
+      "headline": "THE REPLACEMENT GETS HARDER",
+      "narration": "Then every three days, Kabuto molts, and the replacement is harder.",
+      "caption": "EVERY MOLT: HARDER SHELL",
+      "visual": "advantage",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/140.png",
+      "accent": "#c49a6c",
+      "facts": [
+        "EVERY THREE DAYS",
+        "MOLT",
+        "HARDER REPLACEMENT"
+      ],
+      "primitive": {
+        "kind": "timeline",
+        "steps": [
+          {
+            "label": "CURRENT SHELL",
+            "detail": "HARD SHELL"
+          },
+          {
+            "label": "NEXT MOLT",
+            "detail": "HARDER SHELL"
+          },
+          {
+            "label": "NEXT SHELL",
+            "detail": "HARDER AGAIN"
+          }
+        ],
+        "active": 2
+      }
+    },
+    {
+      "id": "shedding-is-the-next-step",
+      "durationSeconds": 5.7,
+      "beat": "payoff",
+      "role": "payoff",
+      "shot": "tracking",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "THE CYCLE REVEALED",
+      "headline": "SHEDDING ISN'T THE END",
+      "narration": "So shedding isn't the endpoint. It's the next step in shell protection.",
+      "caption": "SHEDDING LEADS TO MORE PROTECTION",
+      "visual": "race",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/140.png",
+      "accent": "#4c91a8",
+      "facts": [
+        "SHEDDING",
+        "SHELL PROTECTION"
+      ]
+    },
+    {
+      "id": "harder-each-molt",
+      "durationSeconds": 5.2,
+      "beat": "payoff",
+      "role": "payoff",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "THE PAYOFF",
+      "headline": "LOSING IT MAKES THE NEXT ONE HARDER",
+      "narration": "Molt by molt, losing the shell makes the next one harder.",
+      "caption": "MOLT → NEW SHELL → HARDER",
+      "visual": "tradeoff",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/140.png",
+      "accent": "#c49a6c",
+      "facts": [
+        "MOLT BY MOLT",
+        "NEXT SHELL",
+        "HARDER"
+      ]
+    },
+    {
+      "id": "one-shell-or-repeated-molts",
+      "durationSeconds": 4.5,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "YOUR TAKE",
+      "headline": "ONE SHELL OR REPEATED MOLTS?",
+      "narration": "Which sounds better: one hard shell, or repeated molts?",
+      "caption": "ONE HARD SHELL OR REPEATED MOLTS?",
+      "visual": "cta",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/140.png",
+      "accent": "#4c91a8"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Kabuto",
+      "url": "https://www.pokemon.com/us/pokedex/kabuto"
+    },
+    {
+      "label": "Bulbapedia — Kabuto",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Kabuto_(Pok%C3%A9mon)"
+    },
+    {
+      "label": "PokéAPI — Kabuto",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/140"
+    }
+  ]
+}

@@ -1,0 +1,244 @@
+{
+  "schemaVersion": 2,
+  "id": "zapdos-145",
+  "show": {
+    "id": "pokepulses",
+    "name": "PokePulses",
+    "handle": "@PokePulses",
+    "wordmark": {
+      "lead": "POKE",
+      "accent": "PULSES"
+    },
+    "fonts": {
+      "display": "Bebas Neue",
+      "body": "system"
+    }
+  },
+  "title": "Zapdos Has a Bizarre Entrance Rule",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "mystery",
+    "numberRelevant": false,
+    "premise": "Zapdos controls electricity and causes storms, yet its appearance has one unusually precise condition.",
+    "audiencePromise": "Follow Zapdos from storm-maker to a legendary bird with the strangest arrival rule in its Pokédex entries.",
+    "openLoop": "If Zapdos lives in thunderclouds and causes storms, why require a split?",
+    "payoff": "Zapdos causes storms, yet appears only after one exact sky change.",
+    "targetEmotion": "surprise",
+    "engagementQuestion": "Better entrance: arriving with lightning, or splitting a thundercloud?",
+    "targetSecondsBetweenVisualChanges": 0.68
+  },
+  "subject": {
+    "name": "Zapdos",
+    "category": "Electric Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/145.png",
+    "identifier": "#145"
+  },
+  "related": [
+    {
+      "name": "Zapdos Galar",
+      "relation": "form",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10170.png",
+      "identifier": "#145"
+    }
+  ],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#08111F",
+    "surface": "#142238",
+    "primary": "#F4C542",
+    "secondary": "#6EC8FF",
+    "ink": "#F5F7FA"
+  },
+  "audio": {
+    "music": "generated/zapdos-145-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 126,
+      "notes": [
+        110,
+        130.81,
+        146.83,
+        164.81,
+        146.83,
+        130.81,
+        98,
+        130.81
+      ]
+    },
+    "voice": {
+      "provider": "openai",
+      "model": "gpt-4o-mini-tts",
+      "voice": "marin",
+      "instructions": "Speak like a knowledgeable fan sharing a strange discovery. Keep the pace quick, warm, and slightly dramatic. Pause briefly before each reveal, then land the final choice clearly.",
+      "speed": 1.12,
+      "output": "generated/zapdos-145-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "cleared",
+    "publicReleaseApproved": true,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "assets": [
+      {
+        "kind": "Zapdos official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/145.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ],
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    }
+  },
+  "scenes": [
+    {
+      "id": "the-cloud-must-split",
+      "durationSeconds": 4.2,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "mystery",
+      "subjectFocus": "hidden",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "ZAPDOS",
+      "headline": "LIGHTNING ISN'T ENOUGH",
+      "narration": "Zapdos appears only when a thundercloud splits in two.",
+      "caption": "THE SKY HAS AN ENTRANCE RULE",
+      "visual": "hook",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/145.png",
+      "accent": "#F4C542"
+    },
+    {
+      "id": "the-storm-home",
+      "durationSeconds": 4.7,
+      "beat": "clue",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "FIRST CLUE",
+      "headline": "A BIRD OF THUNDERCLOUDS",
+      "narration": "Zapdos is said to live in thunderclouds and control electricity.",
+      "caption": "THUNDERCLOUD HOME",
+      "visual": "gauntlet",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/145.png",
+      "accent": "#6EC8FF",
+      "facts": [
+        "THUNDERCLOUDS",
+        "CONTROLS ELECTRICITY"
+      ]
+    },
+    {
+      "id": "the-storm-maker",
+      "durationSeconds": 4.7,
+      "beat": "escalation",
+      "role": "escalation",
+      "shot": "tracking",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "IT MAKES STORMS",
+      "headline": "ITS WINGS CAUSE THUNDERSTORMS",
+      "narration": "It can cause savage thunderstorms by flapping its glittering wings.",
+      "caption": "WINGS → THUNDERSTORMS",
+      "visual": "advantage",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/145.png",
+      "accent": "#F4C542",
+      "facts": [
+        "SAVAGE THUNDERSTORMS",
+        "GLITTERING WINGS"
+      ]
+    },
+    {
+      "id": "the-precise-condition",
+      "durationSeconds": 5.2,
+      "beat": "reveal",
+      "role": "payoff",
+      "shot": "comparison",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "THE DETAIL",
+      "headline": "ONE PRECISE CONDITION",
+      "narration": "Two entries give one precise condition: a thundercloud parts in two.",
+      "caption": "ONE CLOUD → TWO HALVES",
+      "visual": "race",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/145.png",
+      "accent": "#6EC8FF",
+      "facts": [
+        "SILVER",
+        "SOULSILVER",
+        "TWO HALVES"
+      ],
+      "primitive": {
+        "kind": "checklist",
+        "items": [
+          {
+            "label": "THUNDERCLOUD",
+            "met": true
+          },
+          {
+            "label": "PARTS IN TWO",
+            "met": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "the-strangest-arrival",
+      "durationSeconds": 4.7,
+      "beat": "reveal",
+      "role": "payoff",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "THE CONTRAST",
+      "headline": "STORM-MAKER. STRICT ARRIVAL.",
+      "narration": "The bird that causes storms has the strangest arrival rule.",
+      "caption": "STORM-MAKER, THEN SKY-SPLIT",
+      "visual": "tradeoff",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/145.png",
+      "accent": "#F4C542",
+      "facts": [
+        "CAUSES STORMS",
+        "APPEARS WHEN CLOUD PARTS"
+      ]
+    },
+    {
+      "id": "perfect-or-strange",
+      "durationSeconds": 4.5,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "YOUR CALL",
+      "headline": "WHICH ENTRANCE WINS?",
+      "narration": "Better entrance: arriving with lightning, or splitting a thundercloud?",
+      "caption": "LIGHTNING OR SPLIT CLOUD?",
+      "visual": "cta",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/145.png",
+      "accent": "#6EC8FF"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Zapdos",
+      "url": "https://www.pokemon.com/us/pokedex/zapdos"
+    },
+    {
+      "label": "Bulbapedia — Zapdos",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Zapdos_(Pok%C3%A9mon)"
+    },
+    {
+      "label": "PokéAPI — Zapdos",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/145"
+    }
+  ]
+}

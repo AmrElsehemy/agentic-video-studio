@@ -1,0 +1,169 @@
+{
+  "id": "moltres-146",
+  "title": "Moltres Heals by Diving Into a Volcano",
+  "storyPattern": "mechanic",
+  "numberRelevant": false,
+  "premise": "Moltres is said to heal injuries by dipping its body into a volcano's molten magma.",
+  "audiencePromise": "Reveal the brutal healing method hidden in Moltres's Pokédex entry.",
+  "openLoop": "Why would a fire-controlling bird use molten magma to heal?",
+  "payoff": "The same fire Moltres controls becomes the answer when injury strikes.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "Would you trust magma healing, or call it too dangerous?",
+  "subject": {
+    "name": "Moltres",
+    "category": "Flame Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/146.png",
+    "identifier": "#146"
+  },
+  "related": [
+    {
+      "name": "Moltres Galar",
+      "relation": "form",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10171.png",
+      "identifier": "#146"
+    }
+  ],
+  "palette": {
+    "background": "#120B0A",
+    "surface": "#2A1510",
+    "primary": "#F4511E",
+    "secondary": "#FFC107",
+    "ink": "#FFF3E0"
+  },
+  "voice": {
+    "instructions": "Warm, quick, and amazed. Stress magma, injury, and heal. Pause briefly before the final choice."
+  },
+  "rights": {
+    "releaseStatus": "cleared",
+    "publicReleaseApproved": true,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    },
+    "assets": [
+      {
+        "kind": "Moltres official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/146.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "volcano-healing",
+      "beat": "hook",
+      "eyebrow": "MOLTRES'S SECRET",
+      "headline": "THE CURE IS MAGMA",
+      "narration": "Moltres may heal injuries by burning in magma.",
+      "caption": "HEALING THROUGH MAGMA",
+      "accent": "#F4511E",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/146.png"
+    },
+    {
+      "id": "pokedex-sequence",
+      "beat": "evidence",
+      "eyebrow": "THE POKÉDEX SAYS",
+      "headline": "INJURY COMES FIRST",
+      "narration": "The entry's sequence is simple: injured first, then dipped into molten magma.",
+      "caption": "INJURY → MOLTEN MAGMA",
+      "facts": [
+        "INJURED",
+        "MOLTEN MAGMA"
+      ],
+      "accent": "#FF6F00",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/146.png"
+    },
+    {
+      "id": "fire-control",
+      "beat": "escalation",
+      "eyebrow": "THE STRANGE LOGIC",
+      "headline": "FIRE CONTROL GOES FURTHER",
+      "narration": "Moltres controls fire, while its injuries lead it toward molten magma.",
+      "caption": "FIRE CONTROL MEETS MAGMA",
+      "facts": [
+        "CONTROLS FIRE",
+        "MOLTEN MAGMA"
+      ],
+      "accent": "#D32F2F",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/146.png"
+    },
+    {
+      "id": "burn-to-heal",
+      "beat": "payoff",
+      "eyebrow": "THE HEALING METHOD",
+      "headline": "DIP. BURN. HEAL.",
+      "narration": "When injured, it dips its body into magma to burn and heal itself.",
+      "caption": "DIP → BURN → HEAL",
+      "facts": [
+        "DIP",
+        "BURN",
+        "HEAL"
+      ],
+      "accent": "#FF8F00",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/146.png",
+      "primitive": {
+        "kind": "timeline",
+        "steps": [
+          {
+            "label": "INJURED"
+          },
+          {
+            "label": "MAGMA DIP",
+            "detail": "MOLTEN MAGMA"
+          },
+          {
+            "label": "BURN + HEAL"
+          }
+        ],
+        "active": 2
+      }
+    },
+    {
+      "id": "fire-becomes-answer",
+      "beat": "payoff",
+      "eyebrow": "THE FINAL REVEAL",
+      "headline": "FIRE BECOMES THE ANSWER",
+      "narration": "The same fire Moltres controls becomes the answer when injury strikes.",
+      "caption": "FIRE ANSWERS INJURY",
+      "facts": [
+        "CONTROLS FIRE",
+        "HEALS INJURY"
+      ],
+      "accent": "#FFC107",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/146.png"
+    },
+    {
+      "id": "trust-the-method",
+      "beat": "verdict",
+      "eyebrow": "YOUR CALL",
+      "headline": "TRUST THE MAGMA?",
+      "narration": "Would you trust magma healing, or call it too dangerous?",
+      "caption": "TRUST IT OR FEAR IT?",
+      "accent": "#FF5722",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/146.png"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Moltres",
+      "url": "https://www.pokemon.com/us/pokedex/moltres",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Moltres",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Moltres_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Moltres",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/146",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

@@ -1,0 +1,177 @@
+{
+  "id": "dratini-147",
+  "title": "Dratini's Life Energy Forces Repeated Skin Sheds",
+  "storyPattern": "mechanic",
+  "numberRelevant": false,
+  "premise": "Dratini repeatedly sheds its skin because life energy steadily builds inside it to uncontrollable levels.",
+  "audiencePromise": "See how rising life energy turns repeated skin shedding into Dratini's growth cycle.",
+  "openLoop": "How does uncontrollable energy become a growth cycle?",
+  "payoff": "Uncontrollable life energy becomes Dratini's growth cycle: shed skin, grow larger, then build again.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "Is repeated shedding a growth advantage or an energy response?",
+  "subject": {
+    "name": "Dratini",
+    "category": "Dragon Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/147.png",
+    "identifier": "#147"
+  },
+  "related": [
+    {
+      "name": "Dragonite",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/149.png",
+      "identifier": "#149"
+    },
+    {
+      "name": "Dragonair",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/148.png",
+      "identifier": "#148"
+    }
+  ],
+  "palette": {
+    "background": "#101522",
+    "surface": "#1B2638",
+    "primary": "#69C7D6",
+    "secondary": "#F3C969",
+    "ink": "#F4F7FA"
+  },
+  "voice": {
+    "instructions": "Quick, warm, and curious. Stress “keeps building,” “uncontrollable,” and “almost daily.” Pause briefly before the final either-or question."
+  },
+  "rights": {
+    "releaseStatus": "cleared",
+    "publicReleaseApproved": true,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    },
+    "assets": [
+      {
+        "kind": "Dratini official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/147.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "energy-keeps-building",
+      "beat": "hook",
+      "eyebrow": "LIFE ENERGY BUILDS",
+      "headline": "THE GROWTH RESET",
+      "narration": "Dratini's life energy keeps building, forcing repeated skin sheds.",
+      "caption": "LIFE ENERGY: UNCONTROLLABLE",
+      "accent": "#F3C969",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/147.png"
+    },
+    {
+      "id": "born-large-grows-longer",
+      "beat": "evidence",
+      "eyebrow": "THE GROWTH CYCLE",
+      "headline": "BORN LARGE, GROWS LONGER",
+      "narration": "Dratini is born large, then sheds repeatedly as it grows longer.",
+      "caption": "SHED SKIN TO GROW LONGER",
+      "facts": [
+        "BORN LARGE",
+        "REPEATED SHEDDING",
+        "GROWS LONGER"
+      ],
+      "accent": "#69C7D6",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/147.png",
+      "primitive": {
+        "kind": "timeline",
+        "steps": [
+          {
+            "label": "BORN LARGE",
+            "detail": "STARTS BIG"
+          },
+          {
+            "label": "REPEATED SHEDDING"
+          },
+          {
+            "label": "GROWS LONGER"
+          }
+        ],
+        "active": 2
+      }
+    },
+    {
+      "id": "uncontrollable-levels",
+      "beat": "escalation",
+      "eyebrow": "THE BUILDUP HAS A LIMIT",
+      "headline": "ENERGY HITS THE LIMIT",
+      "narration": "Inside, life energy steadily builds toward uncontrollable levels.",
+      "caption": "ENERGY REACHES UNCONTROLLABLE LEVELS",
+      "facts": [
+        "LIFE ENERGY",
+        "STEADILY BUILDS",
+        "UNCONTROLLABLE LEVELS"
+      ],
+      "accent": "#E9798D",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/147.png"
+    },
+    {
+      "id": "shed-old-skin",
+      "beat": "payoff",
+      "eyebrow": "THE RESPONSE",
+      "headline": "SHED THE OLD SKIN",
+      "narration": "That buildup triggers another shed, clearing old skin away.",
+      "caption": "BUILDUP → SHED OLD SKIN",
+      "facts": [
+        "OLD SKIN",
+        "ANOTHER SHED"
+      ],
+      "accent": "#F3C969",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/147.png"
+    },
+    {
+      "id": "almost-daily-cycle",
+      "beat": "payoff",
+      "eyebrow": "THE CYCLE CONTINUES",
+      "headline": "ALMOST DAILY",
+      "narration": "That cycle lets Dratini keep growing longer as energy builds again.",
+      "caption": "SHED → GROW → BUILD AGAIN",
+      "facts": [
+        "ALMOST DAILY",
+        "GROWS LARGER",
+        "ENERGY BUILDS AGAIN"
+      ],
+      "accent": "#69C7D6",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/147.png"
+    },
+    {
+      "id": "growth-or-energy-response",
+      "beat": "verdict",
+      "eyebrow": "YOUR VERDICT",
+      "headline": "GROWTH OR ENERGY RESPONSE?",
+      "narration": "Is repeated shedding a growth advantage or an energy response?",
+      "caption": "GROWTH ADVANTAGE OR ENERGY RESPONSE?",
+      "accent": "#E9798D",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/147.png"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Dratini",
+      "url": "https://www.pokemon.com/us/pokedex/dratini",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Dratini",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Dratini_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Dratini",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/147",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

@@ -1,0 +1,187 @@
+{
+  "id": "flareon-136",
+  "title": "Flareon's Deep Breath Is a Warning Shot",
+  "storyPattern": "mechanic",
+  "numberRelevant": false,
+  "premise": "Flareon inhales air into a flame sac, heats it, then exhales it as fire.",
+  "audiencePromise": "See how Flareon's deep inhale becomes extreme heat, fire, and an attack warning.",
+  "openLoop": "How does Flareon heat air, then exhale it as fire?",
+  "payoff": "Flareon's flame sac creates extreme fire, while its fluffy fur releases heat from its body.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "Which is scarier: the deep inhale or the fire?",
+  "subject": {
+    "name": "Flareon",
+    "category": "Flame Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/136.png",
+    "identifier": "#136"
+  },
+  "related": [
+    {
+      "name": "Eevee",
+      "relation": "evolves-from",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/133.png",
+      "identifier": "#133"
+    },
+    {
+      "name": "Vaporeon",
+      "relation": "related",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/134.png",
+      "identifier": "#134"
+    },
+    {
+      "name": "Jolteon",
+      "relation": "related",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/135.png",
+      "identifier": "#135"
+    }
+  ],
+  "palette": {
+    "background": "#160D0A",
+    "surface": "#2A1710",
+    "primary": "#F4511E",
+    "secondary": "#FFB300",
+    "ink": "#FFF3E0"
+  },
+  "voice": {
+    "instructions": "Speak like a knowledgeable fan sharing a dangerous surprise. Start sharp, build urgency with each beat, stress the deep breath and intense heat, then pause before the final choice."
+  },
+  "rights": {
+    "releaseStatus": "cleared",
+    "publicReleaseApproved": true,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    },
+    "assets": [
+      {
+        "kind": "Flareon official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/136.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "deep-breath-warning",
+      "beat": "hook",
+      "eyebrow": "FLAREON'S WARNING",
+      "headline": "ONE INHALE. EXTREME FIRE.",
+      "narration": "Flareon's deep inhale turns air into extreme fire.",
+      "caption": "DEEP BREATH. EXTREME FIRE.",
+      "facts": [
+        "DEEP INHALE",
+        "EXTREME FIRE"
+      ],
+      "accent": "#FFB300",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/136.png"
+    },
+    {
+      "id": "air-enters-sac",
+      "beat": "evidence",
+      "eyebrow": "THE ATTACK SIGNAL",
+      "headline": "THE INHALE STARTS IT",
+      "narration": "A deep inhale signals attack while air gets stored in its flame pouch.",
+      "caption": "INHALE = ATTACK SIGNAL",
+      "facts": [
+        "SIGNALS ATTACK",
+        "AIR IS STORED",
+        "FLAME POUCH"
+      ],
+      "accent": "#F4511E",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/136.png"
+    },
+    {
+      "id": "heat-spikes",
+      "beat": "escalation",
+      "eyebrow": "THE HEAT SPIKES",
+      "headline": "THE STORED AIR HEATS",
+      "narration": "Inside the pouch, that stored air heats to extreme levels.",
+      "caption": "STORED AIR → EXTREME HEAT",
+      "facts": [
+        "STORED AIR",
+        "EXTREME HEAT"
+      ],
+      "accent": "#FF6D00",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/136.png"
+    },
+    {
+      "id": "fire-exhales",
+      "beat": "payoff",
+      "eyebrow": "NOW IT COMES OUT",
+      "headline": "AIR BECOMES FIRE",
+      "narration": "Flareon then exhales that heated air as fire.",
+      "caption": "EXHALED AS FIRE",
+      "facts": [
+        "EXHALED FIRE",
+        "EXTREME HEAT"
+      ],
+      "accent": "#FFB300",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/136.png",
+      "primitive": {
+        "kind": "timeline",
+        "steps": [
+          {
+            "label": "INHALE",
+            "detail": "Air enters the flame sac"
+          },
+          {
+            "label": "FLAME SAC",
+            "detail": "Air heats over 3,000°F"
+          },
+          {
+            "label": "EXHALED FIRE",
+            "detail": "Heated air becomes fire"
+          }
+        ],
+        "active": 2
+      }
+    },
+    {
+      "id": "fur-releases-heat",
+      "beat": "payoff",
+      "eyebrow": "THE BODY'S SAFETY VALVE",
+      "headline": "FUR RELEASES THE HEAT",
+      "narration": "Its fluffy fur releases heat, keeping its body from getting excessively hot.",
+      "caption": "FLUFFY FUR RELEASES HEAT",
+      "facts": [
+        "FLUFFY FUR",
+        "RELEASES HEAT"
+      ],
+      "accent": "#E53935",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/136.png"
+    },
+    {
+      "id": "inhale-or-fire",
+      "beat": "verdict",
+      "eyebrow": "YOUR VERDICT",
+      "headline": "WHICH IS SCARIER?",
+      "narration": "Which is scarier: the deep inhale or the fire?",
+      "caption": "INHALE OR FIRE?",
+      "accent": "#FF7043",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/136.png"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Flareon",
+      "url": "https://www.pokemon.com/us/pokedex/flareon",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Flareon",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Flareon_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Flareon",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/136",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

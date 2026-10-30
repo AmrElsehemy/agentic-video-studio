@@ -1,0 +1,196 @@
+{
+  "id": "articuno-144",
+  "title": "Articuno's Same Height Hides a Huge Change",
+  "storyPattern": "comparison",
+  "numberRelevant": false,
+  "premise": "Articuno and Galarian Articuno share one height, but differ in weight and typing.",
+  "audiencePromise": "Watch one familiar measurement anchor two Articuno forms with different physical builds and types.",
+  "openLoop": "Can Articuno change its identity while keeping one measurement?",
+  "payoff": "Both forms are 1.7 meters tall, but their weights and types differ.",
+  "targetEmotion": "debate",
+  "engagementQuestion": "Which works better: classic Ice, or Galarian Psychic?",
+  "subject": {
+    "name": "Articuno",
+    "category": "Freeze Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/144.png",
+    "identifier": "#144"
+  },
+  "related": [
+    {
+      "name": "Articuno Galar",
+      "relation": "form",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10169.png",
+      "identifier": "#144"
+    }
+  ],
+  "palette": {
+    "background": "#101A2B",
+    "surface": "#1B2A44",
+    "primary": "#8ED8E8",
+    "secondary": "#B99CFF",
+    "ink": "#F5FAFF"
+  },
+  "voice": {
+    "instructions": "Speak like a knowledgeable fan sharing a sharp surprise. Keep the pace quick, warm, and clear. Stress the contrasts, pause briefly before each reveal, and end with genuine debate."
+  },
+  "rights": {
+    "releaseStatus": "cleared",
+    "publicReleaseApproved": true,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    },
+    "assets": [
+      {
+        "kind": "Articuno official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/144.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      },
+      {
+        "kind": "Articuno Galar official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10169.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "same-height-different-identity",
+      "beat": "hook",
+      "eyebrow": "THE SAME HEIGHT",
+      "headline": "SAME HEIGHT. NEW IDENTITY.",
+      "narration": "Articuno keeps its height, but loses its identity.",
+      "caption": "ONE HEIGHT. TWO FORMS.",
+      "accent": "#8ED8E8",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/144.png"
+    },
+    {
+      "id": "matching-height-marker",
+      "beat": "evidence",
+      "eyebrow": "THE ONE CONSTANT",
+      "headline": "BOTH STAND 1.7 METERS",
+      "narration": "Both forms stand at exactly one point seven meters tall.",
+      "caption": "HEIGHT: 1.7 METERS",
+      "facts": [
+        "ARTICUNO: 1.7 M",
+        "GALAR: 1.7 M"
+      ],
+      "accent": "#8ED8E8",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10169.png",
+      "primitive": {
+        "kind": "bars",
+        "unit": "M",
+        "bars": [
+          {
+            "label": "ARTICUNO",
+            "value": 1.7
+          },
+          {
+            "label": "GALAR",
+            "value": 1.7
+          }
+        ]
+      }
+    },
+    {
+      "id": "weight-shock",
+      "beat": "evidence",
+      "eyebrow": "THE SCALE DISAGREES",
+      "headline": "THE SAME-SIZED FORM IS LIGHTER",
+      "narration": "Galarian weighs 50.9 kilograms, not 55.4.",
+      "caption": "55.4 KG → 50.9 KG",
+      "facts": [
+        "ORIGINAL: 55.4 KG",
+        "GALAR: 50.9 KG"
+      ],
+      "accent": "#B99CFF",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10169.png",
+      "primitive": {
+        "kind": "bars",
+        "unit": "KG",
+        "bars": [
+          {
+            "label": "ARTICUNO",
+            "value": 55.4
+          },
+          {
+            "label": "GALAR",
+            "value": 50.9
+          }
+        ]
+      }
+    },
+    {
+      "id": "height-is-not-sameness",
+      "beat": "escalation",
+      "eyebrow": "THE MATCH IS DECEPTIVE",
+      "headline": "THE MATCH HIDES THE SPLIT",
+      "narration": "That matching marker hides a much bigger split between them.",
+      "caption": "SAME FRAME. DIFFERENT BUILD.",
+      "accent": "#B99CFF",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/144.png"
+    },
+    {
+      "id": "type-identity-swap",
+      "beat": "twist",
+      "eyebrow": "THE TYPES CHANGE",
+      "headline": "ICE BECOMES PSYCHIC",
+      "narration": "Same height, different typing: Galarian becomes Psychic and Flying.",
+      "caption": "ICE → PSYCHIC",
+      "facts": [
+        "ORIGINAL: ICE",
+        "BOTH: FLYING",
+        "GALAR: PSYCHIC"
+      ],
+      "accent": "#B99CFF",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10169.png",
+      "primitive": {
+        "kind": "type-shift",
+        "from": [
+          "Ice",
+          "Flying"
+        ],
+        "to": [
+          "Psychic",
+          "Flying"
+        ]
+      }
+    },
+    {
+      "id": "classic-or-galar",
+      "beat": "verdict",
+      "eyebrow": "YOUR PICK",
+      "headline": "ONE FRAME. TWO IDENTITIES.",
+      "narration": "Which works better: classic Ice, or Galarian Psychic?",
+      "caption": "CLASSIC OR GALAR?",
+      "accent": "#8ED8E8",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/144.png"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Articuno",
+      "url": "https://www.pokemon.com/us/pokedex/articuno",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Articuno",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Articuno_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Articuno",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/144",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

@@ -1,0 +1,272 @@
+{
+  "schemaVersion": 2,
+  "id": "vaporeon-134",
+  "show": {
+    "id": "pokepulses",
+    "name": "PokePulses",
+    "handle": "@PokePulses",
+    "wordmark": {
+      "lead": "POKE",
+      "accent": "PULSES"
+    },
+    "fonts": {
+      "display": "Bebas Neue",
+      "body": "system"
+    }
+  },
+  "title": "Vaporeon Erases Itself to Hunt",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "profile",
+    "numberRelevant": false,
+    "premise": "Vaporeon erases every sign underwater, waits for fish Pokémon, and can use water to hide from attackers.",
+    "audiencePromise": "Follow how Vaporeon's cells and tail fins turn underwater concealment into both waiting and hiding.",
+    "openLoop": "Is Vaporeon's disappearance for hunting, hiding, or both?",
+    "payoff": "The same water concealment serves two official purposes: waiting for fish Pokémon and hiding from an invading enemy.",
+    "targetEmotion": "surprise",
+    "engagementQuestion": "Is Vaporeon's best trick hunting prey or hiding from attackers?",
+    "targetSecondsBetweenVisualChanges": 0.72
+  },
+  "subject": {
+    "name": "Vaporeon",
+    "category": "Bubble Jet Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/134.png",
+    "identifier": "#134"
+  },
+  "related": [
+    {
+      "name": "Eevee",
+      "relation": "evolves-from",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/133.png",
+      "identifier": "#133"
+    },
+    {
+      "name": "Jolteon",
+      "relation": "related",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/135.png",
+      "identifier": "#135"
+    },
+    {
+      "name": "Flareon",
+      "relation": "related",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/136.png",
+      "identifier": "#136"
+    }
+  ],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#071923",
+    "surface": "#0D2B38",
+    "primary": "#65D8E8",
+    "secondary": "#A9F0E8",
+    "ink": "#F2FCFC"
+  },
+  "audio": {
+    "music": "generated/vaporeon-134-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 126,
+      "notes": [
+        110,
+        130.81,
+        146.83,
+        164.81,
+        146.83,
+        130.81,
+        98,
+        130.81
+      ]
+    },
+    "voice": {
+      "provider": "openai",
+      "model": "gpt-4o-mini-tts",
+      "voice": "marin",
+      "instructions": "Quick, warm, and quietly suspenseful. Stress invisible, erases, waits, and hides. Pause before the twist and verdict. Sound like a knowledgeable fan sharing a strange official detail.",
+      "speed": 1.12,
+      "output": "generated/vaporeon-134-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "cleared",
+    "publicReleaseApproved": true,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "assets": [
+      {
+        "kind": "Vaporeon official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/134.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ],
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    }
+  },
+  "scenes": [
+    {
+      "id": "disappears-to-hunt",
+      "durationSeconds": 4.3,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "mystery",
+      "subjectFocus": "hidden",
+      "beatEverySeconds": 0.72,
+      "eyebrow": "THE WATER HIDES A HUNTER",
+      "headline": "VANISHES, THEN WAITS",
+      "narration": "Vaporeon erases itself underwater, then waits for fish Pokémon.",
+      "caption": "INVISIBLE IN WATER, WAITING FOR PREY",
+      "visual": "hook",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/134.png",
+      "accent": "#65D8E8",
+      "primitive": {
+        "kind": "timeline",
+        "steps": [
+          {
+            "label": "MELT INTO WATER"
+          },
+          {
+            "label": "ERASE PRESENCE"
+          },
+          {
+            "label": "WAIT FOR PREY"
+          }
+        ],
+        "active": 2
+      }
+    },
+    {
+      "id": "water-like-cells",
+      "durationSeconds": 4.8,
+      "beat": "evidence",
+      "role": "evidence",
+      "shot": "tracking",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.72,
+      "eyebrow": "ITS BODY EXPLAINS IT",
+      "headline": "CELLS LIKE WATER",
+      "narration": "Its cells resemble water molecules, letting its form melt away.",
+      "caption": "ITS FORM CAN MELT INTO WATER",
+      "visual": "gauntlet",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/134.png",
+      "accent": "#A9F0E8",
+      "facts": [
+        "WATER-LIKE CELLS",
+        "MELTS INVISIBLY"
+      ]
+    },
+    {
+      "id": "tail-fins-blend",
+      "durationSeconds": 5.1,
+      "beat": "evidence",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.72,
+      "eyebrow": "EVEN SWIMMING HIDES IT",
+      "headline": "BLENDS WITH WATER PERFECTLY",
+      "narration": "Tail fins help it swim while Vaporeon blends perfectly with water.",
+      "caption": "SWIMMING WITHOUT A CLEAR SHAPE",
+      "visual": "advantage",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/134.png",
+      "accent": "#4BB9D0",
+      "facts": [
+        "TAIL FIN",
+        "PERFECT BLENDING"
+      ]
+    },
+    {
+      "id": "waits-for-prey",
+      "durationSeconds": 5.1,
+      "beat": "escalation",
+      "role": "escalation",
+      "shot": "comparison",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.72,
+      "eyebrow": "NO SIGN OF ITS PRESENCE",
+      "headline": "ERASES, THEN WAITS",
+      "narration": "The water offers no sign while Vaporeon waits for fish Pokémon.",
+      "caption": "THE WATER LOOKS EMPTY",
+      "visual": "race",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/134.png",
+      "accent": "#2E8FA8",
+      "facts": [
+        "ERASES ITS PRESENCE",
+        "WAITS FOR PREY"
+      ]
+    },
+    {
+      "id": "hides-from-enemies",
+      "durationSeconds": 5.1,
+      "beat": "twist",
+      "role": "twist",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.72,
+      "eyebrow": "THE SAME DIVE ALSO HIDES",
+      "headline": "WATER HIDES IT AGAIN",
+      "narration": "Yet an invading enemy can trigger the same dive for hiding.",
+      "caption": "DIVES WHEN AN ENEMY ATTACKS",
+      "visual": "tradeoff",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/134.png",
+      "accent": "#F2C86B",
+      "facts": [
+        "INVADING ENEMY",
+        "DIVES TO HIDE"
+      ],
+      "primitive": {
+        "kind": "timeline",
+        "steps": [
+          {
+            "label": "ENEMY APPROACHES"
+          },
+          {
+            "label": "DIVE INTO WATER"
+          },
+          {
+            "label": "HIDE"
+          }
+        ],
+        "active": 2
+      }
+    },
+    {
+      "id": "hunting-or-escaping",
+      "durationSeconds": 4.7,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.72,
+      "eyebrow": "TWO USES. ONE TRICK.",
+      "headline": "WAITING OR HIDING?",
+      "narration": "Is Vaporeon's best trick hunting prey or hiding from attackers?",
+      "caption": "TWO USES FOR THE SAME WATER TRICK",
+      "visual": "cta",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/134.png",
+      "accent": "#65D8E8"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Vaporeon",
+      "url": "https://www.pokemon.com/us/pokedex/vaporeon"
+    },
+    {
+      "label": "Bulbapedia — Vaporeon",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Vaporeon_(Pok%C3%A9mon)"
+    },
+    {
+      "label": "PokéAPI — Vaporeon",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/134"
+    }
+  ]
+}
