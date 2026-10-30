@@ -8,7 +8,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {spawnSync} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
-import {allRaces, buildRace, checkRace, dexRow, parseCandidateId, raceBeats, shortlist, tableChecksum} from './lib/dex.mjs';
+import {allRaces, buildRace, checkRace, dexRow, parseCandidateId, pickScore, raceBeats, shortlist, tableChecksum} from './lib/dex.mjs';
+import {raceCues, writeRaceSfx} from './lib/race-sound.mjs';
 import {writeAudioBed} from './lib/audio-bed.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -101,12 +102,16 @@ if (command === 'prepare') {
     if (!response.ok) throw new Error(`Could not download artwork for ${racer.name}: ${response.status}`);
     fs.writeFileSync(target, Buffer.from(await response.arrayBuffer()));
   }
+  // The music is a score that builds with the race's beats; the sound effects follow the bars.
   const audioId = `race-${manifest.id}`;
-  writeAudioBed({root, episodeId: audioId, manifest: {audio: {bed: show.music}, scenes: raceBeats(manifest)}});
+  const score = manifest.music?.score ?? pickScore(manifest.id, manifest.race.direction);
+  writeAudioBed({root, episodeId: audioId, manifest: {id: audioId, audio: {bed: {...show.music, score}}, scenes: raceBeats(manifest)}});
+  const sfx = writeRaceSfx({root, audioId, manifest, scoreName: score});
+  console.log(`✓ music: the ${score} score, with ${raceCues(manifest).filter((cue) => cue.cue === 'stop').length} bar stops on the beat sheet`);
   const props = {
     manifest: {...manifest, racers: manifest.racers.map((racer) => ({...racer, artwork: `generated/races/${racer.id}.png`}))},
     brand: {wordmark: show.wordmark, palette: show.palette},
-    audio: {music: `generated/${audioId}-bed.wav`, sfx: `generated/${audioId}-sfx.wav`, musicVolume: 0.42, sfxVolume: 0.5},
+    audio: {music: `generated/${audioId}-bed.wav`, sfx, musicVolume: 0.8, sfxVolume: 0.85},
   };
   const outDir = path.join(root, 'out', 'pokepulses-races', manifest.id);
   fs.mkdirSync(outDir, {recursive: true});

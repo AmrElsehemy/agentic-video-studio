@@ -41,6 +41,7 @@ export type RaceManifest = {
   timeline: {sortStart: number; sortEnd: number; payoff: number; question: number; end: number};
   headlines: RaceHeadline[];
   question: {prompt: string; options: {id: number; label: string; sub: string}[]};
+  music: {score: string};
   caption: string;
 };
 
@@ -50,6 +51,8 @@ export const MIN_POOL: number;
 export const METRICS: Record<string, {label: string; unit: string; battle: boolean; scale?: number; decimals?: number; get: (row: DexRow) => number; ask: {top: string; bottom: string}}>;
 export const REGIONS: Record<string, {label: string; has: (row: DexRow) => boolean}>;
 export const GROUPS: Record<string, {label: string; has: (row: DexRow, stage: {stage: number; final: boolean}) => boolean}>;
+export const RACE_SCORES: {top: string[]; bottom: string[]};
+export function pickScore(id: string, direction: string): string;
 export function tableChecksum(table: Record<string, unknown>): string;
 export function dexRow(pokemon: unknown, species: unknown): DexRow;
 export function total(row: DexRow): number;

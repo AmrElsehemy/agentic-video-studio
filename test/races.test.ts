@@ -1,7 +1,8 @@
 import assert from 'node:assert/strict';
 import {describe, it} from 'node:test';
 import type {DexTable} from '../scripts/lib/dex.mjs';
-import {allRaces, buildRace, checkRace, candidateId, parseCandidateId, poolOf, raceBeats, scoreRace, shortlist, stagesIn, tableChecksum} from '../scripts/lib/dex.mjs';
+import {raceCues, renderRaceSfx, stopFrame} from '../scripts/lib/race-sound.mjs';
+import {allRaces, RACE_SCORES, buildRace, checkRace, candidateId, parseCandidateId, poolOf, raceBeats, scoreRace, shortlist, stagesIn, tableChecksum} from '../scripts/lib/dex.mjs';
 
 type Stats = {hp: number; attack: number; defense: number; spAtk: number; spDef: number; speed: number};
 const mon = (id: number, name: string, types: string[], stats: Partial<Stats>, extra: Record<string, unknown> = {}) => ({
@@ -109,4 +110,37 @@ describe('ranked races', () => {
     assert.equal(beats.at(-1)?.role, 'interaction');
     assert.ok(Math.abs(beats.reduce((sum: number, beat: {durationSeconds: number}) => sum + beat.durationSeconds, 0) - race.timeline.end / 30) < 1e-9);
   });
+
+  it('picks a score that suits the race, and keeps it in the manifest', () => {
+    const top = buildRace(table, {region: 'both', group: 'psychic', direction: 'top', metric: 'hp'});
+    const bottom = buildRace(table, {region: 'both', group: 'psychic', direction: 'bottom', metric: 'hp'});
+    assert.ok(RACE_SCORES.top.includes(top.music.score));
+    assert.ok(RACE_SCORES.bottom.includes(bottom.music.score));
+  });
+
+  it('plays a note per bar stop, a tie as one, and the hit on a top winner\'s stop', () => {
+    const race = buildRace(table, {region: 'both', group: 'psychic', direction: 'top', metric: 'hp'});
+    const cues = raceCues(race);
+    const stops = cues.filter((cue) => cue.cue === 'stop');
+    assert.equal(stops.length, new Set(race.racers.filter((racer) => !racer.hero).map((racer) => racer.value)).size, 'the two 106s stop together');
+    const win = cues.find((cue) => cue.cue === 'win');
+    assert.equal(win?.time, stopFrame(race.counter, 190) / 30);
+    assert.ok(stops.every((cue) => cue.time < (win?.time ?? 0)));
+    const riser = cues.find((cue) => cue.cue === 'riser');
+    assert.equal(riser?.end, win?.time, 'the riser runs into the winner\'s stop');
+    assert.equal(cues.at(-1)?.cue, 'chime');
+  });
+
+  it('starts a bottom race on the lowest note and lands the hit on the reveal', () => {
+    const race = buildRace(table, {region: 'both', group: 'psychic', direction: 'bottom', metric: 'hp'});
+    const cues = raceCues(race);
+    const first = cues.find((cue) => cue.cue === 'stop');
+    assert.equal(first?.step, 0);
+    assert.equal(first?.time, stopFrame(race.counter, 35) / 30);
+    assert.equal(cues.find((cue) => cue.cue === 'win')?.time, race.timeline.sortEnd / 30);
+    const samples = renderRaceSfx(race, race.music.score);
+    assert.equal(samples.length, Math.ceil((race.timeline.end / 30) * 44100));
+    assert.ok(samples.some((sample) => Math.abs(sample) > 0.1));
+  });
 });
+

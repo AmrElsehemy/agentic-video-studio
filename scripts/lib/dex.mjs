@@ -99,6 +99,13 @@ export const GROUPS = {
 
 const EVOLUTION_GROUPS = ['unevolved', 'fullyEvolved', 'middle', 'single'];
 
+/** Scores (scripts/lib/score.mjs) that suit each kind of race; a race picks one from its id, so neighbours sound different. */
+export const RACE_SCORES = {top: ['pulse', 'epic', 'wonder'], bottom: ['quirky', 'tension', 'pulse']};
+export const pickScore = (id, direction) => {
+  const hash = [...id].reduce((sum, char) => (Math.imul(sum, 31) + char.charCodeAt(0)) | 0, 7);
+  return RACE_SCORES[direction][Math.abs(hash) % RACE_SCORES[direction].length];
+};
+
 export const candidateId = ({region, group, direction, metric}) => `${region}-${group}-${direction}-${metric}`;
 
 export const parseCandidateId = (id) => {
@@ -268,6 +275,7 @@ export const buildRace = (table, spec) => {
       ],
     },
     // Evolution groups are judged within the region's Pokédex (Togetic is fully evolved until Gen 4), so the video says so.
+    music: {score: pickScore(candidateId(spec), direction)},
     caption: [m.battle || metric === 'total' ? 'BASE STATS' : 'POKÉDEX DATA', 'CURRENT GAMES', ...(EVOLUTION_GROUPS.includes(group) ? [`EVOLUTIONS AS OF ${region === 'kanto' ? 'GEN 1' : 'GEN 2'}`] : [])].join(' · '),
   };
 };

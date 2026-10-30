@@ -31,6 +31,19 @@ Any race with at least six Pokémon and no tie for first can be made, on the sho
 
 `races:candidates` scores each race on simple rules: an underdog wins (more than half the group has higher total stats), a legendary or fully evolved Pokémon comes last, an unevolved Pokémon wins on size, a photo finish or a runaway. It then keeps at most three races per winner and per region+group, and drops the same story in another region. It suggests races and doesn't replace your judgement.
 
+## Music
+
+Races have no narration, so the music carries them. Each race uses a score from `scripts/lib/score.mjs` that builds with the race's beats: a pad and groove at the hook, more layers through the count-up, everything at the reveal. `races:new` picks one that suits the race: `pulse`, `epic` or `wonder` for a top race; `quirky`, `tension` or `pulse` for a bottom race. The pick comes from the race id, so neighbouring races sound different. Change `music.score` in the manifest to choose another; the known scores are `wonder`, `epic`, `tension`, `calm`, `quirky` and `pulse`.
+
+On top of the score, `scripts/lib/race-sound.mjs` follows the bars:
+
+- Every bar that stops plays a note, one step higher up a pentatonic scale each time. Bars that tie stop on one note.
+- When a top race's winner stops, it gets an impact and a bell. A riser runs through its solo.
+- A bottom race's winner stops first, on the lowest note. The riser then leads into the reveal, where the hit lands.
+- A whoosh plays under the re-sort and a chime on the question.
+
+The cue times come from the same counter curve the renderer draws, so each note lands on its bar's stopping frame.
+
 ## How it stays apart from episodes
 
 | | Episodes | Races |

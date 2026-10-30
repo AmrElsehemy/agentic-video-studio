@@ -16,6 +16,10 @@ One question ("Who has the most HP?"), up to ten Pokémon from one group, one fi
 - No narration: the headlines carry the story, one at a time, at the top of the frame.
 - The caption says what the figures are: base stats or Pokédex data from the current games, and, for evolution groups, which generation's Pokédex the stages are judged by.
 
+## Sound
+- The score builds with the race and peaks at the reveal; each bar's stop is a note, climbing as the race goes on.
+- The winner's moment is the only big hit. Neighbouring races shouldn't share a score.
+
 ## Never
 - Draw anyone who is not in the race, or fan art.
 - Race a tie for first, or a group of fewer than six.
