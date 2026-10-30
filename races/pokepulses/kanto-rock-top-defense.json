@@ -1,0 +1,210 @@
+{
+ "schemaVersion": 1,
+ "id": "kanto-rock-top-defense",
+ "format": "ranked-race",
+ "show": "pokepulses",
+ "race": {
+  "region": "kanto",
+  "group": "rock",
+  "direction": "top",
+  "metric": "defense",
+  "score": 4.5,
+  "why": [
+   "underdog wins",
+   "runaway winner"
+  ]
+ },
+ "source": {
+  "name": "PokéAPI",
+  "fetchedAt": "2026-10-30",
+  "sha256": "fc026b5772d46e321b4a71ef10e7e778d3799f6b8b858090f88914e362d2a08e"
+ },
+ "metric": {
+  "id": "defense",
+  "label": "Defense",
+  "unit": "DEFENSE",
+  "scale": 1,
+  "decimals": 0
+ },
+ "racers": [
+  {
+   "id": 95,
+   "name": "Onix",
+   "value": 160,
+   "total": 385,
+   "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/95.png",
+   "hero": true
+  },
+  {
+   "id": 76,
+   "name": "Golem",
+   "value": 130,
+   "total": 495,
+   "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/76.png",
+   "hero": false
+  },
+  {
+   "id": 139,
+   "name": "Omastar",
+   "value": 125,
+   "total": 495,
+   "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/139.png",
+   "hero": false
+  },
+  {
+   "id": 112,
+   "name": "Rhydon",
+   "value": 120,
+   "total": 485,
+   "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/112.png",
+   "hero": false
+  },
+  {
+   "id": 75,
+   "name": "Graveler",
+   "value": 115,
+   "total": 390,
+   "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/75.png",
+   "hero": false
+  },
+  {
+   "id": 141,
+   "name": "Kabutops",
+   "value": 105,
+   "total": 495,
+   "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/141.png",
+   "hero": false
+  },
+  {
+   "id": 74,
+   "name": "Geodude",
+   "value": 100,
+   "total": 300,
+   "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/74.png",
+   "hero": false
+  },
+  {
+   "id": 138,
+   "name": "Omanyte",
+   "value": 100,
+   "total": 355,
+   "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/138.png",
+   "hero": false
+  },
+  {
+   "id": 111,
+   "name": "Rhyhorn",
+   "value": 95,
+   "total": 345,
+   "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/111.png",
+   "hero": false
+  },
+  {
+   "id": 140,
+   "name": "Kabuto",
+   "value": 90,
+   "total": 355,
+   "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/140.png",
+   "hero": false
+  }
+ ],
+ "order": {
+  "initial": [
+   76,
+   139,
+   141,
+   112,
+   75,
+   95,
+   138,
+   140,
+   111,
+   74
+  ],
+  "final": [
+   95,
+   76,
+   139,
+   112,
+   75,
+   141,
+   74,
+   138,
+   111,
+   140
+  ],
+  "initialLabel": "ORDERED BY TOTAL STATS",
+  "finalLabel": "ORDERED BY DEFENSE"
+ },
+ "counter": [
+  {
+   "frame": 75,
+   "value": 0
+  },
+  {
+   "frame": 285,
+   "value": 130
+  },
+  {
+   "frame": 377,
+   "value": 160
+  }
+ ],
+ "timeline": {
+  "sortStart": 389,
+  "sortEnd": 439,
+  "payoff": 464,
+  "question": 584,
+  "end": 704
+ },
+ "headlines": [
+  {
+   "from": 0,
+   "kicker": "ROCK TYPES · KANTO",
+   "text": "WHO HAS THE BEST DEFENSE?",
+   "to": 237
+  },
+  {
+   "from": 237,
+   "kicker": "GOLEM TOPS OUT AT",
+   "text": "130 DEFENSE",
+   "to": 305
+  },
+  {
+   "from": 305,
+   "text": "ONE BAR KEEPS GOING",
+   "tone": "hero",
+   "to": 389
+  },
+  {
+   "from": 389,
+   "kicker": "ONIX",
+   "text": "160 DEFENSE",
+   "tone": "hero",
+   "to": 464
+  },
+  {
+   "from": 464,
+   "kicker": "DEFENSE WINNER · BUT SP. ATK",
+   "text": "JUST 30",
+   "tone": "twist",
+   "to": 584
+  }
+ ],
+ "question": {
+  "prompt": "WHO WOULD YOU RATHER HAVE?",
+  "options": [
+   {
+    "id": 95,
+    "label": "ONIX",
+    "sub": "Defense 160"
+   },
+   {
+    "id": 76,
+    "label": "GOLEM",
+    "sub": "495 total stats"
+   }
+  ]
+ },
+ "caption": "BASE STATS · CURRENT GAMES"
+}

@@ -293,6 +293,18 @@ npm run geo:direct -- lesotho-enclave --reply=test/fixtures/geo-director/lesotho
 
 The research names places ("South Africa", "Vatican City"), which are resolved to map ids, and points (a capital, a summit) with their sources. The director may only use those. Numbers on screen must be in the research's claims, and an approximate point must say so. A shot that breaks a rule becomes a plain map of the subject, with the reason printed. See [docs/geomotion-director.md](docs/geomotion-director.md).
 
+## PokePulses ranked races
+
+A second PokePulses format with many Pokémon in one video, kept apart from the one-Pokémon episodes. Every bar counts up and stops at its own value, so the winner is the last bar still going (or the first to stop). The figures come from a pinned PokéAPI table of Gen 1–2.
+
+```bash
+npm run races:candidates                    # score every race; the shortlist is in research/races/candidates.json
+npm run races:new -- both-psychic-top-hp    # races/pokepulses/both-psychic-top-hp.json
+npm run races:render -- both-psychic-top-hp # out/pokepulses-races/both-psychic-top-hp/both-psychic-top-hp.mp4
+```
+
+Races live in `races/`, render from their own entry point (`src/races/index.ts`) and follow their own [style guide](shows/pokepulses.races.style.md), so `videos/`, `drafts/`, `validate` and CI don't see them. See [docs/races.md](docs/races.md).
+
 ## Project structure
 
 ```text

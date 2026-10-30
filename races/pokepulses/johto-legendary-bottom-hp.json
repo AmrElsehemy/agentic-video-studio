@@ -1,0 +1,174 @@
+{
+ "schemaVersion": 1,
+ "id": "johto-legendary-bottom-hp",
+ "format": "ranked-race",
+ "show": "pokepulses",
+ "race": {
+  "region": "johto",
+  "group": "legendary",
+  "direction": "bottom",
+  "metric": "hp",
+  "score": 5.5,
+  "why": [
+   "a legendary comes last",
+   "runaway winner"
+  ]
+ },
+ "source": {
+  "name": "PokéAPI",
+  "fetchedAt": "2026-10-30",
+  "sha256": "fc026b5772d46e321b4a71ef10e7e778d3799f6b8b858090f88914e362d2a08e"
+ },
+ "metric": {
+  "id": "hp",
+  "label": "HP",
+  "unit": "HP",
+  "scale": 1,
+  "decimals": 0
+ },
+ "racers": [
+  {
+   "id": 243,
+   "name": "Raikou",
+   "value": 90,
+   "total": 580,
+   "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/243.png",
+   "hero": true
+  },
+  {
+   "id": 245,
+   "name": "Suicune",
+   "value": 100,
+   "total": 580,
+   "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/245.png",
+   "hero": false
+  },
+  {
+   "id": 251,
+   "name": "Celebi",
+   "value": 100,
+   "total": 600,
+   "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/251.png",
+   "hero": false
+  },
+  {
+   "id": 249,
+   "name": "Lugia",
+   "value": 106,
+   "total": 680,
+   "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/249.png",
+   "hero": false
+  },
+  {
+   "id": 250,
+   "name": "Ho-Oh",
+   "value": 106,
+   "total": 680,
+   "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/250.png",
+   "hero": false
+  },
+  {
+   "id": 244,
+   "name": "Entei",
+   "value": 115,
+   "total": 580,
+   "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/244.png",
+   "hero": false
+  }
+ ],
+ "order": {
+  "initial": [
+   249,
+   250,
+   251,
+   243,
+   244,
+   245
+  ],
+  "final": [
+   243,
+   245,
+   251,
+   249,
+   250,
+   244
+  ],
+  "initialLabel": "ORDERED BY TOTAL STATS",
+  "finalLabel": "ORDERED BY HP"
+ },
+ "counter": [
+  {
+   "frame": 75,
+   "value": 0
+  },
+  {
+   "frame": 225,
+   "value": 90
+  },
+  {
+   "frame": 270,
+   "value": 90
+  },
+  {
+   "frame": 360,
+   "value": 115
+  }
+ ],
+ "timeline": {
+  "sortStart": 372,
+  "sortEnd": 422,
+  "payoff": 447,
+  "question": 567,
+  "end": 687
+ },
+ "headlines": [
+  {
+   "from": 0,
+   "kicker": "LEGENDARIES · JOHTO",
+   "text": "WHO HAS THE LEAST HP?",
+   "to": 225
+  },
+  {
+   "from": 225,
+   "kicker": "FIRST TO STOP",
+   "text": "RAIKOU",
+   "tone": "hero",
+   "to": 280
+  },
+  {
+   "from": 280,
+   "text": "EVERYONE ELSE KEEPS GOING",
+   "to": 372
+  },
+  {
+   "from": 372,
+   "kicker": "RAIKOU",
+   "text": "90 HP",
+   "tone": "hero",
+   "to": 447
+  },
+  {
+   "from": 447,
+   "kicker": "LAST ON HP · BUT SP. ATK AND SPEED",
+   "text": "115 · BEST HERE",
+   "tone": "twist",
+   "to": 567
+  }
+ ],
+ "question": {
+  "prompt": "WHO WOULD YOU RATHER HAVE?",
+  "options": [
+   {
+    "id": 243,
+    "label": "RAIKOU",
+    "sub": "HP 90"
+   },
+   {
+    "id": 249,
+    "label": "LUGIA",
+    "sub": "680 total stats"
+   }
+  ]
+ },
+ "caption": "BASE STATS · CURRENT GAMES"
+}

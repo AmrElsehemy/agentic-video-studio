@@ -1,0 +1,210 @@
+{
+ "schemaVersion": 1,
+ "id": "both-rock-top-height",
+ "format": "ranked-race",
+ "show": "pokepulses",
+ "race": {
+  "region": "both",
+  "group": "rock",
+  "direction": "top",
+  "metric": "height",
+  "score": 3.5,
+  "why": [
+   "unevolved wins on size",
+   "runaway winner"
+  ]
+ },
+ "source": {
+  "name": "PokéAPI",
+  "fetchedAt": "2026-10-30",
+  "sha256": "fc026b5772d46e321b4a71ef10e7e778d3799f6b8b858090f88914e362d2a08e"
+ },
+ "metric": {
+  "id": "height",
+  "label": "Height",
+  "unit": "M",
+  "scale": 0.1,
+  "decimals": 1
+ },
+ "racers": [
+  {
+   "id": 95,
+   "name": "Onix",
+   "value": 88,
+   "total": 385,
+   "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/95.png",
+   "hero": true
+  },
+  {
+   "id": 248,
+   "name": "Tyranitar",
+   "value": 20,
+   "total": 600,
+   "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/248.png",
+   "hero": false
+  },
+  {
+   "id": 112,
+   "name": "Rhydon",
+   "value": 19,
+   "total": 485,
+   "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/112.png",
+   "hero": false
+  },
+  {
+   "id": 142,
+   "name": "Aerodactyl",
+   "value": 18,
+   "total": 515,
+   "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/142.png",
+   "hero": false
+  },
+  {
+   "id": 76,
+   "name": "Golem",
+   "value": 14,
+   "total": 495,
+   "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/76.png",
+   "hero": false
+  },
+  {
+   "id": 141,
+   "name": "Kabutops",
+   "value": 13,
+   "total": 495,
+   "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/141.png",
+   "hero": false
+  },
+  {
+   "id": 185,
+   "name": "Sudowoodo",
+   "value": 12,
+   "total": 410,
+   "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/185.png",
+   "hero": false
+  },
+  {
+   "id": 247,
+   "name": "Pupitar",
+   "value": 12,
+   "total": 410,
+   "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/247.png",
+   "hero": false
+  },
+  {
+   "id": 75,
+   "name": "Graveler",
+   "value": 10,
+   "total": 390,
+   "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/75.png",
+   "hero": false
+  },
+  {
+   "id": 111,
+   "name": "Rhyhorn",
+   "value": 10,
+   "total": 345,
+   "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/111.png",
+   "hero": false
+  }
+ ],
+ "order": {
+  "initial": [
+   248,
+   142,
+   76,
+   141,
+   112,
+   185,
+   247,
+   75,
+   95,
+   111
+  ],
+  "final": [
+   95,
+   248,
+   112,
+   142,
+   76,
+   141,
+   185,
+   247,
+   75,
+   111
+  ],
+  "initialLabel": "ORDERED BY TOTAL STATS",
+  "finalLabel": "ORDERED BY HEIGHT"
+ },
+ "counter": [
+  {
+   "frame": 75,
+   "value": 0
+  },
+  {
+   "frame": 285,
+   "value": 20
+  },
+  {
+   "frame": 435,
+   "value": 88
+  }
+ ],
+ "timeline": {
+  "sortStart": 447,
+  "sortEnd": 497,
+  "payoff": 522,
+  "question": 642,
+  "end": 762
+ },
+ "headlines": [
+  {
+   "from": 0,
+   "kicker": "ROCK TYPES · GEN 1–2",
+   "text": "WHO IS THE TALLEST?",
+   "to": 237
+  },
+  {
+   "from": 237,
+   "kicker": "TYRANITAR TOPS OUT AT",
+   "text": "2.0 M",
+   "to": 305
+  },
+  {
+   "from": 305,
+   "text": "ONE BAR KEEPS GOING",
+   "tone": "hero",
+   "to": 447
+  },
+  {
+   "from": 447,
+   "kicker": "ONIX",
+   "text": "8.8 M",
+   "tone": "hero",
+   "to": 522
+  },
+  {
+   "from": 522,
+   "kicker": "ONIX ON TOTAL STATS",
+   "text": "9TH OF 10",
+   "tone": "twist",
+   "to": 642
+  }
+ ],
+ "question": {
+  "prompt": "WHO WOULD YOU RATHER HAVE?",
+  "options": [
+   {
+    "id": 95,
+    "label": "ONIX",
+    "sub": "Height 8.8"
+   },
+   {
+    "id": 248,
+    "label": "TYRANITAR",
+    "sub": "600 total stats"
+   }
+  ]
+ },
+ "caption": "POKÉDEX DATA · CURRENT GAMES"
+}
