@@ -1,0 +1,264 @@
+{
+  "schemaVersion": 2,
+  "id": "seadra-117",
+  "show": {
+    "id": "pokepulses",
+    "name": "PokePulses",
+    "handle": "@PokePulses",
+    "wordmark": {
+      "lead": "POKE",
+      "accent": "PULSES"
+    },
+    "fonts": {
+      "display": "Bebas Neue",
+      "body": "system"
+    }
+  },
+  "title": "Seadra's Whirlpool Can Swallow Fishing Boats",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "mechanic",
+    "numberRelevant": false,
+    "premise": "Seadra spins whirlpools strong enough to swallow fishing boats, then uses those currents to weaken prey.",
+    "audiencePromise": "See how Seadra turns one boat-swallowing whirlpool into a hunting weapon.",
+    "openLoop": "How does Seadra turn a whirlpool into a hunting move?",
+    "payoff": "Seadra uses those currents to weaken prey, then swallows it whole.",
+    "targetEmotion": "surprise",
+    "engagementQuestion": "More frightening: boat-swallowing whirlpools or oversized-food suction?",
+    "targetSecondsBetweenVisualChanges": 0.65
+  },
+  "subject": {
+    "name": "Seadra",
+    "category": "Dragon Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/117.png",
+    "identifier": "#117"
+  },
+  "related": [
+    {
+      "name": "Kingdra",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/230.png",
+      "identifier": "#230"
+    },
+    {
+      "name": "Horsea",
+      "relation": "evolves-from",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/116.png",
+      "identifier": "#116"
+    }
+  ],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#071923",
+    "surface": "#102A43",
+    "primary": "#55C7E8",
+    "secondary": "#E65B63",
+    "ink": "#F4FBFF"
+  },
+  "audio": {
+    "music": "generated/seadra-117-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 126,
+      "notes": [
+        110,
+        130.81,
+        146.83,
+        164.81,
+        146.83,
+        130.81,
+        98,
+        130.81
+      ]
+    },
+    "voice": {
+      "provider": "openai",
+      "model": "gpt-4o-mini-tts",
+      "voice": "marin",
+      "instructions": "Speak like a knowledgeable fan telling a friend something shocking. Keep the pace quick, warm, and playful. Stress boat-swallowing, weakened prey, and oversized-food suction. Pause briefly before the final either-or question.",
+      "speed": 1.12,
+      "output": "generated/seadra-117-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "cleared",
+    "publicReleaseApproved": true,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "assets": [
+      {
+        "kind": "Seadra official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/117.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ],
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    }
+  },
+  "scenes": [
+    {
+      "id": "boat-swallowing-whirlpool",
+      "durationSeconds": 3.8,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "SEADRA'S HUNT",
+      "headline": "BOATS CAN DISAPPEAR",
+      "narration": "Seadra's whirlpool can swallow fishing boats.",
+      "caption": "A WHIRLPOOL THAT SWALLOWS BOATS",
+      "visual": "hook",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/117.png",
+      "accent": "#55C7E8"
+    },
+    {
+      "id": "spinning-body",
+      "durationSeconds": 4.3,
+      "beat": "evidence",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "THE MECHANIC",
+      "headline": "SEADRA SPINS THE WATER",
+      "narration": "It spins its body, generating whirlpools from that motion.",
+      "caption": "BODY SPIN → WHIRLPOOL",
+      "visual": "gauntlet",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/117.png",
+      "accent": "#55C7E8",
+      "facts": [
+        "SPINS ITS BODY",
+        "GENERATES WHIRLPOOLS"
+      ],
+      "primitive": {
+        "kind": "timeline",
+        "steps": [
+          {
+            "label": "SPINS BODY"
+          },
+          {
+            "label": "GENERATES WHIRLPOOLS"
+          }
+        ],
+        "active": 1
+      }
+    },
+    {
+      "id": "currents-weaken-prey",
+      "durationSeconds": 5.2,
+      "beat": "escalation",
+      "role": "escalation",
+      "shot": "comparison",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "THE SURPRISE",
+      "headline": "THE CURRENT WEAKENS PREY",
+      "narration": "The surprising part is what happens next: those currents weaken prey.",
+      "caption": "CURRENTS WEAKEN PREY",
+      "visual": "advantage",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/117.png",
+      "accent": "#E65B63",
+      "facts": [
+        "STRONG CURRENTS",
+        "WEAKENS PREY"
+      ]
+    },
+    {
+      "id": "whirlpool-sets-up-swallow",
+      "durationSeconds": 4.4,
+      "beat": "payoff",
+      "role": "payoff",
+      "shot": "tracking",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "THE SETUP",
+      "headline": "THE WHIRLPOOL STARTS THE HUNT",
+      "narration": "The currents weaken prey. Then Seadra swallows it whole.",
+      "caption": "WEAKENED PREY. FINAL SWALLOW.",
+      "visual": "race",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/117.png",
+      "accent": "#55C7E8",
+      "facts": [
+        "WEAKENS PREY",
+        "SWALLOWS IT WHOLE"
+      ],
+      "primitive": {
+        "kind": "timeline",
+        "steps": [
+          {
+            "label": "WHIRLPOOL CURRENTS"
+          },
+          {
+            "label": "WEAKENS PREY"
+          },
+          {
+            "label": "SWALLOWS WHOLE"
+          }
+        ],
+        "active": 1
+      }
+    },
+    {
+      "id": "suction-finishes-hunt",
+      "durationSeconds": 6.1,
+      "beat": "payoff",
+      "role": "payoff",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "THE SECOND WEAPON",
+      "headline": "A SLENDER MOUTH. HUGE SUCTION.",
+      "narration": "Its mouth is slender, but suction takes in food larger than the opening.",
+      "caption": "SUCTION BEATS THE MOUTH'S SIZE",
+      "visual": "tradeoff",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/117.png",
+      "accent": "#E65B63",
+      "facts": [
+        "SLENDER MOUTH",
+        "STRONG SUCTION",
+        "LARGER FOOD"
+      ]
+    },
+    {
+      "id": "whirlpool-or-suction",
+      "durationSeconds": 3.8,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "YOUR VERDICT",
+      "headline": "WHICH IS WORSE?",
+      "narration": "More frightening: boat-swallowing whirlpools or oversized-food suction?",
+      "caption": "WHIRLPOOL OR SUCTION?",
+      "visual": "cta",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/117.png",
+      "accent": "#E65B63"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Seadra",
+      "url": "https://www.pokemon.com/us/pokedex/seadra"
+    },
+    {
+      "label": "Bulbapedia — Seadra",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Seadra_(Pok%C3%A9mon)"
+    },
+    {
+      "label": "PokéAPI — Seadra",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/117"
+    }
+  ]
+}

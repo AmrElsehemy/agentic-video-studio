@@ -1,0 +1,165 @@
+{
+  "id": "staryu-120",
+  "title": "Staryu Can Survive Being Chopped Apart",
+  "storyPattern": "mechanic",
+  "numberRelevant": false,
+  "premise": "Staryu can regrow its entire body after being chopped apart, as long as its red core survives.",
+  "audiencePromise": "See the one part Staryu cannot lose, and how fast its body can return.",
+  "openLoop": "What part of Staryu has to survive the attack?",
+  "payoff": "Staryu's red core is the reset button. Protect it, and its body can return in half a day.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "Would you battle with Staryu, or protect its core?",
+  "subject": {
+    "name": "Staryu",
+    "category": "Star Shape Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/120.png",
+    "identifier": "#120"
+  },
+  "related": [
+    {
+      "name": "Starmie",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/121.png",
+      "identifier": "#121"
+    }
+  ],
+  "palette": {
+    "background": "#07131f",
+    "surface": "#102435",
+    "primary": "#ff3b30",
+    "secondary": "#79d7ff",
+    "ink": "#f4f7fb"
+  },
+  "voice": {
+    "instructions": "Speak like a knowledgeable fan sharing a shocking fact. Keep the pace quick, warm, and clear. Stress red core and chopped apart. Let each reveal land with a brief pause."
+  },
+  "rights": {
+    "releaseStatus": "cleared",
+    "publicReleaseApproved": true,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    },
+    "assets": [
+      {
+        "kind": "Staryu official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/120.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "chopped-apart",
+      "beat": "hook",
+      "eyebrow": "STARYU'S SECRET",
+      "headline": "CHOP STARYU APART",
+      "narration": "Chop Staryu apart. Its red core brings it back.",
+      "caption": "THE CORE BRINGS IT BACK",
+      "accent": "#ff3b30",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/120.png"
+    },
+    {
+      "id": "core-survives",
+      "beat": "evidence",
+      "eyebrow": "THE ONE REQUIREMENT",
+      "headline": "PROTECT THE RED CORE",
+      "narration": "Its glowing red core is the one part that must survive.",
+      "caption": "THE CORE MUST REMAIN INTACT",
+      "facts": [
+        "GLOWING RED CORE",
+        "MUST SURVIVE"
+      ],
+      "accent": "#ff3b30",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/120.png",
+      "primitive": {
+        "kind": "checklist",
+        "items": [
+          {
+            "label": "RED CORE INTACT",
+            "met": true
+          },
+          {
+            "label": "BODY INTACT",
+            "met": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "body-torn",
+      "beat": "escalation",
+      "eyebrow": "DAMAGE DOESN'T LAST",
+      "headline": "THE BODY CAN REGROW",
+      "narration": "Lose limbs, tear the body, and Staryu can regenerate them.",
+      "caption": "TORN BODY. REGENERATING LIMBS.",
+      "facts": [
+        "LIMBS RETURN",
+        "BODY REGENERATES"
+      ],
+      "accent": "#79d7ff",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/120.png"
+    },
+    {
+      "id": "chopped-to-bits",
+      "beat": "payoff",
+      "eyebrow": "THE EXTREME TEST",
+      "headline": "CHOPPED TO BITS",
+      "narration": "Chopped to bits, Staryu can still grow back around its core.",
+      "caption": "THE CORE REBUILDS EVERYTHING",
+      "facts": [
+        "CHOPPED TO BITS",
+        "GROWS BACK FULLY"
+      ],
+      "accent": "#ff3b30",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/120.png"
+    },
+    {
+      "id": "half-day-return",
+      "beat": "payoff",
+      "eyebrow": "THE REBUILD FINISHES",
+      "headline": "BACK IN HALF A DAY",
+      "narration": "It can return to its previous state in half a day.",
+      "caption": "PREVIOUS STATE: HALF A DAY",
+      "facts": [
+        "HALF A DAY",
+        "PREVIOUS STATE"
+      ],
+      "accent": "#ffd166",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/120.png"
+    },
+    {
+      "id": "protect-or-battle",
+      "beat": "verdict",
+      "eyebrow": "YOUR CALL",
+      "headline": "BATTLE OR PROTECT?",
+      "narration": "Would you battle with Staryu, or protect its core?",
+      "caption": "BATTLE WITH IT OR PROTECT IT?",
+      "accent": "#79d7ff",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/120.png"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Staryu",
+      "url": "https://www.pokemon.com/us/pokedex/staryu",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Staryu",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Staryu_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Staryu",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/120",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

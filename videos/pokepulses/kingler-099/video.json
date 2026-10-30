@@ -1,0 +1,242 @@
+{
+  "schemaVersion": 2,
+  "id": "kingler-099",
+  "show": {
+    "id": "pokepulses",
+    "name": "PokePulses",
+    "handle": "@PokePulses",
+    "wordmark": {
+      "lead": "POKE",
+      "accent": "PULSES"
+    },
+    "fonts": {
+      "display": "Bebas Neue",
+      "body": "system"
+    }
+  },
+  "title": "Kingler’s 10,000-HP Claw Is a Handicap",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "comparison",
+    "numberRelevant": false,
+    "premise": "Kingler’s claw has crushing power, but its huge size makes that weapon difficult to control.",
+    "audiencePromise": "Show how Kingler’s 10,000-horsepower claw becomes a trade-off instead of a simple advantage.",
+    "openLoop": "How can Kingler’s strongest weapon also hold it back?",
+    "payoff": "Kingler’s claw turns strength into a trade between crushing power and control.",
+    "targetEmotion": "debate",
+    "engagementQuestion": "Which matters more: crushing power or easy aim?",
+    "targetSecondsBetweenVisualChanges": 0.7
+  },
+  "subject": {
+    "name": "Kingler",
+    "category": "Pincer Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/99.png",
+    "identifier": "#099"
+  },
+  "related": [
+    {
+      "name": "Krabby",
+      "relation": "evolves-from",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/98.png",
+      "identifier": "#098"
+    },
+    {
+      "name": "Kingler Gmax",
+      "relation": "form",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10203.png",
+      "identifier": "#099"
+    }
+  ],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#07151B",
+    "surface": "#102A32",
+    "primary": "#E85D4A",
+    "secondary": "#F2B84B",
+    "ink": "#F4F7F5"
+  },
+  "audio": {
+    "music": "generated/kingler-099-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 126,
+      "notes": [
+        110,
+        130.81,
+        146.83,
+        164.81,
+        146.83,
+        130.81,
+        98,
+        130.81
+      ]
+    },
+    "voice": {
+      "provider": "openai",
+      "model": "gpt-4o-mini-tts",
+      "voice": "marin",
+      "instructions": "Sound like a knowledgeable fan sharing a surprising detail. Keep the pace quick, warm, and playful. Punch the contrast between power and poor control. Pause briefly before the final choice.",
+      "speed": 1.12,
+      "output": "generated/kingler-099-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "cleared",
+    "publicReleaseApproved": true,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "assets": [
+      {
+        "kind": "Kingler official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/99.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ],
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    }
+  },
+  "scenes": [
+    {
+      "id": "power-with-a-problem",
+      "durationSeconds": 3.8,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "comparison",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "OVERSIZED PINCER",
+      "headline": "POWER WITH A PROBLEM",
+      "narration": "Kingler’s 10,000-horsepower claw can barely be aimed.",
+      "caption": "10,000 HORSEPOWER. HARD TO AIM.",
+      "visual": "hook",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/99.png",
+      "accent": "#E85D4A"
+    },
+    {
+      "id": "crushing-force",
+      "durationSeconds": 5.6,
+      "beat": "evidence",
+      "role": "evidence",
+      "shot": "wide",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "THE POWER IS REAL",
+      "headline": "10,000 HORSEPOWER",
+      "narration": "The power is real, but the pincer’s huge size makes it unwieldy.",
+      "caption": "CRUSHING FORCE, AWKWARD CONTROL",
+      "visual": "gauntlet",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/99.png",
+      "accent": "#F2B84B",
+      "facts": [
+        "10,000 HORSEPOWER",
+        "LARGE PINCER"
+      ],
+      "primitive": {
+        "kind": "counter",
+        "from": 0,
+        "to": 10000,
+        "label": "HORSEPOWER CRUSHING FORCE"
+      }
+    },
+    {
+      "id": "lifting-problem",
+      "durationSeconds": 6.1,
+      "beat": "evidence",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "SIZE CHANGES EVERYTHING",
+      "headline": "THE CLAW IS HARD TO AIM",
+      "narration": "It can hardly lift the massive pincer, and its size makes aiming difficult.",
+      "caption": "BIG POWER. BAD AIM.",
+      "visual": "advantage",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/99.png",
+      "accent": "#E85D4A",
+      "facts": [
+        "HUGE SIZE",
+        "DIFFICULT TO AIM"
+      ]
+    },
+    {
+      "id": "balance-breaks",
+      "durationSeconds": 4.8,
+      "beat": "escalation",
+      "role": "escalation",
+      "shot": "tracking",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "MOVE TOO FAST",
+      "headline": "KINGLER CAN STAGGER",
+      "narration": "Lift it too fast, and Kingler loses balance and staggers.",
+      "caption": "TOO FAST MEANS UNSTEADY",
+      "visual": "race",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/99.png",
+      "accent": "#F2B84B",
+      "facts": [
+        "LOSES BALANCE",
+        "STAGGERS"
+      ]
+    },
+    {
+      "id": "battle-or-burden",
+      "durationSeconds": 6.2,
+      "beat": "twist",
+      "role": "twist",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "THE COUNTERPOINT",
+      "headline": "POWERFUL IN BATTLE, AWKWARD OUTSIDE",
+      "narration": "In battle, the claw is powerful, but outside it gets in the way.",
+      "caption": "USEFUL, THEN UNWIELDY",
+      "visual": "tradeoff",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/99.png",
+      "accent": "#4FC3C8",
+      "facts": [
+        "POWERFUL IN BATTLE",
+        "GETS IN THE WAY"
+      ]
+    },
+    {
+      "id": "force-or-control",
+      "durationSeconds": 5.3,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "YOUR VERDICT",
+      "headline": "FORCE OR CONTROL?",
+      "narration": "Kingler’s claw turns strength into a trade: force first, control second.",
+      "caption": "WHICH MATTERS MORE?",
+      "visual": "cta",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/99.png",
+      "accent": "#E85D4A"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Kingler",
+      "url": "https://www.pokemon.com/us/pokedex/kingler"
+    },
+    {
+      "label": "Bulbapedia — Kingler",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Kingler_(Pok%C3%A9mon)"
+    },
+    {
+      "label": "PokéAPI — Kingler",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/99"
+    }
+  ]
+}

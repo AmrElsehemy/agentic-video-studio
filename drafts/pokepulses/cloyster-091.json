@@ -1,0 +1,163 @@
+{
+  "id": "cloyster-091",
+  "title": "Cloyster Turns Damage Into Weapons",
+  "storyPattern": "transformation",
+  "numberRelevant": false,
+  "premise": "When Cloyster's hard shell is damaged, those areas swell into large, sharp spikes.",
+  "audiencePromise": "See how Cloyster's protection can transform into a way to repel foes.",
+  "openLoop": "Can damaging Cloyster's protection make it more dangerous?",
+  "payoff": "The shell that protects Cloyster can also produce spikes used to repel foes.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "Attack its shell, or leave its defense intact?",
+  "subject": {
+    "name": "Cloyster",
+    "category": "Bivalve Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/91.png",
+    "identifier": "#091"
+  },
+  "related": [
+    {
+      "name": "Shellder",
+      "relation": "evolves-from",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/90.png",
+      "identifier": "#090"
+    }
+  ],
+  "palette": {
+    "background": "#0B1020",
+    "surface": "#171C33",
+    "primary": "#7C83D6",
+    "secondary": "#C9D8FF",
+    "ink": "#F4F7FF"
+  },
+  "voice": {
+    "instructions": "Speak like a knowledgeable fan sharing a strange discovery. Use quick, warm pacing. Stress damage, swells, and protection. Pause briefly before the spike reveal."
+  },
+  "rights": {
+    "releaseStatus": "cleared",
+    "publicReleaseApproved": true,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    },
+    "assets": [
+      {
+        "kind": "Cloyster official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/91.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "damage-becomes-spikes",
+      "beat": "hook",
+      "eyebrow": "THE DAMAGE TRAP",
+      "headline": "DAMAGE BECOMES SPIKES",
+      "narration": "Cloyster’s shell turns damage into sharp spikes.",
+      "caption": "DAMAGE CAN BECOME SPIKES",
+      "accent": "#C9D8FF",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/91.png",
+      "primitive": {
+        "kind": "timeline",
+        "steps": [
+          {
+            "label": "SHELL DAMAGE"
+          },
+          {
+            "label": "AREAS SWELL"
+          },
+          {
+            "label": "LARGE SHARP SPIKES"
+          }
+        ],
+        "active": 2
+      }
+    },
+    {
+      "id": "shell-protects-cloyster",
+      "beat": "before",
+      "eyebrow": "PROTECTION COMES FIRST",
+      "headline": "THE SHELL STAYS SHUT",
+      "narration": "Cloyster fights by keeping its shell tightly shut for protection.",
+      "caption": "THE SHELL IS ITS DEFENSE",
+      "facts": [
+        "Very hard shell",
+        "Used for protection"
+      ],
+      "accent": "#7C83D6",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/91.png"
+    },
+    {
+      "id": "damaged-areas-swell",
+      "beat": "change",
+      "eyebrow": "THEN DAMAGE HAPPENS",
+      "headline": "DAMAGED AREAS SWELL",
+      "narration": "Then damaged areas of that very hard shell begin to swell.",
+      "caption": "DAMAGE STARTS THE CHANGE",
+      "accent": "#E6B7FF",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/91.png"
+    },
+    {
+      "id": "swelling-becomes-spikes",
+      "beat": "reveal",
+      "eyebrow": "THE REVEAL",
+      "headline": "SWELLING BECOMES SPIKES",
+      "narration": "Those swollen areas gradually grow into large, sharp spikes.",
+      "caption": "LARGE SHARP SPIKES GROW",
+      "facts": [
+        "Damaged areas swell",
+        "Large sharp spikes"
+      ],
+      "accent": "#F4F7FF",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/91.png"
+    },
+    {
+      "id": "spikes-repel-foes",
+      "beat": "aftermath",
+      "eyebrow": "THE DEFENSE CHANGES",
+      "headline": "PROTECTION PUSHES BACK",
+      "narration": "Cloyster shoots spikes from its shell to repel foes.",
+      "caption": "THE SHELL CAN REPEL FOES",
+      "facts": [
+        "Shoots spikes",
+        "Repels foes"
+      ],
+      "accent": "#D98CFF",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/91.png"
+    },
+    {
+      "id": "choose-your-approach",
+      "beat": "verdict",
+      "eyebrow": "YOUR CALL",
+      "headline": "ATTACK OR HOLD BACK?",
+      "narration": "Attack its shell, or leave its defense intact?",
+      "caption": "ATTACK THE SHELL OR HOLD BACK?",
+      "accent": "#C9D8FF",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/91.png"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Cloyster",
+      "url": "https://www.pokemon.com/us/pokedex/cloyster",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Cloyster",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Cloyster_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Cloyster",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/91",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

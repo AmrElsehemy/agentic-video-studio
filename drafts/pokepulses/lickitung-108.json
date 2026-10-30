@@ -1,0 +1,165 @@
+{
+  "id": "lickitung-108",
+  "title": "Lickitung Cleans Dirt, Then Makes It Stink",
+  "storyPattern": "comparison",
+  "numberRelevant": false,
+  "premise": "Lickitung can lick filth clean, but whatever it licks always stinks afterward.",
+  "audiencePromise": "Show why Lickitung's cleaning trick creates a strange clean-versus-stinky contradiction.",
+  "openLoop": "If Lickitung removes the filth, why does the result still stink?",
+  "payoff": "Lickitung may remove the grime, but its own Pokédex leaves the word clean debatable.",
+  "targetEmotion": "debate",
+  "engagementQuestion": "Would you call that clean, or just less dirty?",
+  "subject": {
+    "name": "Lickitung",
+    "category": "Licking Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/108.png",
+    "identifier": "#108"
+  },
+  "related": [
+    {
+      "name": "Lickilicky",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/463.png",
+      "identifier": "#463"
+    }
+  ],
+  "palette": {
+    "background": "#171018",
+    "surface": "#2A1D25",
+    "primary": "#D94F70",
+    "secondary": "#A8D85A",
+    "ink": "#FFF4E8"
+  },
+  "voice": {
+    "instructions": "Warm, quick, and playful. Stress clean, stink, and questionable. Pause briefly before the final choice."
+  },
+  "rights": {
+    "releaseStatus": "cleared",
+    "publicReleaseApproved": true,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    },
+    "assets": [
+      {
+        "kind": "Lickitung official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/108.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "clean-in-stink-out",
+      "beat": "hook",
+      "eyebrow": "LICKITUNG'S PROBLEM",
+      "headline": "CLEAN IN. STINK OUT.",
+      "narration": "Lickitung licks filth clean, then makes it stink.",
+      "caption": "CLEANED... BUT STINKY",
+      "accent": "#D94F70",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/108.png"
+    },
+    {
+      "id": "tongue-cleans-filth",
+      "beat": "evidence",
+      "eyebrow": "THE CLEANING PART",
+      "headline": "FILTH DOES DISAPPEAR",
+      "narration": "Its tongue can lick filth clean, according to its Pokédex.",
+      "caption": "LICKING REMOVES FILTH",
+      "facts": [
+        "LICK FILTH CLEAN",
+        "LONG TONGUE"
+      ],
+      "accent": "#A8D85A",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/108.png"
+    },
+    {
+      "id": "stink-stays-behind",
+      "beat": "evidence",
+      "eyebrow": "THEN COMES THE CATCH",
+      "headline": "THE SMELL STAYS",
+      "narration": "But whatever Lickitung licks will always stink afterward, too.",
+      "caption": "STINK AFTERWARD",
+      "facts": [
+        "ALWAYS STINKS",
+        "AFTER LICKING"
+      ],
+      "accent": "#D94F70",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/108.png"
+    },
+    {
+      "id": "clean-but-foul",
+      "beat": "escalation",
+      "eyebrow": "TWO DIFFERENT RESULTS",
+      "headline": "CLEAN DOESN'T MEAN FRESH",
+      "narration": "It licks filth clean, but whatever it licks always stinks afterward.",
+      "caption": "FILTH CLEAN. STILL STINKY.",
+      "facts": [
+        "FILTH REMOVED",
+        "SMELL REMAINS"
+      ],
+      "accent": "#F0B84B",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/108.png",
+      "primitive": {
+        "kind": "checklist",
+        "items": [
+          {
+            "label": "FILTH REMOVED",
+            "met": true
+          },
+          {
+            "label": "STINK REMAINS",
+            "met": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "questionable-cleanliness",
+      "beat": "twist",
+      "eyebrow": "THE POKÉDEX HEDGES",
+      "headline": "CLEAN... QUESTIONABLE",
+      "narration": "The filth is cleaned, but the Pokédex calls cleanliness questionable.",
+      "caption": "IS IT REALLY CLEAN?",
+      "facts": [
+        "CLEAN",
+        "QUESTIONABLE"
+      ],
+      "accent": "#B56BE8",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/108.png"
+    },
+    {
+      "id": "clean-or-less-dirty",
+      "beat": "verdict",
+      "eyebrow": "YOUR CALL",
+      "headline": "CLEAN OR LESS DIRTY?",
+      "narration": "Would you call that clean, or just less dirty?",
+      "caption": "CLEAN OR LESS DIRTY?",
+      "accent": "#A8D85A",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/108.png"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Lickitung",
+      "url": "https://www.pokemon.com/us/pokedex/lickitung",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Lickitung",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Lickitung_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Lickitung",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/108",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

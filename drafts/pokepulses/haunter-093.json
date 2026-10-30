@@ -1,0 +1,193 @@
+{
+  "id": "haunter-093",
+  "title": "Haunter's Gas Tongue Has a Horrifying Rule",
+  "storyPattern": "mechanic",
+  "numberRelevant": false,
+  "premise": "Haunter's gaseous tongue can sap life and cause shaking that continues until death.",
+  "audiencePromise": "Follow Haunter's lick from strange gas tongue to a consequence that never lets up.",
+  "openLoop": "Why does Haunter's lick keep getting worse?",
+  "payoff": "The lick is only the trigger. Haunter's real mechanic is the aftermath: life drains while shaking continues.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "Which is worse: the life drain or endless shaking?",
+  "subject": {
+    "name": "Haunter",
+    "category": "Gas Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/93.png",
+    "identifier": "#093"
+  },
+  "related": [
+    {
+      "name": "Gengar",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/94.png",
+      "identifier": "#094"
+    },
+    {
+      "name": "Gastly",
+      "relation": "evolves-from",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/92.png",
+      "identifier": "#092"
+    }
+  ],
+  "palette": {
+    "background": "#090A12",
+    "surface": "#171526",
+    "primary": "#A88BFF",
+    "secondary": "#E85CFF",
+    "ink": "#F5F1FF"
+  },
+  "voice": {
+    "instructions": "Speak like a knowledgeable fan sharing a disturbing surprise. Keep the pace quick, clear, and warm. Punch the words gas, life, and shaking. Pause briefly before each reveal."
+  },
+  "rights": {
+    "releaseStatus": "cleared",
+    "publicReleaseApproved": true,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    },
+    "assets": [
+      {
+        "kind": "Haunter official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/93.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "gas-tongue-no-stop",
+      "beat": "hook",
+      "eyebrow": "HAUNTER'S LICK",
+      "headline": "ONE LICK. SHAKING WON'T STOP.",
+      "narration": "Haunter's gas tongue makes victims shake without stopping.",
+      "caption": "ONE LICK. NO STOPPING.",
+      "facts": [
+        "TONGUE IS GAS",
+        "SHAKING WON'T STOP"
+      ],
+      "accent": "#E85CFF",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/93.png"
+    },
+    {
+      "id": "life-drain-trigger",
+      "beat": "evidence",
+      "eyebrow": "THE POKÉDEX SAYS",
+      "headline": "THE DANGER COMES IN TWO PARTS",
+      "narration": "The Pokédex splits the danger in two: licking saps life, then shaking begins.",
+      "caption": "LIFE DRAINS. SHAKING BEGINS.",
+      "facts": [
+        "SAPS LIFE",
+        "SHAKING BEGINS"
+      ],
+      "accent": "#A88BFF",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/93.png",
+      "primitive": {
+        "kind": "timeline",
+        "steps": [
+          {
+            "label": "LICKING",
+            "detail": "SAPS LIFE"
+          },
+          {
+            "label": "SHAKING",
+            "detail": "BEGINS"
+          }
+        ],
+        "active": 1
+      }
+    },
+    {
+      "id": "shaking-until-demise",
+      "beat": "escalation",
+      "eyebrow": "NO QUICK EFFECT",
+      "headline": "THE AFTERMATH KEEPS GROWING",
+      "narration": "And this isn't a quick effect. The shaking continues until the victim's demise.",
+      "caption": "IT CONTINUES UNTIL DEATH",
+      "facts": [
+        "NOT QUICK",
+        "UNTIL DEMISE"
+      ],
+      "accent": "#FF557A",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/93.png",
+      "primitive": {
+        "kind": "timeline",
+        "steps": [
+          {
+            "label": "LICK",
+            "detail": "TRIGGER"
+          },
+          {
+            "label": "SHAKING",
+            "detail": "CONSTANT"
+          },
+          {
+            "label": "DEMISE"
+          }
+        ],
+        "active": 1
+      }
+    },
+    {
+      "id": "the-aftermath",
+      "beat": "payoff",
+      "eyebrow": "THE REAL MECHANIC",
+      "headline": "THE LICK IS ONLY THE TRIGGER",
+      "narration": "The danger starts with a lick, but the real mechanic is what follows.",
+      "caption": "THE AFTERMATH IS THE DANGER",
+      "facts": [
+        "LICK STARTS IT",
+        "AFTERMATH FOLLOWS"
+      ],
+      "accent": "#B56CFF",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/93.png"
+    },
+    {
+      "id": "gas-replaces-flesh",
+      "beat": "payoff",
+      "eyebrow": "THE STRANGE DESIGN",
+      "headline": "THE TONGUE IS MADE OF GAS",
+      "narration": "Its tongue is made of gas, and shaking continues until death.",
+      "caption": "GAS TONGUE. LASTING CONSEQUENCE.",
+      "facts": [
+        "TONGUE MADE OF GAS",
+        "NEVER LETS UP"
+      ],
+      "accent": "#E85CFF",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/93.png"
+    },
+    {
+      "id": "life-drain-or-shaking",
+      "beat": "verdict",
+      "eyebrow": "YOUR VERDICT",
+      "headline": "WHICH PART IS WORSE?",
+      "narration": "Which is worse: the life drain or endless shaking?",
+      "caption": "LIFE DRAIN OR ENDLESS SHAKING?",
+      "accent": "#FF557A",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/93.png"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Haunter",
+      "url": "https://www.pokemon.com/us/pokedex/haunter",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Haunter",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Haunter_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Haunter",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/93",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

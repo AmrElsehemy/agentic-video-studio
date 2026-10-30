@@ -1,0 +1,237 @@
+{
+  "schemaVersion": 2,
+  "id": "horsea-116",
+  "show": {
+    "id": "pokepulses",
+    "name": "PokePulses",
+    "handle": "@PokePulses",
+    "wordmark": {
+      "lead": "POKE",
+      "accent": "PULSES"
+    },
+    "fonts": {
+      "display": "Bebas Neue",
+      "body": "system"
+    }
+  },
+  "title": "Horsea's Ink Hits the Sky",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "profile",
+    "numberRelevant": false,
+    "premise": "Horsea uses precise ink blasts against flying bugs, then turns that same ink into an escape response.",
+    "audiencePromise": "See how Horsea's ink shifts from a precise attack into a survival tool when danger arrives.",
+    "openLoop": "Does Horsea aim its ink, or use it to escape?",
+    "payoff": "Horsea shoots down flying bugs with precision ink blasts, then sprays ink to escape danger.",
+    "targetEmotion": "surprise",
+    "engagementQuestion": "Is Horsea's ink a weapon first, or an escape tool?",
+    "targetSecondsBetweenVisualChanges": 0.72
+  },
+  "subject": {
+    "name": "Horsea",
+    "category": "Dragon Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/116.png",
+    "identifier": "#116"
+  },
+  "related": [
+    {
+      "name": "Kingdra",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/230.png",
+      "identifier": "#230"
+    },
+    {
+      "name": "Seadra",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/117.png",
+      "identifier": "#117"
+    }
+  ],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#07151C",
+    "surface": "#102A32",
+    "primary": "#4FB7C5",
+    "secondary": "#D8E8E5",
+    "ink": "#EAF6F8"
+  },
+  "audio": {
+    "music": "generated/horsea-116-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 126,
+      "notes": [
+        110,
+        130.81,
+        146.83,
+        164.81,
+        146.83,
+        130.81,
+        98,
+        130.81
+      ]
+    },
+    "voice": {
+      "provider": "openai",
+      "model": "gpt-4o-mini-tts",
+      "voice": "marin",
+      "instructions": "Quick, warm, and precise. Stress \"sky,\" \"precision,\" and \"escape.\" Pause briefly before the final choice.",
+      "speed": 1.12,
+      "output": "generated/horsea-116-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "cleared",
+    "publicReleaseApproved": true,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "assets": [
+      {
+        "kind": "Horsea official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/116.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ],
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    }
+  },
+  "scenes": [
+    {
+      "id": "sky-then-flee",
+      "durationSeconds": 4.3,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "mystery",
+      "subjectFocus": "hidden",
+      "beatEverySeconds": 0.72,
+      "eyebrow": "HORSEA HAS A DILEMMA",
+      "headline": "IT HITS THE SKY, THEN FLEES",
+      "narration": "Horsea hits the sky, then danger makes it flee.",
+      "caption": "ONE INK ATTACK. TWO POSSIBLE JOBS.",
+      "visual": "hook",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/116.png",
+      "accent": "#4FB7C5"
+    },
+    {
+      "id": "flying-target",
+      "durationSeconds": 3.8,
+      "beat": "evidence",
+      "role": "evidence",
+      "shot": "tracking",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.72,
+      "eyebrow": "THE TARGET IS ABOVE",
+      "headline": "THE BUG IS FLYING",
+      "narration": "Horsea targets flying bugs with precision ink blasts.",
+      "caption": "HORSEA FIRES FROM THE SURFACE",
+      "visual": "gauntlet",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/116.png",
+      "accent": "#D8E8E5",
+      "facts": [
+        "FLYING BUGS",
+        "WATER'S SURFACE"
+      ]
+    },
+    {
+      "id": "precision-ink",
+      "durationSeconds": 4.2,
+      "beat": "evidence",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.72,
+      "eyebrow": "THIS IS A TARGETED BLAST",
+      "headline": "PRECISION CHANGES THE ATTACK",
+      "narration": "That precision makes ink useful before danger ever arrives.",
+      "caption": "THE BLAST HAS A SPECIFIC TARGET",
+      "visual": "advantage",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/116.png",
+      "accent": "#050505",
+      "facts": [
+        "PRECISION BLASTS",
+        "SPECIAL INK"
+      ]
+    },
+    {
+      "id": "second-job",
+      "durationSeconds": 4.9,
+      "beat": "escalation",
+      "role": "escalation",
+      "shot": "comparison",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.72,
+      "eyebrow": "WHEN HORSEA SENSES DANGER",
+      "headline": "INK GETS A SECOND JOB",
+      "narration": "When danger does arrive, ink gets a second job: escape.",
+      "caption": "FROM TARGETING TO SURVIVING",
+      "visual": "race",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/116.png",
+      "accent": "#4FB7C5",
+      "facts": [
+        "SENSES DANGER",
+        "ESCAPE RESPONSE"
+      ]
+    },
+    {
+      "id": "under-attack",
+      "durationSeconds": 4.3,
+      "beat": "twist",
+      "role": "twist",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.72,
+      "eyebrow": "THE COUNTERPOINT",
+      "headline": "IT DOESN'T STAY AND FIGHT",
+      "narration": "Under attack, Horsea spits ink and quickly escapes instead.",
+      "caption": "THE SAME DEFENSE SUPPORTS RETREAT",
+      "visual": "tradeoff",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/116.png",
+      "accent": "#8B4C68",
+      "facts": [
+        "UNDER ATTACK",
+        "SPITS INK",
+        "ESCAPES"
+      ]
+    },
+    {
+      "id": "weapon-or-escape",
+      "durationSeconds": 4.8,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.72,
+      "eyebrow": "YOUR HORSEA THEORY",
+      "headline": "WEAPON OR ESCAPE TOOL?",
+      "narration": "Is Horsea's ink a weapon first, or an escape tool?",
+      "caption": "CHOOSE ITS REAL PURPOSE",
+      "visual": "cta",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/116.png",
+      "accent": "#D8E8E5"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Horsea",
+      "url": "https://www.pokemon.com/us/pokedex/horsea"
+    },
+    {
+      "label": "Bulbapedia — Horsea",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Horsea_(Pok%C3%A9mon)"
+    },
+    {
+      "label": "PokéAPI — Horsea",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/116"
+    }
+  ]
+}

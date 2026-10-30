@@ -1,0 +1,232 @@
+{
+  "schemaVersion": 2,
+  "id": "jynx-124",
+  "show": {
+    "id": "pokepulses",
+    "name": "PokePulses",
+    "handle": "@PokePulses",
+    "wordmark": {
+      "lead": "POKE",
+      "accent": "PULSES"
+    },
+    "fonts": {
+      "display": "Bebas Neue",
+      "body": "system"
+    }
+  },
+  "title": "Jynx: Worshiped Queen of Ice, Voices With Fans",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "comparison",
+    "numberRelevant": false,
+    "premise": "In Galar, Jynx was feared and worshiped as the Queen of Ice, while some had delicate voices and fan bases.",
+    "audiencePromise": "Compare Galar's description of Jynx as Queen of Ice with its delicate voices and fan bases.",
+    "openLoop": "How can Galar describe Jynx through worship and fan bases?",
+    "payoff": "The Galar entries pair a worshiped Queen of Ice with Jynx's delicate voices and some fan bases.",
+    "targetEmotion": "debate",
+    "engagementQuestion": "Which fits better: Queen of Ice or Jynx with fans?",
+    "targetSecondsBetweenVisualChanges": 0.7
+  },
+  "subject": {
+    "name": "Jynx",
+    "category": "Human Shape Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/124.png",
+    "identifier": "#124"
+  },
+  "related": [
+    {
+      "name": "Smoochum",
+      "relation": "evolves-from",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/238.png",
+      "identifier": "#238"
+    }
+  ],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#101522",
+    "surface": "#1C2435",
+    "primary": "#E85D9E",
+    "secondary": "#A9E8FF",
+    "ink": "#F7F4FF"
+  },
+  "audio": {
+    "music": "generated/jynx-124-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 126,
+      "notes": [
+        110,
+        130.81,
+        146.83,
+        164.81,
+        146.83,
+        130.81,
+        98,
+        130.81
+      ]
+    },
+    "voice": {
+      "provider": "openai",
+      "model": "gpt-4o-mini-tts",
+      "voice": "marin",
+      "instructions": "Warm, quick, and conversational. Stress the contrast between worship and fan bases. Pause briefly before the final choice.",
+      "speed": 1.12,
+      "output": "generated/jynx-124-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "cleared",
+    "publicReleaseApproved": true,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "assets": [
+      {
+        "kind": "Jynx official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/124.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ],
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    }
+  },
+  "scenes": [
+    {
+      "id": "worshiped-or-heard",
+      "durationSeconds": 3.9,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "comparison",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "GALARS CONTRAST",
+      "headline": "WORSHIPED ROYALTY. VOICE WITH FANS.",
+      "narration": "Jynx is worshiped royalty—or a voice with fans.",
+      "caption": "QUEEN OF ICE OR FAN BASE?",
+      "visual": "hook",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/124.png",
+      "accent": "#A9E8FF"
+    },
+    {
+      "id": "queen-of-ice",
+      "durationSeconds": 6.1,
+      "beat": "evidence",
+      "role": "evidence",
+      "shot": "wide",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "THE FIRST DESCRIPTION",
+      "headline": "THE QUEEN OF ICE",
+      "narration": "In certain Galar parts, Jynx was feared and worshiped as Queen of Ice.",
+      "caption": "FEARED AND WORSHIPED",
+      "visual": "gauntlet",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/124.png",
+      "accent": "#A9E8FF",
+      "facts": [
+        "FEARED",
+        "WORSHIPED",
+        "QUEEN OF ICE"
+      ]
+    },
+    {
+      "id": "delicate-voices",
+      "durationSeconds": 4.8,
+      "beat": "evidence",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "THE OTHER DESCRIPTION",
+      "headline": "BEAUTIFUL, DELICATE VOICES",
+      "narration": "The Galar entry describes Jynx as having beautiful, delicate voices.",
+      "caption": "A VERY DIFFERENT IMAGE",
+      "visual": "advantage",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/124.png",
+      "accent": "#E85D9E",
+      "facts": [
+        "BEAUTIFUL",
+        "DELICATE",
+        "VOICES"
+      ]
+    },
+    {
+      "id": "voices-to-fan-base",
+      "durationSeconds": 5.7,
+      "beat": "escalation",
+      "role": "escalation",
+      "shot": "tracking",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "ANOTHER GALAR DESCRIPTION",
+      "headline": "DELICATE VOICES, SOME FAN BASES",
+      "narration": "Galar's Jynx often have delicate voices. Some have gathered a fan base.",
+      "caption": "SOME HAVE A FAN BASE",
+      "visual": "race",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/124.png",
+      "accent": "#E85D9E",
+      "facts": [
+        "DELICATE VOICES",
+        "FAN BASE"
+      ]
+    },
+    {
+      "id": "some-not-all",
+      "durationSeconds": 5.1,
+      "beat": "twist",
+      "role": "twist",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "THE IMPORTANT LIMIT",
+      "headline": "SOME JYNX HAVE FANS",
+      "narration": "Some of these Galar Jynx have even gathered a fan base.",
+      "caption": "SOME JYNX HAVE FANS",
+      "visual": "tradeoff",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/124.png",
+      "accent": "#A9E8FF",
+      "facts": [
+        "SOME",
+        "FAN BASE"
+      ]
+    },
+    {
+      "id": "queen-or-fans",
+      "durationSeconds": 4.8,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "YOUR VERDICT",
+      "headline": "WHICH IMAGE FITS JYNX?",
+      "narration": "Which fits better: Queen of Ice or Jynx with fans?",
+      "caption": "CHOOSE JYNX'S GALAR IMAGE",
+      "visual": "cta",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/124.png",
+      "accent": "#E85D9E"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Jynx",
+      "url": "https://www.pokemon.com/us/pokedex/jynx"
+    },
+    {
+      "label": "Bulbapedia — Jynx",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Jynx_(Pok%C3%A9mon)"
+    },
+    {
+      "label": "PokéAPI — Jynx",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/124"
+    }
+  ]
+}

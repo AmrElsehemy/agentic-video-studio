@@ -1,0 +1,173 @@
+{
+  "id": "tauros-128",
+  "title": "Tauros Charges Trees Without an Opponent",
+  "storyPattern": "profile",
+  "numberRelevant": false,
+  "premise": "Show Tauros turning an empty battlefield into a tree-crashing outlet when no opponent appears.",
+  "audiencePromise": "Reveal why Tauros attacks trees, then test that rage against evidence of calmer regional Tauros.",
+  "openLoop": "What does Tauros do when nobody will fight it?",
+  "payoff": "Tauros can replace a missing opponent with a thick tree, but Alolan Tauros complicate its angry image.",
+  "targetEmotion": "debate",
+  "engagementQuestion": "Is Tauros a tree-crasher, or secretly calmer?",
+  "subject": {
+    "name": "Tauros",
+    "category": "Wild Bull Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/128.png",
+    "identifier": "#128"
+  },
+  "related": [
+    {
+      "name": "Tauros Paldea Combat Breed",
+      "relation": "form",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10250.png",
+      "identifier": "#128"
+    },
+    {
+      "name": "Tauros Paldea Blaze Breed",
+      "relation": "form",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10251.png",
+      "identifier": "#128"
+    },
+    {
+      "name": "Tauros Paldea Aqua Breed",
+      "relation": "form",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10252.png",
+      "identifier": "#128"
+    }
+  ],
+  "palette": {
+    "background": "#101417",
+    "surface": "#20282A",
+    "primary": "#B8A56A",
+    "secondary": "#8C2525",
+    "ink": "#F5F1E6"
+  },
+  "voice": {
+    "instructions": "Speak like a knowledgeable fan sharing a sharp surprise. Keep the pace quick, warm, and controlled. Stress tree-crasher, no opponent, and calmer."
+  },
+  "rights": {
+    "releaseStatus": "cleared",
+    "publicReleaseApproved": true,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    },
+    "assets": [
+      {
+        "kind": "Tauros official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/128.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "empty-battlefield",
+      "beat": "hook",
+      "eyebrow": "NO OPPONENT",
+      "headline": "TAUROS NEEDS A TARGET",
+      "narration": "Tauros charges trees when nobody will fight it.",
+      "caption": "TAUROS CHARGES TREES",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/128.png"
+    },
+    {
+      "id": "rampage-need",
+      "beat": "evidence",
+      "eyebrow": "THE POKÉDEX SAYS",
+      "headline": "RAMPAGING ISN'T OPTIONAL",
+      "narration": "The Pokédex says Tauros is never satisfied unless rampaging.",
+      "caption": "IT NEEDS CONSTANT ACTION",
+      "facts": [
+        "NEVER SATISFIED",
+        "ALWAYS RAMPAGING"
+      ],
+      "accent": "#8C2525",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/128.png"
+    },
+    {
+      "id": "tree-target",
+      "beat": "evidence",
+      "eyebrow": "NO OPPONENT",
+      "headline": "TREES BECOME THE ENEMY",
+      "narration": "With no opponent, it targets thick trees and knocks them down.",
+      "caption": "THE BACKUP BATTLE",
+      "facts": [
+        "THICK TREES",
+        "KNOCKS THEM DOWN"
+      ],
+      "accent": "#B8A56A",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/128.png",
+      "primitive": {
+        "kind": "timeline",
+        "steps": [
+          {
+            "label": "NO OPPONENT"
+          },
+          {
+            "label": "CHARGE THICK TREE"
+          },
+          {
+            "label": "CALM ITSELF"
+          }
+        ],
+        "active": 1
+      }
+    },
+    {
+      "id": "quiet-field",
+      "beat": "escalation",
+      "eyebrow": "THE ESCALATION",
+      "headline": "NO OPPONENT, THICK TREES",
+      "narration": "Without an opponent, Tauros charges thick trees and knocks them down.",
+      "caption": "NO FIGHT STILL MEANS IMPACT",
+      "accent": "#8C2525",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/128.png"
+    },
+    {
+      "id": "alola-counterpoint",
+      "beat": "twist",
+      "eyebrow": "THE COUNTERPOINT",
+      "headline": "ALOLA IS CALMER",
+      "narration": "But Alolan Tauros are said to possess a measure of calmness.",
+      "caption": "THE RAGE HAS AN EXCEPTION",
+      "facts": [
+        "ALOLA",
+        "MEASURE OF CALMNESS"
+      ],
+      "accent": "#6DA9B8",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/128.png"
+    },
+    {
+      "id": "tree-crasher-or-calmer",
+      "beat": "verdict",
+      "eyebrow": "YOUR VERDICT",
+      "headline": "RAGE OR RESTRAINT?",
+      "narration": "So is Tauros a tree-crasher, or secretly calmer?",
+      "caption": "WHICH TAUROS DO YOU BELIEVE?",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/128.png"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Tauros",
+      "url": "https://www.pokemon.com/us/pokedex/tauros",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Tauros",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Tauros_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Tauros",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/128",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

@@ -1,0 +1,272 @@
+{
+  "schemaVersion": 2,
+  "id": "mr-mime-122",
+  "show": {
+    "id": "pokepulses",
+    "name": "PokePulses",
+    "handle": "@PokePulses",
+    "wordmark": {
+      "lead": "POKE",
+      "accent": "PULSES"
+    },
+    "fonts": {
+      "display": "Bebas Neue",
+      "body": "system"
+    }
+  },
+  "title": "Mr. Mime Can Make Belief Real",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "mystery",
+    "numberRelevant": false,
+    "premise": "Mr. Mime's pantomime can make an unseen object real once watchers believe in it.",
+    "audiencePromise": "Follow Mr. Mime's gestures as they convince watchers, then see its fingertips solidify air into invisible walls.",
+    "openLoop": "Does Mr. Mime create the object, or does belief create it first?",
+    "payoff": "Belief makes the unseen object exist, while Mr. Mime's fingertips can harden air into an invisible wall.",
+    "targetEmotion": "curiosity",
+    "engagementQuestion": "Is belief the real power, or Mr. Mime's fingers?",
+    "targetSecondsBetweenVisualChanges": 0.68
+  },
+  "subject": {
+    "name": "Mr. Mime",
+    "category": "Barrier Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/122.png",
+    "identifier": "#122"
+  },
+  "related": [
+    {
+      "name": "Mr. Rime",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/866.png",
+      "identifier": "#866"
+    },
+    {
+      "name": "Mime Jr.",
+      "relation": "evolves-from",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/439.png",
+      "identifier": "#439"
+    },
+    {
+      "name": "Mr Mime Galar",
+      "relation": "form",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10168.png",
+      "identifier": "#122"
+    }
+  ],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#101522",
+    "surface": "#1B2435",
+    "primary": "#F2C6D8",
+    "secondary": "#8D78D8",
+    "ink": "#F7F4EF"
+  },
+  "audio": {
+    "music": "generated/mr-mime-122-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 126,
+      "notes": [
+        110,
+        130.81,
+        146.83,
+        164.81,
+        146.83,
+        130.81,
+        98,
+        130.81
+      ]
+    },
+    "voice": {
+      "provider": "openai",
+      "model": "gpt-4o-mini-tts",
+      "voice": "marin",
+      "instructions": "Speak quickly, warmly, and clearly. Build quiet suspense through the clues, then punch the reveal. Stress belief, real, and invisible wall. End curious and inviting.",
+      "speed": 1.12,
+      "output": "generated/mr-mime-122-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "cleared",
+    "publicReleaseApproved": true,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "assets": [
+      {
+        "kind": "Mr. Mime official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/122.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ],
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    }
+  },
+  "scenes": [
+    {
+      "id": "pretending-becomes-real",
+      "durationSeconds": 3.8,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "mystery",
+      "subjectFocus": "hidden",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "THE IMPOSSIBLE TRICK",
+      "headline": "PRETENDING BECOMES REAL",
+      "narration": "Mr. Mime can make make-believe real.",
+      "caption": "THE INVISIBLE CAN BECOME REAL",
+      "visual": "hook",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/122.png",
+      "accent": "#F2C6D8"
+    },
+    {
+      "id": "watchers-see-nothing",
+      "durationSeconds": 4.2,
+      "beat": "clue",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "FIRST, YOU SEE NOTHING",
+      "headline": "WATCHERS BELIEVE",
+      "narration": "Its gestures convince watchers that an unseen thing exists.",
+      "caption": "NO OBJECT. JUST THE PERFORMANCE.",
+      "visual": "gauntlet",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/122.png",
+      "accent": "#8D78D8",
+      "facts": [
+        "UNSEEN OBJECT",
+        "WATCHERS BELIEVE"
+      ]
+    },
+    {
+      "id": "belief-changes-the-object",
+      "durationSeconds": 4.2,
+      "beat": "escalation",
+      "role": "escalation",
+      "shot": "tracking",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "THEN THE RULE CHANGES",
+      "headline": "BELIEF MAKES IT REAL",
+      "narration": "Then belief changes the invisible object into something real.",
+      "caption": "BELIEVED → REAL",
+      "visual": "advantage",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/122.png",
+      "accent": "#F2C6D8",
+      "facts": [
+        "BELIEF",
+        "REAL OBJECT"
+      ],
+      "primitive": {
+        "kind": "timeline",
+        "steps": [
+          {
+            "label": "UNSEEN OBJECT"
+          },
+          {
+            "label": "WATCHERS BELIEVE"
+          },
+          {
+            "label": "REAL OBJECT"
+          }
+        ],
+        "active": 2
+      }
+    },
+    {
+      "id": "air-becomes-a-wall",
+      "durationSeconds": 4.7,
+      "beat": "reveal",
+      "role": "payoff",
+      "shot": "comparison",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "THE FIRST REVEAL",
+      "headline": "AIR TURNS SOLID",
+      "narration": "Its fingertips can also harden air into an invisible wall.",
+      "caption": "A WALL YOU CANNOT SEE",
+      "visual": "race",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/122.png",
+      "accent": "#8D78D8",
+      "facts": [
+        "FINGERTIP FORCE",
+        "INVISIBLE WALL"
+      ],
+      "primitive": {
+        "kind": "timeline",
+        "steps": [
+          {
+            "label": "AIR"
+          },
+          {
+            "label": "FINGERTIP FORCE"
+          },
+          {
+            "label": "INVISIBLE WALL"
+          }
+        ],
+        "active": 2
+      }
+    },
+    {
+      "id": "belief-meets-force",
+      "durationSeconds": 4.7,
+      "beat": "reveal",
+      "role": "payoff",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "THE STRANGE PART",
+      "headline": "FINGERTIPS SOLIDIFY AIR",
+      "narration": "Its fingertips emit force that solidifies air into invisible walls.",
+      "caption": "PANTOMIME MEETS FORCE",
+      "visual": "tradeoff",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/122.png",
+      "accent": "#F2C6D8",
+      "facts": [
+        "PANTOMIME",
+        "SOLID AIR"
+      ]
+    },
+    {
+      "id": "belief-or-fingers",
+      "durationSeconds": 4.5,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "YOUR VERDICT",
+      "headline": "WHAT REALLY MADE IT REAL?",
+      "narration": "Is belief the real power, or Mr. Mime's fingers?",
+      "caption": "BELIEF OR FINGERS?",
+      "visual": "cta",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/122.png",
+      "accent": "#8D78D8"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Mr. Mime",
+      "url": "https://www.pokemon.com/us/pokedex/mr-mime"
+    },
+    {
+      "label": "Bulbapedia — Mr. Mime",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Mr._Mime_(Pok%C3%A9mon)"
+    },
+    {
+      "label": "PokéAPI — Mr. Mime",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/122"
+    }
+  ]
+}

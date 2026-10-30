@@ -1,0 +1,194 @@
+{
+  "id": "electabuzz-125",
+  "title": "Electabuzz Climbs for Lightning",
+  "storyPattern": "mechanic",
+  "numberRelevant": false,
+  "premise": "During storms, Electabuzz compete to climb lightning-prone heights, and some towns use them instead of lightning rods.",
+  "audiencePromise": "See how Electabuzz turns a storm-climbing habit into a strange job for some towns.",
+  "openLoop": "Does chasing lightning make Electabuzz a storm chaser or a town's tool?",
+  "payoff": "The thing that climbs toward lightning strikes is what some towns use instead of rods.",
+  "targetEmotion": "debate",
+  "engagementQuestion": "Useful lightning rod, or reckless storm chaser?",
+  "subject": {
+    "name": "Electabuzz",
+    "category": "Electric Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/125.png",
+    "identifier": "#125"
+  },
+  "related": [
+    {
+      "name": "Electivire",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/466.png",
+      "identifier": "#466"
+    },
+    {
+      "name": "Elekid",
+      "relation": "evolves-from",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/239.png",
+      "identifier": "#239"
+    }
+  ],
+  "palette": {
+    "background": "#10151C",
+    "surface": "#1B2630",
+    "primary": "#F4C542",
+    "secondary": "#E86A33",
+    "ink": "#F4F7F9"
+  },
+  "voice": {
+    "instructions": "Quick, warm, and curious. Stress lightning, compete, and waiting. Build tension as the climb becomes a town's strange solution. Pause before the final choice and keep both sides credible."
+  },
+  "rights": {
+    "releaseStatus": "cleared",
+    "publicReleaseApproved": true,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    },
+    "assets": [
+      {
+        "kind": "Electabuzz official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/125.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "lightning-target",
+      "beat": "hook",
+      "eyebrow": "STORM RULE",
+      "headline": "CLIMBS FOR LIGHTNING",
+      "narration": "Electabuzz climbs for lightning—and towns use it.",
+      "caption": "THE STORM CLIMBER HAS A JOB",
+      "accent": "#F4C542",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/125.png"
+    },
+    {
+      "id": "storm-gathering",
+      "beat": "evidence",
+      "eyebrow": "WHEN STORMS ARRIVE",
+      "headline": "IT GATHERS UNDER CLOUDS",
+      "narration": "When storms arrive, Electabuzz gathers where lightning may strike.",
+      "caption": "WAITING BENEATH THUNDERCLOUDS",
+      "facts": [
+        "STORMS",
+        "LIGHTNING",
+        "GATHERS"
+      ],
+      "accent": "#9D7BFF",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/125.png",
+      "primitive": {
+        "kind": "checklist",
+        "items": [
+          {
+            "label": "STORM ARRIVES",
+            "met": true
+          },
+          {
+            "label": "TALL HEIGHTS",
+            "met": true
+          },
+          {
+            "label": "LIGHTNING NEARBY",
+            "met": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "competing-heights",
+      "beat": "escalation",
+      "eyebrow": "THE COMPETITION",
+      "headline": "COMPETING FOR STRIKE ZONES",
+      "narration": "Then gangs of Electabuzz compete to scale those lightning-prone heights.",
+      "caption": "THE CLIMB GETS MORE DANGEROUS",
+      "facts": [
+        "GANGS",
+        "COMPETE",
+        "SCALE HEIGHTS"
+      ],
+      "accent": "#E86A33",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/125.png"
+    },
+    {
+      "id": "waiting-in-trees",
+      "beat": "payoff",
+      "eyebrow": "AFTER THE CLIMB",
+      "headline": "THE WAITING GAME",
+      "narration": "After climbing tall trees, they sit beneath thunderclouds and wait.",
+      "caption": "UP HIGH. WAITING.",
+      "facts": [
+        "TALL TREES",
+        "WAIT"
+      ],
+      "accent": "#F4C542",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/125.png",
+      "primitive": {
+        "kind": "checklist",
+        "items": [
+          {
+            "label": "TALL TREES",
+            "met": true
+          },
+          {
+            "label": "THUNDERCLOUDS",
+            "met": true
+          },
+          {
+            "label": "WAIT FOR LIGHTNING",
+            "met": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "living-lightning-rod",
+      "beat": "payoff",
+      "eyebrow": "THE STRANGE USE",
+      "headline": "TOWNS PUT IT TO WORK",
+      "narration": "The thing that climbs toward strikes is used instead of rods.",
+      "caption": "A LIVING SUBSTITUTE FOR A ROD",
+      "facts": [
+        "SOME TOWNS",
+        "LIGHTNING RODS"
+      ],
+      "accent": "#E86A33",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/125.png"
+    },
+    {
+      "id": "storm-tool-verdict",
+      "beat": "verdict",
+      "eyebrow": "YOUR VERDICT",
+      "headline": "TOOL OR STORM CHASER?",
+      "narration": "Useful lightning rod, or reckless storm chaser?",
+      "caption": "WHICH SIDE ARE YOU ON?",
+      "accent": "#9D7BFF",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/125.png"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Electabuzz",
+      "url": "https://www.pokemon.com/us/pokedex/electabuzz",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Electabuzz",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Electabuzz_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Electabuzz",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/125",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

@@ -1,0 +1,281 @@
+{
+  "schemaVersion": 2,
+  "id": "weezing-110",
+  "show": {
+    "id": "pokepulses",
+    "name": "PokePulses",
+    "handle": "@PokePulses",
+    "wordmark": {
+      "lead": "POKE",
+      "accent": "PULSES"
+    },
+    "fonts": {
+      "display": "Bebas Neue",
+      "body": "system"
+    }
+  },
+  "title": "Weezing Might Be Two Koffing Fused Together",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "transformation",
+    "numberRelevant": false,
+    "premise": "Weezing can form when two Koffing meet different poison gases and fuse over many years.",
+    "audiencePromise": "See two Koffing fuse into Weezing over many years.",
+    "openLoop": "Does Weezing evolve from one Koffing, or can two Koffing become it together?",
+    "payoff": "Weezing may have two origins: years of gas-driven fusion or a rare sudden mutation.",
+    "targetEmotion": "surprise",
+    "engagementQuestion": "Which origin feels stranger: slow fusion or sudden mutation?",
+    "targetSecondsBetweenVisualChanges": 0.62
+  },
+  "subject": {
+    "name": "Weezing",
+    "category": "Poison Gas Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/110.png",
+    "identifier": "#110"
+  },
+  "related": [
+    {
+      "name": "Koffing",
+      "relation": "evolves-from",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/109.png",
+      "identifier": "#109"
+    },
+    {
+      "name": "Weezing Galar",
+      "relation": "form",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10167.png",
+      "identifier": "#110"
+    }
+  ],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#10151A",
+    "surface": "#202A2D",
+    "primary": "#8B9A8F",
+    "secondary": "#A94C78",
+    "ink": "#F3F5E9"
+  },
+  "audio": {
+    "music": "generated/weezing-110-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 126,
+      "notes": [
+        110,
+        130.81,
+        146.83,
+        164.81,
+        146.83,
+        130.81,
+        98,
+        130.81
+      ]
+    },
+    "voice": {
+      "provider": "openai",
+      "model": "gpt-4o-mini-tts",
+      "voice": "marin",
+      "instructions": "Sound like a knowledgeable fan sharing a strange discovery. Keep the pace quick, warm, and clear. Stress fused, many years, and rarely. Leave a brief pause before the final choice.",
+      "speed": 1.12,
+      "output": "generated/weezing-110-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "cleared",
+    "publicReleaseApproved": true,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "assets": [
+      {
+        "kind": "Weezing official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/110.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      },
+      {
+        "kind": "Koffing official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/109.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ],
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    }
+  },
+  "scenes": [
+    {
+      "id": "not-born-fused",
+      "durationSeconds": 4.2,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "THE STRANGE PART",
+      "headline": "TWO KOFFING CAN FUSE",
+      "narration": "Two Koffing can fuse into Weezing over many years.",
+      "caption": "TWO KOFFING → ONE WEEZING",
+      "visual": "hook",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/110.png",
+      "accent": "#A94C78"
+    },
+    {
+      "id": "two-gases-meet",
+      "durationSeconds": 4.8,
+      "beat": "before",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "THE START",
+      "headline": "TWO GASES MEET",
+      "narration": "First, two Koffing encounter two different kinds of poison gas.",
+      "caption": "DIFFERENT POISON GASES",
+      "visual": "gauntlet",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/109.png",
+      "accent": "#7E9C8A",
+      "facts": [
+        "TWO KOFFING",
+        "TWO GAS TYPES"
+      ],
+      "primitive": {
+        "kind": "counter",
+        "from": 0,
+        "to": 2,
+        "label": "POISON GAS KINDS"
+      }
+    },
+    {
+      "id": "years-of-fusion",
+      "durationSeconds": 5.3,
+      "beat": "change",
+      "role": "escalation",
+      "shot": "tracking",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "THE SLOW CHANGE",
+      "headline": "YEARS START THE FUSION",
+      "narration": "Over many years, those gases meet, and the bodies slowly fuse.",
+      "caption": "A FUSION THAT TAKES YEARS",
+      "visual": "race",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/109.png",
+      "accent": "#B46A91",
+      "facts": [
+        "MANY YEARS",
+        "GASES MEET"
+      ],
+      "primitive": {
+        "kind": "timeline",
+        "steps": [
+          {
+            "label": "GAS TYPES MEET",
+            "detail": "TWO POISON GASES"
+          },
+          {
+            "label": "MANY YEARS",
+            "detail": "BODIES SLOWLY FUSE"
+          },
+          {
+            "label": "WEEZING",
+            "detail": "ONE FORMED"
+          }
+        ],
+        "active": 2
+      }
+    },
+    {
+      "id": "weezing-forms",
+      "durationSeconds": 4.3,
+      "beat": "reveal",
+      "role": "payoff",
+      "shot": "comparison",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "THE RESULT",
+      "headline": "ONE WEEZING FORMS",
+      "narration": "The result is Weezing, formed when two Koffing fuse.",
+      "caption": "TWO BECOME ONE",
+      "visual": "advantage",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/110.png",
+      "accent": "#A94C78"
+    },
+    {
+      "id": "rare-mutation",
+      "durationSeconds": 5.2,
+      "beat": "aftermath",
+      "role": "payoff",
+      "shot": "wide",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "ANOTHER ORIGIN",
+      "headline": "RARELY, IT HAPPENS FAST",
+      "narration": "Very rarely, a mutation makes two small Koffing become conjoined Weezing.",
+      "caption": "SUDDEN MUTATION",
+      "visual": "tradeoff",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/110.png",
+      "accent": "#C77A9D",
+      "facts": [
+        "VERY RARE",
+        "CONJOINED TWINS"
+      ],
+      "primitive": {
+        "kind": "checklist",
+        "items": [
+          {
+            "label": "SUDDEN MUTATION",
+            "met": true
+          },
+          {
+            "label": "TWO SMALL KOFFING",
+            "met": true
+          },
+          {
+            "label": "CONJOINED WEEZING",
+            "met": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "choose-the-origin",
+      "durationSeconds": 4.3,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "YOUR VERDICT",
+      "headline": "WHICH ORIGIN IS STRANGER?",
+      "narration": "Which origin feels stranger: slow fusion or sudden mutation?",
+      "caption": "SLOW FUSION OR SUDDEN MUTATION?",
+      "visual": "cta",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/110.png",
+      "accent": "#D4B36A"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Weezing",
+      "url": "https://www.pokemon.com/us/pokedex/weezing"
+    },
+    {
+      "label": "Bulbapedia — Weezing",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Weezing_(Pok%C3%A9mon)"
+    },
+    {
+      "label": "PokéAPI — Weezing",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/110"
+    }
+  ]
+}

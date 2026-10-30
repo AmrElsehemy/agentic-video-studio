@@ -1,0 +1,242 @@
+{
+  "schemaVersion": 2,
+  "id": "starmie-121",
+  "show": {
+    "id": "pokepulses",
+    "name": "PokePulses",
+    "handle": "@PokePulses",
+    "wordmark": {
+      "lead": "POKE",
+      "accent": "PULSES"
+    },
+    "fonts": {
+      "display": "Bebas Neue",
+      "body": "system"
+    }
+  },
+  "title": "Starmie Broadcasts Into Outer Space",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "mystery",
+    "numberRelevant": false,
+    "premise": "Starmie's glowing core sends mysterious signals into space, raising one unsettling question: who is listening?",
+    "audiencePromise": "Follow Starmie's core from a valued sea gem to a possible message aimed at something beyond Earth.",
+    "openLoop": "What could Starmie's core be trying to reach in space?",
+    "payoff": "Starmie's core can be read two ways: a sea jewel that glows, or a possible message aimed beyond Earth.",
+    "targetEmotion": "curiosity",
+    "engagementQuestion": "Is Starmie a sea jewel, or a space messenger?",
+    "targetSecondsBetweenVisualChanges": 0.68
+  },
+  "subject": {
+    "name": "Starmie",
+    "category": "Mysterious Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/121.png",
+    "identifier": "#121"
+  },
+  "related": [
+    {
+      "name": "Staryu",
+      "relation": "evolves-from",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/120.png",
+      "identifier": "#120"
+    },
+    {
+      "name": "Starmie Mega",
+      "relation": "form",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10280.png",
+      "identifier": "#121"
+    }
+  ],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#07111F",
+    "surface": "#10243A",
+    "primary": "#E94B9B",
+    "secondary": "#55D6E8",
+    "ink": "#F4F7FF"
+  },
+  "audio": {
+    "music": "generated/starmie-121-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 126,
+      "notes": [
+        110,
+        130.81,
+        146.83,
+        164.81,
+        146.83,
+        130.81,
+        98,
+        130.81
+      ]
+    },
+    "voice": {
+      "provider": "openai",
+      "model": "gpt-4o-mini-tts",
+      "voice": "marin",
+      "instructions": "Quick, curious, and warm. Build suspense with short pauses before each reveal. Stress mysterious words without sounding dramatic or certain.",
+      "speed": 1.12,
+      "output": "generated/starmie-121-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "cleared",
+    "publicReleaseApproved": true,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "assets": [
+      {
+        "kind": "Starmie official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/121.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ],
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    }
+  },
+  "scenes": [
+    {
+      "id": "unknown-receiver",
+      "durationSeconds": 4.3,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "mystery",
+      "subjectFocus": "hidden",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "A SIGNAL FROM THE SEA",
+      "headline": "THE RECEIVER IS UNKNOWN",
+      "narration": "Starmie's core sends signals, but the receiver stays unknown.",
+      "caption": "A MESSAGE WITH NO KNOWN ANSWER",
+      "visual": "hook",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/121.png",
+      "accent": "#E94B9B"
+    },
+    {
+      "id": "communication-glow",
+      "durationSeconds": 4.3,
+      "beat": "clue",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "THE FIRST CLUE",
+      "headline": "THE COLORS MAY SPEAK",
+      "narration": "Its seven-color glow was already thought to mean communication.",
+      "caption": "SEVEN COLORS MAY MEAN MORE",
+      "visual": "gauntlet",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/121.png",
+      "accent": "#55D6E8",
+      "facts": [
+        "SEVEN COLORS",
+        "POSSIBLE COMMUNICATION"
+      ],
+      "primitive": {
+        "kind": "counter",
+        "from": 0,
+        "to": 7,
+        "label": "CORE COLORS"
+      }
+    },
+    {
+      "id": "waves-to-space",
+      "durationSeconds": 5.1,
+      "beat": "escalation",
+      "role": "escalation",
+      "shot": "tracking",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "THEN IT GOES FARTHER",
+      "headline": "THE WAVES LEAVE EARTH",
+      "narration": "Then one Pokédex entry sends those electric waves into outer space.",
+      "caption": "THE GLOW BECOMES A DISTANT SIGNAL",
+      "visual": "advantage",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/121.png",
+      "accent": "#8D7CFF",
+      "facts": [
+        "ELECTRIC WAVES",
+        "OUTER SPACE"
+      ]
+    },
+    {
+      "id": "mysterious-radio",
+      "durationSeconds": 5.1,
+      "beat": "reveal",
+      "role": "payoff",
+      "shot": "comparison",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "THE FIRST REVEAL",
+      "headline": "NOT JUST A GLOW",
+      "narration": "Another entry calls them mysterious radio signals in the night sky.",
+      "caption": "MYSTERIOUS RADIO SIGNALS",
+      "visual": "race",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/121.png",
+      "accent": "#F2C94C",
+      "facts": [
+        "MYSTERIOUS",
+        "RADIO SIGNALS"
+      ]
+    },
+    {
+      "id": "something-listening",
+      "durationSeconds": 4.7,
+      "beat": "reveal",
+      "role": "payoff",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "THE SECOND REVEAL",
+      "headline": "SOMETHING MAY BE LISTENING",
+      "narration": "And another says they may communicate with something out there.",
+      "caption": "THE TARGET IS STILL UNKNOWN",
+      "visual": "tradeoff",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/121.png",
+      "accent": "#6EE7B7",
+      "facts": [
+        "COMMUNICATE",
+        "SOMETHING OUT THERE"
+      ]
+    },
+    {
+      "id": "sea-jewel-or-messenger",
+      "durationSeconds": 4.3,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "YOUR THEORY",
+      "headline": "JEWEL OR MESSENGER?",
+      "narration": "Is Starmie a sea jewel, or a space messenger?",
+      "caption": "ONE CORE. TWO READINGS.",
+      "visual": "cta",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/121.png",
+      "accent": "#E94B9B"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Starmie",
+      "url": "https://www.pokemon.com/us/pokedex/starmie"
+    },
+    {
+      "label": "Bulbapedia — Starmie",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Starmie_(Pok%C3%A9mon)"
+    },
+    {
+      "label": "PokéAPI — Starmie",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/121"
+    }
+  ]
+}

@@ -1,0 +1,162 @@
+{
+  "id": "cubone-104",
+  "title": "Cubone: Level 28 or Acceptance?",
+  "storyPattern": "transformation",
+  "numberRelevant": false,
+  "premise": "Cubone evolves into Marowak at level 28, but one Pokédex entry links that change to accepting its mother's death.",
+  "audiencePromise": "See how Cubone's evolution shifts from a game mechanic into a story about grief.",
+  "openLoop": "Is level 28 the real trigger, or does acceptance matter?",
+  "payoff": "The level tells us when Cubone changes. Its mother's skull suggests what that change means.",
+  "targetEmotion": "debate",
+  "engagementQuestion": "Is it level 28, or acceptance?",
+  "subject": {
+    "name": "Cubone",
+    "category": "Lonely Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/104.png",
+    "identifier": "#104"
+  },
+  "related": [
+    {
+      "name": "Marowak",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/105.png",
+      "identifier": "#105"
+    }
+  ],
+  "palette": {
+    "background": "#111318",
+    "surface": "#20242B",
+    "primary": "#C6A77A",
+    "secondary": "#8C6A4A",
+    "ink": "#F4F0E8"
+  },
+  "voice": {
+    "instructions": "Warm, quick, and thoughtful. Build tension around the level counter, then slow slightly on the grief reveal. End by inviting genuine debate."
+  },
+  "rights": {
+    "releaseStatus": "cleared",
+    "publicReleaseApproved": true,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    },
+    "assets": [
+      {
+        "kind": "Cubone official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/104.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      },
+      {
+        "kind": "Marowak official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/105.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "level-or-acceptance",
+      "beat": "hook",
+      "eyebrow": "CUBONE'S EVOLUTION",
+      "headline": "LEVEL 28 OR ACCEPTANCE?",
+      "narration": "Cubone evolves at 28—or when grief is accepted.",
+      "caption": "A GAME RULE WITH A DARKER MEANING",
+      "accent": "#C6A77A",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/104.png"
+    },
+    {
+      "id": "the-skull-it-wears",
+      "beat": "before",
+      "eyebrow": "BEFORE EVOLUTION",
+      "headline": "THE SKULL HIDES EVERYTHING",
+      "narration": "Cubone wears its deceased mother’s skull, hiding its real face.",
+      "caption": "THE SKULL BELONGED TO ITS MOTHER",
+      "facts": [
+        "MOTHER'S SKULL",
+        "REAL FACE HIDDEN"
+      ],
+      "accent": "#9B6D58",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/104.png"
+    },
+    {
+      "id": "the-game-trigger",
+      "beat": "change",
+      "eyebrow": "THE GAME METHOD",
+      "headline": "THE NUMBER IS CLEAR",
+      "narration": "The game gives that hidden Pokémon one clear trigger: level 28, becoming Marowak.",
+      "caption": "CUBONE → MAROWAK • LEVEL 28",
+      "facts": [
+        "LEVEL 28",
+        "MAROWAK"
+      ],
+      "accent": "#D6B47A",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/105.png",
+      "primitive": {
+        "kind": "counter",
+        "from": 0,
+        "to": 28,
+        "label": "EVOLUTION LEVEL"
+      }
+    },
+    {
+      "id": "the-grief-condition",
+      "beat": "reveal",
+      "eyebrow": "POKÉDEX ENTRY",
+      "headline": "THE NUMBER ISN'T EVERYTHING",
+      "narration": "One entry says it may evolve after accepting the pain of her death.",
+      "caption": "“ACCORDING TO SOME”",
+      "facts": [
+        "ACCEPTING THE PAIN",
+        "HER DEATH"
+      ],
+      "accent": "#B88E72",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/105.png"
+    },
+    {
+      "id": "what-the-change-means",
+      "beat": "aftermath",
+      "eyebrow": "THE DESIGN PAYOFF",
+      "headline": "WHEN BECOMES MEANING",
+      "narration": "The number tells us when. The skull suggests what the change means.",
+      "caption": "LEVEL 28 TELLS WHEN. THE SKULL TELLS WHY.",
+      "accent": "#C6A77A",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/105.png"
+    },
+    {
+      "id": "your-verdict",
+      "beat": "verdict",
+      "eyebrow": "YOUR VERDICT",
+      "headline": "WHAT REALLY CHANGES?",
+      "narration": "Is it level 28, or acceptance?",
+      "caption": "LEVEL 28 OR ACCEPTANCE?",
+      "accent": "#E0C08A",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/105.png"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Cubone",
+      "url": "https://www.pokemon.com/us/pokedex/cubone",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Cubone",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Cubone_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Cubone",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/104",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

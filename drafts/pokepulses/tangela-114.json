@@ -1,0 +1,166 @@
+{
+  "id": "tangela-114",
+  "title": "Tangela Drops Its Vines to Escape",
+  "storyPattern": "mechanic",
+  "numberRelevant": false,
+  "premise": "Tangela's vines can snap off painlessly during a grab, letting it escape before regrowing them the next day.",
+  "audiencePromise": "See how Tangela turns losing its vines into an escape system with a next-day reset.",
+  "openLoop": "How can losing its vines help Tangela escape a grab?",
+  "payoff": "Tangela gives up its vine cover for a quick getaway, then replaces it by tomorrow.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "Smart escape system, or too much vine left behind?",
+  "subject": {
+    "name": "Tangela",
+    "category": "Vine Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/114.png",
+    "identifier": "#114"
+  },
+  "related": [
+    {
+      "name": "Tangrowth",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/465.png",
+      "identifier": "#465"
+    }
+  ],
+  "palette": {
+    "background": "#101820",
+    "surface": "#1B2933",
+    "primary": "#2F78C4",
+    "secondary": "#4FAE5B",
+    "ink": "#F3F7F2"
+  },
+  "voice": {
+    "instructions": "Sound like a knowledgeable fan sharing a surprising mechanic. Keep the pace quick, warm, and clear. Stress snap off, escape, and tomorrow. Pause before the final either-or question."
+  },
+  "rights": {
+    "releaseStatus": "cleared",
+    "publicReleaseApproved": true,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    },
+    "assets": [
+      {
+        "kind": "Tangela official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/114.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "vines-snap-to-escape",
+      "beat": "hook",
+      "eyebrow": "TANGELA'S ESCAPE MECHANIC",
+      "headline": "LOSE VINES. ESCAPE. REGROW.",
+      "narration": "Tangela’s vines snap off to escape, then regrow tomorrow.",
+      "caption": "SNAP OFF → ESCAPE → REGROW",
+      "accent": "#2F78C4",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/114.png"
+    },
+    {
+      "id": "vines-hide-its-identity",
+      "beat": "evidence",
+      "eyebrow": "THE COVER",
+      "headline": "THE VINES HIDE TANGELA",
+      "narration": "Blue vines cloak Tangela’s body, hiding its true identity underneath.",
+      "caption": "BLUE VINES HIDE ITS IDENTITY",
+      "facts": [
+        "BLUE VINES",
+        "TRUE IDENTITY HIDDEN"
+      ],
+      "accent": "#4FAE5B",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/114.png"
+    },
+    {
+      "id": "grab-triggers-getaway",
+      "beat": "escalation",
+      "eyebrow": "THE GRAB",
+      "headline": "A GRAB SETS IT FREE",
+      "narration": "A grab does not trap Tangela; it triggers a quick getaway.",
+      "caption": "GRABBED? GET AWAY.",
+      "facts": [
+        "SNAPS OFF EASILY",
+        "QUICK GETAWAY"
+      ],
+      "accent": "#E6B84A",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/114.png"
+    },
+    {
+      "id": "vines-snap-without-pain",
+      "beat": "payoff",
+      "eyebrow": "THE COST",
+      "headline": "THE ESCAPE DOESN'T HURT",
+      "narration": "The vines snap away without pain, leaving Tangela free to flee.",
+      "caption": "NO PAIN. JUST A GETAWAY.",
+      "facts": [
+        "WITHOUT PAIN",
+        "QUICK GETAWAY"
+      ],
+      "accent": "#2F78C4",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/114.png"
+    },
+    {
+      "id": "cover-returns-tomorrow",
+      "beat": "payoff",
+      "eyebrow": "THE RESET",
+      "headline": "THE COVER RETURNS TOMORROW",
+      "narration": "By the very next day, new vines replace the ones it lost.",
+      "caption": "LOST TODAY. REPLACED TOMORROW.",
+      "facts": [
+        "NEW GROWTH",
+        "NEXT DAY"
+      ],
+      "accent": "#4FAE5B",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/114.png",
+      "primitive": {
+        "kind": "timeline",
+        "steps": [
+          {
+            "label": "VINES LOST",
+            "detail": "SNAP OFF"
+          },
+          {
+            "label": "NEXT DAY",
+            "detail": "NEW VINES"
+          }
+        ],
+        "active": 1
+      }
+    },
+    {
+      "id": "smart-system-or-costly",
+      "beat": "verdict",
+      "eyebrow": "YOUR CALL",
+      "headline": "SMART SYSTEM OR COSTLY?",
+      "narration": "Smart escape system, or too much vine left behind?",
+      "caption": "SMART OR COSTLY?",
+      "accent": "#E6B84A",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/114.png"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Tangela",
+      "url": "https://www.pokemon.com/us/pokedex/tangela",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Tangela",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Tangela_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Tangela",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/114",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

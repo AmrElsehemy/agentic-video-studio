@@ -1,0 +1,177 @@
+{
+  "id": "chansey-113",
+  "title": "Chansey Got Fast Because Others Wanted Its Egg",
+  "storyPattern": "transformation",
+  "numberRelevant": false,
+  "premise": "Chansey was once very slow, then became able to flee quickly to protect its eggs from other creatures.",
+  "audiencePromise": "Watch Chansey transform from slow and careful into a fast escape artist.",
+  "openLoop": "How can a slow Pokémon protect an egg that people and Pokémon want?",
+  "payoff": "Chansey handles two egg threats: careful walking prevents breaks, while fleeing avoids creatures.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "Which protects its egg better: careful walking or quick fleeing?",
+  "subject": {
+    "name": "Chansey",
+    "category": "Egg Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/113.png",
+    "identifier": "#113"
+  },
+  "related": [
+    {
+      "name": "Blissey",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/242.png",
+      "identifier": "#242"
+    },
+    {
+      "name": "Happiny",
+      "relation": "evolves-from",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/440.png",
+      "identifier": "#440"
+    }
+  ],
+  "palette": {
+    "background": "#10151A",
+    "surface": "#202A2F",
+    "primary": "#F4A9B8",
+    "secondary": "#FFF1B8",
+    "ink": "#F7F9F4"
+  },
+  "voice": {
+    "instructions": "Warm and quick, like a knowledgeable fan sharing a strange Pokédex detail. Stress “slow,” “egg,” and “fast.” Pause briefly before the final question."
+  },
+  "rights": {
+    "releaseStatus": "cleared",
+    "publicReleaseApproved": true,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    },
+    "assets": [
+      {
+        "kind": "Chansey official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/113.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "egg-was-the-target",
+      "beat": "hook",
+      "eyebrow": "THE EGG WAS TARGETED",
+      "headline": "THE EGG WAS THE TARGET",
+      "narration": "Chansey got fast because others wanted its egg.",
+      "caption": "OTHERS WANTED ITS EGG",
+      "accent": "#FFF1B8",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/113.png"
+    },
+    {
+      "id": "slow-and-careful",
+      "beat": "before",
+      "eyebrow": "BEFORE THE ESCAPE",
+      "headline": "SLOW WAS CAREFUL",
+      "narration": "Chansey was once very slow, and walked carefully to prevent breaks.",
+      "caption": "ONCE SLOW. WALKS CAREFULLY.",
+      "facts": [
+        "ONCE SLOW",
+        "PREVENTS BREAKING"
+      ],
+      "accent": "#F4A9B8",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/113.png"
+    },
+    {
+      "id": "everyone-wanted-it",
+      "beat": "change",
+      "eyebrow": "THE PRESSURE BUILDS",
+      "headline": "PEOPLE AND POKÉMON WANTED IT",
+      "narration": "People overharvested its eggs, while other Pokémon tried taking them.",
+      "caption": "THE EGGS KEPT GETTING TARGETED",
+      "facts": [
+        "PEOPLE",
+        "OTHER POKÉMON",
+        "EGGS OVERHARVESTED"
+      ],
+      "accent": "#FFCF70",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/113.png"
+    },
+    {
+      "id": "quick-fleeing",
+      "beat": "reveal",
+      "eyebrow": "THE CHANGE",
+      "headline": "THEN IT FLED QUICKLY",
+      "narration": "To protect those eggs, Chansey became able to flee quickly.",
+      "caption": "SLOW WALKING → QUICK FLEEING",
+      "facts": [
+        "FLEE QUICKLY",
+        "PROTECTS ITS EGGS"
+      ],
+      "accent": "#B8E6C1",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/113.png",
+      "primitive": {
+        "kind": "timeline",
+        "steps": [
+          {
+            "label": "ONCE SLOW",
+            "detail": "WALKED CAREFULLY"
+          },
+          {
+            "label": "EGGS TARGETED",
+            "detail": "OTHER CREATURES"
+          },
+          {
+            "label": "FLEES QUICKLY",
+            "detail": "PROTECTS EGGS"
+          }
+        ],
+        "active": 2
+      }
+    },
+    {
+      "id": "population-stays-small",
+      "beat": "aftermath",
+      "eyebrow": "THE COST",
+      "headline": "FEWER CHANSEY REMAINED",
+      "narration": "But overharvesting left Chansey few in number and difficult to find.",
+      "caption": "FEW IN NUMBER. HARD TO FIND.",
+      "facts": [
+        "FEW IN NUMBER",
+        "DIFFICULT TO FIND"
+      ],
+      "accent": "#E58C9A",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/113.png"
+    },
+    {
+      "id": "careful-or-quick",
+      "beat": "verdict",
+      "eyebrow": "YOUR CALL",
+      "headline": "TWO WAYS TO PROTECT IT",
+      "narration": "Which protects its egg better: careful walking or quick fleeing?",
+      "caption": "CAREFUL WALKING OR QUICK FLEEING?",
+      "accent": "#FFF1B8",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/113.png"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Chansey",
+      "url": "https://www.pokemon.com/us/pokedex/chansey",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Chansey",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Chansey_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Chansey",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/113",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

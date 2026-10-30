@@ -1,0 +1,283 @@
+{
+  "schemaVersion": 2,
+  "id": "magmar-126",
+  "show": {
+    "id": "pokepulses",
+    "name": "PokePulses",
+    "handle": "@PokePulses",
+    "wordmark": {
+      "lead": "POKE",
+      "accent": "PULSES"
+    },
+    "fonts": {
+      "display": "Bebas Neue",
+      "body": "system"
+    }
+  },
+  "title": "Magmar's Rest Is a Lava Bath",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "mechanic",
+    "numberRelevant": false,
+    "premise": "When wounded or tired, Magmar uses lava like a hot spring to recover.",
+    "audiencePromise": "Follow Magmar from a wounded dip to a full lava soak, then see why the hot-spring comparison fits.",
+    "openLoop": "How does Magmar turn a lava bath into recovery?",
+    "payoff": "Magmar's lava bath handles both wounds and weariness, matching the hot-spring comparison in its Pokédex.",
+    "targetEmotion": "surprise",
+    "engagementQuestion": "Healing method or extreme endurance test?",
+    "targetSecondsBetweenVisualChanges": 0.65
+  },
+  "subject": {
+    "name": "Magmar",
+    "category": "Spitfire Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/126.png",
+    "identifier": "#126"
+  },
+  "related": [
+    {
+      "name": "Magmortar",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/467.png",
+      "identifier": "#467"
+    },
+    {
+      "name": "Magby",
+      "relation": "evolves-from",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/240.png",
+      "identifier": "#240"
+    }
+  ],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#160B0A",
+    "surface": "#2A1410",
+    "primary": "#F05A28",
+    "secondary": "#FFC247",
+    "ink": "#FFF3D6"
+  },
+  "audio": {
+    "music": "generated/magmar-126-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 126,
+      "notes": [
+        110,
+        130.81,
+        146.83,
+        164.81,
+        146.83,
+        130.81,
+        98,
+        130.81
+      ]
+    },
+    "voice": {
+      "provider": "openai",
+      "model": "gpt-4o-mini-tts",
+      "voice": "marin",
+      "instructions": "Speak quickly, warmly, and with playful disbelief. Stress lava, tired, heal, and hot spring. Pause briefly before each reveal.",
+      "speed": 1.12,
+      "output": "generated/magmar-126-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "cleared",
+    "publicReleaseApproved": true,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "assets": [
+      {
+        "kind": "Magmar official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/126.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ],
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    }
+  },
+  "scenes": [
+    {
+      "id": "lava-healing",
+      "durationSeconds": 3.8,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "MAGMAR'S RECOVERY",
+      "headline": "HEALING IN LAVA",
+      "narration": "Magmar heals wounds by dipping them in lava.",
+      "caption": "MAGMAR HEALS IN LAVA",
+      "visual": "hook",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/126.png",
+      "accent": "#F05A28"
+    },
+    {
+      "id": "wound-treatment",
+      "durationSeconds": 4.7,
+      "beat": "evidence",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "THE POKÉDEX RULE",
+      "headline": "DIP THE WOUND",
+      "narration": "The Pokédex says Magmar can heal a wound in lava.",
+      "caption": "A LAVA DIP CAN HEAL A WOUND",
+      "visual": "gauntlet",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/126.png",
+      "accent": "#FFC247",
+      "facts": [
+        "HEALS ITSELF",
+        "LAVA TREATMENT"
+      ],
+      "primitive": {
+        "kind": "timeline",
+        "steps": [
+          {
+            "label": "WOUND"
+          },
+          {
+            "label": "LAVA DIP"
+          },
+          {
+            "label": "HEALS"
+          }
+        ],
+        "active": 2
+      }
+    },
+    {
+      "id": "volcano-leap",
+      "durationSeconds": 4.8,
+      "beat": "escalation",
+      "role": "escalation",
+      "shot": "comparison",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "WHEN TIRED",
+      "headline": "IT GOES FURTHER",
+      "narration": "But tired Magmar goes further: it leaps into a volcano.",
+      "caption": "TIRED? LEAP INTO A VOLCANO.",
+      "visual": "advantage",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/126.png",
+      "accent": "#F05A28",
+      "facts": [
+        "TIRED",
+        "VOLCANO MOUTH"
+      ],
+      "primitive": {
+        "kind": "timeline",
+        "steps": [
+          {
+            "label": "TIRED"
+          },
+          {
+            "label": "VOLCANO MOUTH"
+          },
+          {
+            "label": "MAGMA SOAK"
+          }
+        ],
+        "active": 1
+      }
+    },
+    {
+      "id": "magma-soak",
+      "durationSeconds": 5.1,
+      "beat": "payoff",
+      "role": "payoff",
+      "shot": "tracking",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "THE FULL SOAK",
+      "headline": "MAGMA EASES WEARINESS",
+      "narration": "Then it soaks its body in magma to ease its weariness.",
+      "caption": "A MAGMA SOAK FOR WEARINESS",
+      "visual": "race",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/126.png",
+      "accent": "#FFC247",
+      "facts": [
+        "SOAKS IN MAGMA",
+        "EASES WEARINESS"
+      ],
+      "primitive": {
+        "kind": "checklist",
+        "items": [
+          {
+            "label": "TIRED",
+            "met": true
+          },
+          {
+            "label": "MAGMA SOAK",
+            "met": true
+          },
+          {
+            "label": "EASES WEARINESS",
+            "met": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "constant-burning",
+      "durationSeconds": 4.3,
+      "beat": "payoff",
+      "role": "payoff",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "WHY IT FITS",
+      "headline": "ITS BODY BURNS CONSTANTLY",
+      "narration": "Its body burns constantly, and magma eases its weariness.",
+      "caption": "CONSTANT FIRE. MAGMA RECOVERY.",
+      "visual": "tradeoff",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/126.png",
+      "accent": "#F05A28",
+      "facts": [
+        "CONSTANTLY BURNING",
+        "RECOVERY IN MAGMA"
+      ]
+    },
+    {
+      "id": "healing-or-endurance",
+      "durationSeconds": 3.8,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "YOUR CALL",
+      "headline": "WHAT WOULD YOU CALL IT?",
+      "narration": "Healing method or extreme endurance test?",
+      "caption": "HEALING OR ENDURANCE?",
+      "visual": "cta",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/126.png",
+      "accent": "#FFC247"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Magmar",
+      "url": "https://www.pokemon.com/us/pokedex/magmar"
+    },
+    {
+      "label": "Bulbapedia — Magmar",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Magmar_(Pok%C3%A9mon)"
+    },
+    {
+      "label": "PokéAPI — Magmar",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/126"
+    }
+  ]
+}

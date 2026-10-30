@@ -1,0 +1,190 @@
+{
+  "id": "hitmonlee-106",
+  "title": "Hitmonlee's Repeated Kicks Stretch Its Legs",
+  "storyPattern": "mechanic",
+  "numberRelevant": false,
+  "premise": "Repeated kicking makes both of Hitmonlee’s legs stretch even longer to strike a fleeing foe.",
+  "audiencePromise": "See how repeated kicks stretch Hitmonlee’s legs to strike fleeing foes.",
+  "openLoop": "Why would repeated kicks stretch both legs even longer?",
+  "payoff": "Repeated kicks stretch both legs even longer, specifically to strike a fleeing foe.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "Would you rather face the Kick Master or flee?",
+  "subject": {
+    "name": "Hitmonlee",
+    "category": "Kicking Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/106.png",
+    "identifier": "#106"
+  },
+  "related": [
+    {
+      "name": "Tyrogue",
+      "relation": "evolves-from",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/236.png",
+      "identifier": "#236"
+    },
+    {
+      "name": "Hitmonchan",
+      "relation": "related",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/107.png",
+      "identifier": "#107"
+    },
+    {
+      "name": "Hitmontop",
+      "relation": "related",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/237.png",
+      "identifier": "#237"
+    }
+  ],
+  "palette": {
+    "background": "#10131A",
+    "surface": "#1D222B",
+    "primary": "#D9A441",
+    "secondary": "#7B3F35",
+    "ink": "#F6F1E8"
+  },
+  "voice": {
+    "instructions": "Quick, warm, and playful. Stress repeatedly, both legs, and fleeing foe. Pause before the final choice."
+  },
+  "rights": {
+    "releaseStatus": "cleared",
+    "publicReleaseApproved": true,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    },
+    "assets": [
+      {
+        "kind": "Hitmonlee official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/106.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "repeated-kicks-stretch",
+      "beat": "hook",
+      "eyebrow": "HITMONLEE'S STRANGE MECHANIC",
+      "headline": "KICKS MAKE LEGS STRETCH",
+      "narration": "Hitmonlee kicks repeatedly, then stretches to strike fleeing foes.",
+      "caption": "REPEATED KICKS → STRETCHED LEGS",
+      "facts": [
+        "REPEATED KICKING",
+        "FLEEING FOES"
+      ],
+      "accent": "#D9A441",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/106.png"
+    },
+    {
+      "id": "springlike-limbs",
+      "beat": "evidence",
+      "eyebrow": "THE LIMBS",
+      "headline": "SPRINGLIKE LEGS",
+      "narration": "Its legs freely contract and stretch, using springlike limbs for kicks.",
+      "caption": "CONTRACT • STRETCH • KICK",
+      "facts": [
+        "FREELY CONTRACT",
+        "SPRINGLIKE LIMBS"
+      ],
+      "accent": "#7B3F35",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/106.png"
+    },
+    {
+      "id": "both-legs-extend",
+      "beat": "escalation",
+      "eyebrow": "THE REPEATED-KICK RULE",
+      "headline": "BOTH LEGS GO LONGER",
+      "narration": "But repeated kicking makes both legs stretch even longer.",
+      "caption": "BOTH LEGS STRETCH LONGER",
+      "facts": [
+        "BOTH LEGS",
+        "EVEN LONGER"
+      ],
+      "accent": "#D9A441",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/106.png",
+      "primitive": {
+        "kind": "bars",
+        "unit": "× REACH",
+        "bars": [
+          {
+            "label": "LEFT BASE",
+            "value": 1
+          },
+          {
+            "label": "LEFT STRETCHED",
+            "value": 2
+          },
+          {
+            "label": "RIGHT BASE",
+            "value": 1
+          },
+          {
+            "label": "RIGHT STRETCHED",
+            "value": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "fleeing-foe-target",
+      "beat": "payoff",
+      "eyebrow": "THE SPECIFIC TARGET",
+      "headline": "A FLEEING FOE",
+      "narration": "The reason is specific: it stretches to strike a fleeing foe.",
+      "caption": "TARGET: A FLEEING FOE",
+      "facts": [
+        "STRIKE",
+        "FLEEING FOE"
+      ],
+      "accent": "#C86B4A",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/106.png"
+    },
+    {
+      "id": "distant-rising-kick",
+      "beat": "payoff",
+      "eyebrow": "THE RANGE REVEAL",
+      "headline": "DISTANT FOES CAN BE HIT",
+      "narration": "Its stretchy legs can hit a distant foe with a rising kick.",
+      "caption": "DISTANT FOE → RISING KICK",
+      "facts": [
+        "DISTANT FOE",
+        "RISING KICK"
+      ],
+      "accent": "#D9A441",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/106.png"
+    },
+    {
+      "id": "face-the-kick-master",
+      "beat": "verdict",
+      "eyebrow": "YOUR MOVE",
+      "headline": "FLEE OR FACE IT?",
+      "narration": "Would you rather face the Kick Master or flee?",
+      "caption": "FLEE OR FACE THE KICK MASTER?",
+      "accent": "#F6F1E8",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/106.png"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Hitmonlee",
+      "url": "https://www.pokemon.com/us/pokedex/hitmonlee",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Hitmonlee",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Hitmonlee_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Hitmonlee",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/106",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

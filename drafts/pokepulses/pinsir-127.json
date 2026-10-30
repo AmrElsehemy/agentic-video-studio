@@ -1,0 +1,184 @@
+{
+  "id": "pinsir-127",
+  "title": "Pinsir's Clamp Has a Brutal Fallback",
+  "storyPattern": "mechanic",
+  "numberRelevant": false,
+  "premise": "Pinsir follows a brutal two-step rule: tear prey apart, or fling away anything it cannot crush.",
+  "audiencePromise": "See how Pinsir turns one failed clamp into a second, violent outcome.",
+  "openLoop": "What does Pinsir do when tearing prey apart fails?",
+  "payoff": "Pinsir's pincers are both a trap and a launch: they tear prey apart or throw it hard.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "Which sounds worse: being split apart, or being tossed hard?",
+  "subject": {
+    "name": "Pinsir",
+    "category": "Stag Beetle Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/127.png",
+    "identifier": "#127"
+  },
+  "related": [
+    {
+      "name": "Pinsir Mega",
+      "relation": "form",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10040.png",
+      "identifier": "#127"
+    }
+  ],
+  "palette": {
+    "background": "#101114",
+    "surface": "#202329",
+    "primary": "#D84A3A",
+    "secondary": "#F0B323",
+    "ink": "#F7F3E8"
+  },
+  "voice": {
+    "instructions": "Speak quickly and clearly with warm, darkly playful energy. Stress tearing fails, swings, and tosses. Pause briefly before the final choice."
+  },
+  "rights": {
+    "releaseStatus": "cleared",
+    "publicReleaseApproved": true,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    },
+    "assets": [
+      {
+        "kind": "Pinsir official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/127.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "backup-plan",
+      "beat": "hook",
+      "eyebrow": "PINSIR'S RULE",
+      "headline": "WHEN TEARING FAILS",
+      "narration": "Pinsir's backup plan starts when tearing fails.",
+      "caption": "THE ATTACK HAS A SECOND STEP",
+      "accent": "#D84A3A",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/127.png"
+    },
+    {
+      "id": "clamp-first",
+      "beat": "evidence",
+      "eyebrow": "STEP ONE",
+      "headline": "CLAMP UNTIL IT TEARS",
+      "narration": "Its pincers grip prey until the prey is torn in half.",
+      "caption": "THE PINCERS HOLD ON",
+      "facts": [
+        "GRIP",
+        "TEAR IN HALF"
+      ],
+      "accent": "#F0B323",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/127.png",
+      "primitive": {
+        "kind": "timeline",
+        "steps": [
+          {
+            "label": "GRIP PREY",
+            "detail": "PINCERS CLAMP DOWN"
+          },
+          {
+            "label": "SPLIT APART",
+            "detail": "TEAR IN HALF"
+          }
+        ],
+        "active": 1
+      }
+    },
+    {
+      "id": "failure-changes-the-attack",
+      "beat": "escalation",
+      "eyebrow": "IF CRUSHING FAILS",
+      "headline": "THE ATTACK CHANGES",
+      "narration": "If crushing fails, Pinsir swings the prey around instead.",
+      "caption": "FAILED CRUSH. NEW MOTION.",
+      "facts": [
+        "CRUSH",
+        "SWING"
+      ],
+      "accent": "#D84A3A",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/127.png"
+    },
+    {
+      "id": "failed-crush-becomes-toss",
+      "beat": "payoff",
+      "eyebrow": "THE BACKUP",
+      "headline": "FAILURE BECOMES A THROW",
+      "narration": "The failed crush still ends with the prey tossed hard away.",
+      "caption": "CAN'T TEAR IT? TOSS IT.",
+      "facts": [
+        "FAILED CRUSH",
+        "TOSSED HARD"
+      ],
+      "accent": "#F0B323",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/127.png",
+      "primitive": {
+        "kind": "timeline",
+        "steps": [
+          {
+            "label": "FAILED CRUSH",
+            "detail": "CANNOT TEAR"
+          },
+          {
+            "label": "SWING AROUND",
+            "detail": "ATTACK CHANGES"
+          },
+          {
+            "label": "TOSS HARD",
+            "detail": "FLING AWAY"
+          }
+        ],
+        "active": 2
+      }
+    },
+    {
+      "id": "trap-and-launch",
+      "beat": "payoff",
+      "eyebrow": "THE FULL MECHANIC",
+      "headline": "TRAP OR LAUNCH",
+      "narration": "Its pincers work as both a trap and a launch.",
+      "caption": "TEAR IT OR TOSS IT",
+      "facts": [
+        "TRAP",
+        "LAUNCH"
+      ],
+      "accent": "#D84A3A",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/127.png"
+    },
+    {
+      "id": "split-or-tossed",
+      "beat": "verdict",
+      "eyebrow": "YOUR CALL",
+      "headline": "WHICH SOUNDS WORSE?",
+      "narration": "Which sounds worse: being split apart, or being tossed hard?",
+      "caption": "SPLIT OR TOSSED?",
+      "accent": "#F0B323",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/127.png"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Pinsir",
+      "url": "https://www.pokemon.com/us/pokedex/pinsir",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Pinsir",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Pinsir_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Pinsir",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/127",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

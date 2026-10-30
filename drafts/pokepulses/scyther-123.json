@@ -1,0 +1,179 @@
+{
+  "id": "scyther-123",
+  "title": "Scyther Is Flying-Type, But Rarely Flies",
+  "storyPattern": "comparison",
+  "numberRelevant": false,
+  "premise": "Scyther has the Flying type, yet its Pokédex says it very rarely spreads its wings to fly.",
+  "audiencePromise": "Show why Scyther feels more like a grounded ninja than an airborne Pokémon.",
+  "openLoop": "If Scyther rarely flies, what makes it feel so dangerous?",
+  "payoff": "Scyther's Flying type clashes with its real style: hide, dash, and slice from the ground.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "Grounded ninja or reluctant flyer—which fits Scyther better?",
+  "subject": {
+    "name": "Scyther",
+    "category": "Mantis Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/123.png",
+    "identifier": "#123"
+  },
+  "related": [
+    {
+      "name": "Scizor",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/212.png",
+      "identifier": "#212"
+    },
+    {
+      "name": "Kleavor",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/900.png",
+      "identifier": "#900"
+    }
+  ],
+  "palette": {
+    "background": "#101820",
+    "surface": "#1B2A2F",
+    "primary": "#8BC34A",
+    "secondary": "#C7E86B",
+    "ink": "#F2F6E9"
+  },
+  "voice": {
+    "instructions": "Speak quickly, warmly, and clearly. Stress Flying-type, rarely, blur, and grounded. Pause briefly before the final choice."
+  },
+  "rights": {
+    "releaseStatus": "cleared",
+    "publicReleaseApproved": true,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    },
+    "assets": [
+      {
+        "kind": "Scyther official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/123.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "rarely-flies",
+      "beat": "hook",
+      "eyebrow": "THE TYPE DOESN'T FIT",
+      "headline": "FLYING-TYPE. RARELY FLIES.",
+      "narration": "Scyther is Flying-type—but almost never flies.",
+      "caption": "FLYING-TYPE • RARELY FLIES",
+      "accent": "#C7E86B",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/123.png",
+      "primitive": {
+        "kind": "checklist",
+        "items": [
+          {
+            "label": "BUG TYPE",
+            "met": true
+          },
+          {
+            "label": "FLYING TYPE",
+            "met": true
+          },
+          {
+            "label": "FLIES OFTEN",
+            "met": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "blur-before-impact",
+      "beat": "evidence",
+      "eyebrow": "THE REAL THREAT",
+      "headline": "A BLUR, THEN A SLICE",
+      "narration": "Its real threat is speed: a blur, then the scythes arrive.",
+      "caption": "TOO FAST TO TRACK",
+      "facts": [
+        "NINJA-LIKE SPEED",
+        "LEAVES A BLUR",
+        "SHARP SCYTHES"
+      ],
+      "accent": "#8BC34A",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/123.png"
+    },
+    {
+      "id": "grass-camouflage",
+      "beat": "evidence",
+      "eyebrow": "BEFORE IT STRIKES",
+      "headline": "THE GRASS HIDES IT",
+      "narration": "In grass, its protective colors can make Scyther invisible.",
+      "caption": "HIDE FIRST. STRIKE FAST.",
+      "facts": [
+        "TALL GRASS",
+        "PROTECTIVE COLORS",
+        "INVISIBLE"
+      ],
+      "accent": "#5E9F45",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/123.png"
+    },
+    {
+      "id": "grounded-ninja-style",
+      "beat": "escalation",
+      "eyebrow": "WATCH THE PATTERN",
+      "headline": "HIDE. DASH. SLICE.",
+      "narration": "So its battle style looks grounded: hide, dash, and slice.",
+      "caption": "GROUND-LEVEL NINJA MOVEMENT",
+      "facts": [
+        "HIDE",
+        "DASH",
+        "SLICE"
+      ],
+      "accent": "#D7F07A",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/123.png"
+    },
+    {
+      "id": "the-type-still-counts",
+      "beat": "twist",
+      "eyebrow": "THE COUNTERPOINT",
+      "headline": "THE FLYING TYPE REMAINS",
+      "narration": "The Pokédex still calls it Flying-type; it just rarely spreads wings.",
+      "caption": "FLYING DOESN'T MEAN CONSTANT FLIGHT",
+      "facts": [
+        "BUG",
+        "FLYING",
+        "RARELY SPREADS WINGS"
+      ],
+      "accent": "#A8D65A",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/123.png"
+    },
+    {
+      "id": "grounded-or-flying",
+      "beat": "verdict",
+      "eyebrow": "YOUR VERDICT",
+      "headline": "NINJA OR FLYER?",
+      "narration": "Grounded ninja or reluctant flyer—which fits Scyther better?",
+      "caption": "CHOOSE SCYTHER'S TRUE STYLE",
+      "accent": "#C7E86B",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/123.png"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Scyther",
+      "url": "https://www.pokemon.com/us/pokedex/scyther",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Scyther",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Scyther_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Scyther",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/123",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

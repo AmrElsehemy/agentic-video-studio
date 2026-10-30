@@ -1,0 +1,250 @@
+{
+  "schemaVersion": 2,
+  "id": "koffing-109",
+  "show": {
+    "id": "pokepulses",
+    "name": "PokePulses",
+    "handle": "@PokePulses",
+    "wordmark": {
+      "lead": "POKE",
+      "accent": "PULSES"
+    },
+    "fonts": {
+      "display": "Bebas Neue",
+      "body": "system"
+    }
+  },
+  "title": "Koffing's Agitation Can End in an Explosion",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "transformation",
+    "numberRelevant": false,
+    "premise": "When agitated, Koffing raises gas toxicity, jets poison from its body, and may overinflate before exploding.",
+    "audiencePromise": "See Koffing escalate from toxic gas to body-wide jets and possible explosion.",
+    "openLoop": "What happens between agitation and that possible explosion?",
+    "payoff": "The danger is built into Koffing's body, from gas storage to possible explosion.",
+    "targetEmotion": "surprise",
+    "engagementQuestion": "Which scares you more: poison jets or a possible explosion?",
+    "targetSecondsBetweenVisualChanges": 0.62
+  },
+  "subject": {
+    "name": "Koffing",
+    "category": "Poison Gas Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/109.png",
+    "identifier": "#109"
+  },
+  "related": [
+    {
+      "name": "Weezing",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/110.png",
+      "identifier": "#110"
+    }
+  ],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#10151A",
+    "surface": "#1C252B",
+    "primary": "#8FA66B",
+    "secondary": "#B94C9A",
+    "ink": "#F4F1E8"
+  },
+  "audio": {
+    "music": "generated/koffing-109-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 126,
+      "notes": [
+        110,
+        130.81,
+        146.83,
+        164.81,
+        146.83,
+        130.81,
+        98,
+        130.81
+      ]
+    },
+    "voice": {
+      "provider": "openai",
+      "model": "gpt-4o-mini-tts",
+      "voice": "marin",
+      "instructions": "Speak like a knowledgeable fan sharing a startling discovery. Keep the pace quick, warm, and tense. Stress the escalation words, then pause briefly before the final choice.",
+      "speed": 1.12,
+      "output": "generated/koffing-109-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "cleared",
+    "publicReleaseApproved": true,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "assets": [
+      {
+        "kind": "Koffing official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/109.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ],
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    }
+  },
+  "scenes": [
+    {
+      "id": "anger-escalates",
+      "durationSeconds": 4.3,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "KOFFING",
+      "headline": "AGITATION CAN END IN EXPLOSION",
+      "narration": "Koffing's agitation can raise toxicity, then end in explosion.",
+      "caption": "AGITATION MAKES IT MORE DANGEROUS",
+      "visual": "hook",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/109.png",
+      "primitive": {
+        "kind": "timeline",
+        "steps": [
+          {
+            "label": "AGITATED",
+            "detail": "Raises toxicity"
+          },
+          {
+            "label": "POISON JETS",
+            "detail": "From all over its body"
+          },
+          {
+            "label": "OVERINFLATE",
+            "detail": "Round body"
+          },
+          {
+            "label": "MAY EXPLODE"
+          }
+        ],
+        "active": 3
+      }
+    },
+    {
+      "id": "toxic-gases",
+      "durationSeconds": 4.3,
+      "beat": "before",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "THE STARTING STATE",
+      "headline": "TOXIC GAS INSIDE",
+      "narration": "Koffing stores several toxic gases, already making explosions possible.",
+      "caption": "SEVERAL TOXIC GASES",
+      "visual": "gauntlet",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/109.png",
+      "accent": "#8FA66B",
+      "facts": [
+        "TOXIC GASES",
+        "CAN EXPLODE"
+      ]
+    },
+    {
+      "id": "body-wide-jets",
+      "durationSeconds": 4.7,
+      "beat": "change",
+      "role": "escalation",
+      "shot": "tracking",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "AGITATION RAISES THE STAKES",
+      "headline": "THE WHOLE BODY JETS POISON",
+      "narration": "Its agitation raises the toxicity before those jets burst out.",
+      "caption": "TOXICITY RISES • JETS EVERYWHERE",
+      "visual": "race",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/109.png",
+      "accent": "#B94C9A",
+      "facts": [
+        "HIGHER TOXICITY",
+        "BODY-WIDE JETS"
+      ]
+    },
+    {
+      "id": "overinflate",
+      "durationSeconds": 4.2,
+      "beat": "reveal",
+      "role": "payoff",
+      "shot": "comparison",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "THE FINAL CHANGE",
+      "headline": "IT MAY OVERINFLATE",
+      "narration": "Then Koffing can overinflate its round body before exploding.",
+      "caption": "MAY OVERINFLATE, THEN EXPLODE",
+      "visual": "advantage",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/109.png",
+      "accent": "#D35B9F",
+      "facts": [
+        "ROUND BODY",
+        "MAY EXPLODE"
+      ]
+    },
+    {
+      "id": "danger-climbs",
+      "durationSeconds": 4.5,
+      "beat": "aftermath",
+      "role": "payoff",
+      "shot": "wide",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "THE ESCALATION",
+      "headline": "THE BODY BECOMES THE DANGER",
+      "narration": "Its body stores gas, releases poison, and may overinflate.",
+      "caption": "STORAGE → JETS → MAY OVERINFLATE",
+      "visual": "tradeoff",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/109.png",
+      "accent": "#E06A62",
+      "facts": [
+        "STORES GAS",
+        "RELEASES POISON",
+        "MAY OVERINFLATE"
+      ]
+    },
+    {
+      "id": "choose-the-danger",
+      "durationSeconds": 4.8,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "YOUR CALL",
+      "headline": "WHICH SCARES YOU MORE?",
+      "narration": "Which scares you more: poison jets or a possible explosion?",
+      "caption": "POISON JETS OR POSSIBLE EXPLOSION?",
+      "visual": "cta",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/109.png"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Koffing",
+      "url": "https://www.pokemon.com/us/pokedex/koffing"
+    },
+    {
+      "label": "Bulbapedia — Koffing",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Koffing_(Pok%C3%A9mon)"
+    },
+    {
+      "label": "PokéAPI — Koffing",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/109"
+    }
+  ]
+}

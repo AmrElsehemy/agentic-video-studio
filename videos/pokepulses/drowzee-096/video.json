@@ -1,0 +1,237 @@
+{
+  "schemaVersion": 2,
+  "id": "drowzee-096",
+  "show": {
+    "id": "pokepulses",
+    "name": "PokePulses",
+    "handle": "@PokePulses",
+    "wordmark": {
+      "lead": "POKE",
+      "accent": "PULSES"
+    },
+    "fonts": {
+      "display": "Bebas Neue",
+      "body": "system"
+    }
+  },
+  "title": "Drowzee's Itchy-Nose Dream Trap",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "mystery",
+    "numberRelevant": false,
+    "premise": "An itchy nose during sleep may signal Drowzee standing above your pillow and eating your dream.",
+    "audiencePromise": "Follow one strange Pokédex clue from an itchy nose to Drowzee's dream-eating method.",
+    "openLoop": "What connects one itchy nose to a dream Drowzee eats?",
+    "payoff": "The whole trap clicks: Drowzee's nose finds the sleeper, then its nostrils lead to the dream.",
+    "targetEmotion": "surprise",
+    "engagementQuestion": "Is dream-eating Drowzee clever, or too creepy to trust?",
+    "targetSecondsBetweenVisualChanges": 0.68
+  },
+  "subject": {
+    "name": "Drowzee",
+    "category": "Hypnosis Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/96.png",
+    "identifier": "#096"
+  },
+  "related": [
+    {
+      "name": "Hypno",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/97.png",
+      "identifier": "#097"
+    }
+  ],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#171326",
+    "surface": "#27203A",
+    "primary": "#D8B4FF",
+    "secondary": "#F0C36A",
+    "ink": "#FFFFFF"
+  },
+  "audio": {
+    "music": "generated/drowzee-096-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 126,
+      "notes": [
+        110,
+        130.81,
+        146.83,
+        164.81,
+        146.83,
+        130.81,
+        98,
+        130.81
+      ]
+    },
+    "voice": {
+      "provider": "openai",
+      "model": "gpt-4o-mini-tts",
+      "voice": "marin",
+      "instructions": "Speak like a knowledgeable fan sharing a creepy surprise. Start urgent, build tension with each clue, pause before the reveals, then end playful and inviting.",
+      "speed": 1.12,
+      "output": "generated/drowzee-096-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "cleared",
+    "publicReleaseApproved": true,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "assets": [
+      {
+        "kind": "Drowzee official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/96.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ],
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    }
+  },
+  "scenes": [
+    {
+      "id": "itchy-nose",
+      "durationSeconds": 4.2,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "mystery",
+      "subjectFocus": "hidden",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "SLEEPING CLUE",
+      "headline": "ITCHY NOSE? DROWZEE'S EATING",
+      "narration": "An itchy sleeping nose means Drowzee is eating dreams.",
+      "caption": "THE ITCH IS A WARNING",
+      "visual": "hook",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/96.png",
+      "accent": "#F0C36A",
+      "facts": [
+        "ITCHY NOSE",
+        "EATING DREAMS"
+      ]
+    },
+    {
+      "id": "nose-tracks-sleepers",
+      "durationSeconds": 4.2,
+      "beat": "clue",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "FIRST CLUE",
+      "headline": "ITS NOSE FINDS SLEEPERS",
+      "narration": "Its twitching nose can find sleepers and their dreams.",
+      "caption": "DROWZEE KNOWS WHERE TO LOOK",
+      "visual": "gauntlet",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/96.png",
+      "accent": "#D8B4FF",
+      "facts": [
+        "TWITCHING NOSE",
+        "SLEEPERS",
+        "DREAMS"
+      ]
+    },
+    {
+      "id": "dream-target",
+      "durationSeconds": 4.7,
+      "beat": "escalation",
+      "role": "escalation",
+      "shot": "tracking",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "THE TARGET",
+      "headline": "IT CAN READ THE DREAM",
+      "narration": "It can tell what a sleeping person is dreaming about.",
+      "caption": "THE DREAM ISN'T HIDDEN",
+      "visual": "advantage",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/96.png",
+      "accent": "#A77BFF",
+      "facts": [
+        "SLEEPING PERSON",
+        "DREAM CONTENT"
+      ]
+    },
+    {
+      "id": "nostril-path",
+      "durationSeconds": 5.2,
+      "beat": "reveal",
+      "role": "payoff",
+      "shot": "comparison",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "THE CREEPY PART",
+      "headline": "THE PATH GOES THROUGH YOUR NOSE",
+      "narration": "Then it eats that dream through your nostrils, above the pillow.",
+      "caption": "DREAM THEFT FROM ABOVE",
+      "visual": "race",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/96.png",
+      "accent": "#F0C36A",
+      "facts": [
+        "EATS DREAMS",
+        "THROUGH NOSTRILS",
+        "ABOVE PILLOW"
+      ]
+    },
+    {
+      "id": "dream-memory",
+      "durationSeconds": 5.1,
+      "beat": "reveal",
+      "role": "payoff",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "THE STRANGEST PART",
+      "headline": "IT REMEMBERS EVERY DREAM",
+      "narration": "Drowzee remembers every dream it eats and sometimes shows them later.",
+      "caption": "EATEN DREAMS CAN RETURN",
+      "visual": "tradeoff",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/96.png",
+      "accent": "#D8B4FF",
+      "facts": [
+        "REMEMBERS DREAMS",
+        "MAY SHOW THEM",
+        "EATEN DREAMS"
+      ]
+    },
+    {
+      "id": "clever-or-creepy",
+      "durationSeconds": 4.4,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "YOUR VERDICT",
+      "headline": "CLEVER OR TOO CREEPY?",
+      "narration": "Is dream-eating Drowzee clever, or too creepy to trust?",
+      "caption": "DREAM EATER OR BEDTIME THIEF?",
+      "visual": "cta",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/96.png",
+      "accent": "#F0C36A"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Drowzee",
+      "url": "https://www.pokemon.com/us/pokedex/drowzee"
+    },
+    {
+      "label": "Bulbapedia — Drowzee",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Drowzee_(Pok%C3%A9mon)"
+    },
+    {
+      "label": "PokéAPI — Drowzee",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/96"
+    }
+  ]
+}

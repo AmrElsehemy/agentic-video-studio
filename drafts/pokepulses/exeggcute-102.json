@@ -1,0 +1,180 @@
+{
+  "id": "exeggcute-102",
+  "title": "Exeggcute: Six Members, One Pokémon",
+  "storyPattern": "mystery",
+  "numberRelevant": false,
+  "premise": "Six Exeggcute together form one Pokémon, and a missing member returns by the next morning.",
+  "audiencePromise": "Watch one Exeggcute cluster lose a member, then reveal why six is more than a team size.",
+  "openLoop": "What happens when one of Exeggcute's six members disappears?",
+  "payoff": "Six is both Exeggcute's balance point and its full identity.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "Is Exeggcute one Pokémon, or six working together?",
+  "subject": {
+    "name": "Exeggcute",
+    "category": "Egg Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/102.png",
+    "identifier": "#102"
+  },
+  "related": [
+    {
+      "name": "Exeggutor",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/103.png",
+      "identifier": "#103"
+    }
+  ],
+  "palette": {
+    "background": "#111827",
+    "surface": "#1f2937",
+    "primary": "#f7c6d9",
+    "secondary": "#f6d365",
+    "ink": "#f9fafb"
+  },
+  "voice": {
+    "instructions": "Sound like a knowledgeable fan sharing a strange discovery. Keep the pace quick, warm, and clear. Stress six, missing, and next morning. Pause briefly before each reveal."
+  },
+  "rights": {
+    "releaseStatus": "cleared",
+    "publicReleaseApproved": true,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    },
+    "assets": [
+      {
+        "kind": "Exeggcute official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/102.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "six-eggs-one-pokemon",
+      "beat": "hook",
+      "eyebrow": "NOT A TEAM",
+      "headline": "SIX EGGS. ONE POKÉMON.",
+      "narration": "Six eggs make one Pokémon, not six.",
+      "caption": "SIX MEMBERS. ONE CREATURE.",
+      "accent": "#f7c6d9",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/102.png",
+      "primitive": {
+        "kind": "counter",
+        "from": 0,
+        "to": 6,
+        "label": "EXEGGCUTE HEADS"
+      }
+    },
+    {
+      "id": "the-six-head-balance",
+      "beat": "clue",
+      "eyebrow": "THE RULE",
+      "headline": "SIX KEEPS IT BALANCED",
+      "narration": "Its heads attract and spin, and six must keep them balanced.",
+      "caption": "THE CLUSTER SPINS AS ONE",
+      "facts": [
+        "SIX HEADS",
+        "ATTRACT",
+        "SPIN",
+        "BALANCE"
+      ],
+      "accent": "#f6d365",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/102.png"
+    },
+    {
+      "id": "the-energy-bond",
+      "beat": "escalation",
+      "eyebrow": "REMOVE ONE",
+      "headline": "SEPARATION DOESN'T LAST",
+      "narration": "Separate one, and the energy bond makes it rejoin instantly.",
+      "caption": "THE GROUP PULLS IT BACK",
+      "facts": [
+        "ONE SEPARATED",
+        "ENERGY BOND",
+        "REJOIN INSTANTLY"
+      ],
+      "accent": "#ef8fae",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/102.png"
+    },
+    {
+      "id": "six-by-morning",
+      "beat": "reveal",
+      "eyebrow": "THE NEXT MORNING",
+      "headline": "THE COUNT RESTORES ITSELF",
+      "narration": "If one is lost, the next morning brings six again.",
+      "caption": "ONE LOST. SIX THE NEXT MORNING.",
+      "facts": [
+        "ONE LOST",
+        "NEXT MORNING",
+        "SIX AGAIN"
+      ],
+      "accent": "#f6d365",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/102.png",
+      "primitive": {
+        "kind": "timeline",
+        "steps": [
+          {
+            "label": "SIX TOGETHER",
+            "detail": "ONE POKÉMON"
+          },
+          {
+            "label": "ONE LOST",
+            "detail": "CLUSTER SHORT"
+          },
+          {
+            "label": "NEXT MORNING",
+            "detail": "SIX AGAIN"
+          }
+        ],
+        "active": 2
+      }
+    },
+    {
+      "id": "balance-and-identity",
+      "beat": "reveal",
+      "eyebrow": "THE REAL REVEAL",
+      "headline": "SIX IS THE IDENTITY",
+      "narration": "So six is both Exeggcute's balance point and its full identity.",
+      "caption": "BALANCE POINT AND FULL IDENTITY",
+      "facts": [
+        "SINGLE POKÉMON",
+        "MAINTAINS BALANCE"
+      ],
+      "accent": "#f7c6d9",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/102.png"
+    },
+    {
+      "id": "one-or-six",
+      "beat": "verdict",
+      "eyebrow": "YOUR VERDICT",
+      "headline": "ONE OR SIX?",
+      "narration": "Is Exeggcute one Pokémon, or six working together?",
+      "caption": "ONE POKÉMON OR SIX?",
+      "accent": "#8fd3e8",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/102.png"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Exeggcute",
+      "url": "https://www.pokemon.com/us/pokedex/exeggcute",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Exeggcute",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Exeggcute_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Exeggcute",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/102",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

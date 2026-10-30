@@ -1,0 +1,180 @@
+{
+  "id": "krabby-098",
+  "title": "Krabby Loses Its Sideways Walk",
+  "storyPattern": "mechanic",
+  "numberRelevant": false,
+  "premise": "If Krabby loses one pincer, the Pokédex says it becomes unable to walk sideways.",
+  "audiencePromise": "See how one missing pincer can break Krabby's signature movement.",
+  "openLoop": "Why does losing one pincer affect Krabby's entire way of walking?",
+  "payoff": "The Pokédex records two strange facts: pincers aid sideways balance, and losing one stops sideways walking.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "Would you use that pincer in battle, or protect sideways walking?",
+  "subject": {
+    "name": "Krabby",
+    "category": "River Crab Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/98.png",
+    "identifier": "#098"
+  },
+  "related": [
+    {
+      "name": "Kingler",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/99.png",
+      "identifier": "#099"
+    }
+  ],
+  "palette": {
+    "background": "#101820",
+    "surface": "#1B2A34",
+    "primary": "#E85D3F",
+    "secondary": "#F3A63B",
+    "ink": "#F5F1E8"
+  },
+  "voice": {
+    "instructions": "Sound like a knowledgeable fan sharing a bizarre discovery. Keep the pace quick, warm, and playful. Stress pincer, sideways, and impossible. Pause briefly before the final either-or question."
+  },
+  "rights": {
+    "releaseStatus": "cleared",
+    "publicReleaseApproved": true,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    },
+    "assets": [
+      {
+        "kind": "Krabby official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/98.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "lose-one-pincer",
+      "beat": "hook",
+      "eyebrow": "KRABBY'S STRANGE RULE",
+      "headline": "LOSE ONE PINCER. LOSE SIDEWAYS MOVEMENT.",
+      "narration": "Lose one pincer, and Krabby loses sideways walking.",
+      "caption": "ONE PINCER CHANGES EVERYTHING",
+      "accent": "#E85D3F",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/98.png"
+    },
+    {
+      "id": "pincers-balance",
+      "beat": "evidence",
+      "eyebrow": "NOT JUST WEAPONS",
+      "headline": "THE PINCERS KEEP IT STEADY",
+      "narration": "Krabby uses its pincers as weapons and for balance while walking sideways.",
+      "caption": "PINCERS = SIDEWAYS BALANCE",
+      "facts": [
+        "POWERFUL WEAPONS",
+        "USED FOR BALANCE",
+        "SIDEWAYS WALKING"
+      ],
+      "accent": "#F3A63B",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/98.png"
+    },
+    {
+      "id": "pincer-breaks",
+      "beat": "escalation",
+      "eyebrow": "THE RISK",
+      "headline": "THE BALANCE TOOL BREAKS EASILY",
+      "narration": "That balance tool can break off easily during battle.",
+      "caption": "BREAKS OFF IN BATTLE",
+      "facts": [
+        "BREAKS OFF EASILY",
+        "DURING BATTLE"
+      ],
+      "accent": "#E85D3F",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/98.png"
+    },
+    {
+      "id": "sideways-stops",
+      "beat": "payoff",
+      "eyebrow": "THE STRANGE RULE",
+      "headline": "ONE BROKEN PINCER STOPS SIDEWAYS WALKING",
+      "narration": "Without one pincer, the Pokédex says sideways walking stops.",
+      "caption": "SIDEWAYS WALKING: IMPOSSIBLE",
+      "facts": [
+        "LOSE ONE PINCER",
+        "CANNOT WALK SIDEWAYS"
+      ],
+      "accent": "#F3A63B",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/98.png",
+      "primitive": {
+        "kind": "checklist",
+        "items": [
+          {
+            "label": "ONE PINCER LOST",
+            "met": true
+          },
+          {
+            "label": "SIDEWAYS WALKING",
+            "met": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "pincer-regrows",
+      "beat": "payoff",
+      "eyebrow": "THE SURPRISE",
+      "headline": "THE BROKEN WEAPON GROWS BACK",
+      "narration": "The twist is that a broken pincer grows back fast.",
+      "caption": "IT GROWS BACK FAST",
+      "facts": [
+        "PINCER IS A WEAPON",
+        "GROWS BACK FAST"
+      ],
+      "accent": "#E85D3F",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/98.png",
+      "primitive": {
+        "kind": "timeline",
+        "steps": [
+          {
+            "label": "PINCER BREAKS",
+            "detail": "DURING BATTLE"
+          },
+          {
+            "label": "PINCER GROWS BACK",
+            "detail": "GROWS BACK FAST"
+          }
+        ],
+        "active": 1
+      }
+    },
+    {
+      "id": "battle-or-walking",
+      "beat": "verdict",
+      "eyebrow": "YOUR VERDICT",
+      "headline": "BATTLE OR SIDEWAYS WALKING?",
+      "narration": "Would you use that pincer in battle, or protect sideways walking?",
+      "caption": "BATTLE OR SIDEWAYS WALKING?",
+      "accent": "#F3A63B",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/98.png"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Krabby",
+      "url": "https://www.pokemon.com/us/pokedex/krabby",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Krabby",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Krabby_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Krabby",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/98",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

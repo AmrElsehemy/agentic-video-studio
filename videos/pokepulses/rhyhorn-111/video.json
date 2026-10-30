@@ -1,0 +1,274 @@
+{
+  "schemaVersion": 2,
+  "id": "rhyhorn-111",
+  "show": {
+    "id": "pokepulses",
+    "name": "PokePulses",
+    "handle": "@PokePulses",
+    "wordmark": {
+      "lead": "POKE",
+      "accent": "PULSES"
+    },
+    "fonts": {
+      "display": "Bebas Neue",
+      "body": "system"
+    }
+  },
+  "title": "Rhyhorn Forgets Why It Charges",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "profile",
+    "numberRelevant": false,
+    "premise": "Rhyhorn begins a charge with a purpose, then forgets that purpose while its body keeps rushing forward.",
+    "audiencePromise": "See how Rhyhorn’s memory, short legs, and unstoppable charge turn one flaw into its defining identity.",
+    "openLoop": "If Rhyhorn forgets the goal, what keeps it charging?",
+    "payoff": "Rhyhorn forgets why it started, but its unstoppable charge may be the clearest thing about it.",
+    "targetEmotion": "debate",
+    "engagementQuestion": "Is forgetting the goal a flaw, or Rhyhorn’s whole identity?",
+    "targetSecondsBetweenVisualChanges": 0.72
+  },
+  "subject": {
+    "name": "Rhyhorn",
+    "category": "Spikes Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/111.png",
+    "identifier": "#111"
+  },
+  "related": [
+    {
+      "name": "Rhyperior",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/464.png",
+      "identifier": "#464"
+    },
+    {
+      "name": "Rhydon",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/112.png",
+      "identifier": "#112"
+    }
+  ],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#101214",
+    "surface": "#202326",
+    "primary": "#B5A16B",
+    "secondary": "#6E6250",
+    "ink": "#F4F0E6"
+  },
+  "audio": {
+    "music": "generated/rhyhorn-111-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 126,
+      "notes": [
+        110,
+        130.81,
+        146.83,
+        164.81,
+        146.83,
+        130.81,
+        98,
+        130.81
+      ]
+    },
+    "voice": {
+      "provider": "openai",
+      "model": "gpt-4o-mini-tts",
+      "voice": "marin",
+      "instructions": "Speak quickly and warmly, with playful disbelief. Stress forgets, straight, and identity. Pause briefly before the final either-or question.",
+      "speed": 1.12,
+      "output": "generated/rhyhorn-111-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "cleared",
+    "publicReleaseApproved": true,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "assets": [
+      {
+        "kind": "Rhyhorn official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/111.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ],
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    }
+  },
+  "scenes": [
+    {
+      "id": "forgotten-charge",
+      "durationSeconds": 3.8,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "mystery",
+      "subjectFocus": "hidden",
+      "beatEverySeconds": 0.72,
+      "eyebrow": "ONE-TRACK MIND",
+      "headline": "THE CHARGE FORGETS ITS GOAL",
+      "narration": "Rhyhorn forgets why it started charging.",
+      "caption": "THE GOAL VANISHES MID-CHARGE",
+      "visual": "hook",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/111.png",
+      "primitive": {
+        "kind": "timeline",
+        "steps": [
+          {
+            "label": "GOAL",
+            "detail": "STARTS CHARGING"
+          },
+          {
+            "label": "CHARGE",
+            "detail": "ONE DIRECTION"
+          },
+          {
+            "label": "GOAL FORGOTTEN"
+          }
+        ],
+        "active": 2
+      }
+    },
+    {
+      "id": "one-thing-memory",
+      "durationSeconds": 5.2,
+      "beat": "evidence",
+      "role": "evidence",
+      "shot": "tracking",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.72,
+      "eyebrow": "MEMORY HAS ONE SLOT",
+      "headline": "ONE THING AT A TIME",
+      "narration": "Its memory holds one thing, so the charge erases its goal.",
+      "caption": "ONE THOUGHT IN. THE MISSION OUT.",
+      "visual": "gauntlet",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/111.png",
+      "accent": "#D9B65D",
+      "facts": [
+        "ONE THING AT A TIME",
+        "GOAL FORGOTTEN"
+      ],
+      "primitive": {
+        "kind": "counter",
+        "from": 0,
+        "to": 1,
+        "label": "MEMORY CAPACITY"
+      }
+    },
+    {
+      "id": "straight-line-problem",
+      "durationSeconds": 4.8,
+      "beat": "evidence",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.72,
+      "eyebrow": "TURNING IS NOT ITS STRENGTH",
+      "headline": "NO TURNS. JUST FORWARD.",
+      "narration": "Short legs cannot turn well, leaving one straight path forward.",
+      "caption": "THE ROUTE SHRINKS TO ONE DIRECTION",
+      "visual": "advantage",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/111.png",
+      "accent": "#8E7B57",
+      "facts": [
+        "SHORT LEGS",
+        "ONE DIRECTION"
+      ],
+      "primitive": {
+        "kind": "checklist",
+        "items": [
+          {
+            "label": "SHORT LEGS",
+            "met": true
+          },
+          {
+            "label": "TURNING",
+            "met": false
+          },
+          {
+            "label": "ONE DIRECTION",
+            "met": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "unstoppable-run",
+      "durationSeconds": 5.2,
+      "beat": "escalation",
+      "role": "escalation",
+      "shot": "comparison",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.72,
+      "eyebrow": "NOW IT CANNOT STOP",
+      "headline": "THE BODY KEEPS GOING",
+      "narration": "And once it starts, Rhyhorn keeps running until it falls asleep.",
+      "caption": "THE PURPOSE IS GONE. THE CHARGE ISN'T.",
+      "visual": "race",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/111.png",
+      "accent": "#C47F4A",
+      "facts": [
+        "KEEPS RUNNING",
+        "UNTIL SLEEP"
+      ]
+    },
+    {
+      "id": "impact-reset",
+      "durationSeconds": 4.8,
+      "beat": "twist",
+      "role": "twist",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.72,
+      "eyebrow": "ONE STRANGE COUNTERPOINT",
+      "headline": "IMPACT MAY RESET IT",
+      "narration": "Sometimes, smashing something apparently helps it remember why it started.",
+      "caption": "DESTRUCTION MAY BRING THE MEMORY BACK",
+      "visual": "tradeoff",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/111.png",
+      "accent": "#E1D28A",
+      "facts": [
+        "SMASHING SOMETHING",
+        "MEMORY RETURNS"
+      ]
+    },
+    {
+      "id": "flaw-or-identity",
+      "durationSeconds": 3.8,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.72,
+      "eyebrow": "THE WHOLE PERSONALITY",
+      "headline": "FORGETFUL. UNSTOPPABLE. RHYHORN.",
+      "narration": "Goal forgotten. Charge intact. Flaw or identity?",
+      "caption": "WHAT DO YOU CALL THIS KIND OF FOCUS?",
+      "visual": "cta",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/111.png"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Rhyhorn",
+      "url": "https://www.pokemon.com/us/pokedex/rhyhorn"
+    },
+    {
+      "label": "Bulbapedia — Rhyhorn",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Rhyhorn_(Pok%C3%A9mon)"
+    },
+    {
+      "label": "PokéAPI — Rhyhorn",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/111"
+    }
+  ]
+}

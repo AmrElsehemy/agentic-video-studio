@@ -1,0 +1,183 @@
+{
+  "id": "marowak-105",
+  "title": "Marowak’s Bone Mystery Points to a Cemetery",
+  "storyPattern": "mystery",
+  "numberRelevant": false,
+  "premise": "Marowak’s bone source is unknown, but Pokédex entries connect it to a rumored cemetery and its mother’s skull.",
+  "audiencePromise": "Follow the clues from an unexplained weapon to a darker possibility, while keeping the cemetery rumor unresolved.",
+  "openLoop": "Where does Marowak get the bone it carries?",
+  "payoff": "That uncertainty makes Marowak’s weapon feel like grief made visible, while the cemetery stays just out of reach.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "Real cemetery or rumor? Which fits Marowak better?",
+  "subject": {
+    "name": "Marowak",
+    "category": "Bone Keeper Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/105.png",
+    "identifier": "#105"
+  },
+  "related": [
+    {
+      "name": "Cubone",
+      "relation": "evolves-from",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/104.png",
+      "identifier": "#104"
+    },
+    {
+      "name": "Marowak Alola",
+      "relation": "form",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10115.png",
+      "identifier": "#105"
+    },
+    {
+      "name": "Marowak Totem",
+      "relation": "form",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10149.png",
+      "identifier": "#105"
+    }
+  ],
+  "palette": {
+    "background": "#111318",
+    "surface": "#24262D",
+    "primary": "#C8A56A",
+    "secondary": "#8F6B4A",
+    "ink": "#F4EFE6"
+  },
+  "voice": {
+    "instructions": "Speak like a curious Pokémon fan sharing a dark discovery. Keep the pace quick and clear, pause before each reveal, and land the final choice with playful uncertainty."
+  },
+  "rights": {
+    "releaseStatus": "cleared",
+    "publicReleaseApproved": true,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    },
+    "assets": [
+      {
+        "kind": "Marowak official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/105.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "bone-dark-source",
+      "beat": "hook",
+      "eyebrow": "A STRANGE WEAPON",
+      "headline": "A BONE WITH A DARK SOURCE",
+      "narration": "Marowak’s bone comes from nowhere—and maybe graves.",
+      "caption": "THE SOURCE ISN’T WHAT IT SEEMS",
+      "accent": "#C8A56A",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/105.png"
+    },
+    {
+      "id": "unknown-source",
+      "beat": "clue",
+      "eyebrow": "FIRST CLUE",
+      "headline": "THE SOURCE IS UNKNOWN",
+      "narration": "Its Pokédex says the bone’s source is unknown.",
+      "caption": "UNKNOWN PLACE",
+      "facts": [
+        "BONE SOURCE",
+        "UNKNOWN"
+      ],
+      "accent": "#8F6B4A",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/105.png"
+    },
+    {
+      "id": "marowak-cemetery",
+      "beat": "escalation",
+      "eyebrow": "THEN IT GETS DARKER",
+      "headline": "A CEMETERY FOR MAROWAK",
+      "narration": "Then two entries whisper about a cemetery made for Marowak.",
+      "caption": "A CEMETERY JUST FOR MAROWAK",
+      "facts": [
+        "TWO ENTRIES",
+        "MAROWAK CEMETERY"
+      ],
+      "accent": "#A98258",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/105.png",
+      "primitive": {
+        "kind": "counter",
+        "from": 0,
+        "to": 2,
+        "label": "CEMETERY ENTRIES"
+      }
+    },
+    {
+      "id": "mothers-skull",
+      "beat": "reveal",
+      "eyebrow": "A DIFFERENT HORROR",
+      "headline": "ITS MOTHER’S SKULL FUSED",
+      "narration": "Another entry says its mother’s skull fused to it when it evolved.",
+      "caption": "THE WEAPON HAS A PERSONAL HISTORY",
+      "facts": [
+        "MOTHER’S SKULL",
+        "FUSED AT EVOLUTION"
+      ],
+      "accent": "#D1B27A",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/105.png",
+      "primitive": {
+        "kind": "timeline",
+        "steps": [
+          {
+            "label": "Cubone"
+          },
+          {
+            "label": "Marowak",
+            "detail": "MOTHER’S SKULL FUSED"
+          }
+        ],
+        "active": 1
+      }
+    },
+    {
+      "id": "graveyard-rumor",
+      "beat": "reveal",
+      "eyebrow": "THE CATCH",
+      "headline": "THE GRAVEYARD STAYS A RUMOR",
+      "narration": "One links its bone to graves; another calls that place rumor.",
+      "caption": "CONNECTED, BUT NOT CONFIRMED",
+      "facts": [
+        "BONE TO GRAVES",
+        "RUMOR"
+      ],
+      "accent": "#77614B",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/105.png"
+    },
+    {
+      "id": "cemetery-or-rumor",
+      "beat": "verdict",
+      "eyebrow": "YOUR VERDICT",
+      "headline": "REAL CEMETERY OR RUMOR?",
+      "narration": "Real cemetery or rumor? Which fits Marowak better?",
+      "caption": "WHAT DO YOU BELIEVE?",
+      "accent": "#C8A56A",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/105.png"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Marowak",
+      "url": "https://www.pokemon.com/us/pokedex/marowak",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Marowak",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Marowak_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Marowak",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/105",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

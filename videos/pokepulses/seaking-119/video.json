@@ -1,0 +1,267 @@
+{
+  "schemaVersion": 2,
+  "id": "seaking-119",
+  "show": {
+    "id": "pokepulses",
+    "name": "PokePulses",
+    "handle": "@PokePulses",
+    "wordmark": {
+      "lead": "POKE",
+      "accent": "PULSES"
+    },
+    "fonts": {
+      "display": "Bebas Neue",
+      "body": "system"
+    }
+  },
+  "title": "Seaking Drills Its Nest Into a Boulder",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "mechanic",
+    "numberRelevant": false,
+    "premise": "Male Seaking use their drill-like horns to carve nests inside stream boulders.",
+    "audiencePromise": "See how Seaking turns a river boulder into a safer nest for its eggs.",
+    "openLoop": "How can a fish protect eggs inside a river rock?",
+    "payoff": "Seaking hollows out hard riverbed rocks so its eggs avoid the current.",
+    "targetEmotion": "surprise",
+    "engagementQuestion": "Smart engineering or dangerous overkill?",
+    "targetSecondsBetweenVisualChanges": 0.65
+  },
+  "subject": {
+    "name": "Seaking",
+    "category": "Goldfish Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/119.png",
+    "identifier": "#119"
+  },
+  "related": [
+    {
+      "name": "Goldeen",
+      "relation": "evolves-from",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/118.png",
+      "identifier": "#118"
+    }
+  ],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#08151A",
+    "surface": "#12343A",
+    "primary": "#D94B45",
+    "secondary": "#E8B84A",
+    "ink": "#F4F1DE"
+  },
+  "audio": {
+    "music": "generated/seaking-119-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 126,
+      "notes": [
+        110,
+        130.81,
+        146.83,
+        164.81,
+        146.83,
+        130.81,
+        98,
+        130.81
+      ]
+    },
+    "voice": {
+      "provider": "openai",
+      "model": "gpt-4o-mini-tts",
+      "voice": "marin",
+      "instructions": "Speak like a knowledgeable fan sharing a strange discovery. Keep the pace quick, warm, and clear. Stress drill, boulder, and eggs. Pause briefly before the final question.",
+      "speed": 1.12,
+      "output": "generated/seaking-119-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "cleared",
+    "publicReleaseApproved": true,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "assets": [
+      {
+        "kind": "Seaking official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/119.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ],
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    }
+  },
+  "scenes": [
+    {
+      "id": "seaking-boulder-nest",
+      "durationSeconds": 3.8,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "SEAKING'S SECRET",
+      "headline": "A NEST IN STONE",
+      "narration": "Seaking drills its nest inside a boulder.",
+      "caption": "IT DRILLS A NEST INTO ROCK",
+      "visual": "hook",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/119.png",
+      "accent": "#D94B45"
+    },
+    {
+      "id": "male-carves-stream-rock",
+      "durationSeconds": 5.1,
+      "beat": "evidence",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "THE MALE'S JOB",
+      "headline": "THE BUILDER IS THE MALE",
+      "narration": "The male carves stream boulders with the horn on its head.",
+      "caption": "THE MALE CARVES THE BOULDER",
+      "visual": "gauntlet",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/119.png",
+      "accent": "#E8B84A",
+      "facts": [
+        "MALE SEAKING",
+        "HORN",
+        "STREAM BOULDER"
+      ],
+      "primitive": {
+        "kind": "checklist",
+        "items": [
+          {
+            "label": "MALE SEAKING",
+            "met": true
+          },
+          {
+            "label": "HORN",
+            "met": true
+          },
+          {
+            "label": "STREAM BOULDER",
+            "met": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "current-threatens-eggs",
+      "durationSeconds": 5.1,
+      "beat": "escalation",
+      "role": "escalation",
+      "shot": "comparison",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "THE REAL THREAT",
+      "headline": "RIVERS CAN TAKE THE EGGS",
+      "narration": "A nest matters because stream currents can wash the eggs away.",
+      "caption": "CURRENT = DANGER",
+      "visual": "advantage",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/119.png",
+      "accent": "#4FA8B5",
+      "facts": [
+        "STREAM CURRENT",
+        "EGGS",
+        "WASHED AWAY"
+      ]
+    },
+    {
+      "id": "horn-spins-like-drill",
+      "durationSeconds": 5.2,
+      "beat": "payoff",
+      "role": "payoff",
+      "shot": "tracking",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "THE TOOL",
+      "headline": "ITS HORN SPINS",
+      "narration": "The horn spins like a drill, steadily hollowing even harder rocks.",
+      "caption": "A HORN THAT DRILLS ROCK",
+      "visual": "race",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/119.png",
+      "accent": "#E8B84A",
+      "facts": [
+        "SPINS LIKE A DRILL",
+        "HARDER ROCKS"
+      ]
+    },
+    {
+      "id": "eggs-inside-boulder",
+      "durationSeconds": 5.2,
+      "beat": "payoff",
+      "role": "payoff",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "THE PAYOFF",
+      "headline": "THE BOULDER BECOMES A SHELTER",
+      "narration": "So the eggs sit inside the boulder, protected from the current.",
+      "caption": "ROCK BECOMES A NEST",
+      "visual": "tradeoff",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/119.png",
+      "accent": "#D94B45",
+      "facts": [
+        "HOLLOWED BOULDER",
+        "EGGS INSIDE",
+        "CURRENT PROTECTION"
+      ],
+      "primitive": {
+        "kind": "checklist",
+        "items": [
+          {
+            "label": "HOLLOWED BOULDER",
+            "met": true
+          },
+          {
+            "label": "EGGS INSIDE",
+            "met": true
+          },
+          {
+            "label": "CURRENT PROTECTION",
+            "met": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "smart-or-dangerous",
+      "durationSeconds": 3.8,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "YOUR CALL",
+      "headline": "FISH ENGINEERING?",
+      "narration": "Smart engineering or dangerous overkill?",
+      "caption": "SMART OR TOO RISKY?",
+      "visual": "cta",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/119.png",
+      "accent": "#E8B84A"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Seaking",
+      "url": "https://www.pokemon.com/us/pokedex/seaking"
+    },
+    {
+      "label": "Bulbapedia — Seaking",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Seaking_(Pok%C3%A9mon)"
+    },
+    {
+      "label": "PokéAPI — Seaking",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/119"
+    }
+  ]
+}

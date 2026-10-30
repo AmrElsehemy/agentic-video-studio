@@ -1,0 +1,158 @@
+{
+  "id": "onix-095",
+  "title": "Onix Tunnels at 50 MPH With a Brain Magnet",
+  "storyPattern": "mechanic",
+  "numberRelevant": false,
+  "premise": "Onix's brain contains a magnet that acts as a compass during tunneling.",
+  "audiencePromise": "Reveal the magnet that acts as Onix's compass while tunneling, then see how it keeps its direction.",
+  "openLoop": "How can Onix tunnel at high speed without losing direction?",
+  "payoff": "Its brain magnet acts as a compass, helping Onix keep its direction while tunneling for food.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "Would you trust Onix's brain compass, or fear it?",
+  "subject": {
+    "name": "Onix",
+    "category": "Rock Snake Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/95.png",
+    "identifier": "#095"
+  },
+  "related": [
+    {
+      "name": "Steelix",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/208.png",
+      "identifier": "#208"
+    }
+  ],
+  "palette": {
+    "background": "#101217",
+    "surface": "#22262D",
+    "primary": "#777B82",
+    "secondary": "#D6A928",
+    "ink": "#F4F1E8"
+  },
+  "voice": {
+    "instructions": "Quick, warm, and conversational. Stress fifty miles per hour, magnet, compass, and direction. Pause briefly before the final question."
+  },
+  "rights": {
+    "releaseStatus": "cleared",
+    "publicReleaseApproved": true,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    },
+    "assets": [
+      {
+        "kind": "Onix official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/95.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "fast-with-a-magnet",
+      "beat": "hook",
+      "eyebrow": "ONIX'S SECRET",
+      "headline": "50 MPH. BRAIN MAGNET.",
+      "narration": "Onix tunnels at 50 mph, guided by a magnet.",
+      "caption": "FAST TUNNELING. STRANGE GUIDANCE.",
+      "accent": "#D6A928",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/95.png",
+      "primitive": {
+        "kind": "counter",
+        "from": 0,
+        "to": 50,
+        "label": "TUNNELING MPH"
+      }
+    },
+    {
+      "id": "magnet-in-the-brain",
+      "beat": "evidence",
+      "eyebrow": "INSIDE ONIX",
+      "headline": "THE BRAIN HAS A MAGNET",
+      "narration": "Inside its brain sits a magnet, an unexpected navigation tool.",
+      "caption": "MAGNET IN ITS BRAIN",
+      "facts": [
+        "MAGNET IN BRAIN",
+        "UNDERGROUND TUNNELING"
+      ],
+      "accent": "#D6A928",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/95.png"
+    },
+    {
+      "id": "tremors-above-ground",
+      "beat": "escalation",
+      "eyebrow": "THE EARTH FEELS IT",
+      "headline": "TUNNELING SHAKES THE GROUND",
+      "narration": "Even its tunneling causes rumbling and tremors above ground.",
+      "caption": "RUMBLING. TRE﻿MORS. ABOVE GROUND.",
+      "facts": [
+        "RUMBLING",
+        "TREMORS ABOVE GROUND"
+      ],
+      "accent": "#8D929A",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/95.png"
+    },
+    {
+      "id": "tunneling-for-food",
+      "beat": "payoff",
+      "eyebrow": "THE PURPOSE",
+      "headline": "IT TUNNELS FOR FOOD",
+      "narration": "It searches for food while boring through the ground at high speed.",
+      "caption": "HIGH-SPEED SEARCH FOR FOOD",
+      "facts": [
+        "SEARCHES FOR FOOD",
+        "BORES THROUGH GROUND"
+      ],
+      "accent": "#8D929A",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/95.png"
+    },
+    {
+      "id": "compass-keeps-direction",
+      "beat": "payoff",
+      "eyebrow": "THE MECHANIC",
+      "headline": "COMPASS, NOT JUST METAL",
+      "narration": "The magnet acts as a compass, so Onix does not lose direction.",
+      "caption": "MAGNET → COMPASS → DIRECTION",
+      "facts": [
+        "ACTS AS COMPASS",
+        "PREVENTS LOST DIRECTION"
+      ],
+      "accent": "#F0C84B",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/95.png"
+    },
+    {
+      "id": "trust-or-fear",
+      "beat": "verdict",
+      "eyebrow": "YOUR CALL",
+      "headline": "TRUST IT OR FEAR IT?",
+      "narration": "Would you trust Onix's brain compass, or fear it?",
+      "caption": "TRUST THE COMPASS OR FEAR IT?",
+      "accent": "#D6A928",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/95.png"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Onix",
+      "url": "https://www.pokemon.com/us/pokedex/onix",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Onix",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Onix_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Onix",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/95",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

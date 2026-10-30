@@ -1,0 +1,182 @@
+{
+  "id": "gastly-092",
+  "title": "Gastly Is 0.1 Kilos of Trouble",
+  "storyPattern": "comparison",
+  "numberRelevant": true,
+  "premise": "Gastly weighs 0.1 kilograms, yet its Pokédex says it can topple an Indian elephant in two seconds.",
+  "audiencePromise": "Compare Gastly's tiny weight with its gas body, then reveal the weakness that keeps its threat balanced.",
+  "openLoop": "How can something weighing 0.1 kilograms topple an elephant?",
+  "payoff": "Gastly turns a shapeless gas body into a threat against any size, with wind as its weakness.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "Overwhelming threat or fragile gas cloud?",
+  "subject": {
+    "name": "Gastly",
+    "category": "Gas Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/92.png",
+    "identifier": "#092"
+  },
+  "related": [
+    {
+      "name": "Gengar",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/94.png",
+      "identifier": "#094"
+    },
+    {
+      "name": "Haunter",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/93.png",
+      "identifier": "#093"
+    }
+  ],
+  "palette": {
+    "background": "#120D1B",
+    "surface": "#241532",
+    "primary": "#B86CFF",
+    "secondary": "#5E3A8A",
+    "ink": "#F7EFFF"
+  },
+  "voice": {
+    "instructions": "Speak quickly, warmly, and clearly. Stress the contrast between Gastly's tiny weight and enormous threat. Pause briefly before the two-second reveal, then sound thoughtful on the final choice."
+  },
+  "rights": {
+    "releaseStatus": "cleared",
+    "publicReleaseApproved": true,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    },
+    "assets": [
+      {
+        "kind": "Gastly official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/92.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "tiny-elephant-toppler",
+      "beat": "hook",
+      "eyebrow": "THE TINY THREAT",
+      "headline": "0.1 KILOS. ELEPHANT DOWN.",
+      "narration": "0.1 kilos. Elephant down in two seconds.",
+      "caption": "TINY BODY. HUGE THREAT.",
+      "facts": [
+        "0.1 KILOGRAMS",
+        "TWO SECONDS"
+      ],
+      "accent": "#B86CFF",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/92.png",
+      "primitive": {
+        "kind": "counter",
+        "from": 0,
+        "to": 0.1,
+        "label": "GASTLY WEIGHT KG"
+      }
+    },
+    {
+      "id": "body-made-of-gas",
+      "beat": "evidence",
+      "eyebrow": "NO SOLID BODY",
+      "headline": "THERE'S NOTHING TO GRAB",
+      "narration": "Gastly has no real shape because its body is gas.",
+      "caption": "A BODY MADE OF GAS",
+      "facts": [
+        "THIN GAS",
+        "NO REAL SHAPE"
+      ],
+      "accent": "#8F5BC7",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/92.png",
+      "primitive": {
+        "kind": "meter",
+        "label": "GAS COMPOSITION",
+        "from": 0,
+        "to": 95,
+        "threshold": 95,
+        "thresholdLabel": "GAS"
+      }
+    },
+    {
+      "id": "any-size-opponent",
+      "beat": "evidence",
+      "eyebrow": "SIZE DOESN'T MATTER",
+      "headline": "ANY SIZE CAN BE ENVELOPED",
+      "narration": "That lets it envelop an opponent of any size.",
+      "caption": "LARGE OR SMALL, IT CAN SURROUND THEM",
+      "facts": [
+        "ANY SIZE",
+        "ENVELOPING GAS"
+      ],
+      "accent": "#C98CFF",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/92.png"
+    },
+    {
+      "id": "specific-target-countdown",
+      "beat": "escalation",
+      "eyebrow": "THE TARGET GETS SPECIFIC",
+      "headline": "INDIAN ELEPHANT. TWO SECONDS.",
+      "narration": "Then the target gets specific: an Indian elephant, in two seconds.",
+      "caption": "THE POKÉDEX SETS A COUNTDOWN",
+      "facts": [
+        "INDIAN ELEPHANT",
+        "TWO SECONDS"
+      ],
+      "accent": "#E0A3FF",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/92.png",
+      "primitive": {
+        "kind": "counter",
+        "from": 0,
+        "to": 2,
+        "label": "ENVELOPING TIME SEC"
+      }
+    },
+    {
+      "id": "wind-counterpoint",
+      "beat": "twist",
+      "eyebrow": "BUT THERE'S A CATCH",
+      "headline": "WIND CAN ERASE THE THREAT",
+      "narration": "But strong wind can quickly blow its gaseous body away.",
+      "caption": "POWERFUL, BUT FRAGILE",
+      "facts": [
+        "STRONG WIND",
+        "GASEOUS BODY"
+      ],
+      "accent": "#6ED6FF",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/92.png"
+    },
+    {
+      "id": "fragile-or-powerful",
+      "beat": "verdict",
+      "eyebrow": "YOUR VERDICT",
+      "headline": "POWERHOUSE OR GAS CLOUD?",
+      "narration": "Overwhelming threat or fragile gas cloud?",
+      "caption": "WHICH ONE IS GASTLY?",
+      "accent": "#B86CFF",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/92.png"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Gastly",
+      "url": "https://www.pokemon.com/us/pokedex/gastly",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Gastly",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Gastly_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Gastly",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/92",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

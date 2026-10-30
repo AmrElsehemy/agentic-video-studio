@@ -1,0 +1,181 @@
+{
+  "id": "rhydon-112",
+  "title": "Rhydon Got Smarter by Standing Up",
+  "storyPattern": "transformation",
+  "numberRelevant": false,
+  "premise": "Rhydon's brain developed after it began walking on its hind legs.",
+  "audiencePromise": "Watch Rhydon's posture change free its forelegs and make it smarter, then meet its strange contradiction.",
+  "openLoop": "How can Rhydon become smarter, yet remain very forgetful?",
+  "payoff": "The final picture is a contradiction: a developed brain paired with a very forgetful Rhydon.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "Which matters more, Rhydon's smarter brain or its forgetfulness?",
+  "subject": {
+    "name": "Rhydon",
+    "category": "Drill Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/112.png",
+    "identifier": "#112"
+  },
+  "related": [
+    {
+      "name": "Rhyperior",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/464.png",
+      "identifier": "#464"
+    },
+    {
+      "name": "Rhyhorn",
+      "relation": "evolves-from",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/111.png",
+      "identifier": "#111"
+    }
+  ],
+  "palette": {
+    "background": "#101316",
+    "surface": "#252A2E",
+    "primary": "#8E8F7A",
+    "secondary": "#B86B3E",
+    "ink": "#F4F0E6"
+  },
+  "voice": {
+    "instructions": "Speak quickly, warmly, and clearly. Build tension through the posture change, then pause briefly before the brain reveal. Stress \"freed,\" \"smarter,\" and \"forgetful.\""
+  },
+  "rights": {
+    "releaseStatus": "cleared",
+    "publicReleaseApproved": true,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    },
+    "assets": [
+      {
+        "kind": "Rhydon official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/112.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      },
+      {
+        "kind": "Rhyhorn official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/111.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "standing-brain",
+      "beat": "hook",
+      "eyebrow": "THE STRANGE CHANGE",
+      "headline": "STAND UP. BRAIN ON.",
+      "narration": "Rhydon's brain developed after it stood on two legs.",
+      "caption": "STANDING CHANGED RHYDON",
+      "accent": "#B86B3E",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/112.png"
+    },
+    {
+      "id": "before-the-change",
+      "beat": "before",
+      "eyebrow": "BEFORE",
+      "headline": "THE SHIFT STARTS HERE",
+      "narration": "Rhydon evolves from Rhyhorn before this posture change begins.",
+      "caption": "EVOLUTION COMES FIRST",
+      "facts": [
+        "RHYHORN → RHYDON"
+      ],
+      "accent": "#8E8F7A",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/111.png",
+      "primitive": {
+        "kind": "timeline",
+        "steps": [
+          {
+            "label": "Rhyhorn",
+            "detail": "BEFORE EVOLUTION"
+          },
+          {
+            "label": "Rhydon",
+            "detail": "HIND LEGS"
+          },
+          {
+            "label": "Rhyperior"
+          }
+        ],
+        "active": 1
+      }
+    },
+    {
+      "id": "hind-legs-rise",
+      "beat": "change",
+      "eyebrow": "THE CHANGE",
+      "headline": "RH YDON RISES",
+      "narration": "After evolution, Rhydon begins walking on its hind legs.",
+      "caption": "HIND LEGS UP",
+      "facts": [
+        "AFTER EVOLUTION",
+        "HIND LEGS"
+      ],
+      "accent": "#B86B3E",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/112.png"
+    },
+    {
+      "id": "brain-awakens",
+      "beat": "reveal",
+      "eyebrow": "THE REVEAL",
+      "headline": "THE FORELEGS BREAK FREE",
+      "narration": "Standing frees its forelegs, and the Pokédex says it gets smarter.",
+      "caption": "FREED FORELEGS. SMARTER BRAIN.",
+      "facts": [
+        "FORELEGS FREED",
+        "SMARTER"
+      ],
+      "accent": "#D9B44A",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/112.png"
+    },
+    {
+      "id": "smart-but-forgetful",
+      "beat": "aftermath",
+      "eyebrow": "THE CONTRADICTION",
+      "headline": "SMARTER, STILL FORGETFUL",
+      "narration": "Yet one Pokédex entry still calls Rhydon very forgetful.",
+      "caption": "A DEVELOPED BRAIN, A FORGETFUL RHYDON",
+      "facts": [
+        "VERY FORGETFUL"
+      ],
+      "accent": "#7B6CA8",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/112.png"
+    },
+    {
+      "id": "worth-the-cost",
+      "beat": "verdict",
+      "eyebrow": "YOUR CALL",
+      "headline": "WHICH TRAIT WINS?",
+      "narration": "Which matters more, Rhydon's smarter brain or its forgetfulness?",
+      "caption": "SMARTER BRAIN OR FORGETFULNESS?",
+      "accent": "#D9B44A",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/112.png"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Rhydon",
+      "url": "https://www.pokemon.com/us/pokedex/rhydon",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Rhydon",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Rhydon_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Rhydon",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/112",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

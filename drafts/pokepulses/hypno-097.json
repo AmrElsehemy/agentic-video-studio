@@ -1,0 +1,184 @@
+{
+  "id": "hypno-097",
+  "title": "Hypno Steals the Dreams It Likes Best",
+  "storyPattern": "mystery",
+  "numberRelevant": false,
+  "premise": "Hypno puts hungry humans to sleep, tastes their dreams, and carries away anyone having a good one.",
+  "audiencePromise": "Follow Hypno from hunger and hypnosis to its unsettling dream-stealing rule.",
+  "openLoop": "Why does Hypno carry away only people having good dreams?",
+  "payoff": "Hypno's worst hunger turns sleep into a hunt for the dreams it likes best.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "Would you risk sleep, or guard your best dreams?",
+  "subject": {
+    "name": "Hypno",
+    "category": "Hypnosis Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/97.png",
+    "identifier": "#097"
+  },
+  "related": [
+    {
+      "name": "Drowzee",
+      "relation": "evolves-from",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/96.png",
+      "identifier": "#096"
+    }
+  ],
+  "palette": {
+    "background": "#101222",
+    "surface": "#1B1D35",
+    "primary": "#D9B7E8",
+    "secondary": "#F2C94C",
+    "ink": "#FFFAF2"
+  },
+  "voice": {
+    "instructions": "Quick, warm, and uneasy. Sound like a knowledgeable fan revealing something creepy. Stress hunger, good, and carried away. Pause briefly before each reveal."
+  },
+  "rights": {
+    "releaseStatus": "cleared",
+    "publicReleaseApproved": true,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    },
+    "assets": [
+      {
+        "kind": "Hypno official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/97.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "good-dreams-are-not-safe",
+      "beat": "hook",
+      "eyebrow": "THE BEST DREAMS",
+      "headline": "GOOD DREAMS AREN'T SAFE",
+      "narration": "Hypno makes people sleep, then steals the good dreams.",
+      "caption": "SLEEP IS ONLY THE FIRST STEP",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/97.png"
+    },
+    {
+      "id": "hunger-starts-the-hunt",
+      "beat": "clue",
+      "eyebrow": "WHEN HUNGER HITS",
+      "headline": "HUNGER STARTS THE HUNT",
+      "narration": "When hunger hits, it puts humans it meets to sleep.",
+      "caption": "VERY HUNGRY HYPNO",
+      "facts": [
+        "VERY HUNGRY",
+        "HUMANS",
+        "SLEEP"
+      ],
+      "accent": "#D9B7E8",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/97.png",
+      "primitive": {
+        "kind": "checklist",
+        "items": [
+          {
+            "label": "VERY HUNGRY",
+            "met": true
+          },
+          {
+            "label": "HUMANS",
+            "met": true
+          },
+          {
+            "label": "SLEEP",
+            "met": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "the-pendulum-opens-the-door",
+      "beat": "escalation",
+      "eyebrow": "THE PENDULUM",
+      "headline": "THE PENDULUM OPENS THE DOOR",
+      "narration": "Its steady pendulum causes drowsiness in anyone nearby.",
+      "caption": "ANYONE NEARBY GETS DROWSY",
+      "facts": [
+        "STEADY RHYTHM",
+        "PENDULUM",
+        "DROWSINESS"
+      ],
+      "accent": "#F2C94C",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/97.png"
+    },
+    {
+      "id": "dreams-become-food",
+      "beat": "reveal",
+      "eyebrow": "THE FIRST REVEAL",
+      "headline": "DREAMS BECOME FOOD",
+      "narration": "Then it feasts on those dreams, turning sleep into its meal.",
+      "caption": "HYPNO TASTES YOUR DREAMS",
+      "facts": [
+        "FEASTS",
+        "DREAMS",
+        "SLEEP"
+      ],
+      "accent": "#B98BE6",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/97.png"
+    },
+    {
+      "id": "the-good-ones-disappear",
+      "beat": "reveal",
+      "eyebrow": "THE WORST PART",
+      "headline": "PEOPLE WITH GOOD DREAMS",
+      "narration": "But anyone having a good dream gets carried away by Hypno.",
+      "caption": "PEOPLE WITH GOOD DREAMS GET CARRIED OFF",
+      "facts": [
+        "GOOD DREAM",
+        "CARRIES OFF",
+        "HUMANS"
+      ],
+      "accent": "#F2C94C",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/97.png",
+      "primitive": {
+        "kind": "checklist",
+        "items": [
+          {
+            "label": "GOOD DREAM",
+            "met": true
+          },
+          {
+            "label": "CARRIES OFF",
+            "met": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "guard-your-dreams",
+      "beat": "verdict",
+      "eyebrow": "YOUR CALL",
+      "headline": "GUARD YOUR DREAMS",
+      "narration": "Would you risk sleep, or guard your best dreams?",
+      "caption": "SLEEP PEACEFULLY OR STAY ALERT?",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/97.png"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Hypno",
+      "url": "https://www.pokemon.com/us/pokedex/hypno",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Hypno",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Hypno_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Hypno",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/97",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

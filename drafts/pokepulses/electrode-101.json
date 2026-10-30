@@ -1,0 +1,164 @@
+{
+  "id": "electrode-101",
+  "title": "Electrode's Irritation Packs 20 Lightning Bolts",
+  "storyPattern": "mechanic",
+  "numberRelevant": false,
+  "premise": "When irritated, Electrode releases an electric current equal to 20 lightning bolts.",
+  "audiencePromise": "See how Electrode turns irritation into one of the Pokédex's wildest electrical warnings.",
+  "openLoop": "What does Electrode release when irritation takes over?",
+  "payoff": "Electrode's irritation response is officially compared to the current of 20 lightning bolts.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "Is 20 lightning bolts a warning or overreaction?",
+  "subject": {
+    "name": "Electrode",
+    "category": "Ball Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/101.png",
+    "identifier": "#101"
+  },
+  "related": [
+    {
+      "name": "Voltorb",
+      "relation": "evolves-from",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/100.png",
+      "identifier": "#100"
+    },
+    {
+      "name": "Electrode Hisui",
+      "relation": "form",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10232.png",
+      "identifier": "#101"
+    }
+  ],
+  "palette": {
+    "background": "#10151F",
+    "surface": "#1B2430",
+    "primary": "#E83D4F",
+    "secondary": "#F5D547",
+    "ink": "#F7F9FC"
+  },
+  "voice": {
+    "instructions": "Speak like a knowledgeable fan sharing a dangerous surprise. Keep the pace quick, warm, and clear. Punch the words irritation and twenty. Pause briefly before each reveal."
+  },
+  "rights": {
+    "releaseStatus": "cleared",
+    "publicReleaseApproved": true,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    },
+    "assets": [
+      {
+        "kind": "Electrode official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/101.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "irritation-answer",
+      "beat": "hook",
+      "eyebrow": "ELECTRODE",
+      "headline": "IRRITATION GETS TWENTY BOLTS",
+      "narration": "Irritate Electrode, and it answers with twenty lightning bolts.",
+      "caption": "TWENTY LIGHTNING BOLTS",
+      "accent": "#F5D547",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/101.png",
+      "primitive": {
+        "kind": "counter",
+        "from": 0,
+        "to": 20,
+        "label": "LIGHTNING BOLTS"
+      }
+    },
+    {
+      "id": "pressure-built-in",
+      "beat": "evidence",
+      "eyebrow": "ALREADY DANGEROUS",
+      "headline": "PRESSURE BUILDS INSIDE",
+      "narration": "Its body stores electric energy under very high pressure.",
+      "caption": "ELECTRIC ENERGY UNDER PRESSURE",
+      "facts": [
+        "HIGH PRESSURE",
+        "ELECTRIC ENERGY"
+      ],
+      "accent": "#E83D4F",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/101.png"
+    },
+    {
+      "id": "small-shock-risk",
+      "beat": "escalation",
+      "eyebrow": "THE RISK",
+      "headline": "A SMALL SHOCK CAN SET IT OFF",
+      "narration": "A small shock can trigger its huge explosion.",
+      "caption": "EVEN A SMALL SHOCK",
+      "facts": [
+        "SMALL SHOCK",
+        "HUGE EXPLOSION"
+      ],
+      "accent": "#F5D547",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/101.png"
+    },
+    {
+      "id": "irritation-current",
+      "beat": "payoff",
+      "eyebrow": "THE OFFICIAL ENTRY",
+      "headline": "IRRITATION CHANGES THE SCALE",
+      "narration": "Irritation releases current equal to twenty lightning bolts.",
+      "caption": "IRRITATION → 20 LIGHTNING BOLTS",
+      "facts": [
+        "IRRITATION",
+        "20 LIGHTNING BOLTS"
+      ],
+      "accent": "#F5D547",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/101.png"
+    },
+    {
+      "id": "twenty-bolt-answer",
+      "beat": "payoff",
+      "eyebrow": "NOT A TINY SPARK",
+      "headline": "IRRITATION EQUALS TWENTY BOLTS",
+      "narration": "So irritation isn't a tiny spark. It's a twenty-bolt answer.",
+      "caption": "IRRITATION = 20 BOLTS",
+      "facts": [
+        "IRRITATION",
+        "TWENTY BOLTS"
+      ],
+      "accent": "#E83D4F",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/101.png"
+    },
+    {
+      "id": "warning-or-overreaction",
+      "beat": "verdict",
+      "eyebrow": "YOUR CALL",
+      "headline": "WARNING OR OVERREACTION?",
+      "narration": "Is twenty lightning bolts a warning or overreaction?",
+      "caption": "WARNING OR OVERREACTION?",
+      "accent": "#F5D547",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/101.png"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Electrode",
+      "url": "https://www.pokemon.com/us/pokedex/electrode",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Electrode",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Electrode_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Electrode",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/101",
+      "tier": "trusted_secondary"
+    }
+  ]
+}
