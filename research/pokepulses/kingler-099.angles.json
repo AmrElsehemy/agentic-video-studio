@@ -1,0 +1,166 @@
+{
+  "episodeId": "kingler-099",
+  "createdAt": "2026-10-29T20:48:15.049Z",
+  "chosen": {
+    "id": "ten-thousand-hp-handicap",
+    "premise": "Kingler’s claw has 10,000-horsepower crushing strength, but its size makes the weapon difficult to use.",
+    "hook": "Kingler’s claw has 10,000 horsepower—and it’s a handicap.",
+    "archetype": "comparison",
+    "evidence": [
+      "pokedexEntries[0].text",
+      "pokedexEntries[8].text"
+    ],
+    "visualIdea": "Show a giant claw labeled 10,000 horsepower, then wobble it as aim and movement fail.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 5,
+      "specificity": 5,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 25,
+    "note": "A highly Kingler-specific contradiction: an absurdly powerful claw that is explicitly difficult to use. The repeated Pokédex evidence directly supports both the number and the handicap."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "ten-thousand-hp-handicap",
+          "premise": "Kingler’s claw has 10,000-horsepower crushing strength, but its size makes the weapon difficult to use.",
+          "hook": "Kingler’s claw has 10,000 horsepower—and it’s a handicap.",
+          "archetype": "comparison",
+          "evidence": [
+            "pokedexEntries[0].text",
+            "pokedexEntries[8].text"
+          ],
+          "visualIdea": "Show a giant claw labeled 10,000 horsepower, then wobble it as aim and movement fail.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 25,
+          "note": "A highly Kingler-specific contradiction: an absurdly powerful claw that is explicitly difficult to use. The repeated Pokédex evidence directly supports both the number and the handicap."
+        },
+        {
+          "id": "lift-and-stagger",
+          "premise": "Lifting Kingler’s oversized pincers too quickly can make it lose balance and stagger.",
+          "hook": "Kingler can stagger just by lifting its own claw too fast.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[3].text",
+            "pokedexEntries[11].text"
+          ],
+          "visualIdea": "Use a slow-motion claw lift that tips Kingler sideways when the movement speeds up.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 23,
+          "note": "Very concrete, visual, and directly supported by multiple entries. It is narrower and less broadly compelling than the 10,000-horsepower premise."
+        },
+        {
+          "id": "gmax-scale-jump",
+          "premise": "Gigantamax Kingler jumps from 1.3 to 19 meters tall and from 60 to 1,000 kilograms.",
+          "hook": "Kingler’s giant form is not just bigger—it reaches 19 meters tall.",
+          "archetype": "comparison",
+          "evidence": [
+            "heightMeters",
+            "weightKg",
+            "varieties[0].name",
+            "varieties[0].heightMeters",
+            "varieties[0].weightKg"
+          ],
+          "visualIdea": "Scale Kingler against its 1.3-meter form, then expand it to 19 meters and 1,000 kilograms.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 23,
+          "note": "The measurements create an excellent visual comparison, but the angle is more about Gigantamax scale than Kingler’s most unusual core trait."
+        },
+        {
+          "id": "claw-always-in-the-way",
+          "premise": "Kingler’s oversized claw is powerful in battle but becomes an obstacle whenever it is not fighting.",
+          "hook": "Kingler’s best weapon becomes a problem the moment battle ends.",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[4].text",
+            "pokedexEntries[14].text",
+            "pokedexEntries[2].text"
+          ],
+          "visualIdea": "Reveal the claw’s power first, then show it blocking movement, aim, and ordinary downtime.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 23,
+          "note": "A strong and well-supported contradiction, though it overlaps with the first angle and lacks the sharper numerical hook of 10,000 horsepower."
+        },
+        {
+          "id": "claw-as-language",
+          "premise": "Kingler uses its enormous claw to communicate, but waving it is so tiring that it quickly runs out of energy.",
+          "hook": "Kingler’s giant claw is also its communication device.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[6].text",
+            "pokedexEntries[7].text"
+          ],
+          "visualIdea": "Animate Kingler waving its claw like a signal flag, then cut to an exhaustion meter dropping.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 4,
+            "support": 5
+          },
+          "total": 22,
+          "note": "Distinctive and well supported, but the exhaustion consequence is less instantly clear than the power-versus-usability contradiction."
+        },
+        {
+          "id": "level-28-claw-upgrade",
+          "premise": "Kingler evolves from Krabby at level 28, becoming the stage with the massive overgrown pincer.",
+          "hook": "At level 28, Krabby evolves into a Pokémon built around one giant claw.",
+          "archetype": "transformation",
+          "evidence": [
+            "evolutionChain[0].name",
+            "evolutionChain[1].name",
+            "evolutionChain[1].method",
+            "pokedexEntries[2].text"
+          ],
+          "visualIdea": "Show Krabby beside Kingler as a level counter hits 28 and one claw rapidly enlarges.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 3,
+            "surprise": 2,
+            "specificity": 4,
+            "visual": 4,
+            "support": 4
+          },
+          "total": 17,
+          "note": "The level-28 evolution is specific, but the massive claw is not established as a direct transformation caused by evolving at that level, making the hook partly interpretive."
+        }
+      ],
+      "rejected": [],
+      "request": "No stronger angle is required from this set. An even stronger alternative would need a verified, Kingler-specific comparison that makes the 10,000-horsepower claim immediately tangible without treating horsepower as a literal measurement of claw force."
+    }
+  ]
+}

@@ -1,0 +1,483 @@
+{
+  "episodeId": "rhyhorn-111",
+  "checkedAt": "2026-10-29T21:26:33.949Z",
+  "claims": [
+    {
+      "id": "c1",
+      "where": "title",
+      "text": "Rhyhorn Forgets Why It Charges",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text",
+        "pokedexEntries[7].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c2",
+      "where": "premise",
+      "text": "Rhyhorn begins a charge with a purpose, then forgets that purpose while its body keeps rushing forward.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text",
+        "pokedexEntries[7].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c3",
+      "where": "audiencePromise",
+      "text": "See how Rhyhorn’s memory, short legs, and unstoppable charge turn one flaw into its defining identity.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[4].text",
+        "pokedexEntries[2].text",
+        "pokedexEntries[7].text"
+      ],
+      "note": "The memory, short-leg, and charging traits are supported, but calling them one flaw that defines Rhyhorn's identity is an interpretive exaggeration.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c4",
+      "where": "openLoop",
+      "text": "If Rhyhorn forgets the goal, what keeps it charging?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Question/open-loop framing.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c5",
+      "where": "payoff",
+      "text": "Rhyhorn forgets why it started, but its unstoppable charge may be the clearest thing about it.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text",
+        "pokedexEntries[7].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c6",
+      "where": "scenes.forgotten-charge.headline",
+      "text": "THE CHARGE FORGETS ITS GOAL",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text",
+        "pokedexEntries[7].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c7",
+      "where": "scenes.forgotten-charge.narration",
+      "text": "Rhyhorn forgets why it started charging.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text",
+        "pokedexEntries[7].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c8",
+      "where": "scenes.forgotten-charge.caption",
+      "text": "THE GOAL VANISHES MID-CHARGE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text",
+        "pokedexEntries[7].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c9",
+      "where": "scenes.forgotten-charge.eyebrow",
+      "text": "ONE-TRACK MIND",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[13].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c10",
+      "where": "scenes.one-thing-memory.headline",
+      "text": "ONE THING AT A TIME",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c11",
+      "where": "scenes.one-thing-memory.narration",
+      "text": "Its memory holds one thing, so the charge erases its goal.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text",
+        "pokedexEntries[7].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c12",
+      "where": "scenes.one-thing-memory.caption",
+      "text": "ONE THOUGHT IN. THE MISSION OUT.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text",
+        "pokedexEntries[7].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c13",
+      "where": "scenes.one-thing-memory.eyebrow",
+      "text": "MEMORY HAS ONE SLOT",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c14",
+      "where": "scenes.one-thing-memory.facts[0]",
+      "text": "ONE THING AT A TIME",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c15",
+      "where": "scenes.one-thing-memory.facts[1]",
+      "text": "GOAL FORGOTTEN",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text",
+        "pokedexEntries[7].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c16",
+      "where": "scenes.straight-line-problem.headline",
+      "text": "NO TURNS. JUST FORWARD.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text",
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c17",
+      "where": "scenes.straight-line-problem.narration",
+      "text": "Short legs cannot turn well, leaving one straight path forward.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text",
+        "pokedexEntries[14].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c18",
+      "where": "scenes.straight-line-problem.caption",
+      "text": "THE ROUTE SHRINKS TO ONE DIRECTION",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text",
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c19",
+      "where": "scenes.straight-line-problem.eyebrow",
+      "text": "TURNING IS NOT ITS STRENGTH",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text",
+        "pokedexEntries[14].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c20",
+      "where": "scenes.straight-line-problem.facts[0]",
+      "text": "SHORT LEGS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text",
+        "pokedexEntries[14].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c21",
+      "where": "scenes.straight-line-problem.facts[1]",
+      "text": "ONE DIRECTION",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text",
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c22",
+      "where": "scenes.unstoppable-run.headline",
+      "text": "THE BODY KEEPS GOING",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[7].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c23",
+      "where": "scenes.unstoppable-run.narration",
+      "text": "And once it starts, Rhyhorn keeps running until it falls asleep.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[13].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c24",
+      "where": "scenes.unstoppable-run.caption",
+      "text": "THE PURPOSE IS GONE. THE CHARGE ISN'T.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text",
+        "pokedexEntries[7].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c25",
+      "where": "scenes.unstoppable-run.eyebrow",
+      "text": "NOW IT CANNOT STOP",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[14].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c26",
+      "where": "scenes.unstoppable-run.facts[0]",
+      "text": "KEEPS RUNNING",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[7].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c27",
+      "where": "scenes.unstoppable-run.facts[1]",
+      "text": "UNTIL SLEEP",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[13].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c28",
+      "where": "scenes.impact-reset.headline",
+      "text": "IMPACT MAY RESET IT",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c29",
+      "where": "scenes.impact-reset.narration",
+      "text": "Sometimes, smashing something apparently helps it remember why it started.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c30",
+      "where": "scenes.impact-reset.caption",
+      "text": "DESTRUCTION MAY BRING THE MEMORY BACK",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c31",
+      "where": "scenes.impact-reset.eyebrow",
+      "text": "ONE STRANGE COUNTERPOINT",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Framing phrase.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c32",
+      "where": "scenes.impact-reset.facts[0]",
+      "text": "SMASHING SOMETHING",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c33",
+      "where": "scenes.impact-reset.facts[1]",
+      "text": "MEMORY RETURNS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c34",
+      "where": "scenes.flaw-or-identity.headline",
+      "text": "FORGETFUL. UNSTOPPABLE. RHYHORN.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text",
+        "pokedexEntries[7].text",
+        "pokedexEntries[1].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c35",
+      "where": "scenes.flaw-or-identity.narration",
+      "text": "Goal forgotten. Charge intact. Flaw or identity?",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text",
+        "pokedexEntries[7].text",
+        "pokedexEntries[1].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c36",
+      "where": "scenes.flaw-or-identity.caption",
+      "text": "WHAT DO YOU CALL THIS KIND OF FOCUS?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Question/framing.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c37",
+      "where": "scenes.flaw-or-identity.eyebrow",
+      "text": "THE WHOLE PERSONALITY",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Framing phrase/opinion rather than a factual claim.",
+      "checkedBy": "model"
+    }
+  ],
+  "unsupported": [],
+  "uncertain": [
+    {
+      "id": "c3",
+      "where": "audiencePromise",
+      "text": "See how Rhyhorn’s memory, short legs, and unstoppable charge turn one flaw into its defining identity.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[4].text",
+        "pokedexEntries[2].text",
+        "pokedexEntries[7].text"
+      ],
+      "note": "The memory, short-leg, and charging traits are supported, but calling them one flaw that defines Rhyhorn's identity is an interpretive exaggeration.",
+      "tier": "official",
+      "checkedBy": "model"
+    }
+  ]
+}

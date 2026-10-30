@@ -1,0 +1,167 @@
+{
+  "episodeId": "cubone-104",
+  "createdAt": "2026-10-29T21:03:18.461Z",
+  "chosen": {
+    "id": "level-or-acceptance",
+    "premise": "Cubone evolves into Marowak at level 28, but one Pokédex entry links evolution to accepting its mother’s death.",
+    "hook": "Does Cubone evolve at level 28—or when it finally accepts the loss?",
+    "archetype": "transformation",
+    "evidence": [
+      "evolutionChain[1].method",
+      "evolutionChain[1].name",
+      "pokedexEntries[12].text"
+    ],
+    "visualIdea": "Split the screen between a level-28 counter and Cubone facing its grief before becoming Marowak.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 5,
+      "specificity": 5,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 25,
+    "note": "The concrete level-28 evolution rule collides with the Pokédex idea that Cubone evolves after coming to terms with its mother’s death. This creates a strong, well-supported visual and narrative question."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "level-or-acceptance",
+          "premise": "Cubone evolves into Marowak at level 28, but one Pokédex entry links evolution to accepting its mother’s death.",
+          "hook": "Does Cubone evolve at level 28—or when it finally accepts the loss?",
+          "archetype": "transformation",
+          "evidence": [
+            "evolutionChain[1].method",
+            "evolutionChain[1].name",
+            "pokedexEntries[12].text"
+          ],
+          "visualIdea": "Split the screen between a level-28 counter and Cubone facing its grief before becoming Marowak.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 25,
+          "note": "The concrete level-28 evolution rule collides with the Pokédex idea that Cubone evolves after coming to terms with its mother’s death. This creates a strong, well-supported visual and narrative question."
+        },
+        {
+          "id": "cries-call-danger",
+          "premise": "Cubone’s nighttime cries for its mother attract Mandibuzz, its natural enemy, turning grief into a survival risk.",
+          "hook": "Cubone’s saddest sound can summon the Pokémon hunting it.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[11].text",
+            "pokedexEntries[13].text"
+          ],
+          "visualIdea": "A crying Cubone sends sound rings into the night as Mandibuzz silhouettes dive toward it.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 24,
+          "note": "A sharp survival contradiction: grief causes the cries, but the cries attract Cubone’s natural enemy. Both the danger and nighttime trigger are directly supported."
+        },
+        {
+          "id": "tears-make-it-stronger",
+          "premise": "Cubone’s tears stain its mother’s skull, yet one entry says every tear it sheds makes it stronger.",
+          "hook": "For Cubone, crying is somehow part of becoming stronger.",
+          "archetype": "comparison",
+          "evidence": [
+            "pokedexEntries[5].text",
+            "pokedexEntries[6].text",
+            "pokedexEntries[16].text"
+          ],
+          "visualIdea": "Zoom from tear stains on the skull to a strength meter rising with every falling tear.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 5,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 23,
+          "note": "The Shield entry directly supplies the surprising claim that every tear makes Cubone stronger, while other entries support the visible tear stains."
+        },
+        {
+          "id": "the-full-moon-likeness",
+          "premise": "Cubone sees its mother’s likeness in the full moon, cries, and leaves tear stains on the skull it wears.",
+          "hook": "The full moon gives Cubone one impossible glimpse of its mother.",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[5].text",
+            "pokedexEntries[6].text"
+          ],
+          "visualIdea": "Reveal a mother-like silhouette inside the full moon, then cut to tears marking Cubone’s skull.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 23,
+          "note": "A hauntingly specific image backed by the Ruby and Emerald entries. “Impossible glimpse” slightly overstates the text, which says Cubone sees a likeness rather than its actual mother."
+        },
+        {
+          "id": "skull-as-instrument",
+          "premise": "Cubone’s cries echo inside its mother’s skull, turning the helmet into a hollow, mournful instrument.",
+          "hook": "Cubone’s skull is not just armor—it changes the sound of its crying.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[1].text",
+            "pokedexEntries[2].text",
+            "pokedexEntries[9].text",
+            "pokedexEntries[15].text"
+          ],
+          "visualIdea": "Animate sound waves entering the skull, bouncing inside, and emerging as a sad melody.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 22,
+          "note": "Highly Cubone-specific and easy to animate. The entries support echoing, rattling, and a mournful sound, though calling the skull an instrument is interpretive."
+        },
+        {
+          "id": "the-unseen-face",
+          "premise": "Cubone never removes its skull helmet, so no Pokédex entry has revealed what its real face looks like.",
+          "hook": "There is one Cubone detail the Pokédex has never solved.",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[0].text",
+            "pokedexEntries[3].text",
+            "pokedexEntries[8].text",
+            "pokedexEntries[14].text"
+          ],
+          "visualIdea": "Show Cubone rotating away as redacted face silhouettes stack behind its skull.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 3,
+            "specificity": 4,
+            "visual": 4,
+            "support": 4
+          },
+          "total": 19,
+          "note": "Distinctive to Cubone and visually clear, but the mystery is familiar and “no Pokédex entry has revealed it” is an inference from repeated claims that nobody has seen its face."
+        }
+      ],
+      "rejected": [],
+      "request": "No stronger angle is required; the chosen angle has the best combination of contradiction, specificity, surprise, visual potential, and evidence. A stronger alternative would need an equally concrete Cubone-only rule or contradiction supported directly by multiple Pokédex entries."
+    }
+  ]
+}

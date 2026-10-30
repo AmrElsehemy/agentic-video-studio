@@ -1,0 +1,155 @@
+{
+  "episodeId": "electrode-101",
+  "createdAt": "2026-10-29T20:53:59.397Z",
+  "chosen": {
+    "id": "twenty-bolts",
+    "premise": "When irritated, Electrode releases an electric current equal to 20 lightning bolts.",
+    "hook": "Electrode can answer irritation with twenty lightning bolts.",
+    "archetype": "mechanic",
+    "evidence": [
+      "pokedexEntries[11].text"
+    ],
+    "visualIdea": "Show one spark multiplying into 20 lightning-bolt icons around Electrode.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 5,
+      "specificity": 5,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 25,
+    "note": "A striking, Electrode-specific number directly stated in the Pokédex, with an immediately visual escalation from one spark to 20 lightning bolts."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "twenty-bolts",
+          "premise": "When irritated, Electrode releases an electric current equal to 20 lightning bolts.",
+          "hook": "Electrode can answer irritation with twenty lightning bolts.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[11].text"
+          ],
+          "visualIdea": "Show one spark multiplying into 20 lightning-bolt icons around Electrode.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 25,
+          "note": "A striking, Electrode-specific number directly stated in the Pokédex, with an immediately visual escalation from one spark to 20 lightning bolts."
+        },
+        {
+          "id": "bloated-windball",
+          "premise": "After storing enough electricity to become bloated, Electrode can drift away on the wind.",
+          "hook": "When Electrode overfills with electricity, it starts floating away.",
+          "archetype": "transformation",
+          "evidence": [
+            "pokedexEntries[9].text"
+          ],
+          "visualIdea": "Electrode swells with glowing electricity, then lifts off and drifts across the sky.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 24,
+          "note": "Very unusual and well supported: stored electricity makes Electrode bloated enough to drift on wind. Slightly less precise because the entry does not define how much energy is required."
+        },
+        {
+          "id": "electricity-blackout",
+          "premise": "Electrode feeds at power plants, then its appetite causes massive blackouts in nearby cities.",
+          "hook": "Electrode does not attack power plants—it eats them.",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[6].text",
+            "pokedexEntries[7].text"
+          ],
+          "visualIdea": "Trace electricity from a power plant into Electrode, then cut every city light to black.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 22,
+          "note": "Strong cause-and-effect premise and excellent visual payoff, though power-plant electricity feeding and city blackouts are more about behavior than a uniquely memorable mechanic."
+        },
+        {
+          "id": "charge-speed-risk",
+          "premise": "The more electricity Electrode charges, the faster it gets—but also the more likely it is to explode.",
+          "hook": "Electrode's speed boost comes with an explosion warning.",
+          "archetype": "comparison",
+          "evidence": [
+            "pokedexEntries[4].text"
+          ],
+          "visualIdea": "A charge meter raises Electrode's speed while an explosion meter rises beside it.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 22,
+          "note": "A clear contradiction—charging makes Electrode faster and more explosive—but it lacks a concrete scale or especially distinctive visual beyond paired meters."
+        },
+        {
+          "id": "apricorn-bomb",
+          "premise": "Electrode's surface resembles an Apricorn, but irritating it unleashes a current equal to 20 lightning bolts.",
+          "hook": "Electrode looks like an Apricorn hiding twenty lightning bolts.",
+          "archetype": "comparison",
+          "evidence": [
+            "pokedexEntries[11].text"
+          ],
+          "visualIdea": "Morph an Apricorn's texture onto Electrode before revealing the lightning inside.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 4,
+            "visual": 4,
+            "support": 3
+          },
+          "total": 21,
+          "note": "The combination is surprising, but “looks like an Apricorn hiding twenty lightning bolts” overstates the source: it says the surface tissue is compositionally similar, not that Electrode visibly resembles or contains an Apricorn."
+        },
+        {
+          "id": "bomb-ball",
+          "premise": "Electrode explodes from tiny stimuli, earning the nickname “The Bomb Ball.”",
+          "hook": "Electrode is so twitchy that its nickname is The Bomb Ball.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[0].text",
+            "pokedexEntries[8].text"
+          ],
+          "visualIdea": "Show progressively smaller triggers—a shock, a spark, a tap—ending in an explosion.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 3,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 21,
+          "note": "Accurate and easy to stage, but the nickname and explosion behavior are relatively familiar and less novel than the 20-lightning-bolt claim."
+        }
+      ],
+      "rejected": [],
+      "request": "N/A—this angle is strong enough. Even stronger alternatives would need a similarly concrete, surprising Electrode-specific fact with a clear visual transformation or escalation."
+    }
+  ]
+}

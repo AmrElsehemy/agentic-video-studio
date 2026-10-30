@@ -1,0 +1,163 @@
+{
+  "episodeId": "hitmonlee-106",
+  "createdAt": "2026-10-29T21:09:36.343Z",
+  "chosen": {
+    "id": "fleeing-target",
+    "premise": "Repeated kicking makes both of Hitmonlee’s legs stretch even farther, specifically to catch fleeing foes.",
+    "hook": "Running away from Hitmonlee may make its kicks reach you faster.",
+    "archetype": "mechanic",
+    "evidence": [
+      "pokedexEntries[3].text",
+      "pokedexEntries[11].text"
+    ],
+    "visualIdea": "A fleeing target gains distance, but every successive kick extends farther until it connects.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 5,
+      "specificity": 5,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 25,
+    "note": "The strongest contradiction and hook: escaping causes repeated kicks to gain reach. Both cited entries directly support it."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "fleeing-target",
+          "premise": "Repeated kicking makes both of Hitmonlee’s legs stretch even farther, specifically to catch fleeing foes.",
+          "hook": "Running away from Hitmonlee may make its kicks reach you faster.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[3].text",
+            "pokedexEntries[11].text"
+          ],
+          "visualIdea": "A fleeing target gains distance, but every successive kick extends farther until it connects.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 25,
+          "note": "The strongest contradiction and hook: escaping causes repeated kicks to gain reach. Both cited entries directly support it."
+        },
+        {
+          "id": "hurry-legs",
+          "premise": "The faster Hitmonlee needs to move, the progressively longer its legs become, creating smooth, loping strides.",
+          "hook": "For Hitmonlee, being in a hurry makes its legs grow.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[0].text",
+            "pokedexEntries[8].text"
+          ],
+          "visualIdea": "Animate Hitmonlee rushing forward while each stride makes its legs visibly longer.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 25,
+          "note": "The unusual cause-and-effect is memorable and explicitly supported by multiple entries."
+        },
+        {
+          "id": "double-reach",
+          "premise": "Hitmonlee’s legs can stretch to twice their length, startling opponents with a reach they never expected.",
+          "hook": "Hitmonlee can literally double the length of its legs.",
+          "archetype": "transformation",
+          "evidence": [
+            "pokedexEntries[9].text",
+            "pokedexEntries[7].text"
+          ],
+          "visualIdea": "Show normal legs extending to double length as an opponent realizes Hitmonlee can kick from far away.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 24,
+          "note": "A highly Hitmonlee-specific ability with direct Pokédex support; the double-length reveal is immediately visual."
+        },
+        {
+          "id": "diamond-impact",
+          "premise": "When Hitmonlee kicks, the sole of its foot becomes as hard as diamond at the exact moment of impact.",
+          "hook": "Hitmonlee’s foot turns diamond-hard only when it hits.",
+          "archetype": "transformation",
+          "evidence": [
+            "pokedexEntries[1].text",
+            "pokedexEntries[12].text"
+          ],
+          "visualIdea": "Zoom into the sole during a kick, transforming it into a diamond just before impact.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 22,
+          "note": "Very visual and well supported, though 'diamond-hard at the exact moment of impact' slightly sharpens the wording beyond the entries."
+        },
+        {
+          "id": "kick-from-anywhere",
+          "premise": "Hitmonlee’s balance lets it deliver successive kicks from any position, not just while standing normally.",
+          "hook": "Hitmonlee can keep kicking from basically any position.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[2].text",
+            "pokedexEntries[10].text"
+          ],
+          "visualIdea": "Show a rapid sequence of kicks from upright, crouched, tilted, and airborne positions without losing balance.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 22,
+          "note": "Directly supported and easy to animate, but 'any position' is broad and less inherently dramatic than the stretching-leg mechanics."
+        },
+        {
+          "id": "branching-kick-master",
+          "premise": "At level 20, Tyrogue can become Hitmonlee, Hitmonchan, or Hitmontop—but only one becomes the Kick Master.",
+          "hook": "Level 20 gives Tyrogue three fighting futures—and one is all legs.",
+          "archetype": "comparison",
+          "evidence": [
+            "evolutionChain[0].name",
+            "evolutionChain[1].method",
+            "evolutionChain[2].name",
+            "evolutionChain[3].name",
+            "pokedexEntries[4].text"
+          ],
+          "visualIdea": "As Tyrogue reaches level 20, split the screen into its three possible evolutions before spotlighting Hitmonlee.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 3,
+            "surprise": 3,
+            "specificity": 4,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 19,
+          "note": "The three-way evolution is visual, but the level-20 framing omits the actual evolution condition and the premise is partly about Tyrogue rather than Hitmonlee."
+        }
+      ],
+      "rejected": [],
+      "request": "No stronger angle is needed; the chosen angle has the clearest concrete rule, strongest surprise, and most direct visual payoff."
+    }
+  ]
+}

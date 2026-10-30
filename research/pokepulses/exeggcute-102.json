@@ -1,0 +1,176 @@
+{
+  "schemaVersion": 1,
+  "id": "exeggcute-102",
+  "number": 102,
+  "index": "#102",
+  "name": "Exeggcute",
+  "slug": "exeggcute",
+  "category": "Egg Pokémon",
+  "generation": "Generation I",
+  "isLegendary": false,
+  "isMythical": false,
+  "types": [
+    "Grass",
+    "Psychic"
+  ],
+  "heightMeters": 0.4,
+  "weightKg": 2.5,
+  "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/102.png",
+  "pokedexEntries": [
+    {
+      "game": "Red",
+      "text": "Often mistaken for eggs. When disturbed, they quickly gather and attack in swarms."
+    },
+    {
+      "game": "Yellow",
+      "text": "The heads attract each other and spin around. There must be 6 heads for it to maintain balance."
+    },
+    {
+      "game": "Gold",
+      "text": "The shell is very durable. Even if it cracks, it can survive without spilling the contents."
+    },
+    {
+      "game": "Silver",
+      "text": "Using telepathy only they can receive, they always form a cluster of six EXEGGCUTE."
+    },
+    {
+      "game": "Crystal",
+      "text": "If even one is separated from the group, the energy bond between the six will make them rejoin instantly."
+    },
+    {
+      "game": "Ruby",
+      "text": "This POKéMON consists of six eggs that form a closely knit cluster. The six eggs attract each other and spin around. When cracks increasingly appear on the eggs, EXEGGCUTE is close to evolution."
+    },
+    {
+      "game": "Emerald",
+      "text": "It consists of six eggs that care for each other. The eggs attract each other and spin around. When cracks increasingly appear, it is close to evolution."
+    },
+    {
+      "game": "Firered",
+      "text": "Even though it appears to be eggs of some sort, it was discovered to be a life- form more like plant seeds."
+    },
+    {
+      "game": "Leafgreen",
+      "text": "It is often mistaken for eggs. When disturbed, they quickly gather and attack in swarms."
+    },
+    {
+      "game": "Diamond",
+      "text": "Its six eggs converse using telepathy. They can quickly gather if they become separated."
+    },
+    {
+      "game": "Heartgold",
+      "text": "Their shells are very durable. Even if they crack, they can survive without spilling their contents."
+    },
+    {
+      "game": "Soulsilver",
+      "text": "Using telepathy only they can employ, they always form a cluster of six EXEGGCUTE."
+    },
+    {
+      "game": "Y",
+      "text": "Even though it appears to be eggs of some sort, it was discovered to be a life-form more like plant seeds."
+    },
+    {
+      "game": "Sun",
+      "text": "Its six eggs use telepathy to communicate among themselves. It is believed to carry plant genes and the genes of other species."
+    },
+    {
+      "game": "Moon",
+      "text": "Six of them together form a full-fledged Pokémon. It’s often hunted by Crabrawler, but uses psychokinesis to drive it off."
+    },
+    {
+      "game": "Ultra Sun",
+      "text": "Six of them form a single Pokémon. Should one of the six be lost, the next morning there will once more be six."
+    },
+    {
+      "game": "Ultra Moon",
+      "text": "Although they are the same size as other Exeggcute, the ones produced in Alola are quite heavy. Their shells are packed full."
+    },
+    {
+      "game": "Lets Go Pikachu",
+      "text": "The heads attract each other and spin around. There must be six heads for it to maintain balance."
+    },
+    {
+      "game": "Sword",
+      "text": "Though it may look like it’s just a bunch of eggs, it’s a proper Pokémon. Exeggcute communicates with others of its kind via telepathy, apparently."
+    },
+    {
+      "game": "Shield",
+      "text": "These Pokémon get nervous when they’re not in a group of six. The minute even one member of the group goes missing, Exeggcute become cowardly."
+    }
+  ],
+  "evolutionChain": [
+    {
+      "name": "Exeggcute",
+      "index": "#102",
+      "stage": 1,
+      "types": [
+        "Grass",
+        "Psychic"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/102.png",
+      "isSubject": true
+    },
+    {
+      "name": "Exeggutor",
+      "index": "#103",
+      "stage": 2,
+      "evolvesFrom": "Exeggcute",
+      "method": "Use Item, Leaf Stone",
+      "types": [
+        "Grass",
+        "Psychic"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/103.png",
+      "isSubject": false
+    }
+  ],
+  "varieties": [],
+  "lore": [],
+  "tiers": {
+    "official": [
+      "name",
+      "index",
+      "number",
+      "category",
+      "generation",
+      "isLegendary",
+      "isMythical",
+      "types",
+      "heightMeters",
+      "weightKg",
+      "pokedexEntries",
+      "evolutionChain[].name",
+      "evolutionChain[].index",
+      "evolutionChain[].types",
+      "evolutionChain[].stage",
+      "varieties[].types",
+      "varieties[].heightMeters",
+      "varieties[].weightKg"
+    ],
+    "trusted_secondary": [
+      "evolutionChain[].method",
+      "evolutionChain[].evolvesFrom",
+      "varieties[].name"
+    ],
+    "community": [
+      "lore"
+    ]
+  },
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Exeggcute",
+      "url": "https://www.pokemon.com/us/pokedex/exeggcute",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Exeggcute",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Exeggcute_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Exeggcute",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/102",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

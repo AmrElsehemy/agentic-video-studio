@@ -1,0 +1,163 @@
+{
+  "episodeId": "electabuzz-125",
+  "createdAt": "2026-10-29T22:11:38.859Z",
+  "chosen": {
+    "id": "living-lightning-rod",
+    "premise": "During storms, Electabuzz competes to climb lightning-prone heights, and some towns use it as a lightning rod.",
+    "hook": "When lightning comes, Electabuzz races to become the target.",
+    "archetype": "mechanic",
+    "evidence": [
+      "pokedexEntries[5].text",
+      "pokedexEntries[19].text",
+      "pokedexEntries[20].text"
+    ],
+    "visualIdea": "Show Electabuzz racing up tall trees as lightning targets appear above competing Pokémon.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 5,
+      "specificity": 5,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 25,
+    "note": "A highly specific, strange behavior backed by multiple entries: Electabuzz competes to climb lightning-prone heights, waits for strikes, and is used by some towns as a lightning rod."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "living-lightning-rod",
+          "premise": "During storms, Electabuzz competes to climb lightning-prone heights, and some towns use it as a lightning rod.",
+          "hook": "When lightning comes, Electabuzz races to become the target.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[5].text",
+            "pokedexEntries[19].text",
+            "pokedexEntries[20].text"
+          ],
+          "visualIdea": "Show Electabuzz racing up tall trees as lightning targets appear above competing Pokémon.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 25,
+          "note": "A highly specific, strange behavior backed by multiple entries: Electabuzz competes to climb lightning-prone heights, waits for strikes, and is used by some towns as a lightning rod."
+        },
+        {
+          "id": "touch-communication",
+          "premise": "When two Electabuzz touch, they control electric currents to communicate their feelings.",
+          "hook": "Electabuzz can talk through electricity—but only when it touches another one.",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[4].text"
+          ],
+          "visualIdea": "Two Electabuzz touch, sending colored current patterns between them that resolve into emotion symbols.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 4,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 23,
+          "note": "Very Pokémon-specific and visually clear. The research supports communication through electric currents when two Electabuzz touch, though the hook's implication that touching is required is slightly stronger than the cited wording."
+        },
+        {
+          "id": "trade-powered-evolution",
+          "premise": "Electabuzz evolves from Elekid at level 30, then needs a trade while holding an Electirizer to evolve again.",
+          "hook": "Electabuzz’s next evolution requires a trade—and a specific held item.",
+          "archetype": "transformation",
+          "evidence": [
+            "evolutionChain[0].name",
+            "evolutionChain[1].method",
+            "evolutionChain[2].method",
+            "evolutionChain[2].name"
+          ],
+          "visualIdea": "Show Elekid becoming Electabuzz at level 30, then a trade animation with Electirizer before Electivire appears.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 3,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 22,
+          "note": "Accurate and easy to visualize, but trade evolutions and held-item requirements are less surprising than Electabuzz's storm behavior."
+        },
+        {
+          "id": "electricity-leak",
+          "premise": "Electabuzz eats electricity, but it leaks electricity in amounts far greater than what it consumes.",
+          "hook": "Electabuzz is an electricity eater that gives off even more than it eats.",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[7].text",
+            "pokedexEntries[15].text"
+          ],
+          "visualIdea": "Animate electricity flowing into Electabuzz, then show an even larger current bursting back out.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 4,
+            "visual": 5,
+            "support": 1
+          },
+          "total": 20,
+          "note": "Excellent contradiction and visual hook, but the cited indices point to blackout and charging entries rather than the Moon entry stating that Electabuzz leaks more electricity than it eats."
+        },
+        {
+          "id": "punch-windup",
+          "premise": "Electabuzz windmills its arms to slightly boost a punch, but opponents can escape during the windup.",
+          "hook": "Electabuzz powers up its punch long enough for the opponent to run away.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[9].text",
+            "pokedexEntries[16].text"
+          ],
+          "visualIdea": "Show Electabuzz spinning its arms faster while an opponent calmly exits the frame.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 1
+          },
+          "total": 19,
+          "note": "The comic premise is strong, but the cited indices do not contain the windmill-punch entry or the matching charging description."
+        },
+        {
+          "id": "blackout-blame",
+          "premise": "Electabuzz is blamed for blackouts, but one Pokédex entry says electric-company errors cause them more often.",
+          "hook": "Electabuzz might be innocent of the blackouts it gets blamed for.",
+          "archetype": "comparison",
+          "evidence": [
+            "pokedexEntries[14].text",
+            "pokedexEntries[17].text"
+          ],
+          "visualIdea": "Show Electabuzz beside a blackout headline, then reveal an electric-company error stamp.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 4,
+            "support": 1
+          },
+          "total": 17,
+          "note": "The premise is distinctive and supported by the research in general, but the cited evidence indices do not point to the blackout-blame and electric-company-error entries."
+        }
+      ],
+      "rejected": [],
+      "request": "Stronger alternatives would need equally concrete, Pokémon-specific behavior with correctly matched evidence citations; the electricity-leak angle is especially promising if its citation is corrected to the Moon entry."
+    }
+  ]
+}

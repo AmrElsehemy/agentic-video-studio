@@ -1,0 +1,472 @@
+{
+  "episodeId": "jolteon-135",
+  "checkedAt": "2026-10-30T05:33:24.637Z",
+  "claims": [
+    {
+      "id": "c1",
+      "where": "title",
+      "text": "Jolteon’s Lungs Make Electricity",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[14].text"
+      ],
+      "note": "The research says Jolteon's lungs contain an organ that creates electricity, rather than stating that the lungs themselves make electricity.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c2",
+      "where": "premise",
+      "text": "Jolteon’s breath crackles because its lungs contain an organ that creates electricity.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[14].text"
+      ],
+      "note": "The entry supports both the lung organ creating electricity and crackling electricity on exhalation, but it does not explicitly state that the organ is the cause of the crackling breath.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c3",
+      "where": "audiencePromise",
+      "text": "Trace Jolteon’s crackling breath from the sound, to its lungs, to the organ creating electricity.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[14].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c4",
+      "where": "openLoop",
+      "text": "What links Jolteon’s lungs to its crackling breath?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c5",
+      "where": "payoff",
+      "text": "Jolteon’s electricity can spark in its fur and crackle in its breath.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text",
+        "pokedexEntries[14].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c6",
+      "where": "scenes.lungs-make-electricity.headline",
+      "text": "ITS LUNGS MAKE ELECTRICITY",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[14].text"
+      ],
+      "note": "The research places the electricity-producing organ inside the lungs; it does not directly say the lungs themselves make electricity.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c7",
+      "where": "scenes.lungs-make-electricity.narration",
+      "text": "Jolteon’s breath crackles because its lungs make electricity.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[14].text"
+      ],
+      "note": "The entry says the lungs contain an electricity-producing organ and that electricity crackles on exhalation, but does not explicitly give the stated causal connection.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c8",
+      "where": "scenes.lungs-make-electricity.caption",
+      "text": "ELECTRICITY FROM ITS LUNGS",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[14].text"
+      ],
+      "note": "The research supports electricity being produced by an organ inside the lungs, not literally by the lungs themselves.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c9",
+      "where": "scenes.lungs-make-electricity.eyebrow",
+      "text": "JOLTEON’S HIDDEN POWER",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c10",
+      "where": "scenes.the-crackle-is-real.headline",
+      "text": "LISTEN WHEN IT EXHALES",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c11",
+      "where": "scenes.the-crackle-is-real.narration",
+      "text": "Its Pokédex says electricity crackles when Jolteon exhales.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[14].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c12",
+      "where": "scenes.the-crackle-is-real.caption",
+      "text": "ELECTRICITY CRACKLES WHEN IT EXHALES",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[14].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c13",
+      "where": "scenes.the-crackle-is-real.eyebrow",
+      "text": "THE POKÉDEX CLUE",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c14",
+      "where": "scenes.the-crackle-is-real.facts[0]",
+      "text": "ELECTRICITY",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c15",
+      "where": "scenes.the-crackle-is-real.facts[1]",
+      "text": "EXHALE",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c16",
+      "where": "scenes.inside-the-lungs.headline",
+      "text": "FUR ISN’T THE WHOLE STORY",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text",
+        "pokedexEntries[14].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c17",
+      "where": "scenes.inside-the-lungs.narration",
+      "text": "Its fur already crackles, but the lungs hold an organ.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text",
+        "pokedexEntries[14].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c18",
+      "where": "scenes.inside-the-lungs.caption",
+      "text": "FUR SPARKS. LUNGS HOLD AN ORGAN.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text",
+        "pokedexEntries[14].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c19",
+      "where": "scenes.inside-the-lungs.eyebrow",
+      "text": "THE DEEPER CLUE",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c20",
+      "where": "scenes.inside-the-lungs.facts[0]",
+      "text": "SPARKING FUR",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c21",
+      "where": "scenes.inside-the-lungs.facts[1]",
+      "text": "LUNG ORGAN",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[14].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c22",
+      "where": "scenes.electric-organ.headline",
+      "text": "THE ORGAN CREATES ELECTRICITY",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[14].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c23",
+      "where": "scenes.electric-organ.narration",
+      "text": "That organ inside its lungs creates electricity.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[14].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c24",
+      "where": "scenes.electric-organ.caption",
+      "text": "THE ORGAN CREATES ELECTRICITY",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[14].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c25",
+      "where": "scenes.electric-organ.eyebrow",
+      "text": "THE FIRST REVEAL",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c26",
+      "where": "scenes.electric-organ.facts[0]",
+      "text": "INSIDE LUNGS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[14].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c27",
+      "where": "scenes.electric-organ.facts[1]",
+      "text": "CREATES ELECTRICITY",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[14].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c28",
+      "where": "scenes.electric-exhale.headline",
+      "text": "YOU CAN HEAR THE POWER",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[14].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c29",
+      "where": "scenes.electric-exhale.narration",
+      "text": "When Jolteon exhales, you can hear electricity crackle.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[14].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c30",
+      "where": "scenes.electric-exhale.caption",
+      "text": "YOU CAN HEAR ELECTRICITY CRACKLE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[14].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c31",
+      "where": "scenes.electric-exhale.eyebrow",
+      "text": "THE SOUND MAKES SENSE",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c32",
+      "where": "scenes.electric-exhale.facts[0]",
+      "text": "EXHALE",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c33",
+      "where": "scenes.electric-exhale.facts[1]",
+      "text": "CRACKLING SOUND",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c34",
+      "where": "scenes.natural-or-electric.headline",
+      "text": "SPARKING FUR OR CRACKLING BREATH?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c35",
+      "where": "scenes.natural-or-electric.narration",
+      "text": "Which is stranger: sparking fur or crackling breath?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c36",
+      "where": "scenes.natural-or-electric.caption",
+      "text": "SPARKING FUR OR CRACKLING BREATH?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c37",
+      "where": "scenes.natural-or-electric.eyebrow",
+      "text": "YOUR VERDICT",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    }
+  ],
+  "unsupported": [],
+  "uncertain": [
+    {
+      "id": "c1",
+      "where": "title",
+      "text": "Jolteon’s Lungs Make Electricity",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[14].text"
+      ],
+      "note": "The research says Jolteon's lungs contain an organ that creates electricity, rather than stating that the lungs themselves make electricity.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c2",
+      "where": "premise",
+      "text": "Jolteon’s breath crackles because its lungs contain an organ that creates electricity.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[14].text"
+      ],
+      "note": "The entry supports both the lung organ creating electricity and crackling electricity on exhalation, but it does not explicitly state that the organ is the cause of the crackling breath.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c6",
+      "where": "scenes.lungs-make-electricity.headline",
+      "text": "ITS LUNGS MAKE ELECTRICITY",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[14].text"
+      ],
+      "note": "The research places the electricity-producing organ inside the lungs; it does not directly say the lungs themselves make electricity.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c7",
+      "where": "scenes.lungs-make-electricity.narration",
+      "text": "Jolteon’s breath crackles because its lungs make electricity.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[14].text"
+      ],
+      "note": "The entry says the lungs contain an electricity-producing organ and that electricity crackles on exhalation, but does not explicitly give the stated causal connection.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c8",
+      "where": "scenes.lungs-make-electricity.caption",
+      "text": "ELECTRICITY FROM ITS LUNGS",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[14].text"
+      ],
+      "note": "The research supports electricity being produced by an organ inside the lungs, not literally by the lungs themselves.",
+      "tier": "official",
+      "checkedBy": "model"
+    }
+  ]
+}

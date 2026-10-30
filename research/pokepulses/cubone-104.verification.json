@@ -1,0 +1,445 @@
+{
+  "episodeId": "cubone-104",
+  "checkedAt": "2026-10-29T21:03:27.103Z",
+  "claims": [
+    {
+      "id": "c1",
+      "where": "title",
+      "text": "Cubone: Level 28 or Acceptance?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c2",
+      "where": "premise",
+      "text": "Cubone evolves into Marowak at level 28, but one Pokédex entry links that change to accepting its mother's death.",
+      "verdict": "supported",
+      "evidence": [
+        "evolutionChain[1].method",
+        "pokedexEntries[12].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c3",
+      "where": "audiencePromise",
+      "text": "See how Cubone's evolution shifts from a game mechanic into a story about grief.",
+      "verdict": "uncertain",
+      "evidence": [
+        "evolutionChain[1].method",
+        "pokedexEntries[12].text",
+        "pokedexEntries[1].text"
+      ],
+      "note": "The research supports the level-based evolution and the mother's death and acceptance theme, but calling it a shift into a story about grief is an interpretive framing.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c4",
+      "where": "openLoop",
+      "text": "Is level 28 the real trigger, or does acceptance matter?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c5",
+      "where": "payoff",
+      "text": "The level tells us when Cubone changes. Its mother's skull suggests what that change means.",
+      "verdict": "supported",
+      "evidence": [
+        "evolutionChain[1].method",
+        "pokedexEntries[1].text",
+        "pokedexEntries[12].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c6",
+      "where": "scenes.level-or-acceptance.headline",
+      "text": "LEVEL 28 OR ACCEPTANCE?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c7",
+      "where": "scenes.level-or-acceptance.narration",
+      "text": "Cubone evolves at 28—or when grief is accepted.",
+      "verdict": "supported",
+      "evidence": [
+        "evolutionChain[1].method",
+        "pokedexEntries[12].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c8",
+      "where": "scenes.level-or-acceptance.caption",
+      "text": "A GAME RULE WITH A DARKER MEANING",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c9",
+      "where": "scenes.level-or-acceptance.eyebrow",
+      "text": "CUBONE'S EVOLUTION",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c10",
+      "where": "scenes.the-skull-it-wears.headline",
+      "text": "THE SKULL HIDES EVERYTHING",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[0].text",
+        "pokedexEntries[1].text"
+      ],
+      "note": "The research says the skull hides Cubone's real or bare face, but 'hides everything' broadly exaggerates that specific fact.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c11",
+      "where": "scenes.the-skull-it-wears.narration",
+      "text": "Cubone wears its deceased mother’s skull, hiding its real face.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[3].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c12",
+      "where": "scenes.the-skull-it-wears.caption",
+      "text": "THE SKULL BELONGED TO ITS MOTHER",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c13",
+      "where": "scenes.the-skull-it-wears.eyebrow",
+      "text": "BEFORE EVOLUTION",
+      "verdict": "supported",
+      "evidence": [
+        "evolutionChain[0].stage",
+        "evolutionChain[1].evolvesFrom"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c14",
+      "where": "scenes.the-skull-it-wears.facts[0]",
+      "text": "MOTHER'S SKULL",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c15",
+      "where": "scenes.the-skull-it-wears.facts[1]",
+      "text": "REAL FACE HIDDEN",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c16",
+      "where": "scenes.the-game-trigger.headline",
+      "text": "THE NUMBER IS CLEAR",
+      "verdict": "supported",
+      "evidence": [
+        "evolutionChain[1].method"
+      ],
+      "note": "",
+      "tier": "trusted_secondary",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c17",
+      "where": "scenes.the-game-trigger.narration",
+      "text": "The game gives that hidden Pokémon one clear trigger: level 28, becoming Marowak.",
+      "verdict": "supported",
+      "evidence": [
+        "evolutionChain[1].method",
+        "pokedexEntries[0].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c18",
+      "where": "scenes.the-game-trigger.caption",
+      "text": "CUBONE → MAROWAK • LEVEL 28",
+      "verdict": "supported",
+      "evidence": [
+        "evolutionChain[1].evolvesFrom",
+        "evolutionChain[1].name",
+        "evolutionChain[1].method"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c19",
+      "where": "scenes.the-game-trigger.eyebrow",
+      "text": "THE GAME METHOD",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c20",
+      "where": "scenes.the-game-trigger.facts[0]",
+      "text": "LEVEL 28",
+      "verdict": "supported",
+      "evidence": [
+        "evolutionChain[1].method"
+      ],
+      "note": "",
+      "tier": "trusted_secondary",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c21",
+      "where": "scenes.the-game-trigger.facts[1]",
+      "text": "MAROWAK",
+      "verdict": "supported",
+      "evidence": [
+        "evolutionChain[1].name"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c22",
+      "where": "scenes.the-grief-condition.headline",
+      "text": "THE NUMBER ISN'T EVERYTHING",
+      "verdict": "supported",
+      "evidence": [
+        "evolutionChain[1].method",
+        "pokedexEntries[12].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c23",
+      "where": "scenes.the-grief-condition.narration",
+      "text": "One entry says it may evolve after accepting the pain of her death.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[12].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c24",
+      "where": "scenes.the-grief-condition.caption",
+      "text": "“ACCORDING TO SOME”",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c25",
+      "where": "scenes.the-grief-condition.eyebrow",
+      "text": "POKÉDEX ENTRY",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c26",
+      "where": "scenes.the-grief-condition.facts[0]",
+      "text": "ACCEPTING THE PAIN",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[12].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c27",
+      "where": "scenes.the-grief-condition.facts[1]",
+      "text": "HER DEATH",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[12].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c28",
+      "where": "scenes.what-the-change-means.headline",
+      "text": "WHEN BECOMES MEANING",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c29",
+      "where": "scenes.what-the-change-means.narration",
+      "text": "The number tells us when. The skull suggests what the change means.",
+      "verdict": "supported",
+      "evidence": [
+        "evolutionChain[1].method",
+        "pokedexEntries[1].text",
+        "pokedexEntries[12].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c30",
+      "where": "scenes.what-the-change-means.caption",
+      "text": "LEVEL 28 TELLS WHEN. THE SKULL TELLS WHY.",
+      "verdict": "uncertain",
+      "evidence": [
+        "evolutionChain[1].method",
+        "pokedexEntries[1].text",
+        "pokedexEntries[12].text"
+      ],
+      "note": "The research establishes the level and the skull's connection to Cubone's mother, but it does not explicitly say the skull explains why evolution occurs.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c31",
+      "where": "scenes.what-the-change-means.eyebrow",
+      "text": "THE DESIGN PAYOFF",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c32",
+      "where": "scenes.your-verdict.headline",
+      "text": "WHAT REALLY CHANGES?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c33",
+      "where": "scenes.your-verdict.narration",
+      "text": "Is it level 28, or acceptance?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c34",
+      "where": "scenes.your-verdict.caption",
+      "text": "LEVEL 28 OR ACCEPTANCE?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c35",
+      "where": "scenes.your-verdict.eyebrow",
+      "text": "YOUR VERDICT",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    }
+  ],
+  "unsupported": [],
+  "uncertain": [
+    {
+      "id": "c3",
+      "where": "audiencePromise",
+      "text": "See how Cubone's evolution shifts from a game mechanic into a story about grief.",
+      "verdict": "uncertain",
+      "evidence": [
+        "evolutionChain[1].method",
+        "pokedexEntries[12].text",
+        "pokedexEntries[1].text"
+      ],
+      "note": "The research supports the level-based evolution and the mother's death and acceptance theme, but calling it a shift into a story about grief is an interpretive framing.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c10",
+      "where": "scenes.the-skull-it-wears.headline",
+      "text": "THE SKULL HIDES EVERYTHING",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[0].text",
+        "pokedexEntries[1].text"
+      ],
+      "note": "The research says the skull hides Cubone's real or bare face, but 'hides everything' broadly exaggerates that specific fact.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c30",
+      "where": "scenes.what-the-change-means.caption",
+      "text": "LEVEL 28 TELLS WHEN. THE SKULL TELLS WHY.",
+      "verdict": "uncertain",
+      "evidence": [
+        "evolutionChain[1].method",
+        "pokedexEntries[1].text",
+        "pokedexEntries[12].text"
+      ],
+      "note": "The research establishes the level and the skull's connection to Cubone's mother, but it does not explicitly say the skull explains why evolution occurs.",
+      "tier": "official",
+      "checkedBy": "model"
+    }
+  ]
+}

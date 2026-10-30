@@ -1,0 +1,145 @@
+{
+  "episodeId": "cloyster-091",
+  "createdAt": "2026-10-29T20:25:31.204Z",
+  "chosen": {
+    "id": "damage-becomes-spikes",
+    "premise": "When Cloyster's shell is damaged, the damaged areas swell and grow into large, sharp spikes.",
+    "hook": "Cloyster turns damage into weapons.",
+    "archetype": "transformation",
+    "evidence": [
+      "pokedexEntries[12].text"
+    ],
+    "visualIdea": "Show cracks spreading across Cloyster's shell, then swelling into oversized spikes.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 5,
+      "specificity": 5,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 25,
+    "note": "A highly Cloyster-specific defensive mutation, backed directly by the Ultra Sun Pokédex entry and easy to visualize as damage becoming weapons."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "damage-becomes-spikes",
+          "premise": "When Cloyster's shell is damaged, the damaged areas swell and grow into large, sharp spikes.",
+          "hook": "Cloyster turns damage into weapons.",
+          "archetype": "transformation",
+          "evidence": [
+            "pokedexEntries[12].text"
+          ],
+          "visualIdea": "Show cracks spreading across Cloyster's shell, then swelling into oversized spikes.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 25,
+          "note": "A highly Cloyster-specific defensive mutation, backed directly by the Ultra Sun Pokédex entry and easy to visualize as damage becoming weapons."
+        },
+        {
+          "id": "one-jet-two-functions",
+          "premise": "Cloyster swallows water and jets it rearward to swim—and uses the same system to launch its spikes.",
+          "hook": "Cloyster's engine is also its weapon.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[5].text",
+            "pokedexEntries[6].text"
+          ],
+          "visualIdea": "Animate water entering the shell, splitting into rearward thrust and spike-launching force.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 22,
+          "note": "The dual-purpose water-jet mechanism is concrete and compelling, though the proposed split-stream animation adds detail not explicitly stated in the evidence."
+        },
+        {
+          "id": "shellfish-land-hunter",
+          "premise": "Cloyster's favorite food is Slowpoke tails, and it sometimes leaves the sea to hunt them on land.",
+          "hook": "Cloyster leaves the ocean for one very specific meal.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[13].text"
+          ],
+          "visualIdea": "Follow Cloyster from the sea onto land as a Slowpoke-tail target appears.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 5,
+            "specificity": 4,
+            "visual": 4,
+            "support": 5
+          },
+          "total": 22,
+          "note": "The Slowpoke-tail detail is genuinely unexpected and directly supported, though the land-hunting visual may require depicting an implied pursuit rather than an explicit scene."
+        },
+        {
+          "id": "the-sealed-interior",
+          "premise": "Cloyster's shell is harder than diamond, impossible to force open once shut, and its innards have never been seen.",
+          "hook": "Nobody knows what is inside Cloyster.",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[0].text",
+            "pokedexEntries[1].text",
+            "pokedexEntries[2].text",
+            "pokedexEntries[10].text"
+          ],
+          "visualIdea": "Zoom toward the sealed shell as attack after attack fails, ending on a question mark inside.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 21,
+          "note": "The sealed mystery is well supported, but the premise bundles several shell claims and is slightly less focused than the damage-to-spikes transformation."
+        },
+        {
+          "id": "stone-powered-upgrade",
+          "premise": "A Water Stone evolves Shellder into Cloyster, adding the Ice type to its original Water typing.",
+          "hook": "One Water Stone gives Shellder an entirely new type.",
+          "archetype": "transformation",
+          "evidence": [
+            "evolutionChain[0].name",
+            "evolutionChain[0].types",
+            "evolutionChain[1].method",
+            "evolutionChain[1].types"
+          ],
+          "visualIdea": "Place Shellder beside a Water Stone, then transform it into Cloyster with an Ice-type reveal.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 3,
+            "surprise": 3,
+            "specificity": 4,
+            "visual": 4,
+            "support": 4
+          },
+          "total": 18,
+          "note": "Accurate and easy to show, but Water Stone evolutions and type additions are not especially distinctive or surprising for Cloyster."
+        }
+      ],
+      "rejected": [
+        {
+          "id": "ancient-spear-maker",
+          "reason": "unknown story shape \"evidence\""
+        }
+      ],
+      "request": "No stronger angle is required; the selected angle already has the best combination of Cloyster-specificity, surprise, visual transformation, and direct support. A stronger alternative would need an equally unusual fact with a single sharp premise and explicit Pokédex evidence."
+    }
+  ]
+}

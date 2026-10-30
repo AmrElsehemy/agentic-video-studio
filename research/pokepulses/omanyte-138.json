@@ -1,0 +1,164 @@
+{
+  "schemaVersion": 1,
+  "id": "omanyte-138",
+  "number": 138,
+  "index": "#138",
+  "name": "Omanyte",
+  "slug": "omanyte",
+  "category": "Spiral Pokémon",
+  "generation": "Generation I",
+  "isLegendary": false,
+  "isMythical": false,
+  "types": [
+    "Rock",
+    "Water"
+  ],
+  "heightMeters": 0.4,
+  "weightKg": 7.5,
+  "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/138.png",
+  "pokedexEntries": [
+    {
+      "game": "Red",
+      "text": "Although long extinct, in rare cases, it can be genetically resurrected from fossils."
+    },
+    {
+      "game": "Yellow",
+      "text": "An ancient POKéMON that was recovered from a fossil. It swims by cleverly twisting its 10 tentacles about."
+    },
+    {
+      "game": "Gold",
+      "text": "Revived from an ancient fossil, this POKéMON uses air stored in its shell to sink and rise in water."
+    },
+    {
+      "game": "Silver",
+      "text": "This POKéMON from ancient times is said to have navi gated the sea by adeptly twisting its 10 tentacles."
+    },
+    {
+      "game": "Crystal",
+      "text": "In prehistoric times, it swam on the sea floor, eating plankton. Its fossils are sometimes found."
+    },
+    {
+      "game": "Ruby",
+      "text": "OMANYTE is one of the ancient and long- since-extinct POKéMON that have been regenerated from fossils by people. If attacked by an enemy, it withdraws itself inside its hard shell."
+    },
+    {
+      "game": "Emerald",
+      "text": "One of the ancient and long-since-extinct POKéMON that have been regenerated from fossils by humans. If attacked, it withdraws into its hard shell."
+    },
+    {
+      "game": "Firered",
+      "text": "A prehistoric POKéMON that lived in the primordial sea, it swims by twisting its 10 tentacles about."
+    },
+    {
+      "game": "Leafgreen",
+      "text": "Although long extinct, in rare cases, it can be genetically regenerated from fossils."
+    },
+    {
+      "game": "Diamond",
+      "text": "A Pokémon that was resurrected from a fossil using modern science. It swam in ancient seas."
+    },
+    {
+      "game": "Soulsilver",
+      "text": "This Pokémon from ancient times is said to have navigated the sea by adeptly twisting its 10 tentacles."
+    },
+    {
+      "game": "Omega Ruby",
+      "text": "Omanyte is one of the ancient and long-since-extinct Pokémon that have been regenerated from fossils by people. If attacked by an enemy, it withdraws itself inside its hard shell."
+    },
+    {
+      "game": "Ultra Sun",
+      "text": "Omanyte lived in the seas of antiquity. Its fossils have been found bearing bite marks from Archeops, so apparently Archeops preyed on it."
+    },
+    {
+      "game": "Ultra Moon",
+      "text": "It was restored from an ancient fossil. Those Helix Fossils are excavated from areas that were once oceans long, long ago."
+    },
+    {
+      "game": "Lets Go Pikachu",
+      "text": "An ancient Pokémon that was recovered from a fossil. It swam by cleverly twisting its 10 tentacles about."
+    },
+    {
+      "game": "Sword",
+      "text": "Because some Omanyte manage to escape after being restored or are released into the wild by people, this species is becoming a problem."
+    },
+    {
+      "game": "Shield",
+      "text": "This Pokémon is a member of an ancient, extinct species. Omanyte paddles through water with its 10 tentacles, looking like it’s just drifting along."
+    }
+  ],
+  "evolutionChain": [
+    {
+      "name": "Omanyte",
+      "index": "#138",
+      "stage": 1,
+      "types": [
+        "Rock",
+        "Water"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/138.png",
+      "isSubject": true
+    },
+    {
+      "name": "Omastar",
+      "index": "#139",
+      "stage": 2,
+      "evolvesFrom": "Omanyte",
+      "method": "Level Up, level 40",
+      "types": [
+        "Rock",
+        "Water"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/139.png",
+      "isSubject": false
+    }
+  ],
+  "varieties": [],
+  "lore": [],
+  "tiers": {
+    "official": [
+      "name",
+      "index",
+      "number",
+      "category",
+      "generation",
+      "isLegendary",
+      "isMythical",
+      "types",
+      "heightMeters",
+      "weightKg",
+      "pokedexEntries",
+      "evolutionChain[].name",
+      "evolutionChain[].index",
+      "evolutionChain[].types",
+      "evolutionChain[].stage",
+      "varieties[].types",
+      "varieties[].heightMeters",
+      "varieties[].weightKg"
+    ],
+    "trusted_secondary": [
+      "evolutionChain[].method",
+      "evolutionChain[].evolvesFrom",
+      "varieties[].name"
+    ],
+    "community": [
+      "lore"
+    ]
+  },
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Omanyte",
+      "url": "https://www.pokemon.com/us/pokedex/omanyte",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Omanyte",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Omanyte_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Omanyte",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/138",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

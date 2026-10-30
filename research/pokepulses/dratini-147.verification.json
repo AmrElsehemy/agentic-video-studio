@@ -1,0 +1,619 @@
+{
+  "episodeId": "dratini-147",
+  "checkedAt": "2026-10-30T06:14:11.744Z",
+  "claims": [
+    {
+      "id": "c1",
+      "where": "title",
+      "text": "Dratini's Life Energy Forces Repeated Skin Sheds",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c2",
+      "where": "premise",
+      "text": "Dratini repeatedly sheds its skin because life energy steadily builds inside it to uncontrollable levels.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[6].text",
+        "pokedexEntries[7].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c3",
+      "where": "audiencePromise",
+      "text": "See how rising life energy turns repeated skin shedding into Dratini's growth cycle.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[6].text",
+        "pokedexEntries[2].text"
+      ],
+      "note": "The research supports rising life energy, repeated shedding, and growth, but does not explicitly call this a growth cycle.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c4",
+      "where": "openLoop",
+      "text": "How does uncontrollable energy become a growth cycle?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c5",
+      "where": "payoff",
+      "text": "Uncontrollable life energy becomes Dratini's growth cycle: shed skin, grow larger, then build again.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[6].text",
+        "pokedexEntries[2].text"
+      ],
+      "note": "The individual elements are supported, but the specific repeating sequence of shedding, growing, and then rebuilding energy is an inferred cycle.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c6",
+      "where": "scenes.energy-keeps-building.headline",
+      "text": "THE GROWTH RESET",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[2].text",
+        "pokedexEntries[6].text"
+      ],
+      "note": "Repeated shedding and growth are supported, but 'growth reset' is an interpretive label not stated in the research.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c7",
+      "where": "scenes.energy-keeps-building.narration",
+      "text": "Dratini's life energy keeps building, forcing repeated skin sheds.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[6].text",
+        "pokedexEntries[2].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c8",
+      "where": "scenes.energy-keeps-building.caption",
+      "text": "LIFE ENERGY: UNCONTROLLABLE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c9",
+      "where": "scenes.energy-keeps-building.eyebrow",
+      "text": "LIFE ENERGY BUILDS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c10",
+      "where": "scenes.born-large-grows-longer.headline",
+      "text": "BORN LARGE, GROWS LONGER",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c11",
+      "where": "scenes.born-large-grows-longer.narration",
+      "text": "Dratini is born large, then sheds repeatedly as it grows longer.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c12",
+      "where": "scenes.born-large-grows-longer.caption",
+      "text": "SHED SKIN TO GROW LONGER",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[7].text",
+        "pokedexEntries[2].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c13",
+      "where": "scenes.born-large-grows-longer.eyebrow",
+      "text": "THE GROWTH CYCLE",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[2].text",
+        "pokedexEntries[6].text"
+      ],
+      "note": "The research describes repeated shedding and growth, but does not explicitly define a 'growth cycle.'",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c14",
+      "where": "scenes.born-large-grows-longer.facts[0]",
+      "text": "BORN LARGE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c15",
+      "where": "scenes.born-large-grows-longer.facts[1]",
+      "text": "REPEATED SHEDDING",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text",
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c16",
+      "where": "scenes.born-large-grows-longer.facts[2]",
+      "text": "GROWS LONGER",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text",
+        "pokedexEntries[7].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c17",
+      "where": "scenes.uncontrollable-levels.headline",
+      "text": "ENERGY HITS THE LIMIT",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[6].text"
+      ],
+      "note": "The research says energy reaches uncontrollable levels, but does not describe this as 'hitting the limit.'",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c18",
+      "where": "scenes.uncontrollable-levels.narration",
+      "text": "Inside, life energy steadily builds toward uncontrollable levels.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c19",
+      "where": "scenes.uncontrollable-levels.caption",
+      "text": "ENERGY REACHES UNCONTROLLABLE LEVELS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c20",
+      "where": "scenes.uncontrollable-levels.eyebrow",
+      "text": "THE BUILDUP HAS A LIMIT",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[6].text"
+      ],
+      "note": "Uncontrollable levels are documented, but a limit is not explicitly stated.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c21",
+      "where": "scenes.uncontrollable-levels.facts[0]",
+      "text": "LIFE ENERGY",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c22",
+      "where": "scenes.uncontrollable-levels.facts[1]",
+      "text": "STEADILY BUILDS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c23",
+      "where": "scenes.uncontrollable-levels.facts[2]",
+      "text": "UNCONTROLLABLE LEVELS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c24",
+      "where": "scenes.shed-old-skin.headline",
+      "text": "SHED THE OLD SKIN",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[6].text",
+        "pokedexEntries[2].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c25",
+      "where": "scenes.shed-old-skin.narration",
+      "text": "That buildup triggers another shed, clearing old skin away.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[6].text",
+        "pokedexEntries[2].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c26",
+      "where": "scenes.shed-old-skin.caption",
+      "text": "BUILDUP → SHED OLD SKIN",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[6].text",
+        "pokedexEntries[2].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c27",
+      "where": "scenes.shed-old-skin.eyebrow",
+      "text": "THE RESPONSE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c28",
+      "where": "scenes.shed-old-skin.facts[0]",
+      "text": "OLD SKIN",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[6].text",
+        "pokedexEntries[2].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c29",
+      "where": "scenes.shed-old-skin.facts[1]",
+      "text": "ANOTHER SHED",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text",
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c30",
+      "where": "scenes.almost-daily-cycle.headline",
+      "text": "ALMOST DAILY",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[14].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c31",
+      "where": "scenes.almost-daily-cycle.narration",
+      "text": "That cycle lets Dratini keep growing longer as energy builds again.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[2].text",
+        "pokedexEntries[6].text"
+      ],
+      "note": "Growth and energy buildup are supported, but the specific cycle and the phrase 'builds again' are inferred.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c32",
+      "where": "scenes.almost-daily-cycle.caption",
+      "text": "SHED → GROW → BUILD AGAIN",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[2].text",
+        "pokedexEntries[6].text"
+      ],
+      "note": "The research supports shedding, growth, and energy buildup, but not this exact ordered cycle.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c33",
+      "where": "scenes.almost-daily-cycle.eyebrow",
+      "text": "THE CYCLE CONTINUES",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[2].text",
+        "pokedexEntries[6].text"
+      ],
+      "note": "Repeated shedding and continued growth are supported, but an explicitly continuing cycle is inferred.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c34",
+      "where": "scenes.almost-daily-cycle.facts[0]",
+      "text": "ALMOST DAILY",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[14].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c35",
+      "where": "scenes.almost-daily-cycle.facts[1]",
+      "text": "GROWS LARGER",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text",
+        "pokedexEntries[3].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c36",
+      "where": "scenes.almost-daily-cycle.facts[2]",
+      "text": "ENERGY BUILDS AGAIN",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[6].text"
+      ],
+      "note": "Steady energy buildup is supported, but the research does not explicitly say it builds again after each shed.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c37",
+      "where": "scenes.growth-or-energy-response.headline",
+      "text": "GROWTH OR ENERGY RESPONSE?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c38",
+      "where": "scenes.growth-or-energy-response.narration",
+      "text": "Is repeated shedding a growth advantage or an energy response?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c39",
+      "where": "scenes.growth-or-energy-response.caption",
+      "text": "GROWTH ADVANTAGE OR ENERGY RESPONSE?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c40",
+      "where": "scenes.growth-or-energy-response.eyebrow",
+      "text": "YOUR VERDICT",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    }
+  ],
+  "unsupported": [],
+  "uncertain": [
+    {
+      "id": "c3",
+      "where": "audiencePromise",
+      "text": "See how rising life energy turns repeated skin shedding into Dratini's growth cycle.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[6].text",
+        "pokedexEntries[2].text"
+      ],
+      "note": "The research supports rising life energy, repeated shedding, and growth, but does not explicitly call this a growth cycle.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c5",
+      "where": "payoff",
+      "text": "Uncontrollable life energy becomes Dratini's growth cycle: shed skin, grow larger, then build again.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[6].text",
+        "pokedexEntries[2].text"
+      ],
+      "note": "The individual elements are supported, but the specific repeating sequence of shedding, growing, and then rebuilding energy is an inferred cycle.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c6",
+      "where": "scenes.energy-keeps-building.headline",
+      "text": "THE GROWTH RESET",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[2].text",
+        "pokedexEntries[6].text"
+      ],
+      "note": "Repeated shedding and growth are supported, but 'growth reset' is an interpretive label not stated in the research.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c13",
+      "where": "scenes.born-large-grows-longer.eyebrow",
+      "text": "THE GROWTH CYCLE",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[2].text",
+        "pokedexEntries[6].text"
+      ],
+      "note": "The research describes repeated shedding and growth, but does not explicitly define a 'growth cycle.'",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c17",
+      "where": "scenes.uncontrollable-levels.headline",
+      "text": "ENERGY HITS THE LIMIT",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[6].text"
+      ],
+      "note": "The research says energy reaches uncontrollable levels, but does not describe this as 'hitting the limit.'",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c20",
+      "where": "scenes.uncontrollable-levels.eyebrow",
+      "text": "THE BUILDUP HAS A LIMIT",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[6].text"
+      ],
+      "note": "Uncontrollable levels are documented, but a limit is not explicitly stated.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c31",
+      "where": "scenes.almost-daily-cycle.narration",
+      "text": "That cycle lets Dratini keep growing longer as energy builds again.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[2].text",
+        "pokedexEntries[6].text"
+      ],
+      "note": "Growth and energy buildup are supported, but the specific cycle and the phrase 'builds again' are inferred.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c32",
+      "where": "scenes.almost-daily-cycle.caption",
+      "text": "SHED → GROW → BUILD AGAIN",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[2].text",
+        "pokedexEntries[6].text"
+      ],
+      "note": "The research supports shedding, growth, and energy buildup, but not this exact ordered cycle.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c33",
+      "where": "scenes.almost-daily-cycle.eyebrow",
+      "text": "THE CYCLE CONTINUES",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[2].text",
+        "pokedexEntries[6].text"
+      ],
+      "note": "Repeated shedding and continued growth are supported, but an explicitly continuing cycle is inferred.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c36",
+      "where": "scenes.almost-daily-cycle.facts[2]",
+      "text": "ENERGY BUILDS AGAIN",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[6].text"
+      ],
+      "note": "Steady energy buildup is supported, but the research does not explicitly say it builds again after each shed.",
+      "tier": "official",
+      "checkedBy": "model"
+    }
+  ]
+}

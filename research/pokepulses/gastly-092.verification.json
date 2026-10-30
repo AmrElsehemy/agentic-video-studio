@@ -1,0 +1,471 @@
+{
+  "episodeId": "gastly-092",
+  "checkedAt": "2026-10-29T20:29:05.519Z",
+  "claims": [
+    {
+      "id": "c1",
+      "where": "title",
+      "text": "Gastly Is 0.1 Kilos of Trouble",
+      "verdict": "supported",
+      "evidence": [
+        "weightKg"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c2",
+      "where": "premise",
+      "text": "Gastly weighs 0.1 kilograms, yet its Pokédex says it can topple an Indian elephant in two seconds.",
+      "verdict": "supported",
+      "evidence": [
+        "weightKg",
+        "pokedexEntries[7].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c3",
+      "where": "audiencePromise",
+      "text": "Compare Gastly's tiny weight with its gas body, then reveal the weakness that keeps its threat balanced.",
+      "verdict": "supported",
+      "evidence": [
+        "weightKg",
+        "pokedexEntries[1].text",
+        "pokedexEntries[2].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c4",
+      "where": "openLoop",
+      "text": "How can something weighing 0.1 kilograms topple an elephant?",
+      "verdict": "supported",
+      "evidence": [
+        "weightKg",
+        "pokedexEntries[7].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c5",
+      "where": "payoff",
+      "text": "Gastly turns a shapeless gas body into a threat against any size, with wind as its weakness.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].text",
+        "pokedexEntries[2].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c6",
+      "where": "scenes.tiny-elephant-toppler.headline",
+      "text": "0.1 KILOS. ELEPHANT DOWN.",
+      "verdict": "supported",
+      "evidence": [
+        "weightKg",
+        "pokedexEntries[7].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c7",
+      "where": "scenes.tiny-elephant-toppler.narration",
+      "text": "0.1 kilos. Elephant down in two seconds.",
+      "verdict": "supported",
+      "evidence": [
+        "weightKg",
+        "pokedexEntries[7].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c8",
+      "where": "scenes.tiny-elephant-toppler.caption",
+      "text": "TINY BODY. HUGE THREAT.",
+      "verdict": "supported",
+      "evidence": [
+        "weightKg",
+        "pokedexEntries[7].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c9",
+      "where": "scenes.tiny-elephant-toppler.eyebrow",
+      "text": "THE TINY THREAT",
+      "verdict": "supported",
+      "evidence": [
+        "weightKg",
+        "pokedexEntries[7].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c10",
+      "where": "scenes.tiny-elephant-toppler.facts[0]",
+      "text": "0.1 KILOGRAMS",
+      "verdict": "supported",
+      "evidence": [
+        "weightKg"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c11",
+      "where": "scenes.tiny-elephant-toppler.facts[1]",
+      "text": "TWO SECONDS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[7].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c12",
+      "where": "scenes.body-made-of-gas.headline",
+      "text": "THERE'S NOTHING TO GRAB",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[17].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c13",
+      "where": "scenes.body-made-of-gas.narration",
+      "text": "Gastly has no real shape because its body is gas.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c14",
+      "where": "scenes.body-made-of-gas.caption",
+      "text": "A BODY MADE OF GAS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c15",
+      "where": "scenes.body-made-of-gas.eyebrow",
+      "text": "NO SOLID BODY",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[17].text",
+        "pokedexEntries[1].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c16",
+      "where": "scenes.body-made-of-gas.facts[0]",
+      "text": "THIN GAS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[3].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c17",
+      "where": "scenes.body-made-of-gas.facts[1]",
+      "text": "NO REAL SHAPE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c18",
+      "where": "scenes.any-size-opponent.headline",
+      "text": "ANY SIZE CAN BE ENVELOPED",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c19",
+      "where": "scenes.any-size-opponent.narration",
+      "text": "That lets it envelop an opponent of any size.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c20",
+      "where": "scenes.any-size-opponent.caption",
+      "text": "LARGE OR SMALL, IT CAN SURROUND THEM",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c21",
+      "where": "scenes.any-size-opponent.eyebrow",
+      "text": "SIZE DOESN'T MATTER",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c22",
+      "where": "scenes.any-size-opponent.facts[0]",
+      "text": "ANY SIZE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c23",
+      "where": "scenes.any-size-opponent.facts[1]",
+      "text": "ENVELOPING GAS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c24",
+      "where": "scenes.specific-target-countdown.headline",
+      "text": "INDIAN ELEPHANT. TWO SECONDS.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[7].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c25",
+      "where": "scenes.specific-target-countdown.narration",
+      "text": "Then the target gets specific: an Indian elephant, in two seconds.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[7].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c26",
+      "where": "scenes.specific-target-countdown.caption",
+      "text": "THE POKÉDEX SETS A COUNTDOWN",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[7].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c27",
+      "where": "scenes.specific-target-countdown.eyebrow",
+      "text": "THE TARGET GETS SPECIFIC",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c28",
+      "where": "scenes.specific-target-countdown.facts[0]",
+      "text": "INDIAN ELEPHANT",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[7].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c29",
+      "where": "scenes.specific-target-countdown.facts[1]",
+      "text": "TWO SECONDS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[7].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c30",
+      "where": "scenes.wind-counterpoint.headline",
+      "text": "WIND CAN ERASE THE THREAT",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text",
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c31",
+      "where": "scenes.wind-counterpoint.narration",
+      "text": "But strong wind can quickly blow its gaseous body away.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c32",
+      "where": "scenes.wind-counterpoint.caption",
+      "text": "POWERFUL, BUT FRAGILE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[7].text",
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c33",
+      "where": "scenes.wind-counterpoint.eyebrow",
+      "text": "BUT THERE'S A CATCH",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c34",
+      "where": "scenes.wind-counterpoint.facts[0]",
+      "text": "STRONG WIND",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c35",
+      "where": "scenes.wind-counterpoint.facts[1]",
+      "text": "GASEOUS BODY",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c36",
+      "where": "scenes.fragile-or-powerful.headline",
+      "text": "POWERHOUSE OR GAS CLOUD?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c37",
+      "where": "scenes.fragile-or-powerful.narration",
+      "text": "Overwhelming threat or fragile gas cloud?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c38",
+      "where": "scenes.fragile-or-powerful.caption",
+      "text": "WHICH ONE IS GASTLY?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c39",
+      "where": "scenes.fragile-or-powerful.eyebrow",
+      "text": "YOUR VERDICT",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    }
+  ],
+  "unsupported": [],
+  "uncertain": []
+}

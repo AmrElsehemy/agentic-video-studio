@@ -1,0 +1,170 @@
+{
+  "schemaVersion": 1,
+  "id": "dragonair-148",
+  "number": 148,
+  "index": "#148",
+  "name": "Dragonair",
+  "slug": "dragonair",
+  "category": "Dragon Pokémon",
+  "generation": "Generation I",
+  "isLegendary": false,
+  "isMythical": false,
+  "types": [
+    "Dragon"
+  ],
+  "heightMeters": 4,
+  "weightKg": 16.5,
+  "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/148.png",
+  "pokedexEntries": [
+    {
+      "game": "Red",
+      "text": "A mystical POKéMON that exudes a gentle aura. Has the ability to change climate conditions."
+    },
+    {
+      "game": "Yellow",
+      "text": "According to a witness, its body was surrounded by a strange aura that gave it a mystical look."
+    },
+    {
+      "game": "Gold",
+      "text": "They say that if it emits an aura from its whole body, the weather will begin to change instantly."
+    },
+    {
+      "game": "Silver",
+      "text": "Its crystalline orbs appear to give this POKéMON the power to freely control the weather."
+    },
+    {
+      "game": "Crystal",
+      "text": "It is called the divine POKéMON. When its entire body brightens slightly, the weather changes."
+    },
+    {
+      "game": "Ruby",
+      "text": "DRAGONAIR stores an enormous amount of energy inside its body. It is said to alter weather conditions in its vicinity by discharging energy from the crystals on its neck and tail."
+    },
+    {
+      "game": "Emerald",
+      "text": "A DRAGONAIR stores an enormous amount of energy inside its body. It is said to alter the weather around it by loosing energy from the crystals on its neck and tail."
+    },
+    {
+      "game": "Firered",
+      "text": "It is said to live in seas and lakes. Even though it has no wings, it has been seen flying occasionally."
+    },
+    {
+      "game": "Leafgreen",
+      "text": "A mystical POKéMON that exudes a gentle aura. It is said to have the ability to change the weather."
+    },
+    {
+      "game": "Diamond",
+      "text": "If its body takes on an aura, the weather changes instantly. It is said to live in seas and lakes."
+    },
+    {
+      "game": "Sun",
+      "text": "It has long been thought that its crystalline orbs are imbued with the power to control the weather."
+    },
+    {
+      "game": "Moon",
+      "text": "From time immemorial, it has been venerated by agricultural peoples as an entity able to control the weather."
+    },
+    {
+      "game": "Ultra Sun",
+      "text": "Lakes where Dragonair live are filled with offerings from people, because they believe this Pokémon is able to control the weather."
+    },
+    {
+      "game": "Ultra Moon",
+      "text": "Some say that if you see it at the start of the year, flying through the sky and twisting its body, you’ll be healthy all year long."
+    },
+    {
+      "game": "Sword",
+      "text": "This Pokémon lives in pristine oceans and lakes. It can control the weather, and it uses this power to fly into the sky, riding on the wind."
+    },
+    {
+      "game": "Shield",
+      "text": "This Pokémon gathers power in the orbs on its tail and controls the weather. When enshrouded by an aura, Dragonair has a mystical appearance."
+    }
+  ],
+  "evolutionChain": [
+    {
+      "name": "Dratini",
+      "index": "#147",
+      "stage": 1,
+      "types": [
+        "Dragon"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/147.png",
+      "isSubject": false
+    },
+    {
+      "name": "Dragonair",
+      "index": "#148",
+      "stage": 2,
+      "evolvesFrom": "Dratini",
+      "method": "Level Up, level 30",
+      "types": [
+        "Dragon"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/148.png",
+      "isSubject": true
+    },
+    {
+      "name": "Dragonite",
+      "index": "#149",
+      "stage": 3,
+      "evolvesFrom": "Dragonair",
+      "method": "Level Up, level 55",
+      "types": [
+        "Dragon",
+        "Flying"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/149.png",
+      "isSubject": false
+    }
+  ],
+  "varieties": [],
+  "lore": [],
+  "tiers": {
+    "official": [
+      "name",
+      "index",
+      "number",
+      "category",
+      "generation",
+      "isLegendary",
+      "isMythical",
+      "types",
+      "heightMeters",
+      "weightKg",
+      "pokedexEntries",
+      "evolutionChain[].name",
+      "evolutionChain[].index",
+      "evolutionChain[].types",
+      "evolutionChain[].stage",
+      "varieties[].types",
+      "varieties[].heightMeters",
+      "varieties[].weightKg"
+    ],
+    "trusted_secondary": [
+      "evolutionChain[].method",
+      "evolutionChain[].evolvesFrom",
+      "varieties[].name"
+    ],
+    "community": [
+      "lore"
+    ]
+  },
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Dragonair",
+      "url": "https://www.pokemon.com/us/pokedex/dragonair",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Dragonair",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Dragonair_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Dragonair",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/148",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

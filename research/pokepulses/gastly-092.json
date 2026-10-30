@@ -1,0 +1,181 @@
+{
+  "schemaVersion": 1,
+  "id": "gastly-092",
+  "number": 92,
+  "index": "#092",
+  "name": "Gastly",
+  "slug": "gastly",
+  "category": "Gas Pokémon",
+  "generation": "Generation I",
+  "isLegendary": false,
+  "isMythical": false,
+  "types": [
+    "Ghost",
+    "Poison"
+  ],
+  "heightMeters": 1.3,
+  "weightKg": 0.1,
+  "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/92.png",
+  "pokedexEntries": [
+    {
+      "game": "Red",
+      "text": "Almost invisible, this gaseous POKéMON cloaks the target and puts it to sleep without notice."
+    },
+    {
+      "game": "Yellow",
+      "text": "Said to appear in decrepit, deserted buildings. It has no real shape as it appears to be made of a gas."
+    },
+    {
+      "game": "Gold",
+      "text": "With its gas-like body, it can sneak into any place it desires. However, it can be blown away by wind."
+    },
+    {
+      "game": "Silver",
+      "text": "Its thin body is made of gas. It can envelop an opponent of any size and cause suffocation."
+    },
+    {
+      "game": "Crystal",
+      "text": "It wraps its op ponent in its gas- like body, slowly weakening its prey by poisoning it through the skin."
+    },
+    {
+      "game": "Ruby",
+      "text": "GASTLY is largely composed of gaseous matter. When exposed to a strong wind, the gaseous body quickly dwindles away. Groups of this POKéMON cluster under the eaves of houses to escape the ravages of wind."
+    },
+    {
+      "game": "Emerald",
+      "text": "When exposed to a strong wind, a GASTLY’s gaseous body quickly dwindles away. They cluster under the eaves of houses to escape the ravages of wind."
+    },
+    {
+      "game": "Firered",
+      "text": "A being that exists as a thin gas. It can topple an Indian elephant by enveloping the prey in two seconds."
+    },
+    {
+      "game": "Diamond",
+      "text": "This Pokémon’s body is 95% made up of gases, which are blown away by strong gusts of wind."
+    },
+    {
+      "game": "Pearl",
+      "text": "A Pokémon born from poison gases. It defeats even the largest foes by enveloping them in gas."
+    },
+    {
+      "game": "Platinum",
+      "text": "Born from gases, anyone would faint if engulfed by its gaseous body, which contains poison."
+    },
+    {
+      "game": "Soulsilver",
+      "text": "Its body is made of gas. Despite lacking substance, it can envelop an opponent of any size and cause suffocation."
+    },
+    {
+      "game": "Sun",
+      "text": "Should a strange light be seen flickering in an abandoned building, Gastly is lurking there."
+    },
+    {
+      "game": "Moon",
+      "text": "Although Gastly is barely visible, when it’s near, a faint sweet smell lingers."
+    },
+    {
+      "game": "Ultra Sun",
+      "text": "It’s said that gas emanating from a graveyard was possessed by the grievances of the deceased and thus became a Pokémon."
+    },
+    {
+      "game": "Ultra Moon",
+      "text": "Poisonous gas comprises 95% of its body. It’s said that the remaining 5% is made up of the souls of those who died from the gas."
+    },
+    {
+      "game": "Lets Go Pikachu",
+      "text": "Said to appear in decrepit, deserted buildings. It has no real shape, as it appears to be made of a gas."
+    },
+    {
+      "game": "Legends Arceus",
+      "text": "Gaseous and completely impalpable. Also highly dangerous— inhaling part of its poisonous body will cause one to faint instantly."
+    }
+  ],
+  "evolutionChain": [
+    {
+      "name": "Gastly",
+      "index": "#092",
+      "stage": 1,
+      "types": [
+        "Ghost",
+        "Poison"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/92.png",
+      "isSubject": true
+    },
+    {
+      "name": "Haunter",
+      "index": "#093",
+      "stage": 2,
+      "evolvesFrom": "Gastly",
+      "method": "Level Up, level 25",
+      "types": [
+        "Ghost",
+        "Poison"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/93.png",
+      "isSubject": false
+    },
+    {
+      "name": "Gengar",
+      "index": "#094",
+      "stage": 3,
+      "evolvesFrom": "Haunter",
+      "method": "Trade",
+      "types": [
+        "Ghost",
+        "Poison"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/94.png",
+      "isSubject": false
+    }
+  ],
+  "varieties": [],
+  "lore": [],
+  "tiers": {
+    "official": [
+      "name",
+      "index",
+      "number",
+      "category",
+      "generation",
+      "isLegendary",
+      "isMythical",
+      "types",
+      "heightMeters",
+      "weightKg",
+      "pokedexEntries",
+      "evolutionChain[].name",
+      "evolutionChain[].index",
+      "evolutionChain[].types",
+      "evolutionChain[].stage",
+      "varieties[].types",
+      "varieties[].heightMeters",
+      "varieties[].weightKg"
+    ],
+    "trusted_secondary": [
+      "evolutionChain[].method",
+      "evolutionChain[].evolvesFrom",
+      "varieties[].name"
+    ],
+    "community": [
+      "lore"
+    ]
+  },
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Gastly",
+      "url": "https://www.pokemon.com/us/pokedex/gastly",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Gastly",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Gastly_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Gastly",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/92",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

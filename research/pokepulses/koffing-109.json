@@ -1,0 +1,149 @@
+{
+  "schemaVersion": 1,
+  "id": "koffing-109",
+  "number": 109,
+  "index": "#109",
+  "name": "Koffing",
+  "slug": "koffing",
+  "category": "Poison Gas Pokémon",
+  "generation": "Generation I",
+  "isLegendary": false,
+  "isMythical": false,
+  "types": [
+    "Poison"
+  ],
+  "heightMeters": 0.6,
+  "weightKg": 1,
+  "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/109.png",
+  "pokedexEntries": [
+    {
+      "game": "Red",
+      "text": "Because it stores several kinds of toxic gases in its body, it is prone to exploding without warning."
+    },
+    {
+      "game": "Yellow",
+      "text": "In hot places, its internal gases could expand and explode without any warning. Be very careful!"
+    },
+    {
+      "game": "Gold",
+      "text": "Its thin, filmy body is filled with gases that cause constant sniffles, coughs and teary eyes."
+    },
+    {
+      "game": "Silver",
+      "text": "The poisonous gases it contains are a little bit lighter than air, keeping it slight ly airborne."
+    },
+    {
+      "game": "Crystal",
+      "text": "If one gets close enough to it when it expels poison ous gas, the gas swirling inside it can be seen."
+    },
+    {
+      "game": "Ruby",
+      "text": "If KOFFING becomes agitated, it raises the toxicity of its internal gases and jets them out from all over its body. This POKéMON may also overinflate its round body, then explode."
+    },
+    {
+      "game": "Sapphire",
+      "text": "KOFFING embodies toxic substances. It mixes the toxins with raw garbage to set off a chemical reaction that results in a terribly powerful poison gas. The higher the temperature, the more gas is concocted by this POKéMON."
+    },
+    {
+      "game": "Emerald",
+      "text": "Getting up close to a KOFFING will give you a chance to observe, through its thin skin, the toxic gases swirling inside. It blows up at the slightest stimulation."
+    },
+    {
+      "game": "Firered",
+      "text": "Its thin, balloon-like body is inflated by horribly toxic gases. It reeks when it is nearby."
+    },
+    {
+      "game": "Diamond",
+      "text": "Lighter-than-air gases in its body keep it aloft. The gases not only smell, they are also explosive."
+    },
+    {
+      "game": "Soulsilver",
+      "text": "The poisonous gases it contains are a little bit lighter than air, keeping it slightly airborne."
+    },
+    {
+      "game": "Black 2",
+      "text": "Toxic gas is held within its thin, balloon-shaped body, so it can cause massive explosions."
+    },
+    {
+      "game": "Sword",
+      "text": "Its body is full of poisonous gas. It floats into garbage dumps, seeking out the fumes of raw, rotting trash."
+    },
+    {
+      "game": "Shield",
+      "text": "It adores polluted air. Some claim that Koffing used to be more plentiful in the Galar region than they are now."
+    }
+  ],
+  "evolutionChain": [
+    {
+      "name": "Koffing",
+      "index": "#109",
+      "stage": 1,
+      "types": [
+        "Poison"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/109.png",
+      "isSubject": true
+    },
+    {
+      "name": "Weezing",
+      "index": "#110",
+      "stage": 2,
+      "evolvesFrom": "Koffing",
+      "method": "Level Up, level 35",
+      "types": [
+        "Poison"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/110.png",
+      "isSubject": false
+    }
+  ],
+  "varieties": [],
+  "lore": [],
+  "tiers": {
+    "official": [
+      "name",
+      "index",
+      "number",
+      "category",
+      "generation",
+      "isLegendary",
+      "isMythical",
+      "types",
+      "heightMeters",
+      "weightKg",
+      "pokedexEntries",
+      "evolutionChain[].name",
+      "evolutionChain[].index",
+      "evolutionChain[].types",
+      "evolutionChain[].stage",
+      "varieties[].types",
+      "varieties[].heightMeters",
+      "varieties[].weightKg"
+    ],
+    "trusted_secondary": [
+      "evolutionChain[].method",
+      "evolutionChain[].evolvesFrom",
+      "varieties[].name"
+    ],
+    "community": [
+      "lore"
+    ]
+  },
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Koffing",
+      "url": "https://www.pokemon.com/us/pokedex/koffing",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Koffing",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Koffing_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Koffing",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/109",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

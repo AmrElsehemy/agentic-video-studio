@@ -1,0 +1,161 @@
+{
+  "episodeId": "kabuto-140",
+  "createdAt": "2026-10-30T05:46:28.337Z",
+  "chosen": {
+    "id": "the-three-day-molt",
+    "premise": "Kabuto molts every three days, and each new shell becomes harder than the last.",
+    "hook": "Kabuto gets a harder shell every three days.",
+    "archetype": "mechanic",
+    "evidence": [
+      "pokedexEntries[13].text"
+    ],
+    "visualIdea": "Rapidly cycle through shed shells labeled day 3, day 6, and day 9 as armor thickens.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 4,
+      "surprise": 5,
+      "specificity": 5,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 24,
+    "note": "A highly concrete, unusual biological rule with a strong visual progression. The cited Sword entry directly supports both the three-day interval and increasingly harder shells."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "the-three-day-molt",
+          "premise": "Kabuto molts every three days, and each new shell becomes harder than the last.",
+          "hook": "Kabuto gets a harder shell every three days.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[13].text"
+          ],
+          "visualIdea": "Rapidly cycle through shed shells labeled day 3, day 6, and day 9 as armor thickens.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 24,
+          "note": "A highly concrete, unusual biological rule with a strong visual progression. The cited Sword entry directly supports both the three-day interval and increasingly harder shells."
+        },
+        {
+          "id": "extinct-but-common",
+          "premise": "Kabuto is called almost entirely extinct, yet its sightings are fairly common in some places.",
+          "hook": "Kabuto is almost extinct—but sightings can be fairly common.",
+          "archetype": "comparison",
+          "evidence": [
+            "pokedexEntries[11].text",
+            "pokedexEntries[14].text"
+          ],
+          "visualIdea": "Split the screen between an 'almost extinct' stamp and a map area filling with Kabuto sighting markers.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 4,
+            "visual": 4,
+            "support": 5
+          },
+          "total": 23,
+          "note": "A compelling contradiction directly supported by the Pokédex: nearly extinct overall, yet fairly common in some places. It may need careful wording so “common” is not overstated beyond the source."
+        },
+        {
+          "id": "eyes-on-its-back",
+          "premise": "While hiding on the seafloor, Kabuto watches with eyes on its back—and those eyes can glow.",
+          "hook": "Kabuto hides on the seafloor, but its eyes are on its back.",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[1].text",
+            "pokedexEntries[4].text",
+            "pokedexEntries[12].text"
+          ],
+          "visualIdea": "Reveal Kabuto from underneath a seafloor hiding spot, then illuminate the eyes on its back.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 22,
+          "note": "The back-eye reveal is distinctive and easy to stage visually. It combines several supported details, though the hook is somewhat familiar and less surprising than the molt."
+        },
+        {
+          "id": "unchanged-for-300-million-years",
+          "premise": "Kabuto has not changed at all for 300 million years, making evolution look like a failed experiment.",
+          "hook": "What if a Pokémon survived 300 million years without changing?",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[5].text",
+            "pokedexEntries[6].text"
+          ],
+          "visualIdea": "Show a fossil-to-Kabuto timeline spanning 300 million years, with Kabuto's silhouette unchanged.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 4,
+            "support": 4
+          },
+          "total": 20,
+          "note": "The 300-million-year claim is strongly supported, but “making evolution look like a failed experiment” is an unsupported interpretation, and the premise is less concrete than the molt mechanic."
+        },
+        {
+          "id": "fossil-from-the-ocean-floor",
+          "premise": "Kabuto is resurrected from fossils found on what was once the ocean floor.",
+          "hook": "Kabuto's fossil was found where the ocean floor used to be.",
+          "archetype": "transformation",
+          "evidence": [
+            "pokedexEntries[0].text",
+            "pokedexEntries[8].text",
+            "pokedexEntries[9].text"
+          ],
+          "visualIdea": "Animate an ancient ocean floor becoming rock, then crack open the fossil to reveal revived Kabuto.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 3,
+            "surprise": 3,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 20,
+          "note": "The fossil and ancient ocean-floor transformation are well supported and visually clear, but fossil resurrection is a common Pokémon premise and not especially unique to Kabuto."
+        },
+        {
+          "id": "level-40-shellfish",
+          "premise": "At level 40, Kabuto evolves into Kabutops while keeping the same Rock/Water typing.",
+          "hook": "At level 40, Kabuto evolves—but its two types stay exactly the same.",
+          "archetype": "comparison",
+          "evidence": [
+            "evolutionChain[0].types",
+            "evolutionChain[1].method",
+            "evolutionChain[1].types"
+          ],
+          "visualIdea": "Level counter climbs to 40 as Kabuto transforms into Kabutops, with Rock and Water badges remaining.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 2,
+            "surprise": 2,
+            "specificity": 5,
+            "visual": 4,
+            "support": 5
+          },
+          "total": 18,
+          "note": "The level and unchanged typing are precise and fully supported, but evolution at level 40 and retained typing are ordinary mechanics rather than a strong Kabuto-specific story."
+        }
+      ],
+      "rejected": [],
+      "request": "The chosen angle is strong enough. A stronger alternative would need an equally specific Kabuto-only rule or contradiction, with direct Pokédex support and a visually escalating payoff."
+    }
+  ]
+}

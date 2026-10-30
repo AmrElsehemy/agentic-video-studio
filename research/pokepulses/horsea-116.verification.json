@@ -1,0 +1,524 @@
+{
+  "episodeId": "horsea-116",
+  "checkedAt": "2026-10-29T21:42:04.575Z",
+  "claims": [
+    {
+      "id": "c1",
+      "where": "title",
+      "text": "Horsea's Ink Hits the Sky",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c2",
+      "where": "premise",
+      "text": "Horsea uses precise ink blasts against flying bugs, then turns that same ink into an escape response.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[0].text",
+        "pokedexEntries[1].text",
+        "pokedexEntries[6].text"
+      ],
+      "note": "The two ink uses are supported, but the research does not explicitly establish that the attack ink and escape ink are the same ink.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c3",
+      "where": "audiencePromise",
+      "text": "See how Horsea's ink shifts from a precise attack into a survival tool when danger arrives.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text",
+        "pokedexEntries[1].text",
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c4",
+      "where": "openLoop",
+      "text": "Does Horsea aim its ink, or use it to escape?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Question.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c5",
+      "where": "payoff",
+      "text": "Horsea shoots down flying bugs with precision ink blasts, then sprays ink to escape danger.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text",
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c6",
+      "where": "scenes.sky-then-flee.headline",
+      "text": "IT HITS THE SKY, THEN FLEES",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c7",
+      "where": "scenes.sky-then-flee.narration",
+      "text": "Horsea hits the sky, then danger makes it flee.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text",
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c8",
+      "where": "scenes.sky-then-flee.caption",
+      "text": "ONE INK ATTACK. TWO POSSIBLE JOBS.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[0].text",
+        "pokedexEntries[1].text"
+      ],
+      "note": "The research supports ink being used against flying bugs and in escape, but 'one ink attack' and 'two jobs' imply a single identical attack has both functions.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c9",
+      "where": "scenes.sky-then-flee.eyebrow",
+      "text": "HORSEA HAS A DILEMMA",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Framing phrase.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c10",
+      "where": "scenes.flying-target.headline",
+      "text": "THE BUG IS FLYING",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c11",
+      "where": "scenes.flying-target.narration",
+      "text": "Horsea targets flying bugs with precision ink blasts.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c12",
+      "where": "scenes.flying-target.caption",
+      "text": "HORSEA FIRES FROM THE SURFACE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c13",
+      "where": "scenes.flying-target.eyebrow",
+      "text": "THE TARGET IS ABOVE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c14",
+      "where": "scenes.flying-target.facts[0]",
+      "text": "FLYING BUGS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c15",
+      "where": "scenes.flying-target.facts[1]",
+      "text": "WATER'S SURFACE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c16",
+      "where": "scenes.precision-ink.headline",
+      "text": "PRECISION CHANGES THE ATTACK",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c17",
+      "where": "scenes.precision-ink.narration",
+      "text": "That precision makes ink useful before danger ever arrives.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[0].text",
+        "pokedexEntries[1].text"
+      ],
+      "note": "The two uses of ink are supported, but the research does not establish that the precision attack occurs before danger arrives.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c18",
+      "where": "scenes.precision-ink.caption",
+      "text": "THE BLAST HAS A SPECIFIC TARGET",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c19",
+      "where": "scenes.precision-ink.eyebrow",
+      "text": "THIS IS A TARGETED BLAST",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c20",
+      "where": "scenes.precision-ink.facts[0]",
+      "text": "PRECISION BLASTS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c21",
+      "where": "scenes.precision-ink.facts[1]",
+      "text": "SPECIAL INK",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c22",
+      "where": "scenes.second-job.headline",
+      "text": "INK GETS A SECOND JOB",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text",
+        "pokedexEntries[1].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c23",
+      "where": "scenes.second-job.narration",
+      "text": "When danger does arrive, ink gets a second job: escape.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c24",
+      "where": "scenes.second-job.caption",
+      "text": "FROM TARGETING TO SURVIVING",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text",
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c25",
+      "where": "scenes.second-job.eyebrow",
+      "text": "WHEN HORSEA SENSES DANGER",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c26",
+      "where": "scenes.second-job.facts[0]",
+      "text": "SENSES DANGER",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c27",
+      "where": "scenes.second-job.facts[1]",
+      "text": "ESCAPE RESPONSE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c28",
+      "where": "scenes.under-attack.headline",
+      "text": "IT DOESN'T STAY AND FIGHT",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[6].text"
+      ],
+      "note": "Escape is supported, but the research does not explicitly say Horsea does not stay and fight.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c29",
+      "where": "scenes.under-attack.narration",
+      "text": "Under attack, Horsea spits ink and quickly escapes instead.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c30",
+      "where": "scenes.under-attack.caption",
+      "text": "THE SAME DEFENSE SUPPORTS RETREAT",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[0].text",
+        "pokedexEntries[1].text",
+        "pokedexEntries[6].text"
+      ],
+      "note": "Ink supporting retreat is supported, but 'the same defense' implies that the attack and escape uses are explicitly the same defensive mechanism.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c31",
+      "where": "scenes.under-attack.eyebrow",
+      "text": "THE COUNTERPOINT",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Framing phrase.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c32",
+      "where": "scenes.under-attack.facts[0]",
+      "text": "UNDER ATTACK",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c33",
+      "where": "scenes.under-attack.facts[1]",
+      "text": "SPITS INK",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c34",
+      "where": "scenes.under-attack.facts[2]",
+      "text": "ESCAPES",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c35",
+      "where": "scenes.weapon-or-escape.headline",
+      "text": "WEAPON OR ESCAPE TOOL?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Question.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c36",
+      "where": "scenes.weapon-or-escape.narration",
+      "text": "Is Horsea's ink a weapon first, or an escape tool?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Question.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c37",
+      "where": "scenes.weapon-or-escape.caption",
+      "text": "CHOOSE ITS REAL PURPOSE",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Imperative framing; it makes no factual claim.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c38",
+      "where": "scenes.weapon-or-escape.eyebrow",
+      "text": "YOUR HORSEA THEORY",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Framing phrase.",
+      "checkedBy": "model"
+    }
+  ],
+  "unsupported": [],
+  "uncertain": [
+    {
+      "id": "c2",
+      "where": "premise",
+      "text": "Horsea uses precise ink blasts against flying bugs, then turns that same ink into an escape response.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[0].text",
+        "pokedexEntries[1].text",
+        "pokedexEntries[6].text"
+      ],
+      "note": "The two ink uses are supported, but the research does not explicitly establish that the attack ink and escape ink are the same ink.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c8",
+      "where": "scenes.sky-then-flee.caption",
+      "text": "ONE INK ATTACK. TWO POSSIBLE JOBS.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[0].text",
+        "pokedexEntries[1].text"
+      ],
+      "note": "The research supports ink being used against flying bugs and in escape, but 'one ink attack' and 'two jobs' imply a single identical attack has both functions.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c17",
+      "where": "scenes.precision-ink.narration",
+      "text": "That precision makes ink useful before danger ever arrives.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[0].text",
+        "pokedexEntries[1].text"
+      ],
+      "note": "The two uses of ink are supported, but the research does not establish that the precision attack occurs before danger arrives.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c28",
+      "where": "scenes.under-attack.headline",
+      "text": "IT DOESN'T STAY AND FIGHT",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[6].text"
+      ],
+      "note": "Escape is supported, but the research does not explicitly say Horsea does not stay and fight.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c30",
+      "where": "scenes.under-attack.caption",
+      "text": "THE SAME DEFENSE SUPPORTS RETREAT",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[0].text",
+        "pokedexEntries[1].text",
+        "pokedexEntries[6].text"
+      ],
+      "note": "Ink supporting retreat is supported, but 'the same defense' implies that the attack and escape uses are explicitly the same defensive mechanism.",
+      "tier": "official",
+      "checkedBy": "model"
+    }
+  ]
+}

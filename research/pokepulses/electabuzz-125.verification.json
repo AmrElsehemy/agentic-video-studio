@@ -1,0 +1,519 @@
+{
+  "episodeId": "electabuzz-125",
+  "checkedAt": "2026-10-29T22:11:47.378Z",
+  "claims": [
+    {
+      "id": "c1",
+      "where": "title",
+      "text": "Electabuzz Climbs for Lightning",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[20].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c2",
+      "where": "premise",
+      "text": "During storms, Electabuzz compete to climb lightning-prone heights, and some towns use them instead of lightning rods.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c3",
+      "where": "audiencePromise",
+      "text": "See how Electabuzz turns a storm-climbing habit into a strange job for some towns.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "The storm-climbing habit and town use are supported, but describing this as turning the habit into a 'job' is a loose metaphor not stated in the research.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c4",
+      "where": "openLoop",
+      "text": "Does chasing lightning make Electabuzz a storm chaser or a town's tool?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c5",
+      "where": "payoff",
+      "text": "The thing that climbs toward lightning strikes is what some towns use instead of rods.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c6",
+      "where": "scenes.lightning-target.headline",
+      "text": "CLIMBS FOR LIGHTNING",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[20].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c7",
+      "where": "scenes.lightning-target.narration",
+      "text": "Electabuzz climbs for lightning—and towns use it.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c8",
+      "where": "scenes.lightning-target.caption",
+      "text": "THE STORM CLIMBER HAS A JOB",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "The town use is supported, but calling it a 'job' is figurative and not directly stated.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c9",
+      "where": "scenes.lightning-target.eyebrow",
+      "text": "STORM RULE",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c10",
+      "where": "scenes.storm-gathering.headline",
+      "text": "IT GATHERS UNDER CLOUDS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[19].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c11",
+      "where": "scenes.storm-gathering.narration",
+      "text": "When storms arrive, Electabuzz gathers where lightning may strike.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[20].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c12",
+      "where": "scenes.storm-gathering.caption",
+      "text": "WAITING BENEATH THUNDERCLOUDS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[19].text",
+        "pokedexEntries[20].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c13",
+      "where": "scenes.storm-gathering.eyebrow",
+      "text": "WHEN STORMS ARRIVE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[19].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c14",
+      "where": "scenes.storm-gathering.facts[0]",
+      "text": "STORMS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[19].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c15",
+      "where": "scenes.storm-gathering.facts[1]",
+      "text": "LIGHTNING",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[19].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c16",
+      "where": "scenes.storm-gathering.facts[2]",
+      "text": "GATHERS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[19].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c17",
+      "where": "scenes.competing-heights.headline",
+      "text": "COMPETING FOR STRIKE ZONES",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c18",
+      "where": "scenes.competing-heights.narration",
+      "text": "Then gangs of Electabuzz compete to scale those lightning-prone heights.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c19",
+      "where": "scenes.competing-heights.caption",
+      "text": "THE CLIMB GETS MORE DANGEROUS",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[6].text"
+      ],
+      "note": "The research describes heights likely to be struck by lightning, but does not explicitly characterize the climb as becoming more dangerous.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c20",
+      "where": "scenes.competing-heights.eyebrow",
+      "text": "THE COMPETITION",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c21",
+      "where": "scenes.competing-heights.facts[0]",
+      "text": "GANGS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c22",
+      "where": "scenes.competing-heights.facts[1]",
+      "text": "COMPETE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c23",
+      "where": "scenes.competing-heights.facts[2]",
+      "text": "SCALE HEIGHTS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c24",
+      "where": "scenes.waiting-in-trees.headline",
+      "text": "THE WAITING GAME",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c25",
+      "where": "scenes.waiting-in-trees.narration",
+      "text": "After climbing tall trees, they sit beneath thunderclouds and wait.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[19].text",
+        "pokedexEntries[20].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c26",
+      "where": "scenes.waiting-in-trees.caption",
+      "text": "UP HIGH. WAITING.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[19].text",
+        "pokedexEntries[20].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c27",
+      "where": "scenes.waiting-in-trees.eyebrow",
+      "text": "AFTER THE CLIMB",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[20].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c28",
+      "where": "scenes.waiting-in-trees.facts[0]",
+      "text": "TALL TREES",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[19].text",
+        "pokedexEntries[20].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c29",
+      "where": "scenes.waiting-in-trees.facts[1]",
+      "text": "WAIT",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[19].text",
+        "pokedexEntries[20].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c30",
+      "where": "scenes.living-lightning-rod.headline",
+      "text": "TOWNS PUT IT TO WORK",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c31",
+      "where": "scenes.living-lightning-rod.narration",
+      "text": "The thing that climbs toward strikes is used instead of rods.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c32",
+      "where": "scenes.living-lightning-rod.caption",
+      "text": "A LIVING SUBSTITUTE FOR A ROD",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "Use as a substitute for lightning rods is supported, but the descriptor 'living' is not directly stated in the research.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c33",
+      "where": "scenes.living-lightning-rod.eyebrow",
+      "text": "THE STRANGE USE",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c34",
+      "where": "scenes.living-lightning-rod.facts[0]",
+      "text": "SOME TOWNS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c35",
+      "where": "scenes.living-lightning-rod.facts[1]",
+      "text": "LIGHTNING RODS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c36",
+      "where": "scenes.storm-tool-verdict.headline",
+      "text": "TOOL OR STORM CHASER?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c37",
+      "where": "scenes.storm-tool-verdict.narration",
+      "text": "Useful lightning rod, or reckless storm chaser?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c38",
+      "where": "scenes.storm-tool-verdict.caption",
+      "text": "WHICH SIDE ARE YOU ON?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c39",
+      "where": "scenes.storm-tool-verdict.eyebrow",
+      "text": "YOUR VERDICT",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    }
+  ],
+  "unsupported": [],
+  "uncertain": [
+    {
+      "id": "c3",
+      "where": "audiencePromise",
+      "text": "See how Electabuzz turns a storm-climbing habit into a strange job for some towns.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "The storm-climbing habit and town use are supported, but describing this as turning the habit into a 'job' is a loose metaphor not stated in the research.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c8",
+      "where": "scenes.lightning-target.caption",
+      "text": "THE STORM CLIMBER HAS A JOB",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "The town use is supported, but calling it a 'job' is figurative and not directly stated.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c19",
+      "where": "scenes.competing-heights.caption",
+      "text": "THE CLIMB GETS MORE DANGEROUS",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[6].text"
+      ],
+      "note": "The research describes heights likely to be struck by lightning, but does not explicitly characterize the climb as becoming more dangerous.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c32",
+      "where": "scenes.living-lightning-rod.caption",
+      "text": "A LIVING SUBSTITUTE FOR A ROD",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[5].text"
+      ],
+      "note": "Use as a substitute for lightning rods is supported, but the descriptor 'living' is not directly stated in the research.",
+      "tier": "official",
+      "checkedBy": "model"
+    }
+  ]
+}

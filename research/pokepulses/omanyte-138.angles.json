@@ -1,0 +1,162 @@
+{
+  "episodeId": "omanyte-138",
+  "createdAt": "2026-10-30T05:41:10.421Z",
+  "chosen": {
+    "id": "archeops-bites",
+    "premise": "Omanyte fossils preserve bite marks from Archeops, revealing that this ancient shell Pokémon was prey.",
+    "hook": "Omanyte fossils carry evidence of who hunted them.",
+    "archetype": "mystery",
+    "evidence": [
+      "pokedexEntries[12].text"
+    ],
+    "visualIdea": "Zoom into fossil shell bite marks, then reveal Archeops as the likely prehistoric predator.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 5,
+      "specificity": 5,
+      "visual": 5,
+      "support": 4
+    },
+    "total": 24,
+    "note": "Fossil bite marks provide a sharp mystery, a named predator, and an immediately visual reveal. The premise is strongly backed, but by only one entry."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "archeops-bites",
+          "premise": "Omanyte fossils preserve bite marks from Archeops, revealing that this ancient shell Pokémon was prey.",
+          "hook": "Omanyte fossils carry evidence of who hunted them.",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[12].text"
+          ],
+          "visualIdea": "Zoom into fossil shell bite marks, then reveal Archeops as the likely prehistoric predator.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 24,
+          "note": "Fossil bite marks provide a sharp mystery, a named predator, and an immediately visual reveal. The premise is strongly backed, but by only one entry."
+        },
+        {
+          "id": "shell-ballast",
+          "premise": "Omanyte uses air stored in its shell as built-in ballast, controlling whether it sinks or rises.",
+          "hook": "Omanyte’s shell is also a built-in dive tank.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[2].text"
+          ],
+          "visualIdea": "Show shell air expanding to lift Omanyte and compressing to send it downward.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 3
+          },
+          "total": 23,
+          "note": "An unusually concrete and memorable biological mechanic, with excellent visual potential; support rests on only one Pokédex entry."
+        },
+        {
+          "id": "ten-tentacle-navigation",
+          "premise": "Omanyte navigates and swims by twisting all 10 tentacles, making its movement look like drifting.",
+          "hook": "Omanyte doesn’t swim like a fish—it twists ten tentacles.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[1].text",
+            "pokedexEntries[3].text",
+            "pokedexEntries[16].text"
+          ],
+          "visualIdea": "Animate ten tentacles twisting in sequence as Omanyte glides through an ancient sea.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 3,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 22,
+          "note": "The ten-tentacle swimming mechanism is highly specific to Omanyte and strongly supported by multiple entries, but it is less surprising to knowledgeable fans."
+        },
+        {
+          "id": "resurrected-invasive",
+          "premise": "Omanyte is an extinct fossil Pokémon that can be restored—but escaped or released individuals are now causing problems.",
+          "hook": "Omanyte came back from extinction… and became a problem.",
+          "archetype": "transformation",
+          "evidence": [
+            "pokedexEntries[0].text",
+            "pokedexEntries[6].text",
+            "pokedexEntries[16].text"
+          ],
+          "visualIdea": "Transform a fossil into living Omanyte, then fill the modern waterway with escaped specimens.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 5,
+            "specificity": 4,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 22,
+          "note": "The contrast between extinction and becoming a modern ecological problem is compelling, though the invasive-problem claim is supported by only one entry and lacks detail."
+        },
+        {
+          "id": "fossil-to-omastar",
+          "premise": "Omanyte’s fossil-restored life has a fixed next step: reaching level 40 turns it into Omastar.",
+          "hook": "Omanyte’s ancient comeback has a level-40 deadline.",
+          "archetype": "transformation",
+          "evidence": [
+            "evolutionChain[0].name",
+            "evolutionChain[1].name",
+            "evolutionChain[1].method",
+            "pokedexEntries[9].text"
+          ],
+          "visualIdea": "As a restored Omanyte gains levels, stop at 40 and reveal the larger Omastar transformation.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 3,
+            "surprise": 3,
+            "specificity": 5,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 20,
+          "note": "The level-40 evolution creates a clean visual structure, but it is mainly a standard game mechanic rather than a distinctive piece of Omanyte lore."
+        },
+        {
+          "id": "shell-retreat",
+          "premise": "When attacked, Omanyte’s survival rule is simple: withdraw completely inside its hard shell.",
+          "hook": "Omanyte’s entire defense is disappearing into its shell.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[5].text",
+            "pokedexEntries[6].text",
+            "pokedexEntries[11].text"
+          ],
+          "visualIdea": "Show an attacker approach as Omanyte rapidly retracts until only its hard shell remains.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 2,
+            "surprise": 2,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 18,
+          "note": "The defense rule is clear and well supported, but retreating into a shell is common among shell-based Pokémon and offers limited new information."
+        }
+      ],
+      "rejected": [],
+      "request": "The strongest angles are already viable; a still stronger version would add corroborating fossil or species-history evidence explaining how the bite marks identify Archeops, while preserving the single concrete mystery."
+    }
+  ]
+}

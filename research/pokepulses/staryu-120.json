@@ -1,0 +1,174 @@
+{
+  "schemaVersion": 1,
+  "id": "staryu-120",
+  "number": 120,
+  "index": "#120",
+  "name": "Staryu",
+  "slug": "staryu",
+  "category": "Star Shape Pokémon",
+  "generation": "Generation I",
+  "isLegendary": false,
+  "isMythical": false,
+  "types": [
+    "Water"
+  ],
+  "heightMeters": 0.8,
+  "weightKg": 34.5,
+  "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/120.png",
+  "pokedexEntries": [
+    {
+      "game": "Red",
+      "text": "An enigmatic POKéMON that can effortlessly regenerate any appendage it loses in battle."
+    },
+    {
+      "game": "Yellow",
+      "text": "As long as the center section is unharmed, it can grow back fully even if it is chopped to bits."
+    },
+    {
+      "game": "Gold",
+      "text": "At night, the cen ter of its body slowly flickers with the same rhythm as a human heartbeat."
+    },
+    {
+      "game": "Silver",
+      "text": "Even if its body is torn, it can regenerate as long as the glowing central core re mains intact."
+    },
+    {
+      "game": "Crystal",
+      "text": "When the stars twinkle at night, it floats up from the sea floor, and its body's center core flickers."
+    },
+    {
+      "game": "Ruby",
+      "text": "STARYU’s center section has an organ called the core that shines bright red. If you go to a beach toward the end of summer, the glowing cores of these POKéMON look like the stars in the sky."
+    },
+    {
+      "game": "Sapphire",
+      "text": "STARYU apparently communicates with the stars in the night sky by flashing the red core at the center of its body. If parts of its body are torn, this POKéMON simply regenerates the missing pieces and limbs."
+    },
+    {
+      "game": "Emerald",
+      "text": "It gathers with others in the night and makes its red core glow on and off with the twinkling stars. It can regenerate limbs if they are severed from its body."
+    },
+    {
+      "game": "Firered",
+      "text": "It appears in large numbers by seashores. At night, its central core flashes with a red light."
+    },
+    {
+      "game": "Diamond",
+      "text": "If its body is torn, it can grow back if the red core remains. The core flashes at midnight."
+    },
+    {
+      "game": "Heartgold",
+      "text": "At night, the middle of its body slowly flickers with the same rhythm as a human heartbeat."
+    },
+    {
+      "game": "Soulsilver",
+      "text": "Even if its body is torn, it can regenerate as long as the glowing central core remains intact."
+    },
+    {
+      "game": "Black 2",
+      "text": "As long as its red core remains, it can regenerate its body instantly, even if it’s torn apart."
+    },
+    {
+      "game": "Sun",
+      "text": "Large numbers of these Pokémon make their home at the seaside. At night, a strange red glow radiates from the center of their bodies."
+    },
+    {
+      "game": "Moon",
+      "text": "This Pokémon gets nibbled on by Lumineon and others. Thanks to its red core, it regenerates fast, so it’s unconcerned by their snack attacks."
+    },
+    {
+      "game": "Ultra Sun",
+      "text": "In many places, there are folktales of stardust falling into the ocean and becoming Staryu."
+    },
+    {
+      "game": "Ultra Moon",
+      "text": "No number of injuries can bother Staryu. Its amazing regenerative powers return it to its previous state in half a day!"
+    },
+    {
+      "game": "Lets Go Pikachu",
+      "text": "As long as the center section is unharmed, this Pokémon can grow back fully even if it is chopped to bits."
+    },
+    {
+      "game": "Sword",
+      "text": "If you visit a beach at the end of summer, you’ll be able to see groups of Staryu lighting up in a steady rhythm."
+    },
+    {
+      "game": "Shield",
+      "text": "Fish Pokémon nibble at it, but Staryu isn’t bothered. Its body regenerates quickly, even if part of it is completely torn off."
+    }
+  ],
+  "evolutionChain": [
+    {
+      "name": "Staryu",
+      "index": "#120",
+      "stage": 1,
+      "types": [
+        "Water"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/120.png",
+      "isSubject": true
+    },
+    {
+      "name": "Starmie",
+      "index": "#121",
+      "stage": 2,
+      "evolvesFrom": "Staryu",
+      "method": "Use Item, Water Stone",
+      "types": [
+        "Water",
+        "Psychic"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/121.png",
+      "isSubject": false
+    }
+  ],
+  "varieties": [],
+  "lore": [],
+  "tiers": {
+    "official": [
+      "name",
+      "index",
+      "number",
+      "category",
+      "generation",
+      "isLegendary",
+      "isMythical",
+      "types",
+      "heightMeters",
+      "weightKg",
+      "pokedexEntries",
+      "evolutionChain[].name",
+      "evolutionChain[].index",
+      "evolutionChain[].types",
+      "evolutionChain[].stage",
+      "varieties[].types",
+      "varieties[].heightMeters",
+      "varieties[].weightKg"
+    ],
+    "trusted_secondary": [
+      "evolutionChain[].method",
+      "evolutionChain[].evolvesFrom",
+      "varieties[].name"
+    ],
+    "community": [
+      "lore"
+    ]
+  },
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Staryu",
+      "url": "https://www.pokemon.com/us/pokedex/staryu",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Staryu",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Staryu_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Staryu",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/120",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

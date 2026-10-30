@@ -1,0 +1,185 @@
+{
+  "schemaVersion": 1,
+  "id": "haunter-093",
+  "number": 93,
+  "index": "#093",
+  "name": "Haunter",
+  "slug": "haunter",
+  "category": "Gas Pokémon",
+  "generation": "Generation I",
+  "isLegendary": false,
+  "isMythical": false,
+  "types": [
+    "Ghost",
+    "Poison"
+  ],
+  "heightMeters": 1.6,
+  "weightKg": 0.1,
+  "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/93.png",
+  "pokedexEntries": [
+    {
+      "game": "Red",
+      "text": "Because of its ability to slip through block walls, it is said to be from an other dimension."
+    },
+    {
+      "game": "Yellow",
+      "text": "By licking, it saps the victim's life. It causes shaking that won't stop until the victim's demise."
+    },
+    {
+      "game": "Gold",
+      "text": "In total darkness, where nothing is visible, HAUNTER lurks, silently stalking its next victim."
+    },
+    {
+      "game": "Silver",
+      "text": "Its tongue is made of gas. If licked, its victim starts shaking constantly until death even tually comes."
+    },
+    {
+      "game": "Crystal",
+      "text": "It hides in the dark, planning to take the life of the next living thing that wanders close by."
+    },
+    {
+      "game": "Ruby",
+      "text": "HAUNTER is a dangerous POKéMON. If one beckons you while floating in darkness, you must never approach it. This POKéMON will try to lick you with its tongue and steal your life away."
+    },
+    {
+      "game": "Emerald",
+      "text": "If a HAUNTER beckons you while it is floating in darkness, don’t approach it. This POKéMON will try to lick you with its tongue and steal your life away."
+    },
+    {
+      "game": "Firered",
+      "text": "If you get the feeling of being watched in darkness when nobody is around, HAUNTER is there."
+    },
+    {
+      "game": "Leafgreen",
+      "text": "Because of its ability to slip through block walls, it is said to be from another dimension."
+    },
+    {
+      "game": "Diamond",
+      "text": "It can slip through any obstacle. It lurks inside walls to keep an eye on its foes."
+    },
+    {
+      "game": "Pearl",
+      "text": "It licks with its gaseous tongue to steal the victim’s life force. It lurks in darkness for prey."
+    },
+    {
+      "game": "Platinum",
+      "text": "It likes to lurk in the dark and tap shoulders with a gaseous hand. Its touch causes endless shuddering."
+    },
+    {
+      "game": "Soulsilver",
+      "text": "Its tongue is made of gas. If licked, its victim starts shaking constantly until death eventually comes."
+    },
+    {
+      "game": "Sun",
+      "text": "It strikes at humans from total darkness. Those licked by its cold tongue grow weaker with each passing day until they die."
+    },
+    {
+      "game": "Moon",
+      "text": "It fears the light and revels in the dark. It may be on the verge of extinction in cities that stay brightly lit at night."
+    },
+    {
+      "game": "Ultra Sun",
+      "text": "On moonless nights, Haunter searches for someone to curse, so it’s best not to go out walking around."
+    },
+    {
+      "game": "Ultra Moon",
+      "text": "It’s dangerous to go outside alone on nights when you’re feeling sad. Haunter will catch you, and you won’t be able to go back home."
+    },
+    {
+      "game": "Lets Go Pikachu",
+      "text": "By licking, it saps the victim’s life. It causes shaking that won’t stop until the victim’s demise."
+    },
+    {
+      "game": "Legends Arceus",
+      "text": "This frightful, malevolent spirit can glide through walls, appearing wherever it likes. According to rumor, victims of a Haunter's lick will wither to death day by day."
+    }
+  ],
+  "evolutionChain": [
+    {
+      "name": "Gastly",
+      "index": "#092",
+      "stage": 1,
+      "types": [
+        "Ghost",
+        "Poison"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/92.png",
+      "isSubject": false
+    },
+    {
+      "name": "Haunter",
+      "index": "#093",
+      "stage": 2,
+      "evolvesFrom": "Gastly",
+      "method": "Level Up, level 25",
+      "types": [
+        "Ghost",
+        "Poison"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/93.png",
+      "isSubject": true
+    },
+    {
+      "name": "Gengar",
+      "index": "#094",
+      "stage": 3,
+      "evolvesFrom": "Haunter",
+      "method": "Trade",
+      "types": [
+        "Ghost",
+        "Poison"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/94.png",
+      "isSubject": false
+    }
+  ],
+  "varieties": [],
+  "lore": [],
+  "tiers": {
+    "official": [
+      "name",
+      "index",
+      "number",
+      "category",
+      "generation",
+      "isLegendary",
+      "isMythical",
+      "types",
+      "heightMeters",
+      "weightKg",
+      "pokedexEntries",
+      "evolutionChain[].name",
+      "evolutionChain[].index",
+      "evolutionChain[].types",
+      "evolutionChain[].stage",
+      "varieties[].types",
+      "varieties[].heightMeters",
+      "varieties[].weightKg"
+    ],
+    "trusted_secondary": [
+      "evolutionChain[].method",
+      "evolutionChain[].evolvesFrom",
+      "varieties[].name"
+    ],
+    "community": [
+      "lore"
+    ]
+  },
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Haunter",
+      "url": "https://www.pokemon.com/us/pokedex/haunter",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Haunter",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Haunter_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Haunter",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/93",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

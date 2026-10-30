@@ -1,0 +1,150 @@
+{
+  "episodeId": "scyther-123",
+  "createdAt": "2026-10-29T22:04:34.813Z",
+  "chosen": {
+    "id": "flying-type-that-rarely-flies",
+    "premise": "Scyther has the Flying type, yet its Pokédex says it very rarely spreads its wings to fly.",
+    "hook": "Scyther is Flying-type—but almost never flies.",
+    "archetype": "comparison",
+    "evidence": [
+      "types[1]",
+      "pokedexEntries[7].text",
+      "pokedexEntries[11].text"
+    ],
+    "visualIdea": "Display the Flying typing beside grounded ninja-like dashes, ending with folded wings instead of takeoff.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 4,
+      "specificity": 5,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 24,
+    "note": "Excellent type-versus-behavior contradiction, clearly sourced and easy to show; the Flying typing versus folded wings creates an immediate visual hook."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "flying-type-that-rarely-flies",
+          "premise": "Scyther has the Flying type, yet its Pokédex says it very rarely spreads its wings to fly.",
+          "hook": "Scyther is Flying-type—but almost never flies.",
+          "archetype": "comparison",
+          "evidence": [
+            "types[1]",
+            "pokedexEntries[7].text",
+            "pokedexEntries[11].text"
+          ],
+          "visualIdea": "Display the Flying typing beside grounded ninja-like dashes, ending with folded wings instead of takeoff.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 24,
+          "note": "Excellent type-versus-behavior contradiction, clearly sourced and easy to show; the Flying typing versus folded wings creates an immediate visual hook."
+        },
+        {
+          "id": "two-evolution-paths",
+          "premise": "Scyther can evolve down two radically different paths: Steel with a traded Metal Coat or Rock with Black Augurite.",
+          "hook": "Scyther has two evolutions—and the item changes everything.",
+          "archetype": "transformation",
+          "evidence": [
+            "evolutionChain[1].method",
+            "evolutionChain[1].types",
+            "evolutionChain[2].method",
+            "evolutionChain[2].types"
+          ],
+          "visualIdea": "Split Scyther down the middle: one route becomes Bug/Steel Scizor, the other Bug/Rock Kleavor.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 24,
+          "note": "Highly specific to Scyther’s branching evolution and visually powerful, with radically different Bug/Steel and Bug/Rock outcomes. The evolution methods are supported by the cited trusted-secondary research."
+        },
+        {
+          "id": "scythes-get-sharper",
+          "premise": "Scyther's scythes become sharper through battle and cutting hard objects, eventually felling a massive tree in one slice.",
+          "hook": "Scyther can literally sharpen its weapons by fighting.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[10].text",
+            "pokedexEntries[17].text"
+          ],
+          "visualIdea": "Show dull scythes cutting hard material, then sharpened blades dropping a massive tree with one swing.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 23,
+          "note": "A concrete progression with a strong payoff: battles and cutting hard objects sharpen the scythes, culminating in felling a massive tree."
+        },
+        {
+          "id": "speed-clone",
+          "premise": "Scyther moves so fast that its opponents can see an illusion of multiple Scythers.",
+          "hook": "How can one Scyther look like an entire squad?",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[0].text",
+            "pokedexEntries[4].text",
+            "pokedexEntries[13].text"
+          ],
+          "visualIdea": "One Scyther blurs across the screen, leaving several afterimages that vanish when it stops.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 3,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 21,
+          "note": "Strongly tied to Scyther’s signature speed and directly supported by multiple entries, but the basic afterimage idea is already familiar to fans."
+        },
+        {
+          "id": "mountain-ninja-training",
+          "premise": "Young Scyther live together in deep mountains, training both their scythe fighting and high-speed movement.",
+          "hook": "Scyther's ninja skills begin as group training in the mountains.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[13].text",
+            "pokedexEntries[0].text",
+            "pokedexEntries[4].text"
+          ],
+          "visualIdea": "Show young Scyther training in formation, practicing blade swings before dissolving into high-speed blurs.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 3,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 4,
+            "support": 3
+          },
+          "total": 18,
+          "note": "The group mountain training is supported, but calling it a formal origin of ninja skills overreaches the entries, which only describe shared combat and speed training."
+        }
+      ],
+      "rejected": [
+        {
+          "id": "forest-cutting-territory",
+          "reason": "unknown story shape \"evidence\""
+        }
+      ],
+      "request": "No stronger angle is required; this one has the clearest contradiction, strongest visual treatment, and complete research support."
+    }
+  ]
+}

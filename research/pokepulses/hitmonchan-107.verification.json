@@ -1,0 +1,476 @@
+{
+  "episodeId": "hitmonchan-107",
+  "checkedAt": "2026-10-29T21:13:04.088Z",
+  "claims": [
+    {
+      "id": "c1",
+      "where": "title",
+      "text": "Hitmonchan's Punch Is Actually a Drill",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[11].text"
+      ],
+      "note": "The research says Hitmonchan's punches move in corkscrew fashion and can punch through a wall like a drill, but it does not say Hitmonchan is literally a drill.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c2",
+      "where": "premise",
+      "text": "Hitmonchan twists its punches like a drill, letting it punch through concrete walls.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c3",
+      "where": "audiencePromise",
+      "text": "See the twisting mechanic that lets Hitmonchan punch through concrete.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c4",
+      "where": "openLoop",
+      "text": "What does twisting change about Hitmonchan's punch?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c5",
+      "where": "payoff",
+      "text": "Its arm rotation makes the punch behave like a drill, powerful enough to pulverize concrete walls.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[4].text",
+        "pokedexEntries[9].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c6",
+      "where": "scenes.twisting-wall-punch.headline",
+      "text": "IT SPINS BEFORE IMPACT",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c7",
+      "where": "scenes.twisting-wall-punch.narration",
+      "text": "Hitmonchan spins its arms before punching through concrete.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c8",
+      "where": "scenes.twisting-wall-punch.caption",
+      "text": "SPINS BEFORE IMPACT",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c9",
+      "where": "scenes.twisting-wall-punch.eyebrow",
+      "text": "HITMONCHAN",
+      "verdict": "supported",
+      "evidence": [
+        "name"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c10",
+      "where": "scenes.corkscrew-motion.headline",
+      "text": "NOT A STRAIGHT STRIKE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c11",
+      "where": "scenes.corkscrew-motion.narration",
+      "text": "Its punches are corkscrew strikes, fired at lightning-fast speed.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text",
+        "pokedexEntries[1].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c12",
+      "where": "scenes.corkscrew-motion.caption",
+      "text": "CORKSCREW PUNCH",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c13",
+      "where": "scenes.corkscrew-motion.eyebrow",
+      "text": "THE KEY DETAIL",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c14",
+      "where": "scenes.corkscrew-motion.facts[0]",
+      "text": "CORKSCREW MOTION",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c15",
+      "where": "scenes.corkscrew-motion.facts[1]",
+      "text": "TWISTING STRIKE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c16",
+      "where": "scenes.arm-spin-contact.headline",
+      "text": "THE ARMS START SPINNING",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c17",
+      "where": "scenes.arm-spin-contact.narration",
+      "text": "Before contact, it spins its arms to strengthen every punch.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c18",
+      "where": "scenes.arm-spin-contact.caption",
+      "text": "SPIN BEFORE IMPACT",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c19",
+      "where": "scenes.arm-spin-contact.eyebrow",
+      "text": "BEFORE CONTACT",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c20",
+      "where": "scenes.arm-spin-contact.facts[0]",
+      "text": "SPINS ITS ARMS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c21",
+      "where": "scenes.arm-spin-contact.facts[1]",
+      "text": "STRENGTHENS PUNCHES",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c22",
+      "where": "scenes.drill-like-strike.headline",
+      "text": "THE STRIKE ACTS LIKE A DRILL",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[11].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c23",
+      "where": "scenes.drill-like-strike.narration",
+      "text": "The Pokédex compares that rotating strike to a drill.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c24",
+      "where": "scenes.drill-like-strike.caption",
+      "text": "PUNCH → DRILL",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[11].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c25",
+      "where": "scenes.drill-like-strike.eyebrow",
+      "text": "THE DESIGN REVEAL",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c26",
+      "where": "scenes.drill-like-strike.facts[0]",
+      "text": "ROTATING STRIKE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c27",
+      "where": "scenes.drill-like-strike.facts[1]",
+      "text": "DRILL-LIKE MOTION",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[11].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c28",
+      "where": "scenes.concrete-breakthrough.headline",
+      "text": "CONCRETE CAN'T HOLD",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[9].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c29",
+      "where": "scenes.concrete-breakthrough.narration",
+      "text": "Those arm-twisting punches can pulverize even concrete walls.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[9].text"
+      ],
+      "note": "The research supports arm-twisting punches pulverizing concrete and punching through concrete walls, but does not explicitly say they pulverize concrete walls.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c30",
+      "where": "scenes.concrete-breakthrough.caption",
+      "text": "ARM-TWISTING PUNCHES BREAK CONCRETE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[9].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c31",
+      "where": "scenes.concrete-breakthrough.eyebrow",
+      "text": "THE WALL LOSES",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[9].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c32",
+      "where": "scenes.concrete-breakthrough.facts[0]",
+      "text": "PULVERIZES CONCRETE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[9].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c33",
+      "where": "scenes.concrete-breakthrough.facts[1]",
+      "text": "PUNCHES THROUGH WALLS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[11].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c34",
+      "where": "scenes.punch-or-drill.headline",
+      "text": "PUNCH OR DRILL?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c35",
+      "where": "scenes.punch-or-drill.narration",
+      "text": "Is this still a punch, or a drill?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c36",
+      "where": "scenes.punch-or-drill.caption",
+      "text": "PUNCHING OR DRILLING?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c37",
+      "where": "scenes.punch-or-drill.eyebrow",
+      "text": "YOUR CALL",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    }
+  ],
+  "unsupported": [],
+  "uncertain": [
+    {
+      "id": "c1",
+      "where": "title",
+      "text": "Hitmonchan's Punch Is Actually a Drill",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[11].text"
+      ],
+      "note": "The research says Hitmonchan's punches move in corkscrew fashion and can punch through a wall like a drill, but it does not say Hitmonchan is literally a drill.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c29",
+      "where": "scenes.concrete-breakthrough.narration",
+      "text": "Those arm-twisting punches can pulverize even concrete walls.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[9].text"
+      ],
+      "note": "The research supports arm-twisting punches pulverizing concrete and punching through concrete walls, but does not explicitly say they pulverize concrete walls.",
+      "tier": "official",
+      "checkedBy": "model"
+    }
+  ]
+}

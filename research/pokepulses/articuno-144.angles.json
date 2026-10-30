@@ -1,0 +1,196 @@
+{
+  "episodeId": "articuno-144",
+  "createdAt": "2026-10-30T06:00:12.553Z",
+  "chosen": {
+    "id": "galar-weight-shift",
+    "premise": "Galarian Articuno keeps the same 1.7-meter height but weighs 4.5 kilograms less and becomes Psychic/Flying.",
+    "hook": "Articuno changes type and weight without changing height.",
+    "archetype": "comparison",
+    "evidence": [
+      "heightMeters",
+      "weightKg",
+      "types",
+      "varieties[0].heightMeters",
+      "varieties[0].weightKg",
+      "varieties[0].types"
+    ],
+    "visualIdea": "Split-screen Articuno forms: identical height markers, a 4.5-kilogram drop, and Ice replaced by Psychic.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 3,
+      "surprise": 4,
+      "specificity": 5,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 22,
+    "note": "The 1.7-meter height, 4.5-kilogram weight difference, and type swap are precise and fully supported, though regional-form comparisons can work for many Pokémon."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "doom-mountain-sighting",
+          "premise": "Articuno is said to appear specifically to people who are doomed and lost in icy mountains.",
+          "hook": "Seeing Articuno in the mountains may be a terrible sign.",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[0].text"
+          ],
+          "visualIdea": "A lost traveler follows footprints through a blizzard before Articuno appears above the ridge.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 25,
+          "note": "A sharply specific, unsettling rule found directly in Articuno’s Red entry: it appears to doomed people lost in icy mountains. The traveler-in-a-blizzard setup gives it strong narrative visuals."
+        },
+        {
+          "id": "galar-weight-shift",
+          "premise": "Galarian Articuno keeps the same 1.7-meter height but weighs 4.5 kilograms less and becomes Psychic/Flying.",
+          "hook": "Articuno changes type and weight without changing height.",
+          "archetype": "comparison",
+          "evidence": [
+            "heightMeters",
+            "weightKg",
+            "types",
+            "varieties[0].heightMeters",
+            "varieties[0].weightKg",
+            "varieties[0].types"
+          ],
+          "visualIdea": "Split-screen Articuno forms: identical height markers, a 4.5-kilogram drop, and Ice replaced by Psychic.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 3,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 22,
+          "note": "The 1.7-meter height, 4.5-kilogram weight difference, and type swap are precise and fully supported, though regional-form comparisons can work for many Pokémon."
+        },
+        {
+          "id": "flight-makes-snow",
+          "premise": "Articuno’s wing flaps chill the air so intensely that snow falls whenever it flies.",
+          "hook": "For Articuno, flying is basically a weather event.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[5].text",
+            "pokedexEntries[3].text",
+            "pokedexEntries[4].text"
+          ],
+          "visualIdea": "Articuno takes off; each wingbeat visibly drops the temperature and builds a snowfall trail behind it.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 3,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 21,
+          "note": "The Pokédex repeatedly supports the wingbeat-causes-snow mechanic, and it is highly visual, but weather creation is not uniquely Articuno’s concept."
+        },
+        {
+          "id": "ice-wing-paradox",
+          "premise": "Articuno’s beautiful, seemingly translucent wings are said to be made of ice.",
+          "hook": "Those wings may not be feathers at all—they may be ice.",
+          "archetype": "transformation",
+          "evidence": [
+            "pokedexEntries[2].text",
+            "pokedexEntries[8].text",
+            "pokedexEntries[10].text"
+          ],
+          "visualIdea": "Feather textures crystallize into translucent ice wings as Articuno spreads them in the sunlight.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 21,
+          "note": "The ice-wing claim is well supported, but saying the wings may not be feathers goes beyond the wording. The crystallization visual is excellent."
+        },
+        {
+          "id": "snow-machine",
+          "premise": "Articuno turns airborne moisture into snow, and its strongest version of that process creates blizzards.",
+          "hook": "Articuno doesn’t summon snow—it manufactures it from the air.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[1].text",
+            "pokedexEntries[3].text",
+            "pokedexEntries[7].text"
+          ],
+          "visualIdea": "Floating moisture gathers around Articuno, freezes into flakes, then rapidly expands into a blizzard.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 3,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 20,
+          "note": "The air-to-snow mechanic is supported, but this substantially overlaps with flight-makes-snow. The claim that blizzards are the strongest version is an inference, not directly stated."
+        },
+        {
+          "id": "legend-without-evolution",
+          "premise": "Articuno stands alone as a legendary Pokémon with no evolution stage or transformation chain listed.",
+          "hook": "Articuno arrives at its final form: there’s nowhere else to evolve.",
+          "archetype": "profile",
+          "evidence": [
+            "isLegendary",
+            "evolutionChain[0].name",
+            "evolutionChain[0].stage",
+            "evolutionChain[0].isSubject"
+          ],
+          "visualIdea": "An evolution chart builds with a single node—Articuno—while every possible next branch fades away.",
+          "generic": true,
+          "scores": {
+            "uniqueness": 2,
+            "surprise": 2,
+            "specificity": 4,
+            "visual": 4,
+            "support": 3
+          },
+          "total": 15,
+          "note": "The single-node evolution chain supports the presentation, but being unevolved is not a particularly surprising or distinctive fact for a legendary Pokémon, and the absence of evolution is inferred from the dataset. (Uniqueness capped at 2: its evidence is only fields every Pokémon has.)"
+        }
+      ],
+      "rejected": [],
+      "request": " "
+    }
+  ],
+  "initialChoice": {
+    "id": "doom-mountain-sighting",
+    "premise": "Articuno is said to appear specifically to people who are doomed and lost in icy mountains.",
+    "hook": "Seeing Articuno in the mountains may be a terrible sign.",
+    "archetype": "mystery",
+    "evidence": [
+      "pokedexEntries[0].text"
+    ],
+    "visualIdea": "A lost traveler follows footprints through a blizzard before Articuno appears above the ridge.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 5,
+      "specificity": 5,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 25,
+    "note": "A sharply specific, unsettling rule found directly in Articuno’s Red entry: it appears to doomed people lost in icy mountains. The traveler-in-a-blizzard setup gives it strong narrative visuals."
+  },
+  "attemptedAngles": [
+    "doom-mountain-sighting",
+    "galar-weight-shift"
+  ]
+}

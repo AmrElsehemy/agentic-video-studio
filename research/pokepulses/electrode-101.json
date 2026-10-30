@@ -1,0 +1,152 @@
+{
+  "schemaVersion": 1,
+  "id": "electrode-101",
+  "number": 101,
+  "index": "#101",
+  "name": "Electrode",
+  "slug": "electrode",
+  "category": "Ball Pokémon",
+  "generation": "Generation I",
+  "isLegendary": false,
+  "isMythical": false,
+  "types": [
+    "Electric"
+  ],
+  "heightMeters": 1.2,
+  "weightKg": 66.6,
+  "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/101.png",
+  "pokedexEntries": [
+    {
+      "game": "Red",
+      "text": "It stores electric energy under very high pressure. It often explodes with little or no provocation."
+    },
+    {
+      "game": "Yellow",
+      "text": "Stores electrical energy inside its body. Even the slightest shock could trigger a huge explosion."
+    },
+    {
+      "game": "Gold",
+      "text": "It is dangerous. If it has too much electricity and has nothing to do, it amuses itself by exploding."
+    },
+    {
+      "game": "Silver",
+      "text": "It stores an over flowing amount of electric energy inside its body. Even a small shock makes it explode."
+    },
+    {
+      "game": "Crystal",
+      "text": "The more energy it charges up, the faster it gets. But this also makes it more likely to explode."
+    },
+    {
+      "game": "Ruby",
+      "text": "ELECTRODE eats electricity in the atmosphere. On days when lightning strikes, you can see this POKéMON exploding all over the place from eating too much electricity."
+    },
+    {
+      "game": "Sapphire",
+      "text": "One of ELECTRODE’s characteristics is its attraction to electricity. It is a problematical POKéMON that congregates mostly at electrical power plants to feed on electricity that has just been generated."
+    },
+    {
+      "game": "Emerald",
+      "text": "They appear in great numbers at electric power plants. Because they feed on electricity, they cause massive and chaotic blackouts in nearby cities."
+    },
+    {
+      "game": "Firered",
+      "text": "It explodes in response to even minor stimuli. It is feared, with the nickname of “The Bomb Ball.”"
+    },
+    {
+      "game": "Diamond",
+      "text": "It is known to drift on winds if it is bloated to bursting with stored electricity."
+    },
+    {
+      "game": "Soulsilver",
+      "text": "It stores an overflowing amount of electric energy inside its body. Even a small shock makes it explode."
+    },
+    {
+      "game": "Legends Arceus",
+      "text": "The tissue on the surface of its body is curiously similar in composition to an Apricorn. When irritated, this Pokémon lets loose an electric current equal to 20 lightning bolts."
+    }
+  ],
+  "evolutionChain": [
+    {
+      "name": "Voltorb",
+      "index": "#100",
+      "stage": 1,
+      "types": [
+        "Electric"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/100.png",
+      "isSubject": false
+    },
+    {
+      "name": "Electrode",
+      "index": "#101",
+      "stage": 2,
+      "evolvesFrom": "Voltorb",
+      "method": "Level Up, level 30",
+      "types": [
+        "Electric"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/101.png",
+      "isSubject": true
+    }
+  ],
+  "varieties": [
+    {
+      "name": "Electrode Hisui",
+      "types": [
+        "Electric",
+        "Grass"
+      ],
+      "heightMeters": 1.2,
+      "weightKg": 71,
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10232.png"
+    }
+  ],
+  "lore": [],
+  "tiers": {
+    "official": [
+      "name",
+      "index",
+      "number",
+      "category",
+      "generation",
+      "isLegendary",
+      "isMythical",
+      "types",
+      "heightMeters",
+      "weightKg",
+      "pokedexEntries",
+      "evolutionChain[].name",
+      "evolutionChain[].index",
+      "evolutionChain[].types",
+      "evolutionChain[].stage",
+      "varieties[].types",
+      "varieties[].heightMeters",
+      "varieties[].weightKg"
+    ],
+    "trusted_secondary": [
+      "evolutionChain[].method",
+      "evolutionChain[].evolvesFrom",
+      "varieties[].name"
+    ],
+    "community": [
+      "lore"
+    ]
+  },
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Electrode",
+      "url": "https://www.pokemon.com/us/pokedex/electrode",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Electrode",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Electrode_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Electrode",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/101",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

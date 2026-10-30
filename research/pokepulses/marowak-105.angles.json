@@ -1,0 +1,164 @@
+{
+  "episodeId": "marowak-105",
+  "createdAt": "2026-10-29T21:06:29.606Z",
+  "chosen": {
+    "id": "the-bone-graveyard",
+    "premise": "Marowak’s bones come from an unknown place, but multiple Pokédex entries whisper of a cemetery just for Marowak.",
+    "hook": "Where does Marowak get all those bones?",
+    "archetype": "mystery",
+    "evidence": [
+      "pokedexEntries[3].text",
+      "pokedexEntries[4].text",
+      "pokedexEntries[10].text"
+    ],
+    "visualIdea": "Follow clues from an empty bone source to increasingly clear cemetery imagery, ending on a question mark.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 4,
+      "specificity": 4,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 23,
+    "note": "The unknown bone source versus repeated cemetery rumors creates a precise mystery with strong imagery. Silver, Crystal, and SoulSilver directly support the premise, though the cemetery remains rumor rather than confirmed fact."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "the-bone-graveyard",
+          "premise": "Marowak’s bones come from an unknown place, but multiple Pokédex entries whisper of a cemetery just for Marowak.",
+          "hook": "Where does Marowak get all those bones?",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[3].text",
+            "pokedexEntries[4].text",
+            "pokedexEntries[10].text"
+          ],
+          "visualIdea": "Follow clues from an empty bone source to increasingly clear cemetery imagery, ending on a question mark.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 23,
+          "note": "The unknown bone source versus repeated cemetery rumors creates a precise mystery with strong imagery. Silver, Crystal, and SoulSilver directly support the premise, though the cemetery remains rumor rather than confirmed fact."
+        },
+        {
+          "id": "mandibuzz-revenge",
+          "premise": "Marowak throws boomerang bones at Mandibuzz, apparently trying to avenge its parent.",
+          "hook": "Marowak has a target—and every attack is personal.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[12].text",
+            "pokedexEntries[13].text",
+            "pokedexEntries[0].text"
+          ],
+          "visualIdea": "Reveal Mandibuzz as the target, then trace a bone’s boomerang path back toward Marowak.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 23,
+          "note": "A concrete enemy and personal motive make this highly filmable. The cited Moon, Ultra Sun, and Red entries directly support the revenge, target, and boomerang-bone details."
+        },
+        {
+          "id": "fifty-bone-rhythms",
+          "premise": "Marowak communicates by rhythmically thumping its bone, using nearly 50 different patterns.",
+          "hook": "That bone club is also Marowak’s language.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[15].text",
+            "pokedexEntries[2].text"
+          ],
+          "visualIdea": "Display different bone taps as waveform patterns, multiplying until nearly 50 rhythm cards fill the screen.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 2
+          },
+          "total": 22,
+          "note": "Potentially the strongest hook: a bone weapon functioning as a nearly 50-pattern language. However, the cited Sword entry does not support the rhythm claim, and the Gold entry only supports tapping messages; the correct Ultra Moon entry is missing from the evidence list."
+        },
+        {
+          "id": "alolan-fire-ghost",
+          "premise": "Marowak changes from a 45-kg Ground type into a 34-kg Fire/Ghost form in Alola.",
+          "hook": "Marowak’s regional form changes its type—and makes it lighter.",
+          "archetype": "comparison",
+          "evidence": [
+            "types",
+            "weightKg",
+            "varieties[0].types",
+            "varieties[0].weightKg"
+          ],
+          "visualIdea": "Split the screen between the 45-kg Ground Marowak and the 34-kg Fire/Ghost Alolan form.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 3,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 22,
+          "note": "The type and weight contrast is clear, measurable, and fully supported, but regional-form comparisons are a familiar Pokémon angle and the weight change is less emotionally compelling."
+        },
+        {
+          "id": "mothers-skull-fusion",
+          "premise": "Marowak’s evolution reportedly fuses its mother’s skull to its body, while its temperament turns vicious.",
+          "hook": "Marowak’s evolution comes with one horrifying family heirloom.",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[6].text"
+          ],
+          "visualIdea": "Animate a Cubone evolving as a skull silhouette locks into place, followed by a sudden shift to a fierce Marowak.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 1
+          },
+          "total": 21,
+          "note": "Extremely specific, disturbing, and visually powerful, but the cited Emerald entry does not mention the mother’s skull fusing to Marowak; that fact appears in the Shield entry instead."
+        },
+        {
+          "id": "grief-to-ferocity",
+          "premise": "At level 28, Cubone evolves into Marowak after overcoming grief—and becomes violent and bone-armed.",
+          "hook": "What does it take for Pokémon grief to become a weapon?",
+          "archetype": "transformation",
+          "evidence": [
+            "evolutionChain[1].method",
+            "pokedexEntries[6].text",
+            "pokedexEntries[13].text"
+          ],
+          "visualIdea": "Show Cubone beside a level-28 marker, then transform it into Marowak with a bone club and aggressive stance.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 3,
+            "specificity": 4,
+            "visual": 4,
+            "support": 3
+          },
+          "total": 18,
+          "note": "The evolution-through-grief idea is distinctive and visual, but the cited Emerald and Ultra Sun entries do not directly support the claimed violent, bone-armed transformation."
+        }
+      ],
+      "rejected": []
+    }
+  ]
+}

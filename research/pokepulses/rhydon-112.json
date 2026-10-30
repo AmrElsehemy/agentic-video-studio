@@ -1,0 +1,169 @@
+{
+  "schemaVersion": 1,
+  "id": "rhydon-112",
+  "number": 112,
+  "index": "#112",
+  "name": "Rhydon",
+  "slug": "rhydon",
+  "category": "Drill Pokémon",
+  "generation": "Generation I",
+  "isLegendary": false,
+  "isMythical": false,
+  "types": [
+    "Ground",
+    "Rock"
+  ],
+  "heightMeters": 1.9,
+  "weightKg": 120,
+  "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/112.png",
+  "pokedexEntries": [
+    {
+      "game": "Red",
+      "text": "Protected by an armor-like hide, it is capable of living in molten lava of 3,600 degrees."
+    },
+    {
+      "game": "Yellow",
+      "text": "Walks on its hind legs. Shows signs of intelligence. Its armor-like hide even repels molten lava."
+    },
+    {
+      "game": "Gold",
+      "text": "Its rugged hide protects it from even the heat of lava. However, the hide also makes it insensitive."
+    },
+    {
+      "game": "Silver",
+      "text": "Its brain devel oped when it began walking on hind legs. Its thick hide protects it even in magma."
+    },
+    {
+      "game": "Crystal",
+      "text": "By lightly spin ning its drill- like horn, it can easily shatter even a diamond in the rough."
+    },
+    {
+      "game": "Ruby",
+      "text": "RHYDON’s horn can crush even uncut diamonds. One sweeping blow of its tail can topple a building. This POKéMON’s hide is extremely tough. Even direct cannon hits don’t leave a scratch."
+    },
+    {
+      "game": "Sapphire",
+      "text": "RHYDON has a horn that serves as a drill. It is used for destroying rocks and boulders. This POKéMON occasionally rams into streams of magma, but the armor-like hide prevents it from feeling the heat."
+    },
+    {
+      "game": "Emerald",
+      "text": "Its horn, which rotates like a drill, destroys tall buildings with one strike. It stands on its hind legs, and its brain is well developed."
+    },
+    {
+      "game": "Firered",
+      "text": "It begins walking on its hind legs after evolution. It can punch holes through boulders with its horn."
+    },
+    {
+      "game": "Leafgreen",
+      "text": "Protected by an armor-like hide, it is capable of living in molten lava of 3,600 degrees Fahrenheit."
+    },
+    {
+      "game": "Diamond",
+      "text": "Its brain developed after it stood up on its hind legs. Its drill horn bores tunnels through solid rock."
+    },
+    {
+      "game": "Platinum",
+      "text": "Standing on its hind legs freed its forelegs and made it smarter. It is very forgetful, however."
+    },
+    {
+      "game": "Soulsilver",
+      "text": "Its brain developed when it began walking on hind legs. Its thick hide protects it even in magma."
+    },
+    {
+      "game": "Lets Go Pikachu",
+      "text": "Its brain developed when it began walking on its hind legs. Its armor-like hide even repels molten lava."
+    },
+    {
+      "game": "Legends Arceus",
+      "text": "Rapidly rotates its horn to bore through bedrock. It swaggers around volcanic regions, protected from the lava's heat by its tough, armorlike hide."
+    }
+  ],
+  "evolutionChain": [
+    {
+      "name": "Rhyhorn",
+      "index": "#111",
+      "stage": 1,
+      "types": [
+        "Ground",
+        "Rock"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/111.png",
+      "isSubject": false
+    },
+    {
+      "name": "Rhydon",
+      "index": "#112",
+      "stage": 2,
+      "evolvesFrom": "Rhyhorn",
+      "method": "Level Up, level 42",
+      "types": [
+        "Ground",
+        "Rock"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/112.png",
+      "isSubject": true
+    },
+    {
+      "name": "Rhyperior",
+      "index": "#464",
+      "stage": 3,
+      "evolvesFrom": "Rhydon",
+      "method": "Trade, holding Protector",
+      "types": [
+        "Ground",
+        "Rock"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/464.png",
+      "isSubject": false
+    }
+  ],
+  "varieties": [],
+  "lore": [],
+  "tiers": {
+    "official": [
+      "name",
+      "index",
+      "number",
+      "category",
+      "generation",
+      "isLegendary",
+      "isMythical",
+      "types",
+      "heightMeters",
+      "weightKg",
+      "pokedexEntries",
+      "evolutionChain[].name",
+      "evolutionChain[].index",
+      "evolutionChain[].types",
+      "evolutionChain[].stage",
+      "varieties[].types",
+      "varieties[].heightMeters",
+      "varieties[].weightKg"
+    ],
+    "trusted_secondary": [
+      "evolutionChain[].method",
+      "evolutionChain[].evolvesFrom",
+      "varieties[].name"
+    ],
+    "community": [
+      "lore"
+    ]
+  },
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Rhydon",
+      "url": "https://www.pokemon.com/us/pokedex/rhydon",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Rhydon",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Rhydon_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Rhydon",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/112",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

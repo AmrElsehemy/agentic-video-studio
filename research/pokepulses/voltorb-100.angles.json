@@ -1,0 +1,163 @@
+{
+  "episodeId": "voltorb-100",
+  "createdAt": "2026-10-29T20:51:20.495Z",
+  "chosen": {
+    "id": "bump-triggered-explosion",
+    "premise": "Because Voltorb rolls instead of walking, one bump on uneven ground can make it explode.",
+    "hook": "For Voltorb, a tiny bump can be a catastrophic mistake.",
+    "archetype": "mechanic",
+    "evidence": [
+      "pokedexEntries[2].text"
+    ],
+    "visualIdea": "Voltorb rolls down a lumpy path, hits one bump, jolts upward, and explodes.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 4,
+      "surprise": 4,
+      "specificity": 5,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 23,
+    "note": "A precise, unusual mechanic with a clear cause-and-effect sequence; the Gold entry directly supports every part of the premise."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "bump-triggered-explosion",
+          "premise": "Because Voltorb rolls instead of walking, one bump on uneven ground can make it explode.",
+          "hook": "For Voltorb, a tiny bump can be a catastrophic mistake.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[2].text"
+          ],
+          "visualIdea": "Voltorb rolls down a lumpy path, hits one bump, jolts upward, and explodes.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 23,
+          "note": "A precise, unusual mechanic with a clear cause-and-effect sequence; the Gold entry directly supports every part of the premise."
+        },
+        {
+          "id": "pokeball-factory-mystery",
+          "premise": "Voltorb was first seen at a Poké Ball factory, but its resemblance and connection remain unexplained.",
+          "hook": "Voltorb appeared at the one place that makes its disguise suspicious.",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[3].text",
+            "pokedexEntries[5].text"
+          ],
+          "visualIdea": "A factory timeline assembles: Poké Balls appear, then Voltorb is spotted inside, with the link left unresolved.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 4,
+            "support": 5
+          },
+          "total": 22,
+          "note": "The factory origin and unresolved connection are unusually specific to Voltorb, though the mystery is more atmospheric than mechanically demonstrable."
+        },
+        {
+          "id": "hisui-weight-shift",
+          "premise": "Hisui's Voltorb keeps the same height but becomes Grass-type and gains 2.6 kilograms.",
+          "hook": "Hisui changes Voltorb without making it any taller.",
+          "archetype": "comparison",
+          "evidence": [
+            "heightMeters",
+            "weightKg",
+            "types",
+            "varieties[0].name",
+            "varieties[0].types",
+            "varieties[0].heightMeters",
+            "varieties[0].weightKg"
+          ],
+          "visualIdea": "Classic and Hisuian Voltorb stand at equal height while a scale shows 10.4 kg versus 13 kg and Grass appears.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 3,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 22,
+          "note": "Fully supported and visually measurable, but the comparison is more trivia-like and less emotionally hooky than Voltorb's explosion mechanics."
+        },
+        {
+          "id": "pulse-born-rumor",
+          "premise": "One rumor says Voltorb was created when a Poké Ball absorbed a powerful pulse of energy.",
+          "hook": "What if Voltorb began as a Poké Ball hit by lightning?",
+          "archetype": "transformation",
+          "evidence": [
+            "pokedexEntries[6].text",
+            "pokedexEntries[12].text"
+          ],
+          "visualIdea": "A Poké Ball is struck by a huge energy pulse and transforms into Voltorb.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 21,
+          "note": "Excellent transformation visual and a strong origin theory, but it is explicitly only a rumor and 'hit by lightning' overstates the cited pulse-of-energy wording."
+        },
+        {
+          "id": "pokeball-decoy",
+          "premise": "Voltorb camouflages itself as a Poké Ball, then may electrocute or explode when touched.",
+          "hook": "That Poké Ball might be waiting for you to touch it.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[1].text",
+            "pokedexEntries[10].text",
+            "pokedexEntries[11].text"
+          ],
+          "visualIdea": "A Poké Ball prop reveals Voltorb, then flashes with electricity and detonates on a reaching hand.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 2,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 20,
+          "note": "Strongly tied to Voltorb and easy to stage, but its Poké Ball disguise is the most familiar Voltorb fact."
+        },
+        {
+          "id": "unnatural-components",
+          "premise": "Voltorb's components are not found in nature, leaving its life-form identity unknown.",
+          "hook": "Scientists found something disturbing inside Voltorb: nothing natural.",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[4].text",
+            "pokedexEntries[8].text"
+          ],
+          "visualIdea": "A scan of Voltorb shows artificial-looking parts, while its silhouette fades into a question mark.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 4,
+            "support": 4
+          },
+          "total": 20,
+          "note": "The artificial-life mystery is compelling, but 'artificial-looking parts' goes beyond the evidence that its components are not found in nature."
+        }
+      ],
+      "rejected": []
+    }
+  ]
+}

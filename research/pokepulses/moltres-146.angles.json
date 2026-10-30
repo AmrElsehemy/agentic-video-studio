@@ -1,0 +1,167 @@
+{
+  "episodeId": "moltres-146",
+  "createdAt": "2026-10-30T06:05:25.958Z",
+  "chosen": {
+    "id": "magma-healing",
+    "premise": "When injured, Moltres is said to dip its body into molten magma to burn and heal itself.",
+    "hook": "Moltres’s healing method is literally a volcano.",
+    "archetype": "mechanic",
+    "evidence": [
+      "pokedexEntries[5].text",
+      "pokedexEntries[6].text"
+    ],
+    "visualIdea": "Show an injured Moltres diving into a volcano, then emerging restored through a fiery reveal.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 5,
+      "specificity": 5,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 25,
+    "note": "A highly distinctive healing mechanic, directly repeated in two Pokédex entries, with an immediately readable volcano transformation."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "magma-healing",
+          "premise": "When injured, Moltres is said to dip its body into molten magma to burn and heal itself.",
+          "hook": "Moltres’s healing method is literally a volcano.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[5].text",
+            "pokedexEntries[6].text"
+          ],
+          "visualIdea": "Show an injured Moltres diving into a volcano, then emerging restored through a fiery reveal.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 25,
+          "note": "A highly distinctive healing mechanic, directly repeated in two Pokédex entries, with an immediately readable volcano transformation."
+        },
+        {
+          "id": "galar-weight-shift",
+          "premise": "Galarian Moltres keeps the same 2-meter height but changes from Fire/Flying to Dark/Flying and weighs 6 kg more.",
+          "hook": "Moltres changes its type—and gets heavier without getting taller.",
+          "archetype": "comparison",
+          "evidence": [
+            "heightMeters",
+            "weightKg",
+            "types",
+            "varieties[0].types",
+            "varieties[0].heightMeters",
+            "varieties[0].weightKg"
+          ],
+          "visualIdea": "Use a split-screen stat card: 2 m on both sides, then types and weight flip from 60 to 66 kg.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 24,
+          "note": "A precise, defensible comparison with a strong on-screen stat reveal; slightly less emotionally compelling than Moltres healing in magma."
+        },
+        {
+          "id": "every-flap-fire",
+          "premise": "Moltres turns every wing flap into a fire display, from scattered embers to dazzling flashes and flares.",
+          "hook": "For Moltres, flying means setting the sky on fire.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[0].text",
+            "pokedexEntries[2].text",
+            "pokedexEntries[8].text"
+          ],
+          "visualIdea": "Animate each wingbeat producing a different escalation: flash, embers, then a huge flame flare.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 3,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 21,
+          "note": "Strongly supported and visually dynamic, but the basic idea of a fire bird producing flames while flying is relatively expected."
+        },
+        {
+          "id": "spring-migration",
+          "premise": "Moltres’s arrival is linked to spring: it migrates from the south and can bring spring to wintry lands.",
+          "hook": "This legendary fire bird is also a seasonal forecast.",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[3].text",
+            "pokedexEntries[4].text",
+            "pokedexEntries[9].text"
+          ],
+          "visualIdea": "Follow clues from frozen terrain to a southern flight path, ending with Moltres’s arrival and spring.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 4,
+            "support": 5
+          },
+          "total": 21,
+          "note": "The seasonal connection and south-to-spring migration are concrete and well supported, though the premise is less instantly dramatic than magma healing."
+        },
+        {
+          "id": "mountain-lantern",
+          "premise": "Moltres’s flame-cloaked wings are said to light paths for people lost in the mountains.",
+          "hook": "Moltres can be a rescue beacon, not just a battle legend.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[11].text"
+          ],
+          "visualIdea": "Show a dark mountain trail appearing step by step as Moltres’s glowing wings illuminate it.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 21,
+          "note": "A charmingly unexpected rescue role with excellent visuals, but it rests on a single Pokédex entry and is framed as a story rather than a confirmed behavior."
+        },
+        {
+          "id": "no-evolution-path",
+          "premise": "Moltres is a legendary Pokémon whose evolution chain contains only Moltres, with no earlier or later stage.",
+          "hook": "Moltres has no evolution story—its chain starts and ends here.",
+          "archetype": "transformation",
+          "evidence": [
+            "isLegendary",
+            "evolutionChain[0].name",
+            "evolutionChain[0].stage",
+            "evolutionChain[0].index"
+          ],
+          "visualIdea": "Build an evolution chain with a single Moltres node, then erase every imagined predecessor and successor.",
+          "generic": true,
+          "scores": {
+            "uniqueness": 2,
+            "surprise": 2,
+            "specificity": 4,
+            "visual": 3,
+            "support": 5
+          },
+          "total": 16,
+          "note": "Accurate and concrete, but many legendary Pokémon have one-stage evolution chains, making the angle broad and low-impact."
+        }
+      ],
+      "rejected": [],
+      "request": "None—magma-healing is strong enough. A stronger alternative would need an equally specific, surprising Moltres-only rule or contradiction with multiple direct Pokédex sources and a more distinctive visual payoff."
+    }
+  ]
+}

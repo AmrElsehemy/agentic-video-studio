@@ -1,0 +1,160 @@
+{
+  "schemaVersion": 1,
+  "id": "voltorb-100",
+  "number": 100,
+  "index": "#100",
+  "name": "Voltorb",
+  "slug": "voltorb",
+  "category": "Ball Pokémon",
+  "generation": "Generation I",
+  "isLegendary": false,
+  "isMythical": false,
+  "types": [
+    "Electric"
+  ],
+  "heightMeters": 0.5,
+  "weightKg": 10.4,
+  "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/100.png",
+  "pokedexEntries": [
+    {
+      "game": "Red",
+      "text": "Usually found in power plants. Easily mistaken for a POKé BALL, they have zapped many people."
+    },
+    {
+      "game": "Yellow",
+      "text": "It is said to camouflage itself as a POKé BALL. It will self-destruct with very little stimulus."
+    },
+    {
+      "game": "Gold",
+      "text": "It rolls to move. If the ground is uneven, a sudden jolt from hitting a bump can cause it to explode."
+    },
+    {
+      "game": "Silver",
+      "text": "It was discovered when POKé BALLS were introduced. It is said that there is some connection."
+    },
+    {
+      "game": "Crystal",
+      "text": "During the study of this POKéMON, it was discovered that its compo nents are not found in nature."
+    },
+    {
+      "game": "Ruby",
+      "text": "VOLTORB was first sighted at a company that manufactures POKé BALLS. The link between that sighting and the fact that this POKéMON looks very similar to a POKé BALL remains a mystery."
+    },
+    {
+      "game": "Sapphire",
+      "text": "VOLTORB is extremely sensitive - it explodes at the slightest of shocks. It is rumored that it was first created when a POKé BALL was exposed to a powerful pulse of energy."
+    },
+    {
+      "game": "Emerald",
+      "text": "It bears an uncanny and unexplained resemblance to a POKé BALL. Because it explodes at the slightest shock, even veteran TRAINERS treat it with caution."
+    },
+    {
+      "game": "Firered",
+      "text": "A life-form whose identity is unknown. It is said to SCREECH or suddenly SELFDESTRUCT."
+    },
+    {
+      "game": "Leafgreen",
+      "text": "Usually found in power plants. Easily mistaken for a POKé BALL, it has zapped many people."
+    },
+    {
+      "game": "Diamond",
+      "text": "It looks just like a Poké Ball. It is dangerous because it may electrocute or explode on touch."
+    },
+    {
+      "game": "Black 2",
+      "text": "It looks just like a Poké Ball. It is dangerous because it may electrocute or explode on contact."
+    },
+    {
+      "game": "Alpha Sapphire",
+      "text": "Voltorb is extremely sensitive—it explodes at the slightest of shocks. It is rumored that it was first created when a Poké Ball was exposed to a powerful pulse of energy."
+    },
+    {
+      "game": "Legends Arceus",
+      "text": "An enigmatic Pokémon that happens to bear a resemblance to a Poké Ball. When excited, it discharges the electric current it has stored in its belly, then lets out a great, uproarious laugh."
+    }
+  ],
+  "evolutionChain": [
+    {
+      "name": "Voltorb",
+      "index": "#100",
+      "stage": 1,
+      "types": [
+        "Electric"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/100.png",
+      "isSubject": true
+    },
+    {
+      "name": "Electrode",
+      "index": "#101",
+      "stage": 2,
+      "evolvesFrom": "Voltorb",
+      "method": "Level Up, level 30",
+      "types": [
+        "Electric"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/101.png",
+      "isSubject": false
+    }
+  ],
+  "varieties": [
+    {
+      "name": "Voltorb Hisui",
+      "types": [
+        "Electric",
+        "Grass"
+      ],
+      "heightMeters": 0.5,
+      "weightKg": 13,
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10231.png"
+    }
+  ],
+  "lore": [],
+  "tiers": {
+    "official": [
+      "name",
+      "index",
+      "number",
+      "category",
+      "generation",
+      "isLegendary",
+      "isMythical",
+      "types",
+      "heightMeters",
+      "weightKg",
+      "pokedexEntries",
+      "evolutionChain[].name",
+      "evolutionChain[].index",
+      "evolutionChain[].types",
+      "evolutionChain[].stage",
+      "varieties[].types",
+      "varieties[].heightMeters",
+      "varieties[].weightKg"
+    ],
+    "trusted_secondary": [
+      "evolutionChain[].method",
+      "evolutionChain[].evolvesFrom",
+      "varieties[].name"
+    ],
+    "community": [
+      "lore"
+    ]
+  },
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Voltorb",
+      "url": "https://www.pokemon.com/us/pokedex/voltorb",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Voltorb",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Voltorb_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Voltorb",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/100",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

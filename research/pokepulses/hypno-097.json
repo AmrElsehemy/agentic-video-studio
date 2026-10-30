@@ -1,0 +1,149 @@
+{
+  "schemaVersion": 1,
+  "id": "hypno-097",
+  "number": 97,
+  "index": "#097",
+  "name": "Hypno",
+  "slug": "hypno",
+  "category": "Hypnosis Pokémon",
+  "generation": "Generation I",
+  "isLegendary": false,
+  "isMythical": false,
+  "types": [
+    "Psychic"
+  ],
+  "heightMeters": 1.6,
+  "weightKg": 75.6,
+  "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/97.png",
+  "pokedexEntries": [
+    {
+      "game": "Red",
+      "text": "When it locks eyes with an enemy, it will use a mix of PSI moves such as HYPNOSIS and CONFUSION."
+    },
+    {
+      "game": "Yellow",
+      "text": "Avoid eye contact if you come across one. It will try to put you to sleep by using its pendulum."
+    },
+    {
+      "game": "Gold",
+      "text": "When it is very hungry, it puts humans it meets to sleep, then it feasts on their dreams."
+    },
+    {
+      "game": "Silver",
+      "text": "Always holding a pendulum that it rocks at a steady rhythm, it causes drowsiness in any one nearby."
+    },
+    {
+      "game": "Crystal",
+      "text": "The longer it swings its pendulum, the longer the effects of its hypnosis last."
+    },
+    {
+      "game": "Ruby",
+      "text": "HYPNO holds a pendulum in its hand. The arcing movement and glitter of the pendulum lull the foe into a deep state of hypnosis. While this POKéMON searches for prey, it polishes the pendulum."
+    },
+    {
+      "game": "Emerald",
+      "text": "The arcing movement and glitter of the pendulum in a HYPNO’s hand lull the foe into deep hypnosis. While searching for prey, it polishes the pendulum."
+    },
+    {
+      "game": "Firered",
+      "text": "It carries a pendulum-like device. There once was an incident in which it took away a child it hypnotized."
+    },
+    {
+      "game": "Diamond",
+      "text": "Seeing its swinging pendulum can induce sleep in three seconds, even in someone who just woke up."
+    },
+    {
+      "game": "Soulsilver",
+      "text": "Always holding a pendulum that it swings at a steady rhythm, it causes drowsiness in anyone nearby."
+    },
+    {
+      "game": "Sun",
+      "text": "While it is an extremely dangerous Pokémon, people who are in need of a good, sound sleep call it their savior."
+    },
+    {
+      "game": "Moon",
+      "text": "As a matter of course, it makes anyone it meets fall asleep and has a taste of their dreams. Anyone having a good dream, it carries off."
+    },
+    {
+      "game": "Ultra Sun",
+      "text": "In Alola, Komala is Hypno’s main target. It rarely harms people."
+    },
+    {
+      "game": "Ultra Moon",
+      "text": "There are some Hypno that assist doctors with patients who can’t sleep at night in hospitals."
+    }
+  ],
+  "evolutionChain": [
+    {
+      "name": "Drowzee",
+      "index": "#096",
+      "stage": 1,
+      "types": [
+        "Psychic"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/96.png",
+      "isSubject": false
+    },
+    {
+      "name": "Hypno",
+      "index": "#097",
+      "stage": 2,
+      "evolvesFrom": "Drowzee",
+      "method": "Level Up, level 26",
+      "types": [
+        "Psychic"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/97.png",
+      "isSubject": true
+    }
+  ],
+  "varieties": [],
+  "lore": [],
+  "tiers": {
+    "official": [
+      "name",
+      "index",
+      "number",
+      "category",
+      "generation",
+      "isLegendary",
+      "isMythical",
+      "types",
+      "heightMeters",
+      "weightKg",
+      "pokedexEntries",
+      "evolutionChain[].name",
+      "evolutionChain[].index",
+      "evolutionChain[].types",
+      "evolutionChain[].stage",
+      "varieties[].types",
+      "varieties[].heightMeters",
+      "varieties[].weightKg"
+    ],
+    "trusted_secondary": [
+      "evolutionChain[].method",
+      "evolutionChain[].evolvesFrom",
+      "varieties[].name"
+    ],
+    "community": [
+      "lore"
+    ]
+  },
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Hypno",
+      "url": "https://www.pokemon.com/us/pokedex/hypno",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Hypno",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Hypno_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Hypno",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/97",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

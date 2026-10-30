@@ -1,0 +1,167 @@
+{
+  "episodeId": "exeggutor-103",
+  "createdAt": "2026-10-29T21:00:14.356Z",
+  "chosen": {
+    "id": "three-way-gridlock",
+    "premise": "If Exeggutor’s three heads choose different directions, their conflicting wills make the whole Pokémon unable to move.",
+    "hook": "Three minds can make Exeggutor completely freeze.",
+    "archetype": "mechanic",
+    "evidence": [
+      "pokedexEntries[14].text"
+    ],
+    "visualIdea": "Put arrows over the three heads pointing different ways as Exeggutor’s body locks in place.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 5,
+      "specificity": 5,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 25,
+    "note": "A highly distinctive behavioral rule with direct Pokédex support and an immediately readable visual conflict."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "three-way-gridlock",
+          "premise": "If Exeggutor’s three heads choose different directions, their conflicting wills make the whole Pokémon unable to move.",
+          "hook": "Three minds can make Exeggutor completely freeze.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[14].text"
+          ],
+          "visualIdea": "Put arrows over the three heads pointing different ways as Exeggutor’s body locks in place.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 25,
+          "note": "A highly distinctive behavioral rule with direct Pokédex support and an immediately readable visual conflict."
+        },
+        {
+          "id": "head-becomes-exeggcute",
+          "premise": "When one of Exeggutor’s heads drops off, it continues life as an Exeggcute cluster.",
+          "hook": "Exeggutor can literally lose a head—and create its pre-evolution.",
+          "archetype": "transformation",
+          "evidence": [
+            "pokedexEntries[0].text",
+            "pokedexEntries[11].text",
+            "evolutionChain[0].name",
+            "evolutionChain[1].name"
+          ],
+          "visualIdea": "Show Exeggutor shedding one head, which transitions into a cluster of Exeggcute.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 24,
+          "note": "Exceptionally specific and bizarre; the Pokédex supports the head becoming Exeggcute, though the wording is framed as something that is said to happen rather than a guaranteed life cycle."
+        },
+        {
+          "id": "sunlight-overgrowth",
+          "premise": "Strong sunlight makes Exeggutor’s heads grow larger until an oversized head can fall off and become Exeggcute.",
+          "hook": "For Exeggutor, too much sunlight can make its head fall off.",
+          "archetype": "transformation",
+          "evidence": [
+            "pokedexEntries[5].text",
+            "pokedexEntries[9].text"
+          ],
+          "visualIdea": "Animate the heads swelling under bright sunlight, then one popping off and becoming Exeggcute.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 24,
+          "note": "Strong visual escalation, but it combines separate entries and slightly overstates the causal chain by implying that sunlight directly makes a head fall off."
+        },
+        {
+          "id": "alola-scale-shift",
+          "premise": "Alolan Exeggutor changes from 2 meters and 120 kilograms to 10.9 meters and 415.6 kilograms—and gains Dragon typing.",
+          "hook": "Exeggutor has a regional form that is over five times taller.",
+          "archetype": "comparison",
+          "evidence": [
+            "heightMeters",
+            "weightKg",
+            "types",
+            "varieties[0].name",
+            "varieties[0].types",
+            "varieties[0].heightMeters",
+            "varieties[0].weightKg"
+          ],
+          "visualIdea": "Place standard and Alolan Exeggutor side by side with height, weight, and type changes animated on screen.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 24,
+          "note": "Excellent numerical comparison with strong visual proof; the regional-form transformation is familiar to many fans, reducing surprise slightly."
+        },
+        {
+          "id": "triple-psychic-blast",
+          "premise": "Exeggutor’s three heads each fire psychokinetic energy, tripling its psychic power when they attack together.",
+          "hook": "Exeggutor’s secret weapon is three psychic attacks at once.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[13].text",
+            "types[1]"
+          ],
+          "visualIdea": "Three separate psychic beams merge into one oversized blast labeled “tripled power.”",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 23,
+          "note": "Clear and well supported, but the psychic-power premise is less inherently surprising than Exeggutor’s head-shedding biology."
+        },
+        {
+          "id": "independent-but-friendly",
+          "premise": "Exeggutor’s heads think independently and can be noisy, yet they use telepathy to reach joint decisions without squabbling.",
+          "hook": "Three independent minds somehow run one friendly Pokémon.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[1].text",
+            "pokedexEntries[2].text",
+            "pokedexEntries[11].text",
+            "pokedexEntries[16].text"
+          ],
+          "visualIdea": "Give each head a different thought bubble, then connect all three with telepathic lines to one decision.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 3,
+            "visual": 4,
+            "support": 5
+          },
+          "total": 20,
+          "note": "Supported by several entries and contains a fun contradiction, but it is more of a personality profile than one sharply defined rule."
+        }
+      ],
+      "rejected": [],
+      "request": "None needed; the chosen angle is strong. A stronger alternative would need an equally strange, Pokémon-specific biological rule with direct Pokédex support and a clear transformation or on-screen payoff."
+    }
+  ]
+}

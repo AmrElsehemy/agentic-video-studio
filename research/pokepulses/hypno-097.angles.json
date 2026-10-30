@@ -1,0 +1,164 @@
+{
+  "episodeId": "hypno-097",
+  "createdAt": "2026-10-29T20:42:45.099Z",
+  "chosen": {
+    "id": "dream-predator",
+    "premise": "When hungry, Hypno puts humans to sleep, tastes their dreams, and carries away anyone having a good one.",
+    "hook": "Hypno doesn’t just make you dream—it chooses the best dreams to steal.",
+    "archetype": "mystery",
+    "evidence": [
+      "pokedexEntries[2].text",
+      "pokedexEntries[11].text"
+    ],
+    "visualIdea": "Clues appear in sequence: hunger, a sleeping person, dream bubbles, then a glowing good dream carried away.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 5,
+      "specificity": 5,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 25,
+    "note": "Distinctly Hypno: it targets sleepers, samples dreams, and carries away people having good dreams. The escalating sequence creates an unusually strong mystery and visual payoff."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "dream-predator",
+          "premise": "When hungry, Hypno puts humans to sleep, tastes their dreams, and carries away anyone having a good one.",
+          "hook": "Hypno doesn’t just make you dream—it chooses the best dreams to steal.",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[2].text",
+            "pokedexEntries[11].text"
+          ],
+          "visualIdea": "Clues appear in sequence: hunger, a sleeping person, dream bubbles, then a glowing good dream carried away.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 25,
+          "note": "Distinctly Hypno: it targets sleepers, samples dreams, and carries away people having good dreams. The escalating sequence creates an unusually strong mystery and visual payoff."
+        },
+        {
+          "id": "three-second-sleep",
+          "premise": "Hypno’s pendulum can put even someone who just woke up to sleep in three seconds.",
+          "hook": "Hypno can put you back to sleep in just three seconds.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[8].text",
+            "pokedexEntries[3].text"
+          ],
+          "visualIdea": "A three-second countdown plays as Hypno’s pendulum swings, then the scene instantly fades into sleep.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 23,
+          "note": "A precise, highly visual claim directly stated in the Diamond entry; slightly less unique because other hypnosis-based Pokémon could support a similar sleep hook."
+        },
+        {
+          "id": "longer-swing-longer-hypnosis",
+          "premise": "Hypno’s hypnosis lasts longer when it swings its pendulum for longer.",
+          "hook": "With Hypno, every extra swing makes the sleep last longer.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[4].text",
+            "pokedexEntries[3].text"
+          ],
+          "visualIdea": "A pendulum timer stretches from a short swing into a long arc while a hypnosis effect bar keeps growing.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 4,
+            "support": 5
+          },
+          "total": 23,
+          "note": "A Hypno-specific rule with strong textual support, though the effect is harder to depict convincingly than the three-second claim."
+        },
+        {
+          "id": "savior-or-threat",
+          "premise": "The same Hypno described as extremely dangerous is also called a savior by people needing sleep.",
+          "hook": "Hypno is both a dangerous predator and someone’s sleep specialist.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[10].text",
+            "pokedexEntries[13].text",
+            "pokedexEntries[11].text"
+          ],
+          "visualIdea": "Split-screen Hypno: one side shows danger warnings, the other shows a hospital patient peacefully falling asleep.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 22,
+          "note": "The danger-versus-medical-helper contrast is well supported and visually clear, but it is a broader profile angle rather than one sharply quantified fact."
+        },
+        {
+          "id": "komala-target",
+          "premise": "In Alola, Hypno’s main target is Komala, yet it rarely harms people.",
+          "hook": "Hypno has a main target—and in Alola, it usually isn’t humans.",
+          "archetype": "comparison",
+          "evidence": [
+            "pokedexEntries[12].text",
+            "pokedexEntries[11].text",
+            "pokedexEntries[2].text"
+          ],
+          "visualIdea": "A target board shifts from human silhouettes to Komala while a caption highlights “rarely harms people.”",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 4,
+            "visual": 5,
+            "support": 3
+          },
+          "total": 22,
+          "note": "The Komala detail is surprising and visually distinctive, but the cited entries do not fully establish why Komala is the main target or reconcile that claim with Hypno’s broader dream-predator behavior."
+        },
+        {
+          "id": "drowzee-to-hypno",
+          "premise": "Drowzee becomes Hypno by leveling up at exactly level 26, gaining a pendulum-wielding second stage.",
+          "hook": "At level 26, Drowzee turns into the Pokémon with the pendulum.",
+          "archetype": "transformation",
+          "evidence": [
+            "evolutionChain[0].name",
+            "evolutionChain[1].evolvesFrom",
+            "evolutionChain[1].method",
+            "evolutionChain[1].stage"
+          ],
+          "visualIdea": "A level counter reaches 26 as Drowzee flashes into Hypno, with the pendulum appearing in its hand.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 3,
+            "surprise": 3,
+            "specificity": 5,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 20,
+          "note": "The level-26 transformation is concrete and easy to animate, but evolution-at-a-level is a common Pokémon angle and the evolution method is supported by secondary rather than official data."
+        }
+      ],
+      "rejected": [],
+      "request": "N/A—the selected angle is strong enough. A stronger alternative would need an equally specific Hypno-only rule or contradiction with direct Pokédex support and a clear visual escalation."
+    }
+  ]
+}

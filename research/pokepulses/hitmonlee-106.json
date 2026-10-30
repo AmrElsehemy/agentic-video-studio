@@ -1,0 +1,169 @@
+{
+  "schemaVersion": 1,
+  "id": "hitmonlee-106",
+  "number": 106,
+  "index": "#106",
+  "name": "Hitmonlee",
+  "slug": "hitmonlee",
+  "category": "Kicking Pokémon",
+  "generation": "Generation I",
+  "isLegendary": false,
+  "isMythical": false,
+  "types": [
+    "Fighting"
+  ],
+  "heightMeters": 1.5,
+  "weightKg": 49.8,
+  "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/106.png",
+  "pokedexEntries": [
+    {
+      "game": "Red",
+      "text": "When in a hurry, its legs lengthen progressively. It runs smoothly with extra long, loping strides."
+    },
+    {
+      "game": "Yellow",
+      "text": "When kicking, the sole of its foot turns as hard as a diamond on im pact and destroys its enemy."
+    },
+    {
+      "game": "Gold",
+      "text": "This amazing POKé MON has an awesome sense of balance. It can kick in succession from any position."
+    },
+    {
+      "game": "Silver",
+      "text": "If it starts kick ing repeatedly, both legs will stretch even long er to strike a fleeing foe."
+    },
+    {
+      "game": "Crystal",
+      "text": "It is also called the Kick Master. It uses its elastic legs to execute every known kick."
+    },
+    {
+      "game": "Ruby",
+      "text": "HITMONLEE’s legs freely contract and stretch. Using these springlike legs, it bowls over foes with devastating kicks. After battle, it rubs down its legs and loosens the muscles to overcome fatigue."
+    },
+    {
+      "game": "Emerald",
+      "text": "Its legs freely stretch and contract. Using these springlike limbs, it bowls over foes with devastating kicks. After battle, it rubs down its tired legs."
+    },
+    {
+      "game": "Firered",
+      "text": "The legs freely contract and stretch. The stretchy legs allow it to hit a distant foe with a rising kick."
+    },
+    {
+      "game": "Leafgreen",
+      "text": "When in a hurry, its legs lengthen progressively. It runs smoothly with extra-long, loping strides."
+    },
+    {
+      "game": "Diamond",
+      "text": "Its legs can stretch double. First-time foes are startled by its extensible reach."
+    },
+    {
+      "game": "Heartgold",
+      "text": "This amazing Pokémon has an awesome sense of balance. It can kick in succession from any position."
+    },
+    {
+      "game": "Soulsilver",
+      "text": "If it starts kicking repeatedly, both legs will stretch even longer to strike a fleeing foe."
+    },
+    {
+      "game": "Lets Go Pikachu",
+      "text": "When kicking, the sole of its foot turns as hard as a diamond on impact and destroys its enemy."
+    }
+  ],
+  "evolutionChain": [
+    {
+      "name": "Tyrogue",
+      "index": "#236",
+      "stage": 1,
+      "types": [
+        "Fighting"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/236.png",
+      "isSubject": false
+    },
+    {
+      "name": "Hitmonlee",
+      "index": "#106",
+      "stage": 2,
+      "evolvesFrom": "Tyrogue",
+      "method": "Level Up, level 20",
+      "types": [
+        "Fighting"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/106.png",
+      "isSubject": true
+    },
+    {
+      "name": "Hitmonchan",
+      "index": "#107",
+      "stage": 2,
+      "evolvesFrom": "Tyrogue",
+      "method": "Level Up, level 20",
+      "types": [
+        "Fighting"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/107.png",
+      "isSubject": false
+    },
+    {
+      "name": "Hitmontop",
+      "index": "#237",
+      "stage": 2,
+      "evolvesFrom": "Tyrogue",
+      "method": "Level Up, level 20",
+      "types": [
+        "Fighting"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/237.png",
+      "isSubject": false
+    }
+  ],
+  "varieties": [],
+  "lore": [],
+  "tiers": {
+    "official": [
+      "name",
+      "index",
+      "number",
+      "category",
+      "generation",
+      "isLegendary",
+      "isMythical",
+      "types",
+      "heightMeters",
+      "weightKg",
+      "pokedexEntries",
+      "evolutionChain[].name",
+      "evolutionChain[].index",
+      "evolutionChain[].types",
+      "evolutionChain[].stage",
+      "varieties[].types",
+      "varieties[].heightMeters",
+      "varieties[].weightKg"
+    ],
+    "trusted_secondary": [
+      "evolutionChain[].method",
+      "evolutionChain[].evolvesFrom",
+      "varieties[].name"
+    ],
+    "community": [
+      "lore"
+    ]
+  },
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Hitmonlee",
+      "url": "https://www.pokemon.com/us/pokedex/hitmonlee",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Hitmonlee",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Hitmonlee_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Hitmonlee",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/106",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

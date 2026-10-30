@@ -1,0 +1,145 @@
+{
+  "episodeId": "gastly-092",
+  "createdAt": "2026-10-29T20:28:55.948Z",
+  "chosen": {
+    "id": "two-second-elephant",
+    "premise": "Gastly weighs 0.1 kg yet can topple an Indian elephant by enveloping it in two seconds.",
+    "hook": "This 0.1-kilogram Pokémon can drop an elephant in two seconds.",
+    "archetype": "comparison",
+    "evidence": [
+      "weightKg",
+      "pokedexEntries[7].text"
+    ],
+    "visualIdea": "Show a tiny Gastly beside an elephant, then a two-second countdown as gas surrounds it.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 5,
+      "specificity": 5,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 25,
+    "note": "Extremely specific and uniquely Gastly: a 0.1 kg gas Pokémon can topple an Indian elephant in two seconds. The weight and Pokédex claim directly support the hook."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "two-second-elephant",
+          "premise": "Gastly weighs 0.1 kg yet can topple an Indian elephant by enveloping it in two seconds.",
+          "hook": "This 0.1-kilogram Pokémon can drop an elephant in two seconds.",
+          "archetype": "comparison",
+          "evidence": [
+            "weightKg",
+            "pokedexEntries[7].text"
+          ],
+          "visualIdea": "Show a tiny Gastly beside an elephant, then a two-second countdown as gas surrounds it.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 25,
+          "note": "Extremely specific and uniquely Gastly: a 0.1 kg gas Pokémon can topple an Indian elephant in two seconds. The weight and Pokédex claim directly support the hook."
+        },
+        {
+          "id": "ninety-five-percent-gas",
+          "premise": "Gastly’s body is 95% gas, leaving only 5%—said to be souls of people who died from gas.",
+          "hook": "What is the other 5% of Gastly made from?",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[8].text",
+            "pokedexEntries[15].text"
+          ],
+          "visualIdea": "Build Gastly as a 95% gas circle, then reveal the remaining 5% as ghostly silhouettes.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 25,
+          "note": "A strong, eerie contradiction with an excellent visual reveal. Both the 95% figure and the claimed soul-based remaining 5% are directly documented, though the soul explanation should be framed as lore rather than fact."
+        },
+        {
+          "id": "wind-weakness",
+          "premise": "Gastly can sneak anywhere as gas, but a strong gust makes its body quickly dwindle away.",
+          "hook": "Gastly can enter anywhere—unless someone turns on a fan.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[2].text",
+            "pokedexEntries[6].text"
+          ],
+          "visualIdea": "Animate Gastly slipping through a doorway before a gust scatters its body and sends it under house eaves.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 22,
+          "note": "The infiltration-versus-wind rule is well supported and easy to animate, but the fan comparison slightly modernizes and simplifies the Pokédex wording about strong wind."
+        },
+        {
+          "id": "invisible-sweet-smell",
+          "premise": "Gastly is barely visible, but its presence gives itself away through a faint sweet smell.",
+          "hook": "You can’t see Gastly—but you might smell it coming.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[0].text",
+            "pokedexEntries[13].text"
+          ],
+          "visualIdea": "Show an empty hallway with a faint sweet-smell trail revealing Gastly’s hidden position.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 4,
+            "support": 4
+          },
+          "total": 20,
+          "note": "The sensory contradiction is distinctive and supported by separate entries, but 'smell it coming' is an inferred dramatic hook rather than an explicit ability or mechanic."
+        },
+        {
+          "id": "trade-to-gengar",
+          "premise": "Gastly reaches Haunter at level 25, but becoming Gengar requires trading Haunter away.",
+          "hook": "Gastly’s final evolution requires you to give it to someone else.",
+          "archetype": "transformation",
+          "evidence": [
+            "evolutionChain[1].method",
+            "evolutionChain[2].method",
+            "evolutionChain[2].evolvesFrom"
+          ],
+          "visualIdea": "Show Gastly leveling into Haunter, then a trade window transforming Haunter into Gengar.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 3,
+            "surprise": 3,
+            "specificity": 4,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 19,
+          "note": "Clear and highly visual, but trade evolutions are familiar to Pokémon fans and the evolution-method evidence comes from secondary research rather than the Pokédex entries."
+        }
+      ],
+      "rejected": [
+        {
+          "id": "gas-that-suffocates",
+          "reason": "unknown story shape \"contradiction\""
+        }
+      ],
+      "request": "The chosen angle is strong enough. An even stronger alternative would need a comparably precise, source-backed contradiction or rule with a striking scale comparison and an instantly understandable visual payoff."
+    }
+  ]
+}

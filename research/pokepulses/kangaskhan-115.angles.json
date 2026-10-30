@@ -1,0 +1,163 @@
+{
+  "episodeId": "kangaskhan-115",
+  "createdAt": "2026-10-29T21:38:18.975Z",
+  "chosen": {
+    "id": "standing-sleep",
+    "premise": "Kangaskhan always sleeps standing up so it will not crush the baby in its pouch.",
+    "hook": "Kangaskhan cannot lie down to sleep.",
+    "archetype": "mechanic",
+    "evidence": [
+      "pokedexEntries[4].text"
+    ],
+    "visualIdea": "Show Kangaskhan standing through a night cycle while the sleeping baby remains in the pouch.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 5,
+      "specificity": 5,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 25,
+    "note": "A highly specific, counterintuitive behavior stated directly in the Pokédex and easy to dramatize visually."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "standing-sleep",
+          "premise": "Kangaskhan always sleeps standing up so it will not crush the baby in its pouch.",
+          "hook": "Kangaskhan cannot lie down to sleep.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[4].text"
+          ],
+          "visualIdea": "Show Kangaskhan standing through a night cycle while the sleeping baby remains in the pouch.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 25,
+          "note": "A highly specific, counterintuitive behavior stated directly in the Pokédex and easy to dramatize visually."
+        },
+        {
+          "id": "playing-is-dangerous",
+          "premise": "A Kangaskhan baby playing alone is a warning: its nearby parent may become violently enraged if approached.",
+          "hook": "If you see this baby playing alone, do not catch it.",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[5].text",
+            "pokedexEntries[6].text",
+            "pokedexEntries[13].text"
+          ],
+          "visualIdea": "A harmless-looking baby plays alone as warning markers reveal the unseen parent watching nearby.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 23,
+          "note": "Strong contradiction between harmless play and hidden danger, supported across multiple entries; slightly less concrete because the parent’s exact location is not specified."
+        },
+        {
+          "id": "the-only-cry",
+          "premise": "When Kangaskhan’s child leaves home after roughly three years, it is the only time the mother cries wildly.",
+          "hook": "Kangaskhan has one known reason to cry.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[11].text",
+            "pokedexEntries[0].text"
+          ],
+          "visualIdea": "The pouch empties after a three-year counter, then the mother’s cry fills the screen.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 4,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 23,
+          "note": "Emotionally powerful and unusual, but “only known reason” is a cautious interpretation of the entry saying this is the only time it is heard to cry wildly."
+        },
+        {
+          "id": "mega-weight-shift",
+          "premise": "Mega Kangaskhan is the same height but weighs 20 kilograms more than Kangaskhan.",
+          "hook": "Mega Kangaskhan gets heavier without getting taller.",
+          "archetype": "comparison",
+          "evidence": [
+            "heightMeters",
+            "weightKg",
+            "varieties[0].heightMeters",
+            "varieties[0].weightKg",
+            "varieties[0].name"
+          ],
+          "visualIdea": "Place both forms on identical 2.2-meter height lines while the weight readout jumps from 80 to 100 kilograms.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 23,
+          "note": "A clean, verifiable 20-kilogram comparison with excellent graphics potential, but it reveals less about Kangaskhan’s defining identity than the behavioral angles."
+        },
+        {
+          "id": "three-year-pouch",
+          "premise": "Kangaskhan’s infant can stay in its mother’s pouch until it is three years old.",
+          "hook": "This Pokémon’s baby may not leave its pouch for three years.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[0].text",
+            "pokedexEntries[8].text"
+          ],
+          "visualIdea": "A three-year timeline shows the infant remaining inside the pouch until the final reveal.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 4,
+            "support": 4
+          },
+          "total": 21,
+          "note": "Distinctive Kangaskhan biology with a strong timeline visual, but “until three years old” describes rare excursions rather than proving the baby continuously remains inside."
+        },
+        {
+          "id": "protective-to-death",
+          "premise": "Kangaskhan will keep fighting even when badly wounded—and may brave death—to protect its offspring.",
+          "hook": "Kangaskhan will not stop fighting, even when badly wounded.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[3].text",
+            "pokedexEntries[10].text",
+            "pokedexEntries[12].text"
+          ],
+          "visualIdea": "A damage meter rises toward empty while Kangaskhan continues standing between danger and its baby.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 4,
+            "support": 5
+          },
+          "total": 21,
+          "note": "Well supported and dramatic, though unwavering parental protection is a broader Pokémon trope and therefore less unique."
+        }
+      ],
+      "rejected": [],
+      "request": "No stronger angle is required; the chosen angle has the best combination of uniqueness, surprise, specificity, visual clarity, and direct support."
+    }
+  ]
+}

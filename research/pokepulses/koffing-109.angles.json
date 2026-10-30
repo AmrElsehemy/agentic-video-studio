@@ -1,0 +1,163 @@
+{
+  "episodeId": "koffing-109",
+  "createdAt": "2026-10-29T21:20:25.847Z",
+  "chosen": {
+    "id": "agitation-overinflate",
+    "premise": "When agitated, Koffing raises its gas toxicity, jets poison from its whole body, and can overinflate before exploding.",
+    "hook": "Anger gives Koffing three ways to become more dangerous.",
+    "archetype": "transformation",
+    "evidence": [
+      "pokedexEntries[5].text"
+    ],
+    "visualIdea": "Koffing shifts through three escalating states: darker gas, body-wide jets, then extreme inflation.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 4,
+      "specificity": 5,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 24,
+    "note": "One entry supplies a strong escalation sequence: higher toxicity, body-wide jets, overinflation, and possible explosion. It is specific, character-defining, and easy to animate."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "agitation-overinflate",
+          "premise": "When agitated, Koffing raises its gas toxicity, jets poison from its whole body, and can overinflate before exploding.",
+          "hook": "Anger gives Koffing three ways to become more dangerous.",
+          "archetype": "transformation",
+          "evidence": [
+            "pokedexEntries[5].text"
+          ],
+          "visualIdea": "Koffing shifts through three escalating states: darker gas, body-wide jets, then extreme inflation.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 24,
+          "note": "One entry supplies a strong escalation sequence: higher toxicity, body-wide jets, overinflation, and possible explosion. It is specific, character-defining, and easy to animate."
+        },
+        {
+          "id": "one-kilo-airship",
+          "premise": "Koffing weighs only 1 kilogram, yet lighter-than-air poisonous gases keep it slightly airborne.",
+          "hook": "Koffing weighs one kilogram—but it still floats.",
+          "archetype": "comparison",
+          "evidence": [
+            "weightKg",
+            "pokedexEntries[3].text",
+            "pokedexEntries[9].text"
+          ],
+          "visualIdea": "A 1 kg weight drops on a scale while Koffing rises beside it, lifted by animated gas arrows.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 23,
+          "note": "The one-kilogram-versus-floating contradiction is exceptionally clear and fully supported, though it explains buoyancy more than it reveals an unusual behavior."
+        },
+        {
+          "id": "garbage-gas-reaction",
+          "premise": "Koffing mixes toxins with raw garbage, and higher temperatures make the resulting poison gas more powerful.",
+          "hook": "Koffing doesn’t just store poison—it manufactures it from trash.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[6].text",
+            "pokedexEntries[12].text"
+          ],
+          "visualIdea": "Trash and toxic droplets enter Koffing, swirl into a reaction, and emerge as a larger poison-gas cloud.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 4,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 23,
+          "note": "Turning raw garbage into poison gas is distinctly Koffing and highly filmable. The research supports the reaction and increased gas production, but “more powerful” slightly overstates the temperature detail."
+        },
+        {
+          "id": "see-the-poison",
+          "premise": "Koffing’s thin body makes its swirling toxic gas visible, but getting close can trigger coughing and tears.",
+          "hook": "Koffing lets you see its poison—if you can stand being near it.",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[2].text",
+            "pokedexEntries[4].text",
+            "pokedexEntries[8].text"
+          ],
+          "visualIdea": "The camera zooms through Koffing’s thin skin to reveal swirling gas, then cuts to coughs and watering eyes.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 23,
+          "note": "The contradiction of visibly inspecting toxic gas while suffering immediate symptoms is distinctive and well supported. It is slightly less mechanically sharp than the escalation angle."
+        },
+        {
+          "id": "heat-bomb",
+          "premise": "Koffing’s internal gases expand in hot places, turning heat into a sudden explosion risk.",
+          "hook": "Why is a hot day basically a countdown for Koffing?",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[1].text",
+            "pokedexEntries[6].text"
+          ],
+          "visualIdea": "A temperature gauge rises inside Koffing as its body expands, ending in a sudden warning-free blast.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 3,
+            "specificity": 4,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 20,
+          "note": "The heat-triggered explosion is concrete and highly visual, but the core idea is fairly close to the broader “Koffing can explode” premise."
+        },
+        {
+          "id": "level-thirty-five",
+          "premise": "Koffing remains a single Poison-type until a level-35 level-up transforms it into Weezing.",
+          "hook": "Koffing’s two-body evolution happens at exactly level 35.",
+          "archetype": "transformation",
+          "evidence": [
+            "evolutionChain[0].name",
+            "evolutionChain[0].types",
+            "evolutionChain[1].name",
+            "evolutionChain[1].evolvesFrom",
+            "evolutionChain[1].method",
+            "evolutionChain[1].types"
+          ],
+          "visualIdea": "A level counter climbs from Koffing to 35, then the single Pokémon flashes into Weezing.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 3,
+            "surprise": 3,
+            "specificity": 5,
+            "visual": 4,
+            "support": 4
+          },
+          "total": 19,
+          "note": "Level 35 is precise and easy to show, but evolution-at-a-level is a common Pokémon angle and the method comes from secondary research rather than the listed Pokédex entries."
+        }
+      ],
+      "rejected": []
+    }
+  ]
+}

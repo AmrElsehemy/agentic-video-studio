@@ -1,0 +1,137 @@
+{
+  "schemaVersion": 1,
+  "id": "krabby-098",
+  "number": 98,
+  "index": "#098",
+  "name": "Krabby",
+  "slug": "krabby",
+  "category": "River Crab Pokémon",
+  "generation": "Generation I",
+  "isLegendary": false,
+  "isMythical": false,
+  "types": [
+    "Water"
+  ],
+  "heightMeters": 0.4,
+  "weightKg": 6.5,
+  "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/98.png",
+  "pokedexEntries": [
+    {
+      "game": "Red",
+      "text": "Its pincers are not only powerful weapons, they are used for balance when walking sideways."
+    },
+    {
+      "game": "Yellow",
+      "text": "Its pincers are superb weapons. They sometimes break off during battle, but they grow back fast."
+    },
+    {
+      "game": "Gold",
+      "text": "If it senses dan ger approaching, it cloaks itself with bubbles from its mouth so it will look bigger."
+    },
+    {
+      "game": "Silver",
+      "text": "The pincers break off easily. If it loses a pincer, it somehow becomes incapable of walk ing sideways."
+    },
+    {
+      "game": "Crystal",
+      "text": "If it is unable to find food, it will absorb nutrients by swallowing a mouthful of sand."
+    },
+    {
+      "game": "Ruby",
+      "text": "KRABBY live on beaches, burrowed inside holes dug into the sand. On sandy beaches with little in the way of food, these POKéMON can be seen squabbling with each other over territory."
+    },
+    {
+      "game": "Emerald",
+      "text": "KRABBY live in holes dug into beaches. On sandy shores with little in the way of food, they can be seen squabbling with each other over territory."
+    },
+    {
+      "game": "Firered",
+      "text": "It can be found near the sea. The large pincers grow back if they are torn out of their sockets."
+    },
+    {
+      "game": "Diamond",
+      "text": "It lives in burrows dug on sandy beaches. Its pincers fully grow back if they are broken in battle."
+    },
+    {
+      "game": "Heartgold",
+      "text": "If it senses danger approaching, it cloaks itself with bubbles from its mouth so it will look bigger."
+    },
+    {
+      "game": "Soulsilver",
+      "text": "The pincers break off easily. If it loses a pincer, it somehow becomes incapable of walking sideways."
+    }
+  ],
+  "evolutionChain": [
+    {
+      "name": "Krabby",
+      "index": "#098",
+      "stage": 1,
+      "types": [
+        "Water"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/98.png",
+      "isSubject": true
+    },
+    {
+      "name": "Kingler",
+      "index": "#099",
+      "stage": 2,
+      "evolvesFrom": "Krabby",
+      "method": "Level Up, level 28",
+      "types": [
+        "Water"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/99.png",
+      "isSubject": false
+    }
+  ],
+  "varieties": [],
+  "lore": [],
+  "tiers": {
+    "official": [
+      "name",
+      "index",
+      "number",
+      "category",
+      "generation",
+      "isLegendary",
+      "isMythical",
+      "types",
+      "heightMeters",
+      "weightKg",
+      "pokedexEntries",
+      "evolutionChain[].name",
+      "evolutionChain[].index",
+      "evolutionChain[].types",
+      "evolutionChain[].stage",
+      "varieties[].types",
+      "varieties[].heightMeters",
+      "varieties[].weightKg"
+    ],
+    "trusted_secondary": [
+      "evolutionChain[].method",
+      "evolutionChain[].evolvesFrom",
+      "varieties[].name"
+    ],
+    "community": [
+      "lore"
+    ]
+  },
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Krabby",
+      "url": "https://www.pokemon.com/us/pokedex/krabby",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Krabby",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Krabby_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Krabby",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/98",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

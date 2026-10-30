@@ -1,0 +1,172 @@
+{
+  "episodeId": "chansey-113",
+  "createdAt": "2026-10-29T21:32:23.625Z",
+  "chosen": {
+    "id": "egg-powered-escape",
+    "premise": "Chansey was once slow, but threats to its eggs drove the species to become exceptionally fast at fleeing.",
+    "hook": "Chansey became faster because everyone wanted its egg.",
+    "archetype": "transformation",
+    "evidence": [
+      "pokedexEntries[16].text",
+      "pokedexEntries[17].text",
+      "pokedexEntries[14].text"
+    ],
+    "visualIdea": "Show a slow Chansey protecting its egg, then transform it into a speed-focused escape sequence.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 5,
+      "specificity": 4,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 24,
+    "note": "A highly Chansey-specific evolutionary contradiction: a gentle egg-carrier became fast because others targeted the egg. Multiple entries directly support the premise and the transformation is easy to visualize."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "egg-powered-escape",
+          "premise": "Chansey was once slow, but threats to its eggs drove the species to become exceptionally fast at fleeing.",
+          "hook": "Chansey became faster because everyone wanted its egg.",
+          "archetype": "transformation",
+          "evidence": [
+            "pokedexEntries[16].text",
+            "pokedexEntries[17].text",
+            "pokedexEntries[14].text"
+          ],
+          "visualIdea": "Show a slow Chansey protecting its egg, then transform it into a speed-focused escape sequence.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 24,
+          "note": "A highly Chansey-specific evolutionary contradiction: a gentle egg-carrier became fast because others targeted the egg. Multiple entries directly support the premise and the transformation is easy to visualize."
+        },
+        {
+          "id": "overharvested-and-dwindling",
+          "premise": "People overharvested Chansey’s eggs, and the species’ population remains very small as a result.",
+          "hook": "Chansey is rare because people wanted its eggs too much.",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[16].text",
+            "pokedexEntries[4].text",
+            "pokedexEntries[3].text",
+            "pokedexEntries[14].text"
+          ],
+          "visualIdea": "Follow clues from missing eggs to fleeing Chansey, ending on a shrinking population graphic.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 24,
+          "note": "A strong ecological explanation for Chansey's rarity with a clear causal chain. The direct overharvesting claim is powerful but comes from one entry, so the support is not quite airtight."
+        },
+        {
+          "id": "eggs-with-a-moral-filter",
+          "premise": "Chansey shares its nutritious eggs with the injured, but refuses to share with anyone who has evil in their heart.",
+          "hook": "Chansey’s eggs come with a morality test.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[1].text",
+            "pokedexEntries[10].text",
+            "pokedexEntries[11].text",
+            "pokedexEntries[18].text"
+          ],
+          "visualIdea": "Show Chansey offering an egg to an injured Pokémon, then pulling it back from a dark-hearted character.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 4,
+            "support": 4
+          },
+          "total": 22,
+          "note": "The evil-heart restriction is a distinctive concrete rule, but it appears in only one entry and is not reinforced consistently across the research. Strong hook, somewhat limited support."
+        },
+        {
+          "id": "the-lucky-rarity-trap",
+          "premise": "Catching Chansey is considered lucky, but its rarity and speed make finding and capturing one unusually difficult.",
+          "hook": "Chansey brings luck—but first, you have to catch it.",
+          "archetype": "comparison",
+          "evidence": [
+            "pokedexEntries[0].text",
+            "pokedexEntries[3].text",
+            "pokedexEntries[14].text",
+            "pokedexEntries[13].text"
+          ],
+          "visualIdea": "Contrast a glowing lucky Chansey encounter with it instantly sprinting away and disappearing.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 3,
+            "surprise": 3,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 20,
+          "note": "The rarity-plus-speed combination is supported and visually clear, but the general 'rare Pokémon is hard to catch' structure is familiar and less uniquely compelling."
+        },
+        {
+          "id": "daily-egg-factory",
+          "premise": "Chansey lays several delicious, nutrient-rich eggs every day, making its belly egg a coveted food and ingredient.",
+          "hook": "Chansey’s belly egg is basically a daily luxury food supply.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[7].text",
+            "pokedexEntries[5].text",
+            "pokedexEntries[18].text",
+            "pokedexEntries[8].text"
+          ],
+          "visualIdea": "Animate a daily egg counter filling up, then cut to Pokémon eating eggs and a high-class dish.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 3,
+            "specificity": 4,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 20,
+          "note": "Several eggs per day and their culinary value are well supported, but 'daily luxury food supply' slightly overstates the evidence and risks framing Chansey as a production resource."
+        },
+        {
+          "id": "friendship-not-strength",
+          "premise": "Chansey evolves into Blissey through friendship at 160, while becoming Chansey requires an Oval Stone during the day.",
+          "hook": "Chansey’s next evolution is powered by friendship—not a battle.",
+          "archetype": "mechanic",
+          "evidence": [
+            "evolutionChain[1].method",
+            "evolutionChain[2].method",
+            "evolutionChain[0].name",
+            "evolutionChain[2].name"
+          ],
+          "visualIdea": "Show Chansey gaining friendship points to 160, then evolving into Blissey beside a daytime clock.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 3,
+            "surprise": 3,
+            "specificity": 5,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 20,
+          "note": "The evolution conditions are concrete and easy to show, but the friendship mechanic is familiar and the cited evolution methods come from secondary research rather than the Pokédex entries."
+        }
+      ],
+      "rejected": [],
+      "request": "The selected angle is strong enough. An even stronger alternative would need a similarly specific Chansey-only contradiction or causal reveal, supported by multiple direct entries rather than a single unusual Pokédex claim."
+    }
+  ]
+}

@@ -1,0 +1,168 @@
+{
+  "episodeId": "porygon-137",
+  "createdAt": "2026-10-30T05:38:41.825Z",
+  "chosen": {
+    "id": "uncopyable-code",
+    "premise": "Porygon consists entirely of programming code, yet its copy protection prevents it from being duplicated by copying.",
+    "hook": "How can a Pokémon made of code refuse to be copied?",
+    "archetype": "mystery",
+    "evidence": [
+      "pokedexEntries[0].text",
+      "pokedexEntries[6].text",
+      "pokedexEntries[14].text"
+    ],
+    "visualIdea": "Duplicate Porygon in a copy window; the clone glitches away while the original remains.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 5,
+      "specificity": 5,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 25,
+    "note": "A precise, uniquely Porygon contradiction: it is made of code but explicitly copy-protected. The cited entries directly support both halves and the failed-clone visual is excellent."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "uncopyable-code",
+          "premise": "Porygon consists entirely of programming code, yet its copy protection prevents it from being duplicated by copying.",
+          "hook": "How can a Pokémon made of code refuse to be copied?",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[0].text",
+            "pokedexEntries[6].text",
+            "pokedexEntries[14].text"
+          ],
+          "visualIdea": "Duplicate Porygon in a copy window; the clone glitches away while the original remains.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 25,
+          "note": "A precise, uniquely Porygon contradiction: it is made of code but explicitly copy-protected. The cited entries directly support both halves and the failed-clone visual is excellent."
+        },
+        {
+          "id": "trade-upgrade-dubious-disc",
+          "premise": "Porygon's two upgrades require two different trade evolutions: Up-Grade first, then Dubious Disc.",
+          "hook": "Porygon does not evolve once—it needs two separate trade upgrades.",
+          "archetype": "mechanic",
+          "evidence": [
+            "evolutionChain[1].method",
+            "evolutionChain[2].method",
+            "evolutionChain[1].name",
+            "evolutionChain[2].name"
+          ],
+          "visualIdea": "Show Porygon trading with Up-Grade into Porygon2, then trading with Dubious Disc into Porygon-Z.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 24,
+          "note": "A highly concrete and fully supported mechanic with a clear two-step visual progression. It is excellent for a gameplay-focused episode, though less of a lore mystery than the strongest candidate."
+        },
+        {
+          "id": "pokemon-as-program-data",
+          "premise": "Porygon can revert its entire body into program data, then enter cyberspace.",
+          "hook": "What if a Pokémon could turn completely into data?",
+          "archetype": "transformation",
+          "evidence": [
+            "pokedexEntries[0].text",
+            "pokedexEntries[6].text",
+            "pokedexEntries[15].text"
+          ],
+          "visualIdea": "Porygon pixelates into lines of code, streams through a computer, then reconstructs.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 23,
+          "note": "Highly specific to Porygon, with direct Pokédex support and an immediately visual transformation. The premise is compelling but relatively close to the expected concept of a digital Pokémon."
+        },
+        {
+          "id": "obsolete-space-dream",
+          "premise": "Porygon was built to explore space, but its cutting-edge technology is now obsolete—and it still has not gone.",
+          "hook": "Porygon was made for space, but its technology is already obsolete.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[17].text",
+            "pokedexEntries[18].text",
+            "pokedexEntries[19].text"
+          ],
+          "visualIdea": "Show a 20-year-old computer powering Porygon beside a space launch that never happens.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 4,
+            "visual": 5,
+            "support": 3
+          },
+          "total": 22,
+          "note": "The obsolete-technology contradiction is surprising and visually strong, but the evidence says scientists dreamed of space exploration rather than clearly stating Porygon was built for that purpose."
+        },
+        {
+          "id": "alive-without-breathing",
+          "premise": "Porygon has no discernible heartbeat and does not breathe, yet it functions normally and can enter any environment.",
+          "hook": "Porygon does not breathe—and somehow that is not a problem.",
+          "archetype": "comparison",
+          "evidence": [
+            "pokedexEntries[2].text",
+            "pokedexEntries[11].text",
+            "pokedexEntries[22].text"
+          ],
+          "visualIdea": "Compare a breathing Pokémon's vital signs with Porygon's flat monitor and active movements.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 4,
+            "support": 4
+          },
+          "total": 20,
+          "note": "Strongly supported by the Legends: Arceus entry and earlier notes about not breathing. However, the claim that it can function in any environment is framed as experimentation or expectation, not a demonstrated ability."
+        },
+        {
+          "id": "first-artificial-pokemon",
+          "premise": "Porygon is described as the world's first artificial Pokémon, created entirely through computer programming.",
+          "hook": "Before lab-made Pokémon were common, there was Porygon.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[8].text",
+            "pokedexEntries[9].text",
+            "pokedexEntries[20].text"
+          ],
+          "visualIdea": "A laboratory assembly sequence builds Porygon from code, ending with a first-ever stamp.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 3,
+            "specificity": 4,
+            "visual": 4,
+            "support": 4
+          },
+          "total": 19,
+          "note": "The first-artificial-Pokémon claim is supported, but the angle is mainly historical and familiar. The evidence supports computer programming, though 'entirely through computer programming' slightly compresses several descriptions."
+        }
+      ],
+      "rejected": [],
+      "request": "None; this angle is strong enough. A stronger alternative would need an equally specific Porygon-only contradiction with direct evidence and a clear visual payoff."
+    }
+  ]
+}

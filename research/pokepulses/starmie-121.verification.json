@@ -1,0 +1,516 @@
+{
+  "episodeId": "starmie-121",
+  "checkedAt": "2026-10-29T21:59:20.810Z",
+  "claims": [
+    {
+      "id": "c1",
+      "where": "title",
+      "text": "Starmie Broadcasts Into Outer Space",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text",
+        "pokedexEntries[9].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c2",
+      "where": "premise",
+      "text": "Starmie's glowing core sends mysterious signals into space, raising one unsettling question: who is listening?",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[9].text",
+        "pokedexEntries[12].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c3",
+      "where": "audiencePromise",
+      "text": "Follow Starmie's core from a valued sea gem to a possible message aimed at something beyond Earth.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[4].text",
+        "pokedexEntries[12].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c4",
+      "where": "openLoop",
+      "text": "What could Starmie's core be trying to reach in space?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c5",
+      "where": "payoff",
+      "text": "Starmie's core can be read two ways: a sea jewel that glows, or a possible message aimed beyond Earth.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[4].text",
+        "pokedexEntries[9].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c6",
+      "where": "scenes.unknown-receiver.headline",
+      "text": "THE RECEIVER IS UNKNOWN",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[12].text"
+      ],
+      "note": "The research says Starmie communicates with or sends signals to something, but does not explicitly state that the receiver is unknown.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c7",
+      "where": "scenes.unknown-receiver.narration",
+      "text": "Starmie's core sends signals, but the receiver stays unknown.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[9].text",
+        "pokedexEntries[12].text"
+      ],
+      "note": "The signal claim is supported, but the receiver's remaining unknown status is inferred rather than directly stated.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c8",
+      "where": "scenes.unknown-receiver.caption",
+      "text": "A MESSAGE WITH NO KNOWN ANSWER",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[12].text"
+      ],
+      "note": "The research supports communication with something, but does not mention an unanswered message or answer.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c9",
+      "where": "scenes.unknown-receiver.eyebrow",
+      "text": "A SIGNAL FROM THE SEA",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[6].text",
+        "pokedexEntries[9].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c10",
+      "where": "scenes.communication-glow.headline",
+      "text": "THE COLORS MAY SPEAK",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[19].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c11",
+      "where": "scenes.communication-glow.narration",
+      "text": "Its seven-color glow was already thought to mean communication.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[18].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c12",
+      "where": "scenes.communication-glow.caption",
+      "text": "SEVEN COLORS MAY MEAN MORE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[18].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c13",
+      "where": "scenes.communication-glow.eyebrow",
+      "text": "THE FIRST CLUE",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c14",
+      "where": "scenes.communication-glow.facts[0]",
+      "text": "SEVEN COLORS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text",
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c15",
+      "where": "scenes.communication-glow.facts[1]",
+      "text": "POSSIBLE COMMUNICATION",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[18].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c16",
+      "where": "scenes.waves-to-space.headline",
+      "text": "THE WAVES LEAVE EARTH",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text",
+        "pokedexEntries[12].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c17",
+      "where": "scenes.waves-to-space.narration",
+      "text": "Then one Pokédex entry sends those electric waves into outer space.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c18",
+      "where": "scenes.waves-to-space.caption",
+      "text": "THE GLOW BECOMES A DISTANT SIGNAL",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[4].text",
+        "pokedexEntries[9].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c19",
+      "where": "scenes.waves-to-space.eyebrow",
+      "text": "THEN IT GOES FARTHER",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text",
+        "pokedexEntries[9].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c20",
+      "where": "scenes.waves-to-space.facts[0]",
+      "text": "ELECTRIC WAVES",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c21",
+      "where": "scenes.waves-to-space.facts[1]",
+      "text": "OUTER SPACE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c22",
+      "where": "scenes.mysterious-radio.headline",
+      "text": "NOT JUST A GLOW",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[9].text",
+        "pokedexEntries[12].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c23",
+      "where": "scenes.mysterious-radio.narration",
+      "text": "Another entry calls them mysterious radio signals in the night sky.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[9].text",
+        "pokedexEntries[12].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c24",
+      "where": "scenes.mysterious-radio.caption",
+      "text": "MYSTERIOUS RADIO SIGNALS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[12].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c25",
+      "where": "scenes.mysterious-radio.eyebrow",
+      "text": "THE FIRST REVEAL",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c26",
+      "where": "scenes.mysterious-radio.facts[0]",
+      "text": "MYSTERIOUS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[12].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c27",
+      "where": "scenes.mysterious-radio.facts[1]",
+      "text": "RADIO SIGNALS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[9].text",
+        "pokedexEntries[12].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c28",
+      "where": "scenes.something-listening.headline",
+      "text": "SOMETHING MAY BE LISTENING",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[12].text"
+      ],
+      "note": "The research says Starmie communicates with something, but does not specifically say that something is listening.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c29",
+      "where": "scenes.something-listening.narration",
+      "text": "And another says they may communicate with something out there.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[12].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c30",
+      "where": "scenes.something-listening.caption",
+      "text": "THE TARGET IS STILL UNKNOWN",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[12].text"
+      ],
+      "note": "The research leaves the communicating entity unspecified, but does not explicitly call it an unknown target.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c31",
+      "where": "scenes.something-listening.eyebrow",
+      "text": "THE SECOND REVEAL",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c32",
+      "where": "scenes.something-listening.facts[0]",
+      "text": "COMMUNICATE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[12].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c33",
+      "where": "scenes.something-listening.facts[1]",
+      "text": "SOMETHING OUT THERE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[12].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c34",
+      "where": "scenes.sea-jewel-or-messenger.headline",
+      "text": "JEWEL OR MESSENGER?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c35",
+      "where": "scenes.sea-jewel-or-messenger.narration",
+      "text": "Is Starmie a sea jewel, or a space messenger?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c36",
+      "where": "scenes.sea-jewel-or-messenger.caption",
+      "text": "ONE CORE. TWO READINGS.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[4].text",
+        "pokedexEntries[9].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c37",
+      "where": "scenes.sea-jewel-or-messenger.eyebrow",
+      "text": "YOUR THEORY",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    }
+  ],
+  "unsupported": [],
+  "uncertain": [
+    {
+      "id": "c6",
+      "where": "scenes.unknown-receiver.headline",
+      "text": "THE RECEIVER IS UNKNOWN",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[12].text"
+      ],
+      "note": "The research says Starmie communicates with or sends signals to something, but does not explicitly state that the receiver is unknown.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c7",
+      "where": "scenes.unknown-receiver.narration",
+      "text": "Starmie's core sends signals, but the receiver stays unknown.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[9].text",
+        "pokedexEntries[12].text"
+      ],
+      "note": "The signal claim is supported, but the receiver's remaining unknown status is inferred rather than directly stated.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c8",
+      "where": "scenes.unknown-receiver.caption",
+      "text": "A MESSAGE WITH NO KNOWN ANSWER",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[12].text"
+      ],
+      "note": "The research supports communication with something, but does not mention an unanswered message or answer.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c28",
+      "where": "scenes.something-listening.headline",
+      "text": "SOMETHING MAY BE LISTENING",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[12].text"
+      ],
+      "note": "The research says Starmie communicates with something, but does not specifically say that something is listening.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c30",
+      "where": "scenes.something-listening.caption",
+      "text": "THE TARGET IS STILL UNKNOWN",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[12].text"
+      ],
+      "note": "The research leaves the communicating entity unspecified, but does not explicitly call it an unknown target.",
+      "tier": "official",
+      "checkedBy": "model"
+    }
+  ]
+}

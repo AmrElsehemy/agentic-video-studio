@@ -1,0 +1,475 @@
+{
+  "episodeId": "goldeen-118",
+  "checkedAt": "2026-10-29T21:51:32.346Z",
+  "claims": [
+    {
+      "id": "c1",
+      "where": "title",
+      "text": "Goldeen Compete Over the Sharpest Horn",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[19].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c2",
+      "where": "premise",
+      "text": "Goldeen is known for elegant fins, yet they apparently compete over whose horn is thickest and sharpest.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[19].text",
+        "pokedexEntries[17].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c3",
+      "where": "audiencePromise",
+      "text": "Reveal why Goldeen's elegant fins hide a surprisingly serious horn contest.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[19].text",
+        "pokedexEntries[17].text"
+      ],
+      "note": "The elegant fins and horn competition are supported, but the research does not establish that the fins 'hide' the contest or explain a reason why they do.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c4",
+      "where": "openLoop",
+      "text": "Why does Goldeen's elegant look come with a horn contest?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c5",
+      "where": "payoff",
+      "text": "Its fins make it a water princess, while its horn makes elegance feel dangerous.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text",
+        "pokedexEntries[20].text",
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c6",
+      "where": "scenes.elegant-horn-contest.headline",
+      "text": "ELEGANT FINS. SHARP HORNS.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[17].text",
+        "pokedexEntries[19].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c7",
+      "where": "scenes.elegant-horn-contest.narration",
+      "text": "Goldeen looks elegant, but competes for the sharpest horn.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[19].text",
+        "pokedexEntries[17].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c8",
+      "where": "scenes.elegant-horn-contest.caption",
+      "text": "THE WATER PRINCESS HAS A COMPETITION",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[20].text",
+        "pokedexEntries[19].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c9",
+      "where": "scenes.elegant-horn-contest.eyebrow",
+      "text": "THE HIDDEN CONTEST",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[19].text"
+      ],
+      "note": "The horn competition is supported, but the research does not say that it is hidden.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c10",
+      "where": "scenes.water-queen.headline",
+      "text": "THE WATER QUEEN",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c11",
+      "where": "scenes.water-queen.narration",
+      "text": "Its dress-like fins earned it the name Water Queen.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c12",
+      "where": "scenes.water-queen.caption",
+      "text": "FINNED LIKE A BALLROOM DRESS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c13",
+      "where": "scenes.water-queen.eyebrow",
+      "text": "THE BEAUTY SIDE",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c14",
+      "where": "scenes.water-queen.facts[0]",
+      "text": "DRESS-LIKE FINS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c15",
+      "where": "scenes.water-queen.facts[1]",
+      "text": "WATER QUEEN",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c16",
+      "where": "scenes.dangerous-horn.headline",
+      "text": "BEAUTY CAN RAM BACK",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c17",
+      "where": "scenes.dangerous-horn.narration",
+      "text": "That pretty swimmer can ram powerfully with its horn.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c18",
+      "where": "scenes.dangerous-horn.caption",
+      "text": "THE ELEGANCE IS NOT HARMLESS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[6].text",
+        "pokedexEntries[12].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c19",
+      "where": "scenes.dangerous-horn.eyebrow",
+      "text": "LOOK CLOSER",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c20",
+      "where": "scenes.dangerous-horn.facts[0]",
+      "text": "POWERFUL RAM",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c21",
+      "where": "scenes.dangerous-horn.facts[1]",
+      "text": "SHARP HORN",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[12].text",
+        "pokedexEntries[19].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c22",
+      "where": "scenes.horn-breaks-glass.headline",
+      "text": "EVEN GLASS ISN'T SAFE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c23",
+      "where": "scenes.horn-breaks-glass.narration",
+      "text": "It can even shatter the thickest glass with one horn ram.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c24",
+      "where": "scenes.horn-breaks-glass.caption",
+      "text": "ONE HORN RAM CAN SHATTER GLASS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c25",
+      "where": "scenes.horn-breaks-glass.eyebrow",
+      "text": "THE DANGER DEEPENS",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c26",
+      "where": "scenes.horn-breaks-glass.facts[0]",
+      "text": "THICKEST GLASS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c27",
+      "where": "scenes.horn-breaks-glass.facts[1]",
+      "text": "ONE HORN RAM",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c28",
+      "where": "scenes.horn-competition.headline",
+      "text": "THE HORNS ARE THE STANDARD",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[19].text"
+      ],
+      "note": "The research supports comparing horn thickness and sharpness, but does not establish that horns are 'the standard.'",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c29",
+      "where": "scenes.horn-competition.narration",
+      "text": "Goldeen compete to see whose horn is thickest and sharpest.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[19].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c30",
+      "where": "scenes.horn-competition.caption",
+      "text": "THEY COMPARE HORN THICKNESS AND SHARPNESS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[19].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c31",
+      "where": "scenes.horn-competition.eyebrow",
+      "text": "THE POKÉDEX REVEAL",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[19].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c32",
+      "where": "scenes.horn-competition.facts[0]",
+      "text": "THICKEST HORN",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[19].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c33",
+      "where": "scenes.horn-competition.facts[1]",
+      "text": "SHARPEST HORN",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[19].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c34",
+      "where": "scenes.beauty-or-horn.headline",
+      "text": "FINS OR HORN?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c35",
+      "where": "scenes.beauty-or-horn.narration",
+      "text": "Which wins your attention: Goldeen's fins or its horn?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c36",
+      "where": "scenes.beauty-or-horn.caption",
+      "text": "BEAUTY OR DANGER?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c37",
+      "where": "scenes.beauty-or-horn.eyebrow",
+      "text": "YOUR VERDICT",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    }
+  ],
+  "unsupported": [],
+  "uncertain": [
+    {
+      "id": "c3",
+      "where": "audiencePromise",
+      "text": "Reveal why Goldeen's elegant fins hide a surprisingly serious horn contest.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[19].text",
+        "pokedexEntries[17].text"
+      ],
+      "note": "The elegant fins and horn competition are supported, but the research does not establish that the fins 'hide' the contest or explain a reason why they do.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c9",
+      "where": "scenes.elegant-horn-contest.eyebrow",
+      "text": "THE HIDDEN CONTEST",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[19].text"
+      ],
+      "note": "The horn competition is supported, but the research does not say that it is hidden.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c28",
+      "where": "scenes.horn-competition.headline",
+      "text": "THE HORNS ARE THE STANDARD",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[19].text"
+      ],
+      "note": "The research supports comparing horn thickness and sharpness, but does not establish that horns are 'the standard.'",
+      "tier": "official",
+      "checkedBy": "model"
+    }
+  ]
+}

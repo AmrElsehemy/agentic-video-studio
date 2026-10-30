@@ -1,0 +1,485 @@
+{
+  "episodeId": "vaporeon-134",
+  "checkedAt": "2026-10-30T05:30:57.701Z",
+  "claims": [
+    {
+      "id": "c1",
+      "where": "title",
+      "text": "Vaporeon Erases Itself to Hunt",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[15].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c2",
+      "where": "premise",
+      "text": "Vaporeon erases every sign underwater, waits for fish Pokémon, and can use water to hide from attackers.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[15].text",
+        "pokedexEntries[16].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c3",
+      "where": "audiencePromise",
+      "text": "Follow how Vaporeon's cells and tail fins turn underwater concealment into both waiting and hiding.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[4].text",
+        "pokedexEntries[10].text",
+        "pokedexEntries[15].text",
+        "pokedexEntries[16].text"
+      ],
+      "note": "The research supports water-like cells, tail-fin swimming, concealment, waiting, and hiding, but does not specifically establish that the cells and tail fins together cause both purposes.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c4",
+      "where": "openLoop",
+      "text": "Is Vaporeon's disappearance for hunting, hiding, or both?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c5",
+      "where": "payoff",
+      "text": "The same water concealment serves two official purposes: waiting for fish Pokémon and hiding from an invading enemy.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[15].text",
+        "pokedexEntries[16].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c6",
+      "where": "scenes.disappears-to-hunt.headline",
+      "text": "VANISHES, THEN WAITS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[15].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c7",
+      "where": "scenes.disappears-to-hunt.narration",
+      "text": "Vaporeon erases itself underwater, then waits for fish Pokémon.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[15].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c8",
+      "where": "scenes.disappears-to-hunt.caption",
+      "text": "INVISIBLE IN WATER, WAITING FOR PREY",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text",
+        "pokedexEntries[15].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c9",
+      "where": "scenes.disappears-to-hunt.eyebrow",
+      "text": "THE WATER HIDES A HUNTER",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[15].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c10",
+      "where": "scenes.water-like-cells.headline",
+      "text": "CELLS LIKE WATER",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c11",
+      "where": "scenes.water-like-cells.narration",
+      "text": "Its cells resemble water molecules, letting its form melt away.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[10].text",
+        "pokedexEntries[19].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c12",
+      "where": "scenes.water-like-cells.caption",
+      "text": "ITS FORM CAN MELT INTO WATER",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[7].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c13",
+      "where": "scenes.water-like-cells.eyebrow",
+      "text": "ITS BODY EXPLAINS IT",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[19].text"
+      ],
+      "note": "The research says the cell resemblance perhaps explains concealment, but the broad claim that its body explains the phenomenon is compressed and somewhat stronger.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c14",
+      "where": "scenes.water-like-cells.facts[0]",
+      "text": "WATER-LIKE CELLS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c15",
+      "where": "scenes.water-like-cells.facts[1]",
+      "text": "MELTS INVISIBLY",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[7].text",
+        "pokedexEntries[18].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c16",
+      "where": "scenes.tail-fins-blend.headline",
+      "text": "BLENDS WITH WATER PERFECTLY",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c17",
+      "where": "scenes.tail-fins-blend.narration",
+      "text": "Tail fins help it swim while Vaporeon blends perfectly with water.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c18",
+      "where": "scenes.tail-fins-blend.caption",
+      "text": "SWIMMING WITHOUT A CLEAR SHAPE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text",
+        "pokedexEntries[19].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c19",
+      "where": "scenes.tail-fins-blend.eyebrow",
+      "text": "EVEN SWIMMING HIDES IT",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text",
+        "pokedexEntries[19].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c20",
+      "where": "scenes.tail-fins-blend.facts[0]",
+      "text": "TAIL FIN",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text",
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c21",
+      "where": "scenes.tail-fins-blend.facts[1]",
+      "text": "PERFECT BLENDING",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[4].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c22",
+      "where": "scenes.waits-for-prey.headline",
+      "text": "ERASES, THEN WAITS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[15].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c23",
+      "where": "scenes.waits-for-prey.narration",
+      "text": "The water offers no sign while Vaporeon waits for fish Pokémon.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[15].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c24",
+      "where": "scenes.waits-for-prey.caption",
+      "text": "THE WATER LOOKS EMPTY",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[15].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c25",
+      "where": "scenes.waits-for-prey.eyebrow",
+      "text": "NO SIGN OF ITS PRESENCE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[15].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c26",
+      "where": "scenes.waits-for-prey.facts[0]",
+      "text": "ERASES ITS PRESENCE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[15].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c27",
+      "where": "scenes.waits-for-prey.facts[1]",
+      "text": "WAITS FOR PREY",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[15].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c28",
+      "where": "scenes.hides-from-enemies.headline",
+      "text": "WATER HIDES IT AGAIN",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[16].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c29",
+      "where": "scenes.hides-from-enemies.narration",
+      "text": "Yet an invading enemy can trigger the same dive for hiding.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[16].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c30",
+      "where": "scenes.hides-from-enemies.caption",
+      "text": "DIVES WHEN AN ENEMY ATTACKS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[16].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c31",
+      "where": "scenes.hides-from-enemies.eyebrow",
+      "text": "THE SAME DIVE ALSO HIDES",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[16].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c32",
+      "where": "scenes.hides-from-enemies.facts[0]",
+      "text": "INVADING ENEMY",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[16].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c33",
+      "where": "scenes.hides-from-enemies.facts[1]",
+      "text": "DIVES TO HIDE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[16].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c34",
+      "where": "scenes.hunting-or-escaping.headline",
+      "text": "WAITING OR HIDING?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c35",
+      "where": "scenes.hunting-or-escaping.narration",
+      "text": "Is Vaporeon's best trick hunting prey or hiding from attackers?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c36",
+      "where": "scenes.hunting-or-escaping.caption",
+      "text": "TWO USES FOR THE SAME WATER TRICK",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[15].text",
+        "pokedexEntries[16].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c37",
+      "where": "scenes.hunting-or-escaping.eyebrow",
+      "text": "TWO USES. ONE TRICK.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[15].text",
+        "pokedexEntries[16].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    }
+  ],
+  "unsupported": [],
+  "uncertain": [
+    {
+      "id": "c3",
+      "where": "audiencePromise",
+      "text": "Follow how Vaporeon's cells and tail fins turn underwater concealment into both waiting and hiding.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[4].text",
+        "pokedexEntries[10].text",
+        "pokedexEntries[15].text",
+        "pokedexEntries[16].text"
+      ],
+      "note": "The research supports water-like cells, tail-fin swimming, concealment, waiting, and hiding, but does not specifically establish that the cells and tail fins together cause both purposes.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c13",
+      "where": "scenes.water-like-cells.eyebrow",
+      "text": "ITS BODY EXPLAINS IT",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[19].text"
+      ],
+      "note": "The research says the cell resemblance perhaps explains concealment, but the broad claim that its body explains the phenomenon is compressed and somewhat stronger.",
+      "tier": "official",
+      "checkedBy": "model"
+    }
+  ]
+}

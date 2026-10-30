@@ -1,0 +1,159 @@
+{
+  "episodeId": "lickitung-108",
+  "createdAt": "2026-10-29T21:16:42.433Z",
+  "chosen": {
+    "id": "clean-but-stinks",
+    "premise": "Lickitung can lick filth clean, but everything it licks always stinks afterward.",
+    "hook": "Lickitung cleans dirt by licking it—and makes the result stink.",
+    "archetype": "comparison",
+    "evidence": [
+      "pokedexEntries[15].text"
+    ],
+    "visualIdea": "Split-screen: grime disappears from an object while stink lines and a foul-smell label appear.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 5,
+      "specificity": 5,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 25,
+    "note": "A sharp, concrete contradiction directly stated in the Pokédex: it cleans filth but leaves everything smelling worse. Excellent hook and visual payoff."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "clean-but-stinks",
+          "premise": "Lickitung can lick filth clean, but everything it licks always stinks afterward.",
+          "hook": "Lickitung cleans dirt by licking it—and makes the result stink.",
+          "archetype": "comparison",
+          "evidence": [
+            "pokedexEntries[15].text"
+          ],
+          "visualIdea": "Split-screen: grime disappears from an object while stink lines and a foul-smell label appear.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 25,
+          "note": "A sharp, concrete contradiction directly stated in the Pokédex: it cleans filth but leaves everything smelling worse. Excellent hook and visual payoff."
+        },
+        {
+          "id": "tongue-for-hands",
+          "premise": "Lickitung’s tongue is twice its body length and functions like an arm instead of hands.",
+          "hook": "Lickitung doesn’t need hands—it has a tongue twice its body length.",
+          "archetype": "comparison",
+          "evidence": [
+            "pokedexEntries[7].text",
+            "pokedexEntries[9].text",
+            "pokedexEntries[2].text"
+          ],
+          "visualIdea": "Measure Lickitung beside its tongue, then animate the tongue grabbing food like an arm.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 24,
+          "note": "A highly Lickitung-specific body-function contradiction, with clear measurements and strong visual action."
+        },
+        {
+          "id": "saliva-adhesive",
+          "premise": "Lickitung’s saliva becomes a strong, useful adhesive after being collected and boiled down.",
+          "hook": "Boil down Lickitung’s saliva, and you get industrial-strength glue.",
+          "archetype": "transformation",
+          "evidence": [
+            "pokedexEntries[19].text"
+          ],
+          "visualIdea": "Show viscous saliva collected in a container, boiled down, then transforming into adhesive that bonds two objects.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 24,
+          "note": "A strong transformation premise with excellent visuals, but 'industrial-strength glue' overstates the source, which only calls it a strong and useful adhesive."
+        },
+        {
+          "id": "tail-tongue-link",
+          "premise": "Extending Lickitung’s tongue retracts its tail, while another entry says the tail quivers.",
+          "hook": "Lickitung’s tongue and tail may be connected by one strange rule.",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[12].text",
+            "pokedexEntries[11].text"
+          ],
+          "visualIdea": "Extend the tongue in stages while the tail retracts, then flash the quivering-tail clue as a connection diagram.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 4,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 23,
+          "note": "Very intriguing and visual, but the idea that the tongue and tail are definitively connected is framed as only a possibility, so the premise should remain a mystery rather than a fact."
+        },
+        {
+          "id": "rollout-evolution",
+          "premise": "Lickitung evolves into Lickilicky only by leveling up while knowing Rollout.",
+          "hook": "Lickitung’s evolution has one oddly specific requirement: know Rollout.",
+          "archetype": "mechanic",
+          "evidence": [
+            "evolutionChain[1].method",
+            "evolutionChain[1].evolvesFrom",
+            "evolutionChain[1].name"
+          ],
+          "visualIdea": "Display Lickitung’s level-up meter locked, then unlock evolution when a Rollout move icon appears.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 23,
+          "note": "An unusually specific evolution requirement and easy to visualize, though the cited method is from trusted secondary data rather than the Pokédex entries."
+        },
+        {
+          "id": "taste-memory",
+          "premise": "Lickitung investigates unfamiliar objects by licking them, then remembers them through texture and taste.",
+          "hook": "Lickitung doesn’t inspect new things—it tastes them to remember.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[6].text",
+            "pokedexEntries[5].text"
+          ],
+          "visualIdea": "Show unknown objects entering frame as Lickitung licks each one, forming a texture-and-taste memory trail.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 4,
+            "support": 5
+          },
+          "total": 22,
+          "note": "Distinctive and well-supported, though the memory concept is less immediately visual and lacks a single striking number or rule."
+        }
+      ],
+      "rejected": [],
+      "request": "None; the chosen angle is already strong. Stronger alternatives would need an equally specific contradiction or rule, direct source support, and an immediate visual transformation without overstating the evidence."
+    }
+  ]
+}

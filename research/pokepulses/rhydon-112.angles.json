@@ -1,0 +1,168 @@
+{
+  "episodeId": "rhydon-112",
+  "createdAt": "2026-10-29T21:29:02.167Z",
+  "chosen": {
+    "id": "standing-made-it-smart",
+    "premise": "Rhydon’s brain developed after it stood on two legs, because standing freed its forelegs.",
+    "hook": "Rhydon didn’t get smarter until it stood up.",
+    "archetype": "transformation",
+    "evidence": [
+      "pokedexEntries[3].text",
+      "pokedexEntries[8].text",
+      "pokedexEntries[11].text"
+    ],
+    "visualIdea": "Show Rhyhorn rising onto its hind legs as its forelegs unlock and a brain graphic lights up.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 5,
+      "specificity": 5,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 25,
+    "note": "A very Rhydon-specific causal contradiction: standing freed its forelegs, and the Pokédex directly links that change to brain development and intelligence."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "standing-made-it-smart",
+          "premise": "Rhydon’s brain developed after it stood on two legs, because standing freed its forelegs.",
+          "hook": "Rhydon didn’t get smarter until it stood up.",
+          "archetype": "transformation",
+          "evidence": [
+            "pokedexEntries[3].text",
+            "pokedexEntries[8].text",
+            "pokedexEntries[11].text"
+          ],
+          "visualIdea": "Show Rhyhorn rising onto its hind legs as its forelegs unlock and a brain graphic lights up.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 25,
+          "note": "A very Rhydon-specific causal contradiction: standing freed its forelegs, and the Pokédex directly links that change to brain development and intelligence."
+        },
+        {
+          "id": "smart-but-forgetful",
+          "premise": "Standing on its hind legs made Rhydon smarter—but its Pokédex profile still calls it very forgetful.",
+          "hook": "Rhydon evolved a better brain… and still forgot everything.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[11].text",
+            "pokedexEntries[13].text",
+            "evolutionChain[1].method"
+          ],
+          "visualIdea": "Rhydon solves a rock puzzle, celebrates, then immediately forgets what it just figured out.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 24,
+          "note": "The smarter-but-forgetful contradiction is memorable and easy to dramatize. The evolution-method citation does not support the premise, but the Platinum and hind-leg entries do."
+        },
+        {
+          "id": "diamond-drill",
+          "premise": "Rhydon’s horn rotates like a drill and can shatter uncut diamonds and bore through bedrock.",
+          "hook": "Rhydon’s horn is a rotating drill that can break diamonds.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[4].text",
+            "pokedexEntries[5].text",
+            "pokedexEntries[10].text",
+            "pokedexEntries[14].text"
+          ],
+          "visualIdea": "Zoom into the spinning horn as it drills through bedrock, then cracks an uncut diamond.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 23,
+          "note": "The rotating horn, diamonds, and bedrock make a clean visual mechanic with strong support, though drill-based power is a fairly familiar Rhydon angle."
+        },
+        {
+          "id": "level-42-to-protector",
+          "premise": "Rhydon evolves from Rhyhorn at level 42, then needs a trade while holding a Protector to evolve again.",
+          "hook": "Rhydon’s evolution path changes from leveling up to trading.",
+          "archetype": "mechanic",
+          "evidence": [
+            "evolutionChain[1].method",
+            "evolutionChain[2].method",
+            "evolutionChain[1].evolvesFrom",
+            "evolutionChain[2].evolvesFrom"
+          ],
+          "visualIdea": "A two-step evolution track hits level 42, then stops until a trade and Protector are shown.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 4,
+            "support": 5
+          },
+          "total": 22,
+          "note": "The evolution path is precise and useful for gameplay-focused fans, but it is more of a progression fact than a distinctive character premise."
+        },
+        {
+          "id": "tail-topples-buildings",
+          "premise": "Rhydon’s rotating horn can destroy buildings, but one sweeping tail blow can topple one too.",
+          "hook": "Rhydon doesn’t need its drill to destroy a building.",
+          "archetype": "comparison",
+          "evidence": [
+            "pokedexEntries[5].text",
+            "pokedexEntries[7].text"
+          ],
+          "visualIdea": "Compare two attack shots: the horn drills through a building, then the tail sweeps its base down.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 22,
+          "note": "The horn-versus-tail comparison is concrete and visually strong, though the cited entries say the horn destroys tall buildings and the tail topples a building, not necessarily that both attacks work the same way."
+        },
+        {
+          "id": "lava-proof-armor",
+          "premise": "Rhydon’s armor-like hide lets it live in 3,600°F molten lava and repel direct cannon hits.",
+          "hook": "What could survive lava and a cannon blast without feeling it?",
+          "archetype": "comparison",
+          "evidence": [
+            "pokedexEntries[0].text",
+            "pokedexEntries[5].text",
+            "pokedexEntries[14].text"
+          ],
+          "visualIdea": "Split-screen: Rhydon submerged in 3,600°F lava, then a cannonball bouncing off its hide.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 21,
+          "note": "The lava temperature and cannon-proof hide are unusually extreme and highly visual, but “without feeling it” and “repel direct cannon hits” overstate what the cited entries actually say."
+        }
+      ],
+      "rejected": [],
+      "request": "Not applicable: a strong angle is available. If developing alternatives, they would need an equally specific Rhydon-only contradiction or mechanism, with every hook claim tightly matched to the cited Pokédex wording."
+    }
+  ]
+}

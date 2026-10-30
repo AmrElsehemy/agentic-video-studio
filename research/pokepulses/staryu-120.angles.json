@@ -1,0 +1,167 @@
+{
+  "episodeId": "staryu-120",
+  "createdAt": "2026-10-29T21:56:15.654Z",
+  "chosen": {
+    "id": "core-is-the-survivor",
+    "premise": "Staryu can be chopped to bits and regrow completely—as long as its red central core survives.",
+    "hook": "You can chop Staryu apart, and it still comes back.",
+    "archetype": "mechanic",
+    "evidence": [
+      "pokedexEntries[1].text",
+      "pokedexEntries[3].text",
+      "pokedexEntries[16].text"
+    ],
+    "visualIdea": "Show Staryu losing its outer points, then rapidly rebuilding around a glowing red core.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 5,
+      "specificity": 5,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 25,
+    "note": "A highly Staryu-specific survival rule: the body can be destroyed, but the red core must survive. The cited Pokédex entries directly support both the extreme damage and regeneration."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "core-is-the-survivor",
+          "premise": "Staryu can be chopped to bits and regrow completely—as long as its red central core survives.",
+          "hook": "You can chop Staryu apart, and it still comes back.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[1].text",
+            "pokedexEntries[3].text",
+            "pokedexEntries[16].text"
+          ],
+          "visualIdea": "Show Staryu losing its outer points, then rapidly rebuilding around a glowing red core.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 25,
+          "note": "A highly Staryu-specific survival rule: the body can be destroyed, but the red core must survive. The cited Pokédex entries directly support both the extreme damage and regeneration."
+        },
+        {
+          "id": "the-unbothered-snack",
+          "premise": "Lumineon and other fish nibble Staryu, but its red core regenerates the damage fast enough that it is unconcerned.",
+          "hook": "Fish literally eat Staryu, and Staryu doesn’t care.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[14].text",
+            "pokedexEntries[19].text"
+          ],
+          "visualIdea": "Animate fish nibbling off a Staryu point while the missing piece grows back immediately.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 24,
+          "note": "The predator-prey contradiction is highly attention-grabbing and directly supported. It is slightly less unique than the core rule because the regeneration explains the premise."
+        },
+        {
+          "id": "heartbeat-in-the-stars",
+          "premise": "Staryu’s core flickers to the rhythm of a human heartbeat, while groups synchronize their glow with twinkling stars.",
+          "hook": "Staryu’s red core beats like a human heart.",
+          "archetype": "comparison",
+          "evidence": [
+            "pokedexEntries[2].text",
+            "pokedexEntries[4].text",
+            "pokedexEntries[7].text",
+            "pokedexEntries[18].text"
+          ],
+          "visualIdea": "Split-screen a pulsing Staryu core with a heartbeat line, then match it to stars and other Staryu.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 22,
+          "note": "Strong, unusual imagery backed by multiple entries. However, the heartbeat comparison and star-synchronization are related but slightly separate claims."
+        },
+        {
+          "id": "summer-beach-light-show",
+          "premise": "At the end of summer, seaside groups of Staryu light their red cores in a steady, star-like rhythm.",
+          "hook": "At summer’s end, beaches can fill with blinking Staryu.",
+          "archetype": "walkthrough",
+          "evidence": [
+            "pokedexEntries[5].text",
+            "pokedexEntries[6].text",
+            "pokedexEntries[9].text",
+            "pokedexEntries[18].text"
+          ],
+          "visualIdea": "Build a beach scene, add groups of Staryu, then animate their red cores blinking in a steady rhythm.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 22,
+          "note": "A cinematic, Staryu-specific phenomenon supported by several entries. 'Beaches can fill' slightly exaggerates the research, which says Staryu appear in large numbers or groups."
+        },
+        {
+          "id": "stardust-became-staryu",
+          "premise": "Alolan folktales claim that stardust falling into the ocean becomes Staryu.",
+          "hook": "One Pokémon folktale says Staryu is fallen stardust.",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[15].text"
+          ],
+          "visualIdea": "Trace falling stardust from the night sky into the ocean, where it transforms into glowing Staryu.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 2
+          },
+          "total": 21,
+          "note": "The folktale premise is distinctive and visually excellent, but the candidate incorrectly narrows the claim to Alolan folklore; the research only says folktales exist in many places."
+        },
+        {
+          "id": "water-stone-star-metamorphosis",
+          "premise": "A Water Stone evolves Staryu into Starmie, changing it from Water type to Water/Psychic.",
+          "hook": "One Water Stone gives Staryu an entirely new type.",
+          "archetype": "transformation",
+          "evidence": [
+            "evolutionChain[0].types",
+            "evolutionChain[1].name",
+            "evolutionChain[1].method",
+            "evolutionChain[1].types"
+          ],
+          "visualIdea": "Place Staryu beside a Water Stone, then reveal Starmie with its added Psychic typing.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 3,
+            "surprise": 3,
+            "specificity": 4,
+            "visual": 4,
+            "support": 4
+          },
+          "total": 18,
+          "note": "Concrete and easy to show, but item-based evolution and a type change are familiar Pokémon concepts. The evolution method is supported by trusted secondary research rather than a Pokédex entry."
+        }
+      ],
+      "rejected": [],
+      "request": "None needed; the chosen angle is strong. A stronger alternative would need an equally specific Staryu-only rule or contradiction, direct multi-entry support, and a visual transformation that can be understood immediately."
+    }
+  ]
+}

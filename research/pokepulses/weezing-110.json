@@ -1,0 +1,172 @@
+{
+  "schemaVersion": 1,
+  "id": "weezing-110",
+  "number": 110,
+  "index": "#110",
+  "name": "Weezing",
+  "slug": "weezing",
+  "category": "Poison Gas Pokémon",
+  "generation": "Generation I",
+  "isLegendary": false,
+  "isMythical": false,
+  "types": [
+    "Poison"
+  ],
+  "heightMeters": 1.2,
+  "weightKg": 9.5,
+  "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/110.png",
+  "pokedexEntries": [
+    {
+      "game": "Red",
+      "text": "Where two kinds of poison gases meet, 2 KOFFINGs can fuse into a WEEZING over many years."
+    },
+    {
+      "game": "Yellow",
+      "text": "It lives and grows by absorbing dust, germs and poison gases that are contained in toxic waste and garbage."
+    },
+    {
+      "game": "Gold",
+      "text": "If one of the twin KOFFING inflates, the other one deflates. It con stantly mixes its poisonous gases."
+    },
+    {
+      "game": "Silver",
+      "text": "Top-grade perfume is made using its internal poison gases by diluting them to the high est level."
+    },
+    {
+      "game": "Crystal",
+      "text": "When it inhales poisonous gases from garbage, its body expands, and its insides smell much worse."
+    },
+    {
+      "game": "Ruby",
+      "text": "WEEZING loves the gases given off by rotted kitchen garbage. This POKéMON will find a dirty, unkempt house and make it its home. At night, when the people in the house are asleep, it will go through the trash."
+    },
+    {
+      "game": "Sapphire",
+      "text": "WEEZING alternately shrinks and inflates its twin bodies to mix together toxic gases inside. The more the gases are mixed, the more powerful the toxins become. The POKéMON also becomes more putrid."
+    },
+    {
+      "game": "Emerald",
+      "text": "By diluting its toxic gases with a special process, the highest grade of perfume can be extracted. To WEEZING, gases emanating from garbage are the ultimate feast."
+    },
+    {
+      "game": "Firered",
+      "text": "Very rarely, a sudden mutation can result in two small KOFFING twins becoming conjoined as a WEEZING."
+    },
+    {
+      "game": "Leafgreen",
+      "text": "Where two kinds of poison gases meet, two KOFFING can fuse into a WEEZING over many years."
+    },
+    {
+      "game": "Diamond",
+      "text": "It grows by feeding on gases released by garbage. Though very rare, triplets have been found."
+    },
+    {
+      "game": "Heartgold",
+      "text": "If one of the twin KOFFING inflates, the other one deflates. It constantly mixes its poisonous gases."
+    },
+    {
+      "game": "Soulsilver",
+      "text": "Top-grade perfume is made using its internal poison gases by diluting them to the highest level."
+    },
+    {
+      "game": "Black 2",
+      "text": "Inhaling toxic fumes from trash and mixing them inside its body lets it spread an even fouler stench."
+    },
+    {
+      "game": "Lets Go Pikachu",
+      "text": "This Pokémon lives and grows by absorbing poison gas, dust, and germs that exist inside garbage."
+    },
+    {
+      "game": "Sword",
+      "text": "It mixes gases between its two bodies. It’s said that these Pokémon were seen all over the Galar region back in the day."
+    },
+    {
+      "game": "Shield",
+      "text": "It can’t suck in air quite as well as a Galarian Weezing, but the toxins it creates are more potent than those of its counterpart."
+    }
+  ],
+  "evolutionChain": [
+    {
+      "name": "Koffing",
+      "index": "#109",
+      "stage": 1,
+      "types": [
+        "Poison"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/109.png",
+      "isSubject": false
+    },
+    {
+      "name": "Weezing",
+      "index": "#110",
+      "stage": 2,
+      "evolvesFrom": "Koffing",
+      "method": "Level Up, level 35",
+      "types": [
+        "Poison"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/110.png",
+      "isSubject": true
+    }
+  ],
+  "varieties": [
+    {
+      "name": "Weezing Galar",
+      "types": [
+        "Poison",
+        "Fairy"
+      ],
+      "heightMeters": 3,
+      "weightKg": 16,
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10167.png"
+    }
+  ],
+  "lore": [],
+  "tiers": {
+    "official": [
+      "name",
+      "index",
+      "number",
+      "category",
+      "generation",
+      "isLegendary",
+      "isMythical",
+      "types",
+      "heightMeters",
+      "weightKg",
+      "pokedexEntries",
+      "evolutionChain[].name",
+      "evolutionChain[].index",
+      "evolutionChain[].types",
+      "evolutionChain[].stage",
+      "varieties[].types",
+      "varieties[].heightMeters",
+      "varieties[].weightKg"
+    ],
+    "trusted_secondary": [
+      "evolutionChain[].method",
+      "evolutionChain[].evolvesFrom",
+      "varieties[].name"
+    ],
+    "community": [
+      "lore"
+    ]
+  },
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Weezing",
+      "url": "https://www.pokemon.com/us/pokedex/weezing",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Weezing",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Weezing_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Weezing",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/110",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

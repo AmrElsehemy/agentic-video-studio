@@ -1,0 +1,451 @@
+{
+  "episodeId": "krabby-098",
+  "checkedAt": "2026-10-29T20:45:45.063Z",
+  "claims": [
+    {
+      "id": "c1",
+      "where": "title",
+      "text": "Krabby Loses Its Sideways Walk",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c2",
+      "where": "premise",
+      "text": "If Krabby loses one pincer, the Pokédex says it becomes unable to walk sideways.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].text",
+        "pokedexEntries[10].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c3",
+      "where": "audiencePromise",
+      "text": "See how one missing pincer can break Krabby's signature movement.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c4",
+      "where": "openLoop",
+      "text": "Why does losing one pincer affect Krabby's entire way of walking?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Question only; it does not assert an explanation.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c5",
+      "where": "payoff",
+      "text": "The Pokédex records two strange facts: pincers aid sideways balance, and losing one stops sideways walking.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text",
+        "pokedexEntries[3].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c6",
+      "where": "scenes.lose-one-pincer.headline",
+      "text": "LOSE ONE PINCER. LOSE SIDEWAYS MOVEMENT.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c7",
+      "where": "scenes.lose-one-pincer.narration",
+      "text": "Lose one pincer, and Krabby loses sideways walking.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c8",
+      "where": "scenes.lose-one-pincer.caption",
+      "text": "ONE PINCER CHANGES EVERYTHING",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c9",
+      "where": "scenes.lose-one-pincer.eyebrow",
+      "text": "KRABBY'S STRANGE RULE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c10",
+      "where": "scenes.pincers-balance.headline",
+      "text": "THE PINCERS KEEP IT STEADY",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c11",
+      "where": "scenes.pincers-balance.narration",
+      "text": "Krabby uses its pincers as weapons and for balance while walking sideways.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c12",
+      "where": "scenes.pincers-balance.caption",
+      "text": "PINCERS = SIDEWAYS BALANCE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c13",
+      "where": "scenes.pincers-balance.eyebrow",
+      "text": "NOT JUST WEAPONS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c14",
+      "where": "scenes.pincers-balance.facts[0]",
+      "text": "POWERFUL WEAPONS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text",
+        "pokedexEntries[1].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c15",
+      "where": "scenes.pincers-balance.facts[1]",
+      "text": "USED FOR BALANCE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c16",
+      "where": "scenes.pincers-balance.facts[2]",
+      "text": "SIDEWAYS WALKING",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c17",
+      "where": "scenes.pincer-breaks.headline",
+      "text": "THE BALANCE TOOL BREAKS EASILY",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text",
+        "pokedexEntries[3].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c18",
+      "where": "scenes.pincer-breaks.narration",
+      "text": "That balance tool can break off easily during battle.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[3].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c19",
+      "where": "scenes.pincer-breaks.caption",
+      "text": "BREAKS OFF IN BATTLE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c20",
+      "where": "scenes.pincer-breaks.eyebrow",
+      "text": "THE RISK",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Framing phrase only; it makes no factual assertion.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c21",
+      "where": "scenes.pincer-breaks.facts[0]",
+      "text": "BREAKS OFF EASILY",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c22",
+      "where": "scenes.pincer-breaks.facts[1]",
+      "text": "DURING BATTLE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c23",
+      "where": "scenes.sideways-stops.headline",
+      "text": "ONE BROKEN PINCER STOPS SIDEWAYS WALKING",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c24",
+      "where": "scenes.sideways-stops.narration",
+      "text": "Without one pincer, the Pokédex says sideways walking stops.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].text",
+        "pokedexEntries[10].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c25",
+      "where": "scenes.sideways-stops.caption",
+      "text": "SIDEWAYS WALKING: IMPOSSIBLE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c26",
+      "where": "scenes.sideways-stops.eyebrow",
+      "text": "THE STRANGE RULE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c27",
+      "where": "scenes.sideways-stops.facts[0]",
+      "text": "LOSE ONE PINCER",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c28",
+      "where": "scenes.sideways-stops.facts[1]",
+      "text": "CANNOT WALK SIDEWAYS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c29",
+      "where": "scenes.pincer-regrows.headline",
+      "text": "THE BROKEN WEAPON GROWS BACK",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[8].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c30",
+      "where": "scenes.pincer-regrows.narration",
+      "text": "The twist is that a broken pincer grows back fast.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c31",
+      "where": "scenes.pincer-regrows.caption",
+      "text": "IT GROWS BACK FAST",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c32",
+      "where": "scenes.pincer-regrows.eyebrow",
+      "text": "THE SURPRISE",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Framing phrase only; it makes no factual assertion.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c33",
+      "where": "scenes.pincer-regrows.facts[0]",
+      "text": "PINCER IS A WEAPON",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text",
+        "pokedexEntries[1].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c34",
+      "where": "scenes.pincer-regrows.facts[1]",
+      "text": "GROWS BACK FAST",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c35",
+      "where": "scenes.battle-or-walking.headline",
+      "text": "BATTLE OR SIDEWAYS WALKING?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Question only; it makes no factual assertion.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c36",
+      "where": "scenes.battle-or-walking.narration",
+      "text": "Would you use that pincer in battle, or protect sideways walking?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Hypothetical audience question; it makes no factual assertion.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c37",
+      "where": "scenes.battle-or-walking.caption",
+      "text": "BATTLE OR SIDEWAYS WALKING?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Question only; it makes no factual assertion.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c38",
+      "where": "scenes.battle-or-walking.eyebrow",
+      "text": "YOUR VERDICT",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Audience prompt only; it makes no factual assertion.",
+      "checkedBy": "model"
+    }
+  ],
+  "unsupported": [],
+  "uncertain": []
+}

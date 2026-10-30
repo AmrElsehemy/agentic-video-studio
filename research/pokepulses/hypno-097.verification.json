@@ -1,0 +1,526 @@
+{
+  "episodeId": "hypno-097",
+  "checkedAt": "2026-10-29T20:42:55.371Z",
+  "claims": [
+    {
+      "id": "c1",
+      "where": "title",
+      "text": "Hypno Steals the Dreams It Likes Best",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[11].text",
+        "pokedexEntries[2].text"
+      ],
+      "note": "Hypno tastes or feasts on dreams and carries away people having good dreams, but the research does not explicitly say it steals the dreams it likes best.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c2",
+      "where": "premise",
+      "text": "Hypno puts hungry humans to sleep, tastes their dreams, and carries away anyone having a good one.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text",
+        "pokedexEntries[11].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c3",
+      "where": "audiencePromise",
+      "text": "Follow Hypno from hunger and hypnosis to its unsettling dream-stealing rule.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text",
+        "pokedexEntries[0].text",
+        "pokedexEntries[11].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c4",
+      "where": "openLoop",
+      "text": "Why does Hypno carry away only people having good dreams?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c5",
+      "where": "payoff",
+      "text": "Hypno's worst hunger turns sleep into a hunt for the dreams it likes best.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[2].text",
+        "pokedexEntries[6].text",
+        "pokedexEntries[11].text"
+      ],
+      "note": "The research supports hunger, prey-seeking, and targeting good dreams, but 'dreams it likes best' implies a preference not explicitly stated.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c6",
+      "where": "scenes.good-dreams-are-not-safe.headline",
+      "text": "GOOD DREAMS AREN'T SAFE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[10].text",
+        "pokedexEntries[11].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c7",
+      "where": "scenes.good-dreams-are-not-safe.narration",
+      "text": "Hypno makes people sleep, then steals the good dreams.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[2].text",
+        "pokedexEntries[11].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c8",
+      "where": "scenes.good-dreams-are-not-safe.caption",
+      "text": "SLEEP IS ONLY THE FIRST STEP",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[11].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c9",
+      "where": "scenes.good-dreams-are-not-safe.eyebrow",
+      "text": "THE BEST DREAMS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[11].text"
+      ],
+      "note": "'Best dreams' is a compressed restatement of good dreams.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c10",
+      "where": "scenes.hunger-starts-the-hunt.headline",
+      "text": "HUNGER STARTS THE HUNT",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text",
+        "pokedexEntries[5].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c11",
+      "where": "scenes.hunger-starts-the-hunt.narration",
+      "text": "When hunger hits, it puts humans it meets to sleep.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c12",
+      "where": "scenes.hunger-starts-the-hunt.caption",
+      "text": "VERY HUNGRY HYPNO",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c13",
+      "where": "scenes.hunger-starts-the-hunt.eyebrow",
+      "text": "WHEN HUNGER HITS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c14",
+      "where": "scenes.hunger-starts-the-hunt.facts[0]",
+      "text": "VERY HUNGRY",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c15",
+      "where": "scenes.hunger-starts-the-hunt.facts[1]",
+      "text": "HUMANS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c16",
+      "where": "scenes.hunger-starts-the-hunt.facts[2]",
+      "text": "SLEEP",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c17",
+      "where": "scenes.the-pendulum-opens-the-door.headline",
+      "text": "THE PENDULUM OPENS THE DOOR",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].text",
+        "pokedexEntries[5].text"
+      ],
+      "note": "The headline uses metaphorical wording for the pendulum's sleep-inducing role.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c18",
+      "where": "scenes.the-pendulum-opens-the-door.narration",
+      "text": "Its steady pendulum causes drowsiness in anyone nearby.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].text",
+        "pokedexEntries[9].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c19",
+      "where": "scenes.the-pendulum-opens-the-door.caption",
+      "text": "ANYONE NEARBY GETS DROWSY",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].text",
+        "pokedexEntries[9].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c20",
+      "where": "scenes.the-pendulum-opens-the-door.eyebrow",
+      "text": "THE PENDULUM",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c21",
+      "where": "scenes.the-pendulum-opens-the-door.facts[0]",
+      "text": "STEADY RHYTHM",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].text",
+        "pokedexEntries[9].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c22",
+      "where": "scenes.the-pendulum-opens-the-door.facts[1]",
+      "text": "PENDULUM",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c23",
+      "where": "scenes.the-pendulum-opens-the-door.facts[2]",
+      "text": "DROWSINESS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].text",
+        "pokedexEntries[9].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c24",
+      "where": "scenes.dreams-become-food.headline",
+      "text": "DREAMS BECOME FOOD",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text"
+      ],
+      "note": "'Dreams become food' is a metaphorical restatement of feasting on dreams.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c25",
+      "where": "scenes.dreams-become-food.narration",
+      "text": "Then it feasts on those dreams, turning sleep into its meal.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c26",
+      "where": "scenes.dreams-become-food.caption",
+      "text": "HYPNO TASTES YOUR DREAMS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[11].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c27",
+      "where": "scenes.dreams-become-food.eyebrow",
+      "text": "THE FIRST REVEAL",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c28",
+      "where": "scenes.dreams-become-food.facts[0]",
+      "text": "FEASTS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c29",
+      "where": "scenes.dreams-become-food.facts[1]",
+      "text": "DREAMS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text",
+        "pokedexEntries[11].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c30",
+      "where": "scenes.dreams-become-food.facts[2]",
+      "text": "SLEEP",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[1].text",
+        "pokedexEntries[2].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c31",
+      "where": "scenes.the-good-ones-disappear.headline",
+      "text": "PEOPLE WITH GOOD DREAMS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[11].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c32",
+      "where": "scenes.the-good-ones-disappear.narration",
+      "text": "But anyone having a good dream gets carried away by Hypno.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[11].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c33",
+      "where": "scenes.the-good-ones-disappear.caption",
+      "text": "PEOPLE WITH GOOD DREAMS GET CARRIED OFF",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[11].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c34",
+      "where": "scenes.the-good-ones-disappear.eyebrow",
+      "text": "THE WORST PART",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c35",
+      "where": "scenes.the-good-ones-disappear.facts[0]",
+      "text": "GOOD DREAM",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[11].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c36",
+      "where": "scenes.the-good-ones-disappear.facts[1]",
+      "text": "CARRIES OFF",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[11].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c37",
+      "where": "scenes.the-good-ones-disappear.facts[2]",
+      "text": "HUMANS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text",
+        "pokedexEntries[11].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c38",
+      "where": "scenes.guard-your-dreams.headline",
+      "text": "GUARD YOUR DREAMS",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c39",
+      "where": "scenes.guard-your-dreams.narration",
+      "text": "Would you risk sleep, or guard your best dreams?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c40",
+      "where": "scenes.guard-your-dreams.caption",
+      "text": "SLEEP PEACEFULLY OR STAY ALERT?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c41",
+      "where": "scenes.guard-your-dreams.eyebrow",
+      "text": "YOUR CALL",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    }
+  ],
+  "unsupported": [],
+  "uncertain": [
+    {
+      "id": "c1",
+      "where": "title",
+      "text": "Hypno Steals the Dreams It Likes Best",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[11].text",
+        "pokedexEntries[2].text"
+      ],
+      "note": "Hypno tastes or feasts on dreams and carries away people having good dreams, but the research does not explicitly say it steals the dreams it likes best.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c5",
+      "where": "payoff",
+      "text": "Hypno's worst hunger turns sleep into a hunt for the dreams it likes best.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[2].text",
+        "pokedexEntries[6].text",
+        "pokedexEntries[11].text"
+      ],
+      "note": "The research supports hunger, prey-seeking, and targeting good dreams, but 'dreams it likes best' implies a preference not explicitly stated.",
+      "tier": "official",
+      "checkedBy": "model"
+    }
+  ]
+}

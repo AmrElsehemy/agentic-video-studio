@@ -1,0 +1,169 @@
+{
+  "schemaVersion": 1,
+  "id": "rhyhorn-111",
+  "number": 111,
+  "index": "#111",
+  "name": "Rhyhorn",
+  "slug": "rhyhorn",
+  "category": "Spikes Pokémon",
+  "generation": "Generation I",
+  "isLegendary": false,
+  "isMythical": false,
+  "types": [
+    "Ground",
+    "Rock"
+  ],
+  "heightMeters": 1,
+  "weightKg": 115,
+  "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/111.png",
+  "pokedexEntries": [
+    {
+      "game": "Red",
+      "text": "Its massive bones are 1000 times harder than human bones. It can easily knock a trailer flying."
+    },
+    {
+      "game": "Yellow",
+      "text": "A POKéMON with a one-track mind. Once it charges, it won't stop running until it falls asleep."
+    },
+    {
+      "game": "Gold",
+      "text": "It is inept at turning because of its four short legs. It can only charge and run in one direction."
+    },
+    {
+      "game": "Silver",
+      "text": "It doesn't care if there is anything in its way. It just charges and destroys all ob stacles."
+    },
+    {
+      "game": "Crystal",
+      "text": "It can remember only one thing at a time. Once it starts rushing, it forgets why it started."
+    },
+    {
+      "game": "Ruby",
+      "text": "RHYHORN runs in a straight line, smashing everything in its path. It is not bothered even if it rushes headlong into a block of steel. This POKéMON may feel some pain from the collision the next day, however."
+    },
+    {
+      "game": "Sapphire",
+      "text": "RHYHORN’s brain is very small. It is so dense, while on a run it forgets why it started running in the first place. It apparently remembers sometimes if it demolishes something."
+    },
+    {
+      "game": "Emerald",
+      "text": "Once it starts running, it doesn’t stop. Its tiny brain makes it so stupid that it can’t remember why it started running in the first place."
+    },
+    {
+      "game": "Firered",
+      "text": "Strong, but not too bright, this POKéMON can shatter even a skyscraper with its charging TACKLES."
+    },
+    {
+      "game": "Leafgreen",
+      "text": "Its massive bones are 1,000 times harder than human bones. Its TACKLE can knock a semitrailer flying."
+    },
+    {
+      "game": "Diamond",
+      "text": "Its body is clad in a thick hide, and its tackles topple buildings. Unfortunately, it is not smart."
+    },
+    {
+      "game": "Platinum",
+      "text": "Its powerful tackles can destroy anything. However, it is too slow witted to help people work."
+    },
+    {
+      "game": "Soulsilver",
+      "text": "It doesn’t care if there is anything in its way. It just charges and destroys all obstacles."
+    },
+    {
+      "game": "Lets Go Pikachu",
+      "text": "A Pokémon with a one-track mind. Once it charges, it won’t stop running until it falls asleep."
+    },
+    {
+      "game": "Legends Arceus",
+      "text": "Ludicrously strong—when it butts heads with a mountain, it is the mountain that shatters. But its short legs struggle with turns, and it is incapable of stopping unless it collides with something."
+    }
+  ],
+  "evolutionChain": [
+    {
+      "name": "Rhyhorn",
+      "index": "#111",
+      "stage": 1,
+      "types": [
+        "Ground",
+        "Rock"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/111.png",
+      "isSubject": true
+    },
+    {
+      "name": "Rhydon",
+      "index": "#112",
+      "stage": 2,
+      "evolvesFrom": "Rhyhorn",
+      "method": "Level Up, level 42",
+      "types": [
+        "Ground",
+        "Rock"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/112.png",
+      "isSubject": false
+    },
+    {
+      "name": "Rhyperior",
+      "index": "#464",
+      "stage": 3,
+      "evolvesFrom": "Rhydon",
+      "method": "Trade, holding Protector",
+      "types": [
+        "Ground",
+        "Rock"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/464.png",
+      "isSubject": false
+    }
+  ],
+  "varieties": [],
+  "lore": [],
+  "tiers": {
+    "official": [
+      "name",
+      "index",
+      "number",
+      "category",
+      "generation",
+      "isLegendary",
+      "isMythical",
+      "types",
+      "heightMeters",
+      "weightKg",
+      "pokedexEntries",
+      "evolutionChain[].name",
+      "evolutionChain[].index",
+      "evolutionChain[].types",
+      "evolutionChain[].stage",
+      "varieties[].types",
+      "varieties[].heightMeters",
+      "varieties[].weightKg"
+    ],
+    "trusted_secondary": [
+      "evolutionChain[].method",
+      "evolutionChain[].evolvesFrom",
+      "varieties[].name"
+    ],
+    "community": [
+      "lore"
+    ]
+  },
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Rhyhorn",
+      "url": "https://www.pokemon.com/us/pokedex/rhyhorn",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Rhyhorn",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Rhyhorn_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Rhyhorn",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/111",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

@@ -1,0 +1,171 @@
+{
+  "episodeId": "mr-mime-122",
+  "createdAt": "2026-10-29T22:03:03.887Z",
+  "chosen": {
+    "id": "belief-makes-real",
+    "premise": "Mr. Mime’s pantomime can turn an invisible object into something real once observers believe in it.",
+    "hook": "What if pretending hard enough made imaginary things real?",
+    "archetype": "mystery",
+    "evidence": [
+      "pokedexEntries[5].text",
+      "pokedexEntries[6].text",
+      "pokedexEntries[13].text"
+    ],
+    "visualIdea": "Show Mr. Mime miming an invisible object, then make it appear the instant a crowd reacts.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 5,
+      "specificity": 4,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 24,
+    "note": "An unusually specific Mr. Mime premise, directly supported by multiple Pokédex entries; the belief-triggered transformation creates a strong visual payoff."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "belief-makes-real",
+          "premise": "Mr. Mime’s pantomime can turn an invisible object into something real once observers believe in it.",
+          "hook": "What if pretending hard enough made imaginary things real?",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[5].text",
+            "pokedexEntries[6].text",
+            "pokedexEntries[13].text"
+          ],
+          "visualIdea": "Show Mr. Mime miming an invisible object, then make it appear the instant a crowd reacts.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 24,
+          "note": "An unusually specific Mr. Mime premise, directly supported by multiple Pokédex entries; the belief-triggered transformation creates a strong visual payoff."
+        },
+        {
+          "id": "molecule-wall",
+          "premise": "Mr. Mime’s invisible walls come from fingertip vibrations that stop air molecules in midair.",
+          "hook": "Mr. Mime doesn’t just mime a wall—it stops the air itself.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[10].text",
+            "pokedexEntries[11].text",
+            "pokedexEntries[14].text"
+          ],
+          "visualIdea": "Zoom from vibrating fingertips to air molecules locking into a transparent wall against an attack.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 23,
+          "note": "Concrete and highly visual, with direct Pokédex support, though the scientific explanation risks sounding like an extrapolation from fictional lore."
+        },
+        {
+          "id": "interrupt-the-mime",
+          "premise": "Interrupt Mr. Mime’s act and its invisible performance ends with a broad-handed slap—or a DoubleSlap.",
+          "hook": "The fastest way to get attacked by Mr. Mime is to interrupt the show.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[0].text",
+            "pokedexEntries[8].text",
+            "pokedexEntries[15].text"
+          ],
+          "visualIdea": "Cut off a silent pantomime mid-gesture, then snap to Mr. Mime’s hands delivering a cartoonish slap.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 23,
+          "note": "Very well supported and easy to stage, but the joke is more of a familiar character trait than a deeply surprising discovery."
+        },
+        {
+          "id": "galar-form-switch",
+          "premise": "Galar’s Mr. Mime is taller and heavier than the original, and its typing changes from Psychic/Fairy to Ice/Psychic.",
+          "hook": "Galar changes Mr. Mime’s type—and adds height and weight.",
+          "archetype": "comparison",
+          "evidence": [
+            "types",
+            "heightMeters",
+            "weightKg",
+            "varieties[0].name",
+            "varieties[0].types",
+            "varieties[0].heightMeters",
+            "varieties[0].weightKg"
+          ],
+          "visualIdea": "Place both forms side by side with type icons, height markers, and weights changing from 1.3m/54.5kg to 1.4m/56.8kg.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 3,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 22,
+          "note": "Excellent data and comparison graphics, but regional-form stat and typing changes are a common Pokémon angle and less emotionally intriguing."
+        },
+        {
+          "id": "mimic-to-mr-mime",
+          "premise": "Mime Jr. becomes Mr. Mime by leveling up while knowing Mimic—the move is part of the evolution requirement.",
+          "hook": "Mr. Mime’s evolution requires it to know one move: Mimic.",
+          "archetype": "transformation",
+          "evidence": [
+            "evolutionChain[1].method",
+            "evolutionChain[1].evolvesFrom",
+            "evolutionChain[1].name"
+          ],
+          "visualIdea": "Show Mime Jr. copying a move, then trigger the evolution into Mr. Mime with the Mimic requirement highlighted.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 4,
+            "support": 4
+          },
+          "total": 21,
+          "note": "A precise evolution rule with good fan appeal; its support relies on the trusted-secondary evolution data, and the visual payoff is comparatively conventional."
+        },
+        {
+          "id": "hands-built-for-miming",
+          "premise": "Mr. Mime’s unusually broad hands may have enlarged specifically to improve its pantomime.",
+          "hook": "Those huge hands may exist because Mr. Mime is a professional mime.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[17].text",
+            "pokedexEntries[0].text",
+            "pokedexEntries[8].text"
+          ],
+          "visualIdea": "Outline Mr. Mime’s broad palms, then connect their size to gestures, invisible walls, and slaps.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 3,
+            "specificity": 4,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 20,
+          "note": "The hand-size explanation is distinctive and visual, but the source presents it as a scientific belief rather than an established fact, and the surprise is modest."
+        }
+      ],
+      "rejected": [],
+      "request": "Not applicable: belief-makes-real is strong enough to lead the episode. Stronger alternatives would need an equally specific, canon-backed mechanism with a surprising visual transformation."
+    }
+  ]
+}

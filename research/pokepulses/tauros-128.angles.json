@@ -1,0 +1,171 @@
+{
+  "episodeId": "tauros-128",
+  "createdAt": "2026-10-29T22:19:32.053Z",
+  "chosen": {
+    "id": "no-opponent-no-problem",
+    "premise": "If Tauros cannot find an opponent, it charges thick trees and knocks them down just to calm itself.",
+    "hook": "What does Tauros do when nobody wants to fight it?",
+    "archetype": "profile",
+    "evidence": [
+      "pokedexEntries[5].text",
+      "pokedexEntries[6].text"
+    ],
+    "visualIdea": "An empty field frustrates Tauros until it targets a tree, charges, and leaves it crashing down.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 5,
+      "specificity": 5,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 25,
+    "note": "An unusually memorable contradiction: Tauros needs to fight so badly that it attacks trees to calm down. The premise, hook, and visuals align exactly with the Ruby and Emerald entries."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "no-opponent-no-problem",
+          "premise": "If Tauros cannot find an opponent, it charges thick trees and knocks them down just to calm itself.",
+          "hook": "What does Tauros do when nobody wants to fight it?",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[5].text",
+            "pokedexEntries[6].text"
+          ],
+          "visualIdea": "An empty field frustrates Tauros until it targets a tree, charges, and leaves it crashing down.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 25,
+          "note": "An unusually memorable contradiction: Tauros needs to fight so badly that it attacks trees to calm down. The premise, hook, and visuals align exactly with the Ruby and Emerald entries."
+        },
+        {
+          "id": "three-tail-warning",
+          "premise": "Tauros whips its three tails to heighten its fighting will—and to warn that a charge is seconds away.",
+          "hook": "Tauros doesn't just charge. It announces the attack with three tails.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[3].text",
+            "pokedexEntries[15].text"
+          ],
+          "visualIdea": "Three tails lash faster as a warning meter fills, then Tauros launches into a full-speed charge.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 24,
+          "note": "The three-tail warning is highly specific to Tauros, clearly documented in multiple entries, and naturally creates a strong animated escalation."
+        },
+        {
+          "id": "scarred-horn-boss",
+          "premise": "In Tauros herds, the boss is the one with the longest, thickest, most battle-scarred horns.",
+          "hook": "Tauros chooses its herd boss by reading the horns.",
+          "archetype": "comparison",
+          "evidence": [
+            "pokedexEntries[12].text",
+            "pokedexEntries[2].text"
+          ],
+          "visualIdea": "Three Tauros silhouettes compare horn length, thickness, and scars before one becomes the herd leader.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 23,
+          "note": "The three-part horn criterion is concrete and easy to show. It is strongly supported, though herd dominance is a somewhat familiar animal-behavior angle."
+        },
+        {
+          "id": "four-regional-builds",
+          "premise": "Tauros keeps the same 1.4-meter height across four builds, but its weight and types change dramatically.",
+          "hook": "Tauros changes its build without changing its height.",
+          "archetype": "comparison",
+          "evidence": [
+            "heightMeters",
+            "weightKg",
+            "types",
+            "varieties[0].name",
+            "varieties[0].types",
+            "varieties[0].weightKg",
+            "varieties[1].name",
+            "varieties[1].types",
+            "varieties[1].weightKg",
+            "varieties[2].name",
+            "varieties[2].types",
+            "varieties[2].weightKg"
+          ],
+          "visualIdea": "Four Tauros forms line up at equal height while labels reveal weights from 85 to 115 kilograms and new types.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 23,
+          "note": "The equal 1.4-meter height versus 85–115 kilogram range and changing types make a clean visual comparison. It is data-driven, though the height contrast is less emotionally compelling than Tauros's behavior."
+        },
+        {
+          "id": "run-until-impact",
+          "premise": "Once Tauros starts running, it will not stop until it hits something.",
+          "hook": "Tauros has only one way to end a sprint: impact.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[1].text",
+            "pokedexEntries[14].text"
+          ],
+          "visualIdea": "Tauros accelerates across an empty path while a stop button fails, ending only when it hits a target.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 23,
+          "note": "The hard stopping rule is striking and directly supported by two entries. It is slightly less distinctive than the tree-rampage premise because unstoppable charging is already central to Tauros's general identity."
+        },
+        {
+          "id": "regional-temper",
+          "premise": "Tauros can be fierce, calmer in Alola, and too volatile for riders in Galar.",
+          "hook": "The same Pokémon has three completely different attitudes by region.",
+          "archetype": "comparison",
+          "evidence": [
+            "pokedexEntries[11].text",
+            "pokedexEntries[13].text",
+            "pokedexEntries[16].text"
+          ],
+          "visualIdea": "A map switches from calm Alolan Tauros to volatile Galarian Tauros that throws off a rider.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 3,
+            "visual": 4,
+            "support": 4
+          },
+          "total": 19,
+          "note": "Regional personality differences are interesting and supported, but 'three completely different attitudes' oversimplifies the entries and does not establish a precise rule for why the temper changes."
+        }
+      ],
+      "rejected": [],
+      "request": "None; this angle is strong enough to lead the episode. Stronger alternatives would need an equally unusual Tauros-specific behavior, a precise rule or contradiction, direct Pokédex support, and a visual escalation that pays off immediately."
+    }
+  ]
+}

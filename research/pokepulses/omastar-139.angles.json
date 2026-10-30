@@ -1,0 +1,161 @@
+{
+  "episodeId": "omastar-139",
+  "createdAt": "2026-10-30T05:43:40.330Z",
+  "chosen": {
+    "id": "power-within-reach",
+    "premise": "Omastar’s fangs can crush rock, but it can only attack prey that enters its tentacle range.",
+    "hook": "Omastar can crush rock—but can’t chase dinner.",
+    "archetype": "comparison",
+    "evidence": [
+      "pokedexEntries[15].text",
+      "pokedexEntries[5].text"
+    ],
+    "visualIdea": "Split the screen between rock shattering under its fangs and prey escaping beyond its tentacles.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 5,
+      "specificity": 5,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 25,
+    "note": "A sharp contradiction backed directly by Shield and Ruby: Omastar can crush rock yet can only attack prey within tentacle range. Excellent visual and hook potential."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "power-within-reach",
+          "premise": "Omastar’s fangs can crush rock, but it can only attack prey that enters its tentacle range.",
+          "hook": "Omastar can crush rock—but can’t chase dinner.",
+          "archetype": "comparison",
+          "evidence": [
+            "pokedexEntries[15].text",
+            "pokedexEntries[5].text"
+          ],
+          "visualIdea": "Split the screen between rock shattering under its fangs and prey escaping beyond its tentacles.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 25,
+          "note": "A sharp contradiction backed directly by Shield and Ruby: Omastar can crush rock yet can only attack prey within tentacle range. Excellent visual and hook potential."
+        },
+        {
+          "id": "the-no-escape-attack",
+          "premise": "Omastar’s hunting sequence is capture, immobilization, and a finishing bite with sharp fangs.",
+          "hook": "Once Omastar wraps you up, the bite is only the final step.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[12].text",
+            "pokedexEntries[3].text"
+          ],
+          "visualIdea": "Animate tentacles closing around prey, freezing it in place, then cut to Omastar’s fangs.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 23,
+          "note": "The capture-to-immobilization-to-bite sequence is concrete and well supported. “No escape” is slightly stronger than the evidence, though Silver does say Omastar never lets go."
+        },
+        {
+          "id": "shell-that-ended-it",
+          "premise": "Omastar’s shell kept growing until its greatest protection made it too slow to catch food.",
+          "hook": "What if your strongest defense became the reason you went extinct?",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[0].text",
+            "pokedexEntries[7].text",
+            "pokedexEntries[10].text"
+          ],
+          "visualIdea": "Show the shell enlarging around Omastar while nearby prey stays just out of reach.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 22,
+          "note": "The shell-driven extinction is highly specific and strongly visualized, but “greatest protection” is an interpretation; the entries establish weight, size, and hunting failure more directly than protection."
+        },
+        {
+          "id": "ancestor-of-octillery",
+          "premise": "Despite its shell-driven extinction, Omastar is described as a distant ancestor of Octillery.",
+          "hook": "This extinct shell Pokémon is supposedly related to Octillery.",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[11].text"
+          ],
+          "visualIdea": "Begin with Omastar’s fossil-like silhouette, then reveal Octillery after a branching ancestor diagram.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 4,
+            "visual": 4,
+            "support": 4
+          },
+          "total": 22,
+          "note": "The relationship is genuinely surprising and directly stated in Ultra Sun, but the dataset provides no additional evidence or explanation for the evolutionary connection."
+        },
+        {
+          "id": "level-forty-shell",
+          "premise": "Omanyte becomes Omastar at level 40—evolving into the form whose oversized shell is blamed for extinction.",
+          "hook": "At level 40, Omanyte evolves into its own survival problem.",
+          "archetype": "transformation",
+          "evidence": [
+            "evolutionChain[0].name",
+            "evolutionChain[1].method",
+            "evolutionChain[1].evolvesFrom",
+            "pokedexEntries[7].text"
+          ],
+          "visualIdea": "Show Omanyte reaching level 40, transforming into Omastar as its shell expands and movement slows.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 22,
+          "note": "The level-40 transformation creates a strong visual and narrative turn, but the research does not explicitly say evolution itself causes the shell problem; that connection is inferred."
+        },
+        {
+          "id": "tentacle-hands-and-feet",
+          "premise": "Omastar’s tentacles are so developed that its Pokedex describes them as functioning like hands and feet.",
+          "hook": "Omastar’s tentacles aren’t just weapons—they act like hands and feet.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[8].text"
+          ],
+          "visualIdea": "Label tentacles as “hands” and “feet,” then show them grabbing prey and supporting movement.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 4,
+            "support": 4
+          },
+          "total": 20,
+          "note": "The hands-and-feet comparison is distinctive and explicitly supported, but the research does not explain exactly how the tentacles perform each role, limiting the visual payoff."
+        }
+      ],
+      "rejected": [],
+      "request": "If none is good enough, stronger angles would need a rarer, explicitly documented contradiction or number—ideally one that connects Omastar’s rock-crushing fangs, limited tentacle range, and extinction into a single provable visual rule."
+    }
+  ]
+}

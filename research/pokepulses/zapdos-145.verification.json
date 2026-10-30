@@ -1,0 +1,502 @@
+{
+  "episodeId": "zapdos-145",
+  "checkedAt": "2026-10-30T06:02:46.705Z",
+  "claims": [
+    {
+      "id": "c1",
+      "where": "title",
+      "text": "Zapdos Has a Bizarre Entrance Rule",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].text",
+        "pokedexEntries[10].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c2",
+      "where": "premise",
+      "text": "Zapdos controls electricity and causes storms, yet its appearance has one unusually precise condition.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[8].text",
+        "pokedexEntries[3].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c3",
+      "where": "audiencePromise",
+      "text": "Follow Zapdos from storm-maker to a legendary bird with the strangest arrival rule in its Pokédex entries.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[0].text",
+        "pokedexEntries[3].text",
+        "pokedexEntries[10].text"
+      ],
+      "note": "Zapdos is a legendary bird and has a specific appearance condition, but “strangest” is a comparative characterization not established by the research.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c4",
+      "where": "openLoop",
+      "text": "If Zapdos lives in thunderclouds and causes storms, why require a split?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Question framing; its premises are supported by the Pokédex, but it makes no direct claim.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c5",
+      "where": "payoff",
+      "text": "Zapdos causes storms, yet appears only after one exact sky change.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text",
+        "pokedexEntries[3].text",
+        "pokedexEntries[10].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c6",
+      "where": "scenes.the-cloud-must-split.headline",
+      "text": "LIGHTNING ISN'T ENOUGH",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].text",
+        "pokedexEntries[10].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c7",
+      "where": "scenes.the-cloud-must-split.narration",
+      "text": "Zapdos appears only when a thundercloud splits in two.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].text",
+        "pokedexEntries[10].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c8",
+      "where": "scenes.the-cloud-must-split.caption",
+      "text": "THE SKY HAS AN ENTRANCE RULE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].text",
+        "pokedexEntries[10].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c9",
+      "where": "scenes.the-cloud-must-split.eyebrow",
+      "text": "ZAPDOS",
+      "verdict": "supported",
+      "evidence": [
+        "name"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c10",
+      "where": "scenes.the-storm-home.headline",
+      "text": "A BIRD OF THUNDERCLOUDS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[0].text",
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c11",
+      "where": "scenes.the-storm-home.narration",
+      "text": "Zapdos is said to live in thunderclouds and control electricity.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c12",
+      "where": "scenes.the-storm-home.caption",
+      "text": "THUNDERCLOUD HOME",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c13",
+      "where": "scenes.the-storm-home.eyebrow",
+      "text": "FIRST CLUE",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Framing label with no factual claim.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c14",
+      "where": "scenes.the-storm-home.facts[0]",
+      "text": "THUNDERCLOUDS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c15",
+      "where": "scenes.the-storm-home.facts[1]",
+      "text": "CONTROLS ELECTRICITY",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[5].text",
+        "pokedexEntries[6].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c16",
+      "where": "scenes.the-storm-maker.headline",
+      "text": "ITS WINGS CAUSE THUNDERSTORMS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text",
+        "pokedexEntries[9].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c17",
+      "where": "scenes.the-storm-maker.narration",
+      "text": "It can cause savage thunderstorms by flapping its glittering wings.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text",
+        "pokedexEntries[9].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c18",
+      "where": "scenes.the-storm-maker.caption",
+      "text": "WINGS → THUNDERSTORMS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text",
+        "pokedexEntries[9].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c19",
+      "where": "scenes.the-storm-maker.eyebrow",
+      "text": "IT MAKES STORMS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text",
+        "pokedexEntries[9].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c20",
+      "where": "scenes.the-storm-maker.facts[0]",
+      "text": "SAVAGE THUNDERSTORMS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text",
+        "pokedexEntries[9].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c21",
+      "where": "scenes.the-storm-maker.facts[1]",
+      "text": "GLITTERING WINGS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text",
+        "pokedexEntries[9].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c22",
+      "where": "scenes.the-precise-condition.headline",
+      "text": "ONE PRECISE CONDITION",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].text",
+        "pokedexEntries[10].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c23",
+      "where": "scenes.the-precise-condition.narration",
+      "text": "Two entries give one precise condition: a thundercloud parts in two.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].text",
+        "pokedexEntries[10].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c24",
+      "where": "scenes.the-precise-condition.caption",
+      "text": "ONE CLOUD → TWO HALVES",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].text",
+        "pokedexEntries[10].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c25",
+      "where": "scenes.the-precise-condition.eyebrow",
+      "text": "THE DETAIL",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Framing label with no factual claim.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c26",
+      "where": "scenes.the-precise-condition.facts[0]",
+      "text": "SILVER",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].game"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c27",
+      "where": "scenes.the-precise-condition.facts[1]",
+      "text": "SOULSILVER",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[10].game"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c28",
+      "where": "scenes.the-precise-condition.facts[2]",
+      "text": "TWO HALVES",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].text",
+        "pokedexEntries[10].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c29",
+      "where": "scenes.the-strangest-arrival.headline",
+      "text": "STORM-MAKER. STRICT ARRIVAL.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text",
+        "pokedexEntries[3].text",
+        "pokedexEntries[10].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c30",
+      "where": "scenes.the-strangest-arrival.narration",
+      "text": "The bird that causes storms has the strangest arrival rule.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[2].text",
+        "pokedexEntries[3].text",
+        "pokedexEntries[10].text"
+      ],
+      "note": "The storm-making ability and appearance condition are supported, but “strangest” is an unsupported comparative characterization.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c31",
+      "where": "scenes.the-strangest-arrival.caption",
+      "text": "STORM-MAKER, THEN SKY-SPLIT",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text",
+        "pokedexEntries[3].text",
+        "pokedexEntries[10].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c32",
+      "where": "scenes.the-strangest-arrival.eyebrow",
+      "text": "THE CONTRAST",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Framing label with no factual claim.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c33",
+      "where": "scenes.the-strangest-arrival.facts[0]",
+      "text": "CAUSES STORMS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[2].text",
+        "pokedexEntries[9].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c34",
+      "where": "scenes.the-strangest-arrival.facts[1]",
+      "text": "APPEARS WHEN CLOUD PARTS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].text",
+        "pokedexEntries[10].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c35",
+      "where": "scenes.perfect-or-strange.headline",
+      "text": "WHICH ENTRANCE WINS?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Question framing with no factual claim.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c36",
+      "where": "scenes.perfect-or-strange.narration",
+      "text": "Better entrance: arriving with lightning, or splitting a thundercloud?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Opinion question; it presents researched lightning and split-cloud arrival imagery but makes no direct claim.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c37",
+      "where": "scenes.perfect-or-strange.caption",
+      "text": "LIGHTNING OR SPLIT CLOUD?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Question framing with no factual claim.",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c38",
+      "where": "scenes.perfect-or-strange.eyebrow",
+      "text": "YOUR CALL",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "Call for audience opinion with no factual claim.",
+      "checkedBy": "model"
+    }
+  ],
+  "unsupported": [],
+  "uncertain": [
+    {
+      "id": "c3",
+      "where": "audiencePromise",
+      "text": "Follow Zapdos from storm-maker to a legendary bird with the strangest arrival rule in its Pokédex entries.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[0].text",
+        "pokedexEntries[3].text",
+        "pokedexEntries[10].text"
+      ],
+      "note": "Zapdos is a legendary bird and has a specific appearance condition, but “strangest” is a comparative characterization not established by the research.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c30",
+      "where": "scenes.the-strangest-arrival.narration",
+      "text": "The bird that causes storms has the strangest arrival rule.",
+      "verdict": "uncertain",
+      "evidence": [
+        "pokedexEntries[2].text",
+        "pokedexEntries[3].text",
+        "pokedexEntries[10].text"
+      ],
+      "note": "The storm-making ability and appearance condition are supported, but “strangest” is an unsupported comparative characterization.",
+      "tier": "official",
+      "checkedBy": "model"
+    }
+  ]
+}

@@ -1,0 +1,163 @@
+{
+  "episodeId": "tangela-114",
+  "createdAt": "2026-10-29T21:35:01.643Z",
+  "chosen": {
+    "id": "the-next-day-regrowth",
+    "premise": "Tangela can lose its vines painlessly, then regrow the missing vines by the very next day.",
+    "hook": "Grab Tangela’s vines, and they grow back tomorrow.",
+    "archetype": "mechanic",
+    "evidence": [
+      "pokedexEntries[5].text",
+      "pokedexEntries[6].text"
+    ],
+    "visualIdea": "Show vines snapping away without pain, followed by a day-night time-lapse of fresh vines returning.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 5,
+      "specificity": 5,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 25,
+    "note": "A precise, unusual biological rule with a strong contradiction: the vines can be removed painlessly and return by the next day. The time-lapse is immediately visual."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "the-next-day-regrowth",
+          "premise": "Tangela can lose its vines painlessly, then regrow the missing vines by the very next day.",
+          "hook": "Grab Tangela’s vines, and they grow back tomorrow.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[5].text",
+            "pokedexEntries[6].text"
+          ],
+          "visualIdea": "Show vines snapping away without pain, followed by a day-night time-lapse of fresh vines returning.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 25,
+          "note": "A precise, unusual biological rule with a strong contradiction: the vines can be removed painlessly and return by the next day. The time-lapse is immediately visual."
+        },
+        {
+          "id": "vines-that-never-stop",
+          "premise": "Tangela’s blue vines keep growing for its entire life, even after torn vines are removed.",
+          "hook": "Tangela’s vines never stop growing—even when torn off.",
+          "archetype": "transformation",
+          "evidence": [
+            "pokedexEntries[1].text",
+            "pokedexEntries[12].text",
+            "pokedexEntries[14].text"
+          ],
+          "visualIdea": "Animate vines continuously lengthening, then regrowing over the spots where they were torn away.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 24,
+          "note": "Excellent Tangela-only premise and highly visual, though “never stop” and “regrow after removal” overlap somewhat with the stronger next-day-regrowth angle and lack its exact time marker."
+        },
+        {
+          "id": "the-hidden-face",
+          "premise": "Tangela’s vines completely hide its identity, and no one has ever seen the face beneath them.",
+          "hook": "Tangela’s face has never been seen.",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[9].text",
+            "pokedexEntries[13].text",
+            "pokedexEntries[14].text"
+          ],
+          "visualIdea": "Zoom through layers of blue vines toward a silhouette, then stop before revealing what is underneath.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 23,
+          "note": "Very Tangela-specific and visually strong, but “no one has ever seen the face” is a familiar mystery premise and offers less concrete payoff."
+        },
+        {
+          "id": "herb-and-spice-vines",
+          "premise": "Tangela’s vines are useful beyond battle: they are used as herbs in Galar and as a refreshing spice in Hisui.",
+          "hook": "Tangela’s vines can end up in food.",
+          "archetype": "comparison",
+          "evidence": [
+            "pokedexEntries[15].text",
+            "pokedexEntries[16].text"
+          ],
+          "visualIdea": "Split the screen between Galar herbs and Hisui seasoning, both sourced from Tangela’s blue vines.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 4,
+            "visual": 4,
+            "support": 5
+          },
+          "total": 23,
+          "note": "Unexpected and well supported, with a useful regional comparison. The food-use visual is clear, though the premise is less instantly dramatic than regrowth."
+        },
+        {
+          "id": "the-ticklish-defense",
+          "premise": "Tangela’s fine-haired vines make anything caught in them feel ticklish while the vines keep moving.",
+          "hook": "Tangela’s trap is a tickle attack.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[3].text",
+            "pokedexEntries[10].text"
+          ],
+          "visualIdea": "A moving vine snare catches an approaching object, with playful vibration lines showing the ticklish effect.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 21,
+          "note": "The ticklish trap is memorable and visual, but the evidence describes being ticklish when ensnared rather than clearly establishing it as a deliberate defensive attack."
+        },
+        {
+          "id": "ancient-power-evolution",
+          "premise": "Tangela evolves into Tangrowth only when it levels up while knowing Ancient Power.",
+          "hook": "Tangela needs one specific move to evolve.",
+          "archetype": "mechanic",
+          "evidence": [
+            "evolutionChain[1].evolvesFrom",
+            "evolutionChain[1].method",
+            "evolutionChain[1].name"
+          ],
+          "visualIdea": "Display Tangela, the Ancient Power move requirement, and a level-up transition into Tangrowth.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 4,
+            "support": 4
+          },
+          "total": 21,
+          "note": "Concrete and useful for players, but evolution-by-move is not unique to Tangela and the cited method comes from secondary data rather than the Pokédex entries."
+        }
+      ],
+      "rejected": [],
+      "request": "A stronger angle would need an equally Tangela-specific rule with a sharper contradiction, an exact measurable detail, and a visual transformation that is better supported by the research."
+    }
+  ]
+}

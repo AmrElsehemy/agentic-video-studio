@@ -1,0 +1,166 @@
+{
+  "episodeId": "pinsir-127",
+  "createdAt": "2026-10-29T22:16:21.745Z",
+  "chosen": {
+    "id": "crush-or-toss",
+    "premise": "Pinsir has a brutal two-step attack rule: split prey apart, or fling away anything it cannot tear.",
+    "hook": "Pinsir has a backup plan for prey it cannot tear apart.",
+    "archetype": "mechanic",
+    "evidence": [
+      "pokedexEntries[0].text",
+      "pokedexEntries[10].text",
+      "pokedexEntries[21].text"
+    ],
+    "visualIdea": "Animate Pinsir clamping down, then branching to a split-apart outcome or a high-speed toss.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 4,
+      "specificity": 5,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 24,
+    "note": "A highly specific Pinsir attack rule with a clear either-or structure, repeated across multiple Pokédex entries and easy to animate."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "crush-or-toss",
+          "premise": "Pinsir has a brutal two-step attack rule: split prey apart, or fling away anything it cannot tear.",
+          "hook": "Pinsir has a backup plan for prey it cannot tear apart.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[0].text",
+            "pokedexEntries[10].text",
+            "pokedexEntries[21].text"
+          ],
+          "visualIdea": "Animate Pinsir clamping down, then branching to a split-apart outcome or a high-speed toss.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 24,
+          "note": "A highly specific Pinsir attack rule with a clear either-or structure, repeated across multiple Pokédex entries and easy to animate."
+        },
+        {
+          "id": "pincer-popularity",
+          "premise": "Pinsir judge one another by their pincers, with thicker ones making a Pokémon more popular with the opposite gender.",
+          "hook": "For Pinsir, dating popularity comes down to one body part.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[20].text"
+          ],
+          "visualIdea": "Show Pinsir at a bizarre pincer-based popularity contest, with thicker pincers winning attention.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 24,
+          "note": "Extremely distinctive and surprising: Pinsir society judges mates by pincer thickness. The social rule is concrete, though it offers less action than the attack mechanic."
+        },
+        {
+          "id": "twice-its-weight",
+          "premise": "Pinsir can grip and lift a foe weighing twice its own 55 kg body weight.",
+          "hook": "Pinsir can lift something weighing twice as much as it does.",
+          "archetype": "mechanic",
+          "evidence": [
+            "weightKg",
+            "pokedexEntries[5].text"
+          ],
+          "visualIdea": "Show a 55 kg Pinsir lifting a weight labeled 110 kg.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 4,
+            "support": 5
+          },
+          "total": 22,
+          "note": "A concrete strength comparison backed directly by the Ruby entry, though the basic lifting-strength premise is somewhat familiar."
+        },
+        {
+          "id": "cold-stops-pinsir",
+          "premise": "Despite its strength, Pinsir cannot move when cold and buries itself or hides to survive the night.",
+          "hook": "The Pokémon that shatters logs has one absurd weakness: cold.",
+          "archetype": "comparison",
+          "evidence": [
+            "pokedexEntries[1].text",
+            "pokedexEntries[7].text",
+            "pokedexEntries[19].text"
+          ],
+          "visualIdea": "Cut from Pinsir breaking a log to a temperature drop that freezes it motionless underground.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 22,
+          "note": "The strength-versus-cold contradiction is compelling and well supported, but the premise combines several related survival behaviors."
+        },
+        {
+          "id": "thorned-lock",
+          "premise": "Pinsir’s horn thorns dig into foes when its pincers close, making escape especially difficult.",
+          "hook": "Pinsir’s pincers do more than clamp—they lock into the target.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[6].text",
+            "pokedexEntries[14].text"
+          ],
+          "visualIdea": "Use a close-up animation of horn thorns driving in as the pincers shut like a locking trap.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 22,
+          "note": "The thorn mechanism is distinctive and visually strong, but “lock into the target” slightly overstates the entries, which say the thorns make escape difficult."
+        },
+        {
+          "id": "mega-flight",
+          "premise": "Pinsir’s only listed evolution-chain form is Bug-type, but its Mega variety becomes Bug/Flying and grows heavier.",
+          "hook": "Pinsir does not evolve—but its Mega form takes flight.",
+          "archetype": "transformation",
+          "evidence": [
+            "evolutionChain[0].types",
+            "evolutionChain[0].stage",
+            "varieties[0].name",
+            "varieties[0].types",
+            "varieties[0].heightMeters",
+            "varieties[0].weightKg"
+          ],
+          "visualIdea": "Morph standard Pinsir at 1.5 m and 55 kg into Mega Pinsir at 1.7 m and 59 kg with Flying added.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 3,
+            "specificity": 4,
+            "visual": 4,
+            "support": 4
+          },
+          "total": 19,
+          "note": "The Bug/Flying Mega transformation is clear, but “does not evolve” is inferred from the supplied chain rather than explicitly stated, and Mega transformations are familiar."
+        }
+      ],
+      "rejected": [],
+      "request": "If pursuing a stronger angle, research would need an even more exclusive Pinsir rule or measurable contradiction, ideally with multiple explicit Pokédex entries and a striking visual consequence."
+    }
+  ]
+}

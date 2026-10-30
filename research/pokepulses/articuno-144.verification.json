@@ -1,0 +1,554 @@
+{
+  "episodeId": "articuno-144",
+  "checkedAt": "2026-10-30T06:00:16.391Z",
+  "claims": [
+    {
+      "id": "c1",
+      "where": "title",
+      "text": "Articuno's Same Height Hides a Huge Change",
+      "verdict": "supported",
+      "evidence": [
+        "heightMeters",
+        "varieties[0].heightMeters",
+        "weightKg",
+        "varieties[0].weightKg",
+        "types",
+        "varieties[0].types"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c2",
+      "where": "premise",
+      "text": "Articuno and Galarian Articuno share one height, but differ in weight and typing.",
+      "verdict": "supported",
+      "evidence": [
+        "heightMeters",
+        "varieties[0].heightMeters",
+        "weightKg",
+        "varieties[0].weightKg",
+        "types",
+        "varieties[0].types"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c3",
+      "where": "audiencePromise",
+      "text": "Watch one familiar measurement anchor two Articuno forms with different physical builds and types.",
+      "verdict": "uncertain",
+      "evidence": [
+        "heightMeters",
+        "varieties[0].heightMeters",
+        "weightKg",
+        "varieties[0].weightKg",
+        "types",
+        "varieties[0].types"
+      ],
+      "note": "The different types and weights are supported, but 'different physical builds' is an inference from those measurements rather than a stated research fact.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c4",
+      "where": "openLoop",
+      "text": "Can Articuno change its identity while keeping one measurement?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c5",
+      "where": "payoff",
+      "text": "Both forms are 1.7 meters tall, but their weights and types differ.",
+      "verdict": "supported",
+      "evidence": [
+        "heightMeters",
+        "varieties[0].heightMeters",
+        "weightKg",
+        "varieties[0].weightKg",
+        "types",
+        "varieties[0].types"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c6",
+      "where": "scenes.same-height-different-identity.headline",
+      "text": "SAME HEIGHT. NEW IDENTITY.",
+      "verdict": "supported",
+      "evidence": [
+        "heightMeters",
+        "varieties[0].heightMeters",
+        "types",
+        "varieties[0].types"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c7",
+      "where": "scenes.same-height-different-identity.narration",
+      "text": "Articuno keeps its height, but loses its identity.",
+      "verdict": "uncertain",
+      "evidence": [
+        "heightMeters",
+        "varieties[0].heightMeters",
+        "types",
+        "varieties[0].types"
+      ],
+      "note": "The unchanged height and changed typing are supported, but 'loses its identity' is a stronger metaphor than the research establishes.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c8",
+      "where": "scenes.same-height-different-identity.caption",
+      "text": "ONE HEIGHT. TWO FORMS.",
+      "verdict": "supported",
+      "evidence": [
+        "heightMeters",
+        "varieties[0].heightMeters",
+        "varieties[0].name"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c9",
+      "where": "scenes.same-height-different-identity.eyebrow",
+      "text": "THE SAME HEIGHT",
+      "verdict": "supported",
+      "evidence": [
+        "heightMeters",
+        "varieties[0].heightMeters"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c10",
+      "where": "scenes.matching-height-marker.headline",
+      "text": "BOTH STAND 1.7 METERS",
+      "verdict": "supported",
+      "evidence": [
+        "heightMeters",
+        "varieties[0].heightMeters"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c11",
+      "where": "scenes.matching-height-marker.narration",
+      "text": "Both forms stand at exactly one point seven meters tall.",
+      "verdict": "supported",
+      "evidence": [
+        "heightMeters",
+        "varieties[0].heightMeters"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c12",
+      "where": "scenes.matching-height-marker.caption",
+      "text": "HEIGHT: 1.7 METERS",
+      "verdict": "supported",
+      "evidence": [
+        "heightMeters"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c13",
+      "where": "scenes.matching-height-marker.eyebrow",
+      "text": "THE ONE CONSTANT",
+      "verdict": "supported",
+      "evidence": [
+        "heightMeters",
+        "varieties[0].heightMeters"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c14",
+      "where": "scenes.matching-height-marker.facts[0]",
+      "text": "ARTICUNO: 1.7 M",
+      "verdict": "supported",
+      "evidence": [
+        "heightMeters"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c15",
+      "where": "scenes.matching-height-marker.facts[1]",
+      "text": "GALAR: 1.7 M",
+      "verdict": "supported",
+      "evidence": [
+        "varieties[0].heightMeters"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c16",
+      "where": "scenes.weight-shock.headline",
+      "text": "THE SAME-SIZED FORM IS LIGHTER",
+      "verdict": "supported",
+      "evidence": [
+        "heightMeters",
+        "varieties[0].heightMeters",
+        "weightKg",
+        "varieties[0].weightKg"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c17",
+      "where": "scenes.weight-shock.narration",
+      "text": "Galarian weighs 50.9 kilograms, not 55.4.",
+      "verdict": "supported",
+      "evidence": [
+        "varieties[0].weightKg",
+        "weightKg"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c18",
+      "where": "scenes.weight-shock.caption",
+      "text": "55.4 KG → 50.9 KG",
+      "verdict": "supported",
+      "evidence": [
+        "weightKg",
+        "varieties[0].weightKg"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c19",
+      "where": "scenes.weight-shock.eyebrow",
+      "text": "THE SCALE DISAGREES",
+      "verdict": "supported",
+      "evidence": [
+        "weightKg",
+        "varieties[0].weightKg"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c20",
+      "where": "scenes.weight-shock.facts[0]",
+      "text": "ORIGINAL: 55.4 KG",
+      "verdict": "supported",
+      "evidence": [
+        "weightKg"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c21",
+      "where": "scenes.weight-shock.facts[1]",
+      "text": "GALAR: 50.9 KG",
+      "verdict": "supported",
+      "evidence": [
+        "varieties[0].weightKg"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c22",
+      "where": "scenes.height-is-not-sameness.headline",
+      "text": "THE MATCH HIDES THE SPLIT",
+      "verdict": "supported",
+      "evidence": [
+        "heightMeters",
+        "varieties[0].heightMeters",
+        "weightKg",
+        "varieties[0].weightKg",
+        "types",
+        "varieties[0].types"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c23",
+      "where": "scenes.height-is-not-sameness.narration",
+      "text": "That matching marker hides a much bigger split between them.",
+      "verdict": "uncertain",
+      "evidence": [
+        "heightMeters",
+        "varieties[0].heightMeters",
+        "weightKg",
+        "varieties[0].weightKg",
+        "types",
+        "varieties[0].types"
+      ],
+      "note": "The research supports differences in weight and typing, but does not establish that the split is 'much bigger.'",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c24",
+      "where": "scenes.height-is-not-sameness.caption",
+      "text": "SAME FRAME. DIFFERENT BUILD.",
+      "verdict": "uncertain",
+      "evidence": [
+        "heightMeters",
+        "varieties[0].heightMeters",
+        "weightKg",
+        "varieties[0].weightKg"
+      ],
+      "note": "The same height and different weights support the contrast, but 'different build' is an inference rather than an explicit research statement.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c25",
+      "where": "scenes.height-is-not-sameness.eyebrow",
+      "text": "THE MATCH IS DECEPTIVE",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c26",
+      "where": "scenes.type-identity-swap.headline",
+      "text": "ICE BECOMES PSYCHIC",
+      "verdict": "supported",
+      "evidence": [
+        "types[0]",
+        "varieties[0].types[0]"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c27",
+      "where": "scenes.type-identity-swap.narration",
+      "text": "Same height, different typing: Galarian becomes Psychic and Flying.",
+      "verdict": "supported",
+      "evidence": [
+        "heightMeters",
+        "varieties[0].heightMeters",
+        "varieties[0].types"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c28",
+      "where": "scenes.type-identity-swap.caption",
+      "text": "ICE → PSYCHIC",
+      "verdict": "supported",
+      "evidence": [
+        "types[0]",
+        "varieties[0].types[0]"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c29",
+      "where": "scenes.type-identity-swap.eyebrow",
+      "text": "THE TYPES CHANGE",
+      "verdict": "supported",
+      "evidence": [
+        "types",
+        "varieties[0].types"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c30",
+      "where": "scenes.type-identity-swap.facts[0]",
+      "text": "ORIGINAL: ICE",
+      "verdict": "supported",
+      "evidence": [
+        "types[0]"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c31",
+      "where": "scenes.type-identity-swap.facts[1]",
+      "text": "BOTH: FLYING",
+      "verdict": "supported",
+      "evidence": [
+        "types[1]",
+        "varieties[0].types[1]"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c32",
+      "where": "scenes.type-identity-swap.facts[2]",
+      "text": "GALAR: PSYCHIC",
+      "verdict": "supported",
+      "evidence": [
+        "varieties[0].types[0]"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c33",
+      "where": "scenes.classic-or-galar.headline",
+      "text": "ONE FRAME. TWO IDENTITIES.",
+      "verdict": "supported",
+      "evidence": [
+        "varieties[0].name",
+        "types",
+        "varieties[0].types"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c34",
+      "where": "scenes.classic-or-galar.narration",
+      "text": "Which works better: classic Ice, or Galarian Psychic?",
+      "verdict": "supported",
+      "evidence": [
+        "types[0]",
+        "varieties[0].name",
+        "varieties[0].types[0]"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c35",
+      "where": "scenes.classic-or-galar.caption",
+      "text": "CLASSIC OR GALAR?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c36",
+      "where": "scenes.classic-or-galar.eyebrow",
+      "text": "YOUR PICK",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    }
+  ],
+  "unsupported": [],
+  "uncertain": [
+    {
+      "id": "c3",
+      "where": "audiencePromise",
+      "text": "Watch one familiar measurement anchor two Articuno forms with different physical builds and types.",
+      "verdict": "uncertain",
+      "evidence": [
+        "heightMeters",
+        "varieties[0].heightMeters",
+        "weightKg",
+        "varieties[0].weightKg",
+        "types",
+        "varieties[0].types"
+      ],
+      "note": "The different types and weights are supported, but 'different physical builds' is an inference from those measurements rather than a stated research fact.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c7",
+      "where": "scenes.same-height-different-identity.narration",
+      "text": "Articuno keeps its height, but loses its identity.",
+      "verdict": "uncertain",
+      "evidence": [
+        "heightMeters",
+        "varieties[0].heightMeters",
+        "types",
+        "varieties[0].types"
+      ],
+      "note": "The unchanged height and changed typing are supported, but 'loses its identity' is a stronger metaphor than the research establishes.",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c23",
+      "where": "scenes.height-is-not-sameness.narration",
+      "text": "That matching marker hides a much bigger split between them.",
+      "verdict": "uncertain",
+      "evidence": [
+        "heightMeters",
+        "varieties[0].heightMeters",
+        "weightKg",
+        "varieties[0].weightKg",
+        "types",
+        "varieties[0].types"
+      ],
+      "note": "The research supports differences in weight and typing, but does not establish that the split is 'much bigger.'",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c24",
+      "where": "scenes.height-is-not-sameness.caption",
+      "text": "SAME FRAME. DIFFERENT BUILD.",
+      "verdict": "uncertain",
+      "evidence": [
+        "heightMeters",
+        "varieties[0].heightMeters",
+        "weightKg",
+        "varieties[0].weightKg"
+      ],
+      "note": "The same height and different weights support the contrast, but 'different build' is an inference rather than an explicit research statement.",
+      "tier": "official",
+      "checkedBy": "model"
+    }
+  ]
+}

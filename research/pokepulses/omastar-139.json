@@ -1,0 +1,160 @@
+{
+  "schemaVersion": 1,
+  "id": "omastar-139",
+  "number": 139,
+  "index": "#139",
+  "name": "Omastar",
+  "slug": "omastar",
+  "category": "Spiral Pokémon",
+  "generation": "Generation I",
+  "isLegendary": false,
+  "isMythical": false,
+  "types": [
+    "Rock",
+    "Water"
+  ],
+  "heightMeters": 1,
+  "weightKg": 35,
+  "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/139.png",
+  "pokedexEntries": [
+    {
+      "game": "Red",
+      "text": "A prehistoric POKéMON that died out when its heavy shell made it impossible to catch prey."
+    },
+    {
+      "game": "Yellow",
+      "text": "Sharp beaks ring its mouth. Its shell was too big for it to move freely, so it became extinct."
+    },
+    {
+      "game": "Gold",
+      "text": "Apparently, it cracked SHELLDER's shell with its sharp fangs and sucked out the insides."
+    },
+    {
+      "game": "Silver",
+      "text": "Once wrapped around its prey, it never lets go. It eats the prey by tearing at it with sharp fangs."
+    },
+    {
+      "game": "Crystal",
+      "text": "Its heavy shell allowed it to reach only nearby food. This could be the reason it is extinct."
+    },
+    {
+      "game": "Ruby",
+      "text": "OMASTAR uses its tentacles to capture its prey. It is believed to have become extinct because its shell grew too large and heavy, causing its movements to become too slow and ponderous."
+    },
+    {
+      "game": "Emerald",
+      "text": "An OMASTAR uses its tentacles to capture its prey. It is believed to have become extinct because its shell grew too large, making its movements slow and ponderous."
+    },
+    {
+      "game": "Firered",
+      "text": "Its tentacles are highly developed as if they are hands and feet. As soon as it ensnares prey, it bites."
+    },
+    {
+      "game": "Leafgreen",
+      "text": "Despite having strong fangs and tentacles, it went extinct when its heavy shell made it unable to catch prey."
+    },
+    {
+      "game": "Diamond",
+      "text": "It is thought that this Pokémon became extinct because its spiral shell grew too large."
+    },
+    {
+      "game": "Heartgold",
+      "text": "Apparently, it cracked SHELLDER’s shell with its sharp fangs and sucked out the insides."
+    },
+    {
+      "game": "Ultra Sun",
+      "text": "Its heavy shell is thought to be the reason this ancient Pokémon died out. It’s apparently a distant ancestor of Octillery."
+    },
+    {
+      "game": "Ultra Moon",
+      "text": "It wraps its prey in its tentacles to immobilize them and then finishes them off with its sharp fangs."
+    },
+    {
+      "game": "Lets Go Pikachu",
+      "text": "Its sharp beak rings its mouth. Its shell was too big for it to move freely, so it became extinct."
+    },
+    {
+      "game": "Sword",
+      "text": "Weighed down by a large and heavy shell, Omastar couldn’t move very fast. Some say it went extinct because it was unable to catch food."
+    },
+    {
+      "game": "Shield",
+      "text": "Omastar’s sharp fangs could crush rock, but the Pokémon can attack only the prey that come within reach of its tentacles."
+    }
+  ],
+  "evolutionChain": [
+    {
+      "name": "Omanyte",
+      "index": "#138",
+      "stage": 1,
+      "types": [
+        "Rock",
+        "Water"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/138.png",
+      "isSubject": false
+    },
+    {
+      "name": "Omastar",
+      "index": "#139",
+      "stage": 2,
+      "evolvesFrom": "Omanyte",
+      "method": "Level Up, level 40",
+      "types": [
+        "Rock",
+        "Water"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/139.png",
+      "isSubject": true
+    }
+  ],
+  "varieties": [],
+  "lore": [],
+  "tiers": {
+    "official": [
+      "name",
+      "index",
+      "number",
+      "category",
+      "generation",
+      "isLegendary",
+      "isMythical",
+      "types",
+      "heightMeters",
+      "weightKg",
+      "pokedexEntries",
+      "evolutionChain[].name",
+      "evolutionChain[].index",
+      "evolutionChain[].types",
+      "evolutionChain[].stage",
+      "varieties[].types",
+      "varieties[].heightMeters",
+      "varieties[].weightKg"
+    ],
+    "trusted_secondary": [
+      "evolutionChain[].method",
+      "evolutionChain[].evolvesFrom",
+      "varieties[].name"
+    ],
+    "community": [
+      "lore"
+    ]
+  },
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Omastar",
+      "url": "https://www.pokemon.com/us/pokedex/omastar",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Omastar",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Omastar_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Omastar",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/139",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

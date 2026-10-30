@@ -1,0 +1,166 @@
+{
+  "episodeId": "drowzee-096",
+  "createdAt": "2026-10-29T20:38:54.445Z",
+  "chosen": {
+    "id": "itchy-nose-warning",
+    "premise": "An itchy nose during sleep is Drowzee standing over your pillow and eating your dream through your nostrils.",
+    "hook": "That itchy nose might not be allergies—it might be Drowzee.",
+    "archetype": "mystery",
+    "evidence": [
+      "pokedexEntries[6].text",
+      "pokedexEntries[7].text"
+    ],
+    "visualIdea": "Follow an overnight itch clue from the sleeper’s nose to Drowzee hovering above the pillow.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 5,
+      "specificity": 5,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 25,
+    "note": "A bizarre, concrete, unmistakably Drowzee-specific warning backed almost verbatim by multiple entries; it creates an immediate mystery and a clear visual reveal."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "itchy-nose-warning",
+          "premise": "An itchy nose during sleep is Drowzee standing over your pillow and eating your dream through your nostrils.",
+          "hook": "That itchy nose might not be allergies—it might be Drowzee.",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[6].text",
+            "pokedexEntries[7].text"
+          ],
+          "visualIdea": "Follow an overnight itch clue from the sleeper’s nose to Drowzee hovering above the pillow.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 25,
+          "note": "A bizarre, concrete, unmistakably Drowzee-specific warning backed almost verbatim by multiple entries; it creates an immediate mystery and a clear visual reveal."
+        },
+        {
+          "id": "dream-food-critic",
+          "premise": "Drowzee eats dreams, but bad dreams taste sour and can make it sick.",
+          "hook": "Drowzee is a dream eater with a very specific food allergy.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[0].text",
+            "pokedexEntries[8].text",
+            "pokedexEntries[15].text"
+          ],
+          "visualIdea": "Show colorful dreams as sweet treats and bad dreams as sour, rejected food.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 23,
+          "note": "A highly Drowzee-specific food mechanic, directly supported by multiple Pokédex entries; the sourness and sickness make it especially visual."
+        },
+        {
+          "id": "nose-dream-radar",
+          "premise": "One nose twitch lets Drowzee locate sleepers and identify what they are dreaming about.",
+          "hook": "Drowzee can find your bed and read your dream with its nose.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[4].text",
+            "pokedexEntries[9].text"
+          ],
+          "visualIdea": "A nose-twitch pulse scans a town, highlighting sleeping people and their dreams.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 4,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 23,
+          "note": "Excellent visual premise and genuinely surprising, but “one nose twitch” overstates the cited entry, which only says that nose-twitching enables the ability."
+        },
+        {
+          "id": "dream-archive",
+          "premise": "Drowzee remembers every dream it eats and may replay its favorites for trusted friends.",
+          "hook": "Drowzee doesn’t just eat dreams—it keeps an entire memory archive.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[3].text",
+            "pokedexEntries[11].text",
+            "pokedexEntries[13].text",
+            "pokedexEntries[16].text"
+          ],
+          "visualIdea": "Dream scenes get stored as glowing memory reels, then projected for a friend.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 23,
+          "note": "The memory-archive concept is strongly supported and offers great visuals, though “trusted friends” and “favorites” slightly paraphrase the source’s wording about friends and delicious dreams."
+        },
+        {
+          "id": "child-dream-connoisseur",
+          "premise": "Drowzee rarely eats adults' dreams because children's dreams are tastier.",
+          "hook": "Drowzee has a target demographic: children’s dreams.",
+          "archetype": "comparison",
+          "evidence": [
+            "pokedexEntries[3].text",
+            "pokedexEntries[11].text",
+            "pokedexEntries[14].text"
+          ],
+          "visualIdea": "Contrast an adult's dream plate with a child's colorful dream buffet.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 4,
+            "support": 5
+          },
+          "total": 22,
+          "note": "The child-versus-adult preference is strange and well supported, but the angle is less concrete than the sour-dream mechanic and risks feeling uncomfortable without careful framing."
+        },
+        {
+          "id": "level-26-hypno",
+          "premise": "Drowzee stays a dream-eating Psychic Pokémon until level 26, when it evolves into Hypno.",
+          "hook": "At level 26, Drowzee’s dream-eating career changes form.",
+          "archetype": "transformation",
+          "evidence": [
+            "evolutionChain[0].name",
+            "evolutionChain[1].name",
+            "evolutionChain[1].method",
+            "evolutionChain[1].evolvesFrom"
+          ],
+          "visualIdea": "A level counter climbs to 26, then Drowzee’s silhouette transforms into Hypno.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 3,
+            "surprise": 2,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 20,
+          "note": "The level-26 transformation is precise and easy to animate, but level-based evolution is a generic Pokémon angle and is less surprising than Drowzee’s dream lore."
+        }
+      ],
+      "rejected": [],
+      "request": "None; itchy-nose-warning is strong enough. Stronger alternatives would need an equally concrete, canon-backed Drowzee-specific rule with a sharper visual reveal and less paraphrased wording."
+    }
+  ]
+}

@@ -1,0 +1,164 @@
+{
+  "episodeId": "haunter-093",
+  "createdAt": "2026-10-29T20:32:58.612Z",
+  "chosen": {
+    "id": "gas-tongue-curse",
+    "premise": "Haunter’s tongue is made of gas, and one lick causes shaking that lasts until death.",
+    "hook": "Haunter’s tongue isn’t flesh—it’s gas, and its lick never lets you stop shaking.",
+    "archetype": "mechanic",
+    "evidence": [
+      "pokedexEntries[3].text",
+      "pokedexEntries[1].text",
+      "pokedexEntries[12].text"
+    ],
+    "visualIdea": "Zoom into a gaseous tongue, then show a victim’s shaking meter rising without stopping.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 5,
+      "specificity": 5,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 25,
+    "note": "A gaseous tongue causing unstoppable shaking until death is exceptionally specific, disturbing, well-supported across multiple entries, and highly visual."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "gas-tongue-curse",
+          "premise": "Haunter’s tongue is made of gas, and one lick causes shaking that lasts until death.",
+          "hook": "Haunter’s tongue isn’t flesh—it’s gas, and its lick never lets you stop shaking.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[3].text",
+            "pokedexEntries[1].text",
+            "pokedexEntries[12].text"
+          ],
+          "visualIdea": "Zoom into a gaseous tongue, then show a victim’s shaking meter rising without stopping.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 25,
+          "note": "A gaseous tongue causing unstoppable shaking until death is exceptionally specific, disturbing, well-supported across multiple entries, and highly visual."
+        },
+        {
+          "id": "ghost-without-weight",
+          "premise": "Haunter is 1.6 meters tall but weighs only 0.1 kilograms.",
+          "hook": "This 1.6-meter Pokémon weighs less than a full glass of water.",
+          "archetype": "comparison",
+          "evidence": [
+            "heightMeters",
+            "weightKg"
+          ],
+          "visualIdea": "Show Haunter beside a 1.6-meter ruler, then smash-cut to a scale reading 0.1 kg.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 23,
+          "note": "The extreme height-to-weight contrast is concrete and easy to visualize, though weight comparisons can work for many floating Pokémon."
+        },
+        {
+          "id": "wall-slipping-watcher",
+          "premise": "Haunter can slip through any obstacle, then lurk inside walls to watch its foes.",
+          "hook": "The wall between you and Haunter does absolutely nothing.",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[9].text",
+            "pokedexEntries[0].text"
+          ],
+          "visualIdea": "A room assembles around a person as Haunter’s eyes appear inside the walls.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 23,
+          "note": "The combination of phasing through obstacles and hiding inside walls to watch foes is distinctly Haunter and gives strong horror visuals."
+        },
+        {
+          "id": "light-threat",
+          "premise": "Haunter fears light so much that bright cities may be pushing it toward extinction.",
+          "hook": "Streetlights might be driving Haunter extinct.",
+          "archetype": "comparison",
+          "evidence": [
+            "pokedexEntries[14].text"
+          ],
+          "visualIdea": "Split-screen a moonless, dark street with Haunter versus a brightly lit city where it fades away.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 5,
+            "specificity": 4,
+            "visual": 4,
+            "support": 5
+          },
+          "total": 22,
+          "note": "The possible extinction angle is surprising and supported, but the premise depends on a single entry and “driving extinct” slightly overstates “may be on the verge.”"
+        },
+        {
+          "id": "beckon-in-darkness",
+          "premise": "Haunter’s most dangerous trap is a beckoning gesture from darkness: approaching it lets it steal your life.",
+          "hook": "If Haunter beckons from the dark, running toward it is the worst choice.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[5].text",
+            "pokedexEntries[6].text",
+            "pokedexEntries[7].text"
+          ],
+          "visualIdea": "A silhouetted Haunter beckons from darkness while warning text flashes: “Do not approach.”",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 22,
+          "note": "The warning not to approach a beckoning Haunter is well-supported and cinematic, but the stalking-from-darkness idea overlaps with generic ghost-horror framing."
+        },
+        {
+          "id": "level-then-trade",
+          "premise": "Haunter evolves from Gastly at level 25, but reaching Gengar requires a trade instead.",
+          "hook": "Haunter’s evolution path changes the rules halfway through.",
+          "archetype": "transformation",
+          "evidence": [
+            "evolutionChain[1].evolvesFrom",
+            "evolutionChain[1].method",
+            "evolutionChain[2].evolvesFrom",
+            "evolutionChain[2].method"
+          ],
+          "visualIdea": "Animate Gastly leveling to 25 into Haunter, then freeze until a trade link transforms it into Gengar.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 22,
+          "note": "The switch from level-based evolution to trading is a clear, useful contradiction, but the evolution-method evidence is trusted secondary rather than official."
+        }
+      ],
+      "rejected": [],
+      "request": "No stronger angle is required; this choice already has the best combination of Haunter-specificity, surprise, concrete premise, visual potential, and direct multi-entry support."
+    }
+  ]
+}

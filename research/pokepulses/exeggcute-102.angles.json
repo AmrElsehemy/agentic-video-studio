@@ -1,0 +1,161 @@
+{
+  "episodeId": "exeggcute-102",
+  "createdAt": "2026-10-29T20:56:56.890Z",
+  "chosen": {
+    "id": "one-pokemon-six-eggs",
+    "premise": "Six Exeggcute together form one full-fledged Pokémon, and a missing member is replaced by the next morning.",
+    "hook": "Six eggs don’t make a team—they make one Pokémon.",
+    "archetype": "mystery",
+    "evidence": [
+      "pokedexEntries[14].text",
+      "pokedexEntries[15].text"
+    ],
+    "visualIdea": "Label six separate eggs as one creature, remove one, then reveal a restored six-member cluster at sunrise.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 5,
+      "specificity": 5,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 25,
+    "note": "The strongest premise: six apparent individuals are literally one Pokémon, and a missing member is replaced by morning. It is concrete, bizarre, highly visual, and directly backed by the entries."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "one-pokemon-six-eggs",
+          "premise": "Six Exeggcute together form one full-fledged Pokémon, and a missing member is replaced by the next morning.",
+          "hook": "Six eggs don’t make a team—they make one Pokémon.",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[14].text",
+            "pokedexEntries[15].text"
+          ],
+          "visualIdea": "Label six separate eggs as one creature, remove one, then reveal a restored six-member cluster at sunrise.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 25,
+          "note": "The strongest premise: six apparent individuals are literally one Pokémon, and a missing member is replaced by morning. It is concrete, bizarre, highly visual, and directly backed by the entries."
+        },
+        {
+          "id": "six-for-balance",
+          "premise": "Exeggcute must have exactly six heads to stay balanced, with the cluster attracting and spinning around.",
+          "hook": "Exeggcute isn’t one egg—it needs six heads just to balance.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[1].text",
+            "pokedexEntries[6].text"
+          ],
+          "visualIdea": "Show six egg heads locking into a spinning formation, then remove one and tip the cluster sideways.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 24,
+          "note": "A highly Exeggcute-specific physical rule with clear animation potential. The six-head requirement and spinning balance are directly supported."
+        },
+        {
+          "id": "telepathic-reunion",
+          "premise": "If one Exeggcute separates, the energy bond between all six instantly pulls it back into the cluster.",
+          "hook": "Try separating one Exeggcute—the others will pull it back instantly.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[4].text",
+            "pokedexEntries[9].text"
+          ],
+          "visualIdea": "Stretch one head away from the group with an energy tether, then snap it back into formation.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 22,
+          "note": "The instant rejoining is distinctive and strongly supported, though the energy-tether visual is an interpretation rather than something explicitly depicted."
+        },
+        {
+          "id": "cracks-mean-evolution",
+          "premise": "Cracks signal that Exeggcute is nearing evolution, yet its durable shells let it survive without spilling their contents.",
+          "hook": "For Exeggcute, cracking open is actually a sign of evolution.",
+          "archetype": "transformation",
+          "evidence": [
+            "pokedexEntries[6].text",
+            "pokedexEntries[2].text",
+            "evolutionChain[1].method"
+          ],
+          "visualIdea": "Zoom into growing shell cracks, then transition the six-head cluster into Exeggutor after a Leaf Stone.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 5,
+            "specificity": 4,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 22,
+          "note": "Excellent contradiction and transformation hook. The entries say increasing cracks mean evolution is near, but do not establish that cracking causes evolution; the Leaf Stone connection is supported separately."
+        },
+        {
+          "id": "not-really-eggs",
+          "premise": "Exeggcute looks like six eggs, but research identifies it as a life-form more like plant seeds.",
+          "hook": "Those eggs aren’t eggs—they’re closer to plant seeds.",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[8].text",
+            "pokedexEntries[12].text",
+            "pokedexEntries[13].text"
+          ],
+          "visualIdea": "Begin with an egg carton, reveal six faces, then crack the illusion into seeds with plant roots.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 22,
+          "note": "The egg-versus-seed contradiction is well supported and easy to visualize, but the basic reveal is familiar to knowledgeable fans."
+        },
+        {
+          "id": "alolan-heavy-shells",
+          "premise": "Alolan Exeggcute are the same size as others but much heavier because their shells are packed full.",
+          "hook": "Alolan Exeggcute are the same size—but much heavier.",
+          "archetype": "comparison",
+          "evidence": [
+            "pokedexEntries[16].text"
+          ],
+          "visualIdea": "Place standard and Alolan six-egg clusters side by side at the same size, then make the Alolan one drop a scale.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 4,
+            "support": 5
+          },
+          "total": 22,
+          "note": "A precise same-size-but-heavier comparison with solid support. It loses visual strength because the research provides no Alolan artwork or exact weight comparison."
+        }
+      ],
+      "rejected": [],
+      "request": "No stronger angle is necessary from the supplied research; the episode should center on the rule that six eggs form one Pokémon and the group is restored by the next morning."
+    }
+  ]
+}

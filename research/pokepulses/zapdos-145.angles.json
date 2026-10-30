@@ -1,0 +1,148 @@
+{
+  "episodeId": "zapdos-145",
+  "createdAt": "2026-10-30T06:02:39.607Z",
+  "chosen": {
+    "id": "split-cloud-entrance",
+    "premise": "Two Pokédex entries say Zapdos appears only when a thundercloud splits into two halves.",
+    "hook": "Zapdos has a bizarre entrance requirement: split the thundercloud.",
+    "archetype": "mystery",
+    "evidence": [
+      "pokedexEntries[3].text",
+      "pokedexEntries[10].text"
+    ],
+    "visualIdea": "A dark thundercloud tears cleanly into two halves, revealing Zapdos between them.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 5,
+      "specificity": 5,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 25,
+    "note": "Exceptionally concrete and strange, with the same claim repeated in two entries. The only slight weakness is that the visual can imply a literal rule more strongly than the wording’s “said to appear” phrasing."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "split-cloud-entrance",
+          "premise": "Two Pokédex entries say Zapdos appears only when a thundercloud splits into two halves.",
+          "hook": "Zapdos has a bizarre entrance requirement: split the thundercloud.",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[3].text",
+            "pokedexEntries[10].text"
+          ],
+          "visualIdea": "A dark thundercloud tears cleanly into two halves, revealing Zapdos between them.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 25,
+          "note": "Exceptionally concrete and strange, with the same claim repeated in two entries. The only slight weakness is that the visual can imply a literal rule more strongly than the wording’s “said to appear” phrasing."
+        },
+        {
+          "id": "lightning-powered",
+          "premise": "Zapdos gains power when lightning strikes it, turning the attack into its own recharge.",
+          "hook": "What if getting struck by lightning made Zapdos stronger?",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[5].text",
+            "pokedexEntries[6].text"
+          ],
+          "visualIdea": "Lightning hits Zapdos, then an energy meter visibly rises instead of falling.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 24,
+          "note": "A strong Zapdos-specific contradiction with an instantly understandable visual. The Pokédex explicitly says lightning increases its power, though “recharge” is a useful metaphor rather than the source’s exact wording."
+        },
+        {
+          "id": "galarian-weight-shift",
+          "premise": "Galarian Zapdos keeps the same 1.6-meter height but is 5.6 kilograms heavier and loses Electric typing.",
+          "hook": "Same height, different type—and Galarian Zapdos weighs 5.6 kilos more.",
+          "archetype": "comparison",
+          "evidence": [
+            "heightMeters",
+            "weightKg",
+            "types",
+            "varieties[0].name",
+            "varieties[0].heightMeters",
+            "varieties[0].weightKg",
+            "varieties[0].types"
+          ],
+          "visualIdea": "Split-screen compares identical height bars, a heavier weight readout, and Electric/Fighting type swaps.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 23,
+          "note": "Every comparison is directly supported and highly visual. It is a strong variant-comparison episode, but the numerical weight change is less inherently dramatic than Zapdos’s unusual lore mechanics."
+        },
+        {
+          "id": "wingbeat-storm",
+          "premise": "Zapdos’s glittering wingbeats are said to create savage thunderstorms, making flight itself destructive.",
+          "hook": "For Zapdos, flapping its wings can create a savage thunderstorm.",
+          "archetype": "transformation",
+          "evidence": [
+            "pokedexEntries[2].text",
+            "pokedexEntries[9].text"
+          ],
+          "visualIdea": "Each wingbeat transforms a clear sky into darker clouds, rain, and branching lightning.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 22,
+          "note": "Repeatedly supported and easy to animate, but the broad storm-causing premise is less novel than the lightning-strike contradiction or split-cloud entrance."
+        },
+        {
+          "id": "feather-friction",
+          "premise": "According to Shield, Zapdos can make lightning fall immediately by rubbing its feathers together.",
+          "hook": "Zapdos only has to rub its feathers together to summon lightning.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[12].text"
+          ],
+          "visualIdea": "Close-up feathers scrape together, followed instantly by a lightning bolt hitting the ground.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 21,
+          "note": "Very filmable and specific, but it relies on one Pokédex entry and may overstate the action as a deliberate summon rather than a reported sequence."
+        }
+      ],
+      "rejected": [
+        {
+          "id": "crackling-flight",
+          "reason": "hook: Too big: expected string to have <=80 characters"
+        }
+      ],
+      "request": "No stronger angle is required; this choice would be strengthened by showing the exact Pokédex wording on screen and framing “recharge” as an interpretation of “gains power,” not a literal game mechanic."
+    }
+  ]
+}

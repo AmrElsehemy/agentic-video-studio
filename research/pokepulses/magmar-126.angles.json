@@ -1,0 +1,162 @@
+{
+  "episodeId": "magmar-126",
+  "createdAt": "2026-10-29T22:14:22.729Z",
+  "chosen": {
+    "id": "lava-hot-spring",
+    "premise": "When wounded or tired, Magmar bathes in lava to heal and recover, treating a volcano like a hot spring.",
+    "hook": "Magmar’s idea of rest is soaking in lava.",
+    "archetype": "mechanic",
+    "evidence": [
+      "pokedexEntries[4].text",
+      "pokedexEntries[13].text",
+      "pokedexEntries[19].text"
+    ],
+    "visualIdea": "Show Magmar limping into a volcano, then emerging refreshed from a lava pool labeled “hot spring.”",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 5,
+      "specificity": 5,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 25,
+    "note": "A uniquely Magmar behavior with a vivid contradiction: lava is both its danger and its recovery treatment. Multiple Pokédex entries directly support both healing wounds and easing fatigue."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "lava-hot-spring",
+          "premise": "When wounded or tired, Magmar bathes in lava to heal and recover, treating a volcano like a hot spring.",
+          "hook": "Magmar’s idea of rest is soaking in lava.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[4].text",
+            "pokedexEntries[13].text",
+            "pokedexEntries[19].text"
+          ],
+          "visualIdea": "Show Magmar limping into a volcano, then emerging refreshed from a lava pool labeled “hot spring.”",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 25,
+          "note": "A uniquely Magmar behavior with a vivid contradiction: lava is both its danger and its recovery treatment. Multiple Pokédex entries directly support both healing wounds and easing fatigue."
+        },
+        {
+          "id": "sneeze-flamethrower",
+          "premise": "Magmar’s body is always burning, its breath raises the temperature, and a sneeze launches flames.",
+          "hook": "For Magmar, sneezing is basically a flamethrower.",
+          "archetype": "transformation",
+          "evidence": [
+            "pokedexEntries[14].text",
+            "pokedexEntries[15].text"
+          ],
+          "visualIdea": "Animate a normal breath warming the air, then cut to an explosive fiery sneeze.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 5,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 23,
+          "note": "The flaming sneeze is highly surprising and directly supported by Ultra Sun, though the angle combines several related facts rather than centering one especially strong rule."
+        },
+        {
+          "id": "charred-prey-regret",
+          "premise": "Magmar dispatches prey with fire, then regrets it when the flames reduce its intended meal to a charred crisp.",
+          "hook": "Magmar can defeat its prey so thoroughly that dinner disappears.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[17].text"
+          ],
+          "visualIdea": "Follow a hunt from confident fire attack to Magmar staring sadly at an overcooked silhouette.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 4,
+            "support": 5
+          },
+          "total": 23,
+          "note": "A sharp, memorable contradiction directly supported by Sword: fire is effective at hunting but can destroy the meal. The visual needs careful framing to avoid becoming merely comedic or grim."
+        },
+        {
+          "id": "fire-within-fire",
+          "premise": "Magmar’s orange glow lets it hide perfectly among flames, turning its most obvious feature into camouflage.",
+          "hook": "Magmar hides by looking exactly like fire.",
+          "archetype": "comparison",
+          "evidence": [
+            "pokedexEntries[0].text",
+            "pokedexEntries[8].text"
+          ],
+          "visualIdea": "Place Magmar inside a wall of flames and slowly reveal that its silhouette was there all along.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 22,
+          "note": "The camouflage contradiction is concrete and easy to reveal visually, but the core fact is relatively straightforward and only supported by closely repeated entries."
+        },
+        {
+          "id": "portable-climate-control",
+          "premise": "Magmar dislikes cold so much that it blasts scorching flames until the surrounding environment suits it.",
+          "hook": "Magmar doesn’t escape the cold—it changes the weather.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[2].text",
+            "pokedexEntries[11].text"
+          ],
+          "visualIdea": "Show a freezing landscape transform into a blazing habitat as Magmar exhales flames.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 21,
+          "note": "Magmar reshaping its surroundings to escape cold is distinctive and visual, but calling this changing the weather overstates the cited claim, which only says it makes the environment suitable."
+        },
+        {
+          "id": "magmarizer-tradeoff",
+          "premise": "Magmar reaches its final form only through a trade while holding a Magmarizer, not by leveling up.",
+          "hook": "Magmar’s final evolution requires someone else to trade it away.",
+          "archetype": "mechanic",
+          "evidence": [
+            "evolutionChain[1].method",
+            "evolutionChain[2].method",
+            "evolutionChain[2].evolvesFrom"
+          ],
+          "visualIdea": "Show Magmar leveling past 30 unchanged, then a Magmarizer trade triggering its final evolution.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 3,
+            "surprise": 3,
+            "specificity": 5,
+            "visual": 4,
+            "support": 4
+          },
+          "total": 19,
+          "note": "The evolution requirement is precise and supported by the supplied chain, but trade evolutions and Magmortar’s method are familiar to many fans, making the hook less surprising."
+        }
+      ],
+      "rejected": [],
+      "request": "N/A—the lava-hot-spring angle is strong enough. Stronger alternatives would need an equally Magmar-specific contradiction, a direct Pokédex-supported rule, and a clearer visual transformation or payoff."
+    }
+  ]
+}

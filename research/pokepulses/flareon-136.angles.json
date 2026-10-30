@@ -1,0 +1,164 @@
+{
+  "episodeId": "flareon-136",
+  "createdAt": "2026-10-30T05:35:51.663Z",
+  "chosen": {
+    "id": "inhale-before-fire",
+    "premise": "Flareon inhales air into a flame sac, heats it past 3,000°F, then exhales it as fire.",
+    "hook": "That deep breath is Flareon's warning shot.",
+    "archetype": "mechanic",
+    "evidence": [
+      "pokedexEntries[10].text",
+      "pokedexEntries[18].text",
+      "pokedexEntries[19].text"
+    ],
+    "visualIdea": "Animate air rushing into a flame sac, spiking to 3,000°F, then blasting outward as fire.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 5,
+      "specificity": 5,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 25,
+    "note": "Combines a distinctive attack tell with a concrete internal mechanism and 3,000°F payoff. Multiple entries directly support the inhale, flame sac, and temperature."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "inhale-before-fire",
+          "premise": "Flareon inhales air into a flame sac, heats it past 3,000°F, then exhales it as fire.",
+          "hook": "That deep breath is Flareon's warning shot.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[10].text",
+            "pokedexEntries[18].text",
+            "pokedexEntries[19].text"
+          ],
+          "visualIdea": "Animate air rushing into a flame sac, spiking to 3,000°F, then blasting outward as fire.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 25,
+          "note": "Combines a distinctive attack tell with a concrete internal mechanism and 3,000°F payoff. Multiple entries directly support the inhale, flame sac, and temperature."
+        },
+        {
+          "id": "fur-is-a-cooling-system",
+          "premise": "Flareon's fluffy fur is not just decoration: its collar releases heat so its 1,650°F body does not overheat.",
+          "hook": "Flareon's fluff is actually a built-in cooling system.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[5].text",
+            "pokedexEntries[7].text"
+          ],
+          "visualIdea": "Show Flareon's fur collar glowing with heat arrows escaping into the air beside a 1,650°F thermometer.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 24,
+          "note": "The fur’s functional role is highly specific to Flareon, clearly stated in multiple Pokédex entries, and easy to visualize with heat escaping through the collar."
+        },
+        {
+          "id": "hotter-inside-than-outside",
+          "premise": "Flareon's body averages 1,300–1,500°F, but its internal flame sac reaches 3,000°F.",
+          "hook": "Flareon carries a 3,000-degree furnace inside a cooler body.",
+          "archetype": "comparison",
+          "evidence": [
+            "pokedexEntries[17].text"
+          ],
+          "visualIdea": "Use a cutaway Flareon: a 1,300–1,500°F body surrounds a red-hot 3,000°F flame sac.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 23,
+          "note": "The 1,300–1,500°F body versus 3,000°F flame sac is an excellent visual contradiction, but the entire premise relies on one entry."
+        },
+        {
+          "id": "the-living-oven",
+          "premise": "When Flareon catches prey or finds berries, it breathes fire on them until they are well done.",
+          "hook": "Flareon does not cook with fire—it cooks with its breath.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[16].text",
+            "pokedexEntries[1].text"
+          ],
+          "visualIdea": "Show berries and prey moving from raw to visibly well-done under Flareon's fire breath.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 5,
+            "specificity": 4,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 22,
+          "note": "Cooking prey and berries with breath is memorable and well supported by the Sun entry, but the second cited entry only supports flame temperature, not the cooking behavior."
+        },
+        {
+          "id": "heat-storage-before-battle",
+          "premise": "Flareon stores thermal energy before battle, pushing its body temperature up to 1,700°F.",
+          "hook": "Before battle, Flareon charges by storing heat in its body.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[0].text",
+            "pokedexEntries[4].text",
+            "pokedexEntries[21].text"
+          ],
+          "visualIdea": "A heat meter fills inside Flareon before battle, stopping at a dramatic 1,700°F.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 4,
+            "support": 3
+          },
+          "total": 19,
+          "note": "Heat storage is supported, but the evidence mixes 1,600–1,700°F claims and does not consistently establish that Flareon charges immediately before battle."
+        },
+        {
+          "id": "eevee-fire-stone-choice",
+          "premise": "Eevee becomes Flareon specifically through a Fire Stone, unlike its other evolution choices.",
+          "hook": "One item turns Eevee into a Pokémon with a flame sac.",
+          "archetype": "transformation",
+          "evidence": [
+            "evolutionChain[0].name",
+            "evolutionChain[2].method",
+            "evolutionChain[2].types",
+            "evolutionChain[2].name"
+          ],
+          "visualIdea": "Show Eevee beside a Fire Stone, then transform it into Flareon with the flame sac revealed.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 2,
+            "surprise": 2,
+            "specificity": 4,
+            "visual": 4,
+            "support": 1
+          },
+          "total": 13,
+          "note": "The Fire Stone evolution is concrete but broadly applicable to Eeveelutions, and the cited evolutionChain indices appear incorrect: Flareon is entry 3, not entry 2."
+        }
+      ],
+      "rejected": [],
+      "request": "Stronger alternatives would need an equally specific Flareon-only contradiction or mechanism, multiple direct Pokédex entries, and a behavior that can be shown instantly in vertical video."
+    }
+  ]
+}

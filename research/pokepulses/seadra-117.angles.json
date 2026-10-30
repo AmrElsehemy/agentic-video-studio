@@ -1,0 +1,183 @@
+{
+  "episodeId": "seadra-117",
+  "createdAt": "2026-10-29T21:48:15.289Z",
+  "chosen": {
+    "id": "boat-swallowing-whirlpool",
+    "premise": "Seadra spins its body into whirlpools powerful enough to swallow fishing boats, then uses them to weaken prey.",
+    "hook": "Seadra’s hunting move can swallow a fishing boat.",
+    "archetype": "mechanic",
+    "evidence": [
+      "pokedexEntries[6].text"
+    ],
+    "visualIdea": "A spinning Seadra creates a widening whirlpool that pulls in prey, then a fishing boat silhouette.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 4,
+      "surprise": 5,
+      "specificity": 4,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 23,
+    "note": "The boat-swallowing claim is directly supported and highly visual; it is slightly weakened by presenting a Pokédex feat as a hunting move rather than separating the two facts."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "poisonous-father",
+          "premise": "Male Seadra raise the young, and their back spines produce stronger poison while they do it.",
+          "hook": "In Seadra families, dad is the one guarding the nest.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[4].text",
+            "pokedexEntries[13].text"
+          ],
+          "visualIdea": "Show a male Seadra circling eggs as its back spines visibly thicken and glow with poison.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 25,
+          "note": "Combines two unusually specific facts: males raise the young, and their back-spine poison becomes stronger during parenting. The premise, hook, and visual escalation all align exactly with the research."
+        },
+        {
+          "id": "boat-swallowing-whirlpool",
+          "premise": "Seadra spins its body into whirlpools powerful enough to swallow fishing boats, then uses them to weaken prey.",
+          "hook": "Seadra’s hunting move can swallow a fishing boat.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[6].text"
+          ],
+          "visualIdea": "A spinning Seadra creates a widening whirlpool that pulls in prey, then a fishing boat silhouette.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 5,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 23,
+          "note": "The boat-swallowing claim is directly supported and highly visual; it is slightly weakened by presenting a Pokédex feat as a hunting move rather than separating the two facts."
+        },
+        {
+          "id": "tiny-mouth-big-suction",
+          "premise": "Seadra’s slender mouth can suck in food larger than the mouth opening.",
+          "hook": "Seadra can swallow something wider than its own mouth.",
+          "archetype": "comparison",
+          "evidence": [
+            "pokedexEntries[14].text"
+          ],
+          "visualIdea": "Compare the narrow mouth opening with a larger food silhouette, then animate suction pulling it inside.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 23,
+          "note": "A concrete physical contradiction with an excellent visual demonstration. It is very strong, though the larger-food example may need careful animation so it does not imply unsupported dimensions."
+        },
+        {
+          "id": "sleeping-coral-hook",
+          "premise": "Seadra sleeps by hooking its tail to coral, but touching its back fin causes numbness.",
+          "hook": "Seadra’s bedtime routine is also a warning sign.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[1].text",
+            "pokedexEntries[12].text"
+          ],
+          "visualIdea": "Seadra anchors its tail into coral while a warning graphic highlights the numbness-causing back fin.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 4,
+            "support": 5
+          },
+          "total": 21,
+          "note": "Both facts are directly supported and easy to show, but the bedtime framing is somewhat broad and less distinctive than the parenting-poison mechanic."
+        },
+        {
+          "id": "horsea-gene-mystery",
+          "premise": "Scientists found a gene in Seadra that Horsea does not have, making its cells a major research mystery.",
+          "hook": "One gene made Seadra a scientific hot topic.",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[2].text",
+            "evolutionChain[0].name",
+            "evolutionChain[1].evolvesFrom"
+          ],
+          "visualIdea": "Show Horsea’s genetic scan beside Seadra’s, with one highlighted gene appearing only in Seadra.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 4,
+            "support": 4
+          },
+          "total": 21,
+          "note": "The unusual gene difference is well supported, but calling it a mystery and a scientific breakthrough goes beyond the source, which only says it became a hot topic."
+        },
+        {
+          "id": "backward-swimmer",
+          "premise": "Seadra can swim backward by rapidly flapping its wing-like fins and stout tail.",
+          "hook": "This Pokémon can escape without ever turning around.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[0].text",
+            "pokedexEntries[9].text"
+          ],
+          "visualIdea": "Show Seadra facing forward while arrows and water trails move backward around its fins and tail.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 3,
+            "specificity": 4,
+            "visual": 4,
+            "support": 5
+          },
+          "total": 20,
+          "note": "A clear, well-supported movement mechanic, but the backward-swimming hook is less surprising than Seadra’s other biological traits."
+        }
+      ],
+      "rejected": [],
+      "request": "Stronger angles would need an equally specific contradiction or biological rule, a directly supported surprising fact, and a visual transformation or comparison that can be understood instantly."
+    }
+  ],
+  "initialChoice": {
+    "id": "poisonous-father",
+    "premise": "Male Seadra raise the young, and their back spines produce stronger poison while they do it.",
+    "hook": "In Seadra families, dad is the one guarding the nest.",
+    "archetype": "profile",
+    "evidence": [
+      "pokedexEntries[4].text",
+      "pokedexEntries[13].text"
+    ],
+    "visualIdea": "Show a male Seadra circling eggs as its back spines visibly thicken and glow with poison.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 5,
+      "specificity": 5,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 25,
+    "note": "Combines two unusually specific facts: males raise the young, and their back-spine poison becomes stronger during parenting. The premise, hook, and visual escalation all align exactly with the research."
+  },
+  "attemptedAngles": [
+    "poisonous-father",
+    "boat-swallowing-whirlpool"
+  ]
+}

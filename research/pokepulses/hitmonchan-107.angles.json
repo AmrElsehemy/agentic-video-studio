@@ -1,0 +1,163 @@
+{
+  "episodeId": "hitmonchan-107",
+  "createdAt": "2026-10-29T21:13:01.010Z",
+  "chosen": {
+    "id": "corkscrew-concrete",
+    "premise": "Hitmonchan twists its punches like a drill, letting it punch through concrete walls.",
+    "hook": "Hitmonchan does not punch walls—it drills through them.",
+    "archetype": "mechanic",
+    "evidence": [
+      "pokedexEntries[1].text",
+      "pokedexEntries[11].text"
+    ],
+    "visualIdea": "A straight punch fails against a concrete wall, then a corkscrew arm motion bores a clean tunnel through it.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 5,
+      "specificity": 5,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 25,
+    "note": "A highly specific Hitmonchan-only-feeling contradiction to normal punching, backed by two entries and immediately understandable on screen."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "corkscrew-concrete",
+          "premise": "Hitmonchan twists its punches like a drill, letting it punch through concrete walls.",
+          "hook": "Hitmonchan does not punch walls—it drills through them.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[1].text",
+            "pokedexEntries[11].text"
+          ],
+          "visualIdea": "A straight punch fails against a concrete wall, then a corkscrew arm motion bores a clean tunnel through it.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 25,
+          "note": "A highly specific Hitmonchan-only-feeling contradiction to normal punching, backed by two entries and immediately understandable on screen."
+        },
+        {
+          "id": "spin-before-impact",
+          "premise": "Before contact, Hitmonchan spins its arms to increase the strength of every punch move.",
+          "hook": "Its secret weapon happens before the punch even lands.",
+          "archetype": "transformation",
+          "evidence": [
+            "pokedexEntries[4].text"
+          ],
+          "visualIdea": "A power meter rises as Hitmonchan rotates its arms, then surges when the punch connects.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 23,
+          "note": "The pre-contact arm spin is distinctive and directly supported, but 'every punch move' makes the claim slightly broader than the source wording."
+        },
+        {
+          "id": "graze-burn",
+          "premise": "Hitmonchan's punches travel so fast that even a slight graze can cause a burn.",
+          "hook": "You do not need to be hit by Hitmonchan to get burned.",
+          "archetype": "comparison",
+          "evidence": [
+            "pokedexEntries[3].text"
+          ],
+          "visualIdea": "A target narrowly avoids a punch, but the passing airflow leaves a glowing burn mark.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 4,
+            "support": 5
+          },
+          "total": 23,
+          "note": "Extremely surprising and well supported, though the burn effect may be harder to depict clearly without implying an unsupported game-mechanic status condition."
+        },
+        {
+          "id": "three-minute-limit",
+          "premise": "Hitmonchan can unleash air-slicing punches, but needs a short break after exactly three minutes of fighting.",
+          "hook": "The punching Pokémon has a three-minute battery limit.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[2].text",
+            "pokedexEntries[9].text"
+          ],
+          "visualIdea": "A three-minute fight timer fills as invisible punches fly, then abruptly switches to a rest countdown.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 22,
+          "note": "The three-minute constraint is concrete and highly visual, but 'exactly' and 'battery limit' overstate the entries, which say it rests after three minutes."
+        },
+        {
+          "id": "invisible-volley",
+          "premise": "Hitmonchan appears motionless while firing lightning-fast punch volleys that cannot be seen.",
+          "hook": "What if standing still was actually a rapid-fire attack?",
+          "archetype": "mystery",
+          "evidence": [
+            "pokedexEntries[0].text",
+            "pokedexEntries[8].text"
+          ],
+          "visualIdea": "Hitmonchan stands frozen while impact flashes and a storm of unseen punch trails appear around a target.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 22,
+          "note": "Directly supported by multiple Pokédex entries and easy to stage visually, though the premise is more descriptive than mechanically distinctive."
+        },
+        {
+          "id": "three-way-tyrogue",
+          "premise": "At level 20, Tyrogue can become Hitmonchan, Hitmonlee, or Hitmontop through the same listed evolution method.",
+          "hook": "Level 20 does not decide which fighter Tyrogue becomes.",
+          "archetype": "comparison",
+          "evidence": [
+            "evolutionChain[0].name",
+            "evolutionChain[1].name",
+            "evolutionChain[1].method",
+            "evolutionChain[2].name",
+            "evolutionChain[2].method",
+            "evolutionChain[3].name",
+            "evolutionChain[3].method"
+          ],
+          "visualIdea": "A level-20 Tyrogue stands at a three-way crossroads pointing toward Hitmonlee, Hitmonchan, and Hitmontop.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 3
+          },
+          "total": 21,
+          "note": "The three-way evolution is clear and visual, but the supplied research only establishes the shared level-20 method, not the actual conditions that determine each outcome."
+        }
+      ],
+      "rejected": [],
+      "request": "No stronger angle is required; the chosen angle is specific, surprising, visually demonstrable, and supported by two Pokédex entries."
+    }
+  ]
+}

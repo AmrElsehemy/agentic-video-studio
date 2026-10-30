@@ -1,0 +1,156 @@
+{
+  "schemaVersion": 1,
+  "id": "kabuto-140",
+  "number": 140,
+  "index": "#140",
+  "name": "Kabuto",
+  "slug": "kabuto",
+  "category": "Shellfish Pokémon",
+  "generation": "Generation I",
+  "isLegendary": false,
+  "isMythical": false,
+  "types": [
+    "Rock",
+    "Water"
+  ],
+  "heightMeters": 0.5,
+  "weightKg": 11.5,
+  "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/140.png",
+  "pokedexEntries": [
+    {
+      "game": "Red",
+      "text": "A POKéMON that was resurrected from a fossil found in what was once the ocean floor eons ago."
+    },
+    {
+      "game": "Yellow",
+      "text": "A POKéMON that was recovered from a fossil. It uses the eyes on its back while hiding on the sea floor."
+    },
+    {
+      "game": "Gold",
+      "text": "On rare occasions, some have been found as fossils which they became while hiding on the ocean floor."
+    },
+    {
+      "game": "Silver",
+      "text": "This POKéMON lived in ancient times. On rare occasions, it has been discovered as a living fossil."
+    },
+    {
+      "game": "Crystal",
+      "text": "Three hundred million years ago, it hid on the sea floor. It also has eyes on its back that glow."
+    },
+    {
+      "game": "Ruby",
+      "text": "KABUTO is a POKéMON that has been regenerated from a fossil. However, in extremely rare cases, living examples have been discovered. The POKéMON has not changed at all for 300 million years."
+    },
+    {
+      "game": "Emerald",
+      "text": "It is a POKéMON that has been regenerated from a fossil. However, in rare cases, living examples have been discovered. KABUTO have not changed for 300 million years."
+    },
+    {
+      "game": "Firered",
+      "text": "This POKéMON was regenerated from the fossil of an ancient creature. It protects itself with a hard shell."
+    },
+    {
+      "game": "Leafgreen",
+      "text": "A POKéMON that was regenerated from a fossil found in what was once the ocean floor long ago."
+    },
+    {
+      "game": "Diamond",
+      "text": "It is thought to have inhabited beaches 300 million years ago. It is protected by a stiff shell."
+    },
+    {
+      "game": "Ultra Sun",
+      "text": "This Pokémon thrived 300 million years ago. It’s said that living specimens can still be seen in a certain region—a rare sight."
+    },
+    {
+      "game": "Ultra Moon",
+      "text": "This Pokémon became extinct everywhere, except in a few areas. It protects itself with its hard shell."
+    },
+    {
+      "game": "Lets Go Pikachu",
+      "text": "A Pokémon that was recovered from a fossil. It used the eyes on its back while hiding on the seafloor."
+    },
+    {
+      "game": "Sword",
+      "text": "This species is almost entirely extinct. Kabuto molt every three days, making their shells harder and harder."
+    },
+    {
+      "game": "Shield",
+      "text": "While some say this species has gone extinct, Kabuto sightings are apparently fairly common in some places."
+    }
+  ],
+  "evolutionChain": [
+    {
+      "name": "Kabuto",
+      "index": "#140",
+      "stage": 1,
+      "types": [
+        "Rock",
+        "Water"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/140.png",
+      "isSubject": true
+    },
+    {
+      "name": "Kabutops",
+      "index": "#141",
+      "stage": 2,
+      "evolvesFrom": "Kabuto",
+      "method": "Level Up, level 40",
+      "types": [
+        "Rock",
+        "Water"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/141.png",
+      "isSubject": false
+    }
+  ],
+  "varieties": [],
+  "lore": [],
+  "tiers": {
+    "official": [
+      "name",
+      "index",
+      "number",
+      "category",
+      "generation",
+      "isLegendary",
+      "isMythical",
+      "types",
+      "heightMeters",
+      "weightKg",
+      "pokedexEntries",
+      "evolutionChain[].name",
+      "evolutionChain[].index",
+      "evolutionChain[].types",
+      "evolutionChain[].stage",
+      "varieties[].types",
+      "varieties[].heightMeters",
+      "varieties[].weightKg"
+    ],
+    "trusted_secondary": [
+      "evolutionChain[].method",
+      "evolutionChain[].evolvesFrom",
+      "varieties[].name"
+    ],
+    "community": [
+      "lore"
+    ]
+  },
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Kabuto",
+      "url": "https://www.pokemon.com/us/pokedex/kabuto",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Kabuto",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Kabuto_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Kabuto",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/140",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

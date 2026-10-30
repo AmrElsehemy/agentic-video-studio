@@ -1,0 +1,160 @@
+{
+  "schemaVersion": 1,
+  "id": "onix-095",
+  "number": 95,
+  "index": "#095",
+  "name": "Onix",
+  "slug": "onix",
+  "category": "Rock Snake Pokémon",
+  "generation": "Generation I",
+  "isLegendary": false,
+  "isMythical": false,
+  "types": [
+    "Rock",
+    "Ground"
+  ],
+  "heightMeters": 8.8,
+  "weightKg": 210,
+  "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/95.png",
+  "pokedexEntries": [
+    {
+      "game": "Red",
+      "text": "As it grows, the stone portions of its body harden to become similar to a diamond, but colored black."
+    },
+    {
+      "game": "Yellow",
+      "text": "Burrows at high speed in search of food. The tunnels it leaves are used as homes by DIGLETTs."
+    },
+    {
+      "game": "Gold",
+      "text": "It twists and squirms through the ground. The thunderous roar of its tunneling echoes a long way."
+    },
+    {
+      "game": "Silver",
+      "text": "It rapidly bores through the ground at 50 mph by squirming and twisting its mas sive, rugged body."
+    },
+    {
+      "game": "Crystal",
+      "text": "As it digs through the ground, it absorbs many hard objects. This is what makes its body so solid."
+    },
+    {
+      "game": "Ruby",
+      "text": "ONIX has a magnet in its brain. It acts as a compass so that this POKéMON does not lose direction while it is tunneling. As it grows older, its body becomes increasingly rounder and smoother."
+    },
+    {
+      "game": "Emerald",
+      "text": "There is a magnet in its brain that prevents an ONIX from losing direction while tunneling. As it grows older, its body becomes steadily rounder and smoother."
+    },
+    {
+      "game": "Firered",
+      "text": "It usually lives underground. It searches for food while boring its way through the ground at 50 miles per hour."
+    },
+    {
+      "game": "Leafgreen",
+      "text": "As it grows, the stone portions of its body harden to become similar to black-colored diamonds."
+    },
+    {
+      "game": "Diamond",
+      "text": "When it travels underground, it causes rumbling and tremors. It can move at 50 mph."
+    },
+    {
+      "game": "Pearl",
+      "text": "It squirms through the ground using its long and rugged body. It always eats while burrowing."
+    },
+    {
+      "game": "Platinum",
+      "text": "It burrows through the ground at a speed of 50 mph while feeding on large boulders."
+    },
+    {
+      "game": "Soulsilver",
+      "text": "It rapidly bores through the ground at 50 mph by squirming and twisting its massive, rugged body."
+    },
+    {
+      "game": "Black 2",
+      "text": "Opening its large mouth, it ingests massive amounts of soil and creates long tunnels."
+    },
+    {
+      "game": "X",
+      "text": "Burrows at high speed in search of food. The tunnels it leaves are used as homes by Diglett."
+    },
+    {
+      "game": "Legends Arceus",
+      "text": "This chain of immense stones resembles a giant serpent. Tremors shake the earth above as it burrows deep beneath the ground, feeding on boulders as it goes."
+    }
+  ],
+  "evolutionChain": [
+    {
+      "name": "Onix",
+      "index": "#095",
+      "stage": 1,
+      "types": [
+        "Rock",
+        "Ground"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/95.png",
+      "isSubject": true
+    },
+    {
+      "name": "Steelix",
+      "index": "#208",
+      "stage": 2,
+      "evolvesFrom": "Onix",
+      "method": "Trade, holding Metal Coat",
+      "types": [
+        "Steel",
+        "Ground"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/208.png",
+      "isSubject": false
+    }
+  ],
+  "varieties": [],
+  "lore": [],
+  "tiers": {
+    "official": [
+      "name",
+      "index",
+      "number",
+      "category",
+      "generation",
+      "isLegendary",
+      "isMythical",
+      "types",
+      "heightMeters",
+      "weightKg",
+      "pokedexEntries",
+      "evolutionChain[].name",
+      "evolutionChain[].index",
+      "evolutionChain[].types",
+      "evolutionChain[].stage",
+      "varieties[].types",
+      "varieties[].heightMeters",
+      "varieties[].weightKg"
+    ],
+    "trusted_secondary": [
+      "evolutionChain[].method",
+      "evolutionChain[].evolvesFrom",
+      "varieties[].name"
+    ],
+    "community": [
+      "lore"
+    ]
+  },
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Onix",
+      "url": "https://www.pokemon.com/us/pokedex/onix",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Onix",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Onix_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Onix",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/95",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

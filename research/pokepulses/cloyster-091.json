@@ -1,0 +1,155 @@
+{
+  "schemaVersion": 1,
+  "id": "cloyster-091",
+  "number": 91,
+  "index": "#091",
+  "name": "Cloyster",
+  "slug": "cloyster",
+  "category": "Bivalve Pokémon",
+  "generation": "Generation I",
+  "isLegendary": false,
+  "isMythical": false,
+  "types": [
+    "Water",
+    "Ice"
+  ],
+  "heightMeters": 1.5,
+  "weightKg": 132.5,
+  "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/91.png",
+  "pokedexEntries": [
+    {
+      "game": "Red",
+      "text": "When attacked, it launches its horns in quick volleys. Its innards have never been seen."
+    },
+    {
+      "game": "Yellow",
+      "text": "For protection, it uses its harder- than-diamonds shell. It also shoots spikes from the shell."
+    },
+    {
+      "game": "Gold",
+      "text": "Once it slams its shell shut, it is impossible to open, even by those with superi or strength."
+    },
+    {
+      "game": "Silver",
+      "text": "CLOYSTER that live in seas with harsh tidal currents grow large, sharp spikes on their shells."
+    },
+    {
+      "game": "Crystal",
+      "text": "Even a missile can't break the spikes it uses to stab opponents. They're even hard er than its shell."
+    },
+    {
+      "game": "Ruby",
+      "text": "CLOYSTER is capable of swimming in the sea. It does so by swallowing water, then jetting it out toward the rear. This POKéMON shoots spikes from its shell using the same system."
+    },
+    {
+      "game": "Emerald",
+      "text": "It swims in the sea by swallowing water, then jetting it out toward the rear. The CLOYSTER shoots spikes from its shell using the same system."
+    },
+    {
+      "game": "Firered",
+      "text": "Its shell is extremely hard. It cannot be shattered, even with a bomb. The shell opens only when it is attacking."
+    },
+    {
+      "game": "Diamond",
+      "text": "It fights by keeping its shell tightly shut for protection and by shooting spikes to repel foes."
+    },
+    {
+      "game": "Heartgold",
+      "text": "Once it slams its shell shut, it is impossible to open, even by those with superior strength."
+    },
+    {
+      "game": "Sun",
+      "text": "Its hard shell cannot be shattered—not even by a bomb. The contents of the shell remain unknown."
+    },
+    {
+      "game": "Moon",
+      "text": "Excavation of the tombs of ancient hunting tribes has turned up many spears tipped with spikes that had fallen off this Pokémon’s shell."
+    },
+    {
+      "game": "Ultra Sun",
+      "text": "If areas of Cloyster’s very hard shell get damaged, those areas swell, gradually growing into large sharp spikes."
+    },
+    {
+      "game": "Ultra Moon",
+      "text": "Slowpoke tails are its favorite food. It has even been known to come up on land to look for Slowpoke from time to time."
+    },
+    {
+      "game": "Lets Go Pikachu",
+      "text": "For protection, it uses its harder-than-diamond shell. It also shoots spikes from the shell."
+    }
+  ],
+  "evolutionChain": [
+    {
+      "name": "Shellder",
+      "index": "#090",
+      "stage": 1,
+      "types": [
+        "Water"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/90.png",
+      "isSubject": false
+    },
+    {
+      "name": "Cloyster",
+      "index": "#091",
+      "stage": 2,
+      "evolvesFrom": "Shellder",
+      "method": "Use Item, Water Stone",
+      "types": [
+        "Water",
+        "Ice"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/91.png",
+      "isSubject": true
+    }
+  ],
+  "varieties": [],
+  "lore": [],
+  "tiers": {
+    "official": [
+      "name",
+      "index",
+      "number",
+      "category",
+      "generation",
+      "isLegendary",
+      "isMythical",
+      "types",
+      "heightMeters",
+      "weightKg",
+      "pokedexEntries",
+      "evolutionChain[].name",
+      "evolutionChain[].index",
+      "evolutionChain[].types",
+      "evolutionChain[].stage",
+      "varieties[].types",
+      "varieties[].heightMeters",
+      "varieties[].weightKg"
+    ],
+    "trusted_secondary": [
+      "evolutionChain[].method",
+      "evolutionChain[].evolvesFrom",
+      "varieties[].name"
+    ],
+    "community": [
+      "lore"
+    ]
+  },
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Cloyster",
+      "url": "https://www.pokemon.com/us/pokedex/cloyster",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Cloyster",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Cloyster_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Cloyster",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/91",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

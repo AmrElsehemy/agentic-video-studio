@@ -1,0 +1,164 @@
+{
+  "episodeId": "seaking-119",
+  "createdAt": "2026-10-29T21:54:02.188Z",
+  "chosen": {
+    "id": "boulder-nest-builder",
+    "premise": "Male Seaking carve boulders with their horns to build nests that keep eggs from being washed away.",
+    "hook": "This fish doesn’t just find a nest—it drills one into a boulder.",
+    "archetype": "mechanic",
+    "evidence": [
+      "pokedexEntries[1].text",
+      "pokedexEntries[3].text",
+      "pokedexEntries[7].text"
+    ],
+    "visualIdea": "Show a Seaking horn spinning into a stream boulder, then reveal eggs safely inside the hollow.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 5,
+      "specificity": 5,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 25,
+    "note": "A highly Seaking-specific contradiction: a goldfish-like Pokémon acts as a horn-powered stone mason, with the nest’s protective purpose clearly supported."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "boulder-nest-builder",
+          "premise": "Male Seaking carve boulders with their horns to build nests that keep eggs from being washed away.",
+          "hook": "This fish doesn’t just find a nest—it drills one into a boulder.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[1].text",
+            "pokedexEntries[3].text",
+            "pokedexEntries[7].text"
+          ],
+          "visualIdea": "Show a Seaking horn spinning into a stream boulder, then reveal eggs safely inside the hollow.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 25,
+          "note": "A highly Seaking-specific contradiction: a goldfish-like Pokémon acts as a horn-powered stone mason, with the nest’s protective purpose clearly supported."
+        },
+        {
+          "id": "rivers-turn-red",
+          "premise": "When spawning season arrives, Seaking gather in such numbers that entire rivers appear brilliantly red.",
+          "hook": "Every autumn, Seaking can make a whole river look red.",
+          "archetype": "transformation",
+          "evidence": [
+            "pokedexEntries[2].text",
+            "pokedexEntries[13].text",
+            "pokedexEntries[14].text"
+          ],
+          "visualIdea": "Transition from a normal stream to a wide overhead shot filled with red Seaking during spawning season.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 24,
+          "note": "An exceptionally striking seasonal image backed by multiple entries; it lacks a precise scale or count, making the premise slightly less concrete."
+        },
+        {
+          "id": "dance-for-the-mate",
+          "premise": "Male Seaking perform riverbed courtship dances, and females gather around whichever male dances most gracefully.",
+          "hook": "For Seaking, the best dancer gets surrounded by potential mates.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[5].text",
+            "pokedexEntries[17].text"
+          ],
+          "visualIdea": "Stage several male Seaking dancing on a riverbed as female Seaking move toward the most graceful performer.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 23,
+          "note": "The graceful-dancer selection rule is distinctive and highly visual, though the hook could better emphasize the specific mating behavior and male/female roles."
+        },
+        {
+          "id": "month-long-egg-watch",
+          "premise": "Seaking parents take turns guarding their eggs, and the patrol continues for over a month.",
+          "hook": "Seaking parents guard their eggs for more than a month straight.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[6].text",
+            "pokedexEntries[4].text"
+          ],
+          "visualIdea": "Use a calendar rapidly filling while male and female Seaking alternate patrol shifts around a nest.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 4,
+            "support": 5
+          },
+          "total": 22,
+          "note": "The over-one-month duration is concrete and well supported, but parental egg guarding is less uniquely Seaking than the boulder-nest mechanic."
+        },
+        {
+          "id": "horn-drills-hard-rock",
+          "premise": "Seaking’s horn spins like a drill and can steadily hollow out even harder rocks.",
+          "hook": "Seaking’s horn doesn’t just pierce rocks—it spins like a drill.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[8].text",
+            "pokedexEntries[16].text"
+          ],
+          "visualIdea": "Zoom into the spinning horn boring through progressively tougher riverbed rocks.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 22,
+          "note": "Directly supported and easy to animate, but it is less complete than the nest-building angle because it omits the surprising reproductive purpose."
+        },
+        {
+          "id": "goldeen-to-seaking",
+          "premise": "Goldeen evolves into Seaking at level 33, changing from the earlier form into the nest-building adult.",
+          "hook": "At level 33, Goldeen becomes the fish that drills its own nursery.",
+          "archetype": "transformation",
+          "evidence": [
+            "evolutionChain[0].name",
+            "evolutionChain[1].name",
+            "evolutionChain[1].method",
+            "pokedexEntries[1].text"
+          ],
+          "visualIdea": "Show Goldeen leveling up to 33, then transform it into Seaking beside an animated carved-rock nest.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 3,
+            "surprise": 3,
+            "specificity": 4,
+            "visual": 4,
+            "support": 4
+          },
+          "total": 18,
+          "note": "The level-33 evolution is concrete, but evolution-by-level is common across Pokémon and the connection between evolving and nest-building is interpretive rather than directly stated."
+        }
+      ],
+      "rejected": []
+    }
+  ]
+}

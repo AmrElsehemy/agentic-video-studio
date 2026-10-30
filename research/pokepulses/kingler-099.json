@@ -1,0 +1,163 @@
+{
+  "schemaVersion": 1,
+  "id": "kingler-099",
+  "number": 99,
+  "index": "#099",
+  "name": "Kingler",
+  "slug": "kingler",
+  "category": "Pincer Pokémon",
+  "generation": "Generation I",
+  "isLegendary": false,
+  "isMythical": false,
+  "types": [
+    "Water"
+  ],
+  "heightMeters": 1.3,
+  "weightKg": 60,
+  "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/99.png",
+  "pokedexEntries": [
+    {
+      "game": "Red",
+      "text": "The large pincer has 10000 hp of crushing power. However, its huge size makes it unwieldy to use."
+    },
+    {
+      "game": "Yellow",
+      "text": "One claw grew massively and as hard as steel. It has 10,000-HP strength. However, it is too heavy."
+    },
+    {
+      "game": "Gold",
+      "text": "It can hardly lift its massive, overgrown pincer. The pincer's size makes it difficult to aim properly."
+    },
+    {
+      "game": "Silver",
+      "text": "Its pincers grow peculiarly large. If it lifts the pincers too fast, it loses its bal ance and staggers."
+    },
+    {
+      "game": "Crystal",
+      "text": "Its oversized claw is very powerful, but when it's not in battle, the claw just gets in the way."
+    },
+    {
+      "game": "Ruby",
+      "text": "KINGLER has an enormous, oversized claw. It waves this huge claw in the air to communicate with others. However, because the claw is so heavy, the POKéMON quickly tires."
+    },
+    {
+      "game": "Emerald",
+      "text": "It waves its huge, oversized claw in the air to communicate with others. But since the claw is so heavy, this POKéMON quickly tires."
+    },
+    {
+      "game": "Firered",
+      "text": "Its large and hard pincer has 10,000- horsepower strength. However, being so big, it is unwieldy to move."
+    },
+    {
+      "game": "Leafgreen",
+      "text": "The large pincer has 10,000-horsepower crushing force. However, its huge size makes it unwieldy to use."
+    },
+    {
+      "game": "Diamond",
+      "text": "The larger pincer has 10,000- horsepower strength. However, it is so heavy, it is difficult to aim."
+    },
+    {
+      "game": "Heartgold",
+      "text": "It can hardly lift its massive, overgrown pincer. The pincer’s size makes it difficult to aim properly."
+    },
+    {
+      "game": "Soulsilver",
+      "text": "Its pincers grow peculiarly large. If it lifts the pincers too fast, it loses its balance and staggers."
+    },
+    {
+      "game": "X",
+      "text": "Its large and hard pincer has 10,000-horsepower strength. However, being so big, it is unwieldy to move."
+    },
+    {
+      "game": "Lets Go Pikachu",
+      "text": "One claw grew massively and is as hard as steel. It has 10,000-horsepower strength. However, it is too heavy."
+    },
+    {
+      "game": "Shield",
+      "text": "Its oversized claw is very powerful, but when it’s not in battle, the claw just gets in the way."
+    }
+  ],
+  "evolutionChain": [
+    {
+      "name": "Krabby",
+      "index": "#098",
+      "stage": 1,
+      "types": [
+        "Water"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/98.png",
+      "isSubject": false
+    },
+    {
+      "name": "Kingler",
+      "index": "#099",
+      "stage": 2,
+      "evolvesFrom": "Krabby",
+      "method": "Level Up, level 28",
+      "types": [
+        "Water"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/99.png",
+      "isSubject": true
+    }
+  ],
+  "varieties": [
+    {
+      "name": "Kingler Gmax",
+      "types": [
+        "Water"
+      ],
+      "heightMeters": 19,
+      "weightKg": 1000,
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10203.png"
+    }
+  ],
+  "lore": [],
+  "tiers": {
+    "official": [
+      "name",
+      "index",
+      "number",
+      "category",
+      "generation",
+      "isLegendary",
+      "isMythical",
+      "types",
+      "heightMeters",
+      "weightKg",
+      "pokedexEntries",
+      "evolutionChain[].name",
+      "evolutionChain[].index",
+      "evolutionChain[].types",
+      "evolutionChain[].stage",
+      "varieties[].types",
+      "varieties[].heightMeters",
+      "varieties[].weightKg"
+    ],
+    "trusted_secondary": [
+      "evolutionChain[].method",
+      "evolutionChain[].evolvesFrom",
+      "varieties[].name"
+    ],
+    "community": [
+      "lore"
+    ]
+  },
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Kingler",
+      "url": "https://www.pokemon.com/us/pokedex/kingler",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Kingler",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Kingler_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Kingler",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/99",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

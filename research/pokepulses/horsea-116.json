@@ -1,0 +1,162 @@
+{
+  "schemaVersion": 1,
+  "id": "horsea-116",
+  "number": 116,
+  "index": "#116",
+  "name": "Horsea",
+  "slug": "horsea",
+  "category": "Dragon Pokémon",
+  "generation": "Generation I",
+  "isLegendary": false,
+  "isMythical": false,
+  "types": [
+    "Water"
+  ],
+  "heightMeters": 0.4,
+  "weightKg": 8,
+  "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/116.png",
+  "pokedexEntries": [
+    {
+      "game": "Red",
+      "text": "Known to shoot down flying bugs with precision blasts of ink from the surface of the water."
+    },
+    {
+      "game": "Yellow",
+      "text": "If it senses any danger, it will vigorously spray water or a special type of ink from its mouth."
+    },
+    {
+      "game": "Gold",
+      "text": "If attacked by a larger enemy, it quickly swims to safety by adeptly controlling its dorsal fin."
+    },
+    {
+      "game": "Silver",
+      "text": "Its big, developed fins move rapidly, allowing it to swim backward while still facing forward."
+    },
+    {
+      "game": "Crystal",
+      "text": "When they're in a safe location, they can be seen playfully tangling their tails together."
+    },
+    {
+      "game": "Ruby",
+      "text": "HORSEA eats small insects and moss off of rocks. If the ocean current turns fast, this POKéMON anchors itself by wrapping its tail around rocks or coral to prevent being washed away."
+    },
+    {
+      "game": "Sapphire",
+      "text": "If HORSEA senses danger, it will reflexively spray a dense black ink from its mouth and try to escape. This POKéMON swims by cleverly flapping the fins on its back."
+    },
+    {
+      "game": "Emerald",
+      "text": "By cleverly flicking the fins on its back side to side, it moves in any direction while facing forward. It spits ink to escape if it senses danger."
+    },
+    {
+      "game": "Firered",
+      "text": "It maintains balance using its tail, which is wound up like a coil. It may spray ink from its mouth."
+    },
+    {
+      "game": "Diamond",
+      "text": "It makes its nest in the shade of corals. If it senses danger, it spits murky ink and flees."
+    },
+    {
+      "game": "Heartgold",
+      "text": "If attacked by a larger enemy, it quickly swims to safety by adeptly controlling its well-developed dorsal fin."
+    },
+    {
+      "game": "Alpha Sapphire",
+      "text": "If Horsea senses danger, it will reflexively spray a dense black ink from its mouth and try to escape. This Pokémon swims by cleverly flapping the fin on its back."
+    },
+    {
+      "game": "Sword",
+      "text": "Horsea makes its home in oceans with gentle currents. If this Pokémon is under attack, it spits out pitch-black ink and escapes."
+    },
+    {
+      "game": "Shield",
+      "text": "They swim with dance-like motions and cause whirlpools to form. Horsea compete to see which of them can generate the biggest whirlpool."
+    }
+  ],
+  "evolutionChain": [
+    {
+      "name": "Horsea",
+      "index": "#116",
+      "stage": 1,
+      "types": [
+        "Water"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/116.png",
+      "isSubject": true
+    },
+    {
+      "name": "Seadra",
+      "index": "#117",
+      "stage": 2,
+      "evolvesFrom": "Horsea",
+      "method": "Level Up, level 32",
+      "types": [
+        "Water"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/117.png",
+      "isSubject": false
+    },
+    {
+      "name": "Kingdra",
+      "index": "#230",
+      "stage": 3,
+      "evolvesFrom": "Seadra",
+      "method": "Trade, holding Dragon Scale",
+      "types": [
+        "Water",
+        "Dragon"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/230.png",
+      "isSubject": false
+    }
+  ],
+  "varieties": [],
+  "lore": [],
+  "tiers": {
+    "official": [
+      "name",
+      "index",
+      "number",
+      "category",
+      "generation",
+      "isLegendary",
+      "isMythical",
+      "types",
+      "heightMeters",
+      "weightKg",
+      "pokedexEntries",
+      "evolutionChain[].name",
+      "evolutionChain[].index",
+      "evolutionChain[].types",
+      "evolutionChain[].stage",
+      "varieties[].types",
+      "varieties[].heightMeters",
+      "varieties[].weightKg"
+    ],
+    "trusted_secondary": [
+      "evolutionChain[].method",
+      "evolutionChain[].evolvesFrom",
+      "varieties[].name"
+    ],
+    "community": [
+      "lore"
+    ]
+  },
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Horsea",
+      "url": "https://www.pokemon.com/us/pokedex/horsea",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Horsea",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Horsea_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Horsea",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/116",
+      "tier": "trusted_secondary"
+    }
+  ]
+}

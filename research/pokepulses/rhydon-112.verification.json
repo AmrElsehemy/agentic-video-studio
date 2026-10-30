@@ -1,0 +1,415 @@
+{
+  "episodeId": "rhydon-112",
+  "checkedAt": "2026-10-29T21:29:10.964Z",
+  "claims": [
+    {
+      "id": "c1",
+      "where": "title",
+      "text": "Rhydon Got Smarter by Standing Up",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[11].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c2",
+      "where": "premise",
+      "text": "Rhydon's brain developed after it began walking on its hind legs.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].text",
+        "pokedexEntries[11].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c3",
+      "where": "audiencePromise",
+      "text": "Watch Rhydon's posture change free its forelegs and make it smarter, then meet its strange contradiction.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[11].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c4",
+      "where": "openLoop",
+      "text": "How can Rhydon become smarter, yet remain very forgetful?",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[11].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c5",
+      "where": "payoff",
+      "text": "The final picture is a contradiction: a developed brain paired with a very forgetful Rhydon.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[11].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c6",
+      "where": "scenes.standing-brain.headline",
+      "text": "STAND UP. BRAIN ON.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[11].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c7",
+      "where": "scenes.standing-brain.narration",
+      "text": "Rhydon's brain developed after it stood on two legs.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].text",
+        "pokedexEntries[11].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c8",
+      "where": "scenes.standing-brain.caption",
+      "text": "STANDING CHANGED RHYDON",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].text",
+        "pokedexEntries[11].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c9",
+      "where": "scenes.standing-brain.eyebrow",
+      "text": "THE STRANGE CHANGE",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c10",
+      "where": "scenes.before-the-change.headline",
+      "text": "THE SHIFT STARTS HERE",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c11",
+      "where": "scenes.before-the-change.narration",
+      "text": "Rhydon evolves from Rhyhorn before this posture change begins.",
+      "verdict": "supported",
+      "evidence": [
+        "evolutionChain[1].evolvesFrom",
+        "evolutionChain[1].method",
+        "pokedexEntries[8].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c12",
+      "where": "scenes.before-the-change.caption",
+      "text": "EVOLUTION COMES FIRST",
+      "verdict": "supported",
+      "evidence": [
+        "evolutionChain[1].evolvesFrom",
+        "pokedexEntries[8].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c13",
+      "where": "scenes.before-the-change.eyebrow",
+      "text": "BEFORE",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c14",
+      "where": "scenes.before-the-change.facts[0]",
+      "text": "RHYHORN → RHYDON",
+      "verdict": "supported",
+      "evidence": [
+        "evolutionChain[1].evolvesFrom"
+      ],
+      "note": "",
+      "tier": "trusted_secondary",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c15",
+      "where": "scenes.hind-legs-rise.headline",
+      "text": "RH YDON RISES",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].text",
+        "pokedexEntries[8].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c16",
+      "where": "scenes.hind-legs-rise.narration",
+      "text": "After evolution, Rhydon begins walking on its hind legs.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[8].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c17",
+      "where": "scenes.hind-legs-rise.caption",
+      "text": "HIND LEGS UP",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[8].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c18",
+      "where": "scenes.hind-legs-rise.eyebrow",
+      "text": "THE CHANGE",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c19",
+      "where": "scenes.hind-legs-rise.facts[0]",
+      "text": "AFTER EVOLUTION",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[8].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c20",
+      "where": "scenes.hind-legs-rise.facts[1]",
+      "text": "HIND LEGS",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[3].text",
+        "pokedexEntries[8].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c21",
+      "where": "scenes.brain-awakens.headline",
+      "text": "THE FORELEGS BREAK FREE",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[11].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c22",
+      "where": "scenes.brain-awakens.narration",
+      "text": "Standing frees its forelegs, and the Pokédex says it gets smarter.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[11].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c23",
+      "where": "scenes.brain-awakens.caption",
+      "text": "FREED FORELEGS. SMARTER BRAIN.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[11].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c24",
+      "where": "scenes.brain-awakens.eyebrow",
+      "text": "THE REVEAL",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c25",
+      "where": "scenes.brain-awakens.facts[0]",
+      "text": "FORELEGS FREED",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[11].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c26",
+      "where": "scenes.brain-awakens.facts[1]",
+      "text": "SMARTER",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[11].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c27",
+      "where": "scenes.smart-but-forgetful.headline",
+      "text": "SMARTER, STILL FORGETFUL",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[11].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c28",
+      "where": "scenes.smart-but-forgetful.narration",
+      "text": "Yet one Pokédex entry still calls Rhydon very forgetful.",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[11].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c29",
+      "where": "scenes.smart-but-forgetful.caption",
+      "text": "A DEVELOPED BRAIN, A FORGETFUL RHYDON",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[11].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c30",
+      "where": "scenes.smart-but-forgetful.eyebrow",
+      "text": "THE CONTRADICTION",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[11].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c31",
+      "where": "scenes.smart-but-forgetful.facts[0]",
+      "text": "VERY FORGETFUL",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[11].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c32",
+      "where": "scenes.worth-the-cost.headline",
+      "text": "WHICH TRAIT WINS?",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c33",
+      "where": "scenes.worth-the-cost.narration",
+      "text": "Which matters more, Rhydon's smarter brain or its forgetfulness?",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[11].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c34",
+      "where": "scenes.worth-the-cost.caption",
+      "text": "SMARTER BRAIN OR FORGETFULNESS?",
+      "verdict": "supported",
+      "evidence": [
+        "pokedexEntries[11].text"
+      ],
+      "note": "",
+      "tier": "official",
+      "checkedBy": "model"
+    },
+    {
+      "id": "c35",
+      "where": "scenes.worth-the-cost.eyebrow",
+      "text": "YOUR CALL",
+      "verdict": "no-claim",
+      "evidence": [],
+      "note": "",
+      "checkedBy": "model"
+    }
+  ],
+  "unsupported": [],
+  "uncertain": []
+}

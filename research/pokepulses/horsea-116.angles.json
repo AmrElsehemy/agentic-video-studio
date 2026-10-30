@@ -1,0 +1,161 @@
+{
+  "episodeId": "horsea-116",
+  "createdAt": "2026-10-29T21:41:56.753Z",
+  "chosen": {
+    "id": "ink-sniper",
+    "premise": "Horsea shoots flying bugs down with precise ink blasts from the water's surface.",
+    "hook": "This tiny seahorse uses ink like an anti-aircraft weapon.",
+    "archetype": "profile",
+    "evidence": [
+      "pokedexEntries[0].text"
+    ],
+    "visualIdea": "Show a bug crossing above the water as Horsea's ink blast hits it with a precision target graphic.",
+    "generic": false,
+    "scores": {
+      "uniqueness": 5,
+      "surprise": 5,
+      "specificity": 5,
+      "visual": 5,
+      "support": 5
+    },
+    "total": 25,
+    "note": "Extremely memorable and visual: Horsea uses precise ink blasts against airborne bugs. 'Anti-aircraft' is a colorful analogy, but the underlying claim is explicitly supported."
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "candidates": [
+        {
+          "id": "ink-sniper",
+          "premise": "Horsea shoots flying bugs down with precise ink blasts from the water's surface.",
+          "hook": "This tiny seahorse uses ink like an anti-aircraft weapon.",
+          "archetype": "profile",
+          "evidence": [
+            "pokedexEntries[0].text"
+          ],
+          "visualIdea": "Show a bug crossing above the water as Horsea's ink blast hits it with a precision target graphic.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 5,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 25,
+          "note": "Extremely memorable and visual: Horsea uses precise ink blasts against airborne bugs. 'Anti-aircraft' is a colorful analogy, but the underlying claim is explicitly supported."
+        },
+        {
+          "id": "backward-facing-escape",
+          "premise": "Horsea can swim backward while continuing to face forward, using its rapidly moving dorsal fins.",
+          "hook": "Horsea can flee without ever turning its back.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[3].text",
+            "pokedexEntries[7].text"
+          ],
+          "visualIdea": "Animate Horsea facing a threat, then sliding backward as arrows show its dorsal fins steering.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 24,
+          "note": "A distinctive, concrete movement mechanic directly supported by multiple Pokédex entries; the backward glide is immediately demonstrable."
+        },
+        {
+          "id": "tail-anchor",
+          "premise": "When ocean currents become dangerous, Horsea wraps its coiled tail around rocks or coral to stay anchored.",
+          "hook": "Horsea's tail is secretly an anchor.",
+          "archetype": "mechanic",
+          "evidence": [
+            "pokedexEntries[5].text",
+            "pokedexEntries[9].text"
+          ],
+          "visualIdea": "A current pushes Horsea across the screen until its tail coils around coral and holds it in place.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 5,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 24,
+          "note": "A clever survival adaptation with a clear before-and-after visual. Less unexpected than the ink sniper or backward swimming angles."
+        },
+        {
+          "id": "whirlpool-competition",
+          "premise": "Horsea swim with dance-like motions and compete to see which one can create the biggest whirlpool.",
+          "hook": "Horsea turns swimming into a whirlpool competition.",
+          "archetype": "comparison",
+          "evidence": [
+            "pokedexEntries[13].text"
+          ],
+          "visualIdea": "Two Horsea perform synchronized fin movements while their whirlpools grow side by side.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 5,
+            "specificity": 4,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 23,
+          "note": "The competition is genuinely surprising and highly visual, but the research does not provide a measurable contest rule or stakes beyond making the biggest whirlpool."
+        },
+        {
+          "id": "trade-for-kingdra",
+          "premise": "Horsea reaches Kingdra only through two steps: level up to 32, then trade Seadra holding a Dragon Scale.",
+          "hook": "Horsea's final evolution needs both level 32 and a trade.",
+          "archetype": "walkthrough",
+          "evidence": [
+            "evolutionChain[1].method",
+            "evolutionChain[2].method",
+            "evolutionChain[1].evolvesFrom",
+            "evolutionChain[2].evolvesFrom"
+          ],
+          "visualIdea": "Follow a three-panel path: Horsea, level 32 to Seadra, then a Dragon Scale trade to Kingdra.",
+          "generic": false,
+          "scores": {
+            "uniqueness": 4,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 4
+          },
+          "total": 22,
+          "note": "The two-step evolution requirement is concrete and useful, but evolution-method data is secondary research and the angle feels more like a guide than a surprising Horsea fact."
+        },
+        {
+          "id": "dragon-category-water-type",
+          "premise": "Horsea is labeled a Dragon Pokémon but is only Water-type, while its final evolution gains the Dragon type.",
+          "hook": "Horsea is called a Dragon Pokémon before it is Dragon-type.",
+          "archetype": "transformation",
+          "evidence": [
+            "category",
+            "types",
+            "evolutionChain[0].types",
+            "evolutionChain[1].types",
+            "evolutionChain[2].types"
+          ],
+          "visualIdea": "Build the evolution line from Horsea to Kingdra, highlighting the Dragon type appearing only at the final stage.",
+          "generic": true,
+          "scores": {
+            "uniqueness": 2,
+            "surprise": 4,
+            "specificity": 5,
+            "visual": 5,
+            "support": 5
+          },
+          "total": 21,
+          "note": "A strong classification contradiction: Horsea is a Dragon Pokémon category despite being Water-type, while Dragon appears only with Kingdra. Slightly dependent on explaining the distinction between category and type. (Uniqueness capped at 2: its evidence is only fields every Pokémon has.)"
+        }
+      ],
+      "rejected": []
+    }
+  ]
+}

@@ -1,0 +1,166 @@
+{
+  "schemaVersion": 1,
+  "id": "seadra-117",
+  "number": 117,
+  "index": "#117",
+  "name": "Seadra",
+  "slug": "seadra",
+  "category": "Dragon Pokémon",
+  "generation": "Generation I",
+  "isLegendary": false,
+  "isMythical": false,
+  "types": [
+    "Water"
+  ],
+  "heightMeters": 1.2,
+  "weightKg": 25,
+  "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/117.png",
+  "pokedexEntries": [
+    {
+      "game": "Red",
+      "text": "Capable of swim ming backwards by rapidly flapping its wing-like pectoral fins and stout tail."
+    },
+    {
+      "game": "Yellow",
+      "text": "Touching the back fin causes numb ness. It hooks its tail to coral to stay in place while sleeping."
+    },
+    {
+      "game": "Gold",
+      "text": "An examination of its cells revealed the presence of a gene not found in HORSEA. It became a hot topic."
+    },
+    {
+      "game": "Silver",
+      "text": "Its fin-tips leak poison. Its fins and bones are highly valued as ingredients in herbal medicine."
+    },
+    {
+      "game": "Crystal",
+      "text": "The male raises the young. If it is approached, it uses its toxic spikes to fend off the intruder."
+    },
+    {
+      "game": "Ruby",
+      "text": "SEADRA sleeps after wriggling itself between the branches of coral. Those trying to harvest coral are occasionally stung by this POKéMON’s poison barbs if they fail to notice it."
+    },
+    {
+      "game": "Sapphire",
+      "text": "SEADRA generates whirlpools by spinning its body. The whirlpools are strong enough to swallow even fishing boats. This POKéMON weakens prey with these currents, then swallows it whole."
+    },
+    {
+      "game": "Emerald",
+      "text": "The poisonous barbs all over its body are highly valued as ingredients for making traditional herbal medicine. It shows no mercy to anything approaching its nest."
+    },
+    {
+      "game": "Firered",
+      "text": "Its body bristles with sharp spikes. Carelessly trying to touch it could cause fainting from the spikes."
+    },
+    {
+      "game": "Leafgreen",
+      "text": "It is capable of swimming backwards by rapidly flapping its winglike pectoral fins and stout tail."
+    },
+    {
+      "game": "Diamond",
+      "text": "Its spines provide protection. Its fins and bones are prized as traditional medicine ingredients."
+    },
+    {
+      "game": "Black 2",
+      "text": "Its spines provide protection. Its fins and bones are prized as traditional-medicine ingredients."
+    },
+    {
+      "game": "Lets Go Pikachu",
+      "text": "Touching the back fin causes numbness. It hooks its tail to coral to stay in place while sleeping."
+    },
+    {
+      "game": "Sword",
+      "text": "It’s the males that raise the offspring. While Seadra are raising young, the spines on their backs secrete thicker and stronger poison."
+    },
+    {
+      "game": "Shield",
+      "text": "Seadra’s mouth is slender, but its suction power is strong. In an instant, Seadra can suck in food that’s larger than the opening of its mouth."
+    }
+  ],
+  "evolutionChain": [
+    {
+      "name": "Horsea",
+      "index": "#116",
+      "stage": 1,
+      "types": [
+        "Water"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/116.png",
+      "isSubject": false
+    },
+    {
+      "name": "Seadra",
+      "index": "#117",
+      "stage": 2,
+      "evolvesFrom": "Horsea",
+      "method": "Level Up, level 32",
+      "types": [
+        "Water"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/117.png",
+      "isSubject": true
+    },
+    {
+      "name": "Kingdra",
+      "index": "#230",
+      "stage": 3,
+      "evolvesFrom": "Seadra",
+      "method": "Trade, holding Dragon Scale",
+      "types": [
+        "Water",
+        "Dragon"
+      ],
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/230.png",
+      "isSubject": false
+    }
+  ],
+  "varieties": [],
+  "lore": [],
+  "tiers": {
+    "official": [
+      "name",
+      "index",
+      "number",
+      "category",
+      "generation",
+      "isLegendary",
+      "isMythical",
+      "types",
+      "heightMeters",
+      "weightKg",
+      "pokedexEntries",
+      "evolutionChain[].name",
+      "evolutionChain[].index",
+      "evolutionChain[].types",
+      "evolutionChain[].stage",
+      "varieties[].types",
+      "varieties[].heightMeters",
+      "varieties[].weightKg"
+    ],
+    "trusted_secondary": [
+      "evolutionChain[].method",
+      "evolutionChain[].evolvesFrom",
+      "varieties[].name"
+    ],
+    "community": [
+      "lore"
+    ]
+  },
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Seadra",
+      "url": "https://www.pokemon.com/us/pokedex/seadra",
+      "tier": "official"
+    },
+    {
+      "label": "Bulbapedia — Seadra",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Seadra_(Pok%C3%A9mon)",
+      "tier": "trusted_secondary"
+    },
+    {
+      "label": "PokéAPI — Seadra",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/117",
+      "tier": "trusted_secondary"
+    }
+  ]
+}
