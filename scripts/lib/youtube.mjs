@@ -76,6 +76,15 @@ export const refreshAccessToken = async (root, existing = {}, {show = LEGACY_SHO
   return merged;
 };
 
+/** Days since a show's login was granted (undefined for a login made before this was recorded). */
+export const loginAgeDays = (root, show = LEGACY_SHOW, now = Date.now()) => {
+  const file = tokenPath(root, show);
+  const granted = fs.existsSync(file) ? readJson(file).granted_at : undefined;
+  return granted ? (now - granted) / 86_400_000 : undefined;
+};
+/** A Google app still in testing mode expires its logins after 7 days; warn from this age. */
+export const LOGIN_WARN_DAYS = 5;
+
 export const getAccessToken = async (root, {show = LEGACY_SHOW} = {}) => {
   if (process.env.YOUTUBE_ACCESS_TOKEN) return process.env.YOUTUBE_ACCESS_TOKEN;
   const file = tokenPath(root, show);
@@ -249,7 +258,7 @@ export const authorizeInteractively = async (root, {port = 53682, show = LEGACY_
     grant_type: 'authorization_code',
     redirect_uri: redirectUri,
   });
-  const stored = {...token, expires_at: Date.now() + token.expires_in * 1000};
+  const stored = {...token, expires_at: Date.now() + token.expires_in * 1000, granted_at: Date.now()};
   saveToken(root, stored, {show});
   return stored;
 };

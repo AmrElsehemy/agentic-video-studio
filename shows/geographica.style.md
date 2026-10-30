@@ -33,6 +33,15 @@ A place, a border or a route that surprises, told with an animated map in 30 to 
 - Reveals land on the beat; highlights and labels spring in with a small overshoot.
 - Fast camera moves are allowed; they're motion-blurred, but don't chain more than two in a row.
 
+## What the numbers say (live counts of 30 Oct 2026; 42 public episodes at least 2 days old)
+These are correlations in a small, uneven sample (median views per day of age, `npm run analytics -- compare geographica`). Treat them as things to try, not rules, and refresh them with each batch.
+- Hooks that open on a mystery are most of the catalogue (32 of 42) and sit below the rest: 75 views a day against 191 for the 10 that open another way (impact, comparison). Open a share of each batch on the consequence or the comparison ("23 countries have fewer people than in 1990") and keep the mystery for the middle.
+- Story shape: transformation (6 episodes, 131 a day) and comparison (2, 214, too few to rank) beat mystery (31, 81). Plan at least a third of a batch as a before/after or a side-by-side.
+- Episodes that end by looping back to their first frame (`framing.ending: "loop"`, 6 episodes) have the highest median, 280 a day against 63. Try it on about half a batch to see whether it holds.
+- Episodes that open with the map bleeding in from the first frame (`framing.opening: "bleed"`, 4) and ones with a timeline (11) or flags (20) also lead. The sample is thin; vary them, don't force them.
+- Photo scenes (10 episodes, 58 a day against 155) and routes (10, 46 against 84) go with fewer views. That is no proof the photos or routes are the cause (they may sit in niche topics), so keep them where the story needs them, but don't add a photo for decoration.
+- Like rates are flat across every feature (about 1.4%), so none of this moves how well an episode is liked, only how often it is shown.
+
 ## Never
 - Draw a border by hand or move a place; everything comes from the pinned map data. The one exception is a plate reconstruction (`reconstruction` in a shot): a place may be drawn where the pinned plate-motion model (Müller et al. 2016, CC BY 4.0) puts it at an age, drifting to where it is today, with an age counter on screen and the model credited. The other is a true-size comparison (`truesize`): a copy of a place rotated on the sphere onto another, drawn only in an equal-area projection, with its real position outlined and a note on screen that it was moved. Nothing else may be moved.
 - Highlight a disputed area on its own, or take a side on it.

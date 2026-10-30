@@ -3,7 +3,7 @@ import path from 'node:path';
 import {spawnSync} from 'node:child_process';
 import {findManifest, resolveEpisodeId} from './catalog.mjs';
 import {loadShow} from './lib/shows.mjs';
-import {addToPlaylist, assertShowChannel, channelOf, getAccessToken, listUploads, liveStats, youtubeMetadata} from './lib/youtube.mjs';
+import {addToPlaylist, assertShowChannel, channelOf, getAccessToken, listUploads, liveStats, LOGIN_WARN_DAYS, loginAgeDays, youtubeMetadata} from './lib/youtube.mjs';
 import {latestTaken, nextSlot} from './lib/schedule.mjs';
 import {analyticsPath, linkVideo, readAnalytics, writeAnalytics} from './lib/analytics.mjs';
 import {episodeOutPath} from './lib/out.mjs';
@@ -35,6 +35,8 @@ const videoPath = episodeOutPath(root, episodeId, `${episodeId}.mp4`);
 if (!fs.existsSync(videoPath)) throw new Error(`Missing rendered video: ${path.relative(root, videoPath)}. Render it first.`);
 
 const show = loadShow(manifest.show.id);
+const loginAge = loginAgeDays(root, show.id);
+if (loginAge !== undefined && loginAge >= LOGIN_WARN_DAYS) console.warn(`⚠ The ${show.id} YouTube login is ${loginAge.toFixed(1)} days old. A Google app in testing mode expires logins at 7 days: run npm run youtube:auth -- --show=${show.id} if this upload fails.`);
 // The show's cadence: without a time or a privacy of its own, the upload takes the next free daily slot.
 // An access token is only fetched here when scheduling; the upload below reuses it.
 let accessToken;

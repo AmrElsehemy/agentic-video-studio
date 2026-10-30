@@ -25,3 +25,5 @@ export declare const youtubeMetadata: (manifest: any, options?: {privacy?: 'priv
   snippet: {title: string; description: string; tags: string[]; categoryId: string; defaultLanguage: string};
   status: {privacyStatus: string; publishAt?: string; selfDeclaredMadeForKids?: boolean};
 };
+export declare const loginAgeDays: (root: string, show?: string, now?: number) => number | undefined;
+export declare const LOGIN_WARN_DAYS: number;
