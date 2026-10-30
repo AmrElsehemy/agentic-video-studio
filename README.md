@@ -295,7 +295,7 @@ The research names places ("South Africa", "Vatican City"), which are resolved t
 
 ## PokePulses ranked races
 
-A second PokePulses format with many Pokémon in one video, kept apart from the one-Pokémon episodes. Every bar counts up and stops at its own value, so the winner is the last bar still going (or the first to stop). The figures come from a pinned PokéAPI table of Gen 1–2.
+A second PokePulses format with many Pokémon in one video, kept apart from the one-Pokémon episodes. Every bar counts up and stops at its own value, so the winner is the last bar still going (or the first to stop). A race is either a region and group (`both-psychic-top-hp`) or an angle across regions from [`races/angles.json`](races/angles.json) (`water-starters-top-speed`, `pseudo-legendaries-bottom-hp`). The figures come from a pinned PokéAPI table of the whole National Dex.
 
 ```bash
 npm run races:candidates                    # score every race; the shortlist is in research/races/candidates.json

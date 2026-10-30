@@ -31,6 +31,7 @@ export const dexRow = (pokemon, species) => {
     mythical: species.is_mythical,
     baby: species.is_baby,
     evolvesFrom: id(species.evolves_from_species?.url),
+    generation: id(species.generation?.url),
     artworkUrl: pokemon.sprites?.other?.['official-artwork']?.front_default
       ?? `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`,
   };
@@ -72,6 +73,9 @@ export const REGIONS = {
   both: {label: 'GEN 1–2', has: (row) => row.id <= 251},
 };
 
+/** The region each generation introduced, for the tags under a cross-region racer's name. */
+export const GENERATION_REGIONS = [null, 'KANTO', 'JOHTO', 'HOENN', 'SINNOH', 'UNOVA', 'KALOS', 'ALOLA', 'GALAR', 'PALDEA'];
+
 /**
  * Evolution stages as a region sees them: a Pokémon whose evolution arrived later (Onix → Steelix) is fully
  * evolved in a Kanto race, and one whose pre-evolution arrived later (Pichu → Pikachu) starts its line there.
@@ -106,39 +110,89 @@ export const pickScore = (id, direction) => {
   return RACE_SCORES[direction][Math.abs(hash) % RACE_SCORES[direction].length];
 };
 
-export const candidateId = ({region, group, direction, metric}) => `${region}-${group}-${direction}-${metric}`;
+export const candidateId = ({angle, region, group, direction, metric}) => (angle ? `${angle}-${direction}-${metric}` : `${region}-${group}-${direction}-${metric}`);
 
-export const parseCandidateId = (id) => {
-  const [region, group, direction, metric] = String(id).split('-');
-  if (!REGIONS[region] || !GROUPS[group] || !['top', 'bottom'].includes(direction) || !METRICS[metric]) {
-    throw new Error(`Not a race id: ${id}. It reads <region>-<group>-<top|bottom>-<metric>, e.g. both-psychic-top-hp`);
+/** A race id: <region>-<group>-<top|bottom>-<metric> (both-psychic-top-hp), or <angle>-<top|bottom>-<metric> (water-starters-top-speed). */
+export const parseCandidateId = (id, angles = []) => {
+  const match = String(id).match(/^(.+)-(top|bottom)-([a-zA-Z]+)$/);
+  const [region, group] = match ? match[1].split('-') : [];
+  if (match && METRICS[match[3]] && REGIONS[region] && GROUPS[group] && match[1] === `${region}-${group}`) return {region, group, direction: match[2], metric: match[3]};
+  if (match && METRICS[match[3]] && angles.some((angle) => angle.id === match[1])) return {angle: match[1], direction: match[2], metric: match[3]};
+  throw new Error(`Not a race id: ${id}. It reads <region>-<group>-<top|bottom>-<metric> (both-psychic-top-hp) or <angle>-<top|bottom>-<metric> (water-starters-top-speed); angles are in races/angles.json`);
+};
+
+/**
+ * Members chosen by a rule rather than a list. Pseudo-legendaries are the fan definition: the last of three
+ * stages, 600 total stats, not legendary or mythical.
+ */
+export const ANGLE_RULES = {
+  'pseudo-legendary': (row, stages) => total(row) === 600 && stages.get(row.id)?.stage === 3 && !special(row),
+  eeveelution: (row) => row.evolvesFrom === 133,
+  baby: (row) => row.baby,
+};
+
+/** Who an angle includes, and anything wrong with its definition (a missing id, a member of the wrong type). */
+export const angleMembers = (rows, angle) => {
+  const byId = new Map(rows.map((row) => [row.id, row]));
+  const problems = [];
+  let members;
+  if (angle.rule) {
+    if (!ANGLE_RULES[angle.rule]) return {members: [], problems: [`${angle.id}: unknown rule ${angle.rule} (known: ${Object.keys(ANGLE_RULES).join(', ')})`]};
+    const stages = stagesIn(rows);
+    members = rows.filter((row) => ANGLE_RULES[angle.rule](row, stages));
+  } else {
+    members = (angle.members ?? []).map((id) => byId.get(id) ?? (problems.push(`${angle.id}: #${id} is not in the table`), null)).filter(Boolean);
   }
-  return {region, group, direction, metric};
+  if (angle.requireType) for (const row of members) if (!row.types.includes(angle.requireType)) problems.push(`${angle.id}: ${row.name} is not ${angle.requireType} type`);
+  return {members, problems};
+};
+
+/**
+ * Who a race is between, and how it is labelled: a region and group of the regional Pokédex (stages judged
+ * within it), or an angle from races/angles.json (current games, often across regions).
+ */
+export const fieldOf = (rows, spec, angles = []) => {
+  if (spec.angle) {
+    const angle = angles.find((entry) => entry.id === spec.angle);
+    if (!angle) throw new Error(`Unknown angle ${spec.angle}`);
+    return {members: angleMembers(rows, angle).members, label: angle.title, minPool: angle.minPool ?? 4, order: angle.order ?? 'total', tag: angle.tag, stages: stagesIn(rows), evolutionNote: null};
+  }
+  const regional = rows.filter(REGIONS[spec.region].has);
+  const stages = stagesIn(regional);
+  return {
+    members: regional.filter((row) => GROUPS[spec.group].has(row, stages.get(row.id))),
+    label: [GROUPS[spec.group].label, REGIONS[spec.region].label].filter(Boolean).join(' · '),
+    minPool: MIN_POOL,
+    order: 'total',
+    stages,
+    // Evolution groups are judged within the region's Pokédex (Togetic is fully evolved until Gen 4), so the video says so.
+    evolutionNote: EVOLUTION_GROUPS.includes(spec.group) ? `EVOLUTIONS AS OF ${spec.region === 'kanto' ? 'GEN 1' : 'GEN 2'}` : null,
+  };
 };
 
 /** The Pokémon a race could rank, best first. */
-export const poolOf = (rows, {region, group, direction, metric}) => {
-  const regional = rows.filter(REGIONS[region].has);
-  const stages = stagesIn(regional);
-  const get = METRICS[metric].get;
-  return regional
-    .filter((row) => GROUPS[group].has(row, stages.get(row.id)) && get(row) != null)
-    .sort((a, b) => (direction === 'top' ? get(b) - get(a) : get(a) - get(b)) || a.id - b.id);
+export const poolOf = (rows, spec, angles = []) => {
+  const get = METRICS[spec.metric].get;
+  return fieldOf(rows, spec, angles).members
+    .filter((row) => get(row) != null)
+    .sort((a, b) => (spec.direction === 'top' ? get(b) - get(a) : get(a) - get(b)) || a.id - b.id);
 };
 
 /** How surprising a race is, and why. A tie for first place can't be raced (score -1). */
-export const scoreRace = (rows, spec) => {
-  const pool = poolOf(rows, spec);
-  if (pool.length < MIN_POOL) return null;
+export const scoreRace = (rows, spec, angles = []) => {
+  const field = fieldOf(rows, spec, angles);
+  const pool = poolOf(rows, spec, angles);
+  if (pool.length < field.minPool) return null;
   const get = METRICS[spec.metric].get;
   const [winner, runnerUp] = pool;
   const base = {id: candidateId(spec), ...spec, pool: pool.length, winner: winner.name, runnerUp: runnerUp.name, value: get(winner), runnerUpValue: get(runnerUp)};
   if (get(winner) === get(runnerUp)) return {...base, score: -1, why: ['tie for first']};
-  const stages = stagesIn(rows.filter(REGIONS[spec.region].has));
-  const stage = stages.get(winner.id);
+  const stage = field.stages.get(winner.id);
   const stronger = pool.filter((row) => total(row) > total(winner)).length / pool.length;
-  const spread = Math.abs(get(pool[0]) - get(pool.at(-1))) || 1;
-  const gap = Math.abs(get(winner) - get(runnerUp)) / spread;
+  // The winning margin relative to the winning value: 528 against 530 is close however tight the field.
+  const gap = Math.abs(get(winner) - get(runnerUp)) / Math.max(Math.abs(get(winner)), Math.abs(get(runnerUp)), 1);
+  // A stage only surprises when the field mixes stages (every final starter is fully evolved).
+  const mixed = new Set(pool.map((row) => field.stages.get(row.id)?.final)).size > 1;
   const why = [];
   let score = 0;
   const statLike = METRICS[spec.metric].battle || ['total', 'baseExp'].includes(spec.metric);
@@ -147,22 +201,33 @@ export const scoreRace = (rows, spec) => {
     if (special(winner)) { score -= 2; why.push('a legendary wins (expected)'); }
   }
   if (statLike && spec.direction === 'bottom') {
-    if (special(winner)) { score += 4; why.push('a legendary comes last'); } else if (stage.final && stage.stage > 1) { score += 3; why.push('fully evolved, still last'); }
+    if (special(winner)) { score += 4; why.push('a legendary comes last'); } else if (mixed && stage.final && stage.stage > 1) { score += 3; why.push('fully evolved, still last'); }
   }
-  if (!statLike && spec.direction === 'top' && ['height', 'weight'].includes(spec.metric) && !stage.final) { score += 2; why.push('unevolved wins on size'); }
-  if (gap < 0.02) { score += 1; why.push('photo finish'); } else if (gap > 0.25) { score += 1; why.push('runaway winner'); }
+  if (!statLike && spec.direction === 'top' && ['height', 'weight'].includes(spec.metric) && mixed && !stage.final) { score += 2; why.push('unevolved wins on size'); }
+  if (gap < 0.02) { score += 1; why.push('photo finish'); } else if (gap > 0.2) { score += 1; why.push('runaway winner'); }
   if (spec.group !== 'all') score += 0.5;
   return {...base, score, why};
 };
 
-/** Every race the table allows, scored, best first. */
-export const allRaces = (rows) => {
+/** Every race the table allows, scored, best first: each region and group, then each angle. */
+export const allRaces = (rows, angles = []) => {
   const races = [];
-  for (const region of Object.keys(REGIONS)) for (const group of Object.keys(GROUPS)) for (const metric of Object.keys(METRICS)) for (const direction of ['top', 'bottom']) {
-    const race = scoreRace(rows, {region, group, direction, metric});
-    if (race) races.push(race);
+  const add = (spec) => { const race = scoreRace(rows, spec, angles); if (race) races.push(race); };
+  for (const metric of Object.keys(METRICS)) for (const direction of ['top', 'bottom']) {
+    for (const region of Object.keys(REGIONS)) for (const group of Object.keys(GROUPS)) add({region, group, direction, metric});
+    for (const angle of angles) add({angle: angle.id, direction, metric});
   }
   return races.sort((a, b) => b.score - a.score || a.id.localeCompare(b.id));
+};
+
+/** The best races for each angle: the angle is the reason to watch, so a lower surprise score is enough. */
+export const angleShortlist = (races, {perAngle = 3, minScore = 1} = {}) => {
+  const kept = new Map();
+  return races.filter((race) => {
+    if (!race.angle || race.score < minScore || (kept.get(race.angle) ?? 0) >= perAngle) return false;
+    kept.set(race.angle, (kept.get(race.angle) ?? 0) + 1);
+    return true;
+  });
 };
 
 /** The shortlist: surprising races, at most `perWinner` per Pokémon and `perGroup` per region and group, one per group and metric. */
@@ -171,6 +236,7 @@ export const shortlist = (races, {minScore = 2, perWinner = 3, perGroup = 3} = {
   const groups = new Map();
   const seen = new Set();
   return races.filter((race) => {
+    if (race.angle) return false;
     const key = `${race.region}-${race.group}`;
     // The same winner of the same group and metric in another region is the same story.
     const story = `${race.group}-${race.direction}-${race.metric}-${race.winner}`;
@@ -192,14 +258,16 @@ const seconds = (s) => Math.round(s * FPS);
  * Top race: every bar counts up together and the winner is the last one still growing.
  * Bottom race: the winner is the first bar to stop.
  */
-export const buildRace = (table, spec) => {
-  const {region, group, direction, metric} = spec;
-  const race = scoreRace(table.pokemon, spec);
-  if (!race) throw new Error(`${candidateId(spec)}: fewer than ${MIN_POOL} Pokémon to race`);
+export const buildRace = (table, spec, angles = []) => {
+  const {direction, metric} = spec;
+  const field = fieldOf(table.pokemon, spec, angles);
+  const race = scoreRace(table.pokemon, spec, angles);
+  if (!race) throw new Error(`${candidateId(spec)}: fewer than ${field.minPool} Pokémon to race`);
   if (race.score < 0) throw new Error(`${candidateId(spec)}: ${race.winner} and ${race.runnerUp} tie for first, so there is no race`);
   const m = METRICS[metric];
   const get = m.get;
-  const racers = poolOf(table.pokemon, spec).slice(0, MAX_RACERS);
+  const pool = poolOf(table.pokemon, spec, angles);
+  const racers = pool.slice(0, MAX_RACERS);
   const [hero, second] = racers;
   const v1 = get(hero);
   const v2 = get(second);
@@ -208,7 +276,7 @@ export const buildRace = (table, spec) => {
   // Counter keyframes, in the table's units.
   const counter = [{frame: seconds(2.5), value: 0}];
   const headlines = [];
-  const kicker = [GROUPS[group].label, REGIONS[region].label].filter(Boolean).join(' · ');
+  const kicker = pool.length > racers.length ? `${field.label} · ${racers.length} OF ${pool.length}` : field.label;
   headlines.push({from: 0, kicker, text: m.ask[direction]});
   if (direction === 'top') {
     const together = seconds(9.5);
@@ -252,18 +320,19 @@ export const buildRace = (table, spec) => {
   // Who it races against in the question: the strongest other racer by total stats.
   const foil = [...racers].filter((row) => row.id !== hero.id).sort((a, b) => total(b) - total(a))[0];
   const ordered = (rows) => rows.map((row) => row.id);
-  const initial = metric === 'total' ? [...racers].sort((a, b) => a.id - b.id) : [...racers].sort((a, b) => total(b) - total(a) || a.id - b.id);
+  const byRegion = field.order === 'region' || metric === 'total';
+  const initial = byRegion ? [...racers].sort((a, b) => (a.generation ?? 0) - (b.generation ?? 0) || a.id - b.id) : [...racers].sort((a, b) => total(b) - total(a) || a.id - b.id);
 
   return {
     schemaVersion: 1,
     id: candidateId(spec),
     format: 'ranked-race',
     show: 'pokepulses',
-    race: {region, group, direction, metric, score: race.score, why: race.why},
+    race: {...spec, score: race.score, why: race.why},
     source: {name: table.source, fetchedAt: table.fetchedAt, sha256: table.sha256},
     metric: {id: metric, label: m.label, unit: m.unit, scale: m.scale ?? 1, decimals: m.decimals ?? 0},
-    racers: racers.map((row) => ({id: row.id, name: row.name, value: get(row), total: total(row), artworkUrl: row.artworkUrl, hero: row.id === hero.id})),
-    order: {initial: ordered(initial), final: ordered(racers), initialLabel: metric === 'total' ? 'POKÉDEX ORDER' : 'ORDERED BY TOTAL STATS', finalLabel: `ORDERED BY ${m.label.toUpperCase()}`},
+    racers: racers.map((row) => ({id: row.id, name: row.name, value: get(row), total: total(row), artworkUrl: row.artworkUrl, hero: row.id === hero.id, ...(field.tag === 'region' && GENERATION_REGIONS[row.generation] ? {tag: GENERATION_REGIONS[row.generation]} : {})})),
+    order: {initial: ordered(initial), final: ordered(racers), initialLabel: byRegion ? (field.order === 'region' ? 'ORDERED BY REGION' : 'POKÉDEX ORDER') : 'ORDERED BY TOTAL STATS', finalLabel: `ORDERED BY ${m.label.toUpperCase()}`},
     counter,
     timeline: {sortStart, sortEnd, payoff, question, end},
     headlines,
@@ -274,9 +343,8 @@ export const buildRace = (table, spec) => {
         {id: foil.id, label: foil.name.toUpperCase(), sub: `${total(foil)} total stats`},
       ],
     },
-    // Evolution groups are judged within the region's Pokédex (Togetic is fully evolved until Gen 4), so the video says so.
     music: {score: pickScore(candidateId(spec), direction)},
-    caption: [m.battle || metric === 'total' ? 'BASE STATS' : 'POKÉDEX DATA', 'CURRENT GAMES', ...(EVOLUTION_GROUPS.includes(group) ? [`EVOLUTIONS AS OF ${region === 'kanto' ? 'GEN 1' : 'GEN 2'}`] : [])].join(' · '),
+    caption: [m.battle || metric === 'total' ? 'BASE STATS' : 'POKÉDEX DATA', 'CURRENT GAMES', field.evolutionNote].filter(Boolean).join(' · '),
   };
 };
 

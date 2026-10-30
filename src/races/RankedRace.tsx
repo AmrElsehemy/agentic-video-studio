@@ -5,7 +5,7 @@ import {AbsoluteFill, Audio, cancelRender, continueRender, delayRender, Easing, 
 // Every bar counts up together and stops at its own value; then the rows re-sort, the winner is
 // contrasted with itself, and the video closes on a question. No narration: the headlines tell it.
 
-export type Racer = {id: number; name: string; value: number; total: number; artwork: string; hero: boolean};
+export type Racer = {id: number; name: string; value: number; total: number; artwork: string; hero: boolean; tag?: string};
 export type Headline = {from: number; to: number; kicker?: string; text: string; tone?: 'hero' | 'twist'};
 export type RaceManifest = {
   id: string;
@@ -111,7 +111,8 @@ export const RankedRace: React.FC<RaceProps> = ({manifest, brand, audio}) => {
       const art = Math.min(104, rowHeight - 10);
       return <div key={racer.id} style={{position: 'absolute', top: ROW_TOP + rank * rowHeight, left: 0, width: 1080, height: rowHeight, zIndex: racer.hero ? 2 : 1, opacity: appear * dim * rowsOut, transform: `translateX(${(1 - appear) * -80}px)`}}>
         <Img src={asset(racer.artwork)} style={{position: 'absolute', left: 50, top: (rowHeight - art) / 2, width: art, height: art, objectFit: 'contain'}} />
-        <div style={{position: 'absolute', left: 166, top: rowHeight / 2 - 26, fontSize: racer.name.length > 10 ? 40 : 48, color: leading ? colors.primary : colors.ink}}>{racer.name.toUpperCase()}</div>
+        <div style={{position: 'absolute', left: 166, top: rowHeight / 2 - (racer.tag ? 38 : 26), fontSize: racer.name.length > 10 ? 40 : 48, color: leading ? colors.primary : colors.ink}}>{racer.name.toUpperCase()}</div>
+        {racer.tag ? <div style={{position: 'absolute', left: 168, top: rowHeight / 2 + 10, fontSize: 26, letterSpacing: 2, color: racer.hero ? colors.primary : MUTED}}>{racer.tag}</div> : null}
         <div style={{position: 'absolute', left: BAR_X, top: rowHeight / 2 - 31, height: 62, width, borderRadius: 31, background: bar, boxShadow: leading ? `0 0 40px ${colors.primary}` : 'none'}} />
         <div style={{position: 'absolute', left: BAR_X + width + 18, top: rowHeight / 2 - 37, fontSize: 64, color: racer.hero ? colors.primary : colors.ink, transform: `scale(${pop})`, transformOrigin: 'left center'}}>
           {shown(metric, current)}

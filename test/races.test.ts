@@ -1,15 +1,15 @@
 import assert from 'node:assert/strict';
 import {describe, it} from 'node:test';
-import type {DexTable} from '../scripts/lib/dex.mjs';
+import type {Angle, DexTable} from '../scripts/lib/dex.mjs';
 import {raceCues, renderRaceSfx, stopFrame} from '../scripts/lib/race-sound.mjs';
-import {allRaces, RACE_SCORES, buildRace, checkRace, candidateId, parseCandidateId, poolOf, raceBeats, scoreRace, shortlist, stagesIn, tableChecksum} from '../scripts/lib/dex.mjs';
+import {allRaces, angleMembers, angleShortlist, RACE_SCORES, buildRace, checkRace, candidateId, parseCandidateId, poolOf, raceBeats, scoreRace, shortlist, stagesIn, tableChecksum} from '../scripts/lib/dex.mjs';
 
 type Stats = {hp: number; attack: number; defense: number; spAtk: number; spDef: number; speed: number};
 const mon = (id: number, name: string, types: string[], stats: Partial<Stats>, extra: Record<string, unknown> = {}) => ({
   id, slug: name.toLowerCase(), name, types, pastTypes: [],
   stats: {hp: 50, attack: 50, defense: 50, spAtk: 50, spDef: 50, speed: 50, ...stats},
   height: 10, weight: 100, baseExp: 100, captureRate: 45, hatchCounter: 20,
-  legendary: false, mythical: false, baby: false, evolvesFrom: null, artworkUrl: `https://example.test/${id}.png`, ...extra,
+  legendary: false, mythical: false, baby: false, evolvesFrom: null, generation: id <= 151 ? 1 : 2, artworkUrl: `https://example.test/${id}.png`, ...extra,
 });
 
 // A small Psychic league: a low-total Pokémon with a huge HP beats two strong ones, and one Kanto Pokémon evolves in Johto.
@@ -141,6 +141,60 @@ describe('ranked races', () => {
     const samples = renderRaceSfx(race, race.music.score);
     assert.equal(samples.length, Math.ceil((race.timeline.end / 30) * 44100));
     assert.ok(samples.some((sample) => Math.abs(sample) > 0.1));
+  });
+
+  describe('angles', () => {
+    const extra = [
+      mon(700, 'Waterone', ['water'], {speed: 70}, {generation: 6}),
+      mon(701, 'Watertwo', ['water'], {speed: 122}, {generation: 6}),
+      mon(800, 'Waterthree', ['water', 'ice'], {speed: 65}, {generation: 8}),
+      mon(900, 'Dragonbase', ['dragon'], {}, {generation: 9}),
+      mon(901, 'Dragonmid', ['dragon'], {}, {generation: 9, evolvesFrom: 900}),
+      mon(902, 'Dragonend', ['dragon'], {hp: 100, attack: 100, defense: 100, spAtk: 100, spDef: 100, speed: 100}, {generation: 9, evolvesFrom: 901}),
+      mon(903, 'Slaker', ['normal'], {hp: 100, attack: 100, defense: 100, spAtk: 100, spDef: 100, speed: 100}, {generation: 9}),
+    ];
+    const rows = [...pokemon, ...extra];
+    const angleTable: DexTable = {source: 'test', fetchedAt: '2026-10-30', pokemon: rows};
+    angleTable.sha256 = tableChecksum(angleTable);
+    const angles: Angle[] = [
+      {id: 'water-starters', title: 'WATER STARTERS', members: [700, 701, 800, 5], requireType: 'water', order: 'region', tag: 'region'},
+      {id: 'pseudo-legendaries', title: 'PSEUDO-LEGENDARIES', rule: 'pseudo-legendary'},
+    ];
+
+    it('reads angle ids next to regional ones', () => {
+      assert.deepEqual(parseCandidateId('water-starters-top-speed', angles), {angle: 'water-starters', direction: 'top', metric: 'speed'});
+      assert.deepEqual(parseCandidateId('both-psychic-top-hp', angles), {region: 'both', group: 'psychic', direction: 'top', metric: 'hp'});
+      assert.throws(() => parseCandidateId('fire-starters-top-speed', angles), /angles are in races\/angles.json/);
+    });
+
+    it('checks members against the table: a wrong type or a missing id is a problem', () => {
+      const {members, problems} = angleMembers(rows, angles[0]);
+      assert.equal(members.length, 4);
+      assert.deepEqual(problems, ['water-starters: Slowish is not water type']);
+      assert.match(angleMembers(rows, {id: 'x', title: 'X', members: [9999]}).problems[0], /#9999 is not in the table/);
+    });
+
+    it('finds pseudo-legendaries by rule: 600 total on the third stage, not a lone 600', () => {
+      assert.deepEqual(angleMembers(rows, angles[1]).members.map((row) => row.name), ['Dragonend']);
+    });
+
+    it('builds an angle race in region order, with region tags and the angle as the kicker', () => {
+      const valid = [{...angles[0], members: [700, 701, 800], minPool: 3}];
+      const race = buildRace(angleTable, {angle: 'water-starters', direction: 'top', metric: 'speed'}, valid);
+      assert.equal(race.id, 'water-starters-top-speed');
+      assert.equal(race.racers[0].name, 'Watertwo');
+      assert.deepEqual(race.racers.map((racer) => racer.tag), ['KALOS', 'KALOS', 'GALAR']);
+      assert.deepEqual(race.order.initial, [700, 701, 800]);
+      assert.equal(race.order.initialLabel, 'ORDERED BY REGION');
+      assert.equal(race.headlines[0].kicker, 'WATER STARTERS');
+      assert.equal(race.caption, 'BASE STATS · CURRENT GAMES');
+    });
+
+    it('keeps the best few races of each angle, and leaves angles off the regional shortlist', () => {
+      const races = [1, 2, 3, 4].map((n) => ({id: `a${n}`, angle: 'water-starters', region: undefined, group: undefined, direction: 'top', metric: `m${n}`, winner: `W${n}`, score: 5 - n}));
+      assert.deepEqual(angleShortlist(races).map((race) => race.id), ['a1', 'a2', 'a3']);
+      assert.deepEqual(shortlist(races, {minScore: 0}), []);
+    });
   });
 });
 

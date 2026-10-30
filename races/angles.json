@@ -1,0 +1,19 @@
+{
+ "about": "Angles for ranked races: a set of Pokémon with a reason to compare them. Give members as National Dex numbers (or a rule from scripts/lib/dex.mjs ANGLE_RULES); requireType is checked against the table. order 'region' starts the rows Kanto first; tag 'region' shows each racer's region under its name. A race id is <angle>-<top|bottom>-<metric>.",
+ "angles": [
+  {"id": "water-starters", "title": "WATER STARTERS · 9 REGIONS", "members": [9, 160, 260, 395, 503, 658, 730, 818, 914], "requireType": "water", "order": "region", "tag": "region"},
+  {"id": "fire-starters", "title": "FIRE STARTERS · 9 REGIONS", "members": [6, 157, 257, 392, 500, 655, 727, 815, 911], "requireType": "fire", "order": "region", "tag": "region"},
+  {"id": "grass-starters", "title": "GRASS STARTERS · 9 REGIONS", "members": [3, 154, 254, 389, 497, 652, 724, 812, 908], "requireType": "grass", "order": "region", "tag": "region"},
+  {"id": "baby-water-starters", "title": "WATER STARTERS · FIRST STAGE", "members": [7, 158, 258, 393, 501, 656, 728, 816, 912], "requireType": "water", "order": "region", "tag": "region"},
+  {"id": "baby-fire-starters", "title": "FIRE STARTERS · FIRST STAGE", "members": [4, 155, 255, 390, 498, 653, 725, 813, 909], "requireType": "fire", "order": "region", "tag": "region"},
+  {"id": "baby-grass-starters", "title": "GRASS STARTERS · FIRST STAGE", "members": [1, 152, 252, 387, 495, 650, 722, 810, 906], "requireType": "grass", "order": "region", "tag": "region"},
+  {"id": "final-starters", "title": "EVERY FINAL STARTER", "members": [3, 6, 9, 154, 157, 160, 254, 257, 260, 389, 392, 395, 497, 500, 503, 652, 655, 658, 724, 727, 730, 812, 815, 818, 908, 911, 914], "order": "region", "tag": "region"},
+  {"id": "kanto-vs-johto-starters", "title": "KANTO VS JOHTO STARTERS", "members": [3, 6, 9, 154, 157, 160], "order": "region", "tag": "region"},
+  {"id": "pseudo-legendaries", "title": "PSEUDO-LEGENDARIES · EVERY REGION", "rule": "pseudo-legendary", "order": "region", "tag": "region"},
+  {"id": "eeveelutions", "title": "EVERY EEVEELUTION", "rule": "eeveelution", "order": "region", "tag": "region"},
+  {"id": "electric-rodents", "title": "PIKACHU AND ITS LOOKALIKES", "members": [25, 311, 312, 417, 587, 702, 777, 877, 921], "requireType": "electric", "order": "region", "tag": "region"},
+  {"id": "route-birds", "title": "EARLY-ROUTE BIRDS · FULLY EVOLVED", "members": [18, 164, 277, 398, 521, 663, 733, 823, 941], "requireType": "flying", "order": "region", "tag": "region"},
+  {"id": "route-rodents", "title": "EARLY-ROUTE RODENTS · FULLY EVOLVED", "members": [20, 162, 264, 400, 505, 660, 735, 820, 916], "requireType": "normal", "order": "region", "tag": "region"},
+  {"id": "babies", "title": "BABY POKÉMON · EVERY REGION", "rule": "baby", "order": "region", "tag": "region"}
+ ]
+}

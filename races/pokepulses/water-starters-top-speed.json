@@ -1,0 +1,210 @@
+{
+ "schemaVersion": 1,
+ "id": "water-starters-top-speed",
+ "format": "ranked-race",
+ "show": "pokepulses",
+ "race": {
+  "angle": "water-starters",
+  "direction": "top",
+  "metric": "speed",
+  "score": 1.5,
+  "why": [
+   "photo finish"
+  ]
+ },
+ "source": {
+  "name": "PokéAPI",
+  "fetchedAt": "2026-10-30",
+  "sha256": "71a36dbf020a9ae0ecc7fa99d34e4f45caec357c6350104d76c64113f8920966"
+ },
+ "metric": {
+  "id": "speed",
+  "label": "Speed",
+  "unit": "SPEED",
+  "scale": 1,
+  "decimals": 0
+ },
+ "racers": [
+  {
+   "id": 658,
+   "name": "Greninja",
+   "value": 122,
+   "total": 530,
+   "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/658.png",
+   "hero": true,
+   "tag": "KALOS"
+  },
+  {
+   "id": 818,
+   "name": "Inteleon",
+   "value": 120,
+   "total": 530,
+   "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/818.png",
+   "hero": false,
+   "tag": "GALAR"
+  },
+  {
+   "id": 914,
+   "name": "Quaquaval",
+   "value": 85,
+   "total": 530,
+   "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/914.png",
+   "hero": false,
+   "tag": "PALDEA"
+  },
+  {
+   "id": 9,
+   "name": "Blastoise",
+   "value": 78,
+   "total": 530,
+   "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/9.png",
+   "hero": false,
+   "tag": "KANTO"
+  },
+  {
+   "id": 160,
+   "name": "Feraligatr",
+   "value": 78,
+   "total": 530,
+   "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/160.png",
+   "hero": false,
+   "tag": "JOHTO"
+  },
+  {
+   "id": 503,
+   "name": "Samurott",
+   "value": 70,
+   "total": 528,
+   "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/503.png",
+   "hero": false,
+   "tag": "UNOVA"
+  },
+  {
+   "id": 260,
+   "name": "Swampert",
+   "value": 60,
+   "total": 535,
+   "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/260.png",
+   "hero": false,
+   "tag": "HOENN"
+  },
+  {
+   "id": 395,
+   "name": "Empoleon",
+   "value": 60,
+   "total": 530,
+   "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/395.png",
+   "hero": false,
+   "tag": "SINNOH"
+  },
+  {
+   "id": 730,
+   "name": "Primarina",
+   "value": 60,
+   "total": 530,
+   "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/730.png",
+   "hero": false,
+   "tag": "ALOLA"
+  }
+ ],
+ "order": {
+  "initial": [
+   9,
+   160,
+   260,
+   395,
+   503,
+   658,
+   730,
+   818,
+   914
+  ],
+  "final": [
+   658,
+   818,
+   914,
+   9,
+   160,
+   503,
+   260,
+   395,
+   730
+  ],
+  "initialLabel": "ORDERED BY REGION",
+  "finalLabel": "ORDERED BY SPEED"
+ },
+ "counter": [
+  {
+   "frame": 75,
+   "value": 0
+  },
+  {
+   "frame": 285,
+   "value": 120
+  },
+  {
+   "frame": 361,
+   "value": 122
+  }
+ ],
+ "timeline": {
+  "sortStart": 373,
+  "sortEnd": 423,
+  "payoff": 448,
+  "question": 568,
+  "end": 688
+ },
+ "headlines": [
+  {
+   "from": 0,
+   "kicker": "WATER STARTERS · 9 REGIONS",
+   "text": "WHO IS THE FASTEST?",
+   "to": 237
+  },
+  {
+   "from": 237,
+   "kicker": "INTELEON TOPS OUT AT",
+   "text": "120 SPEED",
+   "to": 305
+  },
+  {
+   "from": 305,
+   "text": "ONE BAR KEEPS GOING",
+   "tone": "hero",
+   "to": 373
+  },
+  {
+   "from": 373,
+   "kicker": "GRENINJA",
+   "text": "122 SPEED",
+   "tone": "hero",
+   "to": 448
+  },
+  {
+   "from": 448,
+   "kicker": "SPEED WINNER · BUT DEFENSE",
+   "text": "JUST 67",
+   "tone": "twist",
+   "to": 568
+  }
+ ],
+ "question": {
+  "prompt": "WHO WOULD YOU RATHER HAVE?",
+  "options": [
+   {
+    "id": 658,
+    "label": "GRENINJA",
+    "sub": "Speed 122"
+   },
+   {
+    "id": 260,
+    "label": "SWAMPERT",
+    "sub": "535 total stats"
+   }
+  ]
+ },
+ "music": {
+  "score": "wonder"
+ },
+ "caption": "BASE STATS · CURRENT GAMES"
+}

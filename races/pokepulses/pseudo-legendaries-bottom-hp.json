@@ -1,0 +1,223 @@
+{
+ "schemaVersion": 1,
+ "id": "pseudo-legendaries-bottom-hp",
+ "format": "ranked-race",
+ "show": "pokepulses",
+ "race": {
+  "angle": "pseudo-legendaries",
+  "direction": "bottom",
+  "metric": "hp",
+  "score": 0.5,
+  "why": []
+ },
+ "source": {
+  "name": "PokéAPI",
+  "fetchedAt": "2026-10-30",
+  "sha256": "71a36dbf020a9ae0ecc7fa99d34e4f45caec357c6350104d76c64113f8920966"
+ },
+ "metric": {
+  "id": "hp",
+  "label": "HP",
+  "unit": "HP",
+  "scale": 1,
+  "decimals": 0
+ },
+ "racers": [
+  {
+   "id": 784,
+   "name": "Kommo-o",
+   "value": 75,
+   "total": 600,
+   "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/784.png",
+   "hero": true,
+   "tag": "ALOLA"
+  },
+  {
+   "id": 376,
+   "name": "Metagross",
+   "value": 80,
+   "total": 600,
+   "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/376.png",
+   "hero": false,
+   "tag": "HOENN"
+  },
+  {
+   "id": 887,
+   "name": "Dragapult",
+   "value": 88,
+   "total": 600,
+   "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/887.png",
+   "hero": false,
+   "tag": "GALAR"
+  },
+  {
+   "id": 706,
+   "name": "Goodra",
+   "value": 90,
+   "total": 600,
+   "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/706.png",
+   "hero": false,
+   "tag": "KALOS"
+  },
+  {
+   "id": 149,
+   "name": "Dragonite",
+   "value": 91,
+   "total": 600,
+   "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/149.png",
+   "hero": false,
+   "tag": "KANTO"
+  },
+  {
+   "id": 635,
+   "name": "Hydreigon",
+   "value": 92,
+   "total": 600,
+   "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/635.png",
+   "hero": false,
+   "tag": "UNOVA"
+  },
+  {
+   "id": 373,
+   "name": "Salamence",
+   "value": 95,
+   "total": 600,
+   "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/373.png",
+   "hero": false,
+   "tag": "HOENN"
+  },
+  {
+   "id": 248,
+   "name": "Tyranitar",
+   "value": 100,
+   "total": 600,
+   "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/248.png",
+   "hero": false,
+   "tag": "JOHTO"
+  },
+  {
+   "id": 445,
+   "name": "Garchomp",
+   "value": 108,
+   "total": 600,
+   "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/445.png",
+   "hero": false,
+   "tag": "SINNOH"
+  },
+  {
+   "id": 998,
+   "name": "Baxcalibur",
+   "value": 115,
+   "total": 600,
+   "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/998.png",
+   "hero": false,
+   "tag": "PALDEA"
+  }
+ ],
+ "order": {
+  "initial": [
+   149,
+   248,
+   373,
+   376,
+   445,
+   635,
+   706,
+   784,
+   887,
+   998
+  ],
+  "final": [
+   784,
+   376,
+   887,
+   706,
+   149,
+   635,
+   373,
+   248,
+   445,
+   998
+  ],
+  "initialLabel": "ORDERED BY REGION",
+  "finalLabel": "ORDERED BY HP"
+ },
+ "counter": [
+  {
+   "frame": 75,
+   "value": 0
+  },
+  {
+   "frame": 225,
+   "value": 75
+  },
+  {
+   "frame": 270,
+   "value": 75
+  },
+  {
+   "frame": 360,
+   "value": 115
+  }
+ ],
+ "timeline": {
+  "sortStart": 372,
+  "sortEnd": 422,
+  "payoff": 447,
+  "question": 567,
+  "end": 687
+ },
+ "headlines": [
+  {
+   "from": 0,
+   "kicker": "PSEUDO-LEGENDARIES · EVERY REGION",
+   "text": "WHO HAS THE LEAST HP?",
+   "to": 225
+  },
+  {
+   "from": 225,
+   "kicker": "FIRST TO STOP",
+   "text": "KOMMO-O",
+   "tone": "hero",
+   "to": 280
+  },
+  {
+   "from": 280,
+   "text": "EVERYONE ELSE KEEPS GOING",
+   "to": 372
+  },
+  {
+   "from": 372,
+   "kicker": "KOMMO-O",
+   "text": "75 HP",
+   "tone": "hero",
+   "to": 447
+  },
+  {
+   "from": 447,
+   "kicker": "LAST ON HP · BUT DEFENSE",
+   "text": "125 · 2ND HERE",
+   "tone": "twist",
+   "to": 567
+  }
+ ],
+ "question": {
+  "prompt": "WHO WOULD YOU RATHER HAVE?",
+  "options": [
+   {
+    "id": 784,
+    "label": "KOMMO-O",
+    "sub": "HP 75"
+   },
+   {
+    "id": 376,
+    "label": "METAGROSS",
+    "sub": "600 total stats"
+   }
+  ]
+ },
+ "music": {
+  "score": "pulse"
+ },
+ "caption": "BASE STATS · CURRENT GAMES"
+}

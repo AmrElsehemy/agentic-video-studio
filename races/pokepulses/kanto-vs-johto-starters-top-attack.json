@@ -1,0 +1,177 @@
+{
+ "schemaVersion": 1,
+ "id": "kanto-vs-johto-starters-top-attack",
+ "format": "ranked-race",
+ "show": "pokepulses",
+ "race": {
+  "angle": "kanto-vs-johto-starters",
+  "direction": "top",
+  "metric": "attack",
+  "score": 1.5,
+  "why": [
+   "mid-table winner"
+  ]
+ },
+ "source": {
+  "name": "PokéAPI",
+  "fetchedAt": "2026-10-30",
+  "sha256": "71a36dbf020a9ae0ecc7fa99d34e4f45caec357c6350104d76c64113f8920966"
+ },
+ "metric": {
+  "id": "attack",
+  "label": "Attack",
+  "unit": "ATTACK",
+  "scale": 1,
+  "decimals": 0
+ },
+ "racers": [
+  {
+   "id": 160,
+   "name": "Feraligatr",
+   "value": 105,
+   "total": 530,
+   "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/160.png",
+   "hero": true,
+   "tag": "JOHTO"
+  },
+  {
+   "id": 6,
+   "name": "Charizard",
+   "value": 84,
+   "total": 534,
+   "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/6.png",
+   "hero": false,
+   "tag": "KANTO"
+  },
+  {
+   "id": 157,
+   "name": "Typhlosion",
+   "value": 84,
+   "total": 534,
+   "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/157.png",
+   "hero": false,
+   "tag": "JOHTO"
+  },
+  {
+   "id": 9,
+   "name": "Blastoise",
+   "value": 83,
+   "total": 530,
+   "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/9.png",
+   "hero": false,
+   "tag": "KANTO"
+  },
+  {
+   "id": 3,
+   "name": "Venusaur",
+   "value": 82,
+   "total": 525,
+   "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/3.png",
+   "hero": false,
+   "tag": "KANTO"
+  },
+  {
+   "id": 154,
+   "name": "Meganium",
+   "value": 82,
+   "total": 525,
+   "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/154.png",
+   "hero": false,
+   "tag": "JOHTO"
+  }
+ ],
+ "order": {
+  "initial": [
+   3,
+   6,
+   9,
+   154,
+   157,
+   160
+  ],
+  "final": [
+   160,
+   6,
+   157,
+   9,
+   3,
+   154
+  ],
+  "initialLabel": "ORDERED BY REGION",
+  "finalLabel": "ORDERED BY ATTACK"
+ },
+ "counter": [
+  {
+   "frame": 75,
+   "value": 0
+  },
+  {
+   "frame": 285,
+   "value": 84
+  },
+  {
+   "frame": 379,
+   "value": 105
+  }
+ ],
+ "timeline": {
+  "sortStart": 391,
+  "sortEnd": 441,
+  "payoff": 466,
+  "question": 586,
+  "end": 706
+ },
+ "headlines": [
+  {
+   "from": 0,
+   "kicker": "KANTO VS JOHTO STARTERS",
+   "text": "WHO HITS THE HARDEST?",
+   "to": 237
+  },
+  {
+   "from": 237,
+   "kicker": "CHARIZARD AND TYPHLOSION TOP OUT AT",
+   "text": "84 ATTACK",
+   "to": 305
+  },
+  {
+   "from": 305,
+   "text": "ONE BAR KEEPS GOING",
+   "tone": "hero",
+   "to": 391
+  },
+  {
+   "from": 391,
+   "kicker": "FERALIGATR",
+   "text": "105 ATTACK",
+   "tone": "hero",
+   "to": 466
+  },
+  {
+   "from": 466,
+   "kicker": "ATTACK WINNER · BUT SPEED",
+   "text": "JUST 78",
+   "tone": "twist",
+   "to": 586
+  }
+ ],
+ "question": {
+  "prompt": "WHO WOULD YOU RATHER HAVE?",
+  "options": [
+   {
+    "id": 160,
+    "label": "FERALIGATR",
+    "sub": "Attack 105"
+   },
+   {
+    "id": 6,
+    "label": "CHARIZARD",
+    "sub": "534 total stats"
+   }
+  ]
+ },
+ "music": {
+  "score": "epic"
+ },
+ "caption": "BASE STATS · CURRENT GAMES"
+}

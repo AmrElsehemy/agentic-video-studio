@@ -5,8 +5,8 @@ A second PokePulses format with many Pokémon in one video: every bar counts up 
 ## Commands
 
 ```bash
-npm run races:prepare                       # download Gen 1–2 from PokéAPI and pin public/pokedex/dex.json (commit it)
-npm run races:verify                        # checksum check, no network
+npm run races:prepare                       # download the National Dex from PokéAPI and pin public/pokedex/dex.json (commit it)
+npm run races:verify                        # checksum check and angle check, no network
 npm run races:candidates                    # score every race; research/races/candidates.json
 npm run races:new -- both-psychic-top-hp    # races/pokepulses/both-psychic-top-hp.json
 npm run races:render -- both-psychic-top-hp # out/pokepulses-races/both-psychic-top-hp/both-psychic-top-hp.mp4
@@ -26,6 +26,23 @@ On Node 22 behind a proxy, `races:prepare` and `races:render` (it downloads the 
 Any race with at least six Pokémon and no tie for first can be made, on the shortlist or not.
 
 **Evolution stages are judged within the region's Pokédex.** Onix is fully evolved in a Kanto race (Steelix arrives in Johto), Pikachu starts its line there (Pichu too), and in Gen 1–2 Togetic is fully evolved (Togekiss arrives in Gen 4). The video's caption says so for evolution groups. Stats and types are those of the current games.
+
+## Angles
+
+An angle is a set of Pokémon with a reason to compare them, often across regions: the water starters of all 9 regions, every pseudo-legendary, Pikachu and its lookalikes. They're in [`races/angles.json`](../races/angles.json):
+
+```json
+{"id": "water-starters", "title": "WATER STARTERS · 9 REGIONS", "members": [9, 160, 260, 395, 503, 658, 730, 818, 914], "requireType": "water", "order": "region", "tag": "region"}
+```
+
+- `members` are National Dex numbers. A `rule` can take their place: `pseudo-legendary` (the last of three stages, 600 total stats, not legendary or mythical), `eeveelution`, `baby`.
+- `requireType` is checked against the table, and `races:verify` and `races:new` refuse an angle with a missing or mistyped member.
+- `order: "region"` starts the rows Kanto first, and `tag: "region"` shows each racer's region under its name.
+- An angle needs 4 members (`minPool` changes that). Above 10, the race shows the top 10 and says "10 OF 27".
+
+A race id for an angle is `<angle>-<top|bottom>-<metric>`, e.g. `water-starters-top-speed`. Angle races use the current games' Pokédex, so there's no evolution note. `races:candidates` lists the best three of each angle first.
+
+To add an angle, append it to the file and run `npm run races:verify`.
 
 ## The shortlist
 

@@ -1,0 +1,210 @@
+{
+ "schemaVersion": 1,
+ "id": "fire-starters-top-hp",
+ "format": "ranked-race",
+ "show": "pokepulses",
+ "race": {
+  "angle": "fire-starters",
+  "direction": "top",
+  "metric": "hp",
+  "score": 3.5,
+  "why": [
+   "underdog wins"
+  ]
+ },
+ "source": {
+  "name": "PokéAPI",
+  "fetchedAt": "2026-10-30",
+  "sha256": "71a36dbf020a9ae0ecc7fa99d34e4f45caec357c6350104d76c64113f8920966"
+ },
+ "metric": {
+  "id": "hp",
+  "label": "HP",
+  "unit": "HP",
+  "scale": 1,
+  "decimals": 0
+ },
+ "racers": [
+  {
+   "id": 500,
+   "name": "Emboar",
+   "value": 110,
+   "total": 528,
+   "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/500.png",
+   "hero": true,
+   "tag": "UNOVA"
+  },
+  {
+   "id": 911,
+   "name": "Skeledirge",
+   "value": 104,
+   "total": 530,
+   "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/911.png",
+   "hero": false,
+   "tag": "PALDEA"
+  },
+  {
+   "id": 727,
+   "name": "Incineroar",
+   "value": 95,
+   "total": 530,
+   "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/727.png",
+   "hero": false,
+   "tag": "ALOLA"
+  },
+  {
+   "id": 257,
+   "name": "Blaziken",
+   "value": 80,
+   "total": 530,
+   "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/257.png",
+   "hero": false,
+   "tag": "HOENN"
+  },
+  {
+   "id": 815,
+   "name": "Cinderace",
+   "value": 80,
+   "total": 530,
+   "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/815.png",
+   "hero": false,
+   "tag": "GALAR"
+  },
+  {
+   "id": 6,
+   "name": "Charizard",
+   "value": 78,
+   "total": 534,
+   "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/6.png",
+   "hero": false,
+   "tag": "KANTO"
+  },
+  {
+   "id": 157,
+   "name": "Typhlosion",
+   "value": 78,
+   "total": 534,
+   "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/157.png",
+   "hero": false,
+   "tag": "JOHTO"
+  },
+  {
+   "id": 392,
+   "name": "Infernape",
+   "value": 76,
+   "total": 534,
+   "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/392.png",
+   "hero": false,
+   "tag": "SINNOH"
+  },
+  {
+   "id": 655,
+   "name": "Delphox",
+   "value": 75,
+   "total": 534,
+   "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/655.png",
+   "hero": false,
+   "tag": "KALOS"
+  }
+ ],
+ "order": {
+  "initial": [
+   6,
+   157,
+   257,
+   392,
+   500,
+   655,
+   727,
+   815,
+   911
+  ],
+  "final": [
+   500,
+   911,
+   727,
+   257,
+   815,
+   6,
+   157,
+   392,
+   655
+  ],
+  "initialLabel": "ORDERED BY REGION",
+  "finalLabel": "ORDERED BY HP"
+ },
+ "counter": [
+  {
+   "frame": 75,
+   "value": 0
+  },
+  {
+   "frame": 285,
+   "value": 104
+  },
+  {
+   "frame": 364,
+   "value": 110
+  }
+ ],
+ "timeline": {
+  "sortStart": 376,
+  "sortEnd": 426,
+  "payoff": 451,
+  "question": 571,
+  "end": 691
+ },
+ "headlines": [
+  {
+   "from": 0,
+   "kicker": "FIRE STARTERS · 9 REGIONS",
+   "text": "WHO HAS THE MOST HP?",
+   "to": 237
+  },
+  {
+   "from": 237,
+   "kicker": "SKELEDIRGE TOPS OUT AT",
+   "text": "104 HP",
+   "to": 305
+  },
+  {
+   "from": 305,
+   "text": "ONE BAR KEEPS GOING",
+   "tone": "hero",
+   "to": 376
+  },
+  {
+   "from": 376,
+   "kicker": "EMBOAR",
+   "text": "110 HP",
+   "tone": "hero",
+   "to": 451
+  },
+  {
+   "from": 451,
+   "kicker": "HP WINNER · BUT DEFENSE AND SP. DEF",
+   "text": "JUST 65",
+   "tone": "twist",
+   "to": 571
+  }
+ ],
+ "question": {
+  "prompt": "WHO WOULD YOU RATHER HAVE?",
+  "options": [
+   {
+    "id": 500,
+    "label": "EMBOAR",
+    "sub": "HP 110"
+   },
+   {
+    "id": 6,
+    "label": "CHARIZARD",
+    "sub": "534 total stats"
+   }
+  ]
+ },
+ "music": {
+  "score": "epic"
+ },
+ "caption": "BASE STATS · CURRENT GAMES"
+}
