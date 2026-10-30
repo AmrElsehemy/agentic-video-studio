@@ -8,6 +8,7 @@ const viewOf = (primitive) => JSON.stringify({
   camera: primitive.camera ?? [],
   highlights: (primitive.highlights ?? []).map(({entity, style}) => [entity, style]),
   data: primitive.data?.label ?? null,
+  series: primitive.series ? [primitive.series.indicator, primitive.series.view, primitive.series.places, primitive.series.from, primitive.series.to, primitive.series.top] : null,
   relief: Boolean(primitive.relief),
   morph: Boolean(primitive.morph),
   surface: primitive.surface ? [primitive.surface.kind, primitive.surface.rise ?? null] : null,
