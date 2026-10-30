@@ -3,10 +3,10 @@
   "title": "The Largest Hot Desert on Earth",
   "storyPattern": "mystery",
   "numberRelevant": false,
-  "premise": "The Sahara covers 9.2 million km\u00b2, the largest hot desert on Earth.",
+  "premise": "The Sahara covers 9.2 million km², the largest hot desert on Earth.",
   "audiencePromise": "See how much of Africa one desert covers.",
   "openLoop": "How much of a continent can one desert cover?",
-  "payoff": "The Sahara spans 9.2 million km\u00b2 from the Atlantic to the Red Sea, the largest hot desert on Earth.",
+  "payoff": "The Sahara spans 9.2 million km² from the Atlantic to the Red Sea, the largest hot desert on Earth.",
   "targetEmotion": "surprise",
   "engagementQuestion": "Could you cross it?",
   "show": {
@@ -186,9 +186,9 @@
       "id": "area",
       "beat": "clue",
       "eyebrow": "HOW BIG?",
-      "headline": "9.2 MILLION KM\u00b2",
+      "headline": "9.2 MILLION KM²",
       "narration": "It covers 9.2 million square kilometres.",
-      "caption": "9,200,000 KM\u00b2",
+      "caption": "9,200,000 KM²",
       "primitive": {
         "kind": "geo-map",
         "camera": [
@@ -255,7 +255,7 @@
           {
             "type": "label",
             "anchor": "country:TCD",
-            "text": "9,200,000 KM\u00b2",
+            "text": "9,200,000 KM²",
             "at": 0.439
           }
         ],
@@ -330,7 +330,7 @@
           {
             "type": "marker",
             "anchor": {
-              "lon": -14.0,
+              "lon": -14,
               "lat": 25.5
             },
             "text": "ATLANTIC COAST",
@@ -340,7 +340,7 @@
             "type": "marker",
             "anchor": {
               "lon": 35.6,
-              "lat": 24.0
+              "lat": 24
             },
             "text": "RED SEA",
             "at": 0.501
@@ -557,5 +557,6 @@
     }
   ],
   "paletteVariant": "atlas",
+  "coast": "natural-earth",
   "score": "tension"
 }

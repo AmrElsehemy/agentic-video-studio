@@ -1,6 +1,8 @@
 // Does the camera move? A map episode whose camera barely drifts, or never gets near anything, reads as a
 // slideshow of far views. This measures the shots themselves (no render needed), like map-variety.
 
+import {FINE_COAST} from './fine-coast.mjs';
+
 const WORLD_BOX = [-180, -60, 180, 80];
 /** A scene whose camera changes its framing by at least this factor (in size) counts as a zoom... */
 export const MIN_ZOOM_RATIO = 1.4;
@@ -62,3 +64,15 @@ export const cameraMotion = (manifest, boxes) => {
   }
   return {scenes: judged.length, still, problems};
 };
+
+/**
+ * Does any flat map scene frame a view narrow enough to draw from the fine coastline (see src/video/geo/fineCoast.ts)?
+ * The visible width is the framing's width, or its height scaled to the map's shape if that is the tighter fit; a
+ * little slack on the limit credits the data in borderline cases rather than missing them.
+ */
+export const usesFineCoast = (scenes, boxes) => scenes.some((scene) => {
+  const primitive = scene.primitive;
+  if (primitive?.kind !== 'geo-map' || primitive.globe || primitive.streets) return false;
+  const frames = primitive.camera.map((key) => framingOf(key, boxes));
+  return frames.every(Boolean) && frames.some((frame) => Math.max(frame.width, frame.height * 0.75) <= FINE_COAST.levels.h.maxSpan * 1.15);
+});

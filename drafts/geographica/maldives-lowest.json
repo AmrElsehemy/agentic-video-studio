@@ -6,7 +6,7 @@
   "premise": "The Maldives is the lowest country on Earth, with a highest natural point of only 2.4 metres.",
   "audiencePromise": "See a whole country that barely rises above the waves.",
   "openLoop": "Which country is lower than a doorway?",
-  "payoff": "The Maldives\u2019 highest natural ground is 2.4 metres, and its average only 1.5 metres, above sea level.",
+  "payoff": "The Maldives’ highest natural ground is 2.4 metres, and its average only 1.5 metres, above sea level.",
   "targetEmotion": "surprise",
   "engagementQuestion": "Would you live this low?",
   "show": {
@@ -322,9 +322,9 @@
       "id": "spread",
       "beat": "reveal",
       "eyebrow": "SPREAD OUT",
-      "headline": "298 KM\u00b2 OF LAND",
+      "headline": "298 KM² OF LAND",
       "narration": "Just 298 square kilometres of land, across 90,000 of sea.",
-      "caption": "298 KM\u00b2 OF LAND, 90,000 KM\u00b2 OF SEA",
+      "caption": "298 KM² OF LAND, 90,000 KM² OF SEA",
       "primitive": {
         "kind": "geo-map",
         "camera": [
@@ -353,20 +353,20 @@
           {
             "type": "label",
             "anchor": "country:MDV",
-            "text": "298 KM\u00b2 LAND",
+            "text": "298 KM² LAND",
             "at": 0.165
           },
           {
             "type": "label",
             "anchor": "country:MDV",
-            "text": "90,000 KM\u00b2 SEA",
+            "text": "90,000 KM² SEA",
             "at": 0.459
           }
         ],
         "dataset": "natural-earth",
         "data": {
           "label": "Area",
-          "unit": "KM\u00b2",
+          "unit": "KM²",
           "values": [
             {
               "entity": "country:MDV",
@@ -433,7 +433,7 @@
               "lon": 73.5089,
               "lat": 4.1753
             },
-            "text": "MAL\u00c9",
+            "text": "MALÉ",
             "at": 0.06
           },
           {
@@ -466,5 +466,6 @@
     }
   ],
   "paletteVariant": "atlas",
+  "coast": "natural-earth",
   "score": "calm"
 }

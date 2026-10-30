@@ -1,0 +1,240 @@
+{
+  "schemaVersion": 2,
+  "id": "quilava-156",
+  "show": {
+    "id": "pokepulses",
+    "name": "PokePulses",
+    "handle": "@PokePulses",
+    "wordmark": {
+      "lead": "POKE",
+      "accent": "PULSES"
+    },
+    "fonts": {
+      "display": "Bebas Neue",
+      "body": "system"
+    }
+  },
+  "title": "Quilava's Back Means Trouble",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "mystery",
+    "numberRelevant": false,
+    "premise": "Three Pokédex clues reveal that Quilava's backward pose intimidates foes and warns of an attack.",
+    "audiencePromise": "Watch Gold, Crystal, and Legends Arceus turn one strange pose into a clear battle warning.",
+    "openLoop": "Why does Quilava deliberately show you its back?",
+    "payoff": "Its back-flame pose is both intimidation and a warning that an attack is coming.",
+    "targetEmotion": "surprise",
+    "engagementQuestion": "Is it intimidation, or an attack warning?",
+    "targetSecondsBetweenVisualChanges": 0.68
+  },
+  "subject": {
+    "name": "Quilava",
+    "category": "Volcano Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/156.png",
+    "identifier": "#156"
+  },
+  "related": [
+    {
+      "name": "Typhlosion",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/157.png",
+      "identifier": "#157"
+    },
+    {
+      "name": "Cyndaquil",
+      "relation": "evolves-from",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/155.png",
+      "identifier": "#155"
+    }
+  ],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#121416",
+    "surface": "#24282A",
+    "primary": "#E85D32",
+    "secondary": "#F2B544",
+    "ink": "#F7F1E3"
+  },
+  "audio": {
+    "music": "generated/quilava-156-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 126,
+      "notes": [
+        110,
+        130.81,
+        146.83,
+        164.81,
+        146.83,
+        130.81,
+        98,
+        130.81
+      ]
+    },
+    "voice": {
+      "provider": "openai",
+      "model": "gpt-4o-mini-tts",
+      "voice": "marin",
+      "instructions": "Speak like a knowledgeable fan sharing a surprising discovery. Keep the pace quick, warm, and suspenseful. Punch the words back, fire, and attack. Pause briefly before each reveal.",
+      "speed": 1.12,
+      "output": "generated/quilava-156-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "assets": [
+      {
+        "kind": "Quilava official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/156.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ],
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    }
+  },
+  "scenes": [
+    {
+      "id": "the-backward-warning",
+      "durationSeconds": 3.8,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "mystery",
+      "subjectFocus": "hidden",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "QUILAVA'S WARNING",
+      "headline": "ITS BACK MEANS TROUBLE",
+      "narration": "Quilava shows you its back before it attacks.",
+      "caption": "BACK TURNED. ATTACK NEXT.",
+      "visual": "hook",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/156.png",
+      "accent": "#E85D32"
+    },
+    {
+      "id": "gold-warns-you",
+      "durationSeconds": 5.1,
+      "beat": "clue",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "GOLD POKÉDEX",
+      "headline": "THE FIRE GIVES IT AWAY",
+      "narration": "Gold warns that the fire on its back means an attack.",
+      "caption": "BACK-FLAME ATTACK WARNING",
+      "visual": "gauntlet",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/156.png",
+      "accent": "#F2B544",
+      "facts": [
+        "GOLD",
+        "FIRE ON ITS BACK",
+        "ATTACK"
+      ]
+    },
+    {
+      "id": "crystal-shows-the-threat",
+      "durationSeconds": 5.5,
+      "beat": "escalation",
+      "role": "escalation",
+      "shot": "tracking",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "CRYSTAL POKÉDEX",
+      "headline": "IT SHOWS OFF FIRST",
+      "narration": "Crystal says it turns away to show how fiercely its flames blaze.",
+      "caption": "A DISPLAY BEFORE BATTLE",
+      "visual": "advantage",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/156.png",
+      "accent": "#E85D32",
+      "facts": [
+        "CRYSTAL",
+        "BEFORE BATTLE",
+        "FLAMES BLAZE"
+      ]
+    },
+    {
+      "id": "fire-cannot-burn-it",
+      "durationSeconds": 4.7,
+      "beat": "reveal",
+      "role": "payoff",
+      "shot": "comparison",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "LEGENDS ARCEUS",
+      "headline": "THE FUR HAS A SECRET",
+      "narration": "Then Legends Arceus says Quilava's fur cannot burn from flame.",
+      "caption": "ITS FUR RESISTS FLAME",
+      "visual": "race",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/156.png",
+      "accent": "#F2B544",
+      "facts": [
+        "LEGENDS ARCEUS",
+        "FUR",
+        "IMPERvious TO FLAME"
+      ]
+    },
+    {
+      "id": "two-meanings-one-pose",
+      "durationSeconds": 5.1,
+      "beat": "reveal",
+      "role": "payoff",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "THE TWO-PART REVEAL",
+      "headline": "ONE POSE. TWO WARNINGS.",
+      "narration": "So its backward pose means intimidation and a warning to attack.",
+      "caption": "INTIMIDATION + ATTACK WARNING",
+      "visual": "tradeoff",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/156.png",
+      "accent": "#E85D32",
+      "facts": [
+        "INTIMIDATION",
+        "ATTACK WARNING",
+        "BACK FLAME"
+      ]
+    },
+    {
+      "id": "your-verdict",
+      "durationSeconds": 3.8,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.68,
+      "eyebrow": "YOUR VERDICT",
+      "headline": "WHAT DOES THE BACK MEAN?",
+      "narration": "Is it intimidation, or an attack warning?",
+      "caption": "INTIMIDATION OR ATTACK WARNING?",
+      "visual": "cta",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/156.png",
+      "accent": "#F2B544"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Quilava",
+      "url": "https://www.pokemon.com/us/pokedex/quilava"
+    },
+    {
+      "label": "Bulbapedia — Quilava",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Quilava_(Pok%C3%A9mon)"
+    },
+    {
+      "label": "PokéAPI — Quilava",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/156"
+    }
+  ]
+}

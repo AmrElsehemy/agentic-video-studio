@@ -1,0 +1,256 @@
+{
+  "schemaVersion": 2,
+  "id": "bayleef-153",
+  "show": {
+    "id": "pokepulses",
+    "name": "PokePulses",
+    "handle": "@PokePulses",
+    "wordmark": {
+      "lead": "POKE",
+      "accent": "PULSES"
+    },
+    "fonts": {
+      "display": "Bebas Neue",
+      "body": "system"
+    }
+  },
+  "title": "Bayleef Has Baby Trees Around Its Neck",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "profile",
+    "numberRelevant": false,
+    "premise": "Bayleef’s neck ring is more surprising than decoration: every curled leaf hides a small tree shoot.",
+    "audiencePromise": "Reveal what hides inside Bayleef’s neck leaves, then explain the fragrance they release.",
+    "openLoop": "Bayleef’s neck looks like a leaf ring, but what does each leaf contain?",
+    "payoff": "The collar hides tree shoots and releases a fragrance that makes people feel peppy.",
+    "targetEmotion": "debate",
+    "engagementQuestion": "Stranger for its shoots or its energizing scent?",
+    "targetSecondsBetweenVisualChanges": 0.72
+  },
+  "subject": {
+    "name": "Bayleef",
+    "category": "Leaf Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/153.png",
+    "identifier": "#153"
+  },
+  "related": [
+    {
+      "name": "Meganium",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/154.png",
+      "identifier": "#154"
+    },
+    {
+      "name": "Chikorita",
+      "relation": "evolves-from",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/152.png",
+      "identifier": "#152"
+    }
+  ],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#101A16",
+    "surface": "#1C2B24",
+    "primary": "#8DBF45",
+    "secondary": "#D9A441",
+    "ink": "#F4F7E8"
+  },
+  "audio": {
+    "music": "generated/bayleef-153-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 126,
+      "notes": [
+        110,
+        130.81,
+        146.83,
+        164.81,
+        146.83,
+        130.81,
+        98,
+        130.81
+      ]
+    },
+    "voice": {
+      "provider": "openai",
+      "model": "gpt-4o-mini-tts",
+      "voice": "marin",
+      "instructions": "Sound like a knowledgeable fan sharing a bizarre discovery. Keep the pace quick, warm, and lightly playful. Stress tree shoots and peppy. Pause briefly before the final either-or question.",
+      "speed": 1.12,
+      "output": "generated/bayleef-153-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "assets": [
+      {
+        "kind": "Bayleef official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/153.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ],
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    }
+  },
+  "scenes": [
+    {
+      "id": "hidden-tree-shoots",
+      "durationSeconds": 4.2,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "mystery",
+      "subjectFocus": "hidden",
+      "beatEverySeconds": 0.72,
+      "eyebrow": "LOOK CLOSER",
+      "headline": "TREE SHOOTS HIDE INSIDE",
+      "narration": "Bayleef’s neck leaves each hold a small tree shoot.",
+      "caption": "NOT JUST A LEAF RING",
+      "visual": "hook",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/153.png",
+      "accent": "#8DBF45"
+    },
+    {
+      "id": "curled-neck-ring",
+      "durationSeconds": 4,
+      "beat": "evidence",
+      "role": "evidence",
+      "shot": "tracking",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.72,
+      "eyebrow": "THE NECK RING",
+      "headline": "CURLED LEAVES FORM THE RING",
+      "narration": "Its neck is ringed by curled-up, tubular leaves.",
+      "caption": "A WHOLE RING AROUND ITS NECK",
+      "visual": "gauntlet",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/153.png",
+      "accent": "#8DBF45",
+      "facts": [
+        "CURLED LEAVES",
+        "TUBULAR LEAVES",
+        "NECK RING"
+      ]
+    },
+    {
+      "id": "shoot-inside-each-leaf",
+      "durationSeconds": 4.2,
+      "beat": "evidence",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.72,
+      "eyebrow": "THE CUTAWAY REVEAL",
+      "headline": "EACH LEAF HIDES A SHOOT",
+      "narration": "Inside each tubular leaf is a small tree shoot.",
+      "caption": "THE RING IS FULL OF HIDDEN GROWTH",
+      "visual": "advantage",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/153.png",
+      "accent": "#D9A441",
+      "facts": [
+        "SMALL TREE SHOOT",
+        "INSIDE EACH LEAF",
+        "CLEAN CUTAWAY"
+      ]
+    },
+    {
+      "id": "peppy-fragrance",
+      "durationSeconds": 4.2,
+      "beat": "escalation",
+      "role": "escalation",
+      "shot": "comparison",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.72,
+      "eyebrow": "THEN IT DOES MORE",
+      "headline": "THE SHOOTS RELEASE FRAGRANCE",
+      "narration": "That shoot’s fragrance makes people feel peppy and energetic.",
+      "caption": "A SPICY AROMA FROM THE COLLAR",
+      "visual": "race",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/153.png",
+      "accent": "#D9A441",
+      "facts": [
+        "SPICY AROMA",
+        "MAKES PEOPLE PEPPY",
+        "ENERGY BOOST"
+      ]
+    },
+    {
+      "id": "shoots-not-trees",
+      "durationSeconds": 4.3,
+      "beat": "twist",
+      "role": "twist",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.72,
+      "eyebrow": "THE IMPORTANT DETAIL",
+      "headline": "SHOOTS, NOT FULL TREES",
+      "narration": "They sound like trees, but they’re only small shoots.",
+      "caption": "THE DETAIL SHRINKS THE SURPRISE",
+      "visual": "tradeoff",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/153.png",
+      "accent": "#C97445",
+      "facts": [
+        "SMALL SHOOTS",
+        "NOT FULLY GROWN"
+      ],
+      "primitive": {
+        "kind": "checklist",
+        "items": [
+          {
+            "label": "SMALL TREE SHOOT",
+            "met": true
+          },
+          {
+            "label": "FULL-GROWN TREE",
+            "met": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "wild-necklace-verdict",
+      "durationSeconds": 3.8,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.72,
+      "eyebrow": "YOUR CALL",
+      "headline": "A COLLAR WITH TWO SURPRISES",
+      "narration": "Stranger for its shoots or its energizing scent?",
+      "caption": "HIDDEN GROWTH OR PEPPY FRAGRANCE?",
+      "visual": "cta",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/153.png",
+      "accent": "#8DBF45",
+      "facts": [
+        "TREE SHOOTS",
+        "PEPPY FRAGRANCE"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Bayleef",
+      "url": "https://www.pokemon.com/us/pokedex/bayleef"
+    },
+    {
+      "label": "Bulbapedia — Bayleef",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Bayleef_(Pok%C3%A9mon)"
+    },
+    {
+      "label": "PokéAPI — Bayleef",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/153"
+    }
+  ]
+}

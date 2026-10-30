@@ -2,6 +2,7 @@
 // that credits that data. The primitive schema checks shape and ranges; this
 // checks that every place exists, which needs the entity registry on disk.
 import fs from 'node:fs';
+import {FINE_COAST} from './fine-coast.mjs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 
@@ -136,6 +137,16 @@ export const streetsProblems = (primitive, {streets}) => {
   });
 };
 const boxAround = ({center: [lon, lat], radiusKm}) => [lat - (radiusKm * 1.45) / 111.32, lon - radiusKm / (111.32 * Math.cos((lat * Math.PI) / 180)), lat + (radiusKm * 1.45) / 111.32, lon + radiusKm / (111.32 * Math.cos((lat * Math.PI) / 180))];
+
+/** The rights entry crediting GSHHG, for the sharper coastlines of close-up map shots. */
+export const fineCoastRightsAsset = () => ({
+  kind: 'map-data',
+  sourceUrl: FINE_COAST.sourceUrl,
+  owner: 'GSHHG coastlines (Wessel & Smith)',
+  licenseStatus: 'licensed',
+  publicReleaseApproved: true,
+  notes: FINE_COAST.attribution,
+});
 
 /** The rights entry crediting OpenStreetMap, for a street map. */
 export const osmRightsAsset = ({streets}) => ({

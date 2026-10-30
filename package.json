@@ -50,6 +50,8 @@
     "check:render": "node scripts/render-check.mjs",
     "geo:prepare": "node scripts/geo-data.mjs",
     "geo:verify": "node scripts/geo-data.mjs --verify",
+    "coast:fine": "node scripts/fine-coast.mjs",
+    "coast:fine:verify": "node scripts/fine-coast.mjs --verify",
     "coast:prepare": "node scripts/coast-distance.mjs",
     "coast:verify": "node scripts/coast-distance.mjs --verify",
     "series:prepare": "node scripts/series.mjs",

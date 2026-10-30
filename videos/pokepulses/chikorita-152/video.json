@@ -1,0 +1,250 @@
+{
+  "schemaVersion": 2,
+  "id": "chikorita-152",
+  "show": {
+    "id": "pokepulses",
+    "name": "PokePulses",
+    "handle": "@PokePulses",
+    "wordmark": {
+      "lead": "POKE",
+      "accent": "PULSES"
+    },
+    "fonts": {
+      "display": "Bebas Neue",
+      "body": "system"
+    }
+  },
+  "title": "Chikorita’s Leaf Finds the Right Sun",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "profile",
+    "numberRelevant": false,
+    "premise": "Chikorita uses its head leaf to check humidity, temperature, and seek warm places.",
+    "audiencePromise": "Follow Chikorita’s leaf as it checks humidity, temperature, and seeks warm places.",
+    "openLoop": "Why does Chikorita need a leaf that checks the air before sunbathing?",
+    "payoff": "Its leaf checks humidity and temperature, and Chikorita uses it to seek warm places.",
+    "targetEmotion": "surprise",
+    "engagementQuestion": "A leaf that finds warmth: smart design or lucky habit?",
+    "targetSecondsBetweenVisualChanges": 0.72
+  },
+  "subject": {
+    "name": "Chikorita",
+    "category": "Leaf Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/152.png",
+    "identifier": "#152"
+  },
+  "related": [
+    {
+      "name": "Meganium",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/154.png",
+      "identifier": "#154"
+    },
+    {
+      "name": "Bayleef",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/153.png",
+      "identifier": "#153"
+    }
+  ],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#0B1220",
+    "surface": "#162235",
+    "primary": "#9BCF4A",
+    "secondary": "#F2C94C",
+    "ink": "#F7FBFF"
+  },
+  "audio": {
+    "music": "generated/chikorita-152-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 126,
+      "notes": [
+        110,
+        130.81,
+        146.83,
+        164.81,
+        146.83,
+        130.81,
+        98,
+        130.81
+      ]
+    },
+    "voice": {
+      "provider": "openai",
+      "model": "gpt-4o-mini-tts",
+      "voice": "marin",
+      "instructions": "Sound like a knowledgeable fan sharing a surprising detail. Keep the pace quick, warm, and playful. Stress words like checks, warmth, and sunbathing. Pause before the twist and final question.",
+      "speed": 1.12,
+      "output": "generated/chikorita-152-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "assets": [
+      {
+        "kind": "Chikorita official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/152.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ],
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    }
+  },
+  "scenes": [
+    {
+      "id": "finds-the-right-sun",
+      "durationSeconds": 4.4,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "mystery",
+      "subjectFocus": "hidden",
+      "beatEverySeconds": 0.72,
+      "eyebrow": "LOOK CLOSER",
+      "headline": "THE LEAF HAS A JOB",
+      "narration": "Chikorita’s leaf checks humidity and temperature. Chikorita seeks warmth.",
+      "caption": "WHY DOES A LEAF NEED TO READ CONDITIONS?",
+      "visual": "hook",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/152.png",
+      "accent": "#9BCF4A"
+    },
+    {
+      "id": "checks-the-air",
+      "durationSeconds": 3.8,
+      "beat": "evidence",
+      "role": "evidence",
+      "shot": "tracking",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.72,
+      "eyebrow": "FIRST CLUE",
+      "headline": "IT CHECKS THE AIR",
+      "narration": "That leaf can check both humidity and temperature.",
+      "caption": "TWO CONDITIONS. ONE LEAF.",
+      "visual": "gauntlet",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/152.png",
+      "accent": "#5BC0EB",
+      "facts": [
+        "HUMIDITY",
+        "TEMPERATURE"
+      ],
+      "primitive": {
+        "kind": "checklist",
+        "items": [
+          {
+            "label": "HUMIDITY",
+            "met": true
+          },
+          {
+            "label": "TEMPERATURE",
+            "met": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "seeks-warm-places",
+      "durationSeconds": 4.7,
+      "beat": "evidence",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.72,
+      "eyebrow": "IT USES ITS LEAF",
+      "headline": "IT SEEKS WARM PLACES",
+      "narration": "Chikorita uses the leaf to seek warm places and sunbathe.",
+      "caption": "THE LEAF HELPS PICK THE SPOT",
+      "visual": "advantage",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/152.png",
+      "accent": "#F2C94C",
+      "facts": [
+        "WARM PLACES",
+        "SUNBATHE"
+      ]
+    },
+    {
+      "id": "sunbathing-becomes-a-system",
+      "durationSeconds": 4.4,
+      "beat": "escalation",
+      "role": "escalation",
+      "shot": "comparison",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.72,
+      "eyebrow": "THE PATTERN",
+      "headline": "SUNBATHING HAS A SYSTEM",
+      "narration": "Its leaf checks humidity and temperature. Chikorita loves sunlight.",
+      "caption": "READ THE AIR. FIND THE WARMTH.",
+      "visual": "race",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/152.png",
+      "accent": "#9BCF4A",
+      "facts": [
+        "CHECK CONDITIONS",
+        "FIND WARMTH"
+      ]
+    },
+    {
+      "id": "reader-not-forecaster",
+      "durationSeconds": 5.2,
+      "beat": "twist",
+      "role": "twist",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.72,
+      "eyebrow": "THE CATCH",
+      "headline": "IT ALSO LOVES SUNBATHING",
+      "narration": "The leaf checks humidity and temperature, while Chikorita loves to sunbathe.",
+      "caption": "CHECK HUMIDITY AND TEMPERATURE",
+      "visual": "tradeoff",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/152.png",
+      "accent": "#F07B72",
+      "facts": [
+        "HUMIDITY",
+        "TEMPERATURE",
+        "SUNBATHING"
+      ]
+    },
+    {
+      "id": "smart-design-or-habit",
+      "durationSeconds": 4.8,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.72,
+      "eyebrow": "YOUR VERDICT",
+      "headline": "WHAT DO YOU CALL THAT?",
+      "narration": "A leaf that finds warmth: smart design or lucky habit?",
+      "caption": "CHOOSE YOUR READ",
+      "visual": "cta",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/152.png",
+      "accent": "#F2C94C"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Chikorita",
+      "url": "https://www.pokemon.com/us/pokedex/chikorita"
+    },
+    {
+      "label": "Bulbapedia — Chikorita",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Chikorita_(Pok%C3%A9mon)"
+    },
+    {
+      "label": "PokéAPI — Chikorita",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/152"
+    }
+  ]
+}

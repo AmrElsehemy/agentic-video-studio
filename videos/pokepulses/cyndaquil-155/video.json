@@ -1,0 +1,248 @@
+{
+  "schemaVersion": 2,
+  "id": "cyndaquil-155",
+  "show": {
+    "id": "pokepulses",
+    "name": "PokePulses",
+    "handle": "@PokePulses",
+    "wordmark": {
+      "lead": "POKE",
+      "accent": "PULSES"
+    },
+    "fonts": {
+      "display": "Bebas Neue",
+      "body": "system"
+    }
+  },
+  "title": "Cyndaquil's Tired Flames Start Sputtering",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "mechanic",
+    "numberRelevant": false,
+    "premise": "Cyndaquil's tiredness appears as sputtering flames caused by incomplete combustion.",
+    "audiencePromise": "See how Cyndaquil's back turns fatigue into a visible flame signal.",
+    "openLoop": "Why do Cyndaquil's flames sputter instead of simply growing weaker?",
+    "payoff": "Its back works like a visible tiredness meter: vigorous when angry, sputtering when tired.",
+    "targetEmotion": "surprise",
+    "engagementQuestion": "Better detail: a flame meter or a weird science quirk?",
+    "targetSecondsBetweenVisualChanges": 0.65
+  },
+  "subject": {
+    "name": "Cyndaquil",
+    "category": "Fire Mouse Pokémon",
+    "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/155.png",
+    "identifier": "#155"
+  },
+  "related": [
+    {
+      "name": "Typhlosion",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/157.png",
+      "identifier": "#157"
+    },
+    {
+      "name": "Quilava",
+      "relation": "evolves-to",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/156.png",
+      "identifier": "#156"
+    }
+  ],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#101820",
+    "surface": "#1C2833",
+    "primary": "#F28C28",
+    "secondary": "#F5C542",
+    "ink": "#FFF4D6"
+  },
+  "audio": {
+    "music": "generated/cyndaquil-155-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 126,
+      "notes": [
+        110,
+        130.81,
+        146.83,
+        164.81,
+        146.83,
+        130.81,
+        98,
+        130.81
+      ]
+    },
+    "voice": {
+      "provider": "openai",
+      "model": "gpt-4o-mini-tts",
+      "voice": "marin",
+      "instructions": "Sound like a knowledgeable fan sharing a surprising detail. Keep the pace quick, warm, and clear. Punch the words tired, sputter, and incomplete combustion. Pause briefly before the final either-or question.",
+      "speed": 1.12,
+      "output": "generated/cyndaquil-155-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "internal-prototype",
+    "publicReleaseApproved": false,
+    "ownershipNotice": "Pokémon and Pokémon character names are trademarks of Nintendo. Pokémon artwork and related intellectual property are © Pokémon / Nintendo / Creatures / GAME FREAK. All rights belong to their respective owners.",
+    "nonAffiliationNotice": "PokePulses is an unofficial fan-made educational project and is not affiliated with, endorsed by, or sponsored by The Pokémon Company, Nintendo, Creatures Inc., or GAME FREAK inc.",
+    "assets": [
+      {
+        "kind": "Cyndaquil official artwork mirror",
+        "sourceUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/155.png",
+        "owner": "The Pokémon Company / Nintendo / Creatures / GAME FREAK",
+        "licenseStatus": "permission-required",
+        "publicReleaseApproved": true,
+        "notes": "No licence. Cleared for publication by a legal review (Amr Elsehemy (channel owner), 2026-09-30); see rights.artworkReview."
+      }
+    ],
+    "artworkReview": {
+      "reviewer": "Amr Elsehemy (channel owner)",
+      "date": "2026-09-30",
+      "decision": "Own legal review: official Pokémon artwork (mirrored by PokéAPI) may be published in PokePulses episodes. No licence has been obtained from the rights holders; the channel owner accepts the risk. Every episode credits the owners and states non-affiliation."
+    }
+  },
+  "scenes": [
+    {
+      "id": "tired-flames-sputter",
+      "durationSeconds": 3.8,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "CYND A QUIL'S FIRE",
+      "headline": "TIRED FIRE SPUTTERS",
+      "narration": "When Cyndaquil is tired, its flames sputter.",
+      "caption": "TIREDNESS HAS A FLAME SIGNAL",
+      "visual": "hook",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/155.png",
+      "accent": "#F28C28"
+    },
+    {
+      "id": "angry-flames-burn",
+      "durationSeconds": 4.8,
+      "beat": "evidence",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "WHEN IT'S ANGRY",
+      "headline": "ANGER MAKES FIRE VIGOROUS",
+      "narration": "When Cyndaquil is angry, flames from its back burn vigorously.",
+      "caption": "ANGRY = VIGOROUS FLAMES",
+      "visual": "gauntlet",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/155.png",
+      "accent": "#F5C542",
+      "facts": [
+        "BACK FLAMES",
+        "VIGOROUS FIRE"
+      ]
+    },
+    {
+      "id": "fitful-flame-bursts",
+      "durationSeconds": 4.8,
+      "beat": "escalation",
+      "role": "escalation",
+      "shot": "comparison",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "WHEN IT'S TIRED",
+      "headline": "THE PATTERN BREAKS",
+      "narration": "But tiredness changes the flame pattern into fitful, uneven bursts.",
+      "caption": "FITFUL • UNEVEN • SPUTTERING",
+      "visual": "advantage",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/155.png",
+      "accent": "#D96B27",
+      "facts": [
+        "FITFUL BURSTS",
+        "UNEVENT FLAME"
+      ]
+    },
+    {
+      "id": "incomplete-combustion",
+      "durationSeconds": 5.2,
+      "beat": "payoff",
+      "role": "payoff",
+      "shot": "tracking",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "THE TECHNICAL DETAIL",
+      "headline": "NOT JUST WEAK FIRE",
+      "narration": "The Pokédex calls those sputters incomplete combustion, not simply weak fire.",
+      "caption": "INCOMPLETE COMBUSTION",
+      "visual": "race",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/155.png",
+      "accent": "#C95432",
+      "facts": [
+        "INCOMPLETE COMBUSTION"
+      ],
+      "primitive": {
+        "kind": "checklist",
+        "items": [
+          {
+            "label": "WEAK FIRE ONLY",
+            "met": false
+          },
+          {
+            "label": "INCOMPLETE COMBUSTION",
+            "met": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "flame-tiredness-meter",
+      "durationSeconds": 5.2,
+      "beat": "payoff",
+      "role": "payoff",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "THE VISIBLE RULE",
+      "headline": "A FLAME-POWER METER",
+      "narration": "So its back becomes a visible tiredness meter: steady or sputtering.",
+      "caption": "STEADY → SPUTTERING",
+      "visual": "tradeoff",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/155.png",
+      "accent": "#F28C28",
+      "facts": [
+        "VIGOROUS FLAMES",
+        "SPUTTERING FLAME"
+      ]
+    },
+    {
+      "id": "flame-meter-or-quirk",
+      "durationSeconds": 4.8,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "YOUR VERDICT",
+      "headline": "METER OR SCIENCE QUIRK?",
+      "narration": "Better detail: a flame meter or a weird science quirk?",
+      "caption": "FLAME METER OR SCIENCE QUIRK?",
+      "visual": "cta",
+      "artworkUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/155.png",
+      "accent": "#F5C542"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Official Pokémon Pokédex — Cyndaquil",
+      "url": "https://www.pokemon.com/us/pokedex/cyndaquil"
+    },
+    {
+      "label": "Bulbapedia — Cyndaquil",
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Cyndaquil_(Pok%C3%A9mon)"
+    },
+    {
+      "label": "PokéAPI — Cyndaquil",
+      "url": "https://pokeapi.co/api/v2/pokemon-species/155"
+    }
+  ]
+}

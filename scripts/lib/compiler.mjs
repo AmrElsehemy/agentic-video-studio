@@ -6,7 +6,8 @@ import {layoutDiagram, layoutProblems} from './diagram-layout.mjs';
 import {archActionProblems, archProblems} from '../diagram-arch-schema.mjs';
 import {VOICE_MODELS, voiceProblems} from '../episode-fields.mjs';
 import {SCORES} from './score.mjs';
-import {photoRightsAsset, profileRightsAsset, satelliteRightsAsset, flagRightsAsset, geoProblems, geoRightsAsset, loadGeoData, osmRightsAsset, plateRightsAsset, seriesRightsAsset} from './geo-primitives.mjs';
+import {usesFineCoast} from './camera-motion.mjs';
+import {fineCoastRightsAsset, photoRightsAsset, profileRightsAsset, satelliteRightsAsset, flagRightsAsset, geoProblems, geoRightsAsset, loadGeoData, osmRightsAsset, plateRightsAsset, seriesRightsAsset} from './geo-primitives.mjs';
 import {loadShow} from './shows.mjs';
 import {COMPILE_FILL, END_PADDING, estimatedSpeech} from './speech.mjs';
 
@@ -83,10 +84,11 @@ const episodePalette = (draft, show) => {
 export const LOOK_VARIANTS = ['neon', 'atlas', 'terrain'];
 
 /** Map scenes credit the map data they draw, and a reconstruction credits the plate model behind it. */
-const creditedRights = (rights, geoData, scenes) => {
+const creditedRights = (rights, geoData, scenes, fineCoast = false) => {
   if (!geoData) return rights;
   const assets = [...rights.assets];
-  if (!assets.some((asset) => asset.kind === 'map-data' && !/plate model|OpenStreetMap|flag-icons|World Bank|ETOPO/.test(asset.owner))) assets.push(geoRightsAsset(geoData));
+  if (!assets.some((asset) => asset.kind === 'map-data' && !/plate model|OpenStreetMap|flag-icons|World Bank|ETOPO|GSHHG/.test(asset.owner))) assets.push(geoRightsAsset(geoData));
+  if (fineCoast && !assets.some((asset) => /GSHHG/.test(asset.owner))) assets.push(fineCoastRightsAsset());
   const reconstructs = scenes.some((scene) => scene.primitive?.kind === 'geo-map' && scene.primitive.annotations.some((annotation) => annotation.type === 'reconstruction'));
   if (reconstructs && geoData.plates && !assets.some((asset) => /plate model/.test(asset.owner))) assets.push(plateRightsAsset(geoData));
   const streetMap = scenes.some((scene) => scene.primitive?.kind === 'geo-map' && scene.primitive.streets);
@@ -145,6 +147,8 @@ export const compileEpisode = (rawDraft, {showId, show = loadShow(showId), geo})
   // Map scenes must name places that exist in the pinned map data (public/geo/).
   const geoScenes = draft.scenes.filter((scene) => scene.primitive?.kind === 'geo-map');
   const geoData = geoScenes.length ? geo ?? loadGeoData() : undefined;
+  // Close map shots draw sharper coastlines (GSHHG) unless the draft keeps the Natural Earth coast it was first rendered with.
+  const fineCoast = Boolean(geoData) && draft.coast !== 'natural-earth' && usesFineCoast(draft.scenes, new Map([...geoData.entities].map(([id, entity]) => [id, entity.bbox])));
   const geoErrors = geoScenes.flatMap((scene) => geoProblems(scene.primitive, geoData).map((problem) => `scene "${scene.id}" ${problem}`));
   if (geoErrors.length) throw new Error(`${episodeId} has map scenes that refer to unknown places:\n${geoErrors.map((error) => `- ${error}`).join('\n')}`);
 
@@ -213,6 +217,7 @@ export const compileEpisode = (rawDraft, {showId, show = loadShow(showId), geo})
     palette: episodePalette(draft, show),
     ...(LOOK_VARIANTS.includes(draft.paletteVariant) ? {look: draft.paletteVariant} : {}),
     ...(draft.framing ? {framing: draft.framing} : {}),
+    ...(fineCoast ? {coast: 'fine'} : {}),
     ...(diagram ? {diagram} : {}),
     ...(draft.twinOf ? {twinOf: draft.twinOf} : {}),
     audio: {
@@ -228,7 +233,7 @@ export const compileEpisode = (rawDraft, {showId, show = loadShow(showId), geo})
       },
     },
     // Map scenes credit the map data they draw.
-    rights: creditedRights(draft.rights, geoData, scenes),
+    rights: creditedRights(draft.rights, geoData, scenes, fineCoast),
     scenes,
     sources: draft.sources,
   };

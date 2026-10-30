@@ -11,6 +11,7 @@ import {PHOTO_CARD, PHOTO_HEIGHT, PhotoCard, usePhotos} from './Photos';
 import {FullPhotos, type FullPhotoSpec} from './FullPhotos';
 import {SatelliteScene} from './SatelliteScene';
 import {FlagBadge, labelNamesCountry, shortCountryName, useFlags} from './Flags';
+import {finePath, levelFor, MARGIN, spanOf, tilesNeeded, useFineCoast, viewBox} from './fineCoast';
 import {useElevationData, useGeoData, useReliefData, useSeriesData, useStreetsData, type GeoData} from './data';
 import {FigureReveal} from './FigureReveal';
 import {LineChart, RaceChart, SERIES_PANEL, SERIES_SLIDE_FRAMES, formatFigure, shadeColor, yearAt, type SeriesPlace} from './SeriesChart';
@@ -249,6 +250,10 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
   const wantsElevation = primitive.surface?.kind === 'elevation' || primitive.surface?.kind === 'flood';
   const elevation = useElevationData(wantsElevation);
   const streetMap = useStreetsData(primitive.streets?.city);
+  // Episodes with `coast: "fine"` draw close views from fine coastline tiles (fineCoast.ts); the tiles the camera path needs load up front.
+  const fineOn = manifest.coast === 'fine' && !primitive.globe;
+  const fineNeeded = useMemo(() => (keys ? (fineOn ? tilesNeeded(viewAt, SIZE) : []) : undefined), [keys, routes, fineOn]); // eslint-disable-line react-hooks/exhaustive-deps
+  const fineReady = useFineCoast(fineNeeded);
   // The countries a flag may go beside: highlighted, labelled, in a dataset, or either side of a highlighted border.
   const wantsSeries = Boolean(primitive.series);
   const seriesFile = useSeriesData(wantsSeries);
@@ -307,6 +312,9 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
     ? geoOrthographic().rotate([-view.lon, -view.lat]).scale(globeRadius).translate([SIZE.width / 2, SIZE.height / 2 - barsShift]).clipAngle(90)
     : makeProjection(flatKind, view, SIZE, barsShift);
   const path = geoPath(projection);
+  const fineLevel = fineReady && fineOn ? levelFor(spanOf(view, SIZE)) : undefined;
+  // The fine land: drawn under the countries to fill what Natural Earth's coast leaves out, and used to clip them to the true coast.
+  const fineD = fineLevel ? finePath(projection, viewBox(view, SIZE, MARGIN), fineLevel) : '';
   // Equal Earth and azimuthal maps are drawn as a shape of their own (an egg, a disc) on a darker ground.
   const sphereOutline = !globe && (morphing || hasSphereOutline(flatKind)) ? path({type: 'Sphere'}) ?? '' : '';
   const appear = (at: number, frames = APPEAR) => interpolate(frame, [at * durationInFrames, at * durationInFrames + frames], [0, 1], clamp);
@@ -1058,7 +1066,9 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
     {sphereOutline ? <rect width={SIZE.width} height={SIZE.height} fill="#000" opacity=".5" /> : null}
     {sphereOutline ? <path d={sphereOutline} fill={palette.background} /> : null}
     {sphereOutline ? <path d={sphereOutline} fill={palette.secondary} opacity=".12" /> : <rect width={SIZE.width} height={SIZE.height} fill={palette.secondary} opacity=".12" />}
-    <g>
+    {fineD ? <clipPath id="fine-land"><path d={fineD} /></clipPath> : null}
+    {fineD ? <path d={fineD} fill={palette.surface} /> : null}
+    <g clipPath={fineD ? 'url(#fine-land)' : undefined}>
       {data.countries.filter((feature) => onScreen(data.entities.get(String(feature.id))?.bbox)).map((feature) => <path key={String(feature.id)} d={path(feature) ?? ''} fill={palette.surface} stroke={palette.ink} strokeOpacity=".28" strokeWidth={1.2} />)}
     </g>
   </>;
@@ -1128,8 +1138,12 @@ const GeoMapFrame: React.FC<GeoMapProps> = (props) => {
       {look.shimmer > 0 ? <rect x={shimmerX} y={-SIZE.height * 0.2} width={SIZE.width * 0.6} height={SIZE.height * 1.5} fill="url(#geo-shimmer)" opacity={look.shimmer} transform={`rotate(-18 ${shimmerX} 0)`} /> : null}
       {gratPath ? <path d={gratPath} fill="none" stroke={look.grid.color} strokeOpacity={look.grid.opacity} strokeWidth={1.4} /> : null}
       <g filter="url(#geo-land-shadow)">
+        {fineD ? <clipPath id="fine-land"><path d={fineD} /></clipPath> : null}
+        {fineD ? <path d={fineD} fill={look.land[0]} /> : null}
+        <g clipPath={fineD ? 'url(#fine-land)' : undefined}>
         {data.countries.filter((feature) => onScreen(data.entities.get(String(feature.id))?.bbox)).map((feature) => <path key={String(feature.id)} d={path(feature) ?? ''} fill={look.land[pickByHash(String(feature.id), look.land.length)]} stroke={look.border.color} strokeOpacity={look.border.opacity} strokeWidth={look.border.width} strokeLinejoin="round" />)}
-      </g>
+            </g>
+</g>
       {adminVisibility(view.scale) > 0 ? <g fill="none" stroke={look.water.admin} strokeOpacity={look.water.adminOpacity * adminVisibility(view.scale)} strokeWidth={1.1} strokeLinejoin="round">
         {data.admin1.filter((feature) => onScreen(data.entities.get(String(feature.id))?.bbox)).map((feature) => <path key={String(feature.id)} d={path(feature) ?? ''} />)}
       </g> : null}

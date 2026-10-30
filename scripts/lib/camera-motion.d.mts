@@ -6,3 +6,4 @@ export declare const CLOSE_SPAN: number;
 export declare const REVEAL_RATIO: number;
 export declare const sceneMotion: (primitive: {[key: string]: any}, boxes: Boxes) => {zoom: number; pan: number; close: number; moves: boolean; own: boolean} | undefined;
 export declare const cameraMotion: (manifest: {scenes: {id: string; primitive?: {kind?: string; [key: string]: any}}[]}, boxes: Boxes) => {scenes: number; still: string[]; problems: string[]};
+export declare const usesFineCoast: (scenes: {primitive?: any}[], boxes: Map<string, number[]>) => boolean;
