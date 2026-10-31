@@ -43,7 +43,8 @@ describe('publish checks', () => {
   });
 
   it('lets PokePulses artwork through on the recorded legal review, once the episode is approved', () => {
-    const mew = manifestOf('pokepulses', 'mew-151');
+    const recorded = manifestOf('pokepulses', 'mew-151');
+    const mew = {...recorded, rights: {...recorded.rights, releaseStatus: 'internal-prototype' as const, publicReleaseApproved: false}};
     assert.deepEqual(publishBlockers(mew).map((blocker) => blocker.split(':')[0]), ['release-status', 'episode'], 'only the episode approval is left');
     assert.deepEqual(publishBlockers(approved(mew)), []);
   });
