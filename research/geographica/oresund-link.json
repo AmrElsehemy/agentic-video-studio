@@ -1,0 +1,111 @@
+{
+  "schemaVersion": 1,
+  "id": "oresund-link",
+  "subject": "Denmark",
+  "kind": "curated",
+  "note": "Cited to a pinned Wikipedia revision (trusted_secondary): Oresund Bridge. The page describes the bridge (Swedish coast to Peberholm, nearly 8 km; infobox length 7,845 m), the artificial island of Peberholm (about 4 km long, average width 500 m, 20 m high) and the 4 km Oresund Tunnel (infobox 4,050 m) from Peberholm to Amager. The page does not give the tunnel's depth, and does not give a total length for the link, so neither is stated; any total is a sum of the page's own figures and must be said to be one (7,845 m + 4,050 m, with Peberholm between). The coordinates are the page's infobox points (the bridge, and the Drogden tunnel). The Oresund strait is not a named place in the map data; the two infobox points are the places to frame.",
+  "regions": [
+    "Sweden"
+  ],
+  "claims": [
+    {
+      "id": "what",
+      "text": "The Oresund Bridge is a combined railway and motorway cable-stayed bridge across the Oresund strait between Denmark and Sweden, carrying European route E20 and the Oresund Line, and the fourth longest bridge in Europe.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-oresund"
+      ]
+    },
+    {
+      "id": "length",
+      "text": "The bridge runs nearly 8 km from the Swedish coast to the artificial island of Peberholm in the middle of the strait (infobox length 7,845 m); the Oresund Tunnel, about 4 km (infobox 4,050 m), runs from Peberholm to the Danish island of Amager.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-oresund"
+      ]
+    },
+    {
+      "id": "peberholm",
+      "text": "Peberholm is approximately 4 km long with an average width of 500 m and is 20 m high.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-oresund"
+      ]
+    },
+    {
+      "id": "why",
+      "text": "The justification for a tunnel for part of the way, rather than raising that section of the bridge, was to avoid interfering with air traffic from the nearby Copenhagen Airport, to provide a clear channel for ships in good weather or bad, and to prevent ice floes from blocking the strait.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-oresund"
+      ]
+    },
+    {
+      "id": "towers",
+      "text": "The two pairs of free-standing cable-supporting towers are 204 m tall, allowing shipping 57 m of vertical clearance under the main span (main span 490 m), but most ships' captains prefer to pass through the unobstructed Drogden Strait above the tunnel.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-oresund"
+      ]
+    },
+    {
+      "id": "dates",
+      "text": "Construction began in 1995 and the bridge opened to traffic on 1 July 2000.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-oresund"
+      ]
+    },
+    {
+      "id": "link",
+      "text": "The bridge directly connects the road and rail networks of the Scandinavian Peninsula with mainland Europe, via the Great Belt Fixed Link between Zealand and Funen, and the page says both projects helped to lessen the isolation of Sweden and the rest of Scandinavia.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-oresund"
+      ]
+    },
+    {
+      "id": "old",
+      "text": "Ideas for a fixed link were advanced as early as the late 1800s; a 1910 proposal to the Swedish Parliament was for a railway tunnel in two sections linked by a surface route across the island of Saltholm, and the concept of a bridge was first formally proposed in 1936.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-oresund"
+      ]
+    },
+    {
+      "id": "cost",
+      "text": "The page's infobox gives the cost as 19.6 billion DKK (25.8 billion SEK, 2.6 billion EUR).",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-oresund"
+      ]
+    }
+  ],
+  "places": {
+    "oresund-bridge": {
+      "lon": 12.849444,
+      "lat": 55.570556,
+      "source": "wikipedia-oresund",
+      "approximate": true,
+      "note": "Infobox point for the bridge (55 34 14 N, 12 50 58 E)."
+    },
+    "drogden-tunnel": {
+      "lon": 12.707778,
+      "lat": 55.619167,
+      "source": "wikipedia-oresund",
+      "approximate": true,
+      "note": "Infobox point for the tunnel (55 37 9 N, 12 42 28 E)."
+    }
+  },
+  "datasets": {},
+  "sources": {
+    "wikipedia-oresund": {
+      "label": "Wikipedia: Øresund Bridge (revision 1382420101)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Øresund_Bridge&oldid=1382420101"
+    },
+    "natural-earth": {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  }
+}

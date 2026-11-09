@@ -1,0 +1,148 @@
+{
+  "schemaVersion": 1,
+  "id": "adriatic-two-shores",
+  "subject": "Croatia",
+  "kind": "curated",
+  "note": "Cited to pinned Wikipedia revisions (trusted_secondary): Adriatic Sea and List of islands of Croatia. The Italian side is described only as the page does: an alluvial or terraced western coast against a highly indented eastern coast. No coast-length or ratio figures are stated here; any such measure is computed from the GSHHG outline and must be labelled as measured from it. Island counts differ by definition (the Adriatic page counts 1,246 for Croatia, the Croatian list says over a thousand, 79 of them 1 km2 or larger). Coastal states disputing their own borders (Slovenia, Croatia, Bosnia and Herzegovina, Montenegro) are not shown with borders review in mind: keep the frame on the coast, with no maritime boundaries. Measured figures (ids starting m-): sphere radius 6,371 km; the Italian shore runs from the vertex nearest Trieste (45.64N 13.76E) to the one nearest Otranto (40.15N 18.49E); the Croatian shore from the Slovenian border (45.47N 13.60E) to the Montenegrin border (42.43N 18.44E), both taking the shorter way along the mainland outline. Islands are every separate land polygon in the outline inside the Adriatic box, assigned to the nearer shore (islands south of 42.3N and east of 16E are left out), each counted by its full shoreline. The outline has 750 eastern polygons, a different definition from the 1,246 of the Adriatic page. 'About 11 times' is 5,861/514=11.4; 'about 4 times' is 3,104/721=4.3.",
+  "regions": [
+    "Italy",
+    "Slovenia",
+    "Bosnia and Herzegovina",
+    "Montenegro",
+    "Albania"
+  ],
+  "claims": [
+    {
+      "id": "sea",
+      "text": "The Adriatic Sea separates the Italian Peninsula from the Balkan Peninsula.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-adriatic"
+      ]
+    },
+    {
+      "id": "islands",
+      "text": "The Adriatic contains more than 1,300 islands and islets, most along its eastern coast, especially in Croatia, with 1,246 counted.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-adriatic"
+      ]
+    },
+    {
+      "id": "count-def",
+      "text": "The count includes islands, islets and rocks of all sizes, including ones emerging at ebb tide only.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-adriatic"
+      ]
+    },
+    {
+      "id": "coasts",
+      "text": "The western coast is alluvial or terraced, while the eastern coast is highly indented with pronounced karstification.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-adriatic"
+      ]
+    },
+    {
+      "id": "big",
+      "text": "The largest Croatian islands, Cres and Krk, each cover about 405 km2 (405.78 km2 on the Adriatic page).",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-adriatic"
+      ]
+    },
+    {
+      "id": "area",
+      "text": "Croatian islands cover a total area of about 3,300 km2.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-croatia-islands"
+      ]
+    },
+    {
+      "id": "seventy-nine",
+      "text": "79 Croatian islands have an area of 1 km2 or more.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-croatia-islands"
+      ]
+    },
+    {
+      "id": "rocks",
+      "text": "Rocks are defined as landforms smaller than 0.1 km2, islets are between 0.1 and 1.0 km2, and islands proper are bigger than 1.0 km2 (Hydrographic Institute of the Republic of Croatia).",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-croatia-islands"
+      ]
+    },
+    {
+      "id": "deep",
+      "text": "The Adriatic's northern basin is the shallowest and the southern the deepest, with a maximum depth of 1,233 metres.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-adriatic"
+      ]
+    },
+    {
+      "id": "m-west",
+      "text": "Measured on the GSHHG v2.3.7 full-resolution outline, the Italian shore from Trieste to Otranto is 1,885 km along the coast and 721 km in a straight line.",
+      "tier": "official",
+      "sources": [
+        "gshhg-measured"
+      ]
+    },
+    {
+      "id": "m-east",
+      "text": "Measured the same way, the Croatian shore from the Slovenian border to the Montenegrin border is 1,697 km along the mainland coast and 514 km in a straight line.",
+      "tier": "official",
+      "sources": [
+        "gshhg-measured"
+      ]
+    },
+    {
+      "id": "m-west-isl",
+      "text": "Adding the shoreline of the 655 islands and islets that lie nearer the Italian shore brings it to 3,104 km (outline measurement).",
+      "tier": "official",
+      "sources": [
+        "gshhg-measured"
+      ]
+    },
+    {
+      "id": "m-east-isl",
+      "text": "Adding the shoreline of the 750 islands and islets that lie nearer the Croatian shore brings it to 5,861 km (outline measurement).",
+      "tier": "official",
+      "sources": [
+        "gshhg-measured"
+      ]
+    },
+    {
+      "id": "m-ratio",
+      "text": "With islands, the eastern shore is about 11 times its straight-line length and the western about 4 times (outline measurement).",
+      "tier": "official",
+      "sources": [
+        "gshhg-measured"
+      ]
+    }
+  ],
+  "places": {},
+  "datasets": {},
+  "sources": {
+    "wikipedia-adriatic": {
+      "label": "Wikipedia: Adriatic Sea (revision 1384020640)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Adriatic_Sea&oldid=1384020640"
+    },
+    "wikipedia-croatia-islands": {
+      "label": "Wikipedia: List of islands of Croatia (revision 1344437444)",
+      "url": "https://en.wikipedia.org/w/index.php?title=List_of_islands_of_Croatia&oldid=1344437444"
+    },
+    "natural-earth": {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    },
+    "gshhg-measured": {
+      "label": "Measured by us on the GSHHG v2.3.7 full-resolution outline (Wessel & Smith, SOEST / NOAA, LGPL); not official coast lengths",
+      "url": "https://www.soest.hawaii.edu/pwessel/gshhg/"
+    }
+  }
+}

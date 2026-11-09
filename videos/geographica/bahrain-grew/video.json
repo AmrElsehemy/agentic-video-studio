@@ -1,0 +1,527 @@
+{
+  "schemaVersion": 2,
+  "id": "bahrain-grew",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica",
+    "wordmark": {
+      "lead": "GEO",
+      "accent": "GRAPHICA"
+    },
+    "fonts": {
+      "display": "Oswald",
+      "body": "Inter"
+    },
+    "captions": {
+      "mode": "words"
+    }
+  },
+  "title": "Bahrain Kept Growing Without New Land",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "transformation",
+    "numberRelevant": true,
+    "premise": "Bahrain grew from 665 km² to 780 km² through land reclamation, and counts 84 islands where 33 were once described.",
+    "audiencePromise": "Watch an island nation grow into the sea.",
+    "openLoop": "How does an island nation grow with no land to take?",
+    "payoff": "Land reclamation: 665 to 780 km², 33 islands became 84 islands and island groups by 2008.",
+    "targetEmotion": "surprise",
+    "engagementQuestion": "How much sea would you fill?",
+    "targetSecondsBetweenVisualChanges": 0.62
+  },
+  "subject": {
+    "name": "Bahrain",
+    "category": "Border",
+    "attributes": {
+      "geoEntity": "country:BHR"
+    }
+  },
+  "related": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#cfdde6",
+    "surface": "#f3ede0",
+    "primary": "#b4561f",
+    "secondary": "#2c5d7f",
+    "ink": "#1b2730"
+  },
+  "framing": {
+    "opening": "bleed",
+    "ending": "loop"
+  },
+  "coast": "fine",
+  "audio": {
+    "music": "generated/bahrain-grew-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 96,
+      "notes": [
+        98,
+        116.54,
+        130.81,
+        146.83,
+        130.81,
+        116.54,
+        87.31,
+        98
+      ]
+    },
+    "voice": {
+      "provider": "elevenlabs",
+      "model": "eleven_v4",
+      "voice": "JBFqnCBsd6RMkjVDRZzb",
+      "instructions": "Warm, curious storyteller walking a friend across a map. Clear and confident, with a sense of discovery on each reveal; slow slightly on dates and place names so they land. Conversational and human, never a documentary announcer, lecture, or neutral TTS. Never imitate a known person or character.",
+      "speed": 1.06,
+      "output": "generated/bahrain-grew-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "cleared",
+    "publicReleaseApproved": true,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      },
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.soest.hawaii.edu/pwessel/gshhg/gshhg-shp-2.3.7.zip",
+        "owner": "GSHHG coastlines (Wessel & Smith)",
+        "licenseStatus": "licensed",
+        "publicReleaseApproved": true,
+        "notes": "Coastlines: GSHHG v2.3.7 (Wessel & Smith, SOEST / NOAA), LGPL."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "durationSeconds": 4,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "BAHRAIN",
+      "headline": "AN ISLAND NATION THAT GREW",
+      "narration": "Bahrain is bigger than it used to be.",
+      "caption": "BAHRAIN IS BIGGER THAN IT USED TO BE",
+      "visual": "hook",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                47,
+                23,
+                55,
+                29
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                50,
+                25.5,
+                51,
+                26.5
+              ]
+            },
+            "at": 0.8,
+            "padding": 0.06,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:BHR",
+            "text": "BAHRAIN",
+            "at": 0.5
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "then",
+      "durationSeconds": 3.8,
+      "beat": "before",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "BEFORE",
+      "headline": "665 KM²",
+      "narration": "It once covered 665 square kilometres.",
+      "caption": "IT ONCE COVERED 665 KM²",
+      "visual": "gauntlet",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                50,
+                25.5,
+                51,
+                26.5
+              ]
+            },
+            "at": 0,
+            "padding": 0.06,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                50.3,
+                25.75,
+                50.8,
+                26.4
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.08,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "figure": {
+          "value": 665,
+          "unit": "KM²",
+          "text": "IT ONCE COVERED",
+          "decimals": 0,
+          "at": 0.3
+        }
+      }
+    },
+    {
+      "id": "now",
+      "durationSeconds": 3.8,
+      "beat": "change",
+      "role": "escalation",
+      "shot": "tracking",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "NOW",
+      "headline": "780 KM²",
+      "narration": "Land reclamation has taken it to 780.",
+      "caption": "LAND RECLAMATION · NOW 780 KM²",
+      "visual": "race",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                50.3,
+                25.75,
+                50.8,
+                26.4
+              ]
+            },
+            "at": 0,
+            "padding": 0.08,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                49.2,
+                24.8,
+                51.8,
+                27.2
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.06,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "figure": {
+          "value": 780,
+          "unit": "KM²",
+          "text": "AFTER RECLAMATION",
+          "decimals": 0,
+          "at": 0.3
+        }
+      }
+    },
+    {
+      "id": "islands",
+      "durationSeconds": 5.2,
+      "beat": "reveal",
+      "role": "payoff",
+      "shot": "comparison",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "THE ISLANDS",
+      "headline": "33 BECAME 84",
+      "narration": "Described as 33 islands, it counted 84 by 2008.",
+      "caption": "OFTEN 33 ISLANDS · 84 ISLANDS AND ISLAND GROUPS BY AUGUST 2008",
+      "visual": "advantage",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                49.2,
+                24.8,
+                51.8,
+                27.2
+              ]
+            },
+            "at": 0,
+            "padding": 0.06,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                50.35,
+                25.45,
+                51.15,
+                26.1
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.08,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "figure": {
+          "value": 84,
+          "text": "ISLANDS AND GROUPS, 2008",
+          "decimals": 0,
+          "at": 0.3
+        }
+      }
+    },
+    {
+      "id": "main",
+      "durationSeconds": 5,
+      "beat": "aftermath",
+      "role": "payoff",
+      "shot": "wide",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "THE MAIN ISLAND",
+      "headline": "604 KM²",
+      "narration": "Bahrain Island is 604 square kilometres, about 78 percent.",
+      "caption": "BAHRAIN ISLAND · 604 KM² · ABOUT 78% OF THE LAND",
+      "visual": "tradeoff",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                50.35,
+                25.45,
+                51.15,
+                26.1
+              ]
+            },
+            "at": 0,
+            "padding": 0.08,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                50.4,
+                25.85,
+                50.75,
+                26.35
+              ]
+            },
+            "at": 0.9,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "figure": {
+          "value": 604,
+          "unit": "KM²",
+          "text": "BAHRAIN ISLAND",
+          "decimals": 0,
+          "at": 0.3
+        }
+      }
+    },
+    {
+      "id": "sea",
+      "durationSeconds": 6.3,
+      "beat": "aftermath",
+      "role": "payoff",
+      "shot": "impact",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "THE NEIGHBOURS",
+      "headline": "24 KM TO SAUDI ARABIA",
+      "narration": "Saudi Arabia is 24 kilometres away across the sea, and Qatar 28.",
+      "caption": "24 KM TO SAUDI ARABIA · 28 KM TO QATAR",
+      "visual": "tradeoff",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                50.4,
+                25.85,
+                50.75,
+                26.35
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                48.4,
+                24.4,
+                52.8,
+                27.6
+              ]
+            },
+            "at": 0.9,
+            "padding": 0.05,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:SAU",
+            "text": "SAUDI ARABIA",
+            "at": 0.35
+          },
+          {
+            "type": "label",
+            "anchor": "country:QAT",
+            "text": "QATAR",
+            "at": 0.45
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "figure": {
+          "value": 24,
+          "unit": "KM",
+          "text": "TO SAUDI ARABIA",
+          "decimals": 0,
+          "at": 0.3
+        }
+      }
+    },
+    {
+      "id": "verdict",
+      "durationSeconds": 3.8,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "YOUR TURN",
+      "headline": "HOW FAR WOULD YOU GROW?",
+      "narration": "How much sea would you fill?",
+      "caption": "HOW MUCH SEA WOULD YOU FILL?",
+      "visual": "cta",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                48.4,
+                24.4,
+                52.8,
+                27.6
+              ]
+            },
+            "at": 0,
+            "padding": 0.05,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                47,
+                23,
+                55,
+                29
+              ]
+            },
+            "at": 0.9,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:BHR",
+            "text": "BAHRAIN",
+            "at": 0.4
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia: Bahrain (revision 1384361922)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Bahrain&oldid=1384361922"
+    },
+    {
+      "label": "Wikipedia: Geography of Bahrain (revision 1359801157)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Geography_of_Bahrain&oldid=1359801157"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ]
+}

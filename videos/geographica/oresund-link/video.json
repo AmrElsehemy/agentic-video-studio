@@ -1,0 +1,552 @@
+{
+  "schemaVersion": 2,
+  "id": "oresund-link",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica",
+    "wordmark": {
+      "lead": "GEO",
+      "accent": "GRAPHICA"
+    },
+    "fonts": {
+      "display": "Oswald",
+      "body": "Inter"
+    },
+    "captions": {
+      "mode": "words"
+    }
+  },
+  "title": "The Bridge That Dives Into the Sea",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "mechanic",
+    "numberRelevant": true,
+    "premise": "The Oresund link joins Sweden and Denmark with a bridge that becomes a tunnel at an artificial island.",
+    "audiencePromise": "Find out where the bridge goes.",
+    "openLoop": "Why does a bridge end in the middle of the sea?",
+    "payoff": "A bridge of nearly 8 km runs to Peberholm, then a 4 km tunnel runs on to Denmark, to keep clear of the airport's air traffic, ships and ice.",
+    "targetEmotion": "surprise",
+    "engagementQuestion": "Would you drive across a bridge that ends in a tunnel?",
+    "targetSecondsBetweenVisualChanges": 0.65
+  },
+  "subject": {
+    "name": "Oresund strait",
+    "category": "Border",
+    "attributes": {
+      "geoEntity": "country:DNK"
+    }
+  },
+  "related": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#050818",
+    "surface": "#18284f",
+    "primary": "#ff3d9a",
+    "secondary": "#6c5ce7",
+    "ink": "#ffffff"
+  },
+  "look": "neon",
+  "framing": {
+    "opening": "bleed",
+    "ending": "loop"
+  },
+  "coast": "fine",
+  "audio": {
+    "music": "generated/oresund-link-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 96,
+      "notes": [
+        98,
+        116.54,
+        130.81,
+        146.83,
+        130.81,
+        116.54,
+        87.31,
+        98
+      ]
+    },
+    "voice": {
+      "provider": "elevenlabs",
+      "model": "eleven_v4",
+      "voice": "JBFqnCBsd6RMkjVDRZzb",
+      "instructions": "Warm, curious storyteller walking a friend across a map. Clear and confident, with a sense of discovery on each reveal; slow slightly on dates and place names so they land. Conversational and human, never a documentary announcer, lecture, or neutral TTS. Never imitate a known person or character.",
+      "speed": 1.06,
+      "output": "generated/oresund-link-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "cleared",
+    "publicReleaseApproved": true,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      },
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.soest.hawaii.edu/pwessel/gshhg/gshhg-shp-2.3.7.zip",
+        "owner": "GSHHG coastlines (Wessel & Smith)",
+        "licenseStatus": "licensed",
+        "publicReleaseApproved": true,
+        "notes": "Coastlines: GSHHG v2.3.7 (Wessel & Smith, SOEST / NOAA), LGPL."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "durationSeconds": 4,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "SWEDEN AND DENMARK",
+      "headline": "A BRIDGE THAT DIVES",
+      "narration": "A bridge to Denmark dives into the sea.",
+      "caption": "A BRIDGE, THEN A TUNNEL, BETWEEN TWO COUNTRIES",
+      "visual": "hook",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                3,
+                53,
+                21,
+                60
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                12.3,
+                55.3,
+                13.2,
+                55.9
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:SWE",
+            "style": "outline",
+            "at": 0.2
+          },
+          {
+            "entity": "country:DNK",
+            "style": "outline",
+            "at": 0.25
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:SWE",
+            "text": "SWEDEN",
+            "at": 0.4
+          },
+          {
+            "type": "label",
+            "anchor": "country:DNK",
+            "text": "DENMARK",
+            "at": 0.5
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "evidence",
+      "durationSeconds": 5,
+      "beat": "evidence",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "THE BRIDGE",
+      "headline": "NEARLY 8 KILOMETERS",
+      "narration": "The bridge runs nearly eight kilometers, out to an island.",
+      "caption": "NEARLY 8 KM (7,845 M) FROM SWEDEN TO PEBERHOLM",
+      "visual": "gauntlet",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                12.3,
+                55.3,
+                13.2,
+                55.9
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                12.6,
+                55.5,
+                12.95,
+                55.7
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 12.8494,
+              "lat": 55.5706
+            },
+            "text": "THE BRIDGE",
+            "at": 0.3
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "escalation",
+      "durationSeconds": 4.8,
+      "beat": "escalation",
+      "role": "escalation",
+      "shot": "comparison",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "PEBERHOLM",
+      "headline": "AN ARTIFICIAL ISLAND",
+      "narration": "That island, Peberholm, is artificial: about four kilometers long.",
+      "caption": "PEBERHOLM: ABOUT 4 KM LONG, 20 M HIGH",
+      "visual": "advantage",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                12.6,
+                55.5,
+                12.95,
+                55.7
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                12.62,
+                55.55,
+                12.8,
+                55.65
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "payoff",
+      "durationSeconds": 5,
+      "beat": "payoff",
+      "role": "payoff",
+      "shot": "tracking",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "THE TUNNEL",
+      "headline": "FOUR KILOMETERS UNDER",
+      "narration": "From there, a tunnel of about four kilometers reaches Denmark.",
+      "caption": "TUNNEL: ABOUT 4 KM (4,050 M) TO AMAGER",
+      "visual": "race",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                12.62,
+                55.55,
+                12.8,
+                55.65
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                12.45,
+                55.55,
+                12.95,
+                55.7
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 12.7078,
+              "lat": 55.6192
+            },
+            "text": "THE TUNNEL",
+            "at": 0.3
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "payoff-4",
+      "durationSeconds": 4.9,
+      "beat": "payoff",
+      "role": "payoff",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "WHY",
+      "headline": "PLANES, SHIPS AND ICE",
+      "narration": "Why a tunnel? Air traffic, ships, and ice floes.",
+      "caption": "TUNNEL: AIR TRAFFIC, A CLEAR SHIP CHANNEL, NO ICE FLOES",
+      "visual": "tradeoff",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                12.45,
+                55.55,
+                12.95,
+                55.7
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                12.2,
+                55.4,
+                13.1,
+                55.9
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 12.7078,
+              "lat": 55.6192
+            },
+            "text": "THE TUNNEL",
+            "at": 0.3
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "payoff-5",
+      "durationSeconds": 6.1,
+      "beat": "payoff",
+      "role": "payoff",
+      "shot": "comparison",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "OPENED",
+      "headline": "2000",
+      "narration": "It opened in 2000, linking Scandinavia to Europe by road and rail.",
+      "caption": "OPENED 1 JULY 2000, AFTER CONSTRUCTION BEGAN IN 1995",
+      "visual": "race",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                12.2,
+                55.4,
+                13.1,
+                55.9
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                5,
+                52,
+                20,
+                60
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:SWE",
+            "style": "fill",
+            "at": 0.2
+          },
+          {
+            "entity": "country:DNK",
+            "style": "fill",
+            "at": 0.3
+          }
+        ],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "verdict",
+      "durationSeconds": 5.3,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "YOUR TURN",
+      "headline": "WOULD YOU DRIVE IT?",
+      "narration": "Would you drive across a bridge that ends in a tunnel?",
+      "caption": "WOULD YOU DRIVE ACROSS A BRIDGE THAT ENDS IN A TUNNEL?",
+      "visual": "cta",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                5,
+                52,
+                20,
+                60
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                3,
+                53,
+                21,
+                60
+              ]
+            },
+            "at": 0.9,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:SWE",
+            "style": "outline",
+            "at": 0.2
+          },
+          {
+            "entity": "country:DNK",
+            "style": "outline",
+            "at": 0.25
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:SWE",
+            "text": "SWEDEN",
+            "at": 0.4
+          },
+          {
+            "type": "label",
+            "anchor": "country:DNK",
+            "text": "DENMARK",
+            "at": 0.5
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia: Oresund Bridge (revision 1382420101)",
+      "url": "https://en.wikipedia.org/w/index.php?title=%C3%98resund_Bridge&oldid=1382420101"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ]
+}

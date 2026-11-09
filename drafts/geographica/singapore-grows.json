@@ -1,0 +1,463 @@
+{
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica"
+  },
+  "voice": {
+    "provider": "elevenlabs",
+    "voice": "JBFqnCBsd6RMkjVDRZzb"
+  },
+  "numberRelevant": true,
+  "targetEmotion": "surprise",
+  "subject": {
+    "name": "Singapore",
+    "category": "Border",
+    "attributes": {
+      "geoEntity": "country:SGP"
+    }
+  },
+  "rights": {
+    "releaseStatus": "cleared",
+    "publicReleaseApproved": true,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      }
+    ]
+  },
+  "id": "singapore-grows",
+  "title": "Singapore Added Land From the Sea",
+  "storyPattern": "transformation",
+  "premise": "Singapore grew from about 582 km² in the 1960s to about 744 km² by reclaiming land from the sea.",
+  "audiencePromise": "Watch a country grow from the sea.",
+  "openLoop": "Where did the new land come from?",
+  "payoff": "Reclamation: earth from its own hills, the seabed and neighbouring countries; Changi (1981), Marina South (1992), and polders since 2016.",
+  "engagementQuestion": "Would you build land from the sea?",
+  "scenes": [
+    {
+      "id": "hook",
+      "eyebrow": "SINGAPORE",
+      "headline": "A COUNTRY THAT GREW",
+      "narration": "Singapore is bigger than it used to be.",
+      "caption": "SINGAPORE IS BIGGER THAN IT USED TO BE",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                99,
+                -3,
+                109,
+                6
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                103.55,
+                1.12,
+                104.15,
+                1.52
+              ]
+            },
+            "at": 0.8,
+            "padding": 0.08,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:SGP",
+            "text": "SINGAPORE",
+            "at": 0.5
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "then",
+      "eyebrow": "THE 1960S",
+      "headline": "582 KM²",
+      "narration": "In the 1960s it covered about 582 square kilometres.",
+      "caption": "ABOUT 582 KM² IN THE 1960S",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                103.55,
+                1.12,
+                104.15,
+                1.52
+              ]
+            },
+            "at": 0,
+            "padding": 0.08,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                103.64,
+                1.2,
+                104.05,
+                1.47
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "figure": {
+          "value": 582,
+          "text": "IN THE 1960S",
+          "decimals": 0,
+          "at": 0.3,
+          "unit": "KM²"
+        }
+      },
+      "beat": "before"
+    },
+    {
+      "id": "now",
+      "eyebrow": "TODAY",
+      "headline": "744 KM²",
+      "narration": "Today it covers about 744 square kilometres.",
+      "caption": "ABOUT 744.3 KM² AS OF 2026",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                103.64,
+                1.2,
+                104.05,
+                1.47
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                103.2,
+                0.95,
+                104.5,
+                1.75
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.06,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "figure": {
+          "value": 744.3,
+          "text": "AS OF 2026",
+          "decimals": 1,
+          "at": 0.3,
+          "unit": "KM²"
+        }
+      },
+      "beat": "change"
+    },
+    {
+      "id": "how",
+      "eyebrow": "HOW",
+      "headline": "FROM THE SEA",
+      "narration": "The new land came from the sea, filled in with earth.",
+      "caption": "RECLAMATION · EARTH FROM HILLS, SEABED AND NEIGHBOURS",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                103.2,
+                0.95,
+                104.5,
+                1.75
+              ]
+            },
+            "at": 0,
+            "padding": 0.06,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                103.6,
+                1.15,
+                104.1,
+                1.48
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.05,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "water:strait-of-malacca",
+            "text": "STRAIT OF MALACCA",
+            "at": 0.3
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      },
+      "beat": "change"
+    },
+    {
+      "id": "changi",
+      "eyebrow": "1981",
+      "headline": "CHANGI AIRPORT",
+      "narration": "In 1981 Changi Airport opened on about two square kilometres of swampland.",
+      "caption": "CHANGI AIRPORT · 1981 · ABOUT 2 KM² OF CLEARED SWAMPLAND",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                103.55,
+                1.15,
+                104.15,
+                1.55
+              ]
+            },
+            "at": 0,
+            "padding": 0.06,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                103.92,
+                1.32,
+                104.06,
+                1.42
+              ]
+            },
+            "at": 0.9,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 103.9915,
+              "lat": 1.3644
+            },
+            "text": "CHANGI AIRPORT",
+            "at": 0.35
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      },
+      "beat": "reveal"
+    },
+    {
+      "id": "marina",
+      "eyebrow": "1992",
+      "headline": "MARINA SOUTH",
+      "narration": "In 1992 Marina Centre and Marina South added 360 hectares of waterfront.",
+      "caption": "MARINA CENTRE AND MARINA SOUTH · 360 HECTARES · 1992",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                103.92,
+                1.32,
+                104.06,
+                1.42
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                103.8,
+                1.22,
+                103.92,
+                1.31
+              ]
+            },
+            "at": 0.9,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 103.86,
+              "lat": 1.27
+            },
+            "text": "MARINA SOUTH",
+            "at": 0.35
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      },
+      "beat": "aftermath"
+    },
+    {
+      "id": "polders",
+      "eyebrow": "SINCE 2016",
+      "headline": "POLDERS",
+      "narration": "Since 2016 it builds polders: a dyke, then the water pumped out.",
+      "caption": "POLDERS SINCE 2016 · THE RIGHT SAND IS SCARCE",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                103.8,
+                1.22,
+                103.92,
+                1.31
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                103.3,
+                1,
+                104.4,
+                1.7
+              ]
+            },
+            "at": 0.9,
+            "padding": 0.06,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      },
+      "beat": "aftermath"
+    },
+    {
+      "id": "verdict",
+      "eyebrow": "YOUR TURN",
+      "headline": "WOULD YOU BUILD LAND?",
+      "narration": "Would you build land from the sea?",
+      "caption": "WOULD YOU BUILD LAND FROM THE SEA?",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                103.3,
+                1,
+                104.4,
+                1.7
+              ]
+            },
+            "at": 0,
+            "padding": 0.06,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                99,
+                -3,
+                109,
+                6
+              ]
+            },
+            "at": 0.9,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:SGP",
+            "text": "SINGAPORE",
+            "at": 0.4
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      },
+      "beat": "verdict"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia: Geography of Singapore (revision 1363344444)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Geography_of_Singapore&oldid=1363344444"
+    },
+    {
+      "label": "Wikipedia: Land reclamation in Singapore (revision 1375794795)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Land_reclamation_in_Singapore&oldid=1375794795"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ],
+  "paletteVariant": "neon",
+  "framing": {
+    "ending": "loop",
+    "opening": "bleed"
+  }
+}

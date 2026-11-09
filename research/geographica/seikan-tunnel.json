@@ -1,0 +1,111 @@
+{
+  "schemaVersion": 1,
+  "id": "seikan-tunnel",
+  "subject": "Japan",
+  "kind": "curated",
+  "note": "Cited to a pinned Wikipedia revision (trusted_secondary): Seikan Tunnel. Lengths and depths are quoted as the page states them. The portal points are the page's infobox coordinates (Shiriuchi, Hokkaido; Imabetsu, Aomori on Honshu). If an elevation profile is drawn it is computed from NOAA ETOPO 2022 along the line between the portals and shows the strait floor, not the tunnel; the tunnel depth must come only from the page's figures (about 100 m below the seabed and 240 m below sea level). Hokkaido, Honshu and the Tsugaru Strait are not named places in the map data; the portals are the points to frame.",
+  "regions": [],
+  "claims": [
+    {
+      "id": "length",
+      "text": "The Seikan Tunnel is a 53.85 km dual-gauge railway tunnel in Japan, with a 23.3 km segment running beneath the seabed of the Tsugaru Strait, which separates Aomori Prefecture on Honshu from Hokkaido.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-seikan"
+      ]
+    },
+    {
+      "id": "depth",
+      "text": "The tunnel's track level lies approximately 100 m below the seabed and 240 m below sea level.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-seikan"
+      ]
+    },
+    {
+      "id": "opened",
+      "text": "The tunnel opened on 13 March 1988, after several decades of planning and construction.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-seikan"
+      ]
+    },
+    {
+      "id": "longest",
+      "text": "By total length the Seikan Tunnel is the world's longest undersea tunnel, surpassing the Channel Tunnel, though the Channel Tunnel has the longer undersea section, 37.9 km against 23.3 km.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-seikan"
+      ]
+    },
+    {
+      "id": "deepest",
+      "text": "It is the deepest railway tunnel below sea level, and was the deepest transport tunnel of any kind until Norway's Hitra Tunnel opened in 1994.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-seikan"
+      ]
+    },
+    {
+      "id": "typhoon",
+      "text": "In 1954 five ferries, including the Toya Maru, sank in the Tsugaru Strait during a typhoon, killing 1,430 passengers.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-seikan"
+      ]
+    },
+    {
+      "id": "dig",
+      "text": "Drilling began in 1972 from both sides, and 34 workers were killed during construction. To avoid danger from earthquakes the tunnel goes through dense volcanic rock.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-seikan"
+      ]
+    },
+    {
+      "id": "ferry",
+      "text": "Ferry traffic predictions made in 1971 were overestimates: traffic peaked in 1978, earlier than predicted, and then decreased, and the ferry was mostly supplanted by air travel.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-seikan"
+      ]
+    },
+    {
+      "id": "shinkansen",
+      "text": "The tunnel forms part of the standard-gauge Hokkaido Shinkansen as well as the narrow-gauge Kaikyo Line, and has two tracks.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-seikan"
+      ]
+    }
+  ],
+  "places": {
+    "shiriuchi-portal": {
+      "lon": 140.321806,
+      "lat": 41.592278,
+      "source": "wikipedia-seikan",
+      "note": "Hokkaido portal, infobox coordinates."
+    },
+    "imabetsu-portal": {
+      "lon": 140.458333,
+      "lat": 41.177611,
+      "source": "wikipedia-seikan",
+      "note": "Honshu portal, infobox coordinates."
+    }
+  },
+  "datasets": {},
+  "sources": {
+    "wikipedia-seikan": {
+      "label": "Wikipedia: Seikan Tunnel (revision 1374650040)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Seikan_Tunnel&oldid=1374650040"
+    },
+    "noaa-etopo": {
+      "label": "NOAA NCEI ETOPO 2022 Global Relief Model (public domain)",
+      "url": "https://doi.org/10.25921/fd45-gt74"
+    },
+    "natural-earth": {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  }
+}

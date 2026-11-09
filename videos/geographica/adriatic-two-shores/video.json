@@ -1,0 +1,551 @@
+{
+  "schemaVersion": 2,
+  "id": "adriatic-two-shores",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica",
+    "wordmark": {
+      "lead": "GEO",
+      "accent": "GRAPHICA"
+    },
+    "fonts": {
+      "display": "Oswald",
+      "body": "Inter"
+    },
+    "captions": {
+      "mode": "words"
+    }
+  },
+  "title": "One Sea, Two Very Different Coasts",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "comparison",
+    "numberRelevant": true,
+    "premise": "Measured the same way on one outline, Croatia's Adriatic shore is far more tangled than Italy's.",
+    "audiencePromise": "Measure two coasts of one sea the same way.",
+    "openLoop": "Which shore is longer?",
+    "payoff": "Measured on one outline, Croatia's shore with its islands is about 11 times its straight line and Italy's about 4.",
+    "targetEmotion": "surprise",
+    "engagementQuestion": "Which shore would you rather sail along?",
+    "targetSecondsBetweenVisualChanges": 0.7
+  },
+  "subject": {
+    "name": "Adriatic Sea",
+    "category": "Border",
+    "attributes": {
+      "geoEntity": "water:adriatic-sea"
+    }
+  },
+  "related": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#050818",
+    "surface": "#18284f",
+    "primary": "#ff3d9a",
+    "secondary": "#6c5ce7",
+    "ink": "#ffffff"
+  },
+  "look": "neon",
+  "framing": {
+    "opening": "bleed",
+    "ending": "loop"
+  },
+  "coast": "fine",
+  "audio": {
+    "music": "generated/adriatic-two-shores-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 96,
+      "notes": [
+        98,
+        116.54,
+        130.81,
+        146.83,
+        130.81,
+        116.54,
+        87.31,
+        98
+      ]
+    },
+    "voice": {
+      "provider": "elevenlabs",
+      "model": "eleven_v4",
+      "voice": "JBFqnCBsd6RMkjVDRZzb",
+      "instructions": "Warm, curious storyteller walking a friend across a map. Clear and confident, with a sense of discovery on each reveal; slow slightly on dates and place names so they land. Conversational and human, never a documentary announcer, lecture, or neutral TTS. Never imitate a known person or character.",
+      "speed": 1.06,
+      "output": "generated/adriatic-two-shores-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "cleared",
+    "publicReleaseApproved": true,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      },
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.soest.hawaii.edu/pwessel/gshhg/gshhg-shp-2.3.7.zip",
+        "owner": "GSHHG coastlines (Wessel & Smith)",
+        "licenseStatus": "licensed",
+        "publicReleaseApproved": true,
+        "notes": "Coastlines: GSHHG v2.3.7 (Wessel & Smith, SOEST / NOAA), LGPL."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "durationSeconds": 4,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "comparison",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "THE ADRIATIC SEA",
+      "headline": "TWO SHORES, ONE SEA",
+      "narration": "Two shores face each other across one sea.",
+      "caption": "ONE SEA, TWO VERY DIFFERENT COASTS",
+      "visual": "hook",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                4,
+                33,
+                26,
+                48
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                11,
+                39,
+                21,
+                47
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "water:adriatic-sea",
+            "style": "fill",
+            "at": 0.3
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "water:adriatic-sea",
+            "text": "ADRIATIC SEA",
+            "at": 0.4
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "sea"
+      }
+    },
+    {
+      "id": "evidence",
+      "durationSeconds": 6.1,
+      "beat": "evidence",
+      "role": "evidence",
+      "shot": "wide",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "ITALY",
+      "headline": "1,885 KM OF COAST",
+      "narration": "Italy's shore: 1,885 kilometres of coast, 721 in a straight line.",
+      "caption": "ITALIAN SHORE: 1,885 KM OF COAST, 721 KM STRAIGHT (MEASURED ON GSHHG)",
+      "visual": "gauntlet",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                10.5,
+                39.5,
+                19.5,
+                46.5
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                12,
+                43,
+                16.5,
+                46
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:ITA",
+            "style": "outline",
+            "at": 0.2
+          }
+        ],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 13.76,
+              "lat": 45.64
+            },
+            "text": "TRIESTE",
+            "at": 0.3
+          },
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 18.49,
+              "lat": 40.15
+            },
+            "text": "OTRANTO",
+            "at": 0.5
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "sea"
+      }
+    },
+    {
+      "id": "evidence-2",
+      "durationSeconds": 5.2,
+      "beat": "evidence",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "CROATIA",
+      "headline": "1,697 KM OF COAST",
+      "narration": "Croatia's mainland shore: 1,697 kilometres, over just 514 straight.",
+      "caption": "CROATIAN SHORE: 1,697 KM OF COAST, 514 KM STRAIGHT (MEASURED ON GSHHG)",
+      "visual": "advantage",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                11.5,
+                42.5,
+                16,
+                46
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                15,
+                42,
+                19.5,
+                45.5
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:HRV",
+            "style": "outline",
+            "at": 0.2
+          }
+        ],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "sea"
+      }
+    },
+    {
+      "id": "escalation",
+      "durationSeconds": 6,
+      "beat": "escalation",
+      "role": "escalation",
+      "shot": "tracking",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "THE ISLANDS",
+      "headline": "750 ISLANDS AND ISLETS",
+      "narration": "Add 750 islands and islets, and it grows to 5,861 kilometres.",
+      "caption": "750 ISLANDS AND ISLETS IN THIS OUTLINE: 5,861 KM OF SHORE",
+      "visual": "race",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                13.5,
+                42.3,
+                19,
+                46
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                15.6,
+                43,
+                17.4,
+                44.2
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:HRV",
+            "style": "fill",
+            "at": 0.1
+          }
+        ],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "sea"
+      }
+    },
+    {
+      "id": "escalation-4",
+      "durationSeconds": 4.5,
+      "beat": "escalation",
+      "role": "escalation",
+      "shot": "comparison",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "ITALY AGAIN",
+      "headline": "3,104 KM WITH ISLANDS",
+      "narration": "Italy's, with its own islets, comes to 3,104.",
+      "caption": "ITALY WITH ITS ISLETS: 3,104 KM (MEASURED ON GSHHG)",
+      "visual": "race",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                12,
+                44.3,
+                13.9,
+                45.7
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                10.5,
+                39.5,
+                19.5,
+                46.5
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:ITA",
+            "style": "outline",
+            "at": 0.1
+          }
+        ],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "sea"
+      }
+    },
+    {
+      "id": "twist",
+      "durationSeconds": 5.7,
+      "beat": "twist",
+      "role": "twist",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "THE RATIO",
+      "headline": "11 TIMES AGAINST 4",
+      "narration": "East: about 11 times its straight line. West: about 4.",
+      "caption": "EAST SHORE ABOUT 11 TIMES ITS STRAIGHT LINE, WEST ABOUT 4",
+      "visual": "tradeoff",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                12,
+                41,
+                18,
+                46.5
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                9,
+                38,
+                21,
+                47.5
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:HRV",
+            "style": "outline",
+            "at": 0.1
+          },
+          {
+            "entity": "country:ITA",
+            "style": "outline",
+            "at": 0.1
+          }
+        ],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "sea"
+      }
+    },
+    {
+      "id": "verdict",
+      "durationSeconds": 3.8,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "YOUR TURN",
+      "headline": "WHICH SHORE?",
+      "narration": "Which shore would you rather sail along?",
+      "caption": "WHICH SHORE WOULD YOU SAIL?",
+      "visual": "cta",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                9,
+                38,
+                21,
+                47.5
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                4,
+                33,
+                26,
+                48
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "water:adriatic-sea",
+            "style": "fill",
+            "at": 0.2
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "water:adriatic-sea",
+            "text": "ADRIATIC SEA",
+            "at": 0.3
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "sea"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia: Adriatic Sea (revision 1384020640)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Adriatic_Sea&oldid=1384020640"
+    },
+    {
+      "label": "Wikipedia: List of islands of Croatia (revision 1344437444)",
+      "url": "https://en.wikipedia.org/w/index.php?title=List_of_islands_of_Croatia&oldid=1344437444"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    },
+    {
+      "label": "Measured by us on the GSHHG v2.3.7 full-resolution outline (Wessel & Smith, SOEST / NOAA, LGPL); not official coast lengths",
+      "url": "https://www.soest.hawaii.edu/pwessel/gshhg/"
+    }
+  ]
+}

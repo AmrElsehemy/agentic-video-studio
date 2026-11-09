@@ -1,0 +1,416 @@
+{
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica"
+  },
+  "voice": {
+    "provider": "elevenlabs",
+    "voice": "JBFqnCBsd6RMkjVDRZzb"
+  },
+  "id": "coastline-paradox",
+  "title": "Britain's Coast Gets Longer With a Smaller Ruler",
+  "storyPattern": "mechanic",
+  "numberRelevant": true,
+  "premise": "Great Britain's coast measures 1,000 km with a 500 km ruler and 5,590 km with a 10 km one, on the same outline.",
+  "audiencePromise": "Measure a coast with shorter and shorter rulers.",
+  "openLoop": "How long is the coast, really?",
+  "payoff": "The same outline measures 1,000 km with a 500 km ruler, 2,800 km with 100 km, 5,590 km with 10 km, and 10,127 km point by point.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "Which ruler would you choose?",
+  "subject": {
+    "name": "Great Britain",
+    "category": "Border",
+    "attributes": {
+      "geoEntity": "country:GBR"
+    }
+  },
+  "rights": {
+    "releaseStatus": "cleared",
+    "publicReleaseApproved": true,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "eyebrow": "THE COASTLINE PARADOX",
+      "headline": "HOW LONG IS BRITAIN'S COAST?",
+      "narration": "Britain's coast has no single length.",
+      "caption": "MEASURED FROM ONE OUTLINE OF GREAT BRITAIN",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -12,
+                48,
+                6,
+                61
+              ]
+            },
+            "at": 0,
+            "padding": 0.05,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -6.5,
+                49.8,
+                2,
+                56
+              ]
+            },
+            "at": 0.8,
+            "padding": 0.05,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": -2.5,
+              "lat": 53.5
+            },
+            "text": "GREAT BRITAIN",
+            "at": 0.3
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "evidence",
+      "beat": "evidence",
+      "eyebrow": "A LONG RULER",
+      "headline": "500 KM: 1,000 KM",
+      "narration": "A 500 kilometre ruler takes two steps: 1,000 kilometres.",
+      "caption": "500 KM RULER · 2 STEPS · MEASURED FROM THIS OUTLINE",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -6.5,
+                49.8,
+                2,
+                56
+              ]
+            },
+            "at": 0,
+            "padding": 0.05,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -6.5,
+                49.8,
+                -0.5,
+                52.2
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.08,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "figure": {
+          "value": 1000,
+          "unit": "KM",
+          "text": "500 KM RULER",
+          "decimals": 0,
+          "at": 0.3
+        }
+      }
+    },
+    {
+      "id": "escalation",
+      "beat": "escalation",
+      "eyebrow": "A SHORTER RULER",
+      "headline": "100 KM: 2,800 KM",
+      "narration": "A 100 kilometre ruler takes 28 steps: 2,800 kilometres.",
+      "caption": "100 KM RULER · 28 STEPS · MEASURED FROM THIS OUTLINE",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -6.5,
+                49.8,
+                -0.5,
+                52.2
+              ]
+            },
+            "at": 0,
+            "padding": 0.08,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -8,
+                54.8,
+                -2.5,
+                58.8
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.08,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "figure": {
+          "value": 2800,
+          "unit": "KM",
+          "text": "100 KM RULER",
+          "decimals": 0,
+          "at": 0.3
+        }
+      }
+    },
+    {
+      "id": "payoff",
+      "beat": "payoff",
+      "eyebrow": "A TINY RULER",
+      "headline": "10 KM: 5,590 KM",
+      "narration": "At 25 kilometres it is 4,375. At 10 kilometres, 5,590.",
+      "caption": "25 KM RULER: 4,375 KM · 10 KM RULER: 5,590 KM",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -9,
+                54.5,
+                0,
+                60.5
+              ]
+            },
+            "at": 0,
+            "padding": 0.05,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -6.2,
+                57.6,
+                -3.4,
+                58.8
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "figure": {
+          "value": 5590,
+          "unit": "KM",
+          "text": "10 KM RULER",
+          "decimals": 0,
+          "at": 0.3
+        }
+      }
+    },
+    {
+      "id": "payoff-4",
+      "beat": "payoff",
+      "eyebrow": "SAME COAST",
+      "headline": "SHORTER RULER, LONGER COAST",
+      "narration": "At 200 kilometres, 2,400. At 50, 3,450.",
+      "caption": "200 KM RULER: 2,400 KM · 50 KM RULER: 3,450 KM · MEASURED BY GEOGRAPHICA",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -4,
+                51.5,
+                3,
+                57
+              ]
+            },
+            "at": 0,
+            "padding": 0.05,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -2.2,
+                53.6,
+                1.4,
+                55.6
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "figure": {
+          "value": 3450,
+          "unit": "KM",
+          "text": "50 KM RULER",
+          "decimals": 0,
+          "at": 0.3
+        }
+      }
+    },
+    {
+      "id": "payoff-5",
+      "beat": "payoff",
+      "eyebrow": "EVERY POINT",
+      "headline": "10,127 KM",
+      "narration": "Follow every single point of the outline and you get 10,127 kilometres.",
+      "caption": "EVERY POINT OF THE OUTLINE: 10,127 KM · MEASURED FROM THIS OUTLINE",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -5.8,
+                49.9,
+                -3.6,
+                51.3
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -12,
+                48,
+                6,
+                61
+              ]
+            },
+            "at": 0.9,
+            "padding": 0.05,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "figure": {
+          "value": 10127,
+          "unit": "KM",
+          "text": "EVERY POINT",
+          "decimals": 0,
+          "at": 0.3
+        }
+      }
+    },
+    {
+      "id": "verdict",
+      "beat": "verdict",
+      "eyebrow": "YOUR TURN",
+      "headline": "WHICH RULER WOULD YOU PICK?",
+      "narration": "So how long is the coast? It depends on the ruler.",
+      "caption": "WHICH RULER WOULD YOU CHOOSE?",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -6.5,
+                49.8,
+                2,
+                56
+              ]
+            },
+            "at": 0,
+            "padding": 0.05,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -12,
+                48,
+                6,
+                61
+              ]
+            },
+            "at": 0.9,
+            "padding": 0.05,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": -2.5,
+              "lat": 53.5
+            },
+            "text": "GREAT BRITAIN",
+            "at": 0.3
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "label": "Measured by Geographica on the GSHHG v2.3.7 full-resolution outline (Wessel & Smith, SOEST / NOAA, LGPL)",
+      "url": "https://www.soest.hawaii.edu/pwessel/gshhg/"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ],
+  "paletteVariant": "light",
+  "framing": {
+    "ending": "loop",
+    "opening": "bleed"
+  }
+}

@@ -1,0 +1,415 @@
+{
+  "id": "tierra-del-fuego-split",
+  "title": "The Island Cut in Two by a Line",
+  "storyPattern": "transformation",
+  "numberRelevant": true,
+  "premise": "Argentina and Chile both claimed all of Tierra del Fuego until an 1881 treaty split it along a meridian.",
+  "audiencePromise": "See how one line divided an island.",
+  "openLoop": "Why does Argentina's part need a drive through Chile?",
+  "payoff": "An 1881 treaty gave Chile 61.43% of the 48,100 km² island and Argentina 38.57%.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "Would you drive through another country to get home?",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica"
+  },
+  "subject": {
+    "name": "Tierra del Fuego",
+    "category": "Border",
+    "attributes": {
+      "geoEntity": "country:ARG"
+    }
+  },
+  "voice": {
+    "provider": "elevenlabs",
+    "voice": "JBFqnCBsd6RMkjVDRZzb"
+  },
+  "rights": {
+    "releaseStatus": "cleared",
+    "publicReleaseApproved": true,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "eyebrow": "TIERRA DEL FUEGO",
+      "headline": "ONE LINE, TWO COUNTRIES",
+      "narration": "One straight line cuts this island in two.",
+      "caption": "ONE ISLAND, TWO COUNTRIES",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -78,
+                -57.5,
+                -62,
+                -51.6
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -75,
+                -56,
+                -64,
+                -52.2
+              ]
+            },
+            "at": 0.8,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:CHL",
+            "style": "fill",
+            "at": 0.3
+          }
+        ],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "evidence",
+      "eyebrow": "THE ISLAND",
+      "headline": "48,100 KM²",
+      "narration": "The big island covers forty-eight thousand one hundred square kilometres.",
+      "caption": "ISLA GRANDE: 48,100 KM²",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -75,
+                -56,
+                -64,
+                -52.2
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -74,
+                -55.2,
+                -66,
+                -52.4
+              ]
+            },
+            "at": 0.9,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": -69,
+              "lat": -54
+            },
+            "text": "ISLA GRANDE",
+            "at": 0.3
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      },
+      "beat": "before"
+    },
+    {
+      "id": "escalation",
+      "eyebrow": "THE SPLIT",
+      "headline": "61.43% / 38.57%",
+      "narration": "Chile gets 61.43 percent. Argentina gets 38.57.",
+      "caption": "CHILE 61.43% · ARGENTINA 38.57%",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -74,
+                -55.2,
+                -66,
+                -52.4
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -69.6,
+                -54.7,
+                -67.6,
+                -53.7
+              ]
+            },
+            "at": 0.9,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:CHL",
+            "style": "fill",
+            "at": 0.1
+          }
+        ],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      },
+      "beat": "change"
+    },
+    {
+      "id": "payoff",
+      "eyebrow": "BEFORE 1881",
+      "headline": "BOTH WANTED ALL",
+      "narration": "Before 1881, both countries claimed all of it.",
+      "caption": "1881: A TREATY DIVIDED IT",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -69.6,
+                -54.7,
+                -67.6,
+                -53.7
+              ]
+            },
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -73.5,
+                -55,
+                -66.5,
+                -52.5
+              ]
+            },
+            "at": 0.9,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:CHL",
+            "style": "fill",
+            "at": 0.3
+          }
+        ],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      },
+      "beat": "reveal"
+    },
+    {
+      "id": "payoff-5",
+      "eyebrow": "THE SOUTH",
+      "headline": "1984 TREATY",
+      "narration": "In 1984, a treaty settled the southern end.",
+      "caption": "1984: THE SOUTHERN END SETTLED",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -73.5,
+                -55,
+                -66.5,
+                -52.5
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -70.5,
+                -55,
+                -68,
+                -53.8
+              ]
+            },
+            "at": 0.9,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:CHL",
+            "style": "fill",
+            "at": 0.2
+          }
+        ],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      },
+      "beat": "aftermath"
+    },
+    {
+      "id": "payoff-6",
+      "eyebrow": "THE DRIVE",
+      "headline": "220 KM THROUGH CHILE",
+      "narration": "By road, Argentina's part is about 220 kilometres through Chile.",
+      "caption": "ABOUT 220 KM THROUGH CHILE",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -70.5,
+                -55,
+                -68,
+                -53.8
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -72,
+                -55,
+                -64,
+                -51.8
+              ]
+            },
+            "at": 0.9,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:ARG",
+            "style": "fill",
+            "at": 0.1
+          }
+        ],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      },
+      "beat": "aftermath"
+    },
+    {
+      "id": "verdict",
+      "eyebrow": "YOUR TURN",
+      "headline": "THROUGH ANOTHER COUNTRY?",
+      "narration": "Would you drive through another country to get home?",
+      "caption": "WOULD YOU DRIVE THROUGH ANOTHER COUNTRY TO GET HOME?",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -72,
+                -55,
+                -64,
+                -51.8
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -78,
+                -57.5,
+                -62,
+                -51.6
+              ]
+            },
+            "at": 0.9,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:CHL",
+            "style": "fill",
+            "at": 0.1
+          }
+        ],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      },
+      "beat": "verdict"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia: Tierra del Fuego (revision 1369656873)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Tierra_del_Fuego&oldid=1369656873"
+    },
+    {
+      "label": "Wikipedia: Argentina–Chile border (revision 1368377483)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Argentina%E2%80%93Chile_border&oldid=1368377483"
+    },
+    {
+      "label": "Wikipedia: Beagle conflict (revision 1374774533)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Beagle_conflict&oldid=1374774533"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ],
+  "paletteVariant": "atlas",
+  "framing": {
+    "opening": "bleed",
+    "ending": "loop"
+  }
+}

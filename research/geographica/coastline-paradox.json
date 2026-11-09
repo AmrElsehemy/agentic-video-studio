@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "id": "coastline-paradox",
+  "subject": "United Kingdom",
+  "kind": "curated",
+  "note": "Every number is measured by us from one pinned outline: the GSHHG v2.3.7 full-resolution land outline of Great Britain (49,153 points). A ruler of fixed length is walked once round the outline from its first point, counting steps (the divider method), with distances on a sphere of radius 6,371 km. These are measurements of that outline, not official coast lengths, and the walk stops where the last full step ends, so the figure is a lower bound for each ruler. No published figure is used.",
+  "regions": [
+    "United Kingdom",
+    "Ireland",
+    "France"
+  ],
+  "claims": [
+    {
+      "id": "full",
+      "text": "Following every point of the outline gives 10,127 km.",
+      "tier": "official",
+      "sources": [
+        "gshhg-measured"
+      ]
+    },
+    {
+      "id": "r500",
+      "text": "A 500 km ruler walked round Great Britain takes 2 steps, 1,000 km.",
+      "tier": "official",
+      "sources": [
+        "gshhg-measured"
+      ]
+    },
+    {
+      "id": "r200",
+      "text": "A 200 km ruler takes 12 steps, 2,400 km.",
+      "tier": "official",
+      "sources": [
+        "gshhg-measured"
+      ]
+    },
+    {
+      "id": "r100",
+      "text": "A 100 km ruler takes 28 steps, 2,800 km.",
+      "tier": "official",
+      "sources": [
+        "gshhg-measured"
+      ]
+    },
+    {
+      "id": "r50",
+      "text": "A 50 km ruler takes 69 steps, 3,450 km.",
+      "tier": "official",
+      "sources": [
+        "gshhg-measured"
+      ]
+    },
+    {
+      "id": "r25",
+      "text": "A 25 km ruler takes 175 steps, 4,375 km.",
+      "tier": "official",
+      "sources": [
+        "gshhg-measured"
+      ]
+    },
+    {
+      "id": "r10",
+      "text": "A 10 km ruler takes 559 steps, 5,590 km.",
+      "tier": "official",
+      "sources": [
+        "gshhg-measured"
+      ]
+    }
+  ],
+  "places": {},
+  "sources": {
+    "gshhg-measured": {
+      "label": "Measured by us on the GSHHG v2.3.7 full-resolution outline (Wessel & Smith, SOEST / NOAA, LGPL)",
+      "url": "https://www.soest.hawaii.edu/pwessel/gshhg/"
+    },
+    "natural-earth": {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  }
+}

@@ -1,0 +1,106 @@
+{
+  "schemaVersion": 1,
+  "id": "greece-six-thousand",
+  "subject": "Greece",
+  "kind": "curated",
+  "note": "Cited to pinned Wikipedia revisions (trusted_secondary): List of islands of Greece, Geography of Greece, and the coastline list (CIA World Factbook figure via that page). The count of islands depends on the minimum size counted, which is the point: sources range from 1,200 to 6,000 islands, and 166 to 227 inhabited. The episode must give the range and say why, not one number as fact. The ranking of the biggest islands is the list page's table of areas. The island names (Crete, Euboea, Lesbos, Rhodes) are not in the map data, so they are not shown as named places and there is no island-area dataset; the areas are only for narration.",
+  "regions": [
+    "Turkey",
+    "Albania",
+    "Italy"
+  ],
+  "claims": [
+    {
+      "id": "range",
+      "text": "Greece has many islands, with estimates ranging from around 1,200 to 6,000, depending on the minimum size taken into account.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-greek-islands"
+      ]
+    },
+    {
+      "id": "inhabited",
+      "text": "The number of inhabited islands is variously cited as between 166 and 227.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-greek-islands"
+      ]
+    },
+    {
+      "id": "tourism",
+      "text": "The Greek National Tourism Organisation (Visit Greece) reports a figure of 6,000 islands, 227 of them inhabited.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-greek-islands"
+      ]
+    },
+    {
+      "id": "travel",
+      "text": "A figure frequently cited in travel guides is 1,425 islands, of which 166 are said to be inhabited.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-geography-greece"
+      ]
+    },
+    {
+      "id": "crete",
+      "text": "The largest Greek island by both area and population is Crete, at the southern edge of the Aegean Sea; its area is listed as 8,336 km2.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-greek-islands"
+      ]
+    },
+    {
+      "id": "euboea",
+      "text": "The second largest island in area is Euboea (Evia), 3,670 km2, separated from the mainland by the 60 m wide Euripus Strait.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-greek-islands"
+      ]
+    },
+    {
+      "id": "next-four",
+      "text": "The list gives Lesbos at 1,633 km2 and Rhodes at 1,401 km2 as the third and fourth largest; after those the rest of the islands are two-thirds of the area of Rhodes or smaller.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-greek-islands"
+      ]
+    },
+    {
+      "id": "clusters",
+      "text": "The Greek islands are traditionally grouped into the Saronic Islands, the Cyclades, the North Aegean islands, the Dodecanese, the Sporades and the Ionian Islands; Crete and Euboea are traditionally excluded from this grouping.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-greek-islands"
+      ]
+    },
+    {
+      "id": "coast",
+      "text": "The coastline list gives Greece 13,676 km (CIA World Factbook, including the coastline of outlying islands) and notes that a country carved by the sea like Greece is likely to have a high coast-to-area ratio.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-coastline-list"
+      ]
+    }
+  ],
+  "places": {},
+  "datasets": {},
+  "sources": {
+    "wikipedia-greek-islands": {
+      "label": "Wikipedia: List of islands of Greece (revision 1384139181)",
+      "url": "https://en.wikipedia.org/w/index.php?title=List_of_islands_of_Greece&oldid=1384139181"
+    },
+    "wikipedia-geography-greece": {
+      "label": "Wikipedia: Geography of Greece (revision 1379854931)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Geography_of_Greece&oldid=1379854931"
+    },
+    "wikipedia-coastline-list": {
+      "label": "Wikipedia: List of countries and dependencies by length of coastline (revision 1383664433)",
+      "url": "https://en.wikipedia.org/w/index.php?title=List_of_countries_and_dependencies_by_length_of_coastline&oldid=1383664433"
+    },
+    "natural-earth": {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  }
+}

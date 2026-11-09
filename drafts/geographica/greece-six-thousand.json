@@ -1,0 +1,417 @@
+{
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica"
+  },
+  "voice": {
+    "provider": "elevenlabs",
+    "voice": "JBFqnCBsd6RMkjVDRZzb"
+  },
+  "id": "greece-six-thousand",
+  "title": "How Many Islands Does Greece Have?",
+  "storyPattern": "profile",
+  "numberRelevant": true,
+  "premise": "Estimates of Greece's islands run from about 1,200 to 6,000 depending on the minimum size counted; inhabited ones from 166 to 227.",
+  "audiencePromise": "Count the Greek islands, and see why nobody agrees.",
+  "openLoop": "Why can nobody say how many islands Greece has?",
+  "payoff": "Sources give 1,200 to 6,000 islands and 166 to 227 inhabited, depending on the minimum size counted.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "How many would you count?",
+  "subject": {
+    "name": "Greece",
+    "category": "Border",
+    "attributes": {
+      "geoEntity": "country:GRC"
+    }
+  },
+  "rights": {
+    "releaseStatus": "cleared",
+    "publicReleaseApproved": true,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "eyebrow": "GREECE",
+      "headline": "1,200 OR 6,000?",
+      "narration": "Greece has between 1,200 and 6,000 islands.",
+      "caption": "ESTIMATES RANGE FROM 1,200 TO 6,000",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                18,
+                34,
+                30,
+                42
+              ]
+            },
+            "at": 0,
+            "padding": 0.05,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                22,
+                35,
+                28,
+                40
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.06,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:GRC",
+            "style": "fill",
+            "at": 0.08
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:GRC",
+            "text": "GREECE",
+            "at": 0.3
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "sea",
+        "figure": {
+          "value": 6000,
+          "unit": " ISLANDS",
+          "text": "AT MOST, BY ONE COUNT",
+          "decimals": 0,
+          "at": 0.35
+        }
+      },
+      "beat": "hook"
+    },
+    {
+      "id": "evidence",
+      "eyebrow": "WHY THE RANGE",
+      "headline": "IT DEPENDS ON SIZE",
+      "narration": "The count depends on the smallest size you allow.",
+      "caption": "LIST OF ISLANDS OF GREECE · WIKIPEDIA",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                21,
+                34.5,
+                29,
+                40
+              ]
+            },
+            "at": 0,
+            "padding": 0.05,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                23.5,
+                36,
+                27,
+                38
+              ]
+            },
+            "at": 0.9,
+            "padding": 0.06,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:GRC",
+            "style": "fill",
+            "at": 0.08
+          }
+        ],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "sea"
+      },
+      "beat": "evidence"
+    },
+    {
+      "id": "evidence-2",
+      "eyebrow": "LIVED ON",
+      "headline": "166 TO 227",
+      "narration": "Inhabited ones are fewer: between 166 and 227.",
+      "caption": "INHABITED ISLANDS: 166 TO 227",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                23.5,
+                36,
+                27,
+                38
+              ]
+            },
+            "at": 0,
+            "padding": 0.06,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                25,
+                35.4,
+                29,
+                37.6
+              ]
+            },
+            "at": 0.9,
+            "padding": 0.06,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "sea",
+        "figure": {
+          "value": 227,
+          "unit": " ISLANDS",
+          "text": "INHABITED, AT MOST",
+          "decimals": 0,
+          "at": 0.35
+        }
+      },
+      "beat": "evidence"
+    },
+    {
+      "id": "escalation",
+      "eyebrow": "TWO COUNTS",
+      "headline": "TOURISM VS TRAVEL GUIDES",
+      "narration": "The tourism board says 6,000, with 227 inhabited.",
+      "caption": "VISIT GREECE · LIST OF ISLANDS OF GREECE",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                18.5,
+                36,
+                23,
+                40.5
+              ]
+            },
+            "at": 0,
+            "padding": 0.05,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                19,
+                37,
+                22,
+                40
+              ]
+            },
+            "at": 0.9,
+            "padding": 0.08,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:GRC",
+            "style": "fill",
+            "at": 0.08
+          }
+        ],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "sea"
+      },
+      "beat": "escalation"
+    },
+    {
+      "id": "escalation-4",
+      "eyebrow": "THE OTHER COUNT",
+      "headline": "1,425 IN GUIDEBOOKS",
+      "narration": "A travel-guide figure says 1,425, with 166 inhabited.",
+      "caption": "FREQUENTLY CITED IN TRAVEL GUIDES",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                22.5,
+                38,
+                27,
+                41
+              ]
+            },
+            "at": 0,
+            "padding": 0.05,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                23,
+                39,
+                25.5,
+                40.8
+              ]
+            },
+            "at": 0.9,
+            "padding": 0.06,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "sea",
+        "figure": {
+          "value": 1425,
+          "unit": " ISLANDS",
+          "text": "IN TRAVEL GUIDES",
+          "decimals": 0,
+          "at": 0.35
+        }
+      },
+      "beat": "escalation"
+    },
+    {
+      "id": "twist",
+      "eyebrow": "THE BIGGEST",
+      "headline": "8,336 KM²",
+      "narration": "The biggest, Crete, covers 8,336 square kilometres.",
+      "caption": "LARGEST ISLAND BY AREA · WIKIPEDIA",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                18,
+                34,
+                30,
+                42
+              ]
+            },
+            "at": 0,
+            "padding": 0.04,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                23.3,
+                34.7,
+                26.6,
+                35.8
+              ]
+            },
+            "at": 0.9,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "sea"
+      },
+      "beat": "twist"
+    },
+    {
+      "id": "verdict",
+      "eyebrow": "YOUR COUNT",
+      "headline": "HOW MANY?",
+      "narration": "So how many would you count?",
+      "caption": "1,200 TO 6,000 · DEPENDS ON THE RULE",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                23.3,
+                34.7,
+                26.6,
+                35.8
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                18,
+                34,
+                30,
+                42
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.05,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:GRC",
+            "style": "fill",
+            "at": 0.08
+          }
+        ],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "sea"
+      },
+      "beat": "verdict"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia: List of islands of Greece (revision 1384139181)",
+      "url": "https://en.wikipedia.org/w/index.php?title=List_of_islands_of_Greece&oldid=1384139181"
+    },
+    {
+      "label": "Wikipedia: Geography of Greece (revision 1379854931)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Geography_of_Greece&oldid=1379854931"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ],
+  "framing": {
+    "ending": "loop",
+    "opening": "bleed"
+  }
+}

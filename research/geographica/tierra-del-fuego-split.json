@@ -1,0 +1,97 @@
+{
+  "schemaVersion": 1,
+  "id": "tierra-del-fuego-split",
+  "subject": "Chile",
+  "kind": "curated",
+  "note": "Cited to pinned Wikipedia revisions (trusted_secondary): Tierra del Fuego, Argentina–Chile border and Beagle conflict. The Tierra del Fuego page gives two island areas (73,746 km2 in its lead, 48,100 km2 under Geography, which also gives the Chile and Argentina parts); the lead figure is not used. The page text writes the 1881 meridian as 68°34 W, so no exact meridian is stated on screen. BORDERS REVIEW NEEDED before release: the frame should stay on the island and the straight meridian line; it must not show or label the Picton, Nueva and Lennox islands or the Beagle Channel maritime limits, and must not show the Southern Patagonian Ice Field, where the Argentina–Chile border is still undefined.",
+  "regions": [
+    "Argentina",
+    "Chile"
+  ],
+  "claims": [
+    {
+      "id": "island",
+      "text": "The main island, Isla Grande de Tierra del Fuego, has an area of 48,100 km2.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-tdf"
+      ]
+    },
+    {
+      "id": "split",
+      "text": "Of the main island, the westernmost 29,484.7 km2 (61.43%) belongs to Chile, and 18,507.3 km2 (38.57%) belongs to Argentina.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-tdf"
+      ]
+    },
+    {
+      "id": "both",
+      "text": "Before the Boundary Treaty of 1881, Tierra del Fuego had been claimed in its entirety by both Argentina and Chile; the treaty divided it between them.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-tdf"
+      ]
+    },
+    {
+      "id": "meridian",
+      "text": "On the island of Tierra del Fuego the Argentina–Chile border follows a meridian that divides the island in two, reaching the sea at the Beagle Channel a few kilometres southwest of Ushuaia.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-border"
+      ]
+    },
+    {
+      "id": "treaty-1881",
+      "text": "The 1881 treaty set the border south of the Strait of Magellan mainly along the meridian 68°34 W and the Beagle Channel.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-beagle"
+      ]
+    },
+    {
+      "id": "treaty-1984",
+      "text": "In November 1984 the southern border area was finally established by the Treaty of Peace and Friendship, after negotiations and the mediation of John Paul II.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-border"
+      ]
+    },
+    {
+      "id": "byroad",
+      "text": "Argentina's Tierra del Fuego requires a drive of about 220 km through Chile from the nearest other part of Argentina.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-border"
+      ]
+    },
+    {
+      "id": "longest",
+      "text": "The Argentina–Chile border, 5,308 km long, is the longest international border of South America.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-border"
+      ]
+    }
+  ],
+  "places": {},
+  "datasets": {},
+  "sources": {
+    "wikipedia-tdf": {
+      "label": "Wikipedia: Tierra del Fuego (revision 1369656873)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Tierra_del_Fuego&oldid=1369656873"
+    },
+    "wikipedia-border": {
+      "label": "Wikipedia: Argentina–Chile border (revision 1368377483)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Argentina%E2%80%93Chile_border&oldid=1368377483"
+    },
+    "wikipedia-beagle": {
+      "label": "Wikipedia: Beagle conflict (revision 1374774533)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Beagle_conflict&oldid=1374774533"
+    },
+    "natural-earth": {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  }
+}

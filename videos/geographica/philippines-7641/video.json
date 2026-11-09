@@ -1,0 +1,570 @@
+{
+  "schemaVersion": 2,
+  "id": "philippines-7641",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica",
+    "wordmark": {
+      "lead": "GEO",
+      "accent": "GRAPHICA"
+    },
+    "fonts": {
+      "display": "Oswald",
+      "body": "Inter"
+    },
+    "captions": {
+      "mode": "words"
+    }
+  },
+  "title": "7,641 Islands, but Eleven Hold 95% of the Land",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "profile",
+    "numberRelevant": true,
+    "premise": "The Philippines has 7,641 islands, but eleven of them make up 95% of the land.",
+    "audiencePromise": "See how few islands carry the country.",
+    "openLoop": "How can 7,641 islands be mostly eleven?",
+    "payoff": "Luzon (about 105,000 km²) and Mindanao (about 95,000) lead; more than 5,000 islands are not yet officially named.",
+    "targetEmotion": "surprise",
+    "engagementQuestion": "Could you name them all?",
+    "targetSecondsBetweenVisualChanges": 0.72
+  },
+  "subject": {
+    "name": "The Philippines",
+    "category": "Border",
+    "attributes": {
+      "geoEntity": "country:PHL"
+    }
+  },
+  "related": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#cfe9f2",
+    "surface": "#f4e3b8",
+    "primary": "#d9482b",
+    "secondary": "#2a7fa6",
+    "ink": "#14263a"
+  },
+  "look": "atlas",
+  "framing": {
+    "ending": "loop"
+  },
+  "coast": "fine",
+  "audio": {
+    "music": "generated/philippines-7641-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 96,
+      "notes": [
+        98,
+        116.54,
+        130.81,
+        146.83,
+        130.81,
+        116.54,
+        87.31,
+        98
+      ]
+    },
+    "voice": {
+      "provider": "elevenlabs",
+      "model": "eleven_v4",
+      "voice": "JBFqnCBsd6RMkjVDRZzb",
+      "instructions": "Warm, curious storyteller walking a friend across a map. Clear and confident, with a sense of discovery on each reveal; slow slightly on dates and place names so they land. Conversational and human, never a documentary announcer, lecture, or neutral TTS. Never imitate a known person or character.",
+      "speed": 1.06,
+      "output": "generated/philippines-7641-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "cleared",
+    "publicReleaseApproved": true,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      },
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.soest.hawaii.edu/pwessel/gshhg/gshhg-shp-2.3.7.zip",
+        "owner": "GSHHG coastlines (Wessel & Smith)",
+        "licenseStatus": "licensed",
+        "publicReleaseApproved": true,
+        "notes": "Coastlines: GSHHG v2.3.7 (Wessel & Smith, SOEST / NOAA), LGPL."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "durationSeconds": 3.8,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "mystery",
+      "subjectFocus": "hidden",
+      "beatEverySeconds": 0.72,
+      "eyebrow": "THE PHILIPPINES",
+      "headline": "7,641 ISLANDS",
+      "narration": "The Philippines has 7,641 islands.",
+      "caption": "THE PHILIPPINES HAS 7,641 ISLANDS",
+      "visual": "hook",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                108,
+                -2,
+                136,
+                26
+              ]
+            },
+            "at": 0,
+            "padding": 0.05,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                116,
+                4.5,
+                127,
+                21.5
+              ]
+            },
+            "at": 0.8,
+            "padding": 0.06,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:PHL",
+            "style": "fill",
+            "at": 0.25
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:PHL",
+            "text": "THE PHILIPPINES",
+            "at": 0.5
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "figure": {
+          "value": 7641,
+          "text": "ISLANDS",
+          "decimals": 0,
+          "at": 0.35
+        }
+      }
+    },
+    {
+      "id": "eleven",
+      "durationSeconds": 5.6,
+      "beat": "evidence",
+      "role": "evidence",
+      "shot": "tracking",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.72,
+      "eyebrow": "THE BIG ONES",
+      "headline": "ELEVEN HOLD 95%",
+      "narration": "But eleven of them make up 95 percent of the land.",
+      "caption": "ELEVEN ISLANDS · 95% OF THE LAND",
+      "visual": "gauntlet",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                116,
+                4.5,
+                127,
+                21.5
+              ]
+            },
+            "at": 0,
+            "padding": 0.06,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                119,
+                6,
+                127,
+                19
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.06,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:PHL",
+            "style": "fill",
+            "at": 0.15
+          }
+        ],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "figure": {
+          "value": 95,
+          "unit": "%",
+          "text": "ON ELEVEN ISLANDS",
+          "decimals": 0,
+          "at": 0.3
+        }
+      }
+    },
+    {
+      "id": "luzon",
+      "durationSeconds": 4.9,
+      "beat": "evidence",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.72,
+      "eyebrow": "THE BIGGEST",
+      "headline": "LUZON",
+      "narration": "Luzon is the biggest, at about 105,000 square kilometres.",
+      "caption": "LUZON · ABOUT 105,000 KM²",
+      "visual": "advantage",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                119,
+                6,
+                127,
+                19
+              ]
+            },
+            "at": 0,
+            "padding": 0.06,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                119.6,
+                12.5,
+                124.4,
+                19
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.06,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 121,
+              "lat": 16
+            },
+            "text": "LUZON",
+            "at": 0.35
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "figure": {
+          "value": 105000,
+          "unit": "KM²",
+          "text": "LUZON",
+          "decimals": 0,
+          "at": 0.3
+        }
+      }
+    },
+    {
+      "id": "mindanao",
+      "durationSeconds": 3.8,
+      "beat": "evidence",
+      "role": "evidence",
+      "shot": "wide",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.72,
+      "eyebrow": "THE SECOND",
+      "headline": "MINDANAO",
+      "narration": "Mindanao follows, at about 95,000.",
+      "caption": "MINDANAO · ABOUT 95,000 KM²",
+      "visual": "gauntlet",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                119.6,
+                12.5,
+                124.4,
+                19
+              ]
+            },
+            "at": 0,
+            "padding": 0.06,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                121.8,
+                5,
+                127,
+                10.6
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.06,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 125,
+              "lat": 8
+            },
+            "text": "MINDANAO",
+            "at": 0.35
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "figure": {
+          "value": 95000,
+          "unit": "KM²",
+          "text": "MINDANAO",
+          "decimals": 0,
+          "at": 0.3
+        }
+      }
+    },
+    {
+      "id": "unnamed",
+      "durationSeconds": 5.7,
+      "beat": "escalation",
+      "role": "escalation",
+      "shot": "comparison",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.72,
+      "eyebrow": "THE REST",
+      "headline": "5,000 UNNAMED",
+      "narration": "More than 5,000 of the islands have no official name yet.",
+      "caption": "MORE THAN 5,000 ISLANDS NOT YET OFFICIALLY NAMED",
+      "visual": "race",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                121.8,
+                5,
+                127,
+                10.6
+              ]
+            },
+            "at": 0,
+            "padding": 0.06,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                120,
+                8.5,
+                126.5,
+                13.5
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.04,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:PHL",
+            "style": "fill",
+            "at": 0.15
+          }
+        ],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "figure": {
+          "value": 5000,
+          "text": "MORE THAN, UNNAMED",
+          "decimals": 0,
+          "at": 0.3
+        }
+      }
+    },
+    {
+      "id": "sea",
+      "durationSeconds": 5.9,
+      "beat": "twist",
+      "role": "twist",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.72,
+      "eyebrow": "THE SEA",
+      "headline": "2.26 MILLION KM²",
+      "narration": "Add the sea, and its economic zone covers 2,263,816 square kilometres.",
+      "caption": "EXCLUSIVE ECONOMIC ZONE · 2,263,816 KM²",
+      "visual": "tradeoff",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                120,
+                8.5,
+                126.5,
+                13.5
+              ]
+            },
+            "at": 0,
+            "padding": 0.04,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                106,
+                -4,
+                138,
+                28
+              ]
+            },
+            "at": 0.9,
+            "padding": 0.05,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:PHL",
+            "style": "fill",
+            "at": 0.1
+          }
+        ],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "figure": {
+          "value": 2263816,
+          "unit": "KM²",
+          "text": "EXCLUSIVE ECONOMIC ZONE",
+          "decimals": 0,
+          "at": 0.3
+        }
+      }
+    },
+    {
+      "id": "verdict",
+      "durationSeconds": 3.8,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.72,
+      "eyebrow": "YOUR TURN",
+      "headline": "COULD YOU NAME THEM ALL?",
+      "narration": "Could you name them all?",
+      "caption": "COULD YOU NAME THEM ALL?",
+      "visual": "cta",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                106,
+                -4,
+                138,
+                28
+              ]
+            },
+            "at": 0,
+            "padding": 0.05,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                108,
+                -2,
+                136,
+                26
+              ]
+            },
+            "at": 0.9,
+            "padding": 0.05,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:PHL",
+            "style": "fill",
+            "at": 0.1
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:PHL",
+            "text": "THE PHILIPPINES",
+            "at": 0.4
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia: Geography of the Philippines (revision 1377230802)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Geography_of_the_Philippines&oldid=1377230802"
+    },
+    {
+      "label": "Wikipedia: List of islands of the Philippines (revision 1382313312)",
+      "url": "https://en.wikipedia.org/w/index.php?title=List_of_islands_of_the_Philippines&oldid=1382313312"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ]
+}

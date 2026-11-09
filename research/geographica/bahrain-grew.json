@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 1,
+  "id": "bahrain-grew",
+  "subject": "Bahrain",
+  "kind": "curated",
+  "note": "Cited to pinned Wikipedia revisions (trusted_secondary): Bahrain (area and island counts, which the page attributes to Britannica) and Geography of Bahrain. The Geography page gives about 694 km2 in its text and 780 km2 in its infobox; the main page says 665 to 780. Use the main page's 665 and 780 pair and the 'at least 80 km2' figure; do not use 694. No year-by-year series is stated. Dropped: any year for the 665 figure.",
+  "regions": [
+    "Saudi Arabia",
+    "Qatar"
+  ],
+  "claims": [
+    {
+      "id": "area",
+      "text": "Bahrain had a total area of 665 km2 but due to land reclamation the area increased to 780 km2.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-bahrain"
+      ],
+      "note": "Derivable: 780 - 665 = 115 km2, about 17%; the page states neither."
+    },
+    {
+      "id": "islands",
+      "text": "Often described as an archipelago of 33 islands, extensive land reclamation projects have changed this; by August 2008 the number of islands and island groups had increased to 84.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-bahrain"
+      ]
+    },
+    {
+      "id": "at-least-80",
+      "text": "Bahrain underwent considerable land reclamation since the 20th century, adding at least 80 square kilometres to the country's land area.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-geography"
+      ],
+      "note": "A lower bound that sits alongside the 665 to 780 pair; the two are not from the same count."
+    },
+    {
+      "id": "coast",
+      "text": "Bahrain does not share a land boundary with another country but has a 161 km coastline.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-bahrain"
+      ]
+    },
+    {
+      "id": "neighbours",
+      "text": "The islands are about 24 kilometres off the east coast of Saudi Arabia and 28 kilometres from Qatar.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-geography"
+      ]
+    },
+    {
+      "id": "bahrain-island",
+      "text": "Bahrain Island accounts for about 78% of the kingdom's land area, comprising 604 square kilometres.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-geography"
+      ]
+    },
+    {
+      "id": "tubli",
+      "text": "The page names illegal land reclamation at places such as Tubli Bay as damaging marine vegetation and coral.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-bahrain"
+      ],
+      "note": "Cite only as the page words it; it is not a count of reclaimed area."
+    }
+  ],
+  "places": {
+    "tubli-bay": {
+      "lon": 50.55,
+      "lat": 26.19,
+      "source": "wikipedia-bahrain",
+      "approximate": true,
+      "note": "Approximate point for Tubli Bay; the page gives no coordinates."
+    },
+    "hawar-islands": {
+      "lon": 50.78,
+      "lat": 25.65,
+      "source": "wikipedia-geography",
+      "approximate": true,
+      "note": "Approximate point for the Hawar Islands; the page gives no coordinates."
+    }
+  },
+  "datasets": {},
+  "sources": {
+    "wikipedia-bahrain": {
+      "label": "Wikipedia: Bahrain (revision 1384361922)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Bahrain&oldid=1384361922"
+    },
+    "wikipedia-geography": {
+      "label": "Wikipedia: Geography of Bahrain (revision 1359801157)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Geography_of_Bahrain&oldid=1359801157"
+    },
+    "natural-earth": {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "schemaVersion": 1,
+  "id": "philippines-7641",
+  "subject": "Philippines",
+  "kind": "curated",
+  "note": "Cited to pinned Wikipedia revisions (trusted_secondary): Geography of the Philippines and List of islands of the Philippines. NO page states the earlier island count (7,107) or a resurvey or any change in the count, so a transformation story ('534 more turned up') is NOT supported and is dropped; the episode can only use the current figures. The pages disagree on inhabited islands (about 1,000 vs about 2,000): do not use either number. The land area is given as 300,000 km2 'with cadastral survey data suggesting it may be larger'.",
+  "regions": [],
+  "claims": [
+    {
+      "id": "count",
+      "text": "The Philippines is an archipelago that comprises 7,641 islands, with a total land area of 300,000 square kilometers, the world's fifth largest island country.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-geography"
+      ]
+    },
+    {
+      "id": "eleven",
+      "text": "Eleven islands make up 95 percent of the Philippine landmass, and two of these, Luzon and Mindanao, measure 105,000 and 95,000 square kilometers respectively.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-geography"
+      ]
+    },
+    {
+      "id": "unnamed",
+      "text": "More than 5,000 of the islands are yet to be officially named.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-list"
+      ]
+    },
+    {
+      "id": "fifty",
+      "text": "The 50 largest islands have a combined area of around 321,000 square kilometers and about 99% of the country's total land area and population (2015).",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-list"
+      ],
+      "note": "321,000 km2 exceeds the 300,000 km2 total on the other page; the pages' areas differ, so do not show both."
+    },
+    {
+      "id": "eez",
+      "text": "The Exclusive economic zone of the Philippines covers 2,263,816 km2, 200 nautical miles from its shores.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-geography"
+      ]
+    },
+    {
+      "id": "area-larger",
+      "text": "The total land area is 300,000 square kilometers, with cadastral survey data suggesting it may be larger.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-geography"
+      ]
+    }
+  ],
+  "places": {
+    "luzon": {
+      "lon": 121.0,
+      "lat": 16.0,
+      "source": "wikipedia-geography",
+      "approximate": true,
+      "note": "Approximate centre of Luzon for a label; the page gives no coordinates."
+    },
+    "mindanao": {
+      "lon": 125.0,
+      "lat": 8.0,
+      "source": "wikipedia-geography",
+      "approximate": true,
+      "note": "Approximate centre of Mindanao for a label; the page gives no coordinates."
+    }
+  },
+  "datasets": {},
+  "sources": {
+    "wikipedia-geography": {
+      "label": "Wikipedia: Geography of the Philippines (revision 1377230802)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Geography_of_the_Philippines&oldid=1377230802"
+    },
+    "wikipedia-list": {
+      "label": "Wikipedia: List of islands of the Philippines (revision 1382313312)",
+      "url": "https://en.wikipedia.org/w/index.php?title=List_of_islands_of_the_Philippines&oldid=1382313312"
+    },
+    "natural-earth": {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  }
+}

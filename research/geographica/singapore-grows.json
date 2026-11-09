@@ -1,0 +1,110 @@
+{
+  "schemaVersion": 1,
+  "id": "singapore-grows",
+  "subject": "Singapore",
+  "kind": "curated",
+  "note": "Cited to pinned Wikipedia revisions (trusted_secondary): Geography of Singapore and Land reclamation in Singapore. The two pages use different baselines (582 km2 'in the 1960s' vs '22% since independence in 1965'), so a script should use one at a time and say which. Dropped: any 'a fifth' or percentage not on the pages. The page gives only two area figures, so there is no year-by-year series.",
+  "regions": [
+    "Malaysia",
+    "Indonesia"
+  ],
+  "claims": [
+    {
+      "id": "area-growth",
+      "text": "Singapore's land area has expanded from approximately 582 square kilometres in the 1960s to around 745 square kilometres in the 2020s, through extensive land reclamation since British colonisation in 1819.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-geography"
+      ],
+      "note": "Derivable: 745 - 582 = 163 km2, about 28%; the page does not state that percentage."
+    },
+    {
+      "id": "area-now",
+      "text": "As of 2026, Singapore has a total land area of approximately 744.3 square kilometres.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-geography"
+      ]
+    },
+    {
+      "id": "since-1965",
+      "text": "Singapore has increased its land mass by 22% since independence in 1965, with land continuously being set aside for future use.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-reclamation"
+      ],
+      "note": "Different baseline from the 582 km2 claim; do not mix the two on screen."
+    },
+    {
+      "id": "earth",
+      "text": "Reclamation used earth sourced from Singapore's own hills, the seabed and neighbouring countries.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-geography"
+      ]
+    },
+    {
+      "id": "changi",
+      "text": "In 1981 Singapore Changi Airport opened after the clearing of roughly 2 km2 of swampland and the introduction of over 52,000,000 m3 of land- and seafill.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-reclamation"
+      ]
+    },
+    {
+      "id": "marina",
+      "text": "In 1992 the Marina Centre and Marina South reclamation projects, commissioned in the late 1970s, were completed, encompassing 360 ha of waterfront development.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-reclamation"
+      ]
+    },
+    {
+      "id": "polders",
+      "text": "Due to a global shortage of the required type of sand (river and beach sand, not desert sand), Singapore has switched to polders for reclamation since 2016: an area is surrounded by a dyke and pumped dry.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-reclamation"
+      ]
+    },
+    {
+      "id": "changi-2022",
+      "text": "Nine hundred hectares of land off Changi Bay was announced for reclamation works in 2022 by the Housing and Development Board for future needs.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-reclamation"
+      ]
+    }
+  ],
+  "places": {
+    "changi-airport": {
+      "lon": 103.9915,
+      "lat": 1.3644,
+      "source": "wikipedia-reclamation",
+      "approximate": true,
+      "note": "Approximate point for Changi Airport; the page names it but gives no coordinates."
+    },
+    "marina-south": {
+      "lon": 103.86,
+      "lat": 1.27,
+      "source": "wikipedia-reclamation",
+      "approximate": true,
+      "note": "Approximate point for the Marina South reclamation; the page gives no coordinates."
+    }
+  },
+  "datasets": {},
+  "sources": {
+    "wikipedia-geography": {
+      "label": "Wikipedia: Geography of Singapore (revision 1363344444)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Geography_of_Singapore&oldid=1363344444"
+    },
+    "wikipedia-reclamation": {
+      "label": "Wikipedia: Land reclamation in Singapore (revision 1375794795)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Land_reclamation_in_Singapore&oldid=1375794795"
+    },
+    "natural-earth": {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  }
+}

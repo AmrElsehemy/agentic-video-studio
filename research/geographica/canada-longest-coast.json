@@ -1,0 +1,124 @@
+{
+  "schemaVersion": 1,
+  "id": "canada-longest-coast",
+  "subject": "Canada",
+  "kind": "curated",
+  "note": "Cited to a pinned Wikipedia revision (trusted_secondary): List of countries and dependencies by length of coastline. Its coastline column is the CIA World Factbook's; the page's own link to the Factbook is dead (archived 15 Jan 2026), so the figures are quoted as the page prints them and credited to the Factbook through it. The page warns that the Factbook does not state the scale each figure was measured at, so the figures are not strictly comparable across countries, and the coastline length is not well defined (the coastline paradox). A second column, from the World Resources Institute (World Vector Shoreline at 1:250,000, calculated in 2000), gives different numbers and a different order (for example the United States 133,312 km, Indonesia 95,181 km, Canada 265,523 km); the episode must say which source a figure comes from and must not compare across the two. Computed from the CIA column only: Norway, Indonesia, Russia and the Philippines (the next four countries) add up to 211,939 km, more than Canada's 202,080 km; the next three (Norway, Indonesia, Russia) add up to 175,650 km, less than Canada's.",
+  "regions": [
+    "Norway",
+    "Indonesia",
+    "Russia",
+    "Philippines",
+    "Japan",
+    "Australia",
+    "United States",
+    "New Zealand",
+    "China",
+    "Greenland"
+  ],
+  "claims": [
+    {
+      "id": "canada",
+      "text": "The page lists Canada's coastline at 202,080 km (CIA World Factbook), the longest of any country in the list.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-coastline-list"
+      ]
+    },
+    {
+      "id": "next",
+      "text": "After Canada the page lists Norway at 83,281 km (including the coastline of outlying islands), Indonesia at 54,716 km, Russia at 37,653 km and the Philippines at 36,289 km (CIA World Factbook).",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-coastline-list"
+      ]
+    },
+    {
+      "id": "more",
+      "text": "The page lists Japan at 29,751 km, Australia at 25,760 km, the United States at 19,924 km, New Zealand at 15,134 km and China at 14,500 km (CIA World Factbook).",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-coastline-list"
+      ]
+    },
+    {
+      "id": "world",
+      "text": "The page gives the world's total coastline as 356,000 km (CIA World Factbook), and notes that the total includes countries not listed and coastline for disputed areas.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-coastline-list"
+      ]
+    },
+    {
+      "id": "scale",
+      "text": "The page states that the scales at which the World Factbook figures were measured are not stated, nor is it known whether they are all reported at the same scale, so the figures are necessarily not comparable across different countries.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-coastline-list"
+      ]
+    },
+    {
+      "id": "paradox",
+      "text": "The page states that the coastline paradox means a coastline does not have a well-defined length: the smaller the scale interval, the longer the coastline, and the effect is greater for convoluted coastlines than for relatively smooth ones.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-coastline-list"
+      ]
+    },
+    {
+      "id": "wri",
+      "text": "The page's second column, from the World Resources Institute (World Vector Shoreline at 1:250,000, calculated in 2000), lists Canada at 265,523 km, the United States at 133,312 km and Indonesia at 95,181 km.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-coastline-list"
+      ]
+    },
+    {
+      "id": "sum3",
+      "text": "Computed from the page's CIA column: Norway (83,281 km), Indonesia (54,716 km) and Russia (37,653 km) add up to 175,650 km, less than Canada's 202,080 km.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-coastline-list"
+      ]
+    },
+    {
+      "id": "sum4",
+      "text": "Computed from the page's CIA column: Norway, Indonesia, Russia and the Philippines (36,289 km) add up to 211,939 km, more than Canada's 202,080 km.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-coastline-list"
+      ]
+    }
+  ],
+  "places": {},
+  "datasets": {
+    "coastline-cia": {
+      "label": "COASTLINE",
+      "unit": "km",
+      "source": "wikipedia-coastline-list",
+      "note": "CIA World Factbook figures as printed on the pinned Wikipedia page; scales of measurement are not stated.",
+      "values": {
+        "Canada": 202080,
+        "Norway": 83281,
+        "Indonesia": 54716,
+        "Russia": 37653,
+        "Philippines": 36289,
+        "Japan": 29751,
+        "Australia": 25760,
+        "United States": 19924,
+        "New Zealand": 15134,
+        "China": 14500
+      }
+    }
+  },
+  "sources": {
+    "wikipedia-coastline-list": {
+      "label": "Wikipedia: List of countries and dependencies by length of coastline (revision 1383664433)",
+      "url": "https://en.wikipedia.org/w/index.php?title=List_of_countries_and_dependencies_by_length_of_coastline&oldid=1383664433"
+    },
+    "natural-earth": {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  }
+}
