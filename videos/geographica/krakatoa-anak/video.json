@@ -1,0 +1,522 @@
+{
+  "schemaVersion": 2,
+  "id": "krakatoa-anak",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica",
+    "wordmark": {
+      "lead": "GEO",
+      "accent": "GRAPHICA"
+    },
+    "fonts": {
+      "display": "Oswald",
+      "body": "Inter"
+    },
+    "captions": {
+      "mode": "words"
+    }
+  },
+  "title": "The Volcano That Blew Itself Apart and Grew Back",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "transformation",
+    "numberRelevant": true,
+    "premise": "In 1883 Krakatoa destroyed two-thirds of its island; from 1927 a new island, Anak Krakatau, grew in the same place.",
+    "audiencePromise": "See what a volcano did to its own island, and what grew back.",
+    "openLoop": "What grew in the place the island was destroyed?",
+    "payoff": "Anak Krakatau rose from 1927, stood about 324 m in 2011 and was cut to 110 m by a 2018 collapse.",
+    "targetEmotion": "surprise",
+    "engagementQuestion": "Would you live near a volcano that rebuilds itself?",
+    "targetSecondsBetweenVisualChanges": 0.62
+  },
+  "subject": {
+    "name": "Krakatoa",
+    "category": "Border",
+    "attributes": {
+      "geoEntity": "country:IDN"
+    }
+  },
+  "related": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#050818",
+    "surface": "#18284f",
+    "primary": "#ff3d9a",
+    "secondary": "#6c5ce7",
+    "ink": "#ffffff"
+  },
+  "look": "neon",
+  "framing": {
+    "opening": "bleed",
+    "ending": "loop"
+  },
+  "coast": "fine",
+  "audio": {
+    "music": "generated/krakatoa-anak-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 96,
+      "notes": [
+        98,
+        116.54,
+        130.81,
+        146.83,
+        130.81,
+        116.54,
+        87.31,
+        98
+      ]
+    },
+    "voice": {
+      "provider": "elevenlabs",
+      "model": "eleven_v4",
+      "voice": "JBFqnCBsd6RMkjVDRZzb",
+      "instructions": "Warm, curious storyteller walking a friend across a map. Clear and confident, with a sense of discovery on each reveal; slow slightly on dates and place names so they land. Conversational and human, never a documentary announcer, lecture, or neutral TTS. Never imitate a known person or character.",
+      "speed": 1.06,
+      "output": "generated/krakatoa-anak-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "cleared",
+    "publicReleaseApproved": true,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      },
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.soest.hawaii.edu/pwessel/gshhg/gshhg-shp-2.3.7.zip",
+        "owner": "GSHHG coastlines (Wessel & Smith)",
+        "licenseStatus": "licensed",
+        "publicReleaseApproved": true,
+        "notes": "Coastlines: GSHHG v2.3.7 (Wessel & Smith, SOEST / NOAA), LGPL."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "durationSeconds": 3.8,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "SUNDA STRAIT",
+      "headline": "IT BLEW ITSELF APART",
+      "narration": "A volcano here blew its island apart.",
+      "caption": "KRAKATOA · SUNDA STRAIT · 1883",
+      "visual": "hook",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                100,
+                -9,
+                110,
+                -3
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                104.6,
+                -6.9,
+                106.2,
+                -5.4
+              ]
+            },
+            "at": 0.8,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "before",
+      "durationSeconds": 4.1,
+      "beat": "before",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "BEFORE 1883",
+      "headline": "9 × 5 KM",
+      "narration": "One island, nine kilometers long and five wide.",
+      "caption": "BEFORE 1883: ONE ISLAND, 9 KM LONG BY 5 KM WIDE · MAP SHOWS TODAY'S COAST",
+      "visual": "gauntlet",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                104.6,
+                -6.9,
+                106.2,
+                -5.4
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                105.2,
+                -6.3,
+                105.65,
+                -5.9
+              ]
+            },
+            "at": 0.8,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 105.423,
+              "lat": -6.102
+            },
+            "text": "KRAKATOA",
+            "at": 0.4
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "change",
+      "durationSeconds": 3.8,
+      "beat": "change",
+      "role": "escalation",
+      "shot": "tracking",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "27 AUGUST 1883",
+      "headline": "TWO-THIRDS GONE",
+      "narration": "Four explosions destroyed two-thirds of the island.",
+      "caption": "27 AUG 1883: FOUR HUGE EXPLOSIONS · TWO-THIRDS OF THE ISLAND DESTROYED · 36,417 DEAD PER DUTCH RECORDS",
+      "visual": "race",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                105.2,
+                -6.3,
+                105.65,
+                -5.9
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                105.3,
+                -6.2,
+                105.55,
+                -6
+              ]
+            },
+            "at": 0.8,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "reveal",
+      "durationSeconds": 4.1,
+      "beat": "change",
+      "role": "escalation",
+      "shot": "macro",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "THE SOUND",
+      "headline": "HEARD 4,800 KM AWAY",
+      "narration": "Rodrigues Island, 4,800 kilometers away, heard it.",
+      "caption": "HEARD 3,110 KM AWAY IN PERTH · 4,800 KM AWAY ON RODRIGUES",
+      "visual": "race",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                105.3,
+                -6.2,
+                105.55,
+                -6
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                78,
+                -14,
+                120,
+                6
+              ]
+            },
+            "at": 0.8,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "child",
+      "durationSeconds": 5.6,
+      "beat": "reveal",
+      "role": "payoff",
+      "shot": "comparison",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "1927",
+      "headline": "THE CHILD",
+      "narration": "In 1927 a new island began to rise from the sea.",
+      "caption": "1927: A NEW ISLAND BEGAN TO RISE · ANAK KRAKATAU, \"CHILD OF KRAKATOA\"",
+      "visual": "advantage",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                104.8,
+                -6.7,
+                106,
+                -5.6
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                105.38,
+                -6.16,
+                105.5,
+                -6.04
+              ]
+            },
+            "at": 0.8,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "grow",
+      "durationSeconds": 6.3,
+      "beat": "aftermath",
+      "role": "payoff",
+      "shot": "wide",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "2011",
+      "headline": "324 M TALL",
+      "narration": "By 2011 it stood 324 meters tall, growing five meters a year.",
+      "caption": "2011: ABOUT 324 M ABOVE SEA LEVEL, GROWING 5 M A YEAR",
+      "visual": "tradeoff",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                105.38,
+                -6.16,
+                105.5,
+                -6.04
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                105.405,
+                -6.135,
+                105.45,
+                -6.09
+              ]
+            },
+            "at": 0.8,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "collapse",
+      "durationSeconds": 5.9,
+      "beat": "aftermath",
+      "role": "payoff",
+      "shot": "impact",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "2018",
+      "headline": "110 M",
+      "narration": "In 2018 it collapsed to 110 meters, and a tsunami followed.",
+      "caption": "22 DEC 2018: COLLAPSE · HEIGHT CUT TO 110 M · TSUNAMI WAVES UP TO 5 M",
+      "visual": "tradeoff",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                105.35,
+                -6.2,
+                105.5,
+                -6.05
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                105.1,
+                -6.4,
+                105.7,
+                -5.8
+              ]
+            },
+            "at": 0.8,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "verdict",
+      "durationSeconds": 4.4,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "YOUR TURN",
+      "headline": "WOULD YOU LIVE NEAR IT?",
+      "narration": "Would you live near a volcano that rebuilds itself?",
+      "caption": "WOULD YOU LIVE NEAR A VOLCANO THAT REBUILDS ITSELF?",
+      "visual": "cta",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                104.9,
+                -6.7,
+                105.95,
+                -5.5
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                100,
+                -9,
+                110,
+                -3
+              ]
+            },
+            "at": 0.8,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia: Krakatoa (revision 1384134403)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Krakatoa&oldid=1384134403"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ]
+}

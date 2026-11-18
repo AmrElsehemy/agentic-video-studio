@@ -1,0 +1,583 @@
+{
+  "schemaVersion": 2,
+  "id": "surtsey-new-island",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica",
+    "wordmark": {
+      "lead": "GEO",
+      "accent": "GRAPHICA"
+    },
+    "fonts": {
+      "display": "Oswald",
+      "body": "Inter"
+    },
+    "captions": {
+      "mode": "words"
+    }
+  },
+  "title": "An Island Born From the Sea in 1963",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "transformation",
+    "numberRelevant": true,
+    "premise": "Surtsey rose from the sea floor off Iceland in 1963, grew to 2.7 km2 and has been shrinking since.",
+    "audiencePromise": "See an island appear, and watch the sea take it back.",
+    "openLoop": "How big did it get, and what is left?",
+    "payoff": "It reached the surface on 14 November 1963, peaked at 2.7 km2 in 1967 and was 1.3 km2 in 2012; only scientists may land.",
+    "targetEmotion": "surprise",
+    "engagementQuestion": "Would you visit an island nobody can land on?",
+    "targetSecondsBetweenVisualChanges": 0.62
+  },
+  "subject": {
+    "name": "Iceland",
+    "category": "Border",
+    "attributes": {
+      "geoEntity": "country:ISL"
+    }
+  },
+  "related": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#050818",
+    "surface": "#18284f",
+    "primary": "#ff3d9a",
+    "secondary": "#6c5ce7",
+    "ink": "#ffffff"
+  },
+  "look": "neon",
+  "framing": {
+    "opening": "bleed",
+    "ending": "loop"
+  },
+  "coast": "fine",
+  "audio": {
+    "music": "generated/surtsey-new-island-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 96,
+      "notes": [
+        98,
+        116.54,
+        130.81,
+        146.83,
+        130.81,
+        116.54,
+        87.31,
+        98
+      ]
+    },
+    "voice": {
+      "provider": "elevenlabs",
+      "model": "eleven_v4",
+      "voice": "JBFqnCBsd6RMkjVDRZzb",
+      "instructions": "Warm, curious storyteller walking a friend across a map. Clear and confident, with a sense of discovery on each reveal; slow slightly on dates and place names so they land. Conversational and human, never a documentary announcer, lecture, or neutral TTS. Never imitate a known person or character.",
+      "speed": 1.06,
+      "output": "generated/surtsey-new-island-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "cleared",
+    "publicReleaseApproved": true,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      },
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.soest.hawaii.edu/pwessel/gshhg/gshhg-shp-2.3.7.zip",
+        "owner": "GSHHG coastlines (Wessel & Smith)",
+        "licenseStatus": "licensed",
+        "publicReleaseApproved": true,
+        "notes": "Coastlines: GSHHG v2.3.7 (Wessel & Smith, SOEST / NOAA), LGPL."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "durationSeconds": 4.8,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "SURTSEY, ICELAND",
+      "headline": "AN ISLAND BORN IN 1963",
+      "narration": "In 1963, a new island rose from the sea.",
+      "caption": "A VOLCANIC ISLAND OFF THE SOUTH COAST OF ICELAND",
+      "visual": "hook",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -24,
+                62.6,
+                -17,
+                64.6
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -21.6,
+                62.9,
+                -19.8,
+                63.7
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.08,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": -20.605,
+              "lat": 63.303
+            },
+            "text": "SURTSEY",
+            "at": 0.6
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "then",
+      "durationSeconds": 4.2,
+      "beat": "before",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "THE SEA FLOOR",
+      "headline": "130 M DOWN",
+      "narration": "The eruption began 130 metres under the sea.",
+      "caption": "THE ERUPTION BEGAN 130 M BELOW SEA LEVEL",
+      "visual": "gauntlet",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -21.6,
+                62.9,
+                -19.8,
+                63.7
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -20.95,
+                63.1,
+                -20.25,
+                63.5
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "figure": {
+          "value": 130,
+          "unit": "M",
+          "text": "M BELOW SEA LEVEL",
+          "decimals": 0,
+          "at": 0.3
+        }
+      }
+    },
+    {
+      "id": "surface",
+      "durationSeconds": 4.4,
+      "beat": "change",
+      "role": "escalation",
+      "shot": "tracking",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "14 NOVEMBER 1963",
+      "headline": "IT BROKE THE SURFACE",
+      "narration": "On 14 November 1963 it reached the surface.",
+      "caption": "REACHED THE SURFACE ON 14 NOVEMBER 1963",
+      "visual": "race",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -20.95,
+                63.1,
+                -20.25,
+                63.5
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -20.75,
+                63.18,
+                -20.45,
+                63.42
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": -20.605,
+              "lat": 63.303
+            },
+            "text": "TODAY'S COAST",
+            "at": 0.35
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "peak",
+      "durationSeconds": 4.3,
+      "beat": "change",
+      "role": "escalation",
+      "shot": "macro",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "JUNE 1967",
+      "headline": "2.7 KM²",
+      "narration": "By 1967 it covered 2.7 square kilometres.",
+      "caption": "MAXIMUM SIZE: 2.7 KM² (JUNE 1967) · OUTLINE SHOWN IS TODAY'S",
+      "visual": "race",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -20.75,
+                63.18,
+                -20.45,
+                63.42
+              ]
+            },
+            "at": 0,
+            "padding": 0.12,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -20.7,
+                63.26,
+                -20.5,
+                63.35
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": -20.605,
+              "lat": 63.303
+            },
+            "text": "TODAY'S COAST",
+            "at": 0.2
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "figure": {
+          "value": 2.7,
+          "unit": "KM²",
+          "text": "MAXIMUM SIZE, 1967",
+          "decimals": 1,
+          "at": 0.3
+        }
+      }
+    },
+    {
+      "id": "lost",
+      "durationSeconds": 3.8,
+      "beat": "reveal",
+      "role": "payoff",
+      "shot": "comparison",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "1965 AND 1966",
+      "headline": "TWO MORE ISLANDS",
+      "narration": "Two nearby islands rose, then washed away.",
+      "caption": "SYRTLINGUR AND JÓLNIR ROSE IN 1965–66, THEN VANISHED",
+      "visual": "advantage",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -20.7,
+                63.26,
+                -20.5,
+                63.35
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -21.1,
+                63.05,
+                -20.1,
+                63.55
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.08,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "now",
+      "durationSeconds": 4.6,
+      "beat": "aftermath",
+      "role": "payoff",
+      "shot": "wide",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "AS OF 2012",
+      "headline": "1.3 KM²",
+      "narration": "Waves have cut it to 1.3 square kilometres.",
+      "caption": "1.3 KM² AS OF 2012",
+      "visual": "tradeoff",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -21.1,
+                63.05,
+                -20.1,
+                63.55
+              ]
+            },
+            "at": 0,
+            "padding": 0.08,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -20.7,
+                63.26,
+                -20.5,
+                63.35
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": -20.605,
+              "lat": 63.303
+            },
+            "text": "TODAY'S COAST",
+            "at": 0.2
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "figure": {
+          "value": 1.3,
+          "unit": "KM²",
+          "text": "AS OF 2012",
+          "decimals": 1,
+          "at": 0.3
+        }
+      }
+    },
+    {
+      "id": "reserve",
+      "durationSeconds": 4,
+      "beat": "aftermath",
+      "role": "payoff",
+      "shot": "impact",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "NATURE RESERVE",
+      "headline": "ONLY SCIENTISTS",
+      "narration": "Only a few scientists may land on it.",
+      "caption": "NATURE RESERVE SINCE 1965 · WORLD HERITAGE SINCE 2008",
+      "visual": "tradeoff",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -20.7,
+                63.26,
+                -20.5,
+                63.35
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -20.64,
+                63.29,
+                -20.57,
+                63.32
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": -20.605,
+              "lat": 63.303
+            },
+            "text": "SURTSEY",
+            "at": 0.35
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "verdict",
+      "durationSeconds": 4.4,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.62,
+      "eyebrow": "YOUR CALL",
+      "headline": "WOULD YOU VISIT?",
+      "narration": "Would you visit an island nobody can land on?",
+      "caption": "WOULD YOU VISIT AN ISLAND NOBODY CAN LAND ON?",
+      "visual": "cta",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -20.64,
+                63.29,
+                -20.57,
+                63.32
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -24,
+                62.6,
+                -17,
+                64.6
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia: Surtsey (revision 1365740599)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Surtsey&oldid=1365740599"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ]
+}

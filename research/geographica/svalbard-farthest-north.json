@@ -1,0 +1,113 @@
+{
+  "schemaVersion": 1,
+  "id": "svalbard-farthest-north",
+  "subject": "Norway",
+  "kind": "curated",
+  "note": "Cited to pinned Wikipedia revisions (trusted_secondary): Longyearbyen and Svalbard. The hook says the page's own words: Longyearbyen is 'the world's second northernmost town'; the same page says the northernmost permanent settlement is Alert, Canada, so the episode never says 'northernmost'. The population is the page's 'estimated' range (2,400-2,800). Sun dates are those the page gives for Longyearbyen. The Svalbard Treaty is used only for what the page states about visas and demilitarisation, with no comment on sovereignty or other states' claims. Natural Earth draws Svalbard inside Norway's country shape, so no country highlight is used (it would outline mainland Norway too): only markers and labels. The Longyearbyen marker is Wikipedia's coordinate (78.22 N, 15.65 E), approximate. No day-night device: the sun dates are stated by the page, not computed.",
+  "regions": [],
+  "claims": [
+    {
+      "id": "second",
+      "text": "Longyearbyen is the world's second northernmost town, with all settlements further north (excluding Ny-Ålesund) being research or meteorological outposts.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-longyearbyen"
+      ]
+    },
+    {
+      "id": "pop",
+      "text": "Longyearbyen has an estimated population of around 2,400-2,800 and is the capital and largest settled area of Svalbard.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-longyearbyen"
+      ]
+    },
+    {
+      "id": "sun",
+      "text": "Longyearbyen experiences midnight sun from 18 April to 24 August (128 days).",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-longyearbyen"
+      ]
+    },
+    {
+      "id": "night",
+      "text": "Longyearbyen experiences polar night from 27 October to 15 February (111 days).",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-longyearbyen"
+      ]
+    },
+    {
+      "id": "visa",
+      "text": "No one is required to have a visa or residence permit on Svalbard.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-svalbard"
+      ]
+    },
+    {
+      "id": "bears",
+      "text": "As of 2021, Svalbard has around 300 resident polar bears.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-svalbard"
+      ]
+    },
+    {
+      "id": "unlocked",
+      "text": "It is customary for residents to leave their houses and cars (with the key in the ignition) unlocked, so others can use them to escape from polar bears.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-svalbard"
+      ]
+    },
+    {
+      "id": "warming",
+      "text": "As of 2021, Longyearbyen was the fastest-warming town in the world.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-longyearbyen"
+      ]
+    },
+    {
+      "id": "latitude",
+      "text": "The islands of the Svalbard group range from 74 to 81 degrees north latitude.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-svalbard"
+      ]
+    },
+    {
+      "id": "glaciers",
+      "text": "Approximately 60% of the archipelago is covered with glaciers.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-svalbard"
+      ]
+    }
+  ],
+  "places": {
+    "longyearbyen": {
+      "lon": 15.65,
+      "lat": 78.22,
+      "source": "wikipedia-longyearbyen",
+      "approximate": true,
+      "note": "Wikipedia's primary coordinate for Longyearbyen."
+    }
+  },
+  "sources": {
+    "wikipedia-longyearbyen": {
+      "label": "Wikipedia: Longyearbyen (revision 1384128722)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Longyearbyen&oldid=1384128722"
+    },
+    "wikipedia-svalbard": {
+      "label": "Wikipedia: Svalbard (revision 1385672434)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Svalbard&oldid=1385672434"
+    },
+    "natural-earth": {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  }
+}

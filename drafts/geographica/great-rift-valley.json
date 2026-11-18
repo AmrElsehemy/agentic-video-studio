@@ -1,0 +1,477 @@
+{
+  "id": "great-rift-valley",
+  "title": "The Crack That Is Splitting Africa",
+  "storyPattern": "mechanic",
+  "numberRelevant": true,
+  "premise": "The East African Rift is slowly splitting the African plate in two, and its western branch is a chain of deep lakes.",
+  "audiencePromise": "See the crack that is pulling Africa apart.",
+  "openLoop": "How fast is a continent splitting?",
+  "payoff": "The African plate is splitting into two at 8–9 mm a year; the rift's eastern part could separate in tens of millions of years.",
+  "targetEmotion": "awe",
+  "engagementQuestion": "Would you live along the East African Rift?",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica"
+  },
+  "subject": {
+    "name": "East African Rift",
+    "category": "Landform",
+    "attributes": {
+      "geoEntity": "country:TZA"
+    }
+  },
+  "voice": {
+    "provider": "elevenlabs",
+    "voice": "JBFqnCBsd6RMkjVDRZzb"
+  },
+  "rights": {
+    "releaseStatus": "cleared",
+    "publicReleaseApproved": true,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "beat": "hook",
+      "eyebrow": "THE EAST AFRICAN RIFT",
+      "headline": "AFRICA IS SPLITTING",
+      "narration": "Africa's plate is slowly splitting in two.",
+      "caption": "THE EAST AFRICAN RIFT: THE AFRICAN PLATE IS SPLITTING INTO TWO",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                10,
+                -36,
+                55,
+                20
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                22,
+                -20,
+                46,
+                10
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "evidence",
+      "beat": "evidence",
+      "eyebrow": "THE RATE",
+      "headline": "8–9 MM A YEAR",
+      "narration": "It is pulling apart eight to nine millimetres a year.",
+      "caption": "SOMALI AND NUBIAN PLATES · 8–9 MM A YEAR · BEGAN 22–25 MILLION YEARS AGO",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                22,
+                -20,
+                46,
+                10
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                26,
+                -16,
+                42,
+                6
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "lake:lake-turkana",
+            "style": "fill",
+            "at": 0.15
+          },
+          {
+            "entity": "lake:lake-albert",
+            "style": "fill",
+            "at": 0.3
+          },
+          {
+            "entity": "lake:lake-tanganyika",
+            "style": "fill",
+            "at": 0.45
+          },
+          {
+            "entity": "lake:lake-malawi",
+            "style": "fill",
+            "at": 0.6
+          }
+        ],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "escalation",
+      "beat": "escalation",
+      "eyebrow": "TWO BRANCHES",
+      "headline": "THE RIFT FORKS",
+      "narration": "Further south, the rift forks into two branches.",
+      "caption": "TWO MAIN BRANCHES: EASTERN (GREGORY) AND WESTERN (ALBERTINE)",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                25,
+                -18,
+                43,
+                8
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                28,
+                -12,
+                40,
+                4
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "lake:lake-turkana",
+            "style": "fill",
+            "at": 0.2
+          },
+          {
+            "entity": "lake:lake-tanganyika",
+            "style": "fill",
+            "at": 0.4
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "lake:lake-tanganyika",
+            "text": "WESTERN BRANCH",
+            "at": 0.12
+          },
+          {
+            "type": "label",
+            "anchor": "lake:lake-turkana",
+            "text": "EASTERN BRANCH",
+            "at": 0.22
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "payoff",
+      "beat": "payoff",
+      "eyebrow": "THE LAKES",
+      "headline": "A CHAIN OF DEEP LAKES",
+      "narration": "Its western branch is a chain of deep lakes.",
+      "caption": "WESTERN BRANCH: LAKES ALBERT, KIVU, TANGANYIKA AND RUKWA",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                26,
+                -11,
+                36,
+                4
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                27.5,
+                -9,
+                34,
+                2.5
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "lake:lake-albert",
+            "style": "fill",
+            "at": 0.15
+          },
+          {
+            "entity": "lake:lake-kivu",
+            "style": "fill",
+            "at": 0.3
+          },
+          {
+            "entity": "lake:lake-tanganyika",
+            "style": "fill",
+            "at": 0.45
+          },
+          {
+            "entity": "lake:lake-rukwa",
+            "style": "fill",
+            "at": 0.6
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "lake:lake-albert",
+            "text": "ALBERT",
+            "at": 0.3
+          },
+          {
+            "type": "label",
+            "anchor": "lake:lake-kivu",
+            "text": "KIVU",
+            "at": 0.45
+          },
+          {
+            "type": "label",
+            "anchor": "lake:lake-tanganyika",
+            "text": "TANGANYIKA",
+            "at": 0.6
+          },
+          {
+            "type": "label",
+            "anchor": "lake:lake-rukwa",
+            "text": "RUKWA",
+            "at": 0.75
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "payoff-4",
+      "beat": "payoff",
+      "eyebrow": "THE SOUTH",
+      "headline": "LAKE MALAWI: 706 M",
+      "narration": "Lake Malawi is seven hundred and six metres deep.",
+      "caption": "LAKE MALAWI: 706 M DEEP · THIRD-DEEPEST FRESHWATER BODY (WIKIPEDIA)",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                30,
+                -17,
+                40,
+                -5
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                33,
+                -14.5,
+                36,
+                -9.5
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "lake:lake-malawi",
+            "style": "fill",
+            "at": 0.2
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "lake:lake-malawi",
+            "text": "LAKE MALAWI",
+            "at": 0.4
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "figure": {
+          "value": 706,
+          "unit": "M DEEP",
+          "text": "LAKE MALAWI",
+          "decimals": 0,
+          "at": 0.3
+        }
+      }
+    },
+    {
+      "id": "payoff-5",
+      "beat": "payoff",
+      "eyebrow": "THE FUTURE",
+      "headline": "TENS OF MILLIONS OF YEARS",
+      "narration": "Eastern Africa could separate, in tens of millions of years.",
+      "caption": "MARINE GEOLOGIST KATHLEEN CRANE: EASTERN AFRICA COULD EVENTUALLY SEPARATE · TENS OF MILLIONS OF YEARS",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                33,
+                -14.5,
+                36,
+                -9.5
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                14,
+                -34,
+                52,
+                16
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "verdict",
+      "beat": "verdict",
+      "eyebrow": "YOUR TURN",
+      "headline": "A CONTINENT SPLITTING",
+      "narration": "Would you live where a continent is splitting?",
+      "caption": "WOULD YOU LIVE ALONG THE EAST AFRICAN RIFT?",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                18,
+                -30,
+                50,
+                12
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                10,
+                -36,
+                55,
+                20
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia: East African Rift (revision 1361421738)",
+      "url": "https://en.wikipedia.org/w/index.php?title=East_African_Rift&oldid=1361421738"
+    },
+    {
+      "label": "Wikipedia: Great Rift Valley (revision 1360147464)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Great_Rift_Valley&oldid=1360147464"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ],
+  "framing": {
+    "opening": "bleed",
+    "ending": "loop"
+  },
+  "paletteVariant": "neon"
+}

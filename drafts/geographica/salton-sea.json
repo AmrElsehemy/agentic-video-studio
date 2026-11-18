@@ -1,0 +1,457 @@
+{
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica"
+  },
+  "voice": {
+    "provider": "elevenlabs",
+    "voice": "JBFqnCBsd6RMkjVDRZzb"
+  },
+  "rights": {
+    "releaseStatus": "cleared",
+    "publicReleaseApproved": true,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      }
+    ]
+  },
+  "id": "salton-sea",
+  "title": "California's Largest Lake Began With a Flood",
+  "storyPattern": "transformation",
+  "numberRelevant": true,
+  "premise": "California's largest lake, the Salton Sea, formed in 1905 when the Colorado River flooded into a dry basin, and has shrunk since 1999.",
+  "audiencePromise": "See a lake made by a flood, and what it is becoming.",
+  "openLoop": "How did a desert get California's largest lake?",
+  "payoff": "A 1905 flood sent the whole Colorado River into the basin for two years; since 1999 the lake has been shrinking.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "Would you visit a lake that a flood made?",
+  "subject": {
+    "name": "Salton Sea",
+    "category": "Border",
+    "attributes": {
+      "geoEntity": "lake:salton-sea"
+    }
+  },
+  "sources": [
+    {
+      "label": "Wikipedia: Salton Sea (revision 1381394451)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Salton_Sea&oldid=1381394451"
+    },
+    {
+      "label": "NASA EOSDIS Global Imagery Browse Services (GIBS)",
+      "url": "https://earthdata.nasa.gov/gibs"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ],
+  "paletteVariant": "light",
+  "framing": {
+    "ending": "loop",
+    "opening": "bleed"
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "eyebrow": "THE SALTON SEA, CALIFORNIA",
+      "headline": "BORN OF A FLOOD",
+      "narration": "California's largest lake began with a flood.",
+      "caption": "NASA SATELLITE, SEPTEMBER 2000 AND 2024",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -116.2,
+                32.9,
+                -115.2,
+                33.7
+              ]
+            },
+            "at": 0,
+            "padding": 0,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "satellite",
+            "set": "salton",
+            "dates": [
+              "2000-09-15",
+              "2024-09-15"
+            ],
+            "mode": "swipe",
+            "marks": [],
+            "at": 0
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "before",
+      "beat": "before",
+      "eyebrow": "1900",
+      "headline": "A DRY BASIN",
+      "narration": "In 1900, a canal began bringing river water to farms.",
+      "caption": "1900: IRRIGATION CANAL FROM THE COLORADO RIVER TO THE IMPERIAL VALLEY",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -125,
+                32,
+                -113,
+                42
+              ]
+            },
+            "at": 0,
+            "padding": 0.05,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -117.5,
+                32.4,
+                -114,
+                34.6
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.05,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": -115.834,
+              "lat": 33.313
+            },
+            "text": "SALTON SINK (APPROX.)",
+            "at": 0.5
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "projection": "albers"
+      }
+    },
+    {
+      "id": "change",
+      "beat": "change",
+      "eyebrow": "1905",
+      "headline": "THE FLOOD",
+      "narration": "In 1905, a flood sent the whole river into the basin.",
+      "caption": "1905 TO 1907: THE ENTIRE COLORADO FLOWED INTO THE SALTON SINK",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -117.2,
+                32.3,
+                -114.4,
+                34.2
+              ]
+            },
+            "at": 0,
+            "padding": 0.05,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -116.3,
+                32.8,
+                -115.1,
+                33.7
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.05,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "lake:salton-sea",
+            "style": "fill",
+            "at": 0.5
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "lake:salton-sea",
+            "text": "TODAY'S LAKE",
+            "at": 0.6
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "evidence",
+      "beat": "change",
+      "eyebrow": "TODAY",
+      "headline": "BELOW SEA LEVEL",
+      "narration": "It covers 824 square kilometres, 72 metres below sea level.",
+      "caption": "318 SQ MI (823.6 KM²), 2023 REPORT · 71.9 M BELOW SEA LEVEL, JAN 2018",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -116.3,
+                32.6,
+                -115.2,
+                33.7
+              ]
+            },
+            "at": 0,
+            "padding": 0.05,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -116.15,
+                32.85,
+                -115.5,
+                33.55
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.05,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "lake:salton-sea",
+            "style": "outline",
+            "at": 0.3
+          }
+        ],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "figure": {
+          "value": 823.6,
+          "unit": "KM²",
+          "text": "SURFACE AREA, 2023",
+          "decimals": 1,
+          "at": 0.3
+        }
+      }
+    },
+    {
+      "id": "shrink",
+      "beat": "reveal",
+      "eyebrow": "AFTER 1999",
+      "headline": "IT SHRINKS",
+      "narration": "After 1999, farms used water more efficiently, so less flowed in.",
+      "caption": "AFTER 1999, LESS FARM RUNOFF REACHED THE LAKE · NASA, SEPT 2000 AND 2010",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -116.2,
+                32.9,
+                -115.2,
+                33.7
+              ]
+            },
+            "at": 0,
+            "padding": 0,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "satellite",
+            "set": "salton",
+            "dates": [
+              "2000-09-15",
+              "2010-09-15"
+            ],
+            "mode": "swipe",
+            "marks": [],
+            "at": 0
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "dust",
+      "beat": "aftermath",
+      "eyebrow": "THE LAKEBED",
+      "headline": "TOXIC DUST",
+      "narration": "Exposed lakebed lets winds carry toxic dust to nearby towns.",
+      "caption": "AS THE LAKE BED BECAME EXPOSED, WINDS SENT TOXIC DUST INTO NEARBY COMMUNITIES",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -117.5,
+                32.5,
+                -114,
+                34.5
+              ]
+            },
+            "at": 0,
+            "padding": 0.05,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -116.2,
+                33.05,
+                -115.5,
+                33.55
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.05,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "lake:salton-sea",
+            "style": "fill",
+            "at": 0.3
+          }
+        ],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "salt",
+      "beat": "aftermath",
+      "eyebrow": "ITS WATER",
+      "headline": "TWICE AS SALTY",
+      "narration": "Its water is about twice as salty as the Pacific.",
+      "caption": "ABOUT 70 G/L IN 2019 · PACIFIC OCEAN 35 G/L",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -125,
+                30,
+                -113,
+                38
+              ]
+            },
+            "at": 0,
+            "padding": 0.05,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -117,
+                32.6,
+                -114.5,
+                34.2
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.05,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "figure": {
+          "value": 70,
+          "unit": "G/L",
+          "text": "SALINITY, 2019",
+          "decimals": 0,
+          "at": 0.3
+        },
+        "projection": "albers"
+      }
+    },
+    {
+      "id": "verdict",
+      "beat": "verdict",
+      "eyebrow": "YOUR TURN",
+      "headline": "WOULD YOU VISIT?",
+      "narration": "Would you visit a lake that a flood made?",
+      "caption": "WOULD YOU VISIT?",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -116.2,
+                32.9,
+                -115.2,
+                33.7
+              ]
+            },
+            "at": 0,
+            "padding": 0,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "satellite",
+            "set": "salton",
+            "dates": [
+              "2000-09-15",
+              "2010-09-15",
+              "2024-09-15"
+            ],
+            "mode": "fade",
+            "marks": [],
+            "at": 0
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    }
+  ]
+}

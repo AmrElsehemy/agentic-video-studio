@@ -1,0 +1,167 @@
+{
+  "schemaVersion": 1,
+  "id": "atacama-driest",
+  "subject": "Chile",
+  "kind": "curated",
+  "note": "Cited to one pinned Wikipedia revision (trusted_secondary): Atacama Desert. Used as the page states them: driest nonpolar desert, 1,600 km strip, 105,000 km² (the page also says 128,000 km² if the barren lower Andes slopes are included: not used), about 15 mm a year on average with some places 1 to 3 mm, stations that never recorded rain, up to four years with none in the central sector, the two-sided rain shadow, the Humboldt current, glacier-free peaks above 6,000 m, Mars testing. Left out: the page's 'evidence suggests no significant rainfall from 1570 to 1971' (a suggestion, not a statement), the Peru question (the page says sources differ on whether the Peruvian coast belongs to it), and the 2015 and 2019 flood tolls. The satellite still is a single NASA GIBS date shown as what the region looks like; the picture shows no claim about rain. The map keeps to northern Chile; the markers are the page-linked coordinates of Arica, La Serena and Ojos del Salado, plus a labelled strip; no Antarctic claims and no maritime limits are shown.",
+  "regions": [
+    "Chile"
+  ],
+  "claims": [
+    {
+      "id": "driest",
+      "text": "The Atacama Desert is the driest nonpolar desert in the world, and the second driest overall, behind some specific spots within the McMurdo Dry Valleys.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-atacama"
+      ]
+    },
+    {
+      "id": "size",
+      "text": "The Atacama is a desert plateau on the Pacific coast of South America, in the north of Chile, stretching over a 1,600-kilometre-long strip west of the Andes Mountains and covering an area of 105,000 km².",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-atacama"
+      ]
+    },
+    {
+      "id": "rain",
+      "text": "The average rainfall is about 15 mm per year, although some locations receive only 1 to 3 mm in a year.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-atacama"
+      ]
+    },
+    {
+      "id": "never",
+      "text": "Some weather stations in the Atacama have never received rain, and periods of up to four years with no rainfall have been registered in the central sector, delimited by the cities of Antofagasta, Calama and Copiapó.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-atacama"
+      ]
+    },
+    {
+      "id": "shadow",
+      "text": "The most arid region lies between two mountain chains, the Andes and the Chilean Coast Range, high enough to prevent moisture from either the Pacific or the Atlantic Ocean, creating a two-sided rain shadow effect.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-atacama"
+      ]
+    },
+    {
+      "id": "humboldt",
+      "text": "The cool north-flowing Humboldt ocean current and the strong Pacific anticyclone also contribute to the aridity.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-atacama"
+      ]
+    },
+    {
+      "id": "glaciers",
+      "text": "The Atacama is so arid that many mountains higher than 6,000 m are completely free of glaciers; only the highest peaks, such as Ojos del Salado, have some permanent snow coverage.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-atacama"
+      ]
+    },
+    {
+      "id": "fog",
+      "text": "It is the largest fog desert in the world; some locations receive a marine fog known locally as the camanchaca.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-atacama"
+      ]
+    },
+    {
+      "id": "mars",
+      "text": "The area has been used as an experimentation site for Mars expedition simulations due to its similarities to the Martian environment, and is used by NASA to test instruments for future Mars missions.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-atacama"
+      ]
+    },
+    {
+      "id": "storm",
+      "text": "In June 1991, unusual rainfall around Antofagasta and Taltal led to mudflows that killed 91 people.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-atacama"
+      ]
+    },
+    {
+      "id": "sat",
+      "text": "A NASA MODIS Terra true-colour satellite still of northern Chile on 20 September 2024 (250 m resolution) shows brown land with a bank of cloud along the coast; it is shown as what the region looks like, and is not evidence of rainfall or dryness.",
+      "tier": "official",
+      "sources": [
+        "nasa-gibs"
+      ]
+    }
+  ],
+  "places": {
+    "arica": {
+      "lon": -70.32122,
+      "lat": -18.47839,
+      "source": "wikipedia-arica",
+      "approximate": true,
+      "note": "The coordinates the Arica page gives; the Atacama page says the desert strip runs from near Arica (18°24′S) southward."
+    },
+    "la-serena": {
+      "lon": -71.25,
+      "lat": -29.9,
+      "source": "wikipedia-laserena",
+      "approximate": true,
+      "note": "The coordinates the La Serena page gives; the Atacama page says the strip runs south to near La Serena (29°55′S)."
+    },
+    "ojos-del-salado": {
+      "lon": -68.54138889,
+      "lat": -27.10972222,
+      "source": "wikipedia-ojos",
+      "approximate": true,
+      "note": "The coordinates the Ojos del Salado page gives."
+    },
+    "atacama-desert": {
+      "lon": -69.25,
+      "lat": -24.5,
+      "source": "wikipedia-atacama",
+      "approximate": true,
+      "note": "The coordinates the Atacama Desert page gives for the desert, used as a label point."
+    },
+    "antofagasta": {
+      "lon": -70.4,
+      "lat": -23.65,
+      "source": "wikipedia-antofagasta",
+      "approximate": true,
+      "note": "The coordinates the Antofagasta page gives; the page names Antofagasta as one corner of the central sector."
+    }
+  },
+  "sources": {
+    "wikipedia-atacama": {
+      "label": "Wikipedia: Atacama Desert (revision 1384515026)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Atacama_Desert&oldid=1384515026"
+    },
+    "wikipedia-arica": {
+      "label": "Wikipedia: Arica (revision 1375943933), coordinates only",
+      "url": "https://en.wikipedia.org/w/index.php?title=Arica&oldid=1375943933"
+    },
+    "wikipedia-laserena": {
+      "label": "Wikipedia: La Serena, Chile (revision 1386050791), coordinates only",
+      "url": "https://en.wikipedia.org/w/index.php?title=La_Serena,_Chile&oldid=1386050791"
+    },
+    "wikipedia-ojos": {
+      "label": "Wikipedia: Ojos del Salado (revision 1384626851), coordinates only",
+      "url": "https://en.wikipedia.org/w/index.php?title=Ojos_del_Salado&oldid=1384626851"
+    },
+    "nasa-gibs": {
+      "label": "NASA EOSDIS Global Imagery Browse Services (GIBS), MODIS Terra true colour",
+      "url": "https://earthdata.nasa.gov/gibs"
+    },
+    "natural-earth": {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    },
+    "wikipedia-antofagasta": {
+      "label": "Wikipedia: Antofagasta (revision 1385637433), coordinates only",
+      "url": "https://en.wikipedia.org/w/index.php?title=Antofagasta&oldid=1385637433"
+    }
+  }
+}

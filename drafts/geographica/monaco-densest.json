@@ -1,0 +1,466 @@
+{
+  "id": "monaco-densest",
+  "title": "The Country Where Everyone Is Squeezed In",
+  "storyPattern": "comparison",
+  "numberRelevant": true,
+  "premise": "Monaco covers 2.08 km² with 38,423 people, making it the second-smallest and most densely populated country.",
+  "audiencePromise": "See how much country fits in two square kilometres.",
+  "openLoop": "How crowded is the most crowded country?",
+  "payoff": "About 18,000 people per square kilometre (computed), a 3.83 km coastline, and six new hectares reclaimed from the sea in 2024.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "Would you live in the world's most crowded country?",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica"
+  },
+  "subject": {
+    "name": "Monaco",
+    "category": "Country",
+    "attributes": {
+      "geoEntity": "country:MCO"
+    }
+  },
+  "voice": {
+    "provider": "elevenlabs",
+    "voice": "JBFqnCBsd6RMkjVDRZzb"
+  },
+  "rights": {
+    "releaseStatus": "cleared",
+    "publicReleaseApproved": true,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "eyebrow": "MONACO",
+      "headline": "MOST CROWDED COUNTRY",
+      "narration": "One country is more crowded than any other.",
+      "caption": "SECOND-SMALLEST COUNTRY · MOST DENSELY POPULATED",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                3.4,
+                41.6,
+                11.4,
+                46.4
+              ]
+            },
+            "at": 0,
+            "padding": 0.08,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                7,
+                43.45,
+                7.9,
+                44
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.08,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 7.42,
+              "lat": 43.731111
+            },
+            "text": "MONACO",
+            "at": 0.5
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "evidence",
+      "eyebrow": "THE SIZE",
+      "headline": "2.08 KM²",
+      "narration": "It covers just two point oh eight square kilometres.",
+      "caption": "2.08 KM² · THE SECOND-SMALLEST SOVEREIGN STATE",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                7,
+                43.45,
+                7.9,
+                44
+              ]
+            },
+            "at": 0,
+            "padding": 0.08,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                7.36,
+                43.7,
+                7.48,
+                43.77
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.08,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 7.42,
+              "lat": 43.731111
+            },
+            "text": "MONACO",
+            "at": 0.3
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "figure": {
+          "value": 2.08,
+          "unit": "KM²",
+          "text": "THE WHOLE COUNTRY",
+          "decimals": 2,
+          "at": 0.3
+        }
+      },
+      "beat": "evidence"
+    },
+    {
+      "id": "evidence-2",
+      "eyebrow": "THE PEOPLE",
+      "headline": "38,423 LIVE HERE",
+      "narration": "About thirty-eight thousand people live in it.",
+      "caption": "38,423 PEOPLE IN 2.08 KM²",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                7.36,
+                43.7,
+                7.48,
+                43.77
+              ]
+            },
+            "at": 0,
+            "padding": 0.08,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                7.4,
+                43.718,
+                7.445,
+                43.745
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.08,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 7.42,
+              "lat": 43.731111
+            },
+            "text": "MONACO",
+            "at": 0.3
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "figure": {
+          "value": 38423,
+          "unit": "PEOPLE",
+          "text": "IN THE WHOLE COUNTRY",
+          "decimals": 0,
+          "at": 0.3
+        }
+      },
+      "beat": "evidence"
+    },
+    {
+      "id": "escalation",
+      "eyebrow": "PER SQUARE KILOMETRE",
+      "headline": "ABOUT 18,000",
+      "narration": "That is about eighteen thousand people per square kilometre.",
+      "caption": "ABOUT 18,000 PER KM² · COMPUTED FROM 38,423 ÷ 2.08",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                7.4,
+                43.718,
+                7.445,
+                43.745
+              ]
+            },
+            "at": 0,
+            "padding": 0.08,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                7.405,
+                43.724,
+                7.435,
+                43.74
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.08,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 7.42,
+              "lat": 43.731111
+            },
+            "text": "MONACO",
+            "at": 0.3
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "figure": {
+          "value": 18000,
+          "unit": "PER KM²",
+          "text": "ABOUT, COMPUTED",
+          "decimals": 0,
+          "at": 0.3
+        }
+      },
+      "beat": "escalation"
+    },
+    {
+      "id": "escalation-4",
+      "eyebrow": "THE SEA",
+      "headline": "3.83 KM OF COAST",
+      "narration": "Its whole coastline is just three point eight three kilometres.",
+      "caption": "THE SHORTEST COASTLINE OF ANY COUNTRY WITH A COAST · 3.83 KM",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                7.405,
+                43.724,
+                7.435,
+                43.74
+              ]
+            },
+            "at": 0,
+            "padding": 0.08,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                7.33,
+                43.68,
+                7.5,
+                43.78
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.08,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 7.42,
+              "lat": 43.731111
+            },
+            "text": "MONACO",
+            "at": 0.3
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "figure": {
+          "value": 3.83,
+          "unit": "KM",
+          "text": "OF COASTLINE",
+          "decimals": 2,
+          "at": 0.3
+        }
+      },
+      "beat": "escalation"
+    },
+    {
+      "id": "twist",
+      "eyebrow": "STILL GROWING",
+      "headline": "SIX NEW HECTARES",
+      "narration": "In December 2024 it opened six new hectares, reclaimed from the sea.",
+      "caption": "LE PORTIER · 6 HECTARES RECLAIMED · OPENED DEC 2024 · MAP SHOWS TODAY'S COAST",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                7.33,
+                43.68,
+                7.5,
+                43.78
+              ]
+            },
+            "at": 0,
+            "padding": 0.08,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                7.41,
+                43.723,
+                7.44,
+                43.74
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.08,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 7.42,
+              "lat": 43.731111
+            },
+            "text": "MONACO",
+            "at": 0.3
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "figure": {
+          "value": 6,
+          "unit": "HECTARES",
+          "text": "NEW LAND, DEC 2024",
+          "decimals": 0,
+          "at": 0.3
+        }
+      },
+      "beat": "twist"
+    },
+    {
+      "id": "verdict",
+      "eyebrow": "YOUR CALL",
+      "headline": "WOULD YOU LIVE HERE?",
+      "narration": "Would you live in the world's most crowded country?",
+      "caption": "WOULD YOU LIVE IN THE MOST DENSELY POPULATED COUNTRY?",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                7.41,
+                43.723,
+                7.44,
+                43.74
+              ]
+            },
+            "at": 0,
+            "padding": 0.08,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                3.4,
+                41.6,
+                11.4,
+                46.4
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.08,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 7.42,
+              "lat": 43.731111
+            },
+            "text": "MONACO",
+            "at": 0.3
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      },
+      "beat": "verdict"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia: Monaco (revision 1385592284)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Monaco&oldid=1385592284"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ],
+  "paletteVariant": "atlas",
+  "framing": {
+    "opening": "bleed",
+    "ending": "loop"
+  }
+}

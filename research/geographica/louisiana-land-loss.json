@@ -1,0 +1,124 @@
+{
+  "schemaVersion": 1,
+  "id": "louisiana-land-loss",
+  "subject": "United States",
+  "kind": "curated",
+  "note": "Cited to pinned Wikipedia revisions (trusted_secondary): Coastal erosion in Louisiana and Wetlands of Louisiana. The erosion page gives several figures that do not agree (4,833 km2 in the last century; more than 4,900 km2 since 1930; 65 km2 a year; 75 km2 a year; a range of 28.01 to 83.5 km2 a year by period), so a script uses 4,833 km2 and the 65 km2-a-year football-field line (both from the lead and 'Causes' sections), and names the 28.01 to 83.5 range only as a range with its 1970s peak. The page lists many causes and says observers disagree about their weight: a script names none as the cause. No outline of the old coast is drawn: the map shows today's coast with figures and labels.",
+  "regions": [
+    "Gulf of Mexico"
+  ],
+  "claims": [
+    {
+      "id": "lost",
+      "text": "In the last century, coastal Louisiana has lost an estimated 4,833 square kilometers (1,866 sq mi) of land, approximately the size of Delaware's land area.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-erosion"
+      ]
+    },
+    {
+      "id": "rate",
+      "text": "The loss equates to the disappearance of 25 square miles (65 km2) of wetlands each year or a football-field-sized area every 30 minutes.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-erosion"
+      ]
+    },
+    {
+      "id": "range",
+      "text": "Coast wide rates of wetland change have varied from -83.5 square kilometers (-32.2 sq mi) to -28.01 square kilometers (-10.81 sq mi) annually, with peak loss rates occurring during the 1970's.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-erosion"
+      ]
+    },
+    {
+      "id": "levees",
+      "text": "The levees, designed to prevent flooding along the waterways, prevent silt from draining into the river yet also prevent it from being distributed into the marshes downriver.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-erosion"
+      ]
+    },
+    {
+      "id": "causes",
+      "text": "The page lists sea level rise, subsidence, deprivation of periodic sediment due to flood prevention measures, tropical cyclones, oil and gas extraction and infrastructure, navigation infrastructure and saltwater intrusion, and notes that observers disagree about the relative importance of these factors.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-erosion"
+      ]
+    },
+    {
+      "id": "share",
+      "text": "Southern Louisiana contains 40 to 45 percent of the wetlands found in the lower states.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-wetlands"
+      ]
+    },
+    {
+      "id": "east",
+      "text": "The eastern coastline of Louisiana is much more susceptible to erosion than the western coastline because much of it was created by silt deposits from the Mississippi River.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-wetlands"
+      ]
+    },
+    {
+      "id": "plan",
+      "text": "The Louisiana Coastal Protection and Restoration Authority has developed a master plan for coastal restoration and flood protection; it must be updated every six years, and the 4th edition was released in 2023.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-erosion"
+      ]
+    }
+  ],
+  "places": {
+    "mississippi-delta": {
+      "lon": -89.9149,
+      "lat": 29.6475,
+      "source": "wikipedia-delta",
+      "approximate": true,
+      "note": "The coordinate Wikipedia gives for the Mississippi River Delta as a whole; not a surveyed point."
+    },
+    "chandeleur-islands": {
+      "lon": -88.83444,
+      "lat": 29.83583,
+      "source": "wikipedia-chandeleur",
+      "note": "Wikipedia's coordinate for the Chandeleur Islands (29°50'09\"N 88°50'04\"W)."
+    },
+    "new-orleans": {
+      "lon": -90.0783,
+      "lat": 29.9761,
+      "source": "wikipedia-neworleans",
+      "note": "Wikipedia's coordinate for New Orleans."
+    }
+  },
+  "datasets": {},
+  "sources": {
+    "wikipedia-erosion": {
+      "label": "Wikipedia: Coastal erosion in Louisiana (revision 1374518873)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Coastal_erosion_in_Louisiana&oldid=1374518873"
+    },
+    "wikipedia-wetlands": {
+      "label": "Wikipedia: Wetlands of Louisiana (revision 1372197920)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Wetlands_of_Louisiana&oldid=1372197920"
+    },
+    "wikipedia-delta": {
+      "label": "Wikipedia: Mississippi River Delta (revision 1382478556)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Mississippi_River_Delta&oldid=1382478556"
+    },
+    "wikipedia-chandeleur": {
+      "label": "Wikipedia: Chandeleur Islands (revision 1356610356)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Chandeleur_Islands&oldid=1356610356"
+    },
+    "wikipedia-neworleans": {
+      "label": "Wikipedia: New Orleans (revision 1384648065)",
+      "url": "https://en.wikipedia.org/w/index.php?title=New_Orleans&oldid=1384648065"
+    },
+    "natural-earth": {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  }
+}

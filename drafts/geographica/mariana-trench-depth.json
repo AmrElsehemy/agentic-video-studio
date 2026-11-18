@@ -1,0 +1,469 @@
+{
+  "id": "mariana-trench-depth",
+  "title": "The Deepest Place on Earth",
+  "storyPattern": "profile",
+  "numberRelevant": true,
+  "premise": "The Challenger Deep, at the southern end of the Mariana Trench, is 10,935 m down, farther below sea level than Everest is above it.",
+  "audiencePromise": "Drop to the deepest point of the sea floor.",
+  "openLoop": "How deep is the deepest place?",
+  "payoff": "The Mariana Trench's maximum known depth is 10,935 ± 6 m, more than 2 km farther from sea level than Everest's peak.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "Would you dive to the bottom?",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica"
+  },
+  "subject": {
+    "name": "Challenger Deep",
+    "category": "Landmark",
+    "attributes": {
+      "geoEntity": "country:FSM"
+    }
+  },
+  "voice": {
+    "provider": "elevenlabs",
+    "voice": "JBFqnCBsd6RMkjVDRZzb"
+  },
+  "rights": {
+    "releaseStatus": "cleared",
+    "publicReleaseApproved": true,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      },
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://doi.org/10.25921/fd45-gt74",
+        "owner": "NOAA NCEI ETOPO 2022",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Heights: NOAA NCEI ETOPO 2022 Global Relief Model (public domain)."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "eyebrow": "MARIANA TRENCH",
+      "headline": "THE DEEPEST PLACE",
+      "narration": "Earth's deepest point lies in the western Pacific.",
+      "caption": "CHALLENGER DEEP, MARIANA TRENCH",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "world",
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                118,
+                -2,
+                168,
+                26
+              ]
+            },
+            "at": 0.5,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                134,
+                5,
+                152,
+                18
+              ]
+            },
+            "at": 0.95,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 142.5917,
+              "lat": 11.3733
+            },
+            "text": "CHALLENGER DEEP",
+            "at": 0.6
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "evidence",
+      "eyebrow": "THE DEPTH",
+      "headline": "10,935 METRES",
+      "narration": "Its deepest point is 10,935 metres down.",
+      "caption": "10,935 ± 6 M (2021 STUDY)",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                134,
+                5,
+                152,
+                18
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                139.5,
+                8.8,
+                146,
+                14.5
+              ]
+            },
+            "at": 0.9,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 142.5917,
+              "lat": 11.3733
+            },
+            "text": "10,935 M",
+            "at": 0.3
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      },
+      "beat": "evidence"
+    },
+    {
+      "id": "evidence-2",
+      "eyebrow": "THE TRENCH",
+      "headline": "2,550 KILOMETRES",
+      "narration": "The trench stretches 2,550 kilometres, and 69 wide.",
+      "caption": "ABOUT 2,550 KM LONG · 69 KM WIDE",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                128,
+                0,
+                160,
+                24
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                134,
+                5,
+                152,
+                22
+              ]
+            },
+            "at": 0.9,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 144.8,
+              "lat": 13.5
+            },
+            "text": "GUAM",
+            "at": 0.4
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      },
+      "beat": "evidence"
+    },
+    {
+      "id": "evidence-3",
+      "eyebrow": "CLOSEST LAND",
+      "headline": "287 KILOMETRES",
+      "narration": "The nearest land is Fais Island, 287 kilometres away.",
+      "caption": "FAIS ISLAND 287 KM · GUAM 304 KM",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                139.5,
+                8.8,
+                146,
+                14.5
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                141.2,
+                10.3,
+                144.2,
+                12.6
+              ]
+            },
+            "at": 0.9,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 144.8,
+              "lat": 13.5
+            },
+            "text": "GUAM",
+            "at": 0.2
+          },
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 140.5208,
+              "lat": 9.7603
+            },
+            "text": "FAIS ISLAND",
+            "at": 0.3
+          },
+          {
+            "type": "profile",
+            "set": "challenger-deep-line",
+            "text": "GUAM TO FAIS: 626 KM (MODEL)",
+            "at": 0.4
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      },
+      "beat": "evidence"
+    },
+    {
+      "id": "escalation",
+      "eyebrow": "THE DROP",
+      "headline": "OVER TEN KILOMETRES",
+      "narration": "In the model, the floor drops past ten kilometres.",
+      "caption": "MODEL: -10,466 M ALONG THIS LINE (1.8 KM CELLS SMOOTH THE DEEP)",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                140.2,
+                9.2,
+                145.4,
+                13.8
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                142,
+                10.9,
+                143.2,
+                11.9
+              ]
+            },
+            "at": 0.9,
+            "padding": 0.2,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "profile",
+            "set": "challenger-deep-line",
+            "text": "FLOOR TO -10,466 M (MODEL)",
+            "at": 0.1
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      },
+      "beat": "escalation"
+    },
+    {
+      "id": "twist",
+      "eyebrow": "VERSUS EVEREST",
+      "headline": "MORE THAN EVEREST",
+      "narration": "That is over two kilometres deeper than Everest is tall.",
+      "caption": "BELOW SEA LEVEL FARTHER THAN EVEREST IS ABOVE",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                142,
+                10.9,
+                143.2,
+                11.9
+              ]
+            },
+            "at": 0,
+            "padding": 0.2,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                68,
+                -2,
+                152,
+                42
+              ]
+            },
+            "at": 0.9,
+            "padding": 0.05,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 86.9253,
+              "lat": 27.9883
+            },
+            "text": "MOUNT EVEREST",
+            "at": 0.5
+          },
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 142.5917,
+              "lat": 11.3733
+            },
+            "text": "CHALLENGER DEEP",
+            "at": 0.6
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      },
+      "beat": "twist"
+    },
+    {
+      "id": "verdict",
+      "eyebrow": "THE BOTTOM",
+      "headline": "1,100 ATMOSPHERES",
+      "narration": "Would you dive to the bottom?",
+      "caption": "111 MPA AT THE BOTTOM · ABOUT 1,100 ATMOSPHERES",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                134,
+                5,
+                152,
+                18
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": "world",
+            "at": 0.8,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      },
+      "beat": "verdict"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia: Mariana Trench (revision 1385640720)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Mariana_Trench&oldid=1385640720"
+    },
+    {
+      "label": "Wikipedia: Challenger Deep (revision 1385691217)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Challenger_Deep&oldid=1385691217"
+    },
+    {
+      "label": "Wikipedia: Guam (revision 1384282589)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Guam&oldid=1384282589"
+    },
+    {
+      "label": "Wikipedia: Fais Island (revision 1381508256)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Fais_Island&oldid=1381508256"
+    },
+    {
+      "label": "Wikipedia: Mount Everest (revision 1385118046)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Mount_Everest&oldid=1385118046"
+    },
+    {
+      "label": "NOAA NCEI ETOPO 2022 Global Relief Model (public domain)",
+      "url": "https://doi.org/10.25921/fd45-gt74"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ],
+  "paletteVariant": "atlas",
+  "framing": {
+    "opening": "bleed",
+    "ending": "loop"
+  }
+}

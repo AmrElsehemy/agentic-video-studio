@@ -1,0 +1,517 @@
+{
+  "schemaVersion": 2,
+  "id": "dingo-fence",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica",
+    "wordmark": {
+      "lead": "GEO",
+      "accent": "GRAPHICA"
+    },
+    "fonts": {
+      "display": "Oswald",
+      "body": "Inter"
+    },
+    "captions": {
+      "mode": "words"
+    }
+  },
+  "title": "The World's Longest Fence Crosses Australia",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "mechanic",
+    "numberRelevant": true,
+    "premise": "The Dingo Fence runs 5,614 km across Australia to keep dingoes out of the south-east and protect sheep.",
+    "audiencePromise": "Follow the longest fence on Earth across a continent.",
+    "openLoop": "Where does it start, and where does it end?",
+    "payoff": "From Jimbour near Dalby, past Cameron Corner, to cliffs above the Great Australian Bight; some ecologists say it harms wildlife.",
+    "targetEmotion": "surprise",
+    "engagementQuestion": "Would you fence off a continent?",
+    "targetSecondsBetweenVisualChanges": 0.65
+  },
+  "subject": {
+    "name": "Dingo Fence",
+    "category": "Route",
+    "attributes": {
+      "geoEntity": "country:AUS"
+    }
+  },
+  "related": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#cfe9f2",
+    "surface": "#f4e3b8",
+    "primary": "#d9482b",
+    "secondary": "#2a7fa6",
+    "ink": "#14263a"
+  },
+  "look": "atlas",
+  "framing": {
+    "opening": "bleed",
+    "ending": "loop"
+  },
+  "coast": "fine",
+  "audio": {
+    "music": "generated/dingo-fence-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 96,
+      "notes": [
+        98,
+        116.54,
+        130.81,
+        146.83,
+        130.81,
+        116.54,
+        87.31,
+        98
+      ]
+    },
+    "voice": {
+      "provider": "elevenlabs",
+      "model": "eleven_v4",
+      "voice": "JBFqnCBsd6RMkjVDRZzb",
+      "instructions": "Warm, curious storyteller walking a friend across a map. Clear and confident, with a sense of discovery on each reveal; slow slightly on dates and place names so they land. Conversational and human, never a documentary announcer, lecture, or neutral TTS. Never imitate a known person or character.",
+      "speed": 1.06,
+      "output": "generated/dingo-fence-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "cleared",
+    "publicReleaseApproved": true,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      },
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.soest.hawaii.edu/pwessel/gshhg/gshhg-shp-2.3.7.zip",
+        "owner": "GSHHG coastlines (Wessel & Smith)",
+        "licenseStatus": "licensed",
+        "publicReleaseApproved": true,
+        "notes": "Coastlines: GSHHG v2.3.7 (Wessel & Smith, SOEST / NOAA), LGPL."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "durationSeconds": 3.8,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "THE DINGO FENCE",
+      "headline": "THE LONGEST FENCE",
+      "narration": "The world's longest fence crosses Australia.",
+      "caption": "5,614 KM LONG, THE LONGEST FENCE IN THE WORLD",
+      "visual": "hook",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "world",
+            "at": 0,
+            "padding": 0.15,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                112,
+                -44,
+                155,
+                -10
+              ]
+            },
+            "at": 0.8,
+            "padding": 0.08,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:AUS",
+            "style": "outline",
+            "at": 0.4
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "country:AUS",
+            "text": "AUSTRALIA",
+            "at": 0.5
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "figure": {
+          "value": 5614,
+          "unit": "KM",
+          "text": "THE LONGEST FENCE",
+          "decimals": 0,
+          "at": 0.3
+        }
+      }
+    },
+    {
+      "id": "evidence",
+      "durationSeconds": 5.6,
+      "beat": "evidence",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "WHY",
+      "headline": "KEEP DINGOES OUT",
+      "narration": "It keeps dingoes out of the south-east, away from the sheep.",
+      "caption": "TO KEEP DINGOES OUT OF THE FERTILE SOUTH-EAST",
+      "visual": "gauntlet",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                112,
+                -44,
+                155,
+                -10
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                134,
+                -39,
+                154,
+                -24
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.08,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "escalation",
+      "durationSeconds": 6,
+      "beat": "escalation",
+      "role": "escalation",
+      "shot": "comparison",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "THE START",
+      "headline": "FROM JIMBOUR",
+      "narration": "Built from 1880 to 1885, it starts near Dalby, in Queensland.",
+      "caption": "BUILT 1880–85 · STARTS AT JIMBOUR, NEAR DALBY",
+      "visual": "advantage",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                134,
+                -39,
+                154,
+                -24
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                148.6,
+                -30.2,
+                154.8,
+                -25
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 151.2661,
+              "lat": -27.1813
+            },
+            "text": "NEAR DALBY (APPROX.)",
+            "at": 0.3
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "payoff",
+      "durationSeconds": 4.1,
+      "beat": "payoff",
+      "role": "payoff",
+      "shot": "tracking",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "CAMERON CORNER",
+      "headline": "THREE STATES MEET",
+      "narration": "It passes Cameron Corner, where three states meet.",
+      "caption": "WHERE QUEENSLAND, NEW SOUTH WALES AND SOUTH AUSTRALIA MEET",
+      "visual": "race",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                148.6,
+                -30.2,
+                154.8,
+                -25
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                138,
+                -32,
+                144,
+                -26
+              ]
+            },
+            "at": 0.5,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                140.4,
+                -29.5,
+                141.6,
+                -28.5
+              ]
+            },
+            "at": 0.7,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 140.9993,
+              "lat": -28.9991
+            },
+            "text": "CAMERON CORNER",
+            "at": 0.55
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "payoff-4",
+      "durationSeconds": 5.8,
+      "beat": "payoff",
+      "role": "payoff",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "THE LONG WEST",
+      "headline": "IT KEEPS GOING",
+      "narration": "From there it runs on west to the edge of the Bight.",
+      "caption": "ON WEST TO CLIFFS ABOVE THE GREAT AUSTRALIAN BIGHT",
+      "visual": "tradeoff",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                140.4,
+                -29.5,
+                141.6,
+                -28.5
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                128,
+                -36,
+                141,
+                -29
+              ]
+            },
+            "at": 0.6,
+            "padding": 0.08,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "water:great-australian-bight",
+            "text": "GREAT AUSTRALIAN BIGHT",
+            "at": 0.25
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "twist",
+      "durationSeconds": 3.8,
+      "beat": "payoff",
+      "role": "payoff",
+      "shot": "comparison",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "THE DEBATE",
+      "headline": "DOES IT HARM?",
+      "narration": "Some ecologists say it harms the wildlife.",
+      "caption": "ECOLOGISTS: FEWER NATIVE MAMMALS WHERE DINGOES ARE EXCLUDED",
+      "visual": "race",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                128,
+                -36,
+                141,
+                -29
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                112,
+                -44,
+                155,
+                -10
+              ]
+            },
+            "at": 0.8,
+            "padding": 0.08,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "verdict",
+      "durationSeconds": 3.8,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "YOUR TURN",
+      "headline": "FENCE A CONTINENT?",
+      "narration": "Would you fence off a continent?",
+      "caption": "WOULD YOU FENCE OFF A CONTINENT?",
+      "visual": "cta",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                112,
+                -44,
+                155,
+                -10
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": "world",
+            "at": 0.8,
+            "padding": 0.15,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia: Dingo Fence (revision 1382333131)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Dingo_Fence&oldid=1382333131"
+    },
+    {
+      "label": "Wikipedia: Dalby, Queensland (revision 1369663614)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Dalby,_Queensland&oldid=1369663614"
+    },
+    {
+      "label": "Wikipedia: Cameron Corner Survey Marker (revision 1380587391)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Cameron_Corner_Survey_Marker&oldid=1380587391"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ]
+}

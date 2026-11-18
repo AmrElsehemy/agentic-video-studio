@@ -1,0 +1,126 @@
+{
+  "schemaVersion": 1,
+  "id": "lake-chad-shrinking",
+  "subject": "Chad",
+  "kind": "curated",
+  "note": "Cited to a pinned Wikipedia revision (trusted_secondary): Lake Chad. The page gives the area of the lake in different ways in different places (28,000 km2 in the 19th century and in 1870; 25,000 km2 open water in 1960; 22,772 km2 in June 1966), so the script uses only the 1870 figure and the 1966 to 1994 series, and says 'about' where the page does. Since 1994 the page says the lake has been relatively stable with a slight increase, so the satellite pictures (NASA MODIS Terra true colour, 5 December 2000 and 2024, the same date on purpose) are used to show what a satellite sees (water, marsh and green), not as proof of shrinking; the big drop came before the satellite era. The page attributes the shrinking to climate change and human water diversion; the script says 'the page names'. Four countries meet at the lake; the frames stay on the lake.",
+  "regions": [
+    "Chad",
+    "Cameroon",
+    "Niger",
+    "Nigeria"
+  ],
+  "claims": [
+    {
+      "id": "where",
+      "text": "Lake Chad is an endorheic freshwater lake located at the junction of four countries: Nigeria, Niger, Chad, and Cameroon.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-chad"
+      ]
+    },
+    {
+      "id": "1870",
+      "text": "In 1870, the area of Lake Chad was about 28,000 km2.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-chad"
+      ]
+    },
+    {
+      "id": "1966",
+      "text": "From June 1966 to January 1973, the area of Lake Chad shrank from 22,772 to 15,400 km2.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-chad"
+      ]
+    },
+    {
+      "id": "1975",
+      "text": "It shrank further, to 4,398 km2 in 1975.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-chad"
+      ]
+    },
+    {
+      "id": "1994",
+      "text": "The area of Lake Chad was only 1,756 km2 in February 1994.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-chad"
+      ]
+    },
+    {
+      "id": "stable",
+      "text": "Since 1994 the area of Lake Chad has entered a relatively stable stage with a slight increase.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-chad"
+      ]
+    },
+    {
+      "id": "2013",
+      "text": "The average area of surface water from 2013 to 2016 was about 1,876 km2, with the largest area being 2,231 km2 in July 2015.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-chad"
+      ]
+    },
+    {
+      "id": "causes",
+      "text": "The page says the lake shrank significantly between 1960 and 1990 due to climate change and human water diversion.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-chad"
+      ]
+    },
+    {
+      "id": "inflow",
+      "text": "The average annual inflow of the Chari River and the Logone River from 1970 to 1990 was only 55% of that from 1950 to 1970.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-chad"
+      ]
+    },
+    {
+      "id": "people",
+      "text": "There are more than 30 million residents in the Lake Chad basin.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-chad"
+      ]
+    },
+    {
+      "id": "pictures",
+      "text": "NASA MODIS Terra true-colour pictures of Lake Chad taken on 5 December 2000 and 5 December 2024 (NASA GIBS).",
+      "tier": "official",
+      "sources": [
+        "nasa-gibs"
+      ]
+    }
+  ],
+  "places": {
+    "lake-chad": {
+      "lon": 14.533,
+      "lat": 13.099,
+      "source": "wikipedia-chad",
+      "approximate": true,
+      "note": "The page's infobox coordinates for the lake (13.099 N, 14.533 E), used as a label point."
+    }
+  },
+  "sources": {
+    "wikipedia-chad": {
+      "label": "Wikipedia: Lake Chad (revision 1383897363)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Lake_Chad&oldid=1383897363"
+    },
+    "nasa-gibs": {
+      "label": "NASA EOSDIS Global Imagery Browse Services (GIBS)",
+      "url": "https://earthdata.nasa.gov/gibs"
+    },
+    "natural-earth": {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  }
+}

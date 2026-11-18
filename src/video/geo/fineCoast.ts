@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react';
+import {useEffect, useRef, useState} from 'react';
 import {cancelRender, continueRender, delayRender, staticFile} from 'remotion';
 import type {GeoProjection} from 'd3-geo';
 import {FINE_COAST} from '../../../scripts/lib/fine-coast.mjs';
@@ -86,6 +86,10 @@ export const useFineCoast = (needed: string[] | undefined): boolean => {
   const [handle] = useState(() => delayRender('Loading fine coast'));
   const [ready, setReady] = useState(false);
   const wanted = needed?.join(',');
+  // A shot that unmounts before its tiles arrive (motion blur swaps the single frame for several) must not leave the render waiting.
+  const released = useRef(false);
+  const release = () => { if (!released.current) { released.current = true; continueRender(handle); } };
+  useEffect(() => release, []); // eslint-disable-line react-hooks/exhaustive-deps
   useEffect(() => {
     if (needed === undefined) return;
     let cancelled = false;
@@ -93,7 +97,7 @@ export const useFineCoast = (needed: string[] | undefined): boolean => {
     Promise.all(missing.map(loadTile)).then(() => {
       if (cancelled) return;
       setReady(true);
-      continueRender(handle);
+      release();
     }).catch((error) => cancelRender(error));
     return () => { cancelled = true; };
     // eslint-disable-next-line react-hooks/exhaustive-deps

@@ -1,0 +1,573 @@
+{
+  "schemaVersion": 2,
+  "id": "buesingen-exclave",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica",
+    "wordmark": {
+      "lead": "GEO",
+      "accent": "GRAPHICA"
+    },
+    "fonts": {
+      "display": "Oswald",
+      "body": "Inter"
+    },
+    "captions": {
+      "mode": "words"
+    }
+  },
+  "title": "The German Village Inside Switzerland",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "comparison",
+    "numberRelevant": true,
+    "premise": "Büsingen is a German village entirely surrounded by Switzerland, and it is part of the Swiss customs union.",
+    "audiencePromise": "See a village that is German on paper and Swiss in its shops.",
+    "openLoop": "Why did a village that voted for Switzerland stay German?",
+    "payoff": "In 1918, 96% voted to join Switzerland; no land transfer took place because Switzerland could not offer anything in exchange.",
+    "targetEmotion": "surprise",
+    "engagementQuestion": "German or Swiss: which would you call it?",
+    "targetSecondsBetweenVisualChanges": 0.7
+  },
+  "subject": {
+    "name": "Büsingen",
+    "category": "Enclave",
+    "attributes": {
+      "geoEntity": "country:CHE"
+    }
+  },
+  "related": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#cfdde6",
+    "surface": "#f3ede0",
+    "primary": "#b4561f",
+    "secondary": "#2c5d7f",
+    "ink": "#1b2730"
+  },
+  "framing": {
+    "opening": "bleed",
+    "ending": "loop"
+  },
+  "audio": {
+    "music": "generated/buesingen-exclave-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 96,
+      "notes": [
+        98,
+        116.54,
+        130.81,
+        146.83,
+        130.81,
+        116.54,
+        87.31,
+        98
+      ]
+    },
+    "voice": {
+      "provider": "elevenlabs",
+      "model": "eleven_v4",
+      "voice": "JBFqnCBsd6RMkjVDRZzb",
+      "instructions": "Warm, curious storyteller walking a friend across a map. Clear and confident, with a sense of discovery on each reveal; slow slightly on dates and place names so they land. Conversational and human, never a documentary announcer, lecture, or neutral TTS. Never imitate a known person or character.",
+      "speed": 1.06,
+      "output": "generated/buesingen-exclave-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "cleared",
+    "publicReleaseApproved": true,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "durationSeconds": 3.8,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "comparison",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "BÜSINGEN",
+      "headline": "INSIDE SWITZERLAND",
+      "narration": "A German village sits entirely inside Switzerland.",
+      "caption": "AN EXCLAVE OF GERMANY, SURROUNDED BY SWITZERLAND",
+      "visual": "hook",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                5.5,
+                45.5,
+                12.5,
+                49.5
+              ]
+            },
+            "at": 0,
+            "padding": 0.08,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                7.6,
+                47.2,
+                9.8,
+                48.2
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.08,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:DEU",
+            "style": "fill",
+            "at": 0.3
+          }
+        ],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 8.69027778,
+              "lat": 47.69694444
+            },
+            "text": "BÜSINGEN",
+            "at": 0.5
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "evidence",
+      "durationSeconds": 6.1,
+      "beat": "evidence",
+      "role": "evidence",
+      "shot": "wide",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "POLITICALLY",
+      "headline": "GERMAN",
+      "narration": "Politically it is German: 7.62 square kilometres, about 1,548 people.",
+      "caption": "7.62 KM² · ABOUT 1,548 PEOPLE · BADEN-WÜRTTEMBERG",
+      "visual": "gauntlet",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                7.6,
+                47.2,
+                9.8,
+                48.2
+              ]
+            },
+            "at": 0,
+            "padding": 0.08,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                8.3,
+                47.5,
+                9.1,
+                47.9
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.08,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:DEU",
+            "style": "fill",
+            "at": 0.1
+          }
+        ],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 8.69027778,
+              "lat": 47.69694444
+            },
+            "text": "BÜSINGEN",
+            "at": 0.3
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "evidence-2",
+      "durationSeconds": 3.8,
+      "beat": "evidence",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "ECONOMICALLY",
+      "headline": "SWISS",
+      "narration": "Economically it belongs to Switzerland's customs union.",
+      "caption": "IN THE SWISS CUSTOMS UNION · NO BORDER CHECKS SINCE 4 OCT 1967",
+      "visual": "advantage",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                8.3,
+                47.5,
+                9.1,
+                47.9
+              ]
+            },
+            "at": 0,
+            "padding": 0.08,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                8.5,
+                47.62,
+                8.88,
+                47.78
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.08,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:CHE",
+            "style": "outline",
+            "at": 0.1
+          }
+        ],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 8.69027778,
+              "lat": 47.69694444
+            },
+            "text": "BÜSINGEN",
+            "at": 0.3
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "escalation",
+      "durationSeconds": 5,
+      "beat": "escalation",
+      "role": "escalation",
+      "shot": "tracking",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "THE SHOPS",
+      "headline": "7.7% NOT 19%",
+      "narration": "Swiss francs, and sales tax of seven point seven percent.",
+      "caption": "MOSTLY SWISS FRANCS · VAT 7.7% VS 19% IN GERMANY",
+      "visual": "race",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                8.5,
+                47.62,
+                8.88,
+                47.78
+              ]
+            },
+            "at": 0,
+            "padding": 0.08,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                8.6,
+                47.665,
+                8.78,
+                47.73
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.08,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 8.69027778,
+              "lat": 47.69694444
+            },
+            "text": "BÜSINGEN",
+            "at": 0.3
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "figure": {
+          "value": 7.7,
+          "unit": "%",
+          "text": "VAT HERE",
+          "decimals": 1,
+          "at": 0.3
+        }
+      }
+    },
+    {
+      "id": "escalation-4",
+      "durationSeconds": 5.8,
+      "beat": "escalation",
+      "role": "escalation",
+      "shot": "comparison",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "THE GAP",
+      "headline": "680 METRES",
+      "narration": "A strip of Swiss land, 680 metres wide, cuts it off.",
+      "caption": "SEPARATED FROM GERMANY BY A STRIP ABOUT 680 M WIDE AT ITS NARROWEST",
+      "visual": "race",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                8.6,
+                47.665,
+                8.78,
+                47.73
+              ]
+            },
+            "at": 0,
+            "padding": 0.08,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                8.25,
+                47.55,
+                8.95,
+                47.85
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.08,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:DEU",
+            "style": "outline",
+            "at": 0.1
+          }
+        ],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 8.69027778,
+              "lat": 47.69694444
+            },
+            "text": "BÜSINGEN",
+            "at": 0.3
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "twist",
+      "durationSeconds": 4.4,
+      "beat": "twist",
+      "role": "twist",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "1918",
+      "headline": "96% SAID SWITZERLAND",
+      "narration": "In 1918, ninety-six percent voted to join Switzerland.",
+      "caption": "1918: 96% VOTED TO JOIN SWITZERLAND · NOTHING TO EXCHANGE, NO TRANSFER",
+      "visual": "tradeoff",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                8.25,
+                47.55,
+                8.95,
+                47.85
+              ]
+            },
+            "at": 0,
+            "padding": 0.08,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                6.8,
+                46.6,
+                10.6,
+                48.8
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.08,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:CHE",
+            "style": "fill",
+            "at": 0.2
+          }
+        ],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 8.69027778,
+              "lat": 47.69694444
+            },
+            "text": "BÜSINGEN",
+            "at": 0.3
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "figure": {
+          "value": 96,
+          "unit": "%",
+          "text": "VOTED FOR SWITZERLAND, 1918",
+          "decimals": 0,
+          "at": 0.3
+        }
+      }
+    },
+    {
+      "id": "verdict",
+      "durationSeconds": 3.8,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "YOUR CALL",
+      "headline": "GERMAN OR SWISS?",
+      "narration": "So is it German, or Swiss?",
+      "caption": "GERMAN OR SWISS? WHICH WOULD YOU CALL IT?",
+      "visual": "cta",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                6.8,
+                46.6,
+                10.6,
+                48.8
+              ]
+            },
+            "at": 0,
+            "padding": 0.08,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                5.5,
+                45.5,
+                12.5,
+                49.5
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.08,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:DEU",
+            "style": "fill",
+            "at": 0.1
+          }
+        ],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 8.69027778,
+              "lat": 47.69694444
+            },
+            "text": "BÜSINGEN",
+            "at": 0.3
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia: Büsingen am Hochrhein (revision 1385275768)",
+      "url": "https://en.wikipedia.org/w/index.php?title=B%C3%BCsingen_am_Hochrhein&oldid=1385275768"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ]
+}

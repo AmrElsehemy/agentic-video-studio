@@ -1,0 +1,478 @@
+{
+  "id": "mekong-six-countries",
+  "title": "One River Runs Through Six Countries",
+  "storyPattern": "profile",
+  "numberRelevant": true,
+  "premise": "The Mekong runs through six countries from the Tibetan Plateau to the South China Sea.",
+  "audiencePromise": "Follow one river through six countries.",
+  "openLoop": "What happens to a river that belongs to six countries?",
+  "payoff": "It drops 4,500 m in its upper basin, borders Laos and Thailand for 850 km, and when it floods the Tonlé Sap flows backwards.",
+  "targetEmotion": "curiosity",
+  "engagementQuestion": "Should a river six countries share be dammed?",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica"
+  },
+  "subject": {
+    "name": "Mekong",
+    "category": "Route",
+    "attributes": {
+      "geoEntity": "country:LAO"
+    }
+  },
+  "voice": {
+    "provider": "elevenlabs",
+    "voice": "JBFqnCBsd6RMkjVDRZzb"
+  },
+  "rights": {
+    "releaseStatus": "cleared",
+    "publicReleaseApproved": true,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "eyebrow": "THE MEKONG",
+      "headline": "SIX COUNTRIES",
+      "narration": "One river runs through six countries.",
+      "caption": "THE MEKONG RUNS THROUGH SIX COUNTRIES",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "world",
+            "at": 0,
+            "padding": 0.15,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                92,
+                2,
+                115,
+                34
+              ]
+            },
+            "at": 0.8,
+            "padding": 0.08,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "river:mekong",
+            "style": "trace",
+            "at": 0.1
+          }
+        ],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "figure": {
+          "value": 6,
+          "text": "COUNTRIES, ONE RIVER",
+          "decimals": 0,
+          "at": 0.12
+        }
+      }
+    },
+    {
+      "id": "evidence",
+      "eyebrow": "THE LENGTH",
+      "headline": "12TH LONGEST",
+      "narration": "It is the twelfth-longest river in the world.",
+      "caption": "WORLD'S 12TH-LONGEST RIVER · ABOUT 4,909 KM (ESTIMATE)",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                92,
+                2,
+                115,
+                34
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": "river:mekong",
+            "at": 0.7,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "river:mekong",
+            "style": "trace",
+            "at": 0.1
+          }
+        ],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "figure": {
+          "value": 4909,
+          "text": "ESTIMATED LENGTH",
+          "decimals": 0,
+          "at": 0.12,
+          "unit": "KM"
+        }
+      },
+      "beat": "evidence"
+    },
+    {
+      "id": "evidence-2",
+      "eyebrow": "THE DROP",
+      "headline": "4,500 METRES",
+      "narration": "In its first 2,200 kilometres it drops 4,500 metres.",
+      "caption": "DROPS 4,500 M IN THE UPPER BASIN (2,200 KM)",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "river:mekong",
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                98.5,
+                20.5,
+                104.5,
+                26.5
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "river:mekong",
+            "style": "trace",
+            "at": 0.06
+          }
+        ],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "figure": {
+          "value": 4500,
+          "text": "DROP IN THE UPPER BASIN",
+          "decimals": 0,
+          "at": 0.3,
+          "unit": "M"
+        },
+        "relief": true
+      },
+      "beat": "evidence"
+    },
+    {
+      "id": "evidence-3",
+      "eyebrow": "THE BORDER",
+      "headline": "850 KILOMETRES",
+      "narration": "For 850 kilometres it is the border between Laos and Thailand.",
+      "caption": "THE LAOS–THAILAND BORDER FOR SOME 850 KM",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                98.5,
+                20.5,
+                104.5,
+                26.5
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                99.5,
+                15.5,
+                106,
+                20.5
+              ]
+            },
+            "at": 0.5,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                101.8,
+                17.2,
+                103.6,
+                18.4
+              ]
+            },
+            "at": 0.9,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:LAO",
+            "style": "outline",
+            "at": 0.1
+          },
+          {
+            "entity": "country:THA",
+            "style": "outline",
+            "at": 0.2
+          },
+          {
+            "entity": "river:mekong",
+            "style": "trace",
+            "at": 0.05
+          }
+        ],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": "city:vientiane-lao",
+            "text": "VIENTIANE",
+            "at": 0.5
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "figure": {
+          "value": 850,
+          "text": "LAOS–THAILAND BORDER",
+          "decimals": 0,
+          "at": 0.3,
+          "unit": "KM"
+        }
+      },
+      "beat": "evidence"
+    },
+    {
+      "id": "escalation",
+      "eyebrow": "PHNOM PENH",
+      "headline": "IT FLOWS BACKWARDS",
+      "narration": "At Phnom Penh, a flood sends the Tonlé Sap flowing backwards.",
+      "caption": "WHEN THE MEKONG FLOODS, THE TONLÉ SAP FLOWS BACKWARDS",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                101.8,
+                17.2,
+                103.6,
+                18.4
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                102,
+                9.5,
+                108,
+                16
+              ]
+            },
+            "at": 0.45,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                103.6,
+                10.8,
+                105.6,
+                12.6
+              ]
+            },
+            "at": 0.9,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:KHM",
+            "style": "outline",
+            "at": 0.1
+          },
+          {
+            "entity": "river:mekong",
+            "style": "trace",
+            "at": 0.05
+          }
+        ],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": "city:phnom-penh-khm",
+            "text": "PHNOM PENH",
+            "at": 0.5
+          },
+          {
+            "type": "label",
+            "anchor": "lake:tonle-sap",
+            "text": "TONLÉ SAP",
+            "at": 0.6
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      },
+      "beat": "escalation"
+    },
+    {
+      "id": "twist",
+      "eyebrow": "THE DELTA",
+      "headline": "THEN THE SEA",
+      "narration": "Then it splits into a delta in Vietnam and meets the sea.",
+      "caption": "INTO A DELTA IN VIETNAM, THEN THE SOUTH CHINA SEA",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                103.6,
+                10.8,
+                105.6,
+                12.6
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                104.6,
+                8.3,
+                107.4,
+                11.2
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.08,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:VNM",
+            "style": "outline",
+            "at": 0.1
+          }
+        ],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": "city:can-tho-vnm",
+            "text": "CAN THO",
+            "at": 0.5
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      },
+      "beat": "twist"
+    },
+    {
+      "id": "verdict",
+      "eyebrow": "YOUR TURN",
+      "headline": "DAMS AND DROUGHT",
+      "narration": "Dams strain it now. Should a shared river be dammed?",
+      "caption": "DAMS BUILT FROM THE 2000S HAVE STRAINED ITS ECOSYSTEM",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                104.6,
+                8.3,
+                107.4,
+                11.2
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                92,
+                2,
+                115,
+                34
+              ]
+            },
+            "at": 0.7,
+            "padding": 0.08,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "river:mekong",
+            "style": "trace",
+            "at": 0.1
+          }
+        ],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      },
+      "beat": "verdict"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia: Mekong (revision 1383712959)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Mekong&oldid=1383712959"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ],
+  "paletteVariant": "atlas",
+  "framing": {
+    "opening": "bleed",
+    "ending": "loop"
+  }
+}

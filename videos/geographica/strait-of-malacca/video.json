@@ -1,0 +1,554 @@
+{
+  "schemaVersion": 2,
+  "id": "strait-of-malacca",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica",
+    "wordmark": {
+      "lead": "GEO",
+      "accent": "GRAPHICA"
+    },
+    "fonts": {
+      "display": "Oswald",
+      "body": "Inter"
+    },
+    "captions": {
+      "mode": "words"
+    }
+  },
+  "title": "The Strait Much of Asia's Trade Squeezes Through",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "mechanic",
+    "numberRelevant": true,
+    "premise": "The Strait of Malacca is 900 km long and narrows to 2.8 km, and about a quarter of the world's traded goods pass through it.",
+    "audiencePromise": "Follow the trade through the narrowest point.",
+    "openLoop": "How does so much trade fit through such a narrow strait?",
+    "payoff": "Over 94,000 vessels a year (2008), over 35% of seaborne oil (2024), and roughly 80% of China's imported crude pass through it.",
+    "targetEmotion": "surprise",
+    "engagementQuestion": "Is one narrow strait too much to depend on?",
+    "targetSecondsBetweenVisualChanges": 0.65
+  },
+  "subject": {
+    "name": "Strait of Malacca",
+    "category": "Route",
+    "attributes": {
+      "geoEntity": "water:strait-of-malacca"
+    }
+  },
+  "related": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#050818",
+    "surface": "#18284f",
+    "primary": "#ff3d9a",
+    "secondary": "#6c5ce7",
+    "ink": "#ffffff"
+  },
+  "look": "neon",
+  "framing": {
+    "opening": "bleed",
+    "ending": "loop"
+  },
+  "coast": "fine",
+  "audio": {
+    "music": "generated/strait-of-malacca-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 96,
+      "notes": [
+        98,
+        116.54,
+        130.81,
+        146.83,
+        130.81,
+        116.54,
+        87.31,
+        98
+      ]
+    },
+    "voice": {
+      "provider": "elevenlabs",
+      "model": "eleven_v4",
+      "voice": "JBFqnCBsd6RMkjVDRZzb",
+      "instructions": "Warm, curious storyteller walking a friend across a map. Clear and confident, with a sense of discovery on each reveal; slow slightly on dates and place names so they land. Conversational and human, never a documentary announcer, lecture, or neutral TTS. Never imitate a known person or character.",
+      "speed": 1.06,
+      "output": "generated/strait-of-malacca-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "cleared",
+    "publicReleaseApproved": true,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      },
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.soest.hawaii.edu/pwessel/gshhg/gshhg-shp-2.3.7.zip",
+        "owner": "GSHHG coastlines (Wessel & Smith)",
+        "licenseStatus": "licensed",
+        "publicReleaseApproved": true,
+        "notes": "Coastlines: GSHHG v2.3.7 (Wessel & Smith, SOEST / NOAA), LGPL."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "durationSeconds": 4.4,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "STRAIT OF MALACCA",
+      "headline": "THE BUSIEST STRAIT",
+      "narration": "A quarter of the world's traded goods pass here.",
+      "caption": "ABOUT 25% OF THE WORLD'S TRADED GOODS",
+      "visual": "hook",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                90,
+                -2,
+                108,
+                10
+              ]
+            },
+            "at": 0,
+            "padding": 0.08,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                94,
+                0,
+                106,
+                9
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.08,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "water:strait-of-malacca",
+            "style": "fill",
+            "at": 0.3
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "water:strait-of-malacca",
+            "text": "STRAIT OF MALACCA",
+            "at": 0.4
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "sea"
+      }
+    },
+    {
+      "id": "evidence",
+      "durationSeconds": 5.4,
+      "beat": "evidence",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "THE SHAPE",
+      "headline": "900 KM LONG",
+      "narration": "Nine hundred kilometres long, and between 65 and 250 wide.",
+      "caption": "900 KM LONG · 65 TO 250 KM WIDE",
+      "visual": "gauntlet",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                94,
+                0,
+                106,
+                9
+              ]
+            },
+            "at": 0,
+            "padding": 0.08,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                97,
+                2,
+                104,
+                7
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.08,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "water:strait-of-malacca",
+            "style": "fill",
+            "at": 0.1
+          }
+        ],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "sea",
+        "figure": {
+          "value": 900,
+          "unit": "KM",
+          "text": "LONG",
+          "decimals": 0,
+          "at": 0.3
+        }
+      }
+    },
+    {
+      "id": "escalation",
+      "durationSeconds": 5,
+      "beat": "escalation",
+      "role": "escalation",
+      "shot": "comparison",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "THE SQUEEZE",
+      "headline": "2.8 KM WIDE",
+      "narration": "At the Phillip Channel it narrows to 2.8 kilometres.",
+      "caption": "NARROWEST: 2.8 KM AT PHILLIP CHANNEL, NEAR SINGAPORE",
+      "visual": "advantage",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                100.5,
+                0,
+                106.5,
+                3.5
+              ]
+            },
+            "at": 0,
+            "padding": 0.08,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                103.1,
+                0.95,
+                104.6,
+                1.75
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.08,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "water:strait-of-malacca",
+            "style": "fill",
+            "at": 0.1
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "city:singapore-sgp",
+            "text": "SINGAPORE",
+            "at": 0.3
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "sea",
+        "figure": {
+          "value": 2.8,
+          "unit": "KM",
+          "text": "AT ITS NARROWEST",
+          "decimals": 1,
+          "at": 0.3
+        }
+      }
+    },
+    {
+      "id": "payoff",
+      "durationSeconds": 5.1,
+      "beat": "payoff",
+      "role": "payoff",
+      "shot": "tracking",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "THE TRAFFIC",
+      "headline": "94,000 SHIPS",
+      "narration": "Over ninety-four thousand vessels a year, the world's busiest strait.",
+      "caption": "94,000+ VESSELS A YEAR (2008) · THE BUSIEST STRAIT IN THE WORLD",
+      "visual": "race",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                103.1,
+                0.95,
+                104.6,
+                1.75
+              ]
+            },
+            "at": 0,
+            "padding": 0.08,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                96,
+                -1,
+                108,
+                8.5
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.08,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "water:strait-of-malacca",
+            "style": "fill",
+            "at": 0.1
+          }
+        ],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "sea",
+        "figure": {
+          "value": 94000,
+          "unit": "VESSELS",
+          "text": "A YEAR (2008)",
+          "decimals": 0,
+          "at": 0.3
+        }
+      }
+    },
+    {
+      "id": "payoff-4",
+      "durationSeconds": 4.5,
+      "beat": "payoff",
+      "role": "payoff",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "THE CARGO",
+      "headline": "OVER 35% OF SEA OIL",
+      "narration": "More than thirty-five percent of seaborne oil passes through.",
+      "caption": "OVER 35% OF OIL TRANSPORTED BY SEA · 20% OF GAS (2024)",
+      "visual": "tradeoff",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                96,
+                -1,
+                108,
+                8.5
+              ]
+            },
+            "at": 0,
+            "padding": 0.08,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                96.5,
+                3,
+                104.5,
+                8.5
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.08,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "water:strait-of-malacca",
+            "style": "fill",
+            "at": 0.1
+          }
+        ],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "sea",
+        "figure": {
+          "value": 35,
+          "unit": "%",
+          "text": "OF SEABORNE OIL (2024)",
+          "decimals": 0,
+          "at": 0.3
+        }
+      }
+    },
+    {
+      "id": "payoff-5",
+      "durationSeconds": 4.4,
+      "beat": "payoff",
+      "role": "payoff",
+      "shot": "comparison",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "THE DEPENDENCE",
+      "headline": "80% OF CHINA'S CRUDE",
+      "narration": "Eighty percent of China's imported crude oil passes through.",
+      "caption": "ROUGHLY 80% OF CHINA'S IMPORTED CRUDE · 'MALACCA DILEMMA'",
+      "visual": "race",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                92,
+                -2,
+                108,
+                9
+              ]
+            },
+            "at": 0,
+            "padding": 0.08,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                86,
+                -4,
+                109,
+                12
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.08,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "water:strait-of-malacca",
+            "style": "fill",
+            "at": 0.1
+          }
+        ],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "sea",
+        "figure": {
+          "value": 80,
+          "unit": "%",
+          "text": "OF CHINA'S IMPORTED CRUDE",
+          "decimals": 0,
+          "at": 0.3
+        }
+      }
+    },
+    {
+      "id": "verdict",
+      "durationSeconds": 4.4,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "YOUR TURN",
+      "headline": "ONE NARROW STRAIT",
+      "narration": "Is one narrow strait too much to depend on?",
+      "caption": "IS ONE NARROW STRAIT TOO MUCH TO DEPEND ON?",
+      "visual": "cta",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                86,
+                -4,
+                109,
+                12
+              ]
+            },
+            "at": 0,
+            "padding": 0.08,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                90,
+                -2,
+                108,
+                10
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.08,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "water:strait-of-malacca",
+            "style": "fill",
+            "at": 0.1
+          }
+        ],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "sea"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia: Strait of Malacca (revision 1381435731)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Strait_of_Malacca&oldid=1381435731"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ]
+}

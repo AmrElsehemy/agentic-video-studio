@@ -1,0 +1,525 @@
+{
+  "schemaVersion": 2,
+  "id": "svalbard-farthest-north",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica",
+    "wordmark": {
+      "lead": "GEO",
+      "accent": "GRAPHICA"
+    },
+    "fonts": {
+      "display": "Oswald",
+      "body": "Inter"
+    },
+    "captions": {
+      "mode": "words"
+    }
+  },
+  "title": "The World's Second-Northernmost Town",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "mechanic",
+    "numberRelevant": true,
+    "premise": "Longyearbyen on Svalbard is the world's second-northernmost town, with 128 days of midnight sun and 111 of polar night.",
+    "audiencePromise": "See what life is like at the top of the map.",
+    "openLoop": "What does a town that far north have to live with?",
+    "payoff": "128 days of midnight sun, 111 days of polar night, no visa needed, around 300 polar bears, and the fastest-warming town in the world.",
+    "targetEmotion": "curiosity",
+    "engagementQuestion": "Would you live where the sun is gone for 111 days?",
+    "targetSecondsBetweenVisualChanges": 0.65
+  },
+  "subject": {
+    "name": "Longyearbyen",
+    "category": "Place",
+    "attributes": {
+      "geoEntity": "country:NOR"
+    }
+  },
+  "related": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#cfe9f2",
+    "surface": "#f4e3b8",
+    "primary": "#d9482b",
+    "secondary": "#2a7fa6",
+    "ink": "#14263a"
+  },
+  "look": "atlas",
+  "framing": {
+    "opening": "bleed",
+    "ending": "loop"
+  },
+  "coast": "fine",
+  "audio": {
+    "music": "generated/svalbard-farthest-north-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 96,
+      "notes": [
+        98,
+        116.54,
+        130.81,
+        146.83,
+        130.81,
+        116.54,
+        87.31,
+        98
+      ]
+    },
+    "voice": {
+      "provider": "elevenlabs",
+      "model": "eleven_v4",
+      "voice": "JBFqnCBsd6RMkjVDRZzb",
+      "instructions": "Warm, curious storyteller walking a friend across a map. Clear and confident, with a sense of discovery on each reveal; slow slightly on dates and place names so they land. Conversational and human, never a documentary announcer, lecture, or neutral TTS. Never imitate a known person or character.",
+      "speed": 1.06,
+      "output": "generated/svalbard-farthest-north-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "cleared",
+    "publicReleaseApproved": true,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      },
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.soest.hawaii.edu/pwessel/gshhg/gshhg-shp-2.3.7.zip",
+        "owner": "GSHHG coastlines (Wessel & Smith)",
+        "licenseStatus": "licensed",
+        "publicReleaseApproved": true,
+        "notes": "Coastlines: GSHHG v2.3.7 (Wessel & Smith, SOEST / NOAA), LGPL."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "durationSeconds": 3.8,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "LONGYEARBYEN",
+      "headline": "SECOND-NORTHERNMOST",
+      "narration": "Longyearbyen is the world's second-northernmost town.",
+      "caption": "SVALBARD · ABOUT 2,400–2,800 PEOPLE (ESTIMATE)",
+      "visual": "hook",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                0,
+                69,
+                45,
+                83
+              ]
+            },
+            "at": 0,
+            "padding": 0.05,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                8,
+                76,
+                28,
+                81
+              ]
+            },
+            "at": 0.8,
+            "padding": 0.06,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 15.65,
+              "lat": 78.22
+            },
+            "text": "LONGYEARBYEN (APPROX.)",
+            "at": 0.5
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "evidence",
+      "durationSeconds": 5.3,
+      "beat": "evidence",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "MIDNIGHT SUN",
+      "headline": "128 DAYS OF SUN",
+      "narration": "From 18 April to 24 August the sun never sets.",
+      "caption": "MIDNIGHT SUN: 18 APRIL – 24 AUGUST · 128 DAYS",
+      "visual": "gauntlet",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                8,
+                76,
+                28,
+                81
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                11,
+                77.3,
+                19,
+                79.3
+              ]
+            },
+            "at": 0.8,
+            "padding": 0.06,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 15.65,
+              "lat": 78.22
+            },
+            "text": "LONGYEARBYEN",
+            "at": 0.3
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "figure": {
+          "value": 128,
+          "text": "DAYS OF MIDNIGHT SUN",
+          "decimals": 0,
+          "at": 0.3
+        }
+      }
+    },
+    {
+      "id": "evidence-2",
+      "durationSeconds": 6.2,
+      "beat": "evidence",
+      "role": "evidence",
+      "shot": "wide",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "POLAR NIGHT",
+      "headline": "111 DAYS OF DARK",
+      "narration": "Then comes polar night: 111 days, 27 October to 15 February.",
+      "caption": "POLAR NIGHT: 27 OCTOBER – 15 FEBRUARY · 111 DAYS",
+      "visual": "gauntlet",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                11,
+                77.3,
+                19,
+                79.3
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                14.6,
+                78,
+                16.7,
+                78.45
+              ]
+            },
+            "at": 0.8,
+            "padding": 0.06,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 15.65,
+              "lat": 78.22
+            },
+            "text": "LONGYEARBYEN",
+            "at": 0.3
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "figure": {
+          "value": 111,
+          "text": "DAYS OF POLAR NIGHT",
+          "decimals": 0,
+          "at": 0.3
+        }
+      }
+    },
+    {
+      "id": "escalation",
+      "durationSeconds": 5.3,
+      "beat": "escalation",
+      "role": "escalation",
+      "shot": "comparison",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "LIVING THERE",
+      "headline": "NO VISA NEEDED",
+      "narration": "No one needs a visa or residence permit to live there.",
+      "caption": "NO ONE IS REQUIRED TO HAVE A VISA OR RESIDENCE PERMIT ON SVALBARD",
+      "visual": "advantage",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                14.6,
+                78,
+                16.7,
+                78.45
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                9.5,
+                76.8,
+                20.5,
+                79.6
+              ]
+            },
+            "at": 0.8,
+            "padding": 0.06,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "payoff",
+      "durationSeconds": 5.2,
+      "beat": "payoff",
+      "role": "payoff",
+      "shot": "tracking",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "POLAR BEARS",
+      "headline": "DOORS LEFT UNLOCKED",
+      "narration": "Around 300 polar bears live there, so doors stay unlocked.",
+      "caption": "AROUND 300 RESIDENT POLAR BEARS · RESIDENTS LEAVE HOUSES AND CARS UNLOCKED TO ESCAPE THEM",
+      "visual": "race",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                9.5,
+                76.8,
+                20.5,
+                79.6
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                10,
+                76.5,
+                24,
+                80.5
+              ]
+            },
+            "at": 0.8,
+            "padding": 0.06,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "figure": {
+          "value": 300,
+          "text": "RESIDENT POLAR BEARS",
+          "decimals": 0,
+          "at": 0.3
+        }
+      }
+    },
+    {
+      "id": "twist",
+      "durationSeconds": 5.8,
+      "beat": "payoff",
+      "role": "payoff",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "THE WARMING",
+      "headline": "FASTEST-WARMING",
+      "narration": "As of 2021, it was the fastest-warming town in the world.",
+      "caption": "AS OF 2021, THE FASTEST-WARMING TOWN IN THE WORLD",
+      "visual": "tradeoff",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                10,
+                76.5,
+                24,
+                80.5
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                15.2,
+                78.12,
+                16.1,
+                78.32
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.06,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 15.65,
+              "lat": 78.22
+            },
+            "text": "LONGYEARBYEN",
+            "at": 0.5
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "verdict",
+      "durationSeconds": 5.1,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "YOUR TURN",
+      "headline": "111 DAYS OF DARK",
+      "narration": "Would you live where the sun vanishes for 111 days?",
+      "caption": "WOULD YOU LIVE WHERE THE SUN IS GONE FOR 111 DAYS?",
+      "visual": "cta",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                15.2,
+                78.12,
+                16.1,
+                78.32
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                0,
+                69,
+                45,
+                83
+              ]
+            },
+            "at": 0.8,
+            "padding": 0.05,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia: Longyearbyen (revision 1384128722)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Longyearbyen&oldid=1384128722"
+    },
+    {
+      "label": "Wikipedia: Svalbard (revision 1385672434)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Svalbard&oldid=1385672434"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ]
+}

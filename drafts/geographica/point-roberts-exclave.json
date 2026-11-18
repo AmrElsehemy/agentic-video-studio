@@ -1,0 +1,456 @@
+{
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica"
+  },
+  "voice": {
+    "provider": "elevenlabs",
+    "voice": "JBFqnCBsd6RMkjVDRZzb"
+  },
+  "numberRelevant": true,
+  "targetEmotion": "surprise",
+  "subject": {
+    "name": "Point Roberts",
+    "category": "Border",
+    "attributes": {
+      "geoEntity": "admin1:USA-3519"
+    }
+  },
+  "rights": {
+    "releaseStatus": "cleared",
+    "publicReleaseApproved": true,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      }
+    ]
+  },
+  "id": "point-roberts-exclave",
+  "title": "The US Town You Can Only Drive To Through Canada",
+  "storyPattern": "mystery",
+  "premise": "Point Roberts is part of Washington but reachable by road only through Canada, because the 49th parallel cut it off.",
+  "audiencePromise": "Find out why part of the US sits behind Canada.",
+  "openLoop": "Why is a piece of the US only reachable through Canada?",
+  "payoff": "The 1846 Oregon Treaty put the border on the 49th parallel; Britain later asked for Point Roberts, but it stayed American.",
+  "engagementQuestion": "Would you live where the road home crosses Canada?",
+  "scenes": [
+    {
+      "id": "hook",
+      "eyebrow": "POINT ROBERTS",
+      "headline": "A US PIECE BEHIND CANADA",
+      "narration": "You can only drive there through Canada.",
+      "caption": "POINT ROBERTS, WASHINGTON · BY ROAD, ONLY THROUGH CANADA",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -125.2,
+                46.2,
+                -120,
+                50.2
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -124,
+                48.4,
+                -122.2,
+                49.6
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "admin1:USA-3519",
+            "style": "fill",
+            "at": 0.3
+          }
+        ],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "pop",
+      "eyebrow": "THE CLUE",
+      "headline": "1,191 PEOPLE",
+      "narration": "It belongs to the US, and 1,191 people live there.",
+      "caption": "POINT ROBERTS · A US EXCLAVE · 2020 CENSUS",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -124,
+                48.4,
+                -122.2,
+                49.6
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -123.3,
+                48.88,
+                -122.8,
+                49.1
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": -123.05694,
+              "lat": 48.98639
+            },
+            "text": "POINT ROBERTS",
+            "at": 0.4
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "figure": {
+          "value": 1191,
+          "text": "PEOPLE · 2020 CENSUS",
+          "decimals": 0,
+          "at": 0.3
+        }
+      },
+      "beat": "clue"
+    },
+    {
+      "id": "road",
+      "eyebrow": "THE ROAD",
+      "headline": "40 KM THROUGH CANADA",
+      "narration": "By road, you cross 40 kilometres of Canada to reach it.",
+      "caption": "FROM THE REST OF THE US: 25 MI (40 KM) THROUGH CANADA",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -123.3,
+                48.88,
+                -122.8,
+                49.1
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -123.6,
+                48.6,
+                -122,
+                49.5
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "border:CAN-USA",
+            "style": "trace",
+            "at": 0.1
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "city:vancouver-can",
+            "text": "VANCOUVER",
+            "at": 0.35,
+            "until": 0.9
+          },
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": -123.05694,
+              "lat": 48.98639
+            },
+            "text": "POINT ROBERTS",
+            "at": 0.5
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "figure": {
+          "value": 40,
+          "text": "THROUGH CANADA",
+          "decimals": 0,
+          "at": 0.3,
+          "unit": "KM"
+        }
+      },
+      "beat": "escalation"
+    },
+    {
+      "id": "treaty",
+      "eyebrow": "1846",
+      "headline": "THE 49TH PARALLEL",
+      "narration": "The 1846 Oregon Treaty set the border at the 49th parallel.",
+      "caption": "1846 · THE OREGON TREATY · THE BORDER FOLLOWS THE 49TH PARALLEL",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -123.6,
+                48.6,
+                -122,
+                49.5
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -125.5,
+                48,
+                -120.5,
+                50
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "border:CAN-USA",
+            "style": "trace",
+            "at": 0.1
+          }
+        ],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      },
+      "beat": "reveal"
+    },
+    {
+      "id": "asked",
+      "eyebrow": "THE REQUEST",
+      "headline": "BRITAIN ASKED FOR IT",
+      "narration": "Britain asked to keep it, but it stayed American.",
+      "caption": "BRITAIN ASKED FOR IT · IT STAYED PART OF THE UNITED STATES",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -123.16,
+                48.95,
+                -122.95,
+                49.03
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -123.1,
+                48.97,
+                -123,
+                49
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": -123.05694,
+              "lat": 48.98639
+            },
+            "text": "POINT ROBERTS",
+            "at": 0.4
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      },
+      "beat": "reveal"
+    },
+    {
+      "id": "closed",
+      "eyebrow": "2020",
+      "headline": "80% OF BUSINESS LOST",
+      "narration": "A study found it lost 80 percent of its business in 2020.",
+      "caption": "BORDER CLOSED MARCH 2020 · FULLY REOPENED AUGUST 2021",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -123.45,
+                48.8,
+                -122.65,
+                49.2
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -123.2,
+                48.92,
+                -122.9,
+                49.06
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": -123.05694,
+              "lat": 48.98639
+            },
+            "text": "POINT ROBERTS",
+            "at": 0.4
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "figure": {
+          "value": 80,
+          "text": "OF BUSINESS LOST, 2020",
+          "decimals": 0,
+          "at": 0.3,
+          "unit": "%"
+        }
+      },
+      "beat": "reveal"
+    },
+    {
+      "id": "verdict",
+      "eyebrow": "YOUR TURN",
+      "headline": "WOULD YOU LIVE HERE?",
+      "narration": "Would you live where the road home crosses Canada?",
+      "caption": "WOULD YOU LIVE WHERE THE ROAD HOME CROSSES CANADA?",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -123.2,
+                48.92,
+                -122.9,
+                49.06
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -125.2,
+                46.2,
+                -120,
+                50.2
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": -123.05694,
+              "lat": 48.98639
+            },
+            "text": "POINT ROBERTS",
+            "at": 0.3
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      },
+      "beat": "verdict"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia: Point Roberts, Washington (revision 1384538929)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Point_Roberts,_Washington&oldid=1384538929"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ],
+  "paletteVariant": "light",
+  "framing": {
+    "ending": "loop",
+    "opening": "bleed"
+  }
+}

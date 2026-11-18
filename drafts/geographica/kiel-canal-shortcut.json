@@ -1,0 +1,423 @@
+{
+  "id": "kiel-canal-shortcut",
+  "title": "The Canal That Lets Ships Skip Denmark",
+  "storyPattern": "mechanic",
+  "numberRelevant": true,
+  "premise": "The 98 km Kiel Canal links the North Sea and the Baltic through Germany, shortening the trip by 460 km.",
+  "audiencePromise": "See the shortcut that skips Denmark.",
+  "openLoop": "How can 98 km of water save ships 460 km?",
+  "payoff": "Built 1887–1895, it shortens the trip by 460 km and carries about 90 ships a day.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "Would you take the canal or the long way round?",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica"
+  },
+  "subject": {
+    "name": "Kiel Canal",
+    "category": "Route",
+    "attributes": {
+      "geoEntity": "country:DEU"
+    }
+  },
+  "voice": {
+    "provider": "elevenlabs",
+    "voice": "JBFqnCBsd6RMkjVDRZzb"
+  },
+  "rights": {
+    "releaseStatus": "cleared",
+    "publicReleaseApproved": true,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "beat": "hook",
+      "eyebrow": "THE KIEL CANAL",
+      "headline": "SKIPPING DENMARK",
+      "narration": "One canal saves ships a trip round Denmark.",
+      "caption": "A CANAL BETWEEN THE NORTH SEA AND THE BALTIC",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                2,
+                50.5,
+                20,
+                60
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                7,
+                53,
+                13,
+                57
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "evidence",
+      "beat": "evidence",
+      "eyebrow": "THE CANAL",
+      "headline": "98 KILOMETERS",
+      "narration": "It runs ninety-eight kilometres from the Elbe to Kiel Fjord.",
+      "caption": "98 KM LONG · BRUNSBÜTTEL TO HOLTENAU · END POINTS APPROXIMATE",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                7,
+                53,
+                13,
+                57
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                8.6,
+                53.6,
+                10.8,
+                54.6
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 9.13861111,
+              "lat": 53.89638889
+            },
+            "text": "BRUNSBÜTTEL (APPROX.)",
+            "at": 0.25
+          },
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 10.14166667,
+              "lat": 54.37361111
+            },
+            "text": "HOLTENAU (APPROX.)",
+            "at": 0.45
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "escalation",
+      "beat": "escalation",
+      "eyebrow": "THE SAVING",
+      "headline": "A SHORTER TRIP",
+      "narration": "It shortens the North Sea to Baltic trip by 460 kilometres.",
+      "caption": "SHIPS BYPASS THE JUTLAND PENINSULA AND THE DANISH STRAITS: 460 KM SHORTER",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                8.6,
+                53.6,
+                10.8,
+                54.6
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                4,
+                52,
+                16,
+                58
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.05,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "figure": {
+          "value": 460,
+          "unit": "KM",
+          "text": "SHORTER BY CANAL",
+          "decimals": 0,
+          "at": 0.08
+        }
+      }
+    },
+    {
+      "id": "payoff",
+      "beat": "payoff",
+      "eyebrow": "THE DIG",
+      "headline": "9,000 WORKERS, 8 YEARS",
+      "narration": "Over nine thousand workers dug it in eight years.",
+      "caption": "BUILT 1887–1895 · OVER 9,000 WORKERS · WIDENED 1907–1914 FOR BATTLESHIPS",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                8.2,
+                53.5,
+                11,
+                54.9
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                9.95,
+                54.2,
+                10.35,
+                54.5
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 10.14166667,
+              "lat": 54.37361111
+            },
+            "text": "DIGGING BEGAN 1887 (APPROX.)",
+            "at": 0.4
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "payoff-4",
+      "beat": "payoff",
+      "eyebrow": "THE TRAFFIC",
+      "headline": "90 SHIPS A DAY",
+      "narration": "About ninety ships a day use it.",
+      "caption": "ABOUT 32,000 SHIPS A YEAR · ABOUT 100 MILLION TONNES OF GOODS",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                8.4,
+                53.6,
+                10.6,
+                54.7
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                8.9,
+                53.8,
+                10.3,
+                54.5
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "figure": {
+          "value": 32000,
+          "unit": "SHIPS A YEAR",
+          "text": "KIEL CANAL TRAFFIC",
+          "decimals": 0,
+          "at": 0.3
+        }
+      }
+    },
+    {
+      "id": "payoff-5",
+      "beat": "payoff",
+      "eyebrow": "MARCH 2013",
+      "headline": "THE LOCK FAILED",
+      "narration": "In 2013 a lock failed, and big ships detoured 450 kilometres.",
+      "caption": "MARCH 2013: TWO LOCK GATES FAILED · SHIPS OVER 125 M DETOURED 450 KM VIA THE SKAGERRAK",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                8.6,
+                53.7,
+                9.7,
+                54.2
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                3,
+                52,
+                17,
+                60
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 9.13861111,
+              "lat": 53.89638889
+            },
+            "text": "LOCK FAILED, 2013 (APPROX.)",
+            "at": 0.3
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "verdict",
+      "beat": "verdict",
+      "eyebrow": "YOUR TURN",
+      "headline": "CANAL OR LONG WAY?",
+      "narration": "Would you take the canal, or the long way round?",
+      "caption": "WOULD YOU TAKE THE CANAL OR GO ROUND DENMARK?",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                4.5,
+                52.5,
+                15.5,
+                58.5
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                2,
+                50.5,
+                20,
+                60
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia: Kiel Canal (revision 1386119375)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Kiel_Canal&oldid=1386119375"
+    },
+    {
+      "label": "Wikipedia: Brunsbüttel (revision 1377612035)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Brunsbüttel&oldid=1377612035"
+    },
+    {
+      "label": "Wikipedia: Holtenau (revision 1374431583)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Holtenau&oldid=1374431583"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ],
+  "framing": {
+    "opening": "bleed",
+    "ending": "loop"
+  },
+  "paletteVariant": "atlas"
+}

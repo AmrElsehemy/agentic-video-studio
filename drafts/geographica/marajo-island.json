@@ -1,0 +1,471 @@
+{
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica"
+  },
+  "voice": {
+    "provider": "elevenlabs",
+    "voice": "JBFqnCBsd6RMkjVDRZzb"
+  },
+  "numberRelevant": true,
+  "targetEmotion": "surprise",
+  "subject": {
+    "name": "Marajó",
+    "category": "Place",
+    "attributes": {
+      "geoEntity": "country:BRA"
+    }
+  },
+  "rights": {
+    "releaseStatus": "cleared",
+    "publicReleaseApproved": true,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      }
+    ]
+  },
+  "id": "marajo-island",
+  "title": "The River Island Comparable to Switzerland",
+  "storyPattern": "comparison",
+  "premise": "Marajó, at the mouth of the Amazon, is comparable in size to Switzerland and holds more water buffalo than people.",
+  "audiencePromise": "See the island that sits in the mouth of the Amazon.",
+  "openLoop": "How big is an island inside a river?",
+  "payoff": "Marajó covers 40,100 km², comparable to Switzerland, and about 450,000 water buffalo outnumber its people.",
+  "engagementQuestion": "Would you visit an island that floods every year?",
+  "scenes": [
+    {
+      "id": "hook",
+      "eyebrow": "MARAJÓ",
+      "headline": "AS BIG AS A COUNTRY",
+      "narration": "An Amazon island is comparable to Switzerland.",
+      "caption": "MARAJÓ · AN ISLAND COMPARABLE IN SIZE TO SWITZERLAND",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -54.5,
+                -4,
+                -44.5,
+                2.4
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -52.6,
+                -2.8,
+                -46.6,
+                0.8
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "water:amazon-river",
+            "style": "trace",
+            "at": 0.2
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "water:amazon-river",
+            "text": "AMAZON RIVER",
+            "at": 0.35,
+            "until": 0.9
+          },
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": -49.583333,
+              "lat": -0.983333
+            },
+            "text": "MARAJÓ (APPROX.)",
+            "at": 0.55
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "sea"
+      }
+    },
+    {
+      "id": "area",
+      "eyebrow": "THE SIZE",
+      "headline": "40,100 SQUARE KILOMETRES",
+      "narration": "It covers forty thousand square kilometres of land.",
+      "caption": "LAND AREA 40,100 KM² · SECOND-LARGEST ISLAND IN SOUTH AMERICA",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -52.6,
+                -2.8,
+                -46.6,
+                0.8
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -51.8,
+                -2.3,
+                -47.4,
+                0.4
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": -49.583333,
+              "lat": -0.983333
+            },
+            "text": "MARAJÓ (APPROX.)",
+            "at": 0.4
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "sea",
+        "figure": {
+          "value": 40100,
+          "text": "LAND AREA",
+          "decimals": 0,
+          "at": 0.3,
+          "unit": "KM²"
+        }
+      },
+      "beat": "evidence"
+    },
+    {
+      "id": "span",
+      "eyebrow": "THE SHAPE",
+      "headline": "295 KM LONG",
+      "narration": "It stretches 295 kilometres, and 200 across.",
+      "caption": "295 KM LONG · 200 KM WIDE · 35TH LARGEST ISLAND IN THE WORLD",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -51.8,
+                -2.3,
+                -47.4,
+                0.4
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -51,
+                -1.8,
+                -48.2,
+                -0.2
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": -49.583333,
+              "lat": -0.983333
+            },
+            "text": "MARAJÓ (APPROX.)",
+            "at": 0.4
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "sea",
+        "figure": {
+          "value": 295,
+          "text": "LONG",
+          "decimals": 0,
+          "at": 0.3,
+          "unit": "KM"
+        }
+      },
+      "beat": "evidence"
+    },
+    {
+      "id": "equator",
+      "eyebrow": "THE EQUATOR",
+      "headline": "JUST SOUTH OF THE EQUATOR",
+      "narration": "The Equator runs just north of the island.",
+      "caption": "THE ISLAND LIES JUST SOUTH OF THE EQUATOR",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -54,
+                -3.5,
+                -45,
+                2.8
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -52,
+                -2.4,
+                -47.2,
+                0.6
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "line",
+            "kind": "parallel",
+            "degrees": 0,
+            "text": "EQUATOR",
+            "at": 0.2
+          },
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": -49.583333,
+              "lat": -0.983333
+            },
+            "text": "MARAJÓ (APPROX.)",
+            "at": 0.5
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "sea"
+      },
+      "beat": "escalation"
+    },
+    {
+      "id": "culture",
+      "eyebrow": "THE PEOPLE",
+      "headline": "A LOST CIVILISATION",
+      "narration": "A culture here may have numbered over a hundred thousand.",
+      "caption": "THE MARAJOARA CULTURE · ABOUT 400 BC TO 1600 AD · MAY HAVE EXCEEDED 100,000 PEOPLE",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -51,
+                -1.8,
+                -48.2,
+                -0.2
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -50.8,
+                -1.7,
+                -48.4,
+                -0.3
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": -49.583333,
+              "lat": -0.983333
+            },
+            "text": "MARAJÓ (APPROX.)",
+            "at": 0.4
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "sea"
+      },
+      "beat": "escalation"
+    },
+    {
+      "id": "buffalo",
+      "eyebrow": "THE TWIST",
+      "headline": "MORE BUFFALO THAN PEOPLE",
+      "narration": "Water buffalo now outnumber the people: about four hundred fifty thousand.",
+      "caption": "ABOUT 450,000 WATER BUFFALO · MORE THAN THE ISLAND'S HUMAN POPULATION",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -50.8,
+                -1.7,
+                -48.4,
+                -0.3
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -50.2,
+                -1.3,
+                -48.9,
+                -0.6
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": -49.583333,
+              "lat": -0.983333
+            },
+            "text": "MARAJÓ (APPROX.)",
+            "at": 0.4
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "sea",
+        "figure": {
+          "value": 450000,
+          "text": "WATER BUFFALO",
+          "decimals": 0,
+          "at": 0.3
+        }
+      },
+      "beat": "twist"
+    },
+    {
+      "id": "verdict",
+      "eyebrow": "YOUR TURN",
+      "headline": "WOULD YOU VISIT?",
+      "narration": "Would you visit an island that floods every year?",
+      "caption": "WOULD YOU VISIT AN ISLAND THAT IS LARGELY FLOODED IN THE RAINY SEASON?",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -50.2,
+                -1.3,
+                -48.9,
+                -0.6
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -54.5,
+                -4,
+                -44.5,
+                2.4
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": -49.583333,
+              "lat": -0.983333
+            },
+            "text": "MARAJÓ (APPROX.)",
+            "at": 0.3
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "sea"
+      },
+      "beat": "verdict"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia: Marajó (revision 1383202827)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Maraj%C3%B3&oldid=1383202827"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ],
+  "paletteVariant": "atlas",
+  "framing": {
+    "ending": "loop",
+    "opening": "bleed"
+  }
+}

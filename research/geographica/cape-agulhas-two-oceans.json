@@ -1,0 +1,108 @@
+{
+  "schemaVersion": 1,
+  "id": "cape-agulhas-two-oceans",
+  "subject": "South Africa",
+  "kind": "curated",
+  "note": "Cited to three pinned Wikipedia revisions (trusted_secondary): Cape Agulhas (revision 1379450431), Cape of Good Hope (revision 1385876363) and Indian Ocean (revision 1384659942). The 55 km is the Agulhas page's own figure for how much farther south Agulhas lies; the Cape of Good Hope page separately gives about 150 km east-southeast between the capes, a different quantity, and only the first is used. The 20° east meridian is the Indian Ocean page's delimitation, which the Agulhas page attributes to the International Hydrographic Organization as the 'traditional dividing line'; the script says 'traditional' and never that the oceans visibly meet at a line. The page says the meeting of the currents fluctuates between Cape Agulhas and Cape Point, so the script states no single meeting point. Natural Earth draws its own Indian/Atlantic boundary near 19.6°E, so no ocean is filled and only the 20°E line is drawn. Cape of Good Hope uses the Cape of Good Hope page's coordinates; Cape Point has none on the pages used and is not marked. The '150 ships' is the page's 'it has been believed', and the script says 'believed'.",
+  "regions": [
+    "Cape Town"
+  ],
+  "claims": [
+    {
+      "id": "tip",
+      "text": "Cape Agulhas is the southernmost point of South Africa, the geographic southern tip of Africa and the beginning of the traditional dividing line between the Atlantic and Indian oceans according to the International Hydrographic Organization.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-cape-agulhas"
+      ]
+    },
+    {
+      "id": "south",
+      "text": "It is approximately half a degree of latitude, or 55 kilometres (34 mi), farther south than the Cape of Good Hope.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-cape-agulhas"
+      ]
+    },
+    {
+      "id": "mistake",
+      "text": "A common misconception is that the Cape of Good Hope is the southern tip of Africa, based on the misbelief that the Cape was the dividing point between the Atlantic and Indian oceans; in fact, the southernmost point of Africa is Cape Agulhas.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-cape-of-good-hope"
+      ]
+    },
+    {
+      "id": "meet",
+      "text": "The currents of the two oceans meet at the point where the warm-water Agulhas current meets the cold-water Benguela current and turns back on itself; that oceanic meeting point fluctuates between Cape Agulhas and Cape Point.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-cape-of-good-hope"
+      ]
+    },
+    {
+      "id": "meridian",
+      "text": "The Indian Ocean is delimited from the Atlantic Ocean by the 20° east meridian, running south from Cape Agulhas, South Africa.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-indian-ocean"
+      ]
+    },
+    {
+      "id": "retro",
+      "text": "South of Cape Agulhas, the warm Agulhas Current retroflects back into the Indian Ocean; while retroflecting it pinches off large ocean eddies (Agulhas rings) that drift into the South Atlantic Ocean, carrying enormous amounts of heat and salt.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-cape-agulhas"
+      ]
+    },
+    {
+      "id": "waves",
+      "text": "The sea off Cape Agulhas is notorious for winter storms and significant rogue waves which can range up to 30 metres (100 ft) high and can sink even large ships.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-cape-agulhas"
+      ]
+    },
+    {
+      "id": "ships",
+      "text": "Over the past few hundred years, it has been believed that around 150 ships have sunk around Agulhas.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-cape-agulhas"
+      ]
+    }
+  ],
+  "places": {
+    "cape-agulhas": {
+      "lon": 20.0,
+      "lat": -34.833222,
+      "source": "wikipedia-cape-agulhas",
+      "note": "The Cape Agulhas page's own coordinates (34°49'59.6\"S 20°00'E)."
+    },
+    "cape-of-good-hope": {
+      "lon": 18.475556,
+      "lat": -34.358056,
+      "source": "wikipedia-cape-of-good-hope",
+      "note": "The Cape of Good Hope page's own coordinates (34°21'29\"S 18°28'32\"E)."
+    }
+  },
+  "sources": {
+    "wikipedia-cape-agulhas": {
+      "label": "Wikipedia: Cape Agulhas (revision 1379450431)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Cape_Agulhas&oldid=1379450431"
+    },
+    "wikipedia-cape-of-good-hope": {
+      "label": "Wikipedia: Cape of Good Hope (revision 1385876363)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Cape_of_Good_Hope&oldid=1385876363"
+    },
+    "wikipedia-indian-ocean": {
+      "label": "Wikipedia: Indian Ocean (revision 1384659942)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Indian_Ocean&oldid=1384659942"
+    },
+    "natural-earth": {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  }
+}

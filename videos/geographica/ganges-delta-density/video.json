@@ -1,0 +1,560 @@
+{
+  "schemaVersion": 2,
+  "id": "ganges-delta-density",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica",
+    "wordmark": {
+      "lead": "GEO",
+      "accent": "GRAPHICA"
+    },
+    "fonts": {
+      "display": "Oswald",
+      "body": "Inter"
+    },
+    "captions": {
+      "mode": "words"
+    }
+  },
+  "title": "The World's Largest Delta, and Who Lives On It",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "comparison",
+    "numberRelevant": true,
+    "premise": "The Ganges Delta is the world's largest river delta, and about 273.6 million people live on it.",
+    "audiencePromise": "Count how many people one river delta holds.",
+    "openLoop": "How many people can one river delta hold?",
+    "payoff": "More than 105,000 km2 hold about 273.6 million people: at most about 2,600 per square kilometre, two thirds of the delta in Bangladesh.",
+    "targetEmotion": "awe",
+    "engagementQuestion": "How many people can one delta hold?",
+    "targetSecondsBetweenVisualChanges": 0.7
+  },
+  "subject": {
+    "name": "Ganges Delta",
+    "category": "Delta",
+    "attributes": {
+      "geoEntity": "country:BGD"
+    }
+  },
+  "related": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#cfe9f2",
+    "surface": "#f4e3b8",
+    "primary": "#d9482b",
+    "secondary": "#2a7fa6",
+    "ink": "#14263a"
+  },
+  "look": "atlas",
+  "framing": {
+    "opening": "bleed",
+    "ending": "loop"
+  },
+  "coast": "fine",
+  "audio": {
+    "music": "generated/ganges-delta-density-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 96,
+      "notes": [
+        98,
+        116.54,
+        130.81,
+        146.83,
+        130.81,
+        116.54,
+        87.31,
+        98
+      ]
+    },
+    "voice": {
+      "provider": "elevenlabs",
+      "model": "eleven_v4",
+      "voice": "JBFqnCBsd6RMkjVDRZzb",
+      "instructions": "Warm, curious storyteller walking a friend across a map. Clear and confident, with a sense of discovery on each reveal; slow slightly on dates and place names so they land. Conversational and human, never a documentary announcer, lecture, or neutral TTS. Never imitate a known person or character.",
+      "speed": 1.06,
+      "output": "generated/ganges-delta-density-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "cleared",
+    "publicReleaseApproved": true,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      },
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.soest.hawaii.edu/pwessel/gshhg/gshhg-shp-2.3.7.zip",
+        "owner": "GSHHG coastlines (Wessel & Smith)",
+        "licenseStatus": "licensed",
+        "publicReleaseApproved": true,
+        "notes": "Coastlines: GSHHG v2.3.7 (Wessel & Smith, SOEST / NOAA), LGPL."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "durationSeconds": 3.8,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "comparison",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "GANGES DELTA",
+      "headline": "THE LARGEST DELTA",
+      "narration": "The world's largest river delta sits here.",
+      "caption": "THE WORLD'S LARGEST RIVER DELTA · INTO THE BAY OF BENGAL",
+      "visual": "hook",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                78,
+                12,
+                100,
+                30
+              ]
+            },
+            "at": 0,
+            "padding": 0.08,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                84,
+                17,
+                96,
+                27
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.08,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "water:bay-of-bengal",
+            "style": "fill",
+            "at": 0.3
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "water:bay-of-bengal",
+            "text": "BAY OF BENGAL",
+            "at": 0.4
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "evidence",
+      "durationSeconds": 5.3,
+      "beat": "evidence",
+      "role": "evidence",
+      "shot": "wide",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "THE SIZE",
+      "headline": "OVER 105,000 KM²",
+      "narration": "It covers more than one hundred and five thousand square kilometres.",
+      "caption": "MORE THAN 105,000 KM² · MOSTLY IN BANGLADESH AND INDIA",
+      "visual": "gauntlet",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                84,
+                17,
+                96,
+                27
+              ]
+            },
+            "at": 0,
+            "padding": 0.08,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                87,
+                16.2,
+                93.5,
+                25
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.08,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "river:ganges",
+            "style": "trace",
+            "at": 0.1
+          },
+          {
+            "entity": "river:brahmaputra",
+            "style": "trace",
+            "at": 0.2
+          }
+        ],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "figure": {
+          "value": 105000,
+          "unit": "KM²",
+          "text": "AND MORE",
+          "decimals": 0,
+          "at": 0.3
+        }
+      }
+    },
+    {
+      "id": "evidence-2",
+      "durationSeconds": 4.5,
+      "beat": "evidence",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "THE PEOPLE",
+      "headline": "273.6 MILLION",
+      "narration": "Around two hundred seventy-three million people live on it.",
+      "caption": "AROUND 273.6 MILLION PEOPLE LIVE ON THE DELTA",
+      "visual": "advantage",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                87,
+                16.2,
+                93.5,
+                25
+              ]
+            },
+            "at": 0,
+            "padding": 0.08,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                88,
+                18.2,
+                92.4,
+                24.2
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.08,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:BGD",
+            "style": "outline",
+            "at": 0.1
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "city:dhaka-bgd",
+            "text": "DHAKA",
+            "at": 0.4
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "figure": {
+          "value": 273.6,
+          "unit": "MILLION",
+          "text": "PEOPLE ON THE DELTA",
+          "decimals": 1,
+          "at": 0.3
+        }
+      }
+    },
+    {
+      "id": "escalation",
+      "durationSeconds": 4,
+      "beat": "escalation",
+      "role": "escalation",
+      "shot": "tracking",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "BANGLADESH SIDE",
+      "headline": "67% OF THE LAND",
+      "narration": "Two thirds of the delta is in Bangladesh.",
+      "caption": "67% OF THE DELTA · 173.6 MILLION PEOPLE IN BANGLADESH",
+      "visual": "race",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                84,
+                12.5,
+                96,
+                28
+              ]
+            },
+            "at": 0,
+            "padding": 0.08,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                86,
+                15.2,
+                94.5,
+                26.7
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.08,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:BGD",
+            "style": "outline",
+            "at": 0.1
+          }
+        ],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "figure": {
+          "value": 67,
+          "unit": "%",
+          "text": "OF THE DELTA IN BANGLADESH",
+          "decimals": 0,
+          "at": 0.3
+        }
+      }
+    },
+    {
+      "id": "escalation-4",
+      "durationSeconds": 4.1,
+      "beat": "escalation",
+      "role": "escalation",
+      "shot": "comparison",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "WEST BENGAL SIDE",
+      "headline": "33% OF THE LAND",
+      "narration": "The other third is West Bengal, in India.",
+      "caption": "33% OF THE DELTA · 100 MILLION PEOPLE IN WEST BENGAL, INDIA",
+      "visual": "race",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                86,
+                15.2,
+                94.5,
+                26.7
+              ]
+            },
+            "at": 0,
+            "padding": 0.08,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                86,
+                17.5,
+                90.4,
+                23.5
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.08,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "city:kolkata-ind",
+            "text": "KOLKATA",
+            "at": 0.3
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "figure": {
+          "value": 33,
+          "unit": "%",
+          "text": "OF THE DELTA IN WEST BENGAL",
+          "decimals": 0,
+          "at": 0.3
+        }
+      }
+    },
+    {
+      "id": "twist",
+      "durationSeconds": 4.5,
+      "beat": "twist",
+      "role": "twist",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "DO THE MATH",
+      "headline": "AT MOST 2,600 PER KM²",
+      "narration": "At most about twenty-six hundred people per square kilometre.",
+      "caption": "COMPUTED: 273.6 MILLION ÷ 105,000 KM² (THE AREA IS 'MORE THAN')",
+      "visual": "tradeoff",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                84,
+                17,
+                96,
+                27
+              ]
+            },
+            "at": 0,
+            "padding": 0.08,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                88.4,
+                18.8,
+                92,
+                23.6
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.08,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "river:ganges",
+            "style": "trace",
+            "at": 0.1
+          }
+        ],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "figure": {
+          "value": 2600,
+          "unit": "PER KM²",
+          "text": "AT MOST (COMPUTED)",
+          "decimals": 0,
+          "at": 0.3
+        }
+      }
+    },
+    {
+      "id": "verdict",
+      "durationSeconds": 4,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "THE QUESTION",
+      "headline": "HOW MANY CAN IT HOLD?",
+      "narration": "How many people can one river delta hold?",
+      "caption": "HOW MANY PEOPLE CAN ONE RIVER DELTA HOLD?",
+      "visual": "cta",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                88.4,
+                18.8,
+                92,
+                23.6
+              ]
+            },
+            "at": 0,
+            "padding": 0.08,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                78,
+                12,
+                100,
+                30
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.08,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "water:bay-of-bengal",
+            "style": "fill",
+            "at": 0.3
+          }
+        ],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia: Ganges Delta (revision 1378372198)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Ganges_Delta&oldid=1378372198"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ]
+}

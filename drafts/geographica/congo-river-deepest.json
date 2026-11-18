@@ -1,0 +1,444 @@
+{
+  "id": "congo-river-deepest",
+  "title": "The Deepest River on Earth Is Not the Longest",
+  "storyPattern": "profile",
+  "numberRelevant": true,
+  "premise": "The Congo is the world's deepest recorded river, with measured depths of around 220 m.",
+  "audiencePromise": "Follow the deepest river ever recorded.",
+  "openLoop": "How deep is the deepest river, and why is it so steady?",
+  "payoff": "Around 220 m deep, 4,370 km long, about 41,000 cubic metres a second, and a 270 m drop through 32 falls and rapids below Kinshasa.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "Which river would you guess is the deepest?",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica"
+  },
+  "subject": {
+    "name": "Congo River",
+    "category": "Route",
+    "attributes": {
+      "geoEntity": "country:COD"
+    }
+  },
+  "voice": {
+    "provider": "elevenlabs",
+    "voice": "JBFqnCBsd6RMkjVDRZzb"
+  },
+  "rights": {
+    "releaseStatus": "cleared",
+    "publicReleaseApproved": true,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "eyebrow": "THE CONGO RIVER",
+      "headline": "THE DEEPEST RIVER",
+      "narration": "The Congo is the deepest river ever recorded.",
+      "caption": "WORLD'S DEEPEST RECORDED RIVER · AROUND 220 M",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -20,
+                -35,
+                52,
+                38
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                8,
+                -14,
+                34,
+                6
+              ]
+            },
+            "at": 0.8,
+            "padding": 0.08,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "river:congo",
+            "style": "trace",
+            "at": 0.1
+          }
+        ],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "figure": {
+          "value": 220,
+          "text": "DEEPEST RECORDED",
+          "decimals": 0,
+          "at": 0.3,
+          "unit": "M"
+        }
+      }
+    },
+    {
+      "id": "evidence",
+      "eyebrow": "THE LENGTH",
+      "headline": "SECOND-LONGEST",
+      "narration": "It is also Africa's second-longest river.",
+      "caption": "SHORTER ONLY THAN THE NILE · 4,370 KM WITH THE LUALABA",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                8,
+                -14,
+                34,
+                6
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": "river:congo",
+            "at": 0.7,
+            "padding": 0.12,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "river:congo",
+            "style": "trace",
+            "at": 0.05
+          }
+        ],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "figure": {
+          "value": 4370,
+          "text": "LENGTH WITH THE LUALABA",
+          "decimals": 0,
+          "at": 0.3,
+          "unit": "KM"
+        }
+      },
+      "beat": "evidence"
+    },
+    {
+      "id": "evidence-2",
+      "eyebrow": "THE EQUATOR",
+      "headline": "CROSSED TWICE",
+      "narration": "It is the only major river to cross the equator twice.",
+      "caption": "THE ONLY MAJOR RIVER TO CROSS THE EQUATOR TWICE",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "river:congo",
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                16,
+                -3,
+                28,
+                3.5
+              ]
+            },
+            "at": 0.8,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "river:congo",
+            "style": "trace",
+            "at": 0.05
+          }
+        ],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      },
+      "beat": "evidence"
+    },
+    {
+      "id": "escalation",
+      "eyebrow": "THE FLOW",
+      "headline": "41,000 EVERY SECOND",
+      "narration": "About 41,000 cubic metres a second reach the Atlantic.",
+      "caption": "AVERAGE DISCHARGE AT THE MOUTH · THIRD LARGEST RIVER BY DISCHARGE",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                16,
+                -3,
+                28,
+                3.5
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                10,
+                -8,
+                17,
+                -2
+              ]
+            },
+            "at": 0.8,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "river:congo",
+            "style": "trace",
+            "at": 0.05
+          }
+        ],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "figure": {
+          "value": 41000,
+          "text": "CUBIC METRES A SECOND",
+          "decimals": 0,
+          "at": 0.3,
+          "unit": "M³/S"
+        }
+      },
+      "beat": "escalation"
+    },
+    {
+      "id": "payoff",
+      "eyebrow": "THE FALLS",
+      "headline": "270 METRES DOWN",
+      "narration": "Below Kinshasa, 32 falls and rapids drop it 270 metres.",
+      "caption": "LIVINGSTONE FALLS: 32 FALLS AND RAPIDS · 270 M DROP OVER 350 KM",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                10,
+                -8,
+                17,
+                -2
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                12.5,
+                -6.5,
+                18,
+                -2.5
+              ]
+            },
+            "at": 0.35,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                14.8,
+                -4.8,
+                15.8,
+                -3.9
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "river:congo",
+            "style": "trace",
+            "at": 0.05
+          }
+        ],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": "city:kinshasa-cod",
+            "text": "KINSHASA",
+            "at": 0.55
+          },
+          {
+            "type": "marker",
+            "anchor": "city:brazzaville-cog",
+            "text": "BRAZZAVILLE",
+            "at": 0.6
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "figure": {
+          "value": 270,
+          "text": "DROP OVER 350 KM",
+          "decimals": 0,
+          "at": 0.3,
+          "unit": "M"
+        }
+      },
+      "beat": "escalation"
+    },
+    {
+      "id": "twist",
+      "eyebrow": "THE BASIN",
+      "headline": "TEN COUNTRIES",
+      "narration": "Its basin spans ten countries and a tenth of Africa.",
+      "caption": "THE CONGO BASIN COVERS TEN COUNTRIES · ABOUT 13% OF AFRICA",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                14.8,
+                -4.8,
+                15.8,
+                -3.9
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                8,
+                -14,
+                34,
+                6
+              ]
+            },
+            "at": 0.8,
+            "padding": 0.08,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "river:congo",
+            "style": "trace",
+            "at": 0.1
+          }
+        ],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "figure": {
+          "value": 10,
+          "text": "COUNTRIES IN ITS BASIN",
+          "decimals": 0,
+          "at": 0.3
+        }
+      },
+      "beat": "twist"
+    },
+    {
+      "id": "verdict",
+      "eyebrow": "YOUR TURN",
+      "headline": "GUESS THE DEEPEST",
+      "narration": "Which river would you have guessed was the deepest?",
+      "caption": "WHICH RIVER WOULD YOU GUESS IS THE DEEPEST?",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                8,
+                -14,
+                34,
+                6
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -20,
+                -35,
+                52,
+                38
+              ]
+            },
+            "at": 0.8,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      },
+      "beat": "verdict"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia: Congo River (revision 1368990427)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Congo_River&oldid=1368990427"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ],
+  "paletteVariant": "atlas",
+  "framing": {
+    "opening": "bleed",
+    "ending": "loop"
+  },
+  "coast": "natural-earth"
+}

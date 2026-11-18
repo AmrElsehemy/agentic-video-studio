@@ -1,0 +1,417 @@
+{
+  "id": "atacama-driest",
+  "title": "The Desert Where Some Places Never Get Rain",
+  "storyPattern": "mechanic",
+  "numberRelevant": true,
+  "premise": "The Atacama is the driest nonpolar desert in the world, with about 15 mm of rain a year on average.",
+  "audiencePromise": "See why this desert stays dry.",
+  "openLoop": "Why does it almost never rain here?",
+  "payoff": "Mountains on both sides block the rain from the Pacific and the Atlantic, so some weather stations have never recorded any.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "Would you cross the driest place on Earth?",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica"
+  },
+  "subject": {
+    "name": "Atacama Desert",
+    "category": "Region",
+    "attributes": {
+      "geoEntity": "country:CHL"
+    }
+  },
+  "voice": {
+    "provider": "elevenlabs",
+    "voice": "JBFqnCBsd6RMkjVDRZzb"
+  },
+  "rights": {
+    "releaseStatus": "cleared",
+    "publicReleaseApproved": true,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      }
+    ]
+  },
+  "paletteVariant": "light",
+  "framing": {
+    "opening": "bleed",
+    "ending": "loop"
+  },
+  "sources": [
+    {
+      "label": "Wikipedia: Atacama Desert (revision 1384515026)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Atacama_Desert&oldid=1384515026"
+    },
+    {
+      "label": "NASA EOSDIS Global Imagery Browse Services (GIBS), MODIS Terra true colour",
+      "url": "https://earthdata.nasa.gov/gibs"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ],
+  "scenes": [
+    {
+      "id": "hook",
+      "eyebrow": "ATACAMA DESERT, CHILE",
+      "headline": "THE DRIEST DESERT",
+      "narration": "The Atacama is the driest desert outside the poles.",
+      "caption": "THE DRIEST NONPOLAR DESERT IN THE WORLD",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -82,
+                -34,
+                -60,
+                -12
+              ]
+            },
+            "at": 0,
+            "padding": 0.08,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -78,
+                -32,
+                -64,
+                -14
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.08,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": -69.25,
+              "lat": -24.5
+            },
+            "text": "ATACAMA DESERT (APPROX.)",
+            "at": 0.4
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "desert"
+      }
+    },
+    {
+      "id": "evidence",
+      "eyebrow": "THE STRIP",
+      "headline": "1,600 KM LONG",
+      "narration": "A strip sixteen hundred kilometres long, west of the Andes.",
+      "caption": "A DESERT PLATEAU 1,600 KM LONG · 105,000 KM²",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -78,
+                -32,
+                -64,
+                -14
+              ]
+            },
+            "at": 0,
+            "padding": 0.08,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -74,
+                -32,
+                -66,
+                -14
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.08,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": -70.32122,
+              "lat": -18.47839
+            },
+            "text": "ARICA (APPROX.)",
+            "at": 0.3
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "desert",
+        "figure": {
+          "value": 1600,
+          "unit": "KM",
+          "text": "LONG",
+          "decimals": 0,
+          "at": 0.3
+        }
+      },
+      "beat": "evidence"
+    },
+    {
+      "id": "escalation",
+      "eyebrow": "ON AVERAGE",
+      "headline": "15 MM OF RAIN A YEAR",
+      "narration": "Fifteen millimetres of rain a year, on average.",
+      "caption": "ABOUT 15 MM A YEAR ON AVERAGE · SOME PLACES 1 TO 3 MM",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -74,
+                -32,
+                -66,
+                -17
+              ]
+            },
+            "at": 0,
+            "padding": 0.08,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -72,
+                -27,
+                -67,
+                -21
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.08,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "desert",
+        "figure": {
+          "value": 15,
+          "unit": "MM",
+          "text": "OF RAIN A YEAR",
+          "decimals": 0,
+          "at": 0.3
+        }
+      },
+      "beat": "escalation"
+    },
+    {
+      "id": "escalation-3",
+      "eyebrow": "WEATHER STATIONS",
+      "headline": "SOME NEVER GOT RAIN",
+      "narration": "Some weather stations here have never recorded rain.",
+      "caption": "NEVER RAINED AT SOME STATIONS · UP TO 4 YEARS DRY IN THE CENTRAL SECTOR",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -72.5,
+                -27,
+                -66,
+                -21
+              ]
+            },
+            "at": 0,
+            "padding": 0.08,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -71.5,
+                -25.5,
+                -68,
+                -22
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.08,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": -70.4,
+              "lat": -23.65
+            },
+            "text": "ANTOFAGASTA (APPROX.)",
+            "at": 0.3
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "desert"
+      },
+      "beat": "escalation"
+    },
+    {
+      "id": "payoff",
+      "eyebrow": "FROM SPACE",
+      "headline": "NORTHERN CHILE",
+      "narration": "Cloud hugs the coast, and the land behind is brown.",
+      "caption": "NASA SATELLITE · 20 SEPTEMBER 2024 · ABOUT 250 M PER PIXEL",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -71.5,
+                -26,
+                -66.5,
+                -21
+              ]
+            },
+            "at": 0,
+            "padding": 0,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "satellite",
+            "set": "atacama",
+            "dates": [
+              "2024-09-20"
+            ],
+            "mode": "fade",
+            "marks": [],
+            "at": 0
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "desert"
+      },
+      "beat": "payoff"
+    },
+    {
+      "id": "payoff-2",
+      "eyebrow": "WHY",
+      "headline": "MOUNTAINS ON BOTH SIDES",
+      "narration": "Mountains on both sides block the rain from reaching it.",
+      "caption": "THE ANDES AND THE COAST RANGE · A TWO-SIDED RAIN SHADOW",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -76,
+                -34,
+                -62,
+                -14
+              ]
+            },
+            "at": 0,
+            "padding": 0.08,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -72,
+                -30,
+                -64,
+                -22
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.08,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": -68.54138889,
+              "lat": -27.10972222
+            },
+            "text": "OJOS DEL SALADO (APPROX.)",
+            "at": 0.4
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "desert"
+      },
+      "beat": "payoff"
+    },
+    {
+      "id": "verdict",
+      "eyebrow": "THE QUESTION",
+      "headline": "WOULD YOU CROSS IT?",
+      "narration": "Would you cross the driest place on Earth?",
+      "caption": "WOULD YOU CROSS THE DRIEST PLACE ON EARTH?",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -72,
+                -30,
+                -64,
+                -22
+              ]
+            },
+            "at": 0,
+            "padding": 0.08,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -82,
+                -34,
+                -60,
+                -12
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.08,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "desert"
+      },
+      "beat": "verdict"
+    }
+  ]
+}

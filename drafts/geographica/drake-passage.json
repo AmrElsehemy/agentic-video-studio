@@ -1,0 +1,423 @@
+{
+  "id": "drake-passage",
+  "title": "The Most Treacherous Crossing Between Two Oceans",
+  "storyPattern": "mechanic",
+  "numberRelevant": true,
+  "premise": "The Drake Passage is 800 km wide between Cape Horn and Antarctica, with waves that top 12 metres.",
+  "audiencePromise": "Cross the water ships fear.",
+  "openLoop": "What makes this crossing so treacherous?",
+  "payoff": "It is the narrowest passage around Antarctica, with the strongest ocean current running through it and waves topping 12 metres.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "Would you cross the Drake Passage?",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica"
+  },
+  "subject": {
+    "name": "Drake Passage",
+    "category": "Route",
+    "attributes": {
+      "geoEntity": "water:drake-passage"
+    }
+  },
+  "voice": {
+    "provider": "elevenlabs",
+    "voice": "JBFqnCBsd6RMkjVDRZzb"
+  },
+  "rights": {
+    "releaseStatus": "cleared",
+    "publicReleaseApproved": true,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      }
+    ]
+  },
+  "paletteVariant": "atlas",
+  "framing": {
+    "opening": "bleed",
+    "ending": "loop"
+  },
+  "sources": [
+    {
+      "label": "Wikipedia: Drake Passage (revision 1386060890)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Drake_Passage&oldid=1386060890"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ],
+  "scenes": [
+    {
+      "id": "hook",
+      "eyebrow": "DRAKE PASSAGE",
+      "headline": "A TREACHEROUS CROSSING",
+      "narration": "This is one of the most treacherous voyages.",
+      "caption": "ONE OF THE MOST TREACHEROUS VOYAGES FOR SHIPS",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -76,
+                -68,
+                -50,
+                -52
+              ]
+            },
+            "at": 0,
+            "padding": 0.08,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -72,
+                -66,
+                -56,
+                -54
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.08,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "water:drake-passage",
+            "style": "fill",
+            "at": 0.3
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "water:drake-passage",
+            "text": "DRAKE PASSAGE",
+            "at": 0.4
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "sea"
+      }
+    },
+    {
+      "id": "evidence",
+      "eyebrow": "CAPE HORN TO ANTARCTICA",
+      "headline": "800 KM WIDE",
+      "narration": "Eight hundred kilometres from Cape Horn to Livingston Island.",
+      "caption": "800 KM · CAPE HORN TO LIVINGSTON ISLAND",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -72,
+                -66,
+                -56,
+                -54
+              ]
+            },
+            "at": 0,
+            "padding": 0.08,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -69,
+                -64,
+                -58,
+                -55
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.08,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": -67.28916667,
+              "lat": -55.98
+            },
+            "text": "CAPE HORN (APPROX.)",
+            "at": 0.3
+          },
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": -60.5,
+              "lat": -62.6
+            },
+            "text": "LIVINGSTON ISLAND (APPROX.)",
+            "at": 0.5
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "sea",
+        "figure": {
+          "value": 800,
+          "unit": "KM",
+          "text": "WIDE",
+          "decimals": 0,
+          "at": 0.3
+        }
+      },
+      "beat": "evidence"
+    },
+    {
+      "id": "escalation",
+      "eyebrow": "THE CHOKE POINT",
+      "headline": "A CHOKE POINT",
+      "narration": "It is the narrowest passage around Antarctica.",
+      "caption": "THE NARROWEST CHOKE POINT AROUND ANTARCTICA",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -69,
+                -64,
+                -58,
+                -55
+              ]
+            },
+            "at": 0,
+            "padding": 0.08,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -95,
+                -78,
+                -30,
+                -42
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.08,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "sea"
+      },
+      "beat": "escalation"
+    },
+    {
+      "id": "escalation-3",
+      "eyebrow": "THE WAVES",
+      "headline": "WAVES TOP 12 METRES",
+      "narration": "Waves here top twelve metres, with no land to slow them.",
+      "caption": "WAVES TOP 40 FEET (12 M) · NO LANDMASS RESISTS THE CURRENT",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -72,
+                -66,
+                -58,
+                -54
+              ]
+            },
+            "at": 0,
+            "padding": 0.08,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -66,
+                -62,
+                -60,
+                -57
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.08,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "water:drake-passage",
+            "style": "fill",
+            "at": 0.3
+          }
+        ],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "sea",
+        "figure": {
+          "value": 12,
+          "unit": "M",
+          "text": "WAVES TOP",
+          "decimals": 0,
+          "at": 0.3
+        }
+      },
+      "beat": "escalation"
+    },
+    {
+      "id": "payoff",
+      "eyebrow": "THE CURRENT",
+      "headline": "THE STRONGEST CURRENT",
+      "narration": "The strongest ocean current runs through, with nothing in its way.",
+      "caption": "ESTIMATED 100–150 MILLION M³ OF WATER A SECOND",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -80,
+                -66,
+                -50,
+                -52
+              ]
+            },
+            "at": 0,
+            "padding": 0.08,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -74,
+                -64,
+                -54,
+                -54
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.08,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "sea"
+      },
+      "beat": "payoff"
+    },
+    {
+      "id": "payoff-2",
+      "eyebrow": "DECEMBER 2019",
+      "headline": "FIRST TO ROW ACROSS",
+      "narration": "In 2019, six explorers became the first to row across.",
+      "caption": "25 DECEMBER 2019 · SIX EXPLORERS, THE FIRST TO ROW ACROSS",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -76,
+                -60,
+                -58,
+                -50
+              ]
+            },
+            "at": 0,
+            "padding": 0.08,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -69,
+                -58,
+                -65,
+                -54
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.08,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": -67.28916667,
+              "lat": -55.98
+            },
+            "text": "CAPE HORN (APPROX.)",
+            "at": 0.5
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "sea"
+      },
+      "beat": "payoff"
+    },
+    {
+      "id": "verdict",
+      "eyebrow": "THE QUESTION",
+      "headline": "WOULD YOU CROSS IT?",
+      "narration": "Would you cross the Drake Passage?",
+      "caption": "WOULD YOU CROSS THE DRAKE PASSAGE?",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -69,
+                -58,
+                -65,
+                -54
+              ]
+            },
+            "at": 0,
+            "padding": 0.08,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -76,
+                -68,
+                -50,
+                -52
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.08,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "sea"
+      },
+      "beat": "verdict"
+    }
+  ]
+}

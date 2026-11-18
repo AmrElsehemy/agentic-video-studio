@@ -1,0 +1,375 @@
+{
+  "id": "dead-sea-shrinking",
+  "title": "The Sea That Falls Over a Meter Every Year",
+  "storyPattern": "transformation",
+  "numberRelevant": true,
+  "premise": "The Dead Sea shrank from 1,050 km² in 1930 to 605 km² today; the page ties it to the Jordan's diversion.",
+  "audiencePromise": "See how much of the Dead Sea is gone.",
+  "openLoop": "Why is the Dead Sea getting smaller?",
+  "payoff": "Surface 1,050 km² in 1930, 605 today; the Jordan's flow fell from over a billion m³ a year to under 100 million.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "Would you float on a sea that keeps shrinking?",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica"
+  },
+  "subject": {
+    "name": "Dead Sea",
+    "category": "Border",
+    "attributes": {
+      "geoEntity": "lake:dead-sea-2"
+    }
+  },
+  "voice": {
+    "provider": "elevenlabs",
+    "voice": "JBFqnCBsd6RMkjVDRZzb"
+  },
+  "rights": {
+    "releaseStatus": "cleared",
+    "publicReleaseApproved": true,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "label": "Wikipedia: Dead Sea (revision 1384259663)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Dead_Sea&oldid=1384259663"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ],
+  "scenes": [
+    {
+      "id": "hook",
+      "eyebrow": "THE DEAD SEA",
+      "headline": "IT KEEPS FALLING",
+      "narration": "This sea drops more than a meter every year.",
+      "caption": "THE DEAD SEA FALLS MORE THAN 1 METER A YEAR",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                34,
+                30,
+                37,
+                33
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                35.2,
+                31,
+                35.8,
+                31.9
+              ]
+            },
+            "at": 0.8,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "before",
+      "eyebrow": "1930",
+      "headline": "1,050 KM²",
+      "narration": "In 1930 its surface covered 1,050 square kilometers.",
+      "caption": "1930: SURFACE AREA 1,050 KM² · MAP SHOWS THE LAKE TODAY",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                35.25,
+                31.5,
+                35.75,
+                31.95
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                35.3,
+                31.15,
+                35.7,
+                31.6
+              ]
+            },
+            "at": 0.8,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "figure": {
+          "value": 1050,
+          "text": "IN 1930",
+          "decimals": 0,
+          "at": 0.3,
+          "unit": "KM²"
+        }
+      },
+      "beat": "before"
+    },
+    {
+      "id": "change",
+      "eyebrow": "TODAY",
+      "headline": "605 KM²",
+      "narration": "Today it covers just 605.",
+      "caption": "TODAY: SURFACE AREA 605 KM² · ABOUT 33% SMALLER SINCE THE 1960S",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                35.2,
+                31,
+                35.8,
+                31.9
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                35.35,
+                31.2,
+                35.65,
+                31.7
+              ]
+            },
+            "at": 0.8,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "figure": {
+          "value": 605,
+          "text": "TODAY",
+          "decimals": 0,
+          "at": 0.3,
+          "unit": "KM²"
+        }
+      },
+      "beat": "change"
+    },
+    {
+      "id": "reveal",
+      "eyebrow": "THE RIVER",
+      "headline": "A DIVERTED RIVER",
+      "narration": "A water carrier finished in 1964 diverted the Jordan.",
+      "caption": "NATIONAL WATER CARRIER COMPLETED 1964 · JORDAN RIVER WATER DIVERTED (WIKIPEDIA)",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                35.35,
+                31.5,
+                35.65,
+                31.9
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                34.8,
+                30.8,
+                36.2,
+                33
+              ]
+            },
+            "at": 0.8,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      },
+      "beat": "reveal"
+    },
+    {
+      "id": "flow",
+      "eyebrow": "THE FLOW",
+      "headline": "UNDER 100 MILLION M³",
+      "narration": "Inflow fell from 1.2 billion cubic meters to under 100 million.",
+      "caption": "JORDAN INFLOW: 1.2 TO 1.3 BILLION M³ BEFORE · LESS THAN 100 MILLION M³ IN 2021",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                35,
+                31,
+                36,
+                32.6
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                35.3,
+                31.6,
+                35.6,
+                31.9
+              ]
+            },
+            "at": 0.8,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      },
+      "beat": "aftermath"
+    },
+    {
+      "id": "sinkholes",
+      "eyebrow": "THE SHORE",
+      "headline": "SINKHOLES",
+      "narration": "Large sinkholes have opened along its western shore.",
+      "caption": "LARGE SINKHOLES ALONG THE WESTERN SHORE · BEACH RESORTS SHUT (WIKIPEDIA)",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                35.2,
+                31.1,
+                35.8,
+                31.9
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                35.3,
+                31.35,
+                35.5,
+                31.6
+              ]
+            },
+            "at": 0.8,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      },
+      "beat": "aftermath"
+    },
+    {
+      "id": "verdict",
+      "eyebrow": "YOUR TURN",
+      "headline": "WOULD YOU FLOAT?",
+      "narration": "Would you float on a sea that keeps shrinking?",
+      "caption": "WOULD YOU FLOAT ON A SEA THAT KEEPS SHRINKING?",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                35.25,
+                31.1,
+                35.75,
+                31.8
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                34,
+                30,
+                37,
+                33
+              ]
+            },
+            "at": 0.8,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      },
+      "beat": "verdict"
+    }
+  ],
+  "paletteVariant": "atlas",
+  "framing": {
+    "opening": "bleed",
+    "ending": "loop"
+  }
+}

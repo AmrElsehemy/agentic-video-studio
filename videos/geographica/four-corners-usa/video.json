@@ -1,0 +1,649 @@
+{
+  "schemaVersion": 2,
+  "id": "four-corners-usa",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica",
+    "wordmark": {
+      "lead": "GEO",
+      "accent": "GRAPHICA"
+    },
+    "fonts": {
+      "display": "Oswald",
+      "body": "Inter"
+    },
+    "captions": {
+      "mode": "words"
+    }
+  },
+  "title": "The Point Where Four States Meet",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "mechanic",
+    "numberRelevant": true,
+    "premise": "Four US states meet at a single point, because Congress drew one boundary from the corner of another.",
+    "audiencePromise": "See why four states meet at exactly one point.",
+    "openLoop": "Why do four states meet at one point?",
+    "payoff": "An 1863 line due south from Colorado's corner meant four states would meet; the 1925 Supreme Court settled the marker point.",
+    "targetEmotion": "surprise",
+    "engagementQuestion": "Would you stand where four states meet?",
+    "targetSecondsBetweenVisualChanges": 0.65
+  },
+  "subject": {
+    "name": "Four Corners",
+    "category": "Border",
+    "attributes": {
+      "geoEntity": "admin1:USA-3526"
+    }
+  },
+  "related": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#cfe9f2",
+    "surface": "#f4e3b8",
+    "primary": "#d9482b",
+    "secondary": "#2a7fa6",
+    "ink": "#14263a"
+  },
+  "look": "atlas",
+  "framing": {
+    "opening": "bleed",
+    "ending": "loop"
+  },
+  "coast": "fine",
+  "audio": {
+    "music": "generated/four-corners-usa-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 96,
+      "notes": [
+        98,
+        116.54,
+        130.81,
+        146.83,
+        130.81,
+        116.54,
+        87.31,
+        98
+      ]
+    },
+    "voice": {
+      "provider": "elevenlabs",
+      "model": "eleven_v4",
+      "voice": "JBFqnCBsd6RMkjVDRZzb",
+      "instructions": "Warm, curious storyteller walking a friend across a map. Clear and confident, with a sense of discovery on each reveal; slow slightly on dates and place names so they land. Conversational and human, never a documentary announcer, lecture, or neutral TTS. Never imitate a known person or character.",
+      "speed": 1.06,
+      "output": "generated/four-corners-usa-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "cleared",
+    "publicReleaseApproved": true,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      },
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.soest.hawaii.edu/pwessel/gshhg/gshhg-shp-2.3.7.zip",
+        "owner": "GSHHG coastlines (Wessel & Smith)",
+        "licenseStatus": "licensed",
+        "publicReleaseApproved": true,
+        "notes": "Coastlines: GSHHG v2.3.7 (Wessel & Smith, SOEST / NOAA), LGPL."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "durationSeconds": 3.8,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "FOUR CORNERS",
+      "headline": "FOUR STATES, ONE POINT",
+      "narration": "Four states meet at one single point.",
+      "caption": "FOUR US STATES MEET AT ONE POINT",
+      "visual": "hook",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -116,
+                31.5,
+                -102,
+                42
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -111,
+                35.5,
+                -107,
+                38.5
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "admin1:USA-3526",
+            "style": "outline",
+            "at": 0.2
+          },
+          {
+            "entity": "admin1:USA-3522",
+            "style": "outline",
+            "at": 0.3
+          },
+          {
+            "entity": "admin1:USA-3520",
+            "style": "outline",
+            "at": 0.4
+          },
+          {
+            "entity": "admin1:USA-3524",
+            "style": "outline",
+            "at": 0.5
+          }
+        ],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "only",
+      "durationSeconds": 5.8,
+      "beat": "evidence",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "THE ONLY ONE",
+      "headline": "ONLY PLACE IN THE US",
+      "narration": "It is the only place in the country where four states meet.",
+      "caption": "THE ONLY PLACE IN THE UNITED STATES WHERE FOUR STATES MEET",
+      "visual": "gauntlet",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -111,
+                35.5,
+                -107,
+                38.5
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -109.3,
+                36.8,
+                -108.8,
+                37.2
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": -109.045167,
+              "lat": 36.998972
+            },
+            "text": "FOUR CORNERS MONUMENT",
+            "at": 0.45
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "1863",
+      "durationSeconds": 5.6,
+      "beat": "escalation",
+      "role": "escalation",
+      "shot": "comparison",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "1863",
+      "headline": "A LINE DUE SOUTH",
+      "narration": "In 1863 Congress ran a line due south from Colorado's corner.",
+      "caption": "1863 · A LINE DUE SOUTH FROM COLORADO'S CORNER",
+      "visual": "advantage",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -113,
+                34,
+                -104,
+                42
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -110.5,
+                35.5,
+                -107.5,
+                38.5
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "admin1:USA-3522",
+            "style": "outline",
+            "at": 0.2
+          },
+          {
+            "entity": "admin1:USA-3524",
+            "style": "outline",
+            "at": 0.5
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "admin1:USA-3522",
+            "text": "COLORADO",
+            "at": 0.3,
+            "until": 0.85
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "ensured",
+      "durationSeconds": 4.9,
+      "beat": "escalation",
+      "role": "escalation",
+      "shot": "tracking",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "BY DESIGN",
+      "headline": "FOUR HAD TO MEET",
+      "narration": "So four states were bound to meet at a point.",
+      "caption": "CONGRESS ENSURED FOUR STATES WOULD MEET AT A POINT",
+      "visual": "advantage",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -113,
+                34,
+                -104.5,
+                42.5
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -112,
+                35,
+                -106,
+                40
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "admin1:USA-3526",
+            "text": "UTAH",
+            "at": 0.2,
+            "until": 0.9
+          },
+          {
+            "type": "label",
+            "anchor": "admin1:USA-3522",
+            "text": "COLORADO",
+            "at": 0.35,
+            "until": 0.9
+          },
+          {
+            "type": "label",
+            "anchor": "admin1:USA-3520",
+            "text": "ARIZONA",
+            "at": 0.5,
+            "until": 0.9
+          },
+          {
+            "type": "label",
+            "anchor": "admin1:USA-3524",
+            "text": "NEW MEXICO",
+            "at": 0.65,
+            "until": 0.9
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "error",
+      "durationSeconds": 4.7,
+      "beat": "payoff",
+      "role": "payoff",
+      "shot": "tracking",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "THE SURVEY",
+      "headline": "555 METRES OFF",
+      "narration": "A survey error put the marker 555 metres east.",
+      "caption": "MARKER SURVEYED 1,821 FT (555 M) EAST OF THE INTENDED SPOT",
+      "visual": "race",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -109.3,
+                36.8,
+                -108.8,
+                37.2
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -109.065,
+                36.985,
+                -109.025,
+                37.012
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": -109.045167,
+              "lat": 36.998972
+            },
+            "text": "FOUR CORNERS MONUMENT",
+            "at": 0.4
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "figure": {
+          "value": 555,
+          "unit": "M",
+          "text": "EAST OF THE INTENDED SPOT",
+          "decimals": 0,
+          "at": 0.3
+        }
+      }
+    },
+    {
+      "id": "court",
+      "durationSeconds": 4.2,
+      "beat": "payoff",
+      "role": "payoff",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "1925",
+      "headline": "THE SUPREME COURT",
+      "narration": "In 1925 the Supreme Court settled the point.",
+      "caption": "1925 · THE US SUPREME COURT SETTLES THE POINT",
+      "visual": "tradeoff",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -109.065,
+                36.985,
+                -109.025,
+                37.012
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -109.15,
+                36.93,
+                -108.95,
+                37.07
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": -109.045167,
+              "lat": 36.998972
+            },
+            "text": "FOUR CORNERS MONUMENT",
+            "at": 0.3
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "six",
+      "durationSeconds": 5,
+      "beat": "payoff",
+      "role": "payoff",
+      "shot": "comparison",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "TODAY",
+      "headline": "SIX GOVERNMENTS",
+      "narration": "Six governments meet here: four states and two tribal nations.",
+      "caption": "FOUR STATES · NAVAJO NATION · UTE MOUNTAIN UTE TRIBE",
+      "visual": "race",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -109.15,
+                36.93,
+                -108.95,
+                37.07
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -109.4,
+                36.8,
+                -108.7,
+                37.25
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": -109.045167,
+              "lat": 36.998972
+            },
+            "text": "FOUR CORNERS MONUMENT",
+            "at": 0.3
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "figure": {
+          "value": 6,
+          "text": "GOVERNMENTS MEET HERE",
+          "decimals": 0,
+          "at": 0.3
+        }
+      }
+    },
+    {
+      "id": "verdict",
+      "durationSeconds": 3.8,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "YOUR TURN",
+      "headline": "WOULD YOU STAND HERE?",
+      "narration": "Would you stand where four states meet?",
+      "caption": "WOULD YOU STAND WHERE FOUR STATES MEET?",
+      "visual": "cta",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -109.4,
+                36.8,
+                -108.7,
+                37.25
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -116,
+                31.5,
+                -102,
+                42
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "admin1:USA-3526",
+            "text": "UTAH",
+            "at": 0.4,
+            "until": 0.9
+          },
+          {
+            "type": "label",
+            "anchor": "admin1:USA-3524",
+            "text": "NEW MEXICO",
+            "at": 0.5,
+            "until": 0.9
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia: Four Corners (revision 1381286650)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Four_Corners&oldid=1381286650"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ]
+}

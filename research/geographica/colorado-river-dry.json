@@ -1,0 +1,120 @@
+{
+  "schemaVersion": 1,
+  "id": "colorado-river-dry",
+  "subject": "Mexico",
+  "kind": "curated",
+  "note": "Cited to pinned Wikipedia revisions (trusted_secondary): Colorado River (revision 1384158754) and Colorado River Delta (revision 1383044266), read in full. The pictures are NASA MODIS Terra true colour for 15 April 2000 and 2024 (GIBS) of the head of the Gulf of California; they show the delta's mouth and the sea, and the script does not say what is or is not river water in them. 'Since 1960 dry or a trickle' is the page's wording and is quoted as such; the river's mouth point is the page's coordinates, marked approximate. The frames stay on the delta and the Gulf; the river is a border between the two countries for a stretch, and the map shows no border highlight.",
+  "regions": [
+    "United States",
+    "Gulf of California"
+  ],
+  "claims": [
+    {
+      "id": "length",
+      "text": "The Colorado River is 1,450 miles (2,330 km) long, the fifth-longest river in the United States.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-colorado"
+      ]
+    },
+    {
+      "id": "people",
+      "text": "The Colorado River and its tributaries are a vital source of water for 40 million people, and an extensive system of dams, reservoirs and aqueducts diverts almost its entire flow for agricultural irrigation and urban water supply.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-colorado"
+      ]
+    },
+    {
+      "id": "morelos",
+      "text": "At Morelos Dam, the entire remaining flow of the Colorado is diverted to irrigate the Mexicali Valley.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-colorado"
+      ]
+    },
+    {
+      "id": "dry1960",
+      "text": "Since 1960, the stretch of the Colorado between San Luis Río Colorado and the Gulf of California has been dry or a trickle formed by irrigation return flows.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-colorado"
+      ]
+    },
+    {
+      "id": "mouth",
+      "text": "The Colorado empties into the Gulf of California about 75 miles (120 km) south of Yuma.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-colorado"
+      ]
+    },
+    {
+      "id": "hoover",
+      "text": "After Hoover Dam was built in the 1930s, virtually no freshwater reached the delta for six years while Lake Mead filled behind it.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-delta"
+      ]
+    },
+    {
+      "id": "extent",
+      "text": "Before major dams, the delta's wetlands once covered 7,810 km2 (1,930,000 acres).",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-delta"
+      ]
+    },
+    {
+      "id": "five",
+      "text": "The loss of freshwater flows to the delta over the twentieth century has reduced delta wetlands to about 5 percent of their original extent.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-delta"
+      ]
+    },
+    {
+      "id": "pulse",
+      "text": "The first pulse flow, an eight-week release of 105,000 acre-feet starting on March 21, 2014, reached the sea on May 16, 2014, the first time in 16 years that any water from the Colorado flowed into the ocean.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-colorado"
+      ]
+    },
+    {
+      "id": "pictures",
+      "text": "NASA MODIS Terra true-colour pictures of the Colorado River Delta taken on 15 April 2000 and 2024 (NASA GIBS).",
+      "tier": "official",
+      "sources": [
+        "nasa-gibs"
+      ]
+    }
+  ],
+  "places": {
+    "river-mouth": {
+      "lon": -114.8,
+      "lat": 31.815,
+      "source": "wikipedia-colorado",
+      "approximate": true,
+      "note": "The mouth coordinates the page gives (31°48'54\"N 114°48'W)."
+    }
+  },
+  "sources": {
+    "wikipedia-colorado": {
+      "label": "Wikipedia: Colorado River (revision 1384158754)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Colorado_River&oldid=1384158754"
+    },
+    "wikipedia-delta": {
+      "label": "Wikipedia: Colorado River Delta (revision 1383044266)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Colorado_River_Delta&oldid=1383044266"
+    },
+    "nasa-gibs": {
+      "label": "NASA EOSDIS Global Imagery Browse Services (GIBS)",
+      "url": "https://earthdata.nasa.gov/gibs"
+    },
+    "natural-earth": {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  }
+}

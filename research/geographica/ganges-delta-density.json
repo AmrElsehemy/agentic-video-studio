@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "id": "ganges-delta-density",
+  "subject": "Bangladesh",
+  "kind": "curated",
+  "note": "Cited to one pinned Wikipedia revision (trusted_secondary): Ganges Delta. The page says the delta 'covers more than 105,000 km2' and that 'around 273.6 million (173.6 million Bangladesh and 100 million West Bengal, India) people live on the delta'; a script uses those two numbers as stated. One figure is computed by us and flagged: 273.6 million / 105,000 km2 is about 2,606 per km2, and because the page gives the area as 'more than' 105,000, this is an upper bound, so a script says 'at most about 2,600'. The page also says 'most of the delta has a population density greater than 200/km2'; that figure is NOT used, because it does not sit with the totals (the totals include cities) and a script must not set the two side by side. The page's 'upwards of 300 million' and '400 million in the river basin' are not used. India is not a region of this episode (Natural Earth flags disputed areas on it): the map frames stay on the delta, the Bangladesh side is outlined, and West Bengal is named in text and by the Kolkata marker only. No old coastline is drawn.",
+  "regions": [],
+  "claims": [
+    {
+      "id": "largest",
+      "text": "The Ganges Delta (also the Ganges-Brahmaputra Delta, the Sundarbans Delta or the Bengal Delta) is the world's largest river delta and empties into the Bay of Bengal.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-ganges-delta"
+      ]
+    },
+    {
+      "id": "area",
+      "text": "It covers more than 105,000 km2 and lies mostly in Bangladesh and India.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-ganges-delta"
+      ]
+    },
+    {
+      "id": "split",
+      "text": "67% of the delta is inside Bangladesh and only 33% belongs to West Bengal.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-ganges-delta"
+      ]
+    },
+    {
+      "id": "people",
+      "text": "Around 273.6 million (173.6 million Bangladesh and 100 million West Bengal, India) people live on the delta, despite risks from floods caused by monsoons and tropical cyclones.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-ganges-delta"
+      ]
+    },
+    {
+      "id": "bd80",
+      "text": "80% of the nation of Bangladesh lies in the Ganges Delta.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-ganges-delta"
+      ]
+    },
+    {
+      "id": "density",
+      "text": "COMPUTED by us from two page figures: 273.6 million people over more than 105,000 km2 is about 2,606 per km2 at most (the area is 'more than' 105,000), so a script says 'at most about 2,600 people per square kilometre'.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-ganges-delta"
+      ]
+    },
+    {
+      "id": "sundarbans",
+      "text": "Where the delta meets the Bay of Bengal, the Sundarbans mangroves form the world's largest mangrove ecoregion, in a chain of 54 islands.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-ganges-delta"
+      ]
+    }
+  ],
+  "places": {},
+  "sources": {
+    "wikipedia-ganges-delta": {
+      "label": "Wikipedia: Ganges Delta (revision 1378372198)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Ganges_Delta&oldid=1378372198"
+    },
+    "natural-earth": {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  }
+}

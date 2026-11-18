@@ -1,0 +1,471 @@
+{
+  "id": "louisiana-land-loss",
+  "title": "Louisiana Loses a Football Field of Wetlands Every 30 Minutes",
+  "storyPattern": "transformation",
+  "numberRelevant": true,
+  "premise": "Coastal Louisiana has lost an estimated 4,833 square kilometres of land in a century.",
+  "audiencePromise": "See how much coast has gone.",
+  "openLoop": "Why does Louisiana's coast keep shrinking?",
+  "payoff": "About 4,833 km² lost in a century, roughly 65 km² a year; the page lists many causes.",
+  "targetEmotion": "awe",
+  "engagementQuestion": "Could a delta be rebuilt?",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica"
+  },
+  "subject": {
+    "name": "Louisiana coast",
+    "category": "Border",
+    "attributes": {
+      "geoEntity": "country:USA"
+    }
+  },
+  "voice": {
+    "provider": "elevenlabs",
+    "voice": "JBFqnCBsd6RMkjVDRZzb"
+  },
+  "rights": {
+    "releaseStatus": "cleared",
+    "publicReleaseApproved": true,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "eyebrow": "LOUISIANA",
+      "headline": "A FIELD EVERY 30 MIN",
+      "narration": "Louisiana loses a football field every half hour.",
+      "caption": "A FOOTBALL-FIELD-SIZED AREA OF WETLANDS EVERY 30 MINUTES",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -97,
+                25.5,
+                -84,
+                32
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -93.5,
+                28.2,
+                -87.5,
+                31.2
+              ]
+            },
+            "at": 0.8,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "water:gulf-of-mexico",
+            "text": "GULF OF MEXICO",
+            "at": 0.4
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "evidence",
+      "eyebrow": "THE LOSS",
+      "headline": "4,833 KM² LOST",
+      "narration": "In the last century, it lost about 4,833 square kilometres.",
+      "caption": "ABOUT 4,833 KM² OF LAND IN THE LAST CENTURY (ESTIMATE)",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -93.5,
+                28.2,
+                -87.5,
+                31.2
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -92.4,
+                28.8,
+                -88.4,
+                30.6
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "figure": {
+          "value": 4833,
+          "text": "IN THE LAST CENTURY",
+          "decimals": 0,
+          "at": 0.3,
+          "unit": "KM²"
+        }
+      },
+      "beat": "before"
+    },
+    {
+      "id": "escalation",
+      "eyebrow": "THE SIZE",
+      "headline": "ABOUT DELAWARE",
+      "narration": "That is about the land area of Delaware.",
+      "caption": "ABOUT THE SIZE OF DELAWARE'S LAND AREA",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -92.4,
+                28.8,
+                -88.4,
+                30.6
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -91.2,
+                29,
+                -89.2,
+                30.1
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": -90.0783,
+              "lat": 29.9761
+            },
+            "text": "NEW ORLEANS",
+            "at": 0.35
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      },
+      "beat": "change"
+    },
+    {
+      "id": "rate",
+      "eyebrow": "THE RATE",
+      "headline": "65 KM² A YEAR",
+      "narration": "A year's loss is about sixty-five square kilometres.",
+      "caption": "ABOUT 65 KM² A YEAR · PEAK LOSSES IN THE 1970S",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -90.4,
+                29,
+                -88.2,
+                30.1
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -89.9,
+                29.3,
+                -88.7,
+                29.95
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "figure": {
+          "value": 65,
+          "text": "A YEAR",
+          "decimals": 0,
+          "at": 0.3,
+          "unit": "KM²"
+        }
+      },
+      "beat": "change"
+    },
+    {
+      "id": "levees",
+      "eyebrow": "THE RIVER",
+      "headline": "LEVEES BLOCK SILT",
+      "narration": "Levees keep river silt out of the marshes.",
+      "caption": "LEVEES KEEP SILT FROM REACHING THE MARSHES DOWNRIVER",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -90.9,
+                29.1,
+                -88.9,
+                30.2
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -90.25,
+                29.4,
+                -89.55,
+                29.9
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": -89.9149,
+              "lat": 29.6475
+            },
+            "text": "MISSISSIPPI RIVER DELTA",
+            "at": 0.35
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      },
+      "beat": "reveal"
+    },
+    {
+      "id": "causes",
+      "eyebrow": "MANY CAUSES",
+      "headline": "NO SINGLE CAUSE",
+      "narration": "Sinking land, storms, canals and rising seas are all on the list.",
+      "caption": "WIKIPEDIA LISTS MANY CAUSES · OBSERVERS DISAGREE ON THEIR WEIGHT",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -89.9,
+                29.3,
+                -87.9,
+                30.4
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -89,
+                29.65,
+                -88.65,
+                29.95
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": -88.83444,
+              "lat": 29.83583
+            },
+            "text": "CHANDELEUR ISLANDS",
+            "at": 0.35
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      },
+      "beat": "aftermath"
+    },
+    {
+      "id": "plan",
+      "eyebrow": "THE PLAN",
+      "headline": "MASTER PLAN, 2023",
+      "narration": "The state's master plan reached its fourth edition in 2023.",
+      "caption": "COASTAL MASTER PLAN · 4TH EDITION RELEASED IN 2023",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -89.2,
+                29.5,
+                -88.4,
+                30.1
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -92.8,
+                28.6,
+                -88.6,
+                30.8
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      },
+      "beat": "aftermath"
+    },
+    {
+      "id": "verdict",
+      "eyebrow": "THE QUESTION",
+      "headline": "COULD A DELTA BE REBUILT?",
+      "narration": "Could a delta be rebuilt?",
+      "caption": "COULD A DELTA BE REBUILT?",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -92.8,
+                28.6,
+                -88.6,
+                30.8
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -97,
+                25.5,
+                -84,
+                32
+              ]
+            },
+            "at": 0.9,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      },
+      "beat": "verdict"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia: Coastal erosion in Louisiana (revision 1374518873)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Coastal_erosion_in_Louisiana&oldid=1374518873"
+    },
+    {
+      "label": "Wikipedia: Wetlands of Louisiana (revision 1372197920)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Wetlands_of_Louisiana&oldid=1372197920"
+    },
+    {
+      "label": "Wikipedia: Mississippi River Delta (revision 1382478556)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Mississippi_River_Delta&oldid=1382478556"
+    },
+    {
+      "label": "Wikipedia: Chandeleur Islands (revision 1356610356)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Chandeleur_Islands&oldid=1356610356"
+    },
+    {
+      "label": "Wikipedia: New Orleans (revision 1384648065)",
+      "url": "https://en.wikipedia.org/w/index.php?title=New_Orleans&oldid=1384648065"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ],
+  "paletteVariant": "atlas",
+  "framing": {
+    "opening": "bleed",
+    "ending": "loop"
+  }
+}

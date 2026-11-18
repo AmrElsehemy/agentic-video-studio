@@ -1,0 +1,140 @@
+{
+  "schemaVersion": 1,
+  "id": "mariana-trench-depth",
+  "subject": "Micronesia",
+  "kind": "curated",
+  "note": "Cited to pinned Wikipedia revisions (trusted_secondary): Mariana Trench and Challenger Deep, using the maximum known depth the Mariana Trench page headlines, 10,935 ± 6 m (the 2021 study named on the Challenger Deep page), and not the other measurements (10,903 to 11,009 m GEBCO range, 10,920 ± 9 m in 2011). Guam and Fais Island points come from their pinned pages. The profile is computed from NOAA ETOPO 2022 (1 arc-minute grid, about 1.8 km cells, public domain) along a straight line from Guam through the Challenger Deep to Fais Island; 626 km, lowest -10,466 m. The grid smooths the narrow slot, so this is the model's height along the line, not a surveyed section, and its low is not the Challenger Deep's depth. The panel prints the vertical stretch. The map draws no maritime limits.",
+  "regions": [
+    "Guam"
+  ],
+  "claims": [
+    {
+      "id": "deepest",
+      "text": "The Mariana Trench is the deepest oceanic trench on Earth, in the western Pacific Ocean, about 200 kilometers (124 mi) east of the Mariana Islands.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-mariana"
+      ]
+    },
+    {
+      "id": "depth",
+      "text": "The maximum known depth is 10,935 ± 6 meters at the southern end of a small slot-shaped valley in its floor known as the Challenger Deep.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-mariana"
+      ]
+    },
+    {
+      "id": "size",
+      "text": "The trench is crescent-shaped and measures about 2,550 km in length and 69 km in width.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-mariana"
+      ]
+    },
+    {
+      "id": "everest",
+      "text": "The deepest point of the trench is more than 2 km farther from sea level than the peak of Mount Everest.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-mariana"
+      ]
+    },
+    {
+      "id": "pressure",
+      "text": "At the bottom of the trench the water column exerts a pressure of 111 MPa, approximately 1,100 times the standard atmospheric pressure at sea level.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-mariana"
+      ]
+    },
+    {
+      "id": "land",
+      "text": "The closest land to the Challenger Deep is Fais Island, 287 km southwest, and Guam, 304 km to the northeast.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-challenger"
+      ]
+    },
+    {
+      "id": "study",
+      "text": "A 2021 study revised the depth of the Challenger Deep to 10,935 ± 6 m at a 95% confidence level.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-challenger"
+      ]
+    },
+    {
+      "id": "line",
+      "text": "A straight line of 626 km from Guam through the Challenger Deep to Fais Island (computed from NOAA ETOPO 2022).",
+      "tier": "official",
+      "sources": [
+        "noaa-etopo"
+      ]
+    },
+    {
+      "id": "floor",
+      "text": "Along that line the model's height falls to -10,466 m (computed from NOAA ETOPO 2022; 1.8 km cells smooth the narrow deep, which the page puts at 10,935 m).",
+      "tier": "official",
+      "sources": [
+        "noaa-etopo"
+      ]
+    }
+  ],
+  "places": {
+    "challenger-deep": {
+      "lon": 142.5917,
+      "lat": 11.3733,
+      "source": "wikipedia-challenger",
+      "note": "GEBCO gazetteer position 11°22.4′N 142°35.5′E, as the page gives it."
+    },
+    "guam": {
+      "lon": 144.8,
+      "lat": 13.5,
+      "source": "wikipedia-guam",
+      "note": "The page's coordinate, 13°30′N 144°48′E."
+    },
+    "fais-island": {
+      "lon": 140.5208,
+      "lat": 9.7603,
+      "source": "wikipedia-fais",
+      "note": "The page's coordinate, 9°45′37″N 140°31′15″E."
+    },
+    "mount-everest": {
+      "lon": 86.9253,
+      "lat": 27.9883,
+      "source": "wikipedia-everest",
+      "note": "The page's coordinate, 27°59′18″N 86°55′31″E."
+    }
+  },
+  "sources": {
+    "wikipedia-mariana": {
+      "label": "Wikipedia: Mariana Trench (revision 1385640720)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Mariana_Trench&oldid=1385640720"
+    },
+    "wikipedia-challenger": {
+      "label": "Wikipedia: Challenger Deep (revision 1385691217)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Challenger_Deep&oldid=1385691217"
+    },
+    "wikipedia-guam": {
+      "label": "Wikipedia: Guam (revision 1384282589)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Guam&oldid=1384282589"
+    },
+    "wikipedia-everest": {
+      "label": "Wikipedia: Mount Everest (revision 1385118046)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Mount_Everest&oldid=1385118046"
+    },
+    "wikipedia-fais": {
+      "label": "Wikipedia: Fais Island (revision 1381508256)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Fais_Island&oldid=1381508256"
+    },
+    "noaa-etopo": {
+      "label": "NOAA NCEI ETOPO 2022 Global Relief Model (public domain)",
+      "url": "https://doi.org/10.25921/fd45-gt74"
+    },
+    "natural-earth": {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  }
+}

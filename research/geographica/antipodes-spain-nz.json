@@ -1,0 +1,145 @@
+{
+  "schemaVersion": 1,
+  "id": "antipodes-spain-nz",
+  "subject": "Spain",
+  "kind": "curated",
+  "note": "Cited to pinned Wikipedia revisions (trusted_secondary): Antipodes on Earth (rev 1386178289), and the coordinates the API returns for Madrid, Weber (New Zealand), Whangārei, Tangier and Wellington (pinned revisions below). The antipode of a point is computed, not looked up: (latitude, longitude) becomes (-latitude, longitude ± 180°), as the page states; distances are on a sphere of radius 6,371 km. Computed claims say so. The page lists pairs of antipodal places (Madrid and Weber, Wellington and Alaejos, Auckland and Seville and Málaga, Whangārei and Tangier); the video uses only those and the two computed distances. The page's 15% figure is its cited source's estimate (another source on the page says about 3% of Earth's surface), so it is attributed and kept to the page's wording.",
+  "regions": [
+    "Spain",
+    "New Zealand",
+    "Morocco",
+    "Portugal"
+  ],
+  "claims": [
+    {
+      "id": "def",
+      "text": "The antipode of any place on Earth is the point diametrically opposite it; a straight line joining them passes through Earth's centre.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-antipodes"
+      ]
+    },
+    {
+      "id": "formula",
+      "text": "If a point's coordinates are (latitude, longitude), its antipode is at (-latitude, longitude ± 180°).",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-antipodes"
+      ]
+    },
+    {
+      "id": "northisland",
+      "text": "The antipodes of most of New Zealand's North Island lie in Spain.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-antipodes"
+      ]
+    },
+    {
+      "id": "parts",
+      "text": "Parts of Spain, Portugal, France and Morocco are antipodal to New Zealand.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-antipodes"
+      ]
+    },
+    {
+      "id": "pairs",
+      "text": "The page lists antipodal pairs: Madrid and Weber (New Zealand); Wellington and Alaejos (Spain); Auckland and Seville and Málaga (Spain); Whangārei and Tangier (Morocco).",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-antipodes"
+      ]
+    },
+    {
+      "id": "ocean",
+      "text": "Most of the Earth's land surfaces have ocean at their antipodes, because most of the Earth's surface is covered in water.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-antipodes"
+      ]
+    },
+    {
+      "id": "fifteen",
+      "text": "Approximately 15% of land territory is antipodal to other land, according to the page's cited source.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-antipodes"
+      ]
+    },
+    {
+      "id": "madrid-antipode",
+      "text": "The antipode of Madrid (40.4169° N, 3.7033° W, as given on its page) is at 40.4169° S, 176.2967° E, about 2 km from Weber, New Zealand (40.4014° S, 176.3111° E, as given on its page).",
+      "tier": "official",
+      "sources": [
+        "computed-antipode"
+      ]
+    },
+    {
+      "id": "madrid-weber",
+      "text": "Madrid and Weber, New Zealand are 20,013 km apart on a sphere of radius 6,371 km; half the circumference of that sphere is 20,015 km.",
+      "tier": "official",
+      "sources": [
+        "computed-antipode"
+      ]
+    },
+    {
+      "id": "whangarei-tangier",
+      "text": "The antipode of Whangārei (35.725° S, 174.3236° E) is about 13 km from Tangier (35.7767° N, 5.8039° W).",
+      "tier": "official",
+      "sources": [
+        "computed-antipode"
+      ]
+    }
+  ],
+  "places": {
+    "madrid": {
+      "lon": -3.7033,
+      "lat": 40.4169,
+      "source": "wikipedia-coords"
+    },
+    "weber": {
+      "lon": 176.3111,
+      "lat": -40.4014,
+      "source": "wikipedia-coords"
+    },
+    "tangier": {
+      "lon": -5.8039,
+      "lat": 35.7767,
+      "source": "wikipedia-coords"
+    },
+    "whangarei": {
+      "lon": 174.3236,
+      "lat": -35.725,
+      "source": "wikipedia-coords"
+    },
+    "wellington": {
+      "lon": 174.7772,
+      "lat": -41.2889,
+      "source": "wikipedia-coords"
+    },
+    "auckland": {
+      "lon": 174.7653,
+      "lat": -36.8492,
+      "source": "wikipedia-coords"
+    }
+  },
+  "sources": {
+    "wikipedia-antipodes": {
+      "label": "Wikipedia: Antipodes on Earth (revision 1386178289)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Antipodes_on_Earth&oldid=1386178289"
+    },
+    "wikipedia-coords": {
+      "label": "Wikipedia coordinates: Madrid (rev 1385634474), Weber, New Zealand (1377519146), Whangārei (1382775977), Tangier (1385732959), Wellington (1386205801), Auckland (1385791483)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Madrid&oldid=1385634474"
+    },
+    "computed-antipode": {
+      "label": "Computed by Geographica from those coordinates (antipode = -latitude, longitude ± 180°; sphere radius 6,371 km)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Antipodes_on_Earth&oldid=1386178289"
+    },
+    "natural-earth": {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  }
+}

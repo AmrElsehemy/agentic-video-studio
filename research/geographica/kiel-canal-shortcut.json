@@ -1,0 +1,105 @@
+{
+  "schemaVersion": 1,
+  "id": "kiel-canal-shortcut",
+  "subject": "Germany",
+  "kind": "curated",
+  "note": "Cited to pinned Wikipedia revisions (trusted_secondary): Kiel Canal for every figure, Brunsbüttel and Holtenau for the two end points (their infobox coordinates, marked approximate). Figures are quoted as the page states them. The page says the canal shortens the North Sea to Baltic Sea journey by 460 km by bypassing the Jutland peninsula and the Danish Straits; it does not give the length of the route round Jutland, so none is stated. The canal's own line is not in the map data and is not drawn: the map shows today's coast and the two end points only. No ship counts beyond the page's annual average of 32,000 ships (90 daily) are used.",
+  "regions": [
+    "Denmark",
+    "North Sea",
+    "Baltic Sea"
+  ],
+  "claims": [
+    {
+      "id": "canal",
+      "text": "The Kiel Canal (German: Nord-Ostsee-Kanal) is a 98-kilometer-long freshwater canal that links the North Sea to the Baltic Sea. It runs through the German state of Schleswig-Holstein, from Brunsbüttel, at the mouth of the Elbe, to Holtenau, on the Kiel Fjord.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-kiel"
+      ]
+    },
+    {
+      "id": "shortcut",
+      "text": "The canal reduces the journey between the North and Baltic Seas by 460 km by allowing ships to bypass the Jutland peninsula and the Danish Straits.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-kiel"
+      ]
+    },
+    {
+      "id": "traffic",
+      "text": "It is one of the world's most frequented artificial waterways, with an annual average of 32,000 ships (90 daily), transporting approximately 100 million tonnes of goods.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-kiel"
+      ]
+    },
+    {
+      "id": "built",
+      "text": "The canal was constructed between 1887 and 1895 and widened between 1907 and 1914. Construction started at Holtenau in June 1887 and took over 9,000 workers eight years.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-kiel"
+      ]
+    },
+    {
+      "id": "opening",
+      "text": "On 20 June 1895, Kaiser Wilhelm II officially opened the canal for transiting from Brunsbüttel to Holtenau.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-kiel"
+      ]
+    },
+    {
+      "id": "widened",
+      "text": "Between 1907 and 1914 the canal was widened to cope with increasing traffic and the demands of the Imperial German Navy, allowing dreadnought battleships to pass through.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-kiel"
+      ]
+    },
+    {
+      "id": "2013",
+      "text": "The canal was partially closed for a period in March 2013 after two lock gates failed at the western end near Brunsbüttel. Ships larger than 125 m were forced to navigate via Skagerrak, a 450 km detour.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-kiel"
+      ]
+    }
+  ],
+  "places": {
+    "brunsbuettel": {
+      "lon": 9.13861111,
+      "lat": 53.89638889,
+      "source": "wikipedia-brunsbuettel",
+      "approximate": true,
+      "note": "Brunsbüttel, the canal's western (North Sea) end, at the mouth of the Elbe; the town's infobox coordinates."
+    },
+    "holtenau": {
+      "lon": 10.14166667,
+      "lat": 54.37361111,
+      "source": "wikipedia-holtenau",
+      "approximate": true,
+      "note": "Holtenau, the canal's eastern (Baltic) end, on the Kiel Fjord; the district's infobox coordinates."
+    }
+  },
+  "datasets": {},
+  "sources": {
+    "wikipedia-kiel": {
+      "label": "Wikipedia: Kiel Canal (revision 1386119375)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Kiel_Canal&oldid=1386119375"
+    },
+    "wikipedia-brunsbuettel": {
+      "label": "Wikipedia: Brunsbüttel (revision 1377612035)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Brunsbüttel&oldid=1377612035"
+    },
+    "wikipedia-holtenau": {
+      "label": "Wikipedia: Holtenau (revision 1374431583)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Holtenau&oldid=1374431583"
+    },
+    "natural-earth": {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  }
+}

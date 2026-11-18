@@ -1,0 +1,135 @@
+{
+  "schemaVersion": 1,
+  "id": "afsluitdijk-zuiderzee",
+  "subject": "Netherlands",
+  "kind": "curated",
+  "note": "Cited to pinned Wikipedia revisions (trusted_secondary): Afsluitdijk and Zuiderzee Works. The map shows only today's coast: the old Zuiderzee shore is not drawn, because no outline is pinned. The points (Den Oever, Zurich, Kornwerderzand, the IJsselmeer) are approximate: the pages name them but the text gives no coordinates.",
+  "regions": [],
+  "claims": [
+    {
+      "id": "dyke",
+      "text": "The Afsluitdijk is a dam and causeway in the Netherlands, built between 1927 and 1932, running from Den Oever in North Holland to the village of Zurich in Friesland over a length of 32 kilometres.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-afsluitdijk"
+      ]
+    },
+    {
+      "id": "turned",
+      "text": "It dammed off the Zuiderzee, a salt water inlet of the North Sea, and turned it into the fresh water lake of the IJsselmeer.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-afsluitdijk"
+      ]
+    },
+    {
+      "id": "closed",
+      "text": "The dyke was closed on 28 May 1932, and it was officially opened on 25 September 1933.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-afsluitdijk"
+      ]
+    },
+    {
+      "id": "flood",
+      "text": "On 13 and 14 January 1916 the dikes at several places along the Zuiderzee broke in a winter storm and the land behind them flooded; this was the decisive impetus to implement the plans to tame the Zuiderzee.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-zuiderzee"
+      ]
+    },
+    {
+      "id": "size",
+      "text": "The initial body of water affected by the project was 3,500 square kilometres.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-zuiderzee"
+      ]
+    },
+    {
+      "id": "workers",
+      "text": "Ten thousand workers, 27 large dredges, 13 floating cranes, 132 barges and 88 tugs worked on the project at the end.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-afsluitdijk"
+      ]
+    },
+    {
+      "id": "sluices",
+      "text": "Two complexes of locks and sluices, at Den Oever and at Kornwerderzand, hold 25 discharge sluices that routinely let water out of the lake, which rivers keep feeding.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-afsluitdijk"
+      ]
+    },
+    {
+      "id": "polder",
+      "text": "The Wieringermeer, a 200 km2 polder, was dammed in 1929 and fully drained in 1930; the Flevolands, almost 1,000 km2, were drained after the war.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-zuiderzee"
+      ]
+    },
+    {
+      "id": "flevoland",
+      "text": "A new province, Flevoland, was created out of the Noordoostpolder and the Flevolands in 1986.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-zuiderzee"
+      ]
+    },
+    {
+      "id": "raise",
+      "text": "Major upgrade works commenced in 2019 and will raise the dam by approximately 2 metres.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-afsluitdijk"
+      ]
+    }
+  ],
+  "places": {
+    "den-oever": {
+      "lon": 5.04,
+      "lat": 52.93,
+      "source": "wikipedia-afsluitdijk",
+      "approximate": true,
+      "note": "Approximate point for the Den Oever end; the page text gives no coordinates."
+    },
+    "zurich-friesland": {
+      "lon": 5.37,
+      "lat": 53.12,
+      "source": "wikipedia-afsluitdijk",
+      "approximate": true,
+      "note": "Approximate point for the Zurich end; the page text gives no coordinates."
+    },
+    "kornwerderzand": {
+      "lon": 5.34,
+      "lat": 53.07,
+      "source": "wikipedia-afsluitdijk",
+      "approximate": true,
+      "note": "Approximate point for the Kornwerderzand sluices."
+    },
+    "ijsselmeer": {
+      "lon": 5.4,
+      "lat": 52.8,
+      "source": "wikipedia-zuiderzee",
+      "approximate": true,
+      "note": "Approximate centre label for the IJsselmeer."
+    }
+  },
+  "datasets": {},
+  "sources": {
+    "wikipedia-afsluitdijk": {
+      "label": "Wikipedia: Afsluitdijk (revision 1362061058)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Afsluitdijk&oldid=1362061058"
+    },
+    "wikipedia-zuiderzee": {
+      "label": "Wikipedia: Zuiderzee Works (revision 1383851980)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Zuiderzee_Works&oldid=1383851980"
+    },
+    "natural-earth": {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  }
+}

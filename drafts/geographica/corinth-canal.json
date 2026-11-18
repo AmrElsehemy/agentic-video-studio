@@ -1,0 +1,470 @@
+{
+  "id": "corinth-canal",
+  "title": "The Canal Cut Through the Isthmus of Corinth",
+  "storyPattern": "mechanic",
+  "numberRelevant": true,
+  "premise": "The Corinth Canal is 6.4 km long, dug at sea level through the Isthmus of Corinth, and saves a 700 km journey round the Peloponnese.",
+  "audiencePromise": "Follow a canal from Nero's pickaxe to today's tourist ships.",
+  "openLoop": "Why is a canal that saves 700 km used mostly by tourist ships?",
+  "payoff": "It saves 700 km but is only 24.6 m wide, so large ships cannot use it; around 15,000 ships a year, mostly tourist ships, pass through.",
+  "targetEmotion": "surprise",
+  "engagementQuestion": "Would you cut through rock to save a journey?",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica"
+  },
+  "subject": {
+    "name": "Corinth Canal",
+    "category": "Route",
+    "attributes": {
+      "geoEntity": "country:GRC"
+    }
+  },
+  "voice": {
+    "provider": "elevenlabs",
+    "voice": "JBFqnCBsd6RMkjVDRZzb"
+  },
+  "rights": {
+    "releaseStatus": "cleared",
+    "publicReleaseApproved": true,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "eyebrow": "CORINTH CANAL",
+      "headline": "CUT THROUGH CORINTH",
+      "narration": "A canal slices a peninsula off from the mainland.",
+      "caption": "CUT THROUGH THE ISTHMUS OF CORINTH, GREECE",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                18,
+                34,
+                28,
+                41
+              ]
+            },
+            "at": 0,
+            "padding": 0.08,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                21.5,
+                37.2,
+                24.5,
+                38.7
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.08,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:GRC",
+            "style": "outline",
+            "at": 0.2
+          }
+        ],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 22.98388889,
+              "lat": 37.93472222
+            },
+            "text": "CANAL (APPROX.)",
+            "at": 0.5
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "evidence",
+      "eyebrow": "THE CUT",
+      "headline": "6.4 KM, NO LOCKS",
+      "narration": "Six point four kilometres, dug at sea level, with no locks.",
+      "caption": "6.4 KM LONG · WALLS 90 M HIGH · DUG AT SEA LEVEL",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                21.5,
+                37.2,
+                24.5,
+                38.7
+              ]
+            },
+            "at": 0,
+            "padding": 0.08,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                22.8,
+                37.82,
+                23.18,
+                38.05
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.08,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 22.98388889,
+              "lat": 37.93472222
+            },
+            "text": "CANAL (APPROX.)",
+            "at": 0.3
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "figure": {
+          "value": 6.4,
+          "unit": "KM",
+          "text": "LONG",
+          "decimals": 1,
+          "at": 0.3
+        }
+      },
+      "beat": "evidence"
+    },
+    {
+      "id": "escalation",
+      "eyebrow": "THE SHORTCUT",
+      "headline": "700 KM SAVED",
+      "narration": "It saves ships a seven hundred kilometre trip round the Peloponnese.",
+      "caption": "SAVES A 700 KM JOURNEY AROUND THE PELOPONNESE",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                22,
+                37,
+                24.5,
+                38.5
+              ]
+            },
+            "at": 0,
+            "padding": 0.08,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                20.6,
+                35.8,
+                24.8,
+                38.9
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.08,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:GRC",
+            "style": "outline",
+            "at": 0.1
+          }
+        ],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "figure": {
+          "value": 700,
+          "unit": "KM",
+          "text": "SAVED",
+          "decimals": 0,
+          "at": 0.3
+        }
+      },
+      "beat": "escalation"
+    },
+    {
+      "id": "payoff",
+      "eyebrow": "THE DREAM",
+      "headline": "NERO, 67 AD",
+      "narration": "Nero broke ground in 67 AD, and it was finished in 1893.",
+      "caption": "NERO BROKE GROUND IN 67 AD · COMPLETED IN 1893",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                22.8,
+                37.82,
+                23.18,
+                38.05
+              ]
+            },
+            "at": 0,
+            "padding": 0.08,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                22.9,
+                37.88,
+                23.07,
+                37.98
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.08,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 22.98388889,
+              "lat": 37.93472222
+            },
+            "text": "CANAL (APPROX.)",
+            "at": 0.3
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      },
+      "beat": "payoff"
+    },
+    {
+      "id": "payoff-4",
+      "eyebrow": "THE LIMIT",
+      "headline": "24.6 M WIDE",
+      "narration": "It is too narrow for big ships: 24.6 metres wide.",
+      "caption": "MAXIMUM SHIP: 24.6 M WIDE, 7.3 M DRAFT",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                22.9,
+                37.88,
+                23.07,
+                37.98
+              ]
+            },
+            "at": 0,
+            "padding": 0.08,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                22.2,
+                37.5,
+                23.8,
+                38.4
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.08,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 22.98388889,
+              "lat": 37.93472222
+            },
+            "text": "CANAL (APPROX.)",
+            "at": 0.3
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "figure": {
+          "value": 24.6,
+          "unit": "M",
+          "text": "MAXIMUM WIDTH",
+          "decimals": 1,
+          "at": 0.3
+        }
+      },
+      "beat": "payoff"
+    },
+    {
+      "id": "payoff-5",
+      "eyebrow": "TODAY",
+      "headline": "15,000 SHIPS A YEAR",
+      "narration": "Today it mostly carries tourist ships, about fifteen thousand a year.",
+      "caption": "AROUND 15,000 SHIPS A YEAR · MOSTLY TOURIST SHIPS",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                22.2,
+                37.5,
+                23.8,
+                38.4
+              ]
+            },
+            "at": 0,
+            "padding": 0.08,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                21,
+                36.8,
+                25,
+                39.2
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.08,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:GRC",
+            "style": "outline",
+            "at": 0.1
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "city:athens-grc",
+            "text": "ATHENS",
+            "at": 0.3
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "figure": {
+          "value": 15000,
+          "unit": "SHIPS",
+          "text": "A YEAR",
+          "decimals": 0,
+          "at": 0.3
+        }
+      },
+      "beat": "payoff"
+    },
+    {
+      "id": "verdict",
+      "eyebrow": "YOUR TURN",
+      "headline": "CUT A MOUNTAIN?",
+      "narration": "Would you cut through rock to save a journey?",
+      "caption": "WOULD YOU CUT THROUGH ROCK TO SAVE A JOURNEY?",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                21,
+                36.8,
+                25,
+                39.2
+              ]
+            },
+            "at": 0,
+            "padding": 0.08,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                18,
+                34,
+                28,
+                41
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.08,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:GRC",
+            "style": "outline",
+            "at": 0.1
+          }
+        ],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 22.98388889,
+              "lat": 37.93472222
+            },
+            "text": "CANAL (APPROX.)",
+            "at": 0.3
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      },
+      "beat": "verdict"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia: Corinth Canal (revision 1382049433)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Corinth_Canal&oldid=1382049433"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ],
+  "paletteVariant": "atlas",
+  "framing": {
+    "opening": "bleed",
+    "ending": "loop"
+  }
+}

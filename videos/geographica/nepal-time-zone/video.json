@@ -1,0 +1,529 @@
+{
+  "schemaVersion": 2,
+  "id": "nepal-time-zone",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica",
+    "wordmark": {
+      "lead": "GEO",
+      "accent": "GRAPHICA"
+    },
+    "fonts": {
+      "display": "Oswald",
+      "body": "Inter"
+    },
+    "captions": {
+      "mode": "words"
+    }
+  },
+  "title": "The Country 15 Minutes Off Its Neighbour's Clock",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "mechanic",
+    "numberRelevant": true,
+    "premise": "Nepal's clocks run at UTC+05:45, fifteen minutes ahead of India's UTC+05:30, a choice made in 1986.",
+    "audiencePromise": "See why one country keeps a 45-minute time zone.",
+    "openLoop": "Why does Nepal keep an odd clock?",
+    "payoff": "Nepal used Kathmandu sun time until 1920, then India's time, then moved ahead 15 minutes in 1986; its meridian runs through Gaurishankar.",
+    "targetEmotion": "surprise",
+    "engagementQuestion": "Would you keep a clock set by a mountain?",
+    "targetSecondsBetweenVisualChanges": 0.65
+  },
+  "subject": {
+    "name": "Nepal",
+    "category": "Border",
+    "attributes": {
+      "geoEntity": "country:NPL"
+    }
+  },
+  "related": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#cfe9f2",
+    "surface": "#f4e3b8",
+    "primary": "#d9482b",
+    "secondary": "#2a7fa6",
+    "ink": "#14263a"
+  },
+  "look": "atlas",
+  "framing": {
+    "opening": "bleed",
+    "ending": "loop"
+  },
+  "audio": {
+    "music": "generated/nepal-time-zone-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 96,
+      "notes": [
+        98,
+        116.54,
+        130.81,
+        146.83,
+        130.81,
+        116.54,
+        87.31,
+        98
+      ]
+    },
+    "voice": {
+      "provider": "elevenlabs",
+      "model": "eleven_v4",
+      "voice": "JBFqnCBsd6RMkjVDRZzb",
+      "instructions": "Warm, curious storyteller walking a friend across a map. Clear and confident, with a sense of discovery on each reveal; slow slightly on dates and place names so they land. Conversational and human, never a documentary announcer, lecture, or neutral TTS. Never imitate a known person or character.",
+      "speed": 1.06,
+      "output": "generated/nepal-time-zone-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "cleared",
+    "publicReleaseApproved": true,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "durationSeconds": 4.4,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "NEPAL",
+      "headline": "15 MINUTES OFF",
+      "narration": "Nepal's clocks run fifteen minutes ahead of its neighbour's.",
+      "caption": "NEPAL UTC+05:45 · INDIA UTC+05:30",
+      "visual": "hook",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                78,
+                22,
+                92,
+                32
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                79.5,
+                26,
+                89,
+                31
+              ]
+            },
+            "at": 0.9,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:NPL",
+            "style": "fill",
+            "at": 0.3
+          }
+        ],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "evidence",
+      "durationSeconds": 5.7,
+      "beat": "evidence",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "A RARE OFFSET",
+      "headline": "ONLY THREE",
+      "narration": "It is one of only three zones with a 45-minute offset.",
+      "caption": "ONLY THREE TIME ZONES ARE 45 MINUTES OFF UTC",
+      "visual": "gauntlet",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                79.5,
+                26,
+                89,
+                31
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                82,
+                27,
+                88,
+                29.5
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:NPL",
+            "style": "outline",
+            "at": 0.2
+          }
+        ],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "figure": {
+          "value": 3,
+          "unit": "ZONES",
+          "text": "WITH A 45-MINUTE OFFSET",
+          "decimals": 0,
+          "at": 0.4
+        }
+      }
+    },
+    {
+      "id": "escalation",
+      "durationSeconds": 4.3,
+      "beat": "escalation",
+      "role": "escalation",
+      "shot": "comparison",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "BEFORE 1920",
+      "headline": "KATHMANDU TIME",
+      "narration": "Until 1920, Nepal kept Kathmandu's own sun time.",
+      "caption": "UNTIL 1920: LOCAL SOLAR TIME, UTC+05:41:16",
+      "visual": "advantage",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                83,
+                26.5,
+                88,
+                29.5
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                84.6,
+                27.3,
+                86.1,
+                28.1
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 85.32,
+              "lat": 27.71
+            },
+            "text": "KATHMANDU",
+            "at": 0.3
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "payoff",
+      "durationSeconds": 4.8,
+      "beat": "payoff",
+      "role": "payoff",
+      "shot": "tracking",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "1920",
+      "headline": "INDIA'S CLOCK",
+      "narration": "In 1920 it adopted India's time, five thirty ahead.",
+      "caption": "1920: INDIAN STANDARD TIME, UTC+05:30",
+      "visual": "race",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                80,
+                26,
+                86,
+                30
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                83,
+                26.5,
+                89.5,
+                30.3
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:NPL",
+            "style": "outline",
+            "at": 0.2
+          }
+        ],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "payoff-4",
+      "durationSeconds": 4.7,
+      "beat": "payoff",
+      "role": "payoff",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "1986",
+      "headline": "+15 MINUTES",
+      "narration": "In 1986 it moved its clocks forward fifteen minutes.",
+      "caption": "1986: CLOCKS FORWARD 15 MINUTES TO UTC+05:45",
+      "visual": "tradeoff",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                84,
+                27,
+                87,
+                29
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                80,
+                25.5,
+                89,
+                31
+              ]
+            },
+            "at": 0.9,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:NPL",
+            "style": "fill",
+            "at": 0.3
+          }
+        ],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "figure": {
+          "value": 15,
+          "unit": "MIN",
+          "text": "ADDED IN 1986",
+          "decimals": 0,
+          "at": 0.4
+        }
+      }
+    },
+    {
+      "id": "payoff-5",
+      "durationSeconds": 4.6,
+      "beat": "payoff",
+      "role": "payoff",
+      "shot": "comparison",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "THE MERIDIAN",
+      "headline": "GAURISHANKAR",
+      "narration": "Its meridian crosses Gaurishankar, about a hundred kilometres east.",
+      "caption": "STANDARD MERIDIAN: GAURISHANKAR, ABOUT 100 KM EAST",
+      "visual": "race",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                84,
+                26.8,
+                87.5,
+                29
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                84.7,
+                27.3,
+                87,
+                28.5
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 85.32,
+              "lat": 27.71
+            },
+            "text": "KATHMANDU",
+            "at": 0.2
+          },
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 86.3358,
+              "lat": 27.9533
+            },
+            "text": "GAURISHANKAR",
+            "at": 0.5
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "verdict",
+      "durationSeconds": 4,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "YOUR CLOCK",
+      "headline": "FIFTEEN MINUTES",
+      "narration": "Would you set your clock by a mountain?",
+      "caption": "WOULD YOU KEEP YOUR CLOCK 15 MINUTES OFF?",
+      "visual": "cta",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                84,
+                26,
+                87,
+                29
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                78,
+                22,
+                92,
+                32
+              ]
+            },
+            "at": 0.9,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia: Nepal Standard Time (revision 1381220223)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Nepal_Standard_Time&oldid=1381220223"
+    },
+    {
+      "label": "Wikipedia: Indian Standard Time (revision 1368859347)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Indian_Standard_Time&oldid=1368859347"
+    },
+    {
+      "label": "Wikipedia coordinates: Kathmandu (revision 1385643995), Gaurishankar (revision 1374164142)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Kathmandu&oldid=1385643995"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ]
+}

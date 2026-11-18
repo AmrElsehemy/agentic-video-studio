@@ -1,0 +1,461 @@
+{
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica"
+  },
+  "voice": {
+    "provider": "elevenlabs",
+    "voice": "JBFqnCBsd6RMkjVDRZzb"
+  },
+  "numberRelevant": true,
+  "targetEmotion": "surprise",
+  "rights": {
+    "releaseStatus": "cleared",
+    "publicReleaseApproved": true,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      }
+    ]
+  },
+  "subject": {
+    "name": "Netherlands",
+    "category": "Border",
+    "attributes": {
+      "geoEntity": "country:NLD"
+    }
+  },
+  "id": "afsluitdijk-zuiderzee",
+  "title": "The Dam That Turned a Sea Into a Lake",
+  "storyPattern": "transformation",
+  "premise": "The 32 km Afsluitdijk, finished in 1932, closed the Zuiderzee off from the North Sea and turned it into the IJsselmeer.",
+  "audiencePromise": "See how one wall closed a sea.",
+  "openLoop": "What happened to the sea behind the wall?",
+  "payoff": "The Zuiderzee became a fresh water lake, and drained polders such as the Flevolands made new land.",
+  "engagementQuestion": "Would you dam a sea?",
+  "sources": [
+    {
+      "label": "Wikipedia: Afsluitdijk (revision 1362061058)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Afsluitdijk&oldid=1362061058"
+    },
+    {
+      "label": "Wikipedia: Zuiderzee Works (revision 1383851980)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Zuiderzee_Works&oldid=1383851980"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ],
+  "paletteVariant": "atlas",
+  "framing": {
+    "ending": "loop",
+    "opening": "bleed"
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "eyebrow": "THE NETHERLANDS",
+      "headline": "A SEA CLOSED BY A WALL",
+      "narration": "One wall turned a sea into a lake.",
+      "caption": "A DAM TURNED THE ZUIDERZEE INTO A FRESH WATER LAKE",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                2.5,
+                50.5,
+                8.5,
+                54.5
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                4.6,
+                52.5,
+                5.9,
+                53.4
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.08,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "then",
+      "eyebrow": "THE ZUIDERZEE",
+      "headline": "3,500 KM² OF WATER",
+      "narration": "The project affected 3,500 square kilometres of water.",
+      "caption": "3,500 KM² OF WATER AFFECTED · MAP SHOWS TODAY'S COAST",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                4.6,
+                52.5,
+                5.9,
+                53.4
+              ]
+            },
+            "at": 0,
+            "padding": 0.08,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                4.5,
+                52.3,
+                6.2,
+                53.3
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.06,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "figure": {
+          "value": 3500,
+          "text": "OF WATER AFFECTED",
+          "decimals": 0,
+          "at": 0.3,
+          "unit": "KM²"
+        }
+      },
+      "beat": "before"
+    },
+    {
+      "id": "flood",
+      "eyebrow": "JANUARY 1916",
+      "headline": "THE FLOOD OF 1916",
+      "narration": "In 1916 a storm flood broke the dikes.",
+      "caption": "13–14 JAN 1916: DIKES BROKE · MAP SHOWS TODAY'S COAST",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                4.5,
+                52.3,
+                6.2,
+                53.3
+              ]
+            },
+            "at": 0,
+            "padding": 0.06,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                5,
+                52.5,
+                5.9,
+                53
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      },
+      "beat": "change"
+    },
+    {
+      "id": "dyke",
+      "eyebrow": "THE AFSLUITDIJK",
+      "headline": "32 KM",
+      "narration": "The new dyke ran thirty-two kilometres.",
+      "caption": "AFSLUITDIJK · 32 KM LONG · BUILT 1927–1932",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                4.9,
+                52.85,
+                5.25,
+                53.1
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                5.15,
+                53,
+                5.5,
+                53.2
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 5.04,
+              "lat": 52.93
+            },
+            "text": "DEN OEVER",
+            "at": 0.2
+          },
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 5.37,
+              "lat": 53.12
+            },
+            "text": "ZURICH",
+            "at": 0.55
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "figure": {
+          "value": 32,
+          "text": "LONG",
+          "decimals": 0,
+          "at": 0.3,
+          "unit": "KM"
+        }
+      },
+      "beat": "change"
+    },
+    {
+      "id": "closed",
+      "eyebrow": "28 MAY 1932",
+      "headline": "THE LAST GAP",
+      "narration": "The last gap was closed on 28 May 1932.",
+      "caption": "CLOSED 28 MAY 1932 · OPENED 25 SEPTEMBER 1933",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                5.15,
+                53,
+                5.5,
+                53.2
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                5.28,
+                53.04,
+                5.4,
+                53.1
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 5.34,
+              "lat": 53.07
+            },
+            "text": "KORNWERDERZAND",
+            "at": 0.35
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      },
+      "beat": "reveal"
+    },
+    {
+      "id": "lake",
+      "eyebrow": "THE IJSSELMEER",
+      "headline": "A FRESH WATER LAKE",
+      "narration": "Behind it, the sea became a lake.",
+      "caption": "THE ZUIDERZEE BECAME THE FRESH WATER LAKE IJSSELMEER",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                5.28,
+                53.04,
+                5.4,
+                53.1
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                4.7,
+                52.3,
+                6.2,
+                53.1
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.06,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 5.4,
+              "lat": 52.8
+            },
+            "text": "IJSSELMEER",
+            "at": 0.4
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      },
+      "beat": "aftermath"
+    },
+    {
+      "id": "land",
+      "eyebrow": "POLDERS",
+      "headline": "NEW LAND",
+      "narration": "Pumped-out polders made new land.",
+      "caption": "POLDERS FROM 1930 · THE FLEVOLANDS ALMOST 1,000 KM² · TODAY'S COAST",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                4.7,
+                52.3,
+                6.2,
+                53.1
+              ]
+            },
+            "at": 0,
+            "padding": 0.06,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                5.2,
+                52.3,
+                5.8,
+                52.7
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      },
+      "beat": "aftermath"
+    },
+    {
+      "id": "verdict",
+      "eyebrow": "YOUR CALL",
+      "headline": "WOULD YOU DAM A SEA?",
+      "narration": "Would you dam a sea?",
+      "caption": "WOULD YOU DAM A SEA?",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                5.2,
+                52.3,
+                5.8,
+                52.7
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                2.5,
+                50.5,
+                8.5,
+                54.5
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      },
+      "beat": "verdict"
+    }
+  ]
+}

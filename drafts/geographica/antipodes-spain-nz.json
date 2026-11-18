@@ -1,0 +1,440 @@
+{
+  "numberRelevant": true,
+  "targetEmotion": "surprise",
+  "subject": {
+    "name": "Spain",
+    "category": "Border",
+    "attributes": {
+      "geoEntity": "country:ESP"
+    }
+  },
+  "id": "antipodes-spain-nz",
+  "title": "Dig Down From Madrid and Come Out in New Zealand",
+  "storyPattern": "mechanic",
+  "premise": "Straight through the Earth from Madrid is a spot beside Weber in New Zealand, about 2 km off, computed from the pages' coordinates.",
+  "audiencePromise": "See where a hole through the Earth comes out.",
+  "openLoop": "Where does a hole from Madrid end up?",
+  "payoff": "Most of New Zealand's North Island has Spain on its far side; Madrid's opposite is beside Weber.",
+  "engagementQuestion": "Where would you come out?",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica"
+  },
+  "voice": {
+    "provider": "elevenlabs",
+    "voice": "JBFqnCBsd6RMkjVDRZzb"
+  },
+  "rights": {
+    "releaseStatus": "cleared",
+    "publicReleaseApproved": true,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "eyebrow": "ANTIPODES",
+      "headline": "DIG DOWN FROM MADRID",
+      "narration": "Dig straight down from Madrid and keep going.",
+      "caption": "WHERE DO YOU COME OUT?",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "world",
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -10,
+                35,
+                4,
+                44
+              ]
+            },
+            "at": 0.9,
+            "padding": 0.2,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": -3.7033,
+              "lat": 40.4169
+            },
+            "text": "MADRID",
+            "at": 0.3
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "space",
+        "globe": true
+      }
+    },
+    {
+      "id": "evidence",
+      "eyebrow": "THE OPPOSITE POINT",
+      "headline": "EXACTLY OPPOSITE",
+      "narration": "An antipode sits exactly opposite, through Earth's centre.",
+      "caption": "SAME LATITUDE, 180° OF LONGITUDE APART",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -12,
+                28,
+                6,
+                46
+              ]
+            },
+            "at": 0,
+            "padding": 0.15,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                166,
+                -48,
+                180,
+                -34
+              ]
+            },
+            "at": 0.5,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                172,
+                -44,
+                180,
+                -36
+              ]
+            },
+            "at": 0.9,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": -3.7033,
+              "lat": 40.4169
+            },
+            "text": "MADRID",
+            "at": 0.02
+          },
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 176.2967,
+              "lat": -40.4169
+            },
+            "text": "OPPOSITE POINT",
+            "at": 0.6
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "space",
+        "globe": true
+      },
+      "beat": "evidence"
+    },
+    {
+      "id": "escalation",
+      "eyebrow": "NEW ZEALAND",
+      "headline": "BESIDE WEBER",
+      "narration": "It comes out beside Weber, in New Zealand.",
+      "caption": "ABOUT 2 KM FROM THE EXACT OPPOSITE (COMPUTED)",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                165,
+                -48,
+                180,
+                -34
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                175,
+                -41.4,
+                177.6,
+                -39.4
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 176.3111,
+              "lat": -40.4014
+            },
+            "text": "WEBER",
+            "at": 0.3
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "figure": {
+          "value": 2,
+          "text": "FROM MADRID'S OPPOSITE",
+          "decimals": 0,
+          "at": 0.4,
+          "unit": "KM"
+        }
+      },
+      "beat": "escalation"
+    },
+    {
+      "id": "payoff",
+      "eyebrow": "THE NORTH ISLAND",
+      "headline": "NORTH ISLAND, SPAIN",
+      "narration": "Most of the North Island has Spain on its far side.",
+      "caption": "ANTIPODES OF MOST OF THE NORTH ISLAND LIE IN SPAIN",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                173,
+                -41.8,
+                178.8,
+                -34.2
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                166,
+                -48,
+                180,
+                -33
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:NZL",
+            "style": "fill",
+            "at": 0.3
+          }
+        ],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      },
+      "beat": "payoff"
+    },
+    {
+      "id": "payoff-4",
+      "eyebrow": "MOROCCO",
+      "headline": "WHANGAREI, TANGIER",
+      "narration": "Whangarei's opposite is Tangier, across the strait from Spain.",
+      "caption": "WHANGĀREI AND TANGIER: ABOUT 13 KM OFF EXACT (COMPUTED)",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -12,
+                34,
+                2,
+                44
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -8.4,
+                34.8,
+                -3.2,
+                37.4
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": -5.8039,
+              "lat": 35.7767
+            },
+            "text": "TANGIER",
+            "at": 0.3
+          },
+          {
+            "type": "label",
+            "anchor": "country:ESP",
+            "text": "SPAIN",
+            "at": 0.4
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      },
+      "beat": "payoff"
+    },
+    {
+      "id": "payoff-5",
+      "eyebrow": "MOSTLY OCEAN",
+      "headline": "MOSTLY OCEAN",
+      "narration": "Most land has ocean on the other side.",
+      "caption": "ABOUT 15% OF LAND FACES LAND (THE PAGE'S SOURCE)",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -40,
+                -30,
+                50,
+                60
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                140,
+                -50,
+                -130,
+                30
+              ]
+            },
+            "at": 0.9,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "space",
+        "globe": true
+      },
+      "beat": "payoff"
+    },
+    {
+      "id": "verdict",
+      "eyebrow": "YOUR OPPOSITE",
+      "headline": "YOUR OPPOSITE",
+      "narration": "So where would you come out?",
+      "caption": "WHERE WOULD YOU COME OUT?",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                140,
+                -50,
+                -130,
+                30
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": "world",
+            "at": 0.9,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "space",
+        "globe": true
+      },
+      "beat": "verdict"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia: Antipodes on Earth (revision 1386178289)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Antipodes_on_Earth&oldid=1386178289"
+    },
+    {
+      "label": "Wikipedia coordinates: Madrid (rev 1385634474), Weber, New Zealand (1377519146), Whangārei (1382775977), Tangier (1385732959), Wellington (1386205801), Auckland (1385791483)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Madrid&oldid=1385634474"
+    },
+    {
+      "label": "Computed by Geographica from those coordinates (antipode = -latitude, longitude ± 180°; sphere radius 6,371 km)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Antipodes_on_Earth&oldid=1386178289"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ],
+  "paletteVariant": "neon",
+  "framing": {
+    "opening": "bleed",
+    "ending": "loop"
+  }
+}

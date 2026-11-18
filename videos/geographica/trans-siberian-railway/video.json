@@ -1,0 +1,597 @@
+{
+  "schemaVersion": 2,
+  "id": "trans-siberian-railway",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica",
+    "wordmark": {
+      "lead": "GEO",
+      "accent": "GRAPHICA"
+    },
+    "fonts": {
+      "display": "Oswald",
+      "body": "Inter"
+    },
+    "captions": {
+      "mode": "words"
+    }
+  },
+  "title": "The Railway That Crosses Eight Time Zones",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "mechanic",
+    "numberRelevant": true,
+    "premise": "The Trans-Siberian Railway runs over 9,289 km from Moscow to Vladivostok and spans eight time zones.",
+    "audiencePromise": "Ride across a country in eight days.",
+    "openLoop": "How long does it take to cross a country by train?",
+    "payoff": "Over 9,289 km, a record eight time zones and eight days, built between 1891 and 1916.",
+    "targetEmotion": "surprise",
+    "engagementQuestion": "Would you ride all eight days?",
+    "targetSecondsBetweenVisualChanges": 0.65
+  },
+  "subject": {
+    "name": "Trans-Siberian Railway",
+    "category": "Route",
+    "attributes": {
+      "geoEntity": "country:RUS"
+    }
+  },
+  "related": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#cfe9f2",
+    "surface": "#f4e3b8",
+    "primary": "#d9482b",
+    "secondary": "#2a7fa6",
+    "ink": "#14263a"
+  },
+  "look": "atlas",
+  "framing": {
+    "opening": "bleed",
+    "ending": "loop"
+  },
+  "coast": "fine",
+  "audio": {
+    "music": "generated/trans-siberian-railway-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 96,
+      "notes": [
+        98,
+        116.54,
+        130.81,
+        146.83,
+        130.81,
+        116.54,
+        87.31,
+        98
+      ]
+    },
+    "voice": {
+      "provider": "elevenlabs",
+      "model": "eleven_v4",
+      "voice": "JBFqnCBsd6RMkjVDRZzb",
+      "instructions": "Warm, curious storyteller walking a friend across a map. Clear and confident, with a sense of discovery on each reveal; slow slightly on dates and place names so they land. Conversational and human, never a documentary announcer, lecture, or neutral TTS. Never imitate a known person or character.",
+      "speed": 1.06,
+      "output": "generated/trans-siberian-railway-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "cleared",
+    "publicReleaseApproved": true,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      },
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.soest.hawaii.edu/pwessel/gshhg/gshhg-shp-2.3.7.zip",
+        "owner": "GSHHG coastlines (Wessel & Smith)",
+        "licenseStatus": "licensed",
+        "publicReleaseApproved": true,
+        "notes": "Coastlines: GSHHG v2.3.7 (Wessel & Smith, SOEST / NOAA), LGPL."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "durationSeconds": 3.8,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "TRANS-SIBERIAN",
+      "headline": "THE LONGEST RAILWAY",
+      "narration": "One railway crosses eight time zones.",
+      "caption": "MOSCOW TO VLADIVOSTOK · THE LONGEST RAILWAY LINE IN THE WORLD",
+      "visual": "hook",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                24,
+                41,
+                138,
+                70
+              ]
+            },
+            "at": 0,
+            "padding": 0.08,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                28,
+                48,
+                100,
+                66
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.08,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 37.617778,
+              "lat": 55.755833
+            },
+            "text": "MOSCOW",
+            "at": 0.3
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "evidence",
+      "durationSeconds": 4.6,
+      "beat": "evidence",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "THE LENGTH",
+      "headline": "OVER 9,289 KM",
+      "narration": "It runs over nine thousand kilometres, Moscow to Vladivostok.",
+      "caption": "OVER 9,289 KM · LINE JOINS THE MAIN STOPS WITH STRAIGHT LINKS, NOT THE TRACK",
+      "visual": "gauntlet",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                28,
+                48,
+                100,
+                66
+              ]
+            },
+            "at": 0,
+            "padding": 0.08,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                24,
+                41,
+                138,
+                70
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.08,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "route",
+            "path": [
+              {
+                "lon": 37.617778,
+                "lat": 55.755833
+              },
+              {
+                "lon": 82.95,
+                "lat": 55.05
+              },
+              {
+                "lon": 104.28,
+                "lat": 52.2892
+              },
+              {
+                "lon": 113.4667,
+                "lat": 52.05
+              },
+              {
+                "lon": 135.0833,
+                "lat": 48.4833
+              },
+              {
+                "lon": 131.8853,
+                "lat": 43.115
+              }
+            ],
+            "text": "MAIN STOPS",
+            "at": 0.08,
+            "until": 0.8,
+            "marker": true,
+            "follow": false
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "evidence-2",
+      "durationSeconds": 3.8,
+      "beat": "evidence",
+      "role": "evidence",
+      "shot": "wide",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "THE CLOCKS",
+      "headline": "EIGHT TIME ZONES",
+      "narration": "It spans a record eight time zones.",
+      "caption": "A RECORD EIGHT TIME ZONES",
+      "visual": "gauntlet",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                24,
+                41,
+                138,
+                70
+              ]
+            },
+            "at": 0,
+            "padding": 0.08,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                96,
+                42,
+                118,
+                52
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.08,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 104.28,
+              "lat": 52.2892
+            },
+            "text": "IRKUTSK",
+            "at": 0.05
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "figure": {
+          "value": 8,
+          "unit": "TIME ZONES",
+          "text": "A RECORD",
+          "decimals": 0,
+          "at": 0.3
+        }
+      }
+    },
+    {
+      "id": "escalation",
+      "durationSeconds": 3.8,
+      "beat": "escalation",
+      "role": "escalation",
+      "shot": "comparison",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "THE JOURNEY",
+      "headline": "EIGHT DAYS",
+      "narration": "The journey takes eight days.",
+      "caption": "EIGHT DAYS TO COMPLETE THE JOURNEY",
+      "visual": "advantage",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                96,
+                42,
+                118,
+                52
+              ]
+            },
+            "at": 0,
+            "padding": 0.08,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                104,
+                40,
+                126,
+                50
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.08,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 113.4667,
+              "lat": 52.05
+            },
+            "text": "CHITA",
+            "at": 0.1
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "figure": {
+          "value": 8,
+          "unit": "DAYS",
+          "text": "ON THE TRAIN",
+          "decimals": 0,
+          "at": 0.3
+        }
+      }
+    },
+    {
+      "id": "payoff",
+      "durationSeconds": 4,
+      "beat": "payoff",
+      "role": "payoff",
+      "shot": "tracking",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "THE BUILD",
+      "headline": "1891 TO 1916",
+      "narration": "It was built between 1891 and 1916.",
+      "caption": "BUILT BETWEEN 1891 AND 1916",
+      "visual": "race",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                120,
+                40,
+                138,
+                53
+              ]
+            },
+            "at": 0,
+            "padding": 0.08,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                129.2,
+                42.2,
+                134.5,
+                45.4
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.08,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 131.8853,
+              "lat": 43.115
+            },
+            "text": "VLADIVOSTOK",
+            "at": 0.3
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "payoff-4",
+      "durationSeconds": 4.4,
+      "beat": "payoff",
+      "role": "payoff",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "THE LINK",
+      "headline": "EUROPE TO THE PACIFIC",
+      "narration": "It joins European Russia to the Russian Far East.",
+      "caption": "CONNECTS EUROPEAN RUSSIA TO THE RUSSIAN FAR EAST",
+      "visual": "tradeoff",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                129.2,
+                42.2,
+                134.5,
+                45.4
+              ]
+            },
+            "at": 0,
+            "padding": 0.08,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                28,
+                50,
+                62,
+                62
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.08,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 37.617778,
+              "lat": 55.755833
+            },
+            "text": "MOSCOW",
+            "at": 0.05
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "verdict",
+      "durationSeconds": 3.8,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "YOUR TURN",
+      "headline": "ALL EIGHT DAYS?",
+      "narration": "Would you ride all eight days?",
+      "caption": "WOULD YOU RIDE ALL EIGHT DAYS?",
+      "visual": "cta",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                28,
+                50,
+                62,
+                62
+              ]
+            },
+            "at": 0,
+            "padding": 0.08,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                24,
+                41,
+                138,
+                70
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.08,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "route",
+            "path": [
+              {
+                "lon": 37.617778,
+                "lat": 55.755833
+              },
+              {
+                "lon": 82.95,
+                "lat": 55.05
+              },
+              {
+                "lon": 104.28,
+                "lat": 52.2892
+              },
+              {
+                "lon": 113.4667,
+                "lat": 52.05
+              },
+              {
+                "lon": 135.0833,
+                "lat": 48.4833
+              },
+              {
+                "lon": 131.8853,
+                "lat": 43.115
+              }
+            ],
+            "text": "MAIN STOPS",
+            "at": 0.1,
+            "until": 0.8,
+            "marker": true,
+            "follow": false
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia: Trans-Siberian Railway (revision 1383347505)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Trans-Siberian_Railway&oldid=1383347505"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ]
+}

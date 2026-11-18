@@ -1,0 +1,477 @@
+{
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica"
+  },
+  "voice": {
+    "provider": "elevenlabs",
+    "voice": "JBFqnCBsd6RMkjVDRZzb"
+  },
+  "numberRelevant": true,
+  "targetEmotion": "surprise",
+  "subject": {
+    "name": "Chad",
+    "category": "Border",
+    "attributes": {
+      "geoEntity": "country:TCD"
+    }
+  },
+  "rights": {
+    "releaseStatus": "cleared",
+    "publicReleaseApproved": true,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      }
+    ]
+  },
+  "id": "lake-chad-shrinking",
+  "title": "Lake Chad Lost Most of Its Water Before Satellites Watched",
+  "storyPattern": "transformation",
+  "premise": "Lake Chad shrank from about 28,000 km2 in 1870 to 1,756 km2 in February 1994 and has been relatively stable since.",
+  "audiencePromise": "See how far a lake can fall, and where it stopped.",
+  "openLoop": "How much of Lake Chad is left?",
+  "payoff": "From 22,772 km2 in June 1966 to 1,756 km2 in February 1994; relatively stable since, with a slight increase.",
+  "engagementQuestion": "Would you have guessed it was this big once?",
+  "scenes": [
+    {
+      "id": "hook",
+      "eyebrow": "LAKE CHAD",
+      "headline": "FOUR COUNTRIES, ONE LAKE",
+      "narration": "Lake Chad sits where four countries meet.",
+      "caption": "NIGERIA · NIGER · CHAD · CAMEROON",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -8,
+                -2,
+                32,
+                26
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                12.4,
+                11.6,
+                16,
+                15.2
+              ]
+            },
+            "at": 0.8,
+            "padding": 0.06,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": {
+              "lon": 14.533,
+              "lat": 13.099
+            },
+            "text": "LAKE CHAD",
+            "at": 0.5
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "before",
+      "eyebrow": "1870",
+      "headline": "28,000 KM²",
+      "narration": "In 1870 it covered about 28,000 square kilometres.",
+      "caption": "1870: ABOUT 28,000 KM²",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                12.4,
+                11.6,
+                16,
+                15.2
+              ]
+            },
+            "at": 0,
+            "padding": 0.05,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                11,
+                10,
+                17.5,
+                16
+              ]
+            },
+            "at": 0.9,
+            "padding": 0.05,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 14.533,
+              "lat": 13.099
+            },
+            "text": "LAKE CHAD",
+            "at": 0.4
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      },
+      "beat": "before"
+    },
+    {
+      "id": "before-2",
+      "eyebrow": "JUNE 1966",
+      "headline": "22,772 KM²",
+      "narration": "In June 1966 it still covered 22,772.",
+      "caption": "JUNE 1966: 22,772 KM²",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                11,
+                10,
+                17.5,
+                16
+              ]
+            },
+            "at": 0,
+            "padding": 0.05,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                12.4,
+                11.6,
+                16,
+                15.2
+              ]
+            },
+            "at": 0.9,
+            "padding": 0.05,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 14.533,
+              "lat": 13.099
+            },
+            "text": "LAKE CHAD",
+            "at": 0.4
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      },
+      "beat": "before"
+    },
+    {
+      "id": "change",
+      "eyebrow": "1973 AND 1975",
+      "headline": "4,398 KM²",
+      "narration": "By 1975 it had shrunk to 4,398.",
+      "caption": "JANUARY 1973: 15,400 KM² · 1975: 4,398 KM²",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                12.4,
+                11.6,
+                16,
+                15.2
+              ]
+            },
+            "at": 0,
+            "padding": 0.05,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                13.2,
+                12.4,
+                15.2,
+                14.4
+              ]
+            },
+            "at": 0.9,
+            "padding": 0.05,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 14.533,
+              "lat": 13.099
+            },
+            "text": "LAKE CHAD",
+            "at": 0.4
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      },
+      "beat": "change"
+    },
+    {
+      "id": "change-2",
+      "eyebrow": "FEBRUARY 1994",
+      "headline": "1,756 KM²",
+      "narration": "By February 1994, only 1,756 square kilometres.",
+      "caption": "FEBRUARY 1994: 1,756 KM²",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                13.2,
+                12.4,
+                15.2,
+                14.4
+              ]
+            },
+            "at": 0,
+            "padding": 0.05,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                13.6,
+                12.8,
+                14.9,
+                14.1
+              ]
+            },
+            "at": 0.9,
+            "padding": 0.05,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 14.533,
+              "lat": 13.099
+            },
+            "text": "LAKE CHAD",
+            "at": 0.4
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      },
+      "beat": "change"
+    },
+    {
+      "id": "reveal",
+      "eyebrow": "WHAT THE PAGE NAMES",
+      "headline": "CLIMATE AND DIVERSION",
+      "narration": "The page names climate change and water diversion.",
+      "caption": "THE PAGE NAMES: CLIMATE CHANGE · HUMAN WATER DIVERSION · RIVER INFLOW 1970-90: 55% OF 1950-70",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                11,
+                10,
+                17.5,
+                16
+              ]
+            },
+            "at": 0,
+            "padding": 0.05,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                12.4,
+                11.6,
+                16,
+                15.2
+              ]
+            },
+            "at": 0.9,
+            "padding": 0.05,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 14.533,
+              "lat": 13.099
+            },
+            "text": "LAKE CHAD",
+            "at": 0.4
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      },
+      "beat": "reveal"
+    },
+    {
+      "id": "aftermath",
+      "eyebrow": "DECEMBER 2000 AND 2024",
+      "headline": "STEADY SINCE 1994",
+      "narration": "Since 1994 it has held relatively steady.",
+      "caption": "SINCE 1994 RELATIVELY STABLE · SAME DATE, 2000 AND 2024 (NASA MODIS)",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                13,
+                12.2,
+                15.4,
+                14.6
+              ]
+            },
+            "at": 0,
+            "padding": 0,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "satellite",
+            "set": "chad",
+            "dates": [
+              "2000-12-05",
+              "2024-12-05"
+            ],
+            "mode": "swipe",
+            "marks": [],
+            "at": 0
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      },
+      "beat": "aftermath"
+    },
+    {
+      "id": "verdict",
+      "eyebrow": "YOUR TURN",
+      "headline": "HOW BIG WAS IT?",
+      "narration": "Would you have guessed it was this big once?",
+      "caption": "WOULD YOU HAVE GUESSED?",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                12.4,
+                11.6,
+                16,
+                15.2
+              ]
+            },
+            "at": 0,
+            "padding": 0.05,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -8,
+                -2,
+                32,
+                26
+              ]
+            },
+            "at": 0.9,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 14.533,
+              "lat": 13.099
+            },
+            "text": "LAKE CHAD",
+            "at": 0.4
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      },
+      "beat": "verdict"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia: Lake Chad (revision 1383897363)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Lake_Chad&oldid=1383897363"
+    },
+    {
+      "label": "NASA EOSDIS Global Imagery Browse Services (GIBS)",
+      "url": "https://earthdata.nasa.gov/gibs"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ],
+  "paletteVariant": "neon",
+  "framing": {
+    "ending": "loop",
+    "opening": "bleed"
+  }
+}

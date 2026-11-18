@@ -1,0 +1,486 @@
+{
+  "id": "hunga-tonga-eruption",
+  "title": "The Volcano Heard 9,300 Kilometres Away",
+  "storyPattern": "mechanic",
+  "numberRelevant": true,
+  "premise": "A submarine volcano in Tonga erupted in January 2022 and was heard in Alaska, about 9,300 km away.",
+  "audiencePromise": "Follow the sound of one eruption.",
+  "openLoop": "How can one volcano be heard across the Pacific?",
+  "payoff": "Ash column 58 km high; heard in New Zealand, more than 2,000 km away, and around Anchorage, about 9,300 km away.",
+  "targetEmotion": "awe",
+  "engagementQuestion": "Would you have heard it?",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica"
+  },
+  "subject": {
+    "name": "Hunga Tonga–Hunga Haʻapai",
+    "category": "Border",
+    "attributes": {
+      "geoEntity": "country:TON"
+    }
+  },
+  "voice": {
+    "provider": "elevenlabs",
+    "voice": "JBFqnCBsd6RMkjVDRZzb"
+  },
+  "rights": {
+    "releaseStatus": "cleared",
+    "publicReleaseApproved": true,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "eyebrow": "TONGA",
+      "headline": "HEARD 9,300 KM AWAY",
+      "narration": "A volcano in Tonga was heard in Alaska.",
+      "caption": "A VOLCANO IN TONGA · HEARD IN ALASKA",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -180,
+                -26,
+                -168,
+                -14
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -178,
+                -23,
+                -172,
+                -18
+              ]
+            },
+            "at": 0.8,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": -175.3925,
+              "lat": -20.545
+            },
+            "text": "HUNGA TONGA",
+            "at": 0.35
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      },
+      "beat": "hook"
+    },
+    {
+      "id": "evidence",
+      "eyebrow": "THE VOLCANO",
+      "headline": "65 KM NORTH",
+      "narration": "It sits sixty-five kilometres north of Tongatapu.",
+      "caption": "65 KM NORTH OF TONGATAPU, TONGA'S MAIN ISLAND",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -177.5,
+                -22.4,
+                -173.5,
+                -19.6
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -176.2,
+                -21.6,
+                -174.6,
+                -20.2
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": -175.3925,
+              "lat": -20.545
+            },
+            "text": "HUNGA TONGA",
+            "at": 0.35
+          },
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": -175.15306,
+              "lat": -21.21139
+            },
+            "text": "TONGATAPU",
+            "at": 0.5
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      },
+      "beat": "evidence"
+    },
+    {
+      "id": "escalation",
+      "eyebrow": "THE COLUMN",
+      "headline": "58 KM HIGH",
+      "narration": "The ash column rose fifty-eight kilometres, into the mesosphere.",
+      "caption": "THE 15 JANUARY 2022 ERUPTION COLUMN ROSE 58 KM INTO THE MESOSPHERE",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -176.4,
+                -21.4,
+                -174.4,
+                -19.8
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -175.6,
+                -20.75,
+                -175.2,
+                -20.4
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": -175.3925,
+              "lat": -20.545
+            },
+            "text": "HUNGA TONGA",
+            "at": 0.35
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "figure": {
+          "value": 58,
+          "text": "ERUPTION COLUMN",
+          "decimals": 0,
+          "at": 0.3,
+          "unit": "KM"
+        }
+      },
+      "beat": "escalation"
+    },
+    {
+      "id": "nz",
+      "eyebrow": "THE SOUND",
+      "headline": "HEARD IN NEW ZEALAND",
+      "narration": "The blast was heard in New Zealand, over two thousand kilometres away.",
+      "caption": "HEARD MORE THAN 2,000 KM AWAY IN NEW ZEALAND",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                172,
+                -30,
+                -170,
+                -15
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                163,
+                -48,
+                -168,
+                -14
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "country:NZL",
+            "style": "fill",
+            "at": 0.3
+          }
+        ],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": -175.3925,
+              "lat": -20.545
+            },
+            "text": "HUNGA TONGA",
+            "at": 0.3
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      },
+      "beat": "payoff"
+    },
+    {
+      "id": "alaska",
+      "eyebrow": "THE SOUND",
+      "headline": "ANCHORAGE, 9,300 KM",
+      "narration": "Bangs were heard in Anchorage, about nine thousand three hundred kilometres away.",
+      "caption": "BANGS HEARD AROUND ANCHORAGE, ALASKA · ABOUT 9,300 KM AWAY",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                163,
+                -48,
+                -168,
+                -14
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                158,
+                -34,
+                -118,
+                72
+              ]
+            },
+            "at": 0.9,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": -175.3925,
+              "lat": -20.545
+            },
+            "text": "HUNGA TONGA",
+            "at": 0.3
+          },
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": -149.89361,
+              "lat": 61.21667
+            },
+            "text": "ANCHORAGE",
+            "at": 0.6
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "figure": {
+          "value": 9300,
+          "text": "TO ANCHORAGE",
+          "decimals": 0,
+          "at": 0.3,
+          "unit": "KM"
+        }
+      },
+      "beat": "payoff"
+    },
+    {
+      "id": "tofua",
+      "eyebrow": "THE WAVES",
+      "headline": "45 M WAVES",
+      "narration": "Waves ran up forty-five metres on uninhabited Tofua.",
+      "caption": "TSUNAMI RUN-UP UP TO 45 M ON UNINHABITED TOFUA",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -177.5,
+                -21.5,
+                -173.5,
+                -18.5
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -175.6,
+                -20.1,
+                -174.6,
+                -19.4
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": -175.075,
+              "lat": -19.75
+            },
+            "text": "TOFUA",
+            "at": 0.35
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      },
+      "beat": "payoff"
+    },
+    {
+      "id": "verdict",
+      "eyebrow": "THE QUESTION",
+      "headline": "WOULD YOU HEAR IT?",
+      "narration": "Would you have heard it?",
+      "caption": "WOULD YOU HAVE HEARD IT?",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -175.6,
+                -20.1,
+                -174.6,
+                -19.4
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -180,
+                -26,
+                -168,
+                -14
+              ]
+            },
+            "at": 0.9,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": -175.3925,
+              "lat": -20.545
+            },
+            "text": "HUNGA TONGA",
+            "at": 0.5
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      },
+      "beat": "verdict"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia: 2022 Hunga Tonga–Hunga Haʻapai eruption and tsunami (revision 1383273801)",
+      "url": "https://en.wikipedia.org/w/index.php?title=2022_Hunga_Tonga–Hunga_Haʻapai_eruption_and_tsunami&oldid=1383273801"
+    },
+    {
+      "label": "Wikipedia: Hunga Tonga–Hunga Haʻapai (revision 1384598010)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Hunga_Tonga–Hunga_Haʻapai&oldid=1384598010"
+    },
+    {
+      "label": "Wikipedia: Tongatapu (revision 1379868649)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Tongatapu&oldid=1379868649"
+    },
+    {
+      "label": "Wikipedia: Tofua (revision 1383347676)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Tofua&oldid=1383347676"
+    },
+    {
+      "label": "Wikipedia: Anchorage, Alaska (revision 1382986000)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Anchorage,_Alaska&oldid=1382986000"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ],
+  "paletteVariant": "atlas",
+  "framing": {
+    "opening": "bleed",
+    "ending": "loop"
+  }
+}

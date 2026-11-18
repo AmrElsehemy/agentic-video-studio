@@ -1,0 +1,106 @@
+{
+  "schemaVersion": 1,
+  "id": "mauna-kea-taller-than-everest",
+  "subject": "United States of America",
+  "kind": "curated",
+  "note": "Cited to a pinned Wikipedia revision (trusted_secondary): Mauna Kea (featured article), using only its stated figures: summit 4,207.3 m above sea level, Everest 8,848.86 m above sea level, prominence from under the ocean 9,330 m, and the remark that definitions of base vary. We compute no base ourselves. The profile is computed from NOAA ETOPO 2022 (1 arc-minute grid, about 1.8 km cells, public domain) along a straight east-west line through the summit; 471 km, lowest -5,500 m, highest 3,966 m. The grid smooths the summit (the page says 4,207.3 m), so this is the model's height along the line, not a surveyed section. The panel prints the vertical stretch.",
+  "regions": [],
+  "claims": [
+    {
+      "id": "peak",
+      "text": "Mauna Kea's peak is 4,207.3 meters (13,803 feet) above sea level, making it the highest point in Hawaii.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-mauna-kea"
+      ]
+    },
+    {
+      "id": "everest",
+      "text": "Everest's height above sea level is 8,848.86 metres.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-mauna-kea"
+      ]
+    },
+    {
+      "id": "everest-survey",
+      "text": "Everest's height was most recently measured in 2020 through a joint survey by Nepalese and Chinese authorities as 8,848.86 m.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-everest"
+      ]
+    },
+    {
+      "id": "under",
+      "text": "Mauna Kea's prominence from under the ocean is 9,330 m, rivaled only by Mount Everest; this dry-versus-wet comparison makes it greater than Everest's height above sea level.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-mauna-kea"
+      ]
+    },
+    {
+      "id": "tallest",
+      "text": "Some authorities have labeled Mauna Kea the tallest mountain in the world, from its underwater base.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-mauna-kea"
+      ]
+    },
+    {
+      "id": "base",
+      "text": "Definitions of base vary and are less clearly defined than the concept of prominence.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-mauna-kea"
+      ]
+    },
+    {
+      "id": "line",
+      "text": "A straight east-west line of 471 km through the summit (computed from NOAA ETOPO 2022).",
+      "tier": "official",
+      "sources": [
+        "noaa-etopo"
+      ]
+    },
+    {
+      "id": "floor",
+      "text": "Along that line the model's height falls to -5,500 m on the sea floor and peaks at 3,966 m at 239 km (computed from NOAA ETOPO 2022; 1.8 km cells smooth the summit).",
+      "tier": "official",
+      "sources": [
+        "noaa-etopo"
+      ]
+    }
+  ],
+  "places": {
+    "mauna-kea": {
+      "lon": -155.4681,
+      "lat": 19.8206,
+      "source": "wikipedia-mauna-kea",
+      "note": "Summit coordinates from the page's infobox, 19°49′14″N 155°28′5″W."
+    },
+    "mount-everest": {
+      "lon": 86.9253,
+      "lat": 27.9883,
+      "source": "wikipedia-everest",
+      "note": "The page's coordinate, 27°59′18″N 86°55′31″E."
+    }
+  },
+  "sources": {
+    "wikipedia-mauna-kea": {
+      "label": "Wikipedia: Mauna Kea (revision 1378293676)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Mauna_Kea&oldid=1378293676"
+    },
+    "wikipedia-everest": {
+      "label": "Wikipedia: Mount Everest (revision 1385118046)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Mount_Everest&oldid=1385118046"
+    },
+    "noaa-etopo": {
+      "label": "NOAA NCEI ETOPO 2022 Global Relief Model (public domain)",
+      "url": "https://doi.org/10.25921/fd45-gt74"
+    },
+    "natural-earth": {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  }
+}

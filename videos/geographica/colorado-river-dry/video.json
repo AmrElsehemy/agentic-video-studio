@@ -1,0 +1,590 @@
+{
+  "schemaVersion": 2,
+  "id": "colorado-river-dry",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica",
+    "wordmark": {
+      "lead": "GEO",
+      "accent": "GRAPHICA"
+    },
+    "fonts": {
+      "display": "Oswald",
+      "body": "Inter"
+    },
+    "captions": {
+      "mode": "words"
+    }
+  },
+  "title": "The River That Stops Before the Sea",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "mechanic",
+    "numberRelevant": true,
+    "premise": "The Colorado River is diverted almost entirely before the Gulf of California; a 2014 pulse reached the sea after 16 years.",
+    "audiencePromise": "Follow a river to the place where it runs out.",
+    "openLoop": "Where does the Colorado River go?",
+    "payoff": "The flow is diverted before the delta; wetlands are about 5% of their extent, and a 2014 pulse reached the sea.",
+    "targetEmotion": "surprise",
+    "engagementQuestion": "Should a river reach the sea?",
+    "targetSecondsBetweenVisualChanges": 0.65
+  },
+  "subject": {
+    "name": "Colorado River Delta",
+    "category": "Border",
+    "attributes": {
+      "geoEntity": "water:golfo-de-california"
+    }
+  },
+  "related": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#050818",
+    "surface": "#18284f",
+    "primary": "#ff3d9a",
+    "secondary": "#6c5ce7",
+    "ink": "#ffffff"
+  },
+  "look": "neon",
+  "framing": {
+    "opening": "bleed",
+    "ending": "loop"
+  },
+  "coast": "fine",
+  "audio": {
+    "music": "generated/colorado-river-dry-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 96,
+      "notes": [
+        98,
+        116.54,
+        130.81,
+        146.83,
+        130.81,
+        116.54,
+        87.31,
+        98
+      ]
+    },
+    "voice": {
+      "provider": "elevenlabs",
+      "model": "eleven_v4",
+      "voice": "JBFqnCBsd6RMkjVDRZzb",
+      "instructions": "Warm, curious storyteller walking a friend across a map. Clear and confident, with a sense of discovery on each reveal; slow slightly on dates and place names so they land. Conversational and human, never a documentary announcer, lecture, or neutral TTS. Never imitate a known person or character.",
+      "speed": 1.06,
+      "output": "generated/colorado-river-dry-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "cleared",
+    "publicReleaseApproved": true,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      },
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.soest.hawaii.edu/pwessel/gshhg/gshhg-shp-2.3.7.zip",
+        "owner": "GSHHG coastlines (Wessel & Smith)",
+        "licenseStatus": "licensed",
+        "publicReleaseApproved": true,
+        "notes": "Coastlines: GSHHG v2.3.7 (Wessel & Smith, SOEST / NOAA), LGPL."
+      },
+      {
+        "kind": "photo",
+        "sourceUrl": "https://earthdata.nasa.gov/eosdis/science-system-description/eosdis-components/gibs",
+        "owner": "NASA EOSDIS GIBS",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Satellite imagery: NASA EOSDIS Global Imagery Browse Services (MODIS Terra true colour (250 m)), 2000-04-15, 2024-04-15. NASA imagery is free to use with acknowledgement."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "durationSeconds": 4,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "THE COLORADO RIVER",
+      "headline": "A RIVER THAT STOPS",
+      "narration": "The Colorado River mostly stops before the sea.",
+      "caption": "SINCE 1960: DRY OR A TRICKLE BETWEEN SAN LUIS RÍO COLORADO AND THE GULF",
+      "visual": "hook",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -118,
+                28,
+                -104,
+                39
+              ]
+            },
+            "at": 0,
+            "padding": 0.05,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -117,
+                30.5,
+                -112.5,
+                34
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.05,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "water:golfo-de-california",
+            "style": "fill",
+            "at": 0.3
+          }
+        ],
+        "annotations": [
+          {
+            "type": "label",
+            "anchor": "water:golfo-de-california",
+            "text": "GULF OF CALIFORNIA",
+            "at": 0.4
+          }
+        ],
+        "dataset": "natural-earth",
+        "projection": "albers",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "length",
+      "durationSeconds": 5,
+      "beat": "evidence",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "THE RIVER",
+      "headline": "2,330 KM",
+      "narration": "It runs 2,330 kilometres and waters 40 million people.",
+      "caption": "1,450 MILES (2,330 KM) · WATER FOR 40 MILLION PEOPLE",
+      "visual": "gauntlet",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -116,
+                30,
+                -104,
+                42
+              ]
+            },
+            "at": 0,
+            "padding": 0.05,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -115,
+                31,
+                -109,
+                36
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.05,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "figure": {
+          "value": 2330,
+          "unit": "KM",
+          "text": "LENGTH",
+          "decimals": 0,
+          "at": 0.3
+        }
+      }
+    },
+    {
+      "id": "hoover",
+      "durationSeconds": 5,
+      "beat": "evidence",
+      "role": "evidence",
+      "shot": "wide",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "THE DAMS",
+      "headline": "SIX DRY YEARS",
+      "narration": "After Hoover Dam, almost no fresh water reached the delta.",
+      "caption": "1930S: FOR SIX YEARS, VIRTUALLY NO FRESHWATER REACHED THE DELTA",
+      "visual": "gauntlet",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -118,
+                29,
+                -110,
+                36
+              ]
+            },
+            "at": 0,
+            "padding": 0.05,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -116,
+                30.5,
+                -113.5,
+                33
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.05,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": -114.8,
+              "lat": 31.815
+            },
+            "text": "RIVER MOUTH (APPROX.)",
+            "at": 0.6
+          }
+        ],
+        "dataset": "natural-earth",
+        "projection": "albers",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "morelos",
+      "durationSeconds": 5.5,
+      "beat": "escalation",
+      "role": "escalation",
+      "shot": "comparison",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "MORELOS DAM",
+      "headline": "THE LAST OF IT",
+      "narration": "At Morelos Dam, the last of the flow goes to farms.",
+      "caption": "MORELOS DAM: THE ENTIRE REMAINING FLOW IS DIVERTED TO THE MEXICALI VALLEY",
+      "visual": "advantage",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -116.5,
+                31.2,
+                -113,
+                33.6
+              ]
+            },
+            "at": 0,
+            "padding": 0.05,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -115.7,
+                32.2,
+                -114.2,
+                33.2
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.05,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "delta",
+      "durationSeconds": 4.9,
+      "beat": "payoff",
+      "role": "payoff",
+      "shot": "tracking",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "THE DELTA",
+      "headline": "FROM SPACE",
+      "narration": "Satellites show the delta's end in 2000 and 2024.",
+      "caption": "NASA SATELLITE, APRIL 2000 AND 2024 · HEAD OF THE GULF OF CALIFORNIA",
+      "visual": "race",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -115.7,
+                31.2,
+                -114.2,
+                32.6
+              ]
+            },
+            "at": 0,
+            "padding": 0,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "satellite",
+            "set": "colorado-delta",
+            "dates": [
+              "2000-04-15",
+              "2024-04-15"
+            ],
+            "mode": "swipe",
+            "marks": [
+              {
+                "lon": -114.8,
+                "lat": 31.815,
+                "text": "MOUTH (APPROX.)"
+              }
+            ],
+            "at": 0
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "wetlands",
+      "durationSeconds": 5.5,
+      "beat": "payoff",
+      "role": "payoff",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "THE WETLANDS",
+      "headline": "5% LEFT",
+      "narration": "Wetlands once covered 7,810 square kilometres; about 5 percent remain.",
+      "caption": "7,810 KM² ONCE · ABOUT 5% OF THEIR ORIGINAL EXTENT",
+      "visual": "tradeoff",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -115.5,
+                31,
+                -114.2,
+                32.4
+              ]
+            },
+            "at": 0,
+            "padding": 0.05,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -117,
+                29.5,
+                -112.5,
+                34
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.05,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "projection": "albers",
+        "ambience": "none",
+        "figure": {
+          "value": 7810,
+          "unit": "KM²",
+          "text": "WETLANDS ONCE",
+          "decimals": 0,
+          "at": 0.3
+        }
+      }
+    },
+    {
+      "id": "pulse",
+      "durationSeconds": 5.9,
+      "beat": "payoff",
+      "role": "payoff",
+      "shot": "comparison",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "2014",
+      "headline": "A PULSE",
+      "narration": "In 2014, a pulse flow reached the sea after 16 years.",
+      "caption": "MAY 2014: FIRST COLORADO WATER IN THE OCEAN IN 16 YEARS",
+      "visual": "race",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -115.5,
+                31,
+                -114.1,
+                32.4
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -115,
+                31.6,
+                -114.6,
+                32
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": -114.8,
+              "lat": 31.815
+            },
+            "text": "RIVER MOUTH (APPROX.)",
+            "at": 0.5
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "verdict",
+      "durationSeconds": 3.8,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.65,
+      "eyebrow": "YOUR TURN",
+      "headline": "SHOULD IT REACH?",
+      "narration": "Should a river reach the sea?",
+      "caption": "SHOULD A RIVER REACH THE SEA?",
+      "visual": "cta",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -117,
+                30.5,
+                -112.5,
+                34
+              ]
+            },
+            "at": 0,
+            "padding": 0.05,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -118,
+                28,
+                -104,
+                39
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.05,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [
+          {
+            "entity": "water:golfo-de-california",
+            "style": "fill",
+            "at": 0.2
+          }
+        ],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "projection": "albers",
+        "ambience": "none"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia: Colorado River (revision 1384158754)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Colorado_River&oldid=1384158754"
+    },
+    {
+      "label": "Wikipedia: Colorado River Delta (revision 1383044266)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Colorado_River_Delta&oldid=1383044266"
+    },
+    {
+      "label": "NASA EOSDIS Global Imagery Browse Services (GIBS)",
+      "url": "https://earthdata.nasa.gov/gibs"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ]
+}

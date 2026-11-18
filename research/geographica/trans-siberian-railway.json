@@ -1,0 +1,139 @@
+{
+  "schemaVersion": 1,
+  "id": "trans-siberian-railway",
+  "subject": "Russia",
+  "kind": "curated",
+  "note": "Cited to pinned Wikipedia revisions (trusted_secondary): Trans-Siberian Railway for the facts, and the pages of the six cities for their coordinates. The page says 'over 9,289 km' (lead) and 9,289 km (route section); the script says 'over 9,289 km'. The line on the map joins the six named stops (Moscow, Novosibirsk, Irkutsk, Chita, Khabarovsk, Vladivostok, all named on the page's route list) with straight great-circle links and is labelled as the main stops, not the track: the real railway winds and passes other cities, and the page gives no coordinates for the track itself. The eight days is the page's statement for the Moscow-Vladivostok service. No time-zone boundaries are drawn: the page gives only the count. Russia is the subject, so Natural Earth flags Crimea and the Kurils; the frames keep west of 138 E, no country is highlighted or labelled and Russia is never filled.",
+  "regions": [],
+  "claims": [
+    {
+      "id": "length",
+      "text": "Spanning a length of over 9,289 km, the Trans-Siberian Railway is the longest railway line in the world; it runs from the city of Moscow in the west to the city of Vladivostok in the east.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-trans-siberian"
+      ]
+    },
+    {
+      "id": "zones",
+      "text": "At a Moscow–Vladivostok track length of 9,289 km, it spans a record eight time zones.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-trans-siberian"
+      ]
+    },
+    {
+      "id": "days",
+      "text": "Taking eight days to complete the journey, it was the third-longest single continuous service in the world.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-trans-siberian"
+      ]
+    },
+    {
+      "id": "built",
+      "text": "Ministers appointed by Alexander III and his son Nicholas II supervised the building of the railway network between 1891 and 1916.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-trans-siberian"
+      ]
+    },
+    {
+      "id": "connects",
+      "text": "It is a large railway system that connects European Russia to the Russian Far East.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-trans-siberian"
+      ]
+    },
+    {
+      "id": "stops",
+      "text": "The main route runs from Moscow through Yaroslavl or Chelyabinsk, Omsk, Novosibirsk, Krasnoyarsk, Irkutsk, Ulan-Ude, Chita and Khabarovsk to Vladivostok via southern Siberia.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-trans-siberian"
+      ]
+    },
+    {
+      "id": "baikal",
+      "text": "The railway passes Lake Baikal, and the Baikal–Amur Mainline, completed in 1991, passes the lake at its northernmost extremity.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-trans-siberian"
+      ]
+    }
+  ],
+  "places": {
+    "moscow": {
+      "lon": 37.617778,
+      "lat": 55.755833,
+      "source": "wikipedia-moscow",
+      "note": "The page's coordinate for Moscow (55°45′21″N 37°37′04″E)."
+    },
+    "novosibirsk": {
+      "lon": 82.95,
+      "lat": 55.05,
+      "source": "wikipedia-novosibirsk",
+      "note": "The page's coordinate for Novosibirsk (55°03′N 82°57′E)."
+    },
+    "irkutsk": {
+      "lon": 104.28,
+      "lat": 52.2892,
+      "source": "wikipedia-irkutsk",
+      "note": "The page's coordinate for Irkutsk (the page's coordinates as served by the Wikipedia API (GeoData))."
+    },
+    "chita": {
+      "lon": 113.4667,
+      "lat": 52.05,
+      "source": "wikipedia-chita",
+      "note": "The page's coordinate for Chita (52°03′N 113°28′E)."
+    },
+    "khabarovsk": {
+      "lon": 135.0833,
+      "lat": 48.4833,
+      "source": "wikipedia-khabarovsk",
+      "note": "The page's coordinate for Khabarovsk (48°29′N 135°05′E)."
+    },
+    "vladivostok": {
+      "lon": 131.8853,
+      "lat": 43.115,
+      "source": "wikipedia-vladivostok",
+      "note": "The page's coordinate for Vladivostok (the page's coordinates as served by the Wikipedia API (GeoData))."
+    }
+  },
+  "datasets": {},
+  "sources": {
+    "wikipedia-trans-siberian": {
+      "label": "Wikipedia: Trans-Siberian Railway (revision 1383347505)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Trans-Siberian_Railway&oldid=1383347505"
+    },
+    "wikipedia-moscow": {
+      "label": "Wikipedia: Moscow (revision 1385978038)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Moscow&oldid=1385978038"
+    },
+    "wikipedia-novosibirsk": {
+      "label": "Wikipedia: Novosibirsk (revision 1385680323)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Novosibirsk&oldid=1385680323"
+    },
+    "wikipedia-irkutsk": {
+      "label": "Wikipedia: Irkutsk (revision 1380091135)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Irkutsk&oldid=1380091135"
+    },
+    "wikipedia-chita": {
+      "label": "Wikipedia: Chita, Zabaykalsky Krai (revision 1381483218)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Chita,_Zabaykalsky_Krai&oldid=1381483218"
+    },
+    "wikipedia-khabarovsk": {
+      "label": "Wikipedia: Khabarovsk (revision 1385618216)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Khabarovsk&oldid=1385618216"
+    },
+    "wikipedia-vladivostok": {
+      "label": "Wikipedia: Vladivostok (revision 1384461248)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Vladivostok&oldid=1384461248"
+    },
+    "natural-earth": {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  }
+}

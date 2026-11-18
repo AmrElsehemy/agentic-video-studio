@@ -1,0 +1,522 @@
+{
+  "schemaVersion": 2,
+  "id": "nauru-smallest-republic",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica",
+    "wordmark": {
+      "lead": "GEO",
+      "accent": "GRAPHICA"
+    },
+    "fonts": {
+      "display": "Oswald",
+      "body": "Inter"
+    },
+    "captions": {
+      "mode": "words"
+    }
+  },
+  "title": "The Third-Smallest Country on Earth",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "profile",
+    "numberRelevant": true,
+    "premise": "Nauru covers 21 km2, the third-smallest country in the world, and mining has stripped about 80% of its land.",
+    "audiencePromise": "See how small a country can be.",
+    "openLoop": "What is left of an island this small?",
+    "payoff": "21 km2 and about 12,000 people; mining stripped about 80% of the land, so most people live on the unmined coastal ring.",
+    "targetEmotion": "surprise",
+    "engagementQuestion": "Would you live on the third-smallest country?",
+    "targetSecondsBetweenVisualChanges": 0.72
+  },
+  "subject": {
+    "name": "Nauru",
+    "category": "Island country",
+    "attributes": {
+      "geoEntity": "country:NRU"
+    }
+  },
+  "related": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#cfdde6",
+    "surface": "#f3ede0",
+    "primary": "#b4561f",
+    "secondary": "#2c5d7f",
+    "ink": "#1b2730"
+  },
+  "framing": {
+    "opening": "bleed",
+    "ending": "loop"
+  },
+  "coast": "fine",
+  "audio": {
+    "music": "generated/nauru-smallest-republic-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 96,
+      "notes": [
+        98,
+        116.54,
+        130.81,
+        146.83,
+        130.81,
+        116.54,
+        87.31,
+        98
+      ]
+    },
+    "voice": {
+      "provider": "elevenlabs",
+      "model": "eleven_v4",
+      "voice": "JBFqnCBsd6RMkjVDRZzb",
+      "instructions": "Warm, curious storyteller walking a friend across a map. Clear and confident, with a sense of discovery on each reveal; slow slightly on dates and place names so they land. Conversational and human, never a documentary announcer, lecture, or neutral TTS. Never imitate a known person or character.",
+      "speed": 1.06,
+      "output": "generated/nauru-smallest-republic-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "cleared",
+    "publicReleaseApproved": true,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      },
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.soest.hawaii.edu/pwessel/gshhg/gshhg-shp-2.3.7.zip",
+        "owner": "GSHHG coastlines (Wessel & Smith)",
+        "licenseStatus": "licensed",
+        "publicReleaseApproved": true,
+        "notes": "Coastlines: GSHHG v2.3.7 (Wessel & Smith, SOEST / NOAA), LGPL."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "durationSeconds": 4.1,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "mystery",
+      "subjectFocus": "hidden",
+      "beatEverySeconds": 0.72,
+      "eyebrow": "NAURU · NAOERO",
+      "headline": "THIRD-SMALLEST COUNTRY",
+      "narration": "Nauru is the third-smallest country in the world.",
+      "caption": "THIRD-SMALLEST COUNTRY IN THE WORLD · ALSO CALLED NAOERO, ITS NAME IN NAURUAN",
+      "visual": "hook",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                146,
+                -22,
+                180,
+                18
+              ]
+            },
+            "at": 0,
+            "padding": 0.08,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                166.7,
+                -0.7,
+                167.15,
+                -0.35
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.08,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 166.935,
+              "lat": -0.5275
+            },
+            "text": "NAURU",
+            "at": 0.5
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "evidence",
+      "durationSeconds": 4.1,
+      "beat": "evidence",
+      "role": "evidence",
+      "shot": "tracking",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.72,
+      "eyebrow": "THE LAND",
+      "headline": "21 KM²",
+      "narration": "Its whole land area is twenty-one square kilometres.",
+      "caption": "21 KM² · AN OVAL ISLAND IN THE SOUTHWESTERN PACIFIC",
+      "visual": "gauntlet",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                166.7,
+                -0.7,
+                167.15,
+                -0.35
+              ]
+            },
+            "at": 0,
+            "padding": 0.08,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                166.85,
+                -0.62,
+                167.02,
+                -0.44
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.08,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 166.935,
+              "lat": -0.5275
+            },
+            "text": "NAURU",
+            "at": 0.3
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "figure": {
+          "value": 21,
+          "unit": "KM²",
+          "text": "OF LAND",
+          "decimals": 0,
+          "at": 0.3
+        }
+      }
+    },
+    {
+      "id": "evidence-2",
+      "durationSeconds": 3.8,
+      "beat": "evidence",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.72,
+      "eyebrow": "THE PEOPLE",
+      "headline": "ABOUT 12,000",
+      "narration": "About twelve thousand people live there.",
+      "caption": "ABOUT 12,000 PEOPLE · THE WORLD'S THIRD-SMALLEST POPULATION",
+      "visual": "advantage",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                166.83,
+                -0.64,
+                167.04,
+                -0.42
+              ]
+            },
+            "at": 0,
+            "padding": 0.08,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                166.88,
+                -0.631,
+                166.99,
+                -0.482
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.08,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "figure": {
+          "value": 12000,
+          "text": "PEOPLE, ABOUT",
+          "decimals": 0,
+          "at": 0.3
+        }
+      }
+    },
+    {
+      "id": "evidence-3",
+      "durationSeconds": 3.8,
+      "beat": "evidence",
+      "role": "evidence",
+      "shot": "wide",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.72,
+      "eyebrow": "THE REEF",
+      "headline": "A RING OF REEF",
+      "narration": "A coral reef rings the whole island.",
+      "caption": "A FRINGING CORAL REEF SURROUNDS THE ISLAND · EXPOSED AT LOW TIDE",
+      "visual": "gauntlet",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                166.75,
+                -0.7,
+                167.1,
+                -0.35
+              ]
+            },
+            "at": 0,
+            "padding": 0.08,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                166.86,
+                -0.6,
+                167,
+                -0.46
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.08,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "escalation",
+      "durationSeconds": 4.4,
+      "beat": "escalation",
+      "role": "escalation",
+      "shot": "comparison",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.72,
+      "eyebrow": "THE MINING",
+      "headline": "80% STRIPPED",
+      "narration": "Mining has stripped about eighty percent of the land.",
+      "caption": "PHOSPHATE MINING HAS STRIPPED ABOUT 80% OF THE LAND, LEAVING IT UNINHABITABLE",
+      "visual": "race",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                166.84,
+                -0.63,
+                167.03,
+                -0.43
+              ]
+            },
+            "at": 0,
+            "padding": 0.08,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                166.8875,
+                -0.617,
+                166.9825,
+                -0.489
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.08,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none",
+        "figure": {
+          "value": 80,
+          "unit": "%",
+          "text": "OF THE LAND STRIPPED",
+          "decimals": 0,
+          "at": 0.3
+        }
+      }
+    },
+    {
+      "id": "twist",
+      "durationSeconds": 5.3,
+      "beat": "twist",
+      "role": "twist",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.72,
+      "eyebrow": "THE RING",
+      "headline": "LIFE ON THE EDGE",
+      "narration": "Most people live on the coastal ring that was not mined.",
+      "caption": "MOST NAURUANS LIVE ON THE UNMINED COASTAL RING OF THE ISLAND",
+      "visual": "tradeoff",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                166.8875,
+                -0.617,
+                166.9825,
+                -0.489
+              ]
+            },
+            "at": 0,
+            "padding": 0.08,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                166.82,
+                -0.65,
+                167.05,
+                -0.41
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.08,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 166.935,
+              "lat": -0.5275
+            },
+            "text": "NAURU",
+            "at": 0.3
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "verdict",
+      "durationSeconds": 5,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.72,
+      "eyebrow": "THE QUESTION",
+      "headline": "WOULD YOU LIVE HERE?",
+      "narration": "Would you live on the third-smallest country in the world?",
+      "caption": "WOULD YOU LIVE ON THE THIRD-SMALLEST COUNTRY IN THE WORLD?",
+      "visual": "cta",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                166.82,
+                -0.65,
+                167.05,
+                -0.41
+              ]
+            },
+            "at": 0,
+            "padding": 0.08,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                146,
+                -22,
+                180,
+                18
+              ]
+            },
+            "at": 0.85,
+            "padding": 0.08,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 166.935,
+              "lat": -0.5275
+            },
+            "text": "NAURU",
+            "at": 0.3
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia: Nauru (revision 1385814755)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Nauru&oldid=1385814755"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ]
+}

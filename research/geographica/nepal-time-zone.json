@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 1,
+  "id": "nepal-time-zone",
+  "subject": "Nepal",
+  "kind": "curated",
+  "note": "Cited to pinned Wikipedia revisions (trusted_secondary): Nepal Standard Time (rev 1381220223) and Indian Standard Time (rev 1368859347). Figures only as the pages state them: UTC+05:45 for Nepal, UTC+05:30 for India, one of only three time zones with a 45-minute offset, Kathmandu mean time 5 h 41 min 16 s ahead of UTC and used until 1920, India's time adopted in 1920, clocks advanced 15 minutes in 1986, standard meridian through the peak of Gaurishankar about 100 km east of Kathmandu. Frames keep to Nepal; India and China appear only as unlabelled neighbours.",
+  "regions": [
+    "Nepal",
+    "India"
+  ],
+  "claims": [
+    {
+      "id": "offset",
+      "text": "Nepal's time zone has an offset of UTC+05:45 all over Nepal.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-nepal-time"
+      ]
+    },
+    {
+      "id": "india",
+      "text": "Indian Standard Time is the time zone observed throughout India, with a time offset of UTC+05:30.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-ist"
+      ]
+    },
+    {
+      "id": "three",
+      "text": "Nepal's is one of only three time zones with a 45-minute offset from UTC.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-nepal-time"
+      ]
+    },
+    {
+      "id": "mean",
+      "text": "Nepal Time is an approximation of Kathmandu mean time, which is 5 hours, 41 minutes and 16 seconds ahead of UTC.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-nepal-time"
+      ]
+    },
+    {
+      "id": "1920",
+      "text": "Nepal used local solar time, UTC+05:41:16 in Kathmandu, until 1920; in 1920 it adopted Indian Standard Time, UTC+05:30.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-nepal-time"
+      ]
+    },
+    {
+      "id": "1986",
+      "text": "In 1986 Nepal advanced its clocks by 15 minutes, giving UTC+05:45.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-nepal-time"
+      ]
+    },
+    {
+      "id": "meridian",
+      "text": "The standard meridian passes through the peak of Gaurishankar mountain, about 100 km east of Kathmandu.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-nepal-time"
+      ]
+    }
+  ],
+  "places": {
+    "kathmandu": {
+      "lon": 85.32,
+      "lat": 27.71,
+      "source": "wikipedia-kathmandu"
+    },
+    "gaurishankar": {
+      "lon": 86.3358,
+      "lat": 27.9533,
+      "source": "wikipedia-gaurishankar"
+    }
+  },
+  "sources": {
+    "wikipedia-nepal-time": {
+      "label": "Wikipedia: Nepal Standard Time (revision 1381220223)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Nepal_Standard_Time&oldid=1381220223"
+    },
+    "wikipedia-ist": {
+      "label": "Wikipedia: Indian Standard Time (revision 1368859347)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Indian_Standard_Time&oldid=1368859347"
+    },
+    "wikipedia-kathmandu": {
+      "label": "Wikipedia coordinates: Kathmandu (revision 1385643995)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Kathmandu&oldid=1385643995"
+    },
+    "wikipedia-gaurishankar": {
+      "label": "Wikipedia coordinates: Gaurishankar (revision 1374164142)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Gaurishankar&oldid=1374164142"
+    },
+    "natural-earth": {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  }
+}

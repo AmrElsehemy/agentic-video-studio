@@ -1,0 +1,531 @@
+{
+  "schemaVersion": 2,
+  "id": "mauna-kea-taller-than-everest",
+  "show": {
+    "id": "geographica",
+    "name": "Geographica",
+    "handle": "@Geographica",
+    "wordmark": {
+      "lead": "GEO",
+      "accent": "GRAPHICA"
+    },
+    "fonts": {
+      "display": "Oswald",
+      "body": "Inter"
+    },
+    "captions": {
+      "mode": "words"
+    }
+  },
+  "title": "Is Everest Really the Tallest Mountain?",
+  "direction": {
+    "engineVersion": 2,
+    "storyPattern": "comparison",
+    "numberRelevant": true,
+    "premise": "Mauna Kea is 4,207 m above sea level but 9,330 m from the ocean floor, more than Everest's 8,849 m.",
+    "audiencePromise": "See why some call Mauna Kea taller than Everest.",
+    "openLoop": "Which mountain is tallest depends on where you start measuring.",
+    "payoff": "Above sea level Everest stands 8,849 m and Mauna Kea 4,207 m, but Mauna Kea's prominence from under the ocean is 9,330 m.",
+    "targetEmotion": "surprise",
+    "engagementQuestion": "Which would you call the tallest mountain?",
+    "targetSecondsBetweenVisualChanges": 0.7
+  },
+  "subject": {
+    "name": "Mauna Kea",
+    "category": "Landmark",
+    "attributes": {
+      "geoEntity": "country:USA"
+    }
+  },
+  "related": [],
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "palette": {
+    "background": "#06161c",
+    "surface": "#2f5d3c",
+    "primary": "#ffd166",
+    "secondary": "#10424d",
+    "ink": "#f7f2dc"
+  },
+  "look": "terrain",
+  "framing": {
+    "opening": "bleed",
+    "ending": "loop"
+  },
+  "coast": "fine",
+  "audio": {
+    "music": "generated/mauna-kea-taller-than-everest-bed.wav",
+    "musicVolume": 0.09,
+    "bed": {
+      "bpm": 96,
+      "notes": [
+        98,
+        116.54,
+        130.81,
+        146.83,
+        130.81,
+        116.54,
+        87.31,
+        98
+      ]
+    },
+    "voice": {
+      "provider": "elevenlabs",
+      "model": "eleven_v4",
+      "voice": "JBFqnCBsd6RMkjVDRZzb",
+      "instructions": "Warm, curious storyteller walking a friend across a map. Clear and confident, with a sense of discovery on each reveal; slow slightly on dates and place names so they land. Conversational and human, never a documentary announcer, lecture, or neutral TTS. Never imitate a known person or character.",
+      "speed": 1.06,
+      "output": "generated/mauna-kea-taller-than-everest-voice.wav"
+    }
+  },
+  "rights": {
+    "releaseStatus": "cleared",
+    "publicReleaseApproved": true,
+    "ownershipNotice": "Maps drawn from Natural Earth data (public domain). Facts are cited in the sources below.",
+    "nonAffiliationNotice": "Geographica is an independent educational series. Borders and names follow Natural Earth's de facto view; disputed areas are marked as such.",
+    "assets": [
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "owner": "Natural Earth v5.1.2",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com."
+      },
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://doi.org/10.25921/fd45-gt74",
+        "owner": "NOAA NCEI ETOPO 2022",
+        "licenseStatus": "public-domain",
+        "publicReleaseApproved": true,
+        "notes": "Heights: NOAA NCEI ETOPO 2022 Global Relief Model (public domain)."
+      },
+      {
+        "kind": "map-data",
+        "sourceUrl": "https://www.soest.hawaii.edu/pwessel/gshhg/gshhg-shp-2.3.7.zip",
+        "owner": "GSHHG coastlines (Wessel & Smith)",
+        "licenseStatus": "licensed",
+        "publicReleaseApproved": true,
+        "notes": "Coastlines: GSHHG v2.3.7 (Wessel & Smith, SOEST / NOAA), LGPL."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "durationSeconds": 3.8,
+      "beat": "hook",
+      "role": "hook",
+      "shot": "comparison",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "MAUNA KEA",
+      "headline": "TALLER THAN EVEREST?",
+      "narration": "Some call this volcano Earth's tallest mountain.",
+      "caption": "A VOLCANO IN HAWAII",
+      "visual": "hook",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": "world",
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -168,
+                8,
+                -138,
+                30
+              ]
+            },
+            "at": 0.5,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -161,
+                17.5,
+                -150,
+                22.5
+              ]
+            },
+            "at": 0.95,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": -155.4681,
+              "lat": 19.8206
+            },
+            "text": "MAUNA KEA",
+            "at": 0.6
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "evidence",
+      "durationSeconds": 4,
+      "beat": "evidence",
+      "role": "evidence",
+      "shot": "wide",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "ABOVE THE SEA",
+      "headline": "4,207 METRES",
+      "narration": "Above the waves, it rises 4,207 metres.",
+      "caption": "MAUNA KEA: 4,207.3 M ABOVE SEA LEVEL",
+      "visual": "gauntlet",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -161,
+                17.5,
+                -150,
+                22.5
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -157.5,
+                18.4,
+                -153.5,
+                21.2
+              ]
+            },
+            "at": 0.9,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": -155.4681,
+              "lat": 19.8206
+            },
+            "text": "4,207 M",
+            "at": 0.2
+          },
+          {
+            "type": "profile",
+            "set": "mauna-kea-crossing",
+            "text": "HEIGHT ALONG 471 KM (MODEL)",
+            "at": 0.35
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "evidence-2",
+      "durationSeconds": 3.9,
+      "beat": "evidence",
+      "role": "evidence",
+      "shot": "macro",
+      "subjectFocus": "secondary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "THE RIVAL",
+      "headline": "8,849 METRES",
+      "narration": "Everest rises 8,849 metres above sea level.",
+      "caption": "EVEREST: 8,848.86 M ABOVE SEA LEVEL",
+      "visual": "advantage",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                78,
+                22,
+                96,
+                34
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                84.5,
+                26,
+                89.5,
+                30
+              ]
+            },
+            "at": 0.9,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": 86.9253,
+              "lat": 27.9883
+            },
+            "text": "MOUNT EVEREST",
+            "at": 0.3
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "escalation",
+      "durationSeconds": 4.1,
+      "beat": "escalation",
+      "role": "escalation",
+      "shot": "tracking",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "THE SEA FLOOR",
+      "headline": "DOWN TO THE DEEP",
+      "narration": "Beneath the waves, the sea floor falls away.",
+      "caption": "MODEL: THE SEA FLOOR FALLS TO -5,500 M ALONG THIS LINE",
+      "visual": "race",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -160,
+                18,
+                -151,
+                21.6
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -157.3,
+                19.2,
+                -153.6,
+                20.5
+              ]
+            },
+            "at": 0.9,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "profile",
+            "set": "mauna-kea-crossing",
+            "text": "-5,500 M SEA FLOOR (MODEL)",
+            "at": 0.1
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "escalation-4",
+      "durationSeconds": 4.4,
+      "beat": "escalation",
+      "role": "escalation",
+      "shot": "comparison",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "FROM THE BOTTOM",
+      "headline": "9,330 METRES",
+      "narration": "From under the ocean, it rises 9,330 metres.",
+      "caption": "PROMINENCE FROM UNDER THE OCEAN: 9,330 M",
+      "visual": "race",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -157.5,
+                18.4,
+                -153.5,
+                21.2
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -156.6,
+                18.9,
+                -154.4,
+                20.7
+              ]
+            },
+            "at": 0.9,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [
+          {
+            "type": "marker",
+            "anchor": {
+              "lon": -155.4681,
+              "lat": 19.8206
+            },
+            "text": "9,330 M",
+            "at": 0.3
+          }
+        ],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "twist",
+      "durationSeconds": 4.4,
+      "beat": "twist",
+      "role": "twist",
+      "shot": "impact",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "THE CATCH",
+      "headline": "WHERE IS THE BASE?",
+      "narration": "But where a mountain's base begins is loosely defined.",
+      "caption": "DEFINITIONS OF BASE VARY",
+      "visual": "tradeoff",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -156.4,
+                18.6,
+                -154.2,
+                20.6
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": {
+              "bbox": [
+                -168,
+                8,
+                -138,
+                30
+              ]
+            },
+            "at": 0.95,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    },
+    {
+      "id": "verdict",
+      "durationSeconds": 4.6,
+      "beat": "verdict",
+      "role": "interaction",
+      "shot": "interaction",
+      "subjectFocus": "primary",
+      "beatEverySeconds": 0.7,
+      "eyebrow": "YOU DECIDE",
+      "headline": "TALLEST?",
+      "narration": "Which would you call taller, Everest or Mauna Kea?",
+      "caption": "TALLEST: EVEREST OR MAUNA KEA?",
+      "visual": "cta",
+      "primitive": {
+        "kind": "geo-map",
+        "camera": [
+          {
+            "target": {
+              "bbox": [
+                -168,
+                8,
+                -138,
+                30
+              ]
+            },
+            "at": 0,
+            "padding": 0.1,
+            "ease": "in-out"
+          },
+          {
+            "target": "world",
+            "at": 0.8,
+            "padding": 0.1,
+            "ease": "in-out"
+          }
+        ],
+        "highlights": [],
+        "annotations": [],
+        "dataset": "natural-earth",
+        "ambience": "none"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "label": "Wikipedia: Mauna Kea (revision 1378293676)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Mauna_Kea&oldid=1378293676"
+    },
+    {
+      "label": "Wikipedia: Mount Everest (revision 1385118046)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Mount_Everest&oldid=1385118046"
+    },
+    {
+      "label": "NOAA NCEI ETOPO 2022 Global Relief Model (public domain)",
+      "url": "https://doi.org/10.25921/fd45-gt74"
+    },
+    {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  ]
+}

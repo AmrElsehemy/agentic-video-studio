@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "id": "lake-urmia-shrinking",
+  "subject": "Iran",
+  "kind": "curated",
+  "note": "Cited to a pinned Wikipedia revision (trusted_secondary): Lake Urmia. The pictures are NASA MODIS Terra true colour for 20 September 2000, 2017, 2020 and 2025 (GIBS), the same date each year on purpose, because the lake's extent varies with the seasons. The page is inconsistent about the end state (the lead says almost entirely dried up by September 2025; a later section says completely disappeared according to NASA images; elsewhere 'shrunk by 60%' and 'only 5% of the lake's water remains'), so the script says only 'almost gone' and uses the 10% of late 2017 as the one percentage. The page lists drought, damming of the rivers and groundwater pumping as the causes of the 2017 state; the script says 'the page names' them. No old outline is drawn.",
+  "regions": [
+    "Iran"
+  ],
+  "claims": [
+    {
+      "id": "size",
+      "text": "Lake Urmia is an endorheic salt lake in Iran. At its greatest extent it was the largest lake in West Asia, with a surface area of approximately 6,000 km2, a length of 140 km, a width of 70 km, and a maximum depth of 20 m.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-urmia"
+      ]
+    },
+    {
+      "id": "2017",
+      "text": "By late 2017 the lake had shrunk to 10% of its former size (and 1/60 of water volume in 1998) due to persistent general drought in Iran, but also the damming of the rivers that flow into it, and the pumping of groundwater from the surrounding area.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-urmia"
+      ]
+    },
+    {
+      "id": "2019",
+      "text": "This dry spell was broken in 2019 and the lake began filling up once again, due to both increased rain and water diversion from the Zab River under the Urmia Lake Research Programme.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-urmia"
+      ]
+    },
+    {
+      "id": "2025",
+      "text": "The trend reversed again in the early 2020s; based on NASA's satellite imagery, the lake had almost entirely dried up by September 2025.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-urmia"
+      ]
+    },
+    {
+      "id": "2026",
+      "text": "After massive rainfall across the Fertile Crescent, along with the mass release of surplus water from dams and dredging of canals, in early 2026 the water level in Lake Urmia rose to its highest in five years.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-urmia"
+      ]
+    },
+    {
+      "id": "bridge",
+      "text": "A 15 km causeway across the lake was completed in November 2008 with the opening of the 1.5 km Urmia Lake Bridge across the remaining gap.",
+      "tier": "trusted_secondary",
+      "sources": [
+        "wikipedia-urmia"
+      ]
+    },
+    {
+      "id": "pictures",
+      "text": "NASA MODIS Terra true-colour pictures of Lake Urmia taken on 20 September 2000, 2017, 2020 and 2025 (NASA GIBS).",
+      "tier": "official",
+      "sources": [
+        "nasa-gibs"
+      ]
+    }
+  ],
+  "places": {
+    "lake-urmia": {
+      "lon": 45.367,
+      "lat": 37.7,
+      "source": "wikipedia-urmia",
+      "approximate": true,
+      "note": "The page's infobox coordinates for the lake (37.700 N, 45.367 E), used as a label point."
+    }
+  },
+  "sources": {
+    "wikipedia-urmia": {
+      "label": "Wikipedia: Lake Urmia (revision 1376235552)",
+      "url": "https://en.wikipedia.org/w/index.php?title=Lake_Urmia&oldid=1376235552"
+    },
+    "nasa-gibs": {
+      "label": "NASA EOSDIS Global Imagery Browse Services (GIBS)",
+      "url": "https://earthdata.nasa.gov/gibs"
+    },
+    "natural-earth": {
+      "label": "Natural Earth v5.1.2 (public domain map data)",
+      "url": "https://www.naturalearthdata.com/"
+    }
+  }
+}
